@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutomateX — Do Your Best Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F96532;
+    --orange-light: #FB7B3A;
+    --orange-dark: #ED4A3B;
+    --black: #080808;
+    --white: #ffffff;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --section-spacing: clamp(4rem, 8vw, 7rem);
+    --container-max: 1200px;
+    --container-px: clamp(1.25rem, 4vw, 2.5rem);
+    --transition-fast: 150ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    --transition-med: 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    --transition-slow: 450ms cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.6;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  img { max-width: 100%; display: block; }
+  a { text-decoration: none; color: inherit; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding-left: var(--container-px);
+    padding-right: var(--container-px);
+  }
+
+  /* ========== NAVBAR ========== */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar-logo img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .navbar-logo span {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--black);
+    letter-spacing: -0.01em;
+  }
+
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .navbar-links a {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    transition: color var(--transition-fast);
+  }
+
+  .navbar-links a:hover { color: var(--black); }
+
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 8px;
+    padding: 0.625rem 1.25rem;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    letter-spacing: -0.01em;
+  }
+
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(249,101,50,0.25), 0 1px 2px rgba(249,101,50,0.15);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 4px 16px rgba(249,101,50,0.35), 0 2px 4px rgba(249,101,50,0.2);
+  }
+
+  .btn-secondary {
+    color: var(--gray-600);
+    background: transparent;
+  }
+
+  .btn-secondary:hover { color: var(--black); }
+
+  .btn-outline {
+    border: 1.5px solid var(--gray-300);
+    color: var(--black);
+    background: var(--white);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    padding: var(--section-spacing) 0;
+    padding-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero .container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-content {
+    order: 2;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--gray-600);
+    margin-bottom: 2rem;
+    max-width: 480px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .hero-visual {
+    order: 1;
+    position: relative;
+  }
+
+  .hero-mockup {
+    background: var(--gray-100);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06), 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  .mockup-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .mockup-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gray-300);
+  }
+
+  .mockup-dot:nth-child(1) { background: #ff5f57; }
+  .mockup-dot:nth-child(2) { background: #ffbd2e; }
+  .mockup-dot:nth-child(3) { background: #28c840; }
+
+  .mockup-body {
+    padding: 24px;
+    min-height: 320px;
+    background: var(--white);
+    position: relative;
+  }
+
+  .mockup-sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    background: var(--gray-50);
+    border-right: 1px solid var(--gray-200);
+    padding: 20px 16px;
+  }
+
+  .mockup-sidebar-item {
+    height: 10px;
+    background: var(--gray-200);
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  .mockup-sidebar-item:nth-child(2) { width: 80%; }
+  .mockup-sidebar-item:nth-child(3) { width: 65%; }
+  .mockup-sidebar-item:nth-child(4) { width: 90%; background: var(--orange); opacity: 0.3; }
+  .mockup-sidebar-item:nth-child(5) { width: 70%; }
+
+  .mockup-main {
+    margin-left: 200px;
+    padding: 20px;
+  }
+
+  .mockup-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .mockup-line {
+    height: 8px;
+    background: var(--gray-200);
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  .mockup-line:nth-child(2) { width: 75%; }
+  .mockup-line:nth-child(3) { width: 50%; }
+
+  .mockup-line.accent { background: linear-gradient(90deg, var(--orange-light), var(--orange-dark)); opacity: 0.6; width: 40%; }
+
+  .mockup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .mockup-block {
+    height: 60px;
+    border-radius: 6px;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+  }
+
+  .mockup-block:first-child {
+    background: linear-gradient(135deg, rgba(249,101,50,0.08), rgba(237,74,59,0.05));
+    border-color: rgba(249,101,50,0.15);
+  }
+
+  /* ========== PROBLEM SECTION ========== */
+  .section {
+    padding: var(--section-spacing) 0;
+  }
+
+  .section-border-top {
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .section-gray {
+    background: var(--gray-50);
+  }
+
+  .section-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    margin-bottom: 1rem;
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-heading-lg {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+  }
+
+  .section-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--gray-600);
+    max-width: 520px;
+  }
+
+  .section-center {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .section-center .section-text {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* ========== IMAGE PLACEHOLDER ========== */
+  .img-placeholder {
+    background: var(--gray-100);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .img-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(249,101,50,0.04), transparent 60%);
+  }
+
+  .img-placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--gray-400);
+  }
+
+  .img-placeholder-inner svg {
+    width: 48px;
+    height: 48px;
+    opacity: 0.5;
+  }
+
+  /* ========== FEATURES LIST (How AutomateX helps) ========== */
+  .features-section {
+    padding: var(--section-spacing) 0;
+  }
+
+  .features-header {
+    margin-bottom: 3.5rem;
+    max-width: 560px;
+  }
+
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .feature-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 2rem 0;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .feature-item:last-child {
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(249,101,50,0.08);
+    color: var(--orange);
+    flex-shrink: 0;
+  }
+
+  .feature-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .feature-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .feature-content p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--gray-500);
+    max-width: 520px;
+  }
+
+  /* ========== SOCIAL PROOF ========== */
+  .proof-section {
+    padding: var(--section-spacing) 0;
+    background: var(--gray-50);
+  }
+
+  .proof-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .proof-card {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow var(--transition-med), transform var(--transition-med);
+  }
+
+  .proof-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+  }
+
+  .proof-quote {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--gray-700);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .proof-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .proof-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  .proof-name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--black);
+  }
+
+  .proof-role {
+    font-size: 0.8125rem;
+    color: var(--gray-500);
+  }
+
+  /* ========== EVERYTHING YOU NEED GRID ========== */
+  .grid-section {
+    padding: var(--section-spacing) 0;
+  }
+
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .capability-card {
+    padding: 0;
+  }
+
+  .capability-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(249,101,50,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    margin-bottom: 1rem;
+  }
+
+  .capability-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .capability-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .capability-card p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--gray-500);
+  }
+
+  /* ========== FAQ ========== */
+  .faq-section {
+    padding: var(--section-spacing) 0;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .faq-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 1.25rem 0;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+  }
+
+  .faq-question:hover { color: var(--orange); }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+  }
+
+  .faq-chevron {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform var(--transition-med);
+    color: var(--gray-400);
+  }
+
+  .faq-item.open .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow);
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 200px;
+  }
+
+  .faq-answer p {
+    padding-bottom: 1.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--gray-500);
+  }
+
+  /* ========== CTA SECTION ========== */
+  .cta-section {
+    padding: var(--section-spacing) 0;
+    padding-bottom: calc(var(--section-spacing) + 1rem);
+    text-align: center;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .cta-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-text {
+    font-size: 1.125rem;
+    color: var(--gray-500);
+    margin-bottom: 2rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    padding: 4rem 0;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 3rem;
+  }
+
+  .footer-logo-large img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .footer-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-col h4 {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--black);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .footer-col a {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-col a:hover { color: var(--orange); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .footer-legal {
+    font-size: 0.8125rem;
+    color: var(--gray-400);
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-500);
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .footer-social a:hover {
+    color: var(--orange);
+    background: rgba(249,101,50,0.08);
+  }
+
+  .footer-social svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 1024px) {
+    .hero .container { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-content { order: 1; }
+    .hero-visual { order: 2; }
+    .section-split { grid-template-columns: 1fr; gap: 2.5rem; }
+    .proof-grid { grid-template-columns: 1fr 1fr; }
+    .capabilities-grid { grid-template-columns: 1fr 1fr; }
+    .faq-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-top { flex-direction: column; gap: 2rem; }
+    .footer-columns { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .navbar-links { display: none; }
+    .proof-grid { grid-template-columns: 1fr; }
+    .capabilities-grid { grid-template-columns: 1fr; }
+    .footer-columns { grid-template-columns: 1fr 1fr; }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-in {
+    opacity: 0;
+    animation: fadeInUp 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="container">
+    <a href="#" class="navbar-logo">
+      <img src="brand_assets/Logo.png" alt="AutomateX">
+      <span>AutomateX</span>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="#">Solutions</a></li>
+      <li><a href="#">Platform</a></li>
+      <li><a href="#">Resources</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Enterprise</a></li>
+    </ul>
+    <div class="navbar-actions">
+      <a href="#" class="btn btn-secondary">Log in</a>
+      <a href="#" class="btn btn-primary">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <canvas class="hero-canvas" id="hero-waves"></canvas>
+  <div class="container">
+    <div class="hero-content animate-in">
+      <div class="hero-eyebrow">For Growing Businesses</div>
+      <h1>Do your best work&nbsp;&mdash; and more&nbsp;of&nbsp;it</h1>
+      <p class="hero-description">AutomateX gives you the tools to streamline operations, automate workflows, and scale your business — without the overhead.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary">Start for free</a>
+        <a href="#" class="btn btn-outline">Book a demo</a>
+      </div>
+    </div>
+    <div class="hero-visual animate-in delay-2">
+      <div class="hero-mockup">
+        <div class="mockup-toolbar">
+          <span class="mockup-dot"></span>
+          <span class="mockup-dot"></span>
+          <span class="mockup-dot"></span>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-sidebar">
+            <div class="mockup-sidebar-item"></div>
+            <div class="mockup-sidebar-item"></div>
+            <div class="mockup-sidebar-item"></div>
+            <div class="mockup-sidebar-item"></div>
+            <div class="mockup-sidebar-item"></div>
+          </div>
+          <div class="mockup-main">
+            <div class="mockup-card">
+              <div class="mockup-line"></div>
+              <div class="mockup-line"></div>
+              <div class="mockup-line accent"></div>
+            </div>
+            <div class="mockup-grid">
+              <div class="mockup-block"></div>
+              <div class="mockup-block"></div>
+            </div>
+            <div class="mockup-card" style="margin-top:12px">
+              <div class="mockup-line" style="width:60%"></div>
+              <div class="mockup-line" style="width:85%"></div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:12px">
+              <div style="flex:1;height:8px;background:var(--gray-200);border-radius:4px"></div>
+              <div style="flex:2;height:8px;background:linear-gradient(90deg,var(--orange-light),var(--orange-dark));border-radius:4px;opacity:0.4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEM SECTION ===== -->
+<section class="section section-border-top">
+  <div class="container">
+    <div class="section-split">
+      <div>
+        <div class="section-eyebrow">The challenge</div>
+        <h2 class="section-heading">Can your current tools keep up with your clients' needs?</h2>
+        <p class="section-text">Juggling disconnected tools, manual processes, and growing client demands slows you down. It's time for a platform that works as hard as you do.</p>
+      </div>
+      <div class="img-placeholder">
+        <div class="img-placeholder-inner">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CREATE SECTION ===== -->
+<section class="section section-border-top">
+  <div class="container">
+    <div class="section-split">
+      <div class="img-placeholder">
+        <div class="img-placeholder-inner">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
+        </div>
+      </div>
+      <div>
+        <div class="section-eyebrow">Your way</div>
+        <h2 class="section-heading">Create high-impact automation experiences your way</h2>
+        <p class="section-text">Build custom workflows, integrate your favourite tools, and deliver results that impress — all from one intuitive platform designed for speed and flexibility.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT HELPS ===== -->
+<section class="features-section section-border-top">
+  <div class="container">
+    <div class="features-header">
+      <div class="section-eyebrow">Platform</div>
+      <h2 class="section-heading section-heading-lg">How AutomateX helps you work smarter, not harder</h2>
+    </div>
+    <div class="features-list">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+        </div>
+        <div class="feature-content">
+          <h3>Launch stunning automations faster</h3>
+          <p>Go from idea to live workflow in minutes. Our visual builder and pre-built templates get you shipping immediately — no code required.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z"/></svg>
+        </div>
+        <div class="feature-content">
+          <h3>Seamlessly integrate your tools</h3>
+          <p>Connect your CRM, email, project management, and 200+ apps in one place. No more switching tabs or copy-pasting data between platforms.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+        </div>
+        <div class="feature-content">
+          <h3>Manage client accounts with ease</h3>
+          <p>Organize projects, track progress, and collaborate with your team and clients all in one workspace. Keep everyone aligned without the chaos.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+        </div>
+        <div class="feature-content">
+          <h3>Scale with built-in reliability and security</h3>
+          <p>Enterprise-grade infrastructure, automatic backups, and SOC 2 compliance baked in. Focus on your business — we handle the rest.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL PROOF ===== -->
+<section class="proof-section">
+  <div class="container">
+    <div class="proof-header">
+      <div class="section-eyebrow">Testimonials</div>
+      <h2 class="section-heading section-heading-lg">Leading businesses choose AutomateX</h2>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <p class="proof-quote">"AutomateX cut our onboarding time by 60%. What used to take three days now takes half an afternoon. It's been a game-changer for our team."</p>
+        <div class="proof-author">
+          <div class="proof-avatar">SM</div>
+          <div>
+            <div class="proof-name">Sarah Mitchell</div>
+            <div class="proof-role">Head of Operations, Rivercrest</div>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">"We replaced four different tools with AutomateX. One platform, zero headaches. Our clients noticed the difference within the first week."</p>
+        <div class="proof-author">
+          <div class="proof-avatar">JK</div>
+          <div>
+            <div class="proof-name">James Kim</div>
+            <div class="proof-role">Founder, Parallel Studio</div>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">"The automation workflows saved us 20+ hours a week. I finally have time to focus on strategy instead of being buried in busywork."</p>
+        <div class="proof-author">
+          <div class="proof-avatar">AL</div>
+          <div>
+            <div class="proof-name">Amira Levin</div>
+            <div class="proof-role">CEO, Bright Loop Agency</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EVERYTHING YOU NEED ===== -->
+<section class="grid-section">
+  <div class="container">
+    <div class="section-center">
+      <div class="section-eyebrow">Capabilities</div>
+      <h2 class="section-heading section-heading-lg">Everything you need to deliver great work</h2>
+    </div>
+    <div class="capabilities-grid">
+      <div class="capability-card">
+        <div class="capability-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3>Workflow Automation</h3>
+        <p>Build multi-step workflows with a drag-and-drop visual builder. Trigger actions across apps automatically.</p>
+      </div>
+      <div class="capability-card">
+        <div class="capability-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+        </div>
+        <h3>Real-Time Analytics</h3>
+        <p>Track performance, monitor KPIs, and generate custom reports — all in real time from your dashboard.</p>
+      </div>
+      <div class="capability-card">
+        <div class="capability-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.86-9.86a4.5 4.5 0 00-6.364 6.364l4.5 4.5a4.5 4.5 0 006.364-6.364l-1.757-1.757"/></svg>
+        </div>
+        <h3>200+ Integrations</h3>
+        <p>Connect the tools you already use — Slack, HubSpot, Stripe, Google Workspace, and hundreds more.</p>
+      </div>
+      <div class="capability-card">
+        <div class="capability-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
+        </div>
+        <h3>AI-Powered Insights</h3>
+        <p>Let AI surface patterns, flag anomalies, and suggest optimisations so you can make smarter decisions faster.</p>
+      </div>
+      <div class="capability-card">
+        <div class="capability-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+        </div>
+        <h3>Team Collaboration</h3>
+        <p>Shared workspaces, role-based access, and real-time commenting keep everyone aligned and moving forward.</p>
+      </div>
+      <div class="capability-card">
+        <div class="capability-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
+        </div>
+        <h3>Enterprise Security</h3>
+        <p>SOC 2 compliant, GDPR ready, with SSO, 2FA, and audit logs. Your data stays safe and under your control.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-layout">
+      <div>
+        <div class="section-eyebrow">Support</div>
+        <h2 class="section-heading">Frequently asked questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            What is AutomateX?
+            <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>AutomateX is an all-in-one automation and workflow platform designed for businesses that want to streamline operations, connect their tools, and scale without adding complexity.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Do I need technical skills to use AutomateX?
+            <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Not at all. AutomateX is designed with a visual drag-and-drop builder that requires zero coding knowledge. If you can use a spreadsheet, you can build automations with AutomateX.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            What tools does AutomateX integrate with?
+            <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>We integrate with 200+ tools including Slack, HubSpot, Stripe, Google Workspace, Notion, Zapier, and many more. Custom API connections are also supported.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Is there a free plan?
+            <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! AutomateX offers a generous free tier so you can explore the platform, build your first workflows, and see results before committing to a paid plan.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How does pricing work?
+            <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>We offer simple, transparent pricing based on your team size and usage. No hidden fees, no surprises. You can upgrade, downgrade, or cancel at any time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-heading">Ready to try it<br><em style="font-style:italic">for yourself?</em></h2>
+    <p class="cta-text">Start building smarter workflows today. No credit card required.</p>
+    <a href="#" class="btn btn-primary" style="padding: 0.875rem 2rem; font-size: 1rem;">Get started for free</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-logo-large">
+        <img src="brand_assets/Logo.png" alt="AutomateX">
+      </div>
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Integrations</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Changelog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Help Centre</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Templates</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">&copy; 2026 AutomateX Advisory Ltd. All rights reserved.</div>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 011.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772 4.915 4.915 0 01-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm6.5-.25a1.25 1.25 0 10-2.5 0 1.25 1.25 0 002.5 0zM12 9a3 3 0 110 6 3 3 0 010-6z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---- Simplex Noise (compact 3D implementation) ----
+(function(){
+  const F3=1/3,G3=1/6;
+  const grad3=[[1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],[1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],[0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]];
+  const p=new Uint8Array(256);
+  for(let i=0;i<256;i++) p[i]=i;
+  for(let i=255;i>0;i--){const j=Math.floor(Math.random()*(i+1));[p[i],p[j]]=[p[j],p[i]];}
+  const perm=new Uint8Array(512),permMod12=new Uint8Array(512);
+  for(let i=0;i<512;i++){perm[i]=p[i&255];permMod12[i]=perm[i]%12;}
+
+  window.noise3D=function(xin,yin,zin){
+    let n0,n1,n2,n3;
+    const s=(xin+yin+zin)*F3;
+    const i=Math.floor(xin+s),j=Math.floor(yin+s),k=Math.floor(zin+s);
+    const t=(i+j+k)*G3;
+    const x0=xin-(i-t),y0=yin-(j-t),z0=zin-(k-t);
+    let i1,j1,k1,i2,j2,k2;
+    if(x0>=y0){if(y0>=z0){i1=1;j1=0;k1=0;i2=1;j2=1;k2=0;}else if(x0>=z0){i1=1;j1=0;k1=0;i2=1;j2=0;k2=1;}else{i1=0;j1=0;k1=1;i2=1;j2=0;k2=1;}}else{if(y0<z0){i1=0;j1=0;k1=1;i2=0;j2=1;k2=1;}else if(x0<z0){i1=0;j1=1;k1=0;i2=0;j2=1;k2=1;}else{i1=0;j1=1;k1=0;i2=1;j2=1;k2=0;}}
+    const x1=x0-i1+G3,y1=y0-j1+G3,z1=z0-k1+G3;
+    const x2=x0-i2+2*G3,y2=y0-j2+2*G3,z2=z0-k2+2*G3;
+    const x3=x0-1+3*G3,y3=y0-1+3*G3,z3=z0-1+3*G3;
+    const ii=i&255,jj=j&255,kk=k&255;
+    function dot3(g,x,y,z){return g[0]*x+g[1]*y+g[2]*z;}
+    let t0=0.6-x0*x0-y0*y0-z0*z0;
+    n0=t0<0?0:(t0*=t0,t0*t0*dot3(grad3[permMod12[ii+perm[jj+perm[kk]]]],x0,y0,z0));
+    let t1=0.6-x1*x1-y1*y1-z1*z1;
+    n1=t1<0?0:(t1*=t1,t1*t1*dot3(grad3[permMod12[ii+i1+perm[jj+j1+perm[kk+k1]]]],x1,y1,z1));
+    let t2=0.6-x2*x2-y2*y2-z2*z2;
+    n2=t2<0?0:(t2*=t2,t2*t2*dot3(grad3[permMod12[ii+i2+perm[jj+j2+perm[kk+k2]]]],x2,y2,z2));
+    let t3=0.6-x3*x3-y3*y3-z3*z3;
+    n3=t3<0?0:(t3*=t3,t3*t3*dot3(grad3[permMod12[ii+1+perm[jj+1+perm[kk+1]]]],x3,y3,z3));
+    return 32*(n0+n1+n2+n3);
+  };
+})();
+
+// ---- Wavy Background Renderer ----
+(function(){
+  const canvas = document.getElementById('hero-waves');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const hero = canvas.parentElement;
+
+  const waveColors = [
+    'rgba(251,123,58,0.35)',   // orange-light
+    'rgba(249,101,50,0.3)',    // orange
+    'rgba(237,74,59,0.25)',    // orange-dark
+    'rgba(255,160,100,0.2)',   // peach
+    'rgba(237,74,59,0.15)',    // red-ish
+  ];
+
+  let w, h, nt = 0, animId;
+
+  function resize() {
+    const rect = hero.getBoundingClientRect();
+    w = canvas.width = rect.width;
+    h = canvas.height = rect.height;
+    ctx.filter = 'blur(12px)';
+  }
+
+  function drawWave(n) {
+    nt += 0.0012;
+    for (let i = 0; i < n; i++) {
+      ctx.beginPath();
+      ctx.lineWidth = 50;
+      ctx.strokeStyle = waveColors[i % waveColors.length];
+      for (let x = 0; x < w; x += 5) {
+        const y = window.noise3D(x / 800, 0.3 * i, nt) * 100;
+        ctx.lineTo(x, y + h * 0.5);
+      }
+      ctx.stroke();
+      ctx.closePath();
+    }
+  }
+
+  function render() {
+    ctx.fillStyle = '#ffffff';
+    ctx.globalAlpha = 0.4;
+    ctx.fillRect(0, 0, w, h);
+    ctx.globalAlpha = 1;
+    drawWave(5);
+    animId = requestAnimationFrame(render);
+  }
+
+  resize();
+  render();
+  window.addEventListener('resize', resize);
+})();
+</script>
+
+</body>
+</html>
