@@ -930,7 +930,7 @@ function submitReport(e, overallScore, pillarPctsJson) {
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
-  fetch('REPLACE_WITH_SCORECARD_WEBHOOK_URL', {
+  fetch('https://billguo.app.n8n.cloud/webhook/pace-scorecard', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
