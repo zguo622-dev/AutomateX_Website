@@ -1822,7 +1822,7 @@ function handleWaitlist() {
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
-  fetch('REPLACE_WITH_N8N_WEBHOOK_URL', {
+  fetch('https://billguo.app.n8n.cloud/webhook/pace-waitlist', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
