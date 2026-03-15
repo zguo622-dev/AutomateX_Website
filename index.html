@@ -705,6 +705,47 @@
     transition: border-color var(--transition-fast);
   }
 
+  .pace-roadmap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pace-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 100px;
+    padding: 0.4rem 0.875rem;
+    backdrop-filter: blur(4px);
+    animation: slideUpFade 0.4s ease-out both;
+  }
+
+  .pace-pill:nth-child(2) { animation-delay: 0.1s; }
+  .pace-pill:nth-child(3) { animation-delay: 0.2s; }
+
+  .pace-pill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .pace-pill-dot.orange { background: var(--orange); }
+  .pace-pill-dot.blue { background: #38bdf8; }
+  .pace-pill-dot.green { background: #10b981; }
+
+  @keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
   .pace-waitlist input::placeholder { color: rgba(255,255,255,0.35); }
   .pace-waitlist input:focus { border-color: var(--orange); }
 
@@ -1440,6 +1481,11 @@
       </div>
       <div class="pace-visual">
         <div class="pace-visual-icon">&infin;</div>
+        <div class="pace-roadmap">
+          <div class="pace-pill"><span class="pace-pill-dot orange"></span> Scribtive&trade; &mdash; Form G assurance</div>
+          <div class="pace-pill"><span class="pace-pill-dot blue"></span> Scribtive&trade; &mdash; All PACE deliverables generation &amp; assurance</div>
+          <div class="pace-pill"><span class="pace-pill-dot green"></span> PACE OS &mdash; Let engineers do engineering, not admin</div>
+        </div>
         <h3>The Future of Railway Delivery</h3>
         <p>Be among the first to experience PACE OS when it launches.</p>
         <div class="pace-waitlist">
