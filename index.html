@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutomateX — Do Your Best Work</title>
+<title>AutomateX | Engineering Assurance & AI for UK Rail</title>
+<meta name="description" content="AutomateX helps rail contractors and SME consultancies deliver with confidence through engineering assurance, AI-powered knowledge systems, and the PACED method.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --orange: #F96532;
     --orange-light: #FB7B3A;
     --orange-dark: #ED4A3B;
-    --black: #080808;
+    --navy: #1A1F36;
+    --navy-deep: #0D1117;
+    --navy-surface: #131921;
     --white: #ffffff;
     --gray-50: #f9fafb;
     --gray-100: #f3f4f6;
@@ -26,12 +29,13 @@
     --gray-900: #111827;
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Open Sans', sans-serif;
-    --section-spacing: clamp(4rem, 8vw, 7rem);
-    --container-max: 1200px;
+    --section-spacing: clamp(5rem, 10vw, 8rem);
+    --container-max: 1120px;
     --container-px: clamp(1.25rem, 4vw, 2.5rem);
     --transition-fast: 150ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
     --transition-med: 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
-    --transition-slow: 450ms cubic-bezier(0.77, 0, 0.175, 1);
+    --transition-slow: 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    --radius: 12px;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,18 +49,14 @@
 
   body {
     font-family: var(--font-body);
-    color: var(--black);
+    color: var(--navy);
     background: var(--white);
     line-height: 1.6;
     font-weight: 400;
     overflow-x: hidden;
   }
 
-  ::selection {
-    background: var(--black);
-    color: var(--white);
-  }
-
+  ::selection { background: var(--orange); color: var(--white); }
   img { max-width: 100%; display: block; }
   a { text-decoration: none; color: inherit; }
   button { font-family: inherit; cursor: pointer; border: none; background: none; }
@@ -73,9 +73,9 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--gray-200);
   }
 
@@ -92,17 +92,14 @@
     gap: 10px;
   }
 
-  .navbar-logo img {
-    width: 32px;
-    height: 32px;
-  }
+  .navbar-logo img { width: 32px; height: 32px; }
 
   .navbar-logo span {
     font-family: var(--font-heading);
-    font-weight: 700;
+    font-weight: 800;
     font-size: 1.125rem;
-    color: var(--black);
-    letter-spacing: -0.01em;
+    color: var(--navy);
+    letter-spacing: -0.02em;
   }
 
   .navbar-links {
@@ -113,31 +110,26 @@
   }
 
   .navbar-links a {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--gray-600);
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--gray-500);
     transition: color var(--transition-fast);
+    letter-spacing: -0.01em;
   }
 
-  .navbar-links a:hover { color: var(--black); }
-
-  .navbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
+  .navbar-links a:hover { color: var(--navy); }
 
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.875rem;
+    font-weight: 700;
+    font-size: 0.8125rem;
     border-radius: 8px;
-    padding: 0.625rem 1.25rem;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    padding: 0.625rem 1.375rem;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
     letter-spacing: -0.01em;
   }
 
@@ -152,24 +144,24 @@
   .btn-primary {
     background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
     color: var(--white);
-    box-shadow: 0 2px 8px rgba(249,101,50,0.25), 0 1px 2px rgba(249,101,50,0.15);
+    box-shadow: 0 2px 8px rgba(249,101,50,0.25);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 4px 16px rgba(249,101,50,0.35), 0 2px 4px rgba(249,101,50,0.2);
+    box-shadow: 0 6px 20px rgba(249,101,50,0.35);
   }
 
-  .btn-secondary {
-    color: var(--gray-600);
-    background: transparent;
+  .btn-primary-lg {
+    padding: 0.9375rem 2.25rem;
+    font-size: 0.9375rem;
+    border-radius: 10px;
   }
-
-  .btn-secondary:hover { color: var(--black); }
 
   .btn-outline {
+    color: var(--navy);
+    background: transparent;
     border: 1.5px solid var(--gray-300);
-    color: var(--black);
-    background: var(--white);
+    font-weight: 600;
   }
 
   .btn-outline:hover {
@@ -177,176 +169,263 @@
     color: var(--orange);
   }
 
-  /* ========== HERO ========== */
-  .hero {
-    padding: var(--section-spacing) 0;
-    padding-bottom: 3rem;
-    position: relative;
-    overflow: hidden;
+  .btn-ghost {
+    color: var(--gray-600);
+    background: transparent;
+    font-weight: 600;
+    gap: 0.375rem;
   }
 
-  .hero-canvas {
+  .btn-ghost:hover { color: var(--orange); }
+  .btn-ghost svg { width: 16px; height: 16px; }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+    cursor: pointer;
+  }
+  .mobile-toggle span {
+    width: 20px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: var(--transition-fast);
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(6rem, 14vw, 10rem) 0 var(--section-spacing);
+    position: relative;
+    overflow: hidden;
+    background: var(--navy-deep);
+  }
+
+  .hero-grid-wrap {
     position: absolute;
     inset: 0;
+    overflow: hidden;
     z-index: 0;
+  }
+
+  /* Fade-out mask at bottom */
+  .hero-grid-fade {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
     pointer-events: none;
+    background: linear-gradient(to bottom, transparent 40%, var(--navy-deep) 100%);
+  }
+
+  /* Mouse spotlight layer */
+  .hero-grid-spotlight {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .hero-grid-wrap:hover .hero-grid-spotlight {
+    opacity: 1;
+  }
+
+  /* Grid container */
+  .hero-grid {
+    display: flex;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .hero-grid-col {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+
+  .hero-cell {
+    width: 48px;
+    height: 48px;
+    border-left: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .hero-cell-inner {
+    position: absolute;
+    inset: 0;
+    background: rgba(249,101,50,0.25);
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+  }
+
+  .hero-cell:hover .hero-cell-inner {
+    opacity: 1;
+    transition: opacity 0.15s ease-out;
+  }
+
+  .hero-cell-inner.ripple {
+    animation: cellRipple 0.6s ease-out forwards;
+  }
+
+  @keyframes cellRipple {
+    0% { opacity: 0.7; }
+    100% { opacity: 0; }
   }
 
   .hero .container {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .hero-content {
-    order: 2;
+    max-width: 960px;
+    text-align: center;
   }
 
   .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--font-heading);
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: 0.6875rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
     color: var(--orange);
-    margin-bottom: 1rem;
+    background: rgba(249,101,50,0.08);
+    border: 1px solid rgba(249,101,50,0.15);
+    padding: 0.4375rem 1.125rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
   }
 
   .hero h1 {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
     font-weight: 800;
-    line-height: 1.04;
-    letter-spacing: -0.02em;
-    color: var(--black);
-    margin-bottom: 1.25rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
   }
 
-  .hero-description {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: var(--gray-600);
-    margin-bottom: 2rem;
-    max-width: 480px;
+  .hero h1 em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .hero-sub {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+    max-width: 580px;
+    margin: 0 auto 2.5rem;
   }
 
   .hero-actions {
     display: flex;
-    gap: 0.75rem;
+    gap: 0.875rem;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
 
-  .hero-visual {
-    order: 1;
-    position: relative;
+  .hero .btn-outline {
+    color: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.2);
   }
 
-  .hero-mockup {
-    background: var(--gray-100);
-    border-radius: 12px;
-    border: 1px solid var(--gray-200);
+  .hero .btn-outline:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+  }
+
+  /* ========== TRUST BAR ========== */
+  .trust-bar {
+    padding: 2.25rem 0;
+    border-bottom: 1px solid var(--gray-200);
+    background: var(--white);
     overflow: hidden;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.06), 0 2px 12px rgba(0,0,0,0.04);
   }
 
-  .mockup-toolbar {
+  .trust-label {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gray-400);
+    margin-bottom: 1.5rem;
+  }
+
+  .trust-overflow {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+
+  .trust-track {
+    display: flex;
+    width: max-content;
+  }
+
+  .trust-set {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 12px 16px;
-    background: var(--white);
-    border-bottom: 1px solid var(--gray-200);
+    gap: 4rem;
+    padding-right: 4rem;
+    flex-shrink: 0;
   }
 
-  .mockup-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--gray-300);
+  .trust-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
-  .mockup-dot:nth-child(1) { background: #ff5f57; }
-  .mockup-dot:nth-child(2) { background: #ffbd2e; }
-  .mockup-dot:nth-child(3) { background: #28c840; }
-
-  .mockup-body {
-    padding: 24px;
-    min-height: 320px;
-    background: var(--white);
-    position: relative;
+  .trust-logo img {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.4;
+    filter: grayscale(100%);
+    transition: opacity var(--transition-med), filter var(--transition-med);
   }
 
-  .mockup-sidebar {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 200px;
-    background: var(--gray-50);
-    border-right: 1px solid var(--gray-200);
-    padding: 20px 16px;
+  /* Normalize visually: wide text logos need more height, compact logos need less */
+  .trust-logo[data-size="wide"] img { height: 20px; }
+  .trust-logo[data-size="tall"] img { height: 36px; }
+  .trust-logo[data-size="compact"] img { height: 22px; }
+
+  .trust-logo:hover img {
+    opacity: 0.75;
+    filter: grayscale(0%);
   }
 
-  .mockup-sidebar-item {
-    height: 10px;
-    background: var(--gray-200);
-    border-radius: 4px;
-    margin-bottom: 12px;
-  }
+  /* marquee keyframes generated dynamically by JS after measuring logo set width */
 
-  .mockup-sidebar-item:nth-child(2) { width: 80%; }
-  .mockup-sidebar-item:nth-child(3) { width: 65%; }
-  .mockup-sidebar-item:nth-child(4) { width: 90%; background: var(--orange); opacity: 0.3; }
-  .mockup-sidebar-item:nth-child(5) { width: 70%; }
-
-  .mockup-main {
-    margin-left: 200px;
-    padding: 20px;
-  }
-
-  .mockup-card {
-    background: var(--gray-50);
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-
-  .mockup-line {
-    height: 8px;
-    background: var(--gray-200);
-    border-radius: 4px;
-    margin-bottom: 8px;
-  }
-
-  .mockup-line:nth-child(2) { width: 75%; }
-  .mockup-line:nth-child(3) { width: 50%; }
-
-  .mockup-line.accent { background: linear-gradient(90deg, var(--orange-light), var(--orange-dark)); opacity: 0.6; width: 40%; }
-
-  .mockup-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 16px;
-  }
-
-  .mockup-block {
-    height: 60px;
-    border-radius: 6px;
-    background: var(--gray-100);
-    border: 1px solid var(--gray-200);
-  }
-
-  .mockup-block:first-child {
-    background: linear-gradient(135deg, rgba(249,101,50,0.08), rgba(237,74,59,0.05));
-    border-color: rgba(249,101,50,0.15);
-  }
-
-  /* ========== PROBLEM SECTION ========== */
+  /* ========== SECTION BASE ========== */
   .section {
     padding: var(--section-spacing) 0;
   }
@@ -355,485 +434,808 @@
     border-top: 1px solid var(--gray-200);
   }
 
-  .section-gray {
-    background: var(--gray-50);
+  .section-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--orange);
+    margin-bottom: 0.75rem;
   }
 
-  .section-split {
+  .text-center { text-align: center; }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--gray-500);
+    max-width: 560px;
+  }
+
+  .section-sub.center { margin: 0 auto; }
+
+  /* ========== SERVICES ========== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow var(--transition-med), transform var(--transition-med), border-color var(--transition-med);
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange-light), var(--orange-dark));
+    opacity: 0;
+    transition: opacity var(--transition-med);
+  }
+
+  .service-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    transform: translateY(-3px);
+    border-color: rgba(249,101,50,0.15);
+  }
+
+  .service-card:hover::before { opacity: 1; }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(249,101,50,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-icon svg { width: 24px; height: 24px; }
+
+  .service-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1875rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.625rem;
+    letter-spacing: -0.01em;
+  }
+
+  .service-card p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--gray-500);
+    margin-bottom: 1.25rem;
+  }
+
+  .service-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .service-features li {
+    font-size: 0.8125rem;
+    color: var(--gray-600);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .service-features li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+
+  /* ========== PACE OS ========== */
+  .pace-section {
+    padding: var(--section-spacing) 0;
+    background: var(--navy-deep);
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  .pace-section .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .pace-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
   }
 
-  .section-eyebrow {
+  .pace-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--font-heading);
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: 0.6875rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.14em;
     color: var(--orange);
-    margin-bottom: 1rem;
+    background: rgba(249,101,50,0.1);
+    border: 1px solid rgba(249,101,50,0.2);
+    padding: 0.375rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
   }
 
-  .section-heading {
+  .pace-grid h2 {
     font-family: var(--font-heading);
-    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-    font-weight: 700;
-    line-height: 1.1;
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.12;
     letter-spacing: -0.02em;
-    color: var(--black);
     margin-bottom: 1.25rem;
   }
 
-  .section-heading-lg {
-    font-size: clamp(2rem, 4vw, 3.25rem);
-  }
-
-  .section-text {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--gray-600);
-    max-width: 520px;
-  }
-
-  .section-center {
-    text-align: center;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .section-center .section-text {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  /* ========== IMAGE PLACEHOLDER ========== */
-  .img-placeholder {
-    background: var(--gray-100);
-    border-radius: 12px;
-    border: 1px solid var(--gray-200);
-    overflow: hidden;
-    aspect-ratio: 4/3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-
-  .img-placeholder::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(249,101,50,0.04), transparent 60%);
-  }
-
-  .img-placeholder-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    color: var(--gray-400);
-  }
-
-  .img-placeholder-inner svg {
-    width: 48px;
-    height: 48px;
-    opacity: 0.5;
-  }
-
-  /* ========== FEATURES LIST (How AutomateX helps) ========== */
-  .features-section {
-    padding: var(--section-spacing) 0;
-  }
-
-  .features-header {
-    margin-bottom: 3.5rem;
-    max-width: 560px;
-  }
-
-  .features-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .feature-item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.5rem;
-    align-items: flex-start;
-    padding: 2rem 0;
-    border-top: 1px solid var(--gray-200);
-  }
-
-  .feature-item:last-child {
-    border-bottom: 1px solid var(--gray-200);
-  }
-
-  .feature-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(249,101,50,0.08);
+  .pace-grid h2 em {
+    font-style: normal;
     color: var(--orange);
+  }
+
+  .pace-desc {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2rem;
+  }
+
+  .pace-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .pace-feature {
+    display: flex;
+    gap: 0.875rem;
+    align-items: flex-start;
+  }
+
+  .pace-feature-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    margin-top: 0.5rem;
     flex-shrink: 0;
   }
 
-  .feature-icon svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .feature-content h3 {
+  .pace-feature h4 {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 0.875rem;
     font-weight: 700;
-    color: var(--black);
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 0.25rem;
   }
 
-  .feature-content p {
+  .pace-feature p {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+
+  .pace-visual {
+    background: var(--navy-surface);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: clamp(2.5rem, 4vw, 3.5rem);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+  }
+
+  .pace-visual-icon {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: var(--orange);
+    font-family: var(--font-heading);
+    margin-bottom: 1.5rem;
+  }
+
+  .pace-visual h3 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .pace-visual p {
     font-size: 0.9375rem;
+    color: rgba(255,255,255,0.55);
     line-height: 1.7;
-    color: var(--gray-500);
-    max-width: 520px;
+    margin-bottom: 2.5rem;
   }
 
-  /* ========== SOCIAL PROOF ========== */
-  .proof-section {
+  .pace-waitlist {
+    display: flex;
+    gap: 0.625rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .pace-waitlist input {
+    flex: 1;
+    padding: 0.75rem 1.125rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .pace-waitlist input::placeholder { color: rgba(255,255,255,0.35); }
+  .pace-waitlist input:focus { border-color: var(--orange); }
+
+  /* ========== SCORECARD SECTION ========== */
+  .scorecard-section {
     padding: var(--section-spacing) 0;
     background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
   }
 
-  .proof-header {
-    text-align: center;
+  /* Top row: headline left, CTA right */
+  .scorecard-top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
     margin-bottom: 3rem;
   }
 
-  .proof-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+  .scorecard-top h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--navy);
   }
 
-  .proof-card {
-    background: var(--white);
-    border-radius: 12px;
-    border: 1px solid var(--gray-200);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    transition: box-shadow var(--transition-med), transform var(--transition-med);
+  .scorecard-highlight {
+    color: var(--orange);
   }
 
-  .proof-card:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
-    transform: translateY(-2px);
-  }
-
-  .proof-quote {
-    font-size: 1rem;
+  .scorecard-top p {
+    font-size: 0.9375rem;
+    color: var(--gray-500);
     line-height: 1.7;
-    color: var(--gray-700);
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
+    margin-top: 1rem;
+    max-width: 520px;
   }
 
-  .proof-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  .scorecard-cta-box {
+    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    min-width: 280px;
   }
 
-  .proof-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
+  .scorecard-cta-box h3 {
     font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.875rem;
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
   }
 
-  .proof-name {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.875rem;
-    color: var(--black);
-  }
-
-  .proof-role {
+  .scorecard-cta-box p {
     font-size: 0.8125rem;
     color: var(--gray-500);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
   }
 
-  /* ========== EVERYTHING YOU NEED GRID ========== */
-  .grid-section {
+  .scorecard-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .scorecard-stat { text-align: center; }
+
+  .scorecard-stat-num {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--navy);
+  }
+
+  .scorecard-stat-label {
+    font-size: 0.625rem;
+    color: var(--gray-400);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* PACED row: 5 cards horizontal */
+  .scorecard-pillars {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+  }
+
+  .pillar-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 1.25rem;
+    transition: border-color var(--transition-med), box-shadow var(--transition-med);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-card:hover {
+    border-color: rgba(249,101,50,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  .pillar-letter {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 0.375rem;
+  }
+
+  .pillar-name {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.125rem;
+  }
+
+  .pillar-concept {
+    font-family: var(--font-heading);
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+  }
+
+  .pillar-desc {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    line-height: 1.55;
+  }
+
+  .pillar-footer {
+    font-size: 0.8125rem;
+    font-style: italic;
+    color: var(--gray-500);
+    line-height: 1.6;
+    margin-top: 1.25rem;
+    text-align: center;
+  }
+
+  /* ========== ABOUT / AUTHORITY ========== */
+  .about-section {
     padding: var(--section-spacing) 0;
   }
 
-  .capabilities-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .about-intro {
+    display: flex;
     gap: 2rem;
+    align-items: center;
     margin-top: 3rem;
+    margin-bottom: 2.5rem;
   }
 
-  .capability-card {
-    padding: 0;
+  .about-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 15%;
+    border: 3px solid var(--white);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    flex-shrink: 0;
   }
 
-  .capability-icon {
-    width: 44px;
-    height: 44px;
+  .about-intro-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .about-intro-role {
+    font-size: 0.8125rem;
+    color: var(--gray-500);
+    margin-bottom: 0.75rem;
+  }
+
+  .about-bio {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--gray-600);
+  }
+
+  /* Unified credential grid — all 8 cards same style */
+  .about-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .about-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
     border-radius: 10px;
-    background: rgba(249,101,50,0.08);
+    padding: 1.25rem 1rem;
+    text-align: center;
+    transition: box-shadow var(--transition-med), transform var(--transition-med), border-color var(--transition-med);
+  }
+
+  .about-card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+    border-color: rgba(249,101,50,0.15);
+  }
+
+  .about-card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(249,101,50,0.07);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--orange);
-    margin-bottom: 1rem;
+    margin: 0 auto 0.75rem;
   }
 
-  .capability-icon svg {
-    width: 22px;
-    height: 22px;
-  }
+  .about-card-icon svg { width: 18px; height: 18px; }
 
-  .capability-card h3 {
+  .about-card-label {
     font-family: var(--font-heading);
-    font-size: 1.125rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    color: var(--black);
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
+    color: var(--navy);
+    line-height: 1.35;
   }
 
-  .capability-card p {
-    font-size: 0.9375rem;
-    line-height: 1.7;
-    color: var(--gray-500);
-  }
-
-  /* ========== FAQ ========== */
-  .faq-section {
-    padding: var(--section-spacing) 0;
-    border-top: 1px solid var(--gray-200);
-  }
-
-  .faq-layout {
+  /* ========== CASE STUDIES ========== */
+  .cases-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 4rem;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
   }
 
-  .faq-list {
+  .case-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 2rem 1.75rem;
+    transition: box-shadow var(--transition-med), transform var(--transition-med);
     display: flex;
     flex-direction: column;
   }
 
-  .faq-item {
-    border-bottom: 1px solid var(--gray-200);
+  .case-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    transform: translateY(-3px);
   }
 
-  .faq-question {
-    width: 100%;
-    text-align: left;
-    padding: 1.25rem 0;
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--black);
-    display: flex;
-    justify-content: space-between;
+  .case-award {
+    display: inline-flex;
     align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-    transition: color var(--transition-fast);
+    gap: 0.375rem;
+    font-family: var(--font-heading);
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #b45309;
+    background: #fef3c7;
+    border: 1px solid #fde68a;
+    padding: 0.3125rem 0.625rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+    width: fit-content;
   }
 
-  .faq-question:hover { color: var(--orange); }
+  .case-award svg { width: 12px; height: 12px; }
 
-  .faq-question:focus-visible {
-    outline: 2px solid var(--orange);
-    outline-offset: 2px;
+  .case-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
   }
 
-  .faq-chevron {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    transition: transform var(--transition-med);
+  .case-client {
+    font-size: 0.8125rem;
     color: var(--gray-400);
+    margin-bottom: 1rem;
   }
 
-  .faq-item.open .faq-chevron {
-    transform: rotate(180deg);
-  }
-
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height var(--transition-slow);
-  }
-
-  .faq-item.open .faq-answer {
-    max-height: 200px;
-  }
-
-  .faq-answer p {
-    padding-bottom: 1.25rem;
-    font-size: 0.9375rem;
-    line-height: 1.7;
+  .case-desc {
+    font-size: 0.875rem;
+    line-height: 1.65;
     color: var(--gray-500);
+    margin-bottom: 1.5rem;
+    flex: 1;
   }
 
-  /* ========== CTA SECTION ========== */
+  .case-metrics {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .case-metric-val {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .case-metric-label {
+    font-size: 0.6875rem;
+    color: var(--gray-400);
+    margin-top: 0.25rem;
+  }
+
+  /* ========== CTA ========== */
   .cta-section {
     padding: var(--section-spacing) 0;
-    padding-bottom: calc(var(--section-spacing) + 1rem);
     text-align: center;
-    border-top: 1px solid var(--gray-200);
+    background: var(--navy-deep);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(249,101,50,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-section .container {
+    position: relative;
+    z-index: 1;
   }
 
   .cta-heading {
     font-family: var(--font-heading);
-    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
     font-weight: 800;
-    line-height: 1.04;
-    letter-spacing: -0.03em;
-    color: var(--black);
-    margin-bottom: 1.5rem;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 1rem;
   }
 
   .cta-text {
-    font-size: 1.125rem;
-    color: var(--gray-500);
-    margin-bottom: 2rem;
-    max-width: 480px;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 2.5rem;
+    max-width: 440px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.7;
   }
 
+  .cta-actions {
+    display: flex;
+    gap: 0.875rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-section .btn-outline {
+    color: rgba(255,255,255,0.6);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  .cta-section .btn-outline:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+  }
+
   /* ========== FOOTER ========== */
   .footer {
-    padding: 4rem 0;
+    padding: 3rem 0;
     border-top: 1px solid var(--gray-200);
   }
 
-  .footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    margin-bottom: 3rem;
-  }
-
-  .footer-logo-large img {
-    width: 200px;
-    height: 200px;
-  }
-
-  .footer-columns {
+  .footer-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    grid-template-columns: 2fr 1fr 1fr 1fr auto;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.8125rem;
+    color: var(--gray-400);
+    line-height: 1.6;
+    margin-top: 0.75rem;
+    max-width: 260px;
   }
 
   .footer-col h4 {
     font-family: var(--font-heading);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--black);
-    margin-bottom: 1rem;
   }
 
   .footer-col ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.625rem;
+    gap: 0.5rem;
   }
 
   .footer-col a {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--gray-500);
     transition: color var(--transition-fast);
   }
 
   .footer-col a:hover { color: var(--orange); }
 
+  .footer-certs {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-certs img {
+    height: 72px;
+    width: auto;
+    object-fit: contain;
+  }
+
   .footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--gray-200);
-  }
-
-  .footer-legal {
-    font-size: 0.8125rem;
-    color: var(--gray-400);
-  }
-
-  .footer-social {
-    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 
-  .footer-social a {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
+  .footer-legal {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+  }
+
+  .footer-contact {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+  }
+
+  .footer-contact a {
+    color: var(--gray-500);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-contact a:hover { color: var(--orange); }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .pace-grid { grid-template-columns: 1fr; }
+    .scorecard-top { grid-template-columns: 1fr; }
+    .scorecard-pillars { grid-template-columns: 1fr; }
+    .about-intro { flex-direction: column; text-align: center; }
+    .about-cards { grid-template-columns: repeat(2, 1fr); }
+    .cases-grid { grid-template-columns: 1fr; }
+    .navbar-links { display: none; }
+    .mobile-toggle { display: flex; }
+    .hero-actions { flex-direction: column; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .pillar-card { padding: 1rem; gap: 1rem; }
+  }
+
+  /* ========== MOBILE MENU ========== */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .mobile-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gray-500);
-    transition: color var(--transition-fast), background var(--transition-fast);
+    cursor: pointer;
   }
 
-  .footer-social a:hover {
-    color: var(--orange);
-    background: rgba(249,101,50,0.08);
-  }
-
-  .footer-social svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  /* ========== RESPONSIVE ========== */
-  @media (max-width: 1024px) {
-    .hero .container { grid-template-columns: 1fr; gap: 2.5rem; }
-    .hero-content { order: 1; }
-    .hero-visual { order: 2; }
-    .section-split { grid-template-columns: 1fr; gap: 2.5rem; }
-    .proof-grid { grid-template-columns: 1fr 1fr; }
-    .capabilities-grid { grid-template-columns: 1fr 1fr; }
-    .faq-layout { grid-template-columns: 1fr; gap: 2rem; }
-    .footer-top { flex-direction: column; gap: 2rem; }
-    .footer-columns { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 640px) {
-    .navbar-links { display: none; }
-    .proof-grid { grid-template-columns: 1fr; }
-    .capabilities-grid { grid-template-columns: 1fr; }
-    .footer-columns { grid-template-columns: 1fr 1fr; }
-    .hero-actions { flex-direction: column; align-items: flex-start; }
-  }
+  .mobile-close svg { width: 24px; height: 24px; }
 
   /* ========== ANIMATIONS ========== */
   @keyframes fadeInUp {
@@ -862,304 +1264,405 @@
       <span>AutomateX</span>
     </a>
     <ul class="navbar-links">
-      <li><a href="#">Solutions</a></li>
-      <li><a href="#">Platform</a></li>
-      <li><a href="#">Resources</a></li>
-      <li><a href="#">Pricing</a></li>
-      <li><a href="#">Enterprise</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pace-os">PACE OS</a></li>
+      <li><a href="#scorecard">Scorecard</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#case-studies">Case Studies</a></li>
     </ul>
-    <div class="navbar-actions">
-      <a href="#" class="btn btn-secondary">Log in</a>
-      <a href="#" class="btn btn-primary">Get started</a>
+    <a href="https://calendly.com/bill-guo-automatex/30min" target="_blank" class="btn btn-primary">Book a Call</a>
+    <div class="mobile-toggle" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
     </div>
   </div>
 </nav>
 
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-close" onclick="this.parentElement.classList.remove('open')">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+  </div>
+  <a href="#services" onclick="this.parentElement.classList.remove('open')">Services</a>
+  <a href="#pace-os" onclick="this.parentElement.classList.remove('open')">PACE OS</a>
+  <a href="#scorecard" onclick="this.parentElement.classList.remove('open')">Scorecard</a>
+  <a href="#about" onclick="this.parentElement.classList.remove('open')">About</a>
+  <a href="#case-studies" onclick="this.parentElement.classList.remove('open')">Case Studies</a>
+  <a href="https://calendly.com/bill-guo-automatex/30min" target="_blank" class="btn btn-primary">Book a Call</a>
+</div>
+
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <canvas class="hero-canvas" id="hero-waves"></canvas>
-  <div class="container">
-    <div class="hero-content animate-in">
-      <div class="hero-eyebrow">For Growing Businesses</div>
-      <h1>Do your best work&nbsp;&mdash; and more&nbsp;of&nbsp;it</h1>
-      <p class="hero-description">AutomateX gives you the tools to streamline operations, automate workflows, and scale your business — without the overhead.</p>
-      <div class="hero-actions">
-        <a href="#" class="btn btn-primary">Start for free</a>
-        <a href="#" class="btn btn-outline">Book a demo</a>
-      </div>
-    </div>
-    <div class="hero-visual animate-in delay-2">
-      <div class="hero-mockup">
-        <div class="mockup-toolbar">
-          <span class="mockup-dot"></span>
-          <span class="mockup-dot"></span>
-          <span class="mockup-dot"></span>
-        </div>
-        <div class="mockup-body">
-          <div class="mockup-sidebar">
-            <div class="mockup-sidebar-item"></div>
-            <div class="mockup-sidebar-item"></div>
-            <div class="mockup-sidebar-item"></div>
-            <div class="mockup-sidebar-item"></div>
-            <div class="mockup-sidebar-item"></div>
-          </div>
-          <div class="mockup-main">
-            <div class="mockup-card">
-              <div class="mockup-line"></div>
-              <div class="mockup-line"></div>
-              <div class="mockup-line accent"></div>
-            </div>
-            <div class="mockup-grid">
-              <div class="mockup-block"></div>
-              <div class="mockup-block"></div>
-            </div>
-            <div class="mockup-card" style="margin-top:12px">
-              <div class="mockup-line" style="width:60%"></div>
-              <div class="mockup-line" style="width:85%"></div>
-            </div>
-            <div style="display:flex;gap:8px;margin-top:12px">
-              <div style="flex:1;height:8px;background:var(--gray-200);border-radius:4px"></div>
-              <div style="flex:2;height:8px;background:linear-gradient(90deg,var(--orange-light),var(--orange-dark));border-radius:4px;opacity:0.4"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="hero-grid-wrap" id="hero-grid-wrap">
+    <div class="hero-grid" id="hero-grid"></div>
+    <div class="hero-grid-spotlight" id="hero-spotlight"></div>
+    <div class="hero-grid-fade"></div>
+  </div>
+  <div class="container animate-in">
+    <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span> Engineering Assurance &amp; AI for Rail</div>
+    <h1>Become the Rail Consultancy that the Client <em>Call&nbsp;First</em></h1>
+    <p class="hero-sub">We exist to help UK rail consultancies build your <strong style="color:rgba(255,255,255,0.85);">unfair advantages</strong> with the proven method of leveraging AI and become your client&rsquo;s natural choice of consultancy because you deliver so reliably, consistently and efficiently.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/bill-guo-automatex/30min" target="_blank" class="btn btn-primary btn-primary-lg">Book an Exploratory Call</a>
+      <a href="#scorecard" class="btn btn-outline">Take the Free Scorecard</a>
     </div>
   </div>
 </section>
 
-<!-- ===== PROBLEM SECTION ===== -->
-<section class="section section-border-top">
+<!-- ===== SERVICES ===== -->
+<section class="section" id="services">
   <div class="container">
-    <div class="section-split">
-      <div>
-        <div class="section-eyebrow">The challenge</div>
-        <h2 class="section-heading">Can your current tools keep up with your clients' needs?</h2>
-        <p class="section-text">Juggling disconnected tools, manual processes, and growing client demands slows you down. It's time for a platform that works as hard as you do.</p>
-      </div>
-      <div class="img-placeholder">
-        <div class="img-placeholder-inner">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
-        </div>
-      </div>
+    <div class="text-center">
+      <div class="section-eyebrow">Our Core Services</div>
+      <h2 class="section-heading">Engineering excellence, systematised</h2>
+      <p class="section-sub center">Three complementary services that transform your delivery and competitive position.</p>
     </div>
-  </div>
-</section>
 
-<!-- ===== CREATE SECTION ===== -->
-<section class="section section-border-top">
-  <div class="container">
-    <div class="section-split">
-      <div class="img-placeholder">
-        <div class="img-placeholder-inner">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
-        </div>
-      </div>
-      <div>
-        <div class="section-eyebrow">Your way</div>
-        <h2 class="section-heading">Create high-impact automation experiences your way</h2>
-        <p class="section-text">Build custom workflows, integrate your favourite tools, and deliver results that impress — all from one intuitive platform designed for speed and flexibility.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== HOW IT HELPS ===== -->
-<section class="features-section section-border-top">
-  <div class="container">
-    <div class="features-header">
-      <div class="section-eyebrow">Platform</div>
-      <h2 class="section-heading section-heading-lg">How AutomateX helps you work smarter, not harder</h2>
-    </div>
-    <div class="features-list">
-      <div class="feature-item">
-        <div class="feature-icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
-        </div>
-        <div class="feature-content">
-          <h3>Launch stunning automations faster</h3>
-          <p>Go from idea to live workflow in minutes. Our visual builder and pre-built templates get you shipping immediately — no code required.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z"/></svg>
-        </div>
-        <div class="feature-content">
-          <h3>Seamlessly integrate your tools</h3>
-          <p>Connect your CRM, email, project management, and 200+ apps in one place. No more switching tabs or copy-pasting data between platforms.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
-        </div>
-        <div class="feature-content">
-          <h3>Manage client accounts with ease</h3>
-          <p>Organize projects, track progress, and collaborate with your team and clients all in one workspace. Keep everyone aligned without the chaos.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">
+    <div class="services-grid">
+      <!-- Design Assurance -->
+      <div class="service-card">
+        <div class="service-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
         </div>
-        <div class="feature-content">
-          <h3>Scale with built-in reliability and security</h3>
-          <p>Enterprise-grade infrastructure, automatic backups, and SOC 2 compliance baked in. Focus on your business — we handle the rest.</p>
+        <h3>Design Assurance as a Service</h3>
+        <p>Embed engineering rigour into your delivery without the overhead of permanent headcount. Flexible CEM/DPE/CRE coverage that scales with your project needs.</p>
+        <ul class="service-features">
+          <li>Compliance verification &amp; quality assurance</li>
+          <li>Risk assessment &amp; design review</li>
+          <li>AI-powered workflow improvement</li>
+          <li>Flexible engagement &mdash; scale up or down</li>
+        </ul>
+      </div>
+
+      <!-- Knowledge Systems -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg>
+        </div>
+        <h3>Company Knowledge Systems</h3>
+        <p>Transform institutional knowledge into searchable, AI-powered systems. Stop losing lessons learned and stop reinventing the wheel on every project.</p>
+        <ul class="service-features">
+          <li>Knowledge capture &amp; AI-powered search</li>
+          <li>Standards &amp; compliance integration</li>
+          <li>Pilot project with measurable ROI</li>
+          <li>Scale &amp; organisational training</li>
+        </ul>
+      </div>
+
+      <!-- Tender Support -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6.75 12H9.75m3 0l-3-3m3 3l-3 3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9H3.375z"/></svg>
+        </div>
+        <h3>High-Impact Tender Support</h3>
+        <p>Win more work with engineering-led tender strategy and compliance assurance that instils confidence in clients.</p>
+        <ul class="service-features">
+          <li>Lead generation &amp; tender strategy</li>
+          <li>Technical compliance assurance</li>
+          <li>Storyboarding &amp; bid narratives</li>
+          <li>End-to-end tender management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACE OS ===== -->
+<section class="pace-section" id="pace-os">
+  <div class="hero-grid-wrap" id="pace-grid-wrap">
+    <div class="hero-grid" id="pace-grid"></div>
+    <div class="hero-grid-spotlight" id="pace-spotlight"></div>
+    <div class="hero-grid-fade"></div>
+  </div>
+  <div class="container">
+    <div class="pace-grid">
+      <div>
+        <div class="pace-badge">Coming Soon</div>
+        <h2>PACE OS &amp; <em>Scribtive&trade;</em></h2>
+        <p class="pace-desc">The AI-enabled operating system for railway project delivery. Built by a railway engineer, for railway engineers. Let engineers do engineering, not admin.</p>
+        <div class="pace-features">
+          <div class="pace-feature">
+            <div class="pace-feature-dot"></div>
+            <div>
+              <h4>Scribtive&trade;: PACE Deliverable Generation &amp; Assurance Solution</h4>
+              <p>Generate and assure PACE assurance documentation (e.g. Form A/B/G/H, CR-T, ITP or customised deliverables) with confidence and traceability. Documents that significantly improve approval rate and reduce administrative burden without added overhead.</p>
+            </div>
+          </div>
+          <div class="pace-feature">
+            <div class="pace-feature-dot"></div>
+            <div>
+              <h4>Intelligent Knowledge Search</h4>
+              <p>Instantly retrieve past decisions, standards, and lessons learned across your organisation.</p>
+            </div>
+          </div>
+          <div class="pace-feature">
+            <div class="pace-feature-dot"></div>
+            <div>
+              <h4>Process-Driven Workflows</h4>
+              <p>Built for roles under NR/L2/RSE/02009, guiding teams through PACE compliance with zero friction.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pace-visual">
+        <div class="pace-visual-icon">&infin;</div>
+        <h3>The Future of Railway Delivery</h3>
+        <p>Be among the first to experience PACE OS when it launches.</p>
+        <div class="pace-waitlist">
+          <input type="email" placeholder="Enter your email" id="waitlist-email">
+          <button class="btn btn-primary" onclick="handleWaitlist()">Join Waitlist</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SOCIAL PROOF ===== -->
-<section class="proof-section">
+<!-- ===== SCORECARD ===== -->
+<section class="scorecard-section" id="scorecard">
   <div class="container">
-    <div class="proof-header">
-      <div class="section-eyebrow">Testimonials</div>
-      <h2 class="section-heading section-heading-lg">Leading businesses choose AutomateX</h2>
-    </div>
-    <div class="proof-grid">
-      <div class="proof-card">
-        <p class="proof-quote">"AutomateX cut our onboarding time by 60%. What used to take three days now takes half an afternoon. It's been a game-changer for our team."</p>
-        <div class="proof-author">
-          <div class="proof-avatar">SM</div>
-          <div>
-            <div class="proof-name">Sarah Mitchell</div>
-            <div class="proof-role">Head of Operations, Rivercrest</div>
-          </div>
-        </div>
+    <!-- Top: headline + CTA -->
+    <div class="scorecard-top">
+      <div>
+        <div class="section-eyebrow">Free Assessment</div>
+        <h2>Are you ready to become the consultancy that <span class="scorecard-highlight">clients call first?</span></h2>
+        <p>The Client-Call-First Reliability Readiness Scorecard benchmarks your delivery system across 5 PACED pillars. Find out where you're strong &mdash; and where you're fragile.</p>
       </div>
-      <div class="proof-card">
-        <p class="proof-quote">"We replaced four different tools with AutomateX. One platform, zero headaches. Our clients noticed the difference within the first week."</p>
-        <div class="proof-author">
-          <div class="proof-avatar">JK</div>
-          <div>
-            <div class="proof-name">James Kim</div>
-            <div class="proof-role">Founder, Parallel Studio</div>
+      <div class="scorecard-cta-box">
+        <h3>Take the Scorecard</h3>
+        <p>20 honest questions about how your team actually delivers. No research required.</p>
+        <a href="scorecard.html" class="btn btn-primary btn-primary-lg" style="width:100%;">Start &mdash; Free, 5 Minutes</a>
+        <div class="scorecard-stats">
+          <div class="scorecard-stat">
+            <div class="scorecard-stat-num">20</div>
+            <div class="scorecard-stat-label">Questions</div>
           </div>
-        </div>
-      </div>
-      <div class="proof-card">
-        <p class="proof-quote">"The automation workflows saved us 20+ hours a week. I finally have time to focus on strategy instead of being buried in busywork."</p>
-        <div class="proof-author">
-          <div class="proof-avatar">AL</div>
-          <div>
-            <div class="proof-name">Amira Levin</div>
-            <div class="proof-role">CEO, Bright Loop Agency</div>
+          <div class="scorecard-stat">
+            <div class="scorecard-stat-num">5 min</div>
+            <div class="scorecard-stat-label">Duration</div>
+          </div>
+          <div class="scorecard-stat">
+            <div class="scorecard-stat-num">Instant</div>
+            <div class="scorecard-stat-label">Results</div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- PACED pillars: 5 across -->
+    <div class="scorecard-pillars">
+      <div class="pillar-card">
+        <div class="pillar-letter">P</div>
+        <div class="pillar-name">Pilot</div>
+        <div class="pillar-concept">Validation<br>Build Trust</div>
+        <div class="pillar-desc">Pilot AI on a risk free project. Build proof before commitment. Understand the true cost of doing nothing. Trust is earned through evidence.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-letter">A</div>
+        <div class="pillar-name">Automate</div>
+        <div class="pillar-concept">AI Readiness<br>Take Ownership</div>
+        <div class="pillar-desc">Build the digital infrastructure. Create a semantic knowledge layer that links your systems, captures your standards, and makes your knowledge queryable.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-letter">C</div>
+        <div class="pillar-name">Compound</div>
+        <div class="pillar-concept">Scalability<br>Controlled</div>
+        <div class="pillar-desc">Scale impact across projects and teams. Every project makes the next one faster. Knowledge compounds. Growth no longer requires more headcount.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-letter">E</div>
+        <div class="pillar-name">Evolve</div>
+        <div class="pillar-concept">Productisation<br>Start Transformation</div>
+        <div class="pillar-desc">Stop selling time. Start selling outcomes. Differentiate what AI handles from what requires engineering judgment &mdash; compete on a new dimension.</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-letter">D</div>
+        <div class="pillar-name">Digitalise</div>
+        <div class="pillar-concept">Moat<br>Become Mastery</div>
+        <div class="pillar-desc">Turn operational advantages into digital systems competitors can't replicate. Your expertise combined with AI becomes a moat that widens with every project.</div>
+      </div>
+    </div>
+    <div class="pillar-footer">The five essential principles for rail consultancies who want to build their unfair advantage in the AI era.</div>
   </div>
 </section>
 
-<!-- ===== EVERYTHING YOU NEED ===== -->
-<section class="grid-section">
+<!-- ===== ABOUT ===== -->
+<section class="about-section" id="about">
   <div class="container">
-    <div class="section-center">
-      <div class="section-eyebrow">Capabilities</div>
-      <h2 class="section-heading section-heading-lg">Everything you need to deliver great work</h2>
+    <div class="text-center">
+      <div class="section-eyebrow">About the Founder</div>
+      <h2 class="section-heading">Engineering authority, powered by intelligence</h2>
     </div>
-    <div class="capabilities-grid">
-      <div class="capability-card">
-        <div class="capability-icon">
+
+    <div class="about-intro">
+      <img src="images/Header.png" alt="Bill Guo" class="about-photo">
+      <div class="about-intro-text">
+        <h3>Bill Guo CEng FICE</h3>
+        <div class="about-intro-role">Founder &amp; Engineering Director, AutomateX Advisory Ltd</div>
+        <p class="about-bio">Fellow of ICE, Chartered Civil Engineer, and Imperial College London alumnus. Former Network Rail Lead DPE and HS2 Engineering Manager. Built a consultancy office from scratch to &pound;900k+ fees with 40%+ gross margin. Founded AutomateX to bridge the gap between rigorous engineering assurance and operational speed &mdash; delivering Tier&nbsp;1 certainty without the administrative drag.</p>
+      </div>
+    </div>
+
+    <div class="about-cards">
+      <div class="about-card">
+        <div class="about-card-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+        </div>
+        <div class="about-card-label">Young Railway Professional of the Year 2023</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M18.75 4.236c.982.143 1.954.317 2.916.52A6.003 6.003 0 0016.27 9.728M18.75 4.236V4.5c0 2.108-.966 3.99-2.48 5.228m0 0a6.023 6.023 0 01-2.77.896m5.25-6.624V2.721"/></svg>
+        </div>
+        <div class="about-card-label">ICE East England Asset Resilience 2025</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
+        </div>
+        <div class="about-card-label">AI in Rail Expert</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+        </div>
+        <div class="about-card-label">Scaled Consultancy &pound;0 to &pound;1m ARR in CP7</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+        </div>
+        <div class="about-card-label">Fellow of the Institution of Civil Engineers</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+        </div>
+        <div class="about-card-label">Chartered Engineer (CEng)</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
-        <h3>Workflow Automation</h3>
-        <p>Build multi-step workflows with a drag-and-drop visual builder. Trigger actions across apps automatically.</p>
+        <div class="about-card-label">10+ Years UK Rail Infrastructure</div>
       </div>
-      <div class="capability-card">
-        <div class="capability-icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+      <div class="about-card">
+        <div class="about-card-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/></svg>
         </div>
-        <h3>Real-Time Analytics</h3>
-        <p>Track performance, monitor KPIs, and generate custom reports — all in real time from your dashboard.</p>
-      </div>
-      <div class="capability-card">
-        <div class="capability-icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.86-9.86a4.5 4.5 0 00-6.364 6.364l4.5 4.5a4.5 4.5 0 006.364-6.364l-1.757-1.757"/></svg>
-        </div>
-        <h3>200+ Integrations</h3>
-        <p>Connect the tools you already use — Slack, HubSpot, Stripe, Google Workspace, and hundreds more.</p>
-      </div>
-      <div class="capability-card">
-        <div class="capability-icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
-        </div>
-        <h3>AI-Powered Insights</h3>
-        <p>Let AI surface patterns, flag anomalies, and suggest optimisations so you can make smarter decisions faster.</p>
-      </div>
-      <div class="capability-card">
-        <div class="capability-icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
-        </div>
-        <h3>Team Collaboration</h3>
-        <p>Shared workspaces, role-based access, and real-time commenting keep everyone aligned and moving forward.</p>
-      </div>
-      <div class="capability-card">
-        <div class="capability-icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
-        </div>
-        <h3>Enterprise Security</h3>
-        <p>SOC 2 compliant, GDPR ready, with SSO, 2FA, and audit logs. Your data stays safe and under your control.</p>
+        <div class="about-card-label">Imperial College London</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
-<section class="faq-section">
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="trust-label">Our consultants have delivered projects for</div>
+  <div class="trust-overflow">
+    <div class="trust-track" id="trust-track"></div>
+    <script>
+    (function() {
+      var logos = [
+        { src: 'images/Jacobs.png', alt: 'Jacobs', size: 'wide' },
+        { src: 'images/HS2.png', alt: 'HS2', size: 'compact' },
+        { src: 'images/NetworkRail.jpg', alt: 'Network Rail', size: 'tall' },
+        { src: 'images/TFL.png', alt: 'TfL', size: 'tall' },
+        { src: 'images/GreaterAnglia.jpg', alt: 'Greater Anglia', size: 'wide' },
+        { src: 'images/BAM.png', alt: 'BAM', size: 'tall' },
+        { src: 'images/Arcadis.png', alt: 'Arcadis', size: 'wide' },
+      ];
+      var track = document.getElementById('trust-track');
+      function makeSet() {
+        var set = document.createElement('div');
+        set.className = 'trust-set';
+        logos.forEach(function(l) {
+          set.innerHTML += '<div class="trust-logo" data-size="' + l.size + '"><img src="' + l.src + '" alt="' + l.alt + '"></div>';
+        });
+        return set;
+      }
+      for (var i = 0; i < 6; i++) track.appendChild(makeSet());
+      window.addEventListener('load', function() {
+        var oneSet = track.querySelector('.trust-set');
+        var setWidth = oneSet.offsetWidth;
+        var halfWidth = setWidth * 3;
+        track.style.animation = 'none';
+        var style = document.createElement('style');
+        style.textContent = '@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-' + halfWidth + 'px)}}';
+        document.head.appendChild(style);
+        track.style.animation = 'marquee ' + Math.round(halfWidth / 40) + 's linear infinite';
+      });
+    })();
+    </script>
+  </div>
+</div>
+
+<!-- ===== CASE STUDIES ===== -->
+<section class="section section-border-top" id="case-studies" style="background:var(--gray-50);">
   <div class="container">
-    <div class="faq-layout">
-      <div>
-        <div class="section-eyebrow">Support</div>
-        <h2 class="section-heading">Frequently asked questions</h2>
+    <div class="text-center">
+      <div class="section-eyebrow">Track Record</div>
+      <h2 class="section-heading">Proven delivery across major rail programmes</h2>
+    </div>
+
+    <div class="cases-grid">
+      <!-- HS2 -->
+      <div class="case-card">
+        <div class="case-award">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+          Young Railway Professional 2023
+        </div>
+        <h3>HS2 Washwood Heath Depot</h3>
+        <div class="case-client">HS2 Limited &middot; 2021&ndash;2023</div>
+        <p class="case-desc">Led multi-disciplinary concept and scheme design for the UK's largest infrastructure project. Coordinated 25 engineering disciplines and rebuilt trust with HS2 from the ground up.</p>
+        <div class="case-metrics">
+          <div>
+            <div class="case-metric-val">&pound;345m</div>
+            <div class="case-metric-label">Project value</div>
+          </div>
+          <div>
+            <div class="case-metric-val">&pound;46m</div>
+            <div class="case-metric-label">VE savings</div>
+          </div>
+        </div>
       </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-            What is AutomateX?
-            <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>AutomateX is an all-in-one automation and workflow platform designed for businesses that want to streamline operations, connect their tools, and scale without adding complexity.</p>
+
+      <!-- Greater Anglia -->
+      <div class="case-card">
+        <div class="case-award">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+          ICE Merit Award 2025
+        </div>
+        <h3>Station &amp; HCE Survey Programme</h3>
+        <div class="case-client">Greater Anglia &middot; 2023&ndash;2025</div>
+        <p class="case-desc">Pioneered AI-integrated survey process combining drone technology and 360&deg; imaging across 55 stations. Identified critical hidden defects that traditional methods missed.</p>
+        <div class="case-metrics">
+          <div>
+            <div class="case-metric-val">55</div>
+            <div class="case-metric-label">Stations</div>
+          </div>
+          <div>
+            <div class="case-metric-val">AI</div>
+            <div class="case-metric-label">Integrated</div>
           </div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-            Do I need technical skills to use AutomateX?
-            <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Not at all. AutomateX is designed with a visual drag-and-drop builder that requires zero coding knowledge. If you can use a spreadsheet, you can build automations with AutomateX.</p>
-          </div>
+      </div>
+
+      <!-- Network Rail -->
+      <div class="case-card">
+        <div class="case-award" style="background:#f0fdf4; border-color:#bbf7d0; color:#166534;">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+          Commercial Excellence
         </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-            What tools does AutomateX integrate with?
-            <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>We integrate with 200+ tools including Slack, HubSpot, Stripe, Google Workspace, Notion, Zapier, and many more. Custom API connections are also supported.</p>
+        <h3>Dust Suppression National Programme</h3>
+        <div class="case-client">Network Rail SCO &middot; 2018&ndash;2021</div>
+        <p class="case-desc">Tendered, priced, and delivered dust suppression upgrades across 14 nationwide depots. Brought entire delivery model in-house to significantly improve commercial margin.</p>
+        <div class="case-metrics">
+          <div>
+            <div class="case-metric-val">14</div>
+            <div class="case-metric-label">Locations</div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-            Is there a free plan?
-            <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Yes! AutomateX offers a generous free tier so you can explore the platform, build your first workflows, and see results before committing to a paid plan.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-            How does pricing work?
-            <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>We offer simple, transparent pricing based on your team size and usage. No hidden fees, no surprises. You can upgrade, downgrade, or cancel at any time.</p>
+          <div>
+            <div class="case-metric-val">&pound;350k+</div>
+            <div class="case-metric-label">Value</div>
           </div>
         </div>
       </div>
@@ -1170,164 +1673,193 @@
 <!-- ===== CTA ===== -->
 <section class="cta-section">
   <div class="container">
-    <h2 class="cta-heading">Ready to try it<br><em style="font-style:italic">for yourself?</em></h2>
-    <p class="cta-text">Start building smarter workflows today. No credit card required.</p>
-    <a href="#" class="btn btn-primary" style="padding: 0.875rem 2rem; font-size: 1rem;">Get started for free</a>
+    <h2 class="cta-heading">Ready to deliver with confidence?</h2>
+    <p class="cta-text">Book a 30-minute exploratory call to discuss your specific challenge. No pitch, no pressure &mdash; just a conversation about what's possible.</p>
+    <div class="cta-actions">
+      <a href="https://calendly.com/bill-guo-automatex/30min" target="_blank" class="btn btn-primary btn-primary-lg">Book a Call</a>
+      <a href="scorecard.html" class="btn btn-outline">Take the Scorecard</a>
+    </div>
   </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-top">
-      <div class="footer-logo-large">
-        <img src="brand_assets/Logo.png" alt="AutomateX">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="navbar-logo">
+          <img src="brand_assets/Logo.png" alt="AutomateX">
+          <span>AutomateX</span>
+        </a>
+        <p>Systemising success for the UK rail supply chain.</p>
       </div>
-      <div class="footer-columns">
-        <div class="footer-col">
-          <h4>Product</h4>
-          <ul>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Integrations</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Changelog</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="#">Documentation</a></li>
-            <li><a href="#">Help Centre</a></li>
-            <li><a href="#">Community</a></li>
-            <li><a href="#">Templates</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Security</a></li>
-            <li><a href="#">Cookies</a></li>
-          </ul>
-        </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Engineering Assurance</a></li>
+          <li><a href="#services">AI Knowledge Systems</a></li>
+          <li><a href="#pace-os">PACE OS</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#case-studies">Case Studies</a></li>
+          <li><a href="#scorecard">Scorecard</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-certs">
+        <img src="images/ico-badge.png" alt="ICO Registered">
+        <img src="images/risqs-badge.png" alt="RISQS Verified">
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-legal">&copy; 2026 AutomateX Advisory Ltd. All rights reserved.</div>
-      <div class="footer-social">
-        <a href="#" aria-label="Twitter">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="#" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-        </a>
-        <a href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 011.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772 4.915 4.915 0 01-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm6.5-.25a1.25 1.25 0 10-2.5 0 1.25 1.25 0 002.5 0zM12 9a3 3 0 110 6 3 3 0 010-6z"/></svg>
-        </a>
+      <div class="footer-legal">&copy; 2026 AutomateX Advisory Ltd. Company No. 16855291</div>
+      <div class="footer-contact">
+        <a href="mailto:bill.guo@automatex.uk">bill.guo@automatex.uk</a> &middot; London, UK
       </div>
     </div>
   </div>
 </footer>
 
+<!-- ===== SCRIPTS ===== -->
+<!-- Grid background ripple effect -->
 <script>
-// ---- Simplex Noise (compact 3D implementation) ----
-(function(){
-  const F3=1/3,G3=1/6;
-  const grad3=[[1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],[1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],[0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]];
-  const p=new Uint8Array(256);
-  for(let i=0;i<256;i++) p[i]=i;
-  for(let i=255;i>0;i--){const j=Math.floor(Math.random()*(i+1));[p[i],p[j]]=[p[j],p[i]];}
-  const perm=new Uint8Array(512),permMod12=new Uint8Array(512);
-  for(let i=0;i<512;i++){perm[i]=p[i&255];permMod12[i]=perm[i]%12;}
+(function() {
+  var CELL = 48;
 
-  window.noise3D=function(xin,yin,zin){
-    let n0,n1,n2,n3;
-    const s=(xin+yin+zin)*F3;
-    const i=Math.floor(xin+s),j=Math.floor(yin+s),k=Math.floor(zin+s);
-    const t=(i+j+k)*G3;
-    const x0=xin-(i-t),y0=yin-(j-t),z0=zin-(k-t);
-    let i1,j1,k1,i2,j2,k2;
-    if(x0>=y0){if(y0>=z0){i1=1;j1=0;k1=0;i2=1;j2=1;k2=0;}else if(x0>=z0){i1=1;j1=0;k1=0;i2=1;j2=0;k2=1;}else{i1=0;j1=0;k1=1;i2=1;j2=0;k2=1;}}else{if(y0<z0){i1=0;j1=0;k1=1;i2=0;j2=1;k2=1;}else if(x0<z0){i1=0;j1=1;k1=0;i2=0;j2=1;k2=1;}else{i1=0;j1=1;k1=0;i2=1;j2=1;k2=0;}}
-    const x1=x0-i1+G3,y1=y0-j1+G3,z1=z0-k1+G3;
-    const x2=x0-i2+2*G3,y2=y0-j2+2*G3,z2=z0-k2+2*G3;
-    const x3=x0-1+3*G3,y3=y0-1+3*G3,z3=z0-1+3*G3;
-    const ii=i&255,jj=j&255,kk=k&255;
-    function dot3(g,x,y,z){return g[0]*x+g[1]*y+g[2]*z;}
-    let t0=0.6-x0*x0-y0*y0-z0*z0;
-    n0=t0<0?0:(t0*=t0,t0*t0*dot3(grad3[permMod12[ii+perm[jj+perm[kk]]]],x0,y0,z0));
-    let t1=0.6-x1*x1-y1*y1-z1*z1;
-    n1=t1<0?0:(t1*=t1,t1*t1*dot3(grad3[permMod12[ii+i1+perm[jj+j1+perm[kk+k1]]]],x1,y1,z1));
-    let t2=0.6-x2*x2-y2*y2-z2*z2;
-    n2=t2<0?0:(t2*=t2,t2*t2*dot3(grad3[permMod12[ii+i2+perm[jj+j2+perm[kk+k2]]]],x2,y2,z2));
-    let t3=0.6-x3*x3-y3*y3-z3*z3;
-    n3=t3<0?0:(t3*=t3,t3*t3*dot3(grad3[permMod12[ii+1+perm[jj+1+perm[kk+1]]]],x3,y3,z3));
-    return 32*(n0+n1+n2+n3);
-  };
-})();
+  function initGrid(gridId, wrapId, spotlightId) {
+    var grid = document.getElementById(gridId);
+    var wrap = document.getElementById(wrapId);
+    var spotlight = document.getElementById(spotlightId);
+    if (!grid || !wrap) return;
 
-// ---- Wavy Background Renderer ----
-(function(){
-  const canvas = document.getElementById('hero-waves');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const hero = canvas.parentElement;
+    var cells = [];
 
-  const waveColors = [
-    'rgba(251,123,58,0.35)',   // orange-light
-    'rgba(249,101,50,0.3)',    // orange
-    'rgba(237,74,59,0.25)',    // orange-dark
-    'rgba(255,160,100,0.2)',   // peach
-    'rgba(237,74,59,0.15)',    // red-ish
-  ];
-
-  let w, h, nt = 0, animId;
-
-  function resize() {
-    const rect = hero.getBoundingClientRect();
-    w = canvas.width = rect.width;
-    h = canvas.height = rect.height;
-    ctx.filter = 'blur(12px)';
-  }
-
-  function drawWave(n) {
-    nt += 0.0012;
-    for (let i = 0; i < n; i++) {
-      ctx.beginPath();
-      ctx.lineWidth = 50;
-      ctx.strokeStyle = waveColors[i % waveColors.length];
-      for (let x = 0; x < w; x += 5) {
-        const y = window.noise3D(x / 800, 0.3 * i, nt) * 100;
-        ctx.lineTo(x, y + h * 0.5);
+    function buildGrid() {
+      var w = wrap.offsetWidth;
+      var h = wrap.offsetHeight;
+      var cols = Math.ceil(w / CELL) + 1;
+      var rows = Math.ceil(h / CELL) + 1;
+      grid.innerHTML = '';
+      cells = [];
+      for (var c = 0; c < cols; c++) {
+        var col = document.createElement('div');
+        col.className = 'hero-grid-col';
+        for (var r = 0; r < rows; r++) {
+          var cell = document.createElement('div');
+          cell.className = 'hero-cell';
+          cell.dataset.col = c;
+          cell.dataset.row = r;
+          var inner = document.createElement('div');
+          inner.className = 'hero-cell-inner';
+          cell.appendChild(inner);
+          col.appendChild(cell);
+          cells.push({ el: inner, col: c, row: r });
+        }
+        grid.appendChild(col);
       }
-      ctx.stroke();
-      ctx.closePath();
     }
+
+    buildGrid();
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(buildGrid, 200);
+    });
+
+    wrap.addEventListener('mousemove', function(e) {
+      var rect = wrap.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      var size = 300;
+      spotlight.style.maskImage = 'radial-gradient(' + (size/3) + 'px circle at ' + x + 'px ' + y + 'px, white, transparent)';
+      spotlight.style.webkitMaskImage = 'radial-gradient(' + (size/3) + 'px circle at ' + x + 'px ' + y + 'px, white, transparent)';
+      spotlight.style.background = 'repeating-conic-gradient(rgba(249,101,50,0.06) 0% 25%, transparent 0% 50%) 0 0 / ' + CELL + 'px ' + CELL + 'px';
+    });
+
+    wrap.addEventListener('click', function(e) {
+      var rect = wrap.getBoundingClientRect();
+      var clickCol = Math.floor((e.clientX - rect.left) / CELL);
+      var clickRow = Math.floor((e.clientY - rect.top) / CELL);
+      cells.forEach(function(c) {
+        var dist = Math.sqrt(Math.pow(c.col - clickCol, 2) + Math.pow(c.row - clickRow, 2));
+        if (dist > 20) return;
+        var delay = dist * 40;
+        setTimeout(function() {
+          c.el.classList.remove('ripple');
+          void c.el.offsetWidth;
+          c.el.classList.add('ripple');
+          setTimeout(function() { c.el.classList.remove('ripple'); }, 600);
+        }, delay);
+      });
+    });
   }
 
-  function render() {
-    ctx.fillStyle = '#ffffff';
-    ctx.globalAlpha = 0.4;
-    ctx.fillRect(0, 0, w, h);
-    ctx.globalAlpha = 1;
-    drawWave(5);
-    animId = requestAnimationFrame(render);
-  }
-
-  resize();
-  render();
-  window.addEventListener('resize', resize);
+  initGrid('hero-grid', 'hero-grid-wrap', 'hero-spotlight');
+  initGrid('pace-grid', 'pace-grid-wrap', 'pace-spotlight');
 })();
 </script>
+
+<script>
+function handleWaitlist() {
+  const email = document.getElementById('waitlist-email').value;
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  const btn = document.querySelector('.pace-waitlist .btn');
+  const originalText = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch('REPLACE_WITH_N8N_WEBHOOK_URL', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: email,
+      source: 'PACE OS Waitlist',
+      timestamp: new Date().toISOString()
+    })
+  })
+  .then(function(res) {
+    if (!res.ok) throw new Error('Network error');
+    document.getElementById('waitlist-email').value = '';
+    btn.textContent = 'You\'re in!';
+    setTimeout(function() { btn.textContent = originalText; btn.disabled = false; }, 3000);
+  })
+  .catch(function() {
+    alert('Something went wrong. Please try again.');
+    btn.textContent = originalText;
+    btn.disabled = false;
+  });
+}
+
+// Intersection observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-in');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.service-card, .case-card, .credential-card, .pillar-card').forEach(el => {
+  el.style.opacity = '0';
+  observer.observe(el);
+});
+</script>
+
 
 </body>
 </html>

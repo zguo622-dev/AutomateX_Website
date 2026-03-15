@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reliability Readiness Scorecard | AutomateX</title>
+<meta name="description" content="Take the Client-Call-First Reliability Readiness Scorecard. 20 questions, 5 minutes, instant results.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F96532;
+    --orange-light: #FB7B3A;
+    --orange-dark: #ED4A3B;
+    --navy: #1A1F36;
+    --navy-deep: #0D1117;
+    --white: #ffffff;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --green: #10B981;
+    --yellow: #F59E0B;
+    --red: #EF4444;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --transition-fast: 150ms ease;
+    --transition-med: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--navy);
+    background: var(--gray-50);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  ::selection { background: var(--orange); color: var(--white); }
+
+  /* ========== HEADER ========== */
+  .sc-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    padding: 0.875rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .sc-header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sc-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--navy);
+  }
+
+  .sc-logo img { width: 24px; height: 24px; }
+
+  .sc-logo span {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9375rem;
+  }
+
+  .sc-progress-wrap {
+    flex: 1;
+    max-width: 300px;
+    margin-left: 2rem;
+  }
+
+  .sc-progress-bar {
+    height: 4px;
+    background: var(--gray-200);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .sc-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange-light), var(--orange-dark));
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 0%;
+  }
+
+  .sc-progress-text {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--gray-400);
+    margin-top: 0.25rem;
+    text-align: right;
+  }
+
+  /* ========== MAIN CONTAINER ========== */
+  .sc-main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* ========== QUESTION SCREEN ========== */
+  .sc-screen {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .sc-screen.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .sc-pillar-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    background: rgba(249,101,50,0.06);
+    border: 1px solid rgba(249,101,50,0.12);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+
+  .sc-question-num {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gray-400);
+    margin-bottom: 0.5rem;
+  }
+
+  .sc-question-text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+  }
+
+  /* ========== ANSWER OPTIONS ========== */
+  .sc-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .sc-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    background: var(--white);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--navy);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+    line-height: 1.5;
+  }
+
+  .sc-option:hover {
+    border-color: var(--orange);
+    background: rgba(249,101,50,0.02);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .sc-option.selected {
+    border-color: var(--orange);
+    background: rgba(249,101,50,0.04);
+    box-shadow: 0 0 0 3px rgba(249,101,50,0.08);
+  }
+
+  /* Multi-select for Q17 */
+  .sc-option-multi {
+    position: relative;
+    padding-left: 2.75rem;
+  }
+
+  .sc-option-multi::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: 4px;
+    transition: var(--transition-fast);
+  }
+
+  .sc-option-multi.selected::before {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  .sc-option-multi.selected::after {
+    content: '';
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-60%) rotate(45deg);
+    width: 5px;
+    height: 9px;
+    border: 2px solid var(--white);
+    border-top: none;
+    border-left: none;
+  }
+
+  /* Open text */
+  .sc-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 1rem;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--navy);
+    background: var(--white);
+    resize: vertical;
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .sc-textarea:focus { border-color: var(--orange); }
+  .sc-textarea::placeholder { color: var(--gray-400); }
+
+  /* ========== NAVIGATION BUTTONS ========== */
+  .sc-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  .sc-btn {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    border: none;
+  }
+
+  .sc-btn:hover { transform: translateY(-1px); }
+
+  .sc-btn-back {
+    background: transparent;
+    color: var(--gray-500);
+  }
+
+  .sc-btn-back:hover { color: var(--navy); }
+
+  .sc-btn-next {
+    background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(249,101,50,0.25);
+    margin-left: auto;
+  }
+
+  .sc-btn-next:hover { box-shadow: 0 4px 16px rgba(249,101,50,0.35); }
+
+  .sc-btn-next:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .sc-skip {
+    font-size: 0.8125rem;
+    color: var(--gray-400);
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    transition: color var(--transition-fast);
+    margin-top: 1rem;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  .sc-skip:hover { color: var(--gray-600); }
+
+  /* ========== RESULTS ========== */
+  .results-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .results-score-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 6px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    position: relative;
+  }
+
+  .results-score-circle.low { border-color: var(--red); }
+  .results-score-circle.mid { border-color: var(--yellow); }
+  .results-score-circle.high { border-color: var(--green); }
+
+  .results-score-num {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--navy);
+  }
+
+  .results-score-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.25rem;
+  }
+
+  .results-headline {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .results-subtitle {
+    font-size: 0.9375rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* Pillar breakdown */
+  .pillar-breakdown {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pillar-breakdown h3 {
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1.25rem;
+  }
+
+  .pillar-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 44px;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .pillar-row:last-child { margin-bottom: 0; }
+
+  .pillar-name {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .pillar-bar {
+    height: 10px;
+    background: var(--gray-100);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .pillar-bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .pillar-bar-fill.low { background: var(--red); }
+  .pillar-bar-fill.mid { background: var(--yellow); }
+  .pillar-bar-fill.high { background: var(--green); }
+
+  .pillar-pct {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--gray-600);
+    text-align: right;
+  }
+
+  .weakest-callout {
+    background: rgba(239,68,68,0.04);
+    border: 1px solid rgba(239,68,68,0.12);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .weakest-callout-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--red);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .weakest-callout h4 {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+
+  .weakest-callout p {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--gray-500);
+  }
+
+  /* Email gate */
+  .email-gate {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .email-gate h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.375rem;
+  }
+
+  .email-gate p {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    margin-bottom: 1.25rem;
+  }
+
+  .email-gate-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .email-gate-form input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--navy);
+    outline: none;
+    background: var(--gray-50);
+  }
+
+  .email-gate-form input:focus { border-color: var(--orange); }
+  .email-gate-form input::placeholder { color: var(--gray-400); }
+
+  .email-gate-form button {
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background var(--transition-fast);
+  }
+
+  .email-gate-form button:hover { background: var(--navy-deep); }
+
+  /* CTA */
+  .results-cta {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .results-cta p {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    margin-bottom: 1rem;
+  }
+
+  .results-cta .sc-btn-next {
+    margin: 0;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 640px) {
+    .sc-progress-wrap { max-width: 180px; margin-left: 1rem; }
+    .email-gate-form { flex-direction: column; }
+    .pillar-row { grid-template-columns: 80px 1fr 36px; gap: 0.625rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="sc-header">
+  <div class="sc-header-inner">
+    <a href="index.html" class="sc-logo">
+      <img src="brand_assets/Logo.png" alt="AutomateX">
+      <span>AutomateX</span>
+    </a>
+    <div class="sc-progress-wrap">
+      <div class="sc-progress-bar">
+        <div class="sc-progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="sc-progress-text" id="progress-text">0 / 20</div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main class="sc-main" id="sc-main">
+  <!-- Screens injected by JS -->
+</main>
+
+<script>
+(function() {
+  // ========== QUESTION DATA ==========
+  const questions = [
+    // PILOT (Q1-3)
+    { id: 1, pillar: 'Pilot', text: 'When you onboard a new scheme, does your team start from a structured template informed by past projects, or does the engineering team effectively start from scratch every time?', options: ['Structured template informed by past projects', 'We have some templates but they\'re not consistently used', 'We effectively start from scratch each time'], scores: [3, 1, 0] },
+    { id: 2, pillar: 'Pilot', text: 'In the last six months, have you made a specific change to how your team produces Form G (or equivalent assurance submissions), and can you point to a measurable reduction in comments as a direct result?', options: ['Yes, with measurable evidence of improvement', 'We\'ve made changes but haven\'t measured the impact', 'No specific changes made'], scores: [3, 1, 0] },
+    { id: 3, pillar: 'Pilot', text: 'When you receive a CAT 3 comment, do you change the way you work for the next submission, or do you patch the specific issue and move on?', options: ['Change the way we work for future submissions', 'Sometimes we adjust, but it\'s inconsistent', 'Patch the specific issue and move on'], scores: [3, 1, 0] },
+    // AUTOMATE (Q4-6)
+    { id: 4, pillar: 'Automate', text: 'If your most experienced CEM or CRE was unavailable for two weeks, would the quality of your Form G submissions change noticeably?', options: ['No \u2014 quality is consistent regardless of who\'s available', 'There would be some impact, but we\'d manage', 'Yes \u2014 quality depends heavily on specific individuals'], scores: [3, 1, 0] },
+    { id: 5, pillar: 'Automate', text: 'Does your team have a single shared reference that maps each section of the Form G to the specific NR standards, Eurocodes, and project documents required \u2014 that anyone including junior engineers can follow?', options: ['Yes, a clear and accessible shared reference', 'We have something, but it\'s incomplete or hard to find', 'No \u2014 it\'s mostly tribal knowledge'], scores: [3, 1, 0] },
+    { id: 6, pillar: 'Automate', text: 'Do your engineers spend time hunting across SharePoint, emails, and shared drives to locate the right version of an NR standard or a past precedent before they can start drafting?', options: ['Rarely \u2014 information is easy to find', 'Sometimes \u2014 it depends on the project', 'Frequently \u2014 it\'s a significant time drain'], scores: [3, 1, 0] },
+    // COMPOUND (Q7-9)
+    { id: 7, pillar: 'Compound', text: 'Do you know your average Form G revision cycles from 12 months ago, and is that number lower today?', options: ['Yes, and it\'s measurably lower', 'We track it loosely but haven\'t seen clear improvement', 'We don\'t track revision cycles'], scores: [3, 1, 0] },
+    { id: 8, pillar: 'Compound', text: 'If a CEM/CRE started on a scheme similar to one you completed 18 months ago, could they locate and apply your past project knowledge without asking a colleague within one working day?', options: ['Yes \u2014 knowledge is accessible and organised', 'They\'d find some of it, but would need to ask around', 'They\'d struggle \u2014 most knowledge lives in people\'s heads'], scores: [3, 1, 0] },
+    { id: 9, pillar: 'Compound', text: 'How often do your engineers receive opinion-driven DRN comments \u2014 feedback based on reviewer preference rather than a clear standard requirement \u2014 that they struggle to answer?', options: ['Rarely \u2014 our submissions are well-anchored in standards', 'Occasionally \u2014 some submissions invite subjective feedback', 'Frequently \u2014 it\'s a major source of delays'], scores: [3, 1, 0] },
+    // EVOLVE (Q10-12)
+    { id: 10, pillar: 'Evolve', text: 'When you win a repeat appointment from a client, is it because they actively sought you out, or because you competed on price again?', options: ['They actively sought us out', 'A mix of both', 'We competed on price'], scores: [3, 1, 0] },
+    { id: 11, pillar: 'Evolve', text: 'If your two biggest client relationships left their business tomorrow, would your pipeline be at serious risk, or do you have a system that generates work independently?', options: ['We have a system that generates work independently', 'We\'d be concerned but could recover', 'Our pipeline would be at serious risk'], scores: [3, 1, 0] },
+    { id: 12, pillar: 'Evolve', text: 'When you are heads-down delivering a live scheme, does your pipeline of new work suffer? And when you\'re out winning work, does delivery quality feel at risk?', options: ['No \u2014 we have systems that handle both', 'One area suffers when we focus on the other', 'Yes \u2014 it\'s a constant trade-off'], scores: [3, 1, 0] },
+    // DIGITALISE (Q13-15)
+    { id: 13, pillar: 'Digitalise', text: 'Can you produce a complete audit trail from design requirement through to signed Form G \u2014 without hunting across email threads and document management systems \u2014 in under 30 minutes?', options: ['Yes, consistently', 'Sometimes, depending on the project', 'No \u2014 it usually takes much longer'], scores: [3, 1, 0] },
+    { id: 14, pillar: 'Digitalise', text: 'When your team considers using AI tools to support technical report production or compliance checking, what is the most common reaction?', options: ['Active interest or healthy scepticism', 'Uncertainty \u2014 not sure where to start', 'Outright resistance'], scores: [3, 1, 0] },
+    { id: 15, pillar: 'Digitalise', text: 'If a senior engineer left your business tomorrow, how much of your assurance process capability would leave with them?', options: ['Very little \u2014 it\'s in our systems and standards', 'Some \u2014 they have unique knowledge but we\'d cope', 'A lot \u2014 critical capability would walk out the door'], scores: [3, 1, 0] },
+    // SEGMENTATION (Q16-20)
+    { id: 16, pillar: 'Segmentation', text: 'Which best describes your current team situation?', options: ['Small team (1\u20135 people) \u2014 CEM/CRE coverage is thin', 'Core team (6\u201312 people) \u2014 multiple schemes but reliant on key seniors', 'Larger team (13\u201330 people) \u2014 multiple CEM/CREs and parallel streams', '31+ people \u2014 delivering assurance at scale'], scores: [0, 0, 0, 0], segment: true },
+    { id: 17, pillar: 'Segmentation', text: 'What are the top 2 challenges you\u2019d like to solve in the next 90 days?', multi: true, options: ['Reduce Form G comments and resubmissions', 'Stop relying on 1\u20132 key engineers for quality', 'Cut revision ping-pong and unclear ownership', 'Make standards and precedents easy to find', 'Improve traceability and audit trail speed', 'Stop the feast-or-famine pipeline cycle'], scores: [0,0,0,0,0,0], maxSelect: 2 },
+    { id: 18, pillar: 'Segmentation', text: 'What\u2019s your biggest obstacle to building an assurance operation that clients come back to and refer others to?', options: ['No time \u2014 delivery pressure eats the week', 'No expertise \u2014 unsure what to standardise', 'No accountability \u2014 improvements slip without ownership', 'No clarity \u2014 too many possible fixes to prioritise', 'Chaotic document management \u2014 wrong versions, lost work'], scores: [0,0,0,0,0], segment: true },
+    { id: 19, pillar: 'Segmentation', text: 'What type of solution are you looking for?', options: ['An AI expert to work alongside my delivery team', 'A signed-off CEM/CRE delivering AI-enabled assurance on live schemes', 'A proven software we can adopt and run independently'], scores: [0,0,0], segment: true },
+    { id: 20, pillar: 'Segmentation', text: 'Is there anything else you\u2019d like us to know \u2014 about your situation, what\u2019s driving the urgency, or what a good outcome looks like?', openText: true }
+  ];
+
+  const pillarNames = ['Pilot', 'Automate', 'Compound', 'Evolve', 'Digitalise'];
+  const totalQ = questions.length;
+  let currentQ = 0;
+  let answers = {};
+
+  const main = document.getElementById('sc-main');
+  const progressFill = document.getElementById('progress-fill');
+  const progressText = document.getElementById('progress-text');
+
+  function updateProgress() {
+    const pct = Math.round(((currentQ) / totalQ) * 100);
+    progressFill.style.width = pct + '%';
+    progressText.textContent = currentQ + ' / ' + totalQ;
+  }
+
+  function renderQuestion(idx) {
+    const q = questions[idx];
+    currentQ = idx;
+    updateProgress();
+
+    let html = '<div class="sc-screen active">';
+    if (q.pillar !== 'Segmentation') {
+      html += '<div class="sc-pillar-badge">' + q.pillar + '</div>';
+    }
+    html += '<div class="sc-question-num">Question ' + q.id + ' of ' + totalQ + '</div>';
+    html += '<div class="sc-question-text">' + q.text + '</div>';
+
+    if (q.openText) {
+      html += '<textarea class="sc-textarea" id="open-text" placeholder="Optional \u2014 share anything that would help us understand your situation...">' + (answers[idx] || '') + '</textarea>';
+    } else if (q.multi) {
+      html += '<div class="sc-options">';
+      const selected = answers[idx] || [];
+      q.options.forEach((opt, i) => {
+        const isSelected = selected.includes(i);
+        html += '<button class="sc-option sc-option-multi' + (isSelected ? ' selected' : '') + '" data-idx="' + i + '">' + opt + '</button>';
+      });
+      html += '</div>';
+    } else {
+      html += '<div class="sc-options">';
+      q.options.forEach((opt, i) => {
+        const isSelected = answers[idx] === i;
+        html += '<button class="sc-option' + (isSelected ? ' selected' : '') + '" data-idx="' + i + '">' + opt + '</button>';
+      });
+      html += '</div>';
+    }
+
+    // Nav
+    html += '<div class="sc-nav">';
+    if (idx > 0) {
+      html += '<button class="sc-btn sc-btn-back" onclick="app.prev()">&#8592; Back</button>';
+    } else {
+      html += '<div></div>';
+    }
+
+    if (q.openText) {
+      html += '<button class="sc-btn sc-btn-next" onclick="app.next()">See My Results</button>';
+    } else if (idx === totalQ - 1) {
+      html += '<button class="sc-btn sc-btn-next" onclick="app.next()" id="next-btn">See My Results</button>';
+    } else {
+      html += '<button class="sc-btn sc-btn-next" onclick="app.next()" id="next-btn"' + (answers[idx] === undefined ? ' disabled' : '') + '>Next</button>';
+    }
+    html += '</div>';
+
+    if (q.openText) {
+      html += '<button class="sc-skip" onclick="app.next()">Skip this question</button>';
+    }
+
+    html += '</div>';
+    main.innerHTML = html;
+
+    // Bind option clicks
+    if (!q.openText) {
+      main.querySelectorAll('.sc-option').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const optIdx = parseInt(this.dataset.idx);
+          if (q.multi) {
+            let sel = answers[idx] || [];
+            if (sel.includes(optIdx)) {
+              sel = sel.filter(s => s !== optIdx);
+            } else if (sel.length < (q.maxSelect || 2)) {
+              sel = [...sel, optIdx];
+            }
+            answers[idx] = sel;
+            renderQuestion(idx);
+          } else {
+            answers[idx] = optIdx;
+            // Auto-advance after a brief pause
+            main.querySelectorAll('.sc-option').forEach(o => o.classList.remove('selected'));
+            this.classList.add('selected');
+            setTimeout(() => app.next(), 300);
+          }
+        });
+      });
+    }
+  }
+
+  function calcScores() {
+    const pillarScores = {};
+    pillarNames.forEach(p => { pillarScores[p] = { earned: 0, max: 0 }; });
+
+    questions.forEach((q, idx) => {
+      if (pillarNames.includes(q.pillar) && answers[idx] !== undefined) {
+        pillarScores[q.pillar].max += 3;
+        pillarScores[q.pillar].earned += q.scores[answers[idx]] || 0;
+      }
+    });
+
+    const pillarPcts = {};
+    let totalEarned = 0, totalMax = 0;
+    pillarNames.forEach(p => {
+      const s = pillarScores[p];
+      pillarPcts[p] = s.max > 0 ? Math.round((s.earned / s.max) * 100) : 0;
+      totalEarned += s.earned;
+      totalMax += s.max;
+    });
+
+    const overall = totalMax > 0 ? Math.round((totalEarned / totalMax) * 100) : 0;
+    const weakest = pillarNames.reduce((min, p) => pillarPcts[p] < pillarPcts[min] ? p : min, pillarNames[0]);
+
+    return { pillarPcts, overall, weakest };
+  }
+
+  function getLevel(pct) {
+    if (pct >= 67) return 'high';
+    if (pct >= 34) return 'mid';
+    return 'low';
+  }
+
+  function getHeadline(pct) {
+    if (pct >= 75) return 'Strong foundation — time to compound your advantage.';
+    if (pct >= 50) return 'Decent base, but fragile under pressure.';
+    if (pct >= 25) return 'Significant gaps — your delivery depends on heroics.';
+    return 'Critical: your system needs fundamental rebuilding.';
+  }
+
+  function getWeakestInsight(pillar) {
+    const insights = {
+      'Pilot': 'Your team isn\'t capturing "what good looks like" in reusable form. Every scheme starts cold, which means inconsistent quality and avoidable rework.',
+      'Automate': 'Quality is trapped in individuals, not embedded in your systems. When key people are unavailable, your output suffers.',
+      'Compound': 'Improvements aren\'t accumulating. You\'re solving the same problems repeatedly instead of building on past learning.',
+      'Evolve': 'Your growth model depends on personal relationships and heroics rather than a repeatable system that generates work independently.',
+      'Digitalise': 'Your traceability and information retrieval are manual and fragile. Audit trails take too long, and capability walks out the door with people.'
+    };
+    return insights[pillar] || '';
+  }
+
+  function renderResults() {
+    const { pillarPcts, overall, weakest } = calcScores();
+    const lvl = getLevel(overall);
+    currentQ = totalQ;
+    updateProgress();
+
+    let html = '<div class="sc-screen active">';
+
+    // Header
+    html += '<div class="results-header">';
+    html += '<div class="results-score-circle ' + lvl + '">';
+    html += '<div class="results-score-num">' + overall + '%</div>';
+    html += '<div class="results-score-label">Overall</div>';
+    html += '</div>';
+    html += '<div class="results-headline">' + getHeadline(overall) + '</div>';
+    html += '<div class="results-subtitle">Here\'s how your delivery system scores across the five PACED pillars.</div>';
+    html += '</div>';
+
+    // Pillar breakdown
+    html += '<div class="pillar-breakdown"><h3>Score by Pillar</h3>';
+    pillarNames.forEach(p => {
+      const pct = pillarPcts[p];
+      const l = getLevel(pct);
+      html += '<div class="pillar-row">';
+      html += '<div class="pillar-name">' + p + '</div>';
+      html += '<div class="pillar-bar"><div class="pillar-bar-fill ' + l + '" style="width:0%" data-width="' + pct + '"></div></div>';
+      html += '<div class="pillar-pct">' + pct + '%</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    // Weakest pillar callout
+    html += '<div class="weakest-callout">';
+    html += '<svg class="weakest-callout-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>';
+    html += '<div><h4>Your weakest pillar: ' + weakest + ' (' + pillarPcts[weakest] + '%)</h4>';
+    html += '<p>' + getWeakestInsight(weakest) + '</p></div>';
+    html += '</div>';
+
+    // Email gate (soft)
+    html += '<div class="email-gate">';
+    html += '<h3>Get your detailed PDF breakdown</h3>';
+    html += '<p>Specific insights and prioritised next steps for each pillar — sent to your inbox.</p>';
+    html += '<form class="email-gate-form" onsubmit="event.preventDefault(); this.querySelector(\'button\').textContent=\'Sent!\'; this.querySelector(\'button\').disabled=true;">';
+    html += '<input type="email" placeholder="your@email.com">';
+    html += '<button type="submit">Send Report</button>';
+    html += '</form>';
+    html += '</div>';
+
+    // CTA
+    html += '<div class="results-cta">';
+    html += '<p>Want to talk through your results and explore what\'s possible?</p>';
+    html += '<a href="https://calendly.com/bill-guo-automatex/30min" target="_blank" rel="noopener" class="sc-btn sc-btn-next">Book a Call to Discuss Your Results</a>';
+    html += '</div>';
+
+    html += '</div>';
+    main.innerHTML = html;
+
+    // Animate bars
+    setTimeout(() => {
+      main.querySelectorAll('.pillar-bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+    }, 100);
+  }
+
+  // ========== APP CONTROLLER ==========
+  window.app = {
+    next() {
+      const q = questions[currentQ];
+      if (q && q.openText) {
+        const ta = document.getElementById('open-text');
+        if (ta && ta.value.trim()) answers[currentQ] = ta.value.trim();
+      }
+      if (currentQ >= totalQ - 1) {
+        renderResults();
+      } else {
+        renderQuestion(currentQ + 1);
+      }
+    },
+    prev() {
+      if (currentQ > 0) renderQuestion(currentQ - 1);
+    }
+  };
+
+  // Start
+  renderQuestion(0);
+})();
+</script>
+
+</body>
+</html>
