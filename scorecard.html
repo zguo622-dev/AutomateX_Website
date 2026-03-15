@@ -652,6 +652,10 @@
   let currentQ = 0;
   let answers = {};
 
+  // Expose for submitReport to read dynamically
+  window._scorecardQuestions = questions;
+  window._scorecardAnswers = answers;
+
   const main = document.getElementById('sc-main');
   const progressFill = document.getElementById('progress-fill');
   const progressText = document.getElementById('progress-text');
@@ -889,6 +893,27 @@ function submitReport(e, overallScore, pillarPctsJson) {
   e.preventDefault();
   var form = document.getElementById('report-form');
   var btn = form.querySelector('button');
+
+  // Build full responses from the live questions/answers data
+  var responses = [];
+  var qs = window._scorecardQuestions;
+  var ans = window._scorecardAnswers;
+  for (var i = 0; i < qs.length; i++) {
+    var q = qs[i];
+    var a = ans[i];
+    var entry = { question: q.text, pillar: q.pillar };
+    if (q.openText) {
+      entry.answer = a || '';
+    } else if (q.multi) {
+      entry.selected = Array.isArray(a) ? a.map(function(idx) { return q.options[idx]; }) : [];
+    } else if (a !== undefined) {
+      entry.selected = q.options[a];
+    } else {
+      entry.selected = null;
+    }
+    responses.push(entry);
+  }
+
   var data = {
     name: form.name.value,
     company: form.company.value,
@@ -897,6 +922,7 @@ function submitReport(e, overallScore, pillarPctsJson) {
     phone: form.phone.value || '',
     overallScore: overallScore,
     pillarScores: JSON.parse(pillarPctsJson),
+    responses: responses,
     source: 'Scorecard PDF Request',
     timestamp: new Date().toISOString()
   };
