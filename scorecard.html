@@ -502,14 +502,38 @@
   }
 
   .email-gate-form {
-    display: flex;
-    gap: 0.5rem;
-    max-width: 380px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    max-width: 480px;
     margin: 0 auto;
+    text-align: left;
+  }
+
+  .email-gate-form .full-width {
+    grid-column: 1 / -1;
+  }
+
+  .email-gate-form label {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  .email-gate-form label .optional {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-400);
   }
 
   .email-gate-form input {
-    flex: 1;
+    width: 100%;
     padding: 0.75rem 1rem;
     border: 1.5px solid var(--gray-200);
     border-radius: 8px;
@@ -524,20 +548,23 @@
   .email-gate-form input::placeholder { color: var(--gray-400); }
 
   .email-gate-form button {
-    padding: 0.75rem 1.25rem;
+    grid-column: 1 / -1;
+    padding: 0.875rem 1.25rem;
     border-radius: 8px;
-    background: var(--navy);
+    background: var(--orange);
     color: var(--white);
     font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.8125rem;
+    font-weight: 700;
+    font-size: 0.9375rem;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    transition: background var(--transition-fast);
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    margin-top: 0.25rem;
   }
 
-  .email-gate-form button:hover { background: var(--navy-deep); }
+  .email-gate-form button:hover { background: var(--orange-dark); transform: translateY(-1px); }
+  .email-gate-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
   /* CTA */
   .results-cta {
@@ -560,7 +587,7 @@
   /* ========== RESPONSIVE ========== */
   @media (max-width: 640px) {
     .sc-progress-wrap { max-width: 180px; margin-left: 1rem; }
-    .email-gate-form { flex-direction: column; }
+    .email-gate-form { grid-template-columns: 1fr; }
     .pillar-row { grid-template-columns: 80px 1fr 36px; gap: 0.625rem; }
   }
 </style>
@@ -804,13 +831,17 @@
     html += '<p>' + getWeakestInsight(weakest) + '</p></div>';
     html += '</div>';
 
-    // Email gate (soft)
+    // Contact gate for PDF report
     html += '<div class="email-gate">';
     html += '<h3>Get your detailed PDF breakdown</h3>';
-    html += '<p>Specific insights and prioritised next steps for each pillar — sent to your inbox.</p>';
-    html += '<form class="email-gate-form" onsubmit="event.preventDefault(); this.querySelector(\'button\').textContent=\'Sent!\'; this.querySelector(\'button\').disabled=true;">';
-    html += '<input type="email" placeholder="your@email.com">';
-    html += '<button type="submit">Send Report</button>';
+    html += '<p>Specific insights and prioritised next steps for each pillar — sent instantly to your inbox.</p>';
+    html += '<form class="email-gate-form" id="report-form" onsubmit="submitReport(event, ' + overall + ', \'' + JSON.stringify(pillarPcts).replace(/'/g, "\\'") + '\')">';
+    html += '<div><label>Full Name *</label><input type="text" name="name" placeholder="John Smith" required></div>';
+    html += '<div><label>Company *</label><input type="text" name="company" placeholder="Your company" required></div>';
+    html += '<div><label>Role *</label><input type="text" name="role" placeholder="e.g. Engineering Manager" required></div>';
+    html += '<div><label>Email *</label><input type="email" name="email" placeholder="you@company.com" required></div>';
+    html += '<div class="full-width"><label>Phone <span class="optional">(optional)</span></label><input type="tel" name="phone" placeholder="+44 7xxx xxx xxx"></div>';
+    html += '<button type="submit">Send My Report</button>';
     html += '</form>';
     html += '</div>';
 
@@ -853,6 +884,43 @@
   // Start
   renderQuestion(0);
 })();
+
+function submitReport(e, overallScore, pillarPctsJson) {
+  e.preventDefault();
+  var form = document.getElementById('report-form');
+  var btn = form.querySelector('button');
+  var data = {
+    name: form.name.value,
+    company: form.company.value,
+    role: form.role.value,
+    email: form.email.value,
+    phone: form.phone.value || '',
+    overallScore: overallScore,
+    pillarScores: JSON.parse(pillarPctsJson),
+    source: 'Scorecard PDF Request',
+    timestamp: new Date().toISOString()
+  };
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch('REPLACE_WITH_SCORECARD_WEBHOOK_URL', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(function(res) {
+    if (!res.ok) throw new Error('Network error');
+    btn.textContent = 'Report Sent!';
+    btn.style.background = '#10B981';
+  })
+  .catch(function() {
+    btn.textContent = 'Error — try again';
+    btn.disabled = false;
+    btn.style.background = '#EF4444';
+    setTimeout(function() { btn.style.background = ''; btn.textContent = 'Send My Report'; }, 3000);
+  });
+}
 </script>
 
 </body>
