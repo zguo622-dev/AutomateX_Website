@@ -211,7 +211,67 @@
     box-shadow: 0 0 0 3px rgba(249,101,50,0.08);
   }
 
-  /* Multi-select for Q17 */
+  /* ── 1-10 Scale UI ── */
+  .sc-scale-anchors {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8125rem;
+    color: var(--gray-500);
+    margin-bottom: 0.875rem;
+    line-height: 1.4;
+    gap: 1rem;
+  }
+
+  .sc-scale-anchors span:last-child { text-align: right; }
+
+  .sc-scale-btns {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .sc-scale-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    border: 1.5px solid var(--gray-200);
+    background: var(--white);
+    font-family: var(--font-heading);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .sc-scale-btn:hover {
+    border-color: var(--orange);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(249,101,50,0.12);
+  }
+
+  .sc-scale-btn.selected {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--white);
+    box-shadow: 0 4px 14px rgba(249,101,50,0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Segmentation header */
+  .sc-segment-header {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Multi-select for Q18 */
   .sc-option-multi {
     position: relative;
     padding-left: 2.75rem;
@@ -618,33 +678,180 @@
 <script>
 (function() {
   // ========== QUESTION DATA ==========
+  // scale: true  = 1-10 slider question; scaleMin/scaleMax = anchor labels
+  // Scoring for scale: 1-3 → 0pts, 4-6 → 1pt, 7-10 → 3pts
+  // Scoring for MCQ:   best=3, mid=1, worst=0
+  // Scored pillars: Pilot, Automate, Compound, Evolve, Digitalise (Q1-Q15)
+  // Unscored: Segmentation (Q16-Q19), openText (Q20)
   const questions = [
-    // PILOT (Q1-3)
-    { id: 1, pillar: 'Pilot', text: 'When you onboard a new scheme, does your team start from a structured template informed by past projects, or does the engineering team effectively start from scratch every time?', options: ['Structured template informed by past projects', 'We have some templates but they\'re not consistently used', 'We effectively start from scratch each time'], scores: [3, 1, 0] },
-    { id: 2, pillar: 'Pilot', text: 'In the last six months, have you made a specific change to how your team produces Form G (or equivalent assurance submissions), and can you point to a measurable reduction in comments as a direct result?', options: ['Yes, with measurable evidence of improvement', 'We\'ve made changes but haven\'t measured the impact', 'No specific changes made'], scores: [3, 1, 0] },
-    { id: 3, pillar: 'Pilot', text: 'When you receive a CAT 3 comment, do you change the way you work for the next submission, or do you patch the specific issue and move on?', options: ['Change the way we work for future submissions', 'Sometimes we adjust, but it\'s inconsistent', 'Patch the specific issue and move on'], scores: [3, 1, 0] },
-    // AUTOMATE (Q4-6)
-    { id: 4, pillar: 'Automate', text: 'If your most experienced CEM or CRE was unavailable for two weeks, would the quality of your Form G submissions change noticeably?', options: ['No \u2014 quality is consistent regardless of who\'s available', 'There would be some impact, but we\'d manage', 'Yes \u2014 quality depends heavily on specific individuals'], scores: [3, 1, 0] },
-    { id: 5, pillar: 'Automate', text: 'Does your team have a single shared reference that maps each section of the Form G to the specific NR standards, Eurocodes, and project documents required \u2014 that anyone including junior engineers can follow?', options: ['Yes, a clear and accessible shared reference', 'We have something, but it\'s incomplete or hard to find', 'No \u2014 it\'s mostly tribal knowledge'], scores: [3, 1, 0] },
-    { id: 6, pillar: 'Automate', text: 'Do your engineers spend time hunting across SharePoint, emails, and shared drives to locate the right version of an NR standard or a past precedent before they can start drafting?', options: ['Rarely \u2014 information is easy to find', 'Sometimes \u2014 it depends on the project', 'Frequently \u2014 it\'s a significant time drain'], scores: [3, 1, 0] },
-    // COMPOUND (Q7-9)
-    { id: 7, pillar: 'Compound', text: 'Do you know your average Form G revision cycles from 12 months ago, and is that number lower today?', options: ['Yes, and it\'s measurably lower', 'We track it loosely but haven\'t seen clear improvement', 'We don\'t track revision cycles'], scores: [3, 1, 0] },
-    { id: 8, pillar: 'Compound', text: 'If a CEM/CRE started on a scheme similar to one you completed 18 months ago, could they locate and apply your past project knowledge without asking a colleague within one working day?', options: ['Yes \u2014 knowledge is accessible and organised', 'They\'d find some of it, but would need to ask around', 'They\'d struggle \u2014 most knowledge lives in people\'s heads'], scores: [3, 1, 0] },
-    { id: 9, pillar: 'Compound', text: 'How often do your engineers receive opinion-driven DRN comments \u2014 feedback based on reviewer preference rather than a clear standard requirement \u2014 that they struggle to answer?', options: ['Rarely \u2014 our submissions are well-anchored in standards', 'Occasionally \u2014 some submissions invite subjective feedback', 'Frequently \u2014 it\'s a major source of delays'], scores: [3, 1, 0] },
-    // EVOLVE (Q10-12)
-    { id: 10, pillar: 'Evolve', text: 'When you win a repeat appointment from a client, is it because they actively sought you out, or because you competed on price again?', options: ['They actively sought us out', 'A mix of both', 'We competed on price'], scores: [3, 1, 0] },
-    { id: 11, pillar: 'Evolve', text: 'If your two biggest client relationships left their business tomorrow, would your pipeline be at serious risk, or do you have a system that generates work independently?', options: ['We have a system that generates work independently', 'We\'d be concerned but could recover', 'Our pipeline would be at serious risk'], scores: [3, 1, 0] },
-    { id: 12, pillar: 'Evolve', text: 'When you are heads-down delivering a live scheme, does your pipeline of new work suffer? And when you\'re out winning work, does delivery quality feel at risk?', options: ['No \u2014 we have systems that handle both', 'One area suffers when we focus on the other', 'Yes \u2014 it\'s a constant trade-off'], scores: [3, 1, 0] },
-    // DIGITALISE (Q13-15)
-    { id: 13, pillar: 'Digitalise', text: 'Can you produce a complete audit trail from design requirement through to signed Form G \u2014 without hunting across email threads and document management systems \u2014 in under 30 minutes?', options: ['Yes, consistently', 'Sometimes, depending on the project', 'No \u2014 it usually takes much longer'], scores: [3, 1, 0] },
-    { id: 14, pillar: 'Digitalise', text: 'When your team considers using AI tools to support technical report production or compliance checking, what is the most common reaction?', options: ['Active interest or healthy scepticism', 'Uncertainty \u2014 not sure where to start', 'Outright resistance'], scores: [3, 1, 0] },
-    { id: 15, pillar: 'Digitalise', text: 'If a senior engineer left your business tomorrow, how much of your assurance process capability would leave with them?', options: ['Very little \u2014 it\'s in our systems and standards', 'Some \u2014 they have unique knowledge but we\'d cope', 'A lot \u2014 critical capability would walk out the door'], scores: [3, 1, 0] },
-    // SEGMENTATION (Q16-20)
-    { id: 16, pillar: 'Segmentation', text: 'Which best describes your current team situation?', options: ['Small team (1\u20135 people) \u2014 CEM/CRE coverage is thin', 'Core team (6\u201312 people) \u2014 multiple schemes but reliant on key seniors', 'Larger team (13\u201330 people) \u2014 multiple CEM/CREs and parallel streams', '31+ people \u2014 delivering assurance at scale'], scores: [0, 0, 0, 0], segment: true },
-    { id: 17, pillar: 'Segmentation', text: 'What are the top 2 challenges you\u2019d like to solve in the next 90 days?', multi: true, options: ['Reduce Form G comments and resubmissions', 'Stop relying on 1\u20132 key engineers for quality', 'Cut revision ping-pong and unclear ownership', 'Make standards and precedents easy to find', 'Improve traceability and audit trail speed', 'Stop the feast-or-famine pipeline cycle'], scores: [0,0,0,0,0,0], maxSelect: 2 },
-    { id: 18, pillar: 'Segmentation', text: 'What\u2019s your biggest obstacle to building an assurance operation that clients come back to and refer others to?', options: ['No time \u2014 delivery pressure eats the week', 'No expertise \u2014 unsure what to standardise', 'No accountability \u2014 improvements slip without ownership', 'No clarity \u2014 too many possible fixes to prioritise', 'Chaotic document management \u2014 wrong versions, lost work'], scores: [0,0,0,0,0], segment: true },
-    { id: 19, pillar: 'Segmentation', text: 'What type of solution are you looking for?', options: ['An AI expert to work alongside my delivery team', 'A signed-off CEM/CRE delivering AI-enabled assurance on live schemes', 'A proven software we can adopt and run independently'], scores: [0,0,0], segment: true },
-    { id: 20, pillar: 'Segmentation', text: 'Is there anything else you\u2019d like us to know \u2014 about your situation, what\u2019s driving the urgency, or what a good outcome looks like?', openText: true }
+    // ── OPENING: most relatable questions first ──
+    // Q1 — AUTOMATE (universal pain: hunting for info)
+    { id: 1, pillar: 'Automate', scale: true,
+      text: 'How easily can your engineers find the right standard or past precedent before starting a submission?',
+      scaleMin: 'Significant time lost hunting across emails and shared drives',
+      scaleMax: 'Instant \u2014 everything is organised and accessible',
+      scores: [] },
+
+    // Q2 — PILOT (templates / starting fresh)
+    { id: 2, pillar: 'Pilot', scale: true,
+      text: 'How consistently does your team start new schemes from structured templates informed by past projects?',
+      scaleMin: 'We largely start from scratch each time',
+      scaleMax: 'Always \u2014 templates are embedded and used by everyone',
+      scores: [] },
+
+    // Q3 — EVOLVE (pipeline vs delivery tension)
+    { id: 3, pillar: 'Evolve', scale: true,
+      text: 'When your team is heads-down on live delivery, how well does your pipeline of new work hold up?',
+      scaleMin: 'Pipeline dries up completely when we\u2019re busy delivering',
+      scaleMax: 'Both run smoothly and in parallel',
+      scores: [] },
+
+    // ── PILOT ──
+    // Q4 — behaviour after a comment (type matters, not degree)
+    { id: 4, pillar: 'Pilot',
+      text: 'When you receive a significant review comment on a submission (e.g. CAT 3), what typically happens next?',
+      options: [
+        'We update our process so the same issue cannot recur',
+        'We sometimes adjust, but it is not consistent',
+        'We fix that specific comment and move on'
+      ], scores: [3, 1, 0] },
+
+    // Q5 — measurable improvement (yes/partly/no)
+    { id: 5, pillar: 'Pilot',
+      text: 'In the last 6 months, have you made a measurable improvement to your submission and assurance process (e.g. Form G production, DRN comments resolution)?',
+      options: [
+        'Yes, with clear evidence of fewer comments or faster approval',
+        'We have made changes but have not measured the impact',
+        'No specific changes have been made'
+      ], scores: [3, 1, 0] },
+
+    // ── AUTOMATE ──
+    // Q6 — compliance map (does team know the specific standards/clauses required)
+    { id: 6, pillar: 'Automate',
+      text: 'Does your team have a clear and documented method to identify the specific standards, clauses, and compliance gates required for each project scope (e.g. Form A/B/G requirements)?',
+      options: [
+        'Yes, it is clearly documented and accessible, and junior engineers can work to it without guidance',
+        'We have something, but it is incomplete or inconsistently applied across projects',
+        'No, it relies on experienced engineers knowing what applies'
+      ], scores: [3, 1, 0] },
+
+    // Q7 — documented knowledge (degree)
+    { id: 7, pillar: 'Automate', scale: true,
+      text: 'How well is your engineering knowledge documented so a new or junior engineer can work on a simple submission (e.g. Form G/H) independently?',
+      scaleMin: 'Almost everything lives in experienced engineers\u2019 heads',
+      scaleMax: 'Fully documented and accessible to anyone on the team',
+      scores: [] },
+
+    // ── COMPOUND ──
+    // Q8 — tracking revision cycles (do you or don't you)
+    { id: 8, pillar: 'Compound',
+      text: 'Do you track how many revision cycles your submissions go through, and is that number improving?',
+      options: [
+        'Yes, we track it and it is lower than 12 months ago',
+        'We track loosely but have not seen clear improvement',
+        'We do not track revision cycles'
+      ], scores: [3, 1, 0] },
+
+    // Q9 — past project knowledge accessibility (degree)
+    { id: 9, pillar: 'Compound', scale: true,
+      text: 'How easily can a new engineer or engineering manager (e.g. CEM/CRE) find and apply knowledge from a similar past project without asking a colleague?',
+      scaleMin: 'They\u2019d have to ask around for days',
+      scaleMax: 'Everything is findable independently within hours',
+      scores: [] },
+
+    // Q10 — opinion-driven review comments (frequency)
+    { id: 10, pillar: 'Compound', scale: true,
+      text: 'How often do you receive review comments from an assurer (e.g. DPE/PE) that feel preference-based rather than grounded in a specific standard?',
+      scaleMin: 'Frequently \u2014 a major source of delays and frustration',
+      scaleMax: 'Rarely \u2014 our submissions are well-anchored in cited standards',
+      scores: [] },
+
+    // ── EVOLVE ──
+    // Q11 — why clients return (type of reason matters)
+    { id: 11, pillar: 'Evolve',
+      text: 'When a client gives you repeat work, why do they come back?',
+      options: [
+        'They actively sought us out, we are their first call',
+        'A mix, reputation and price both played a role',
+        'We competed on price again'
+      ], scores: [3, 1, 0] },
+
+    // Q12 — pipeline resilience (degree)
+    { id: 12, pillar: 'Evolve', scale: true,
+      text: 'If your two biggest client contacts moved on tomorrow, how resilient would your pipeline be?',
+      scaleMin: 'At serious risk \u2014 most work flows through a few key relationships',
+      scaleMax: 'Strong \u2014 we have systems that generate work independently',
+      scores: [] },
+
+    // ── DIGITALISE ──
+    // Q13 — audit trail (can you or can't you)
+    { id: 13, pillar: 'Digitalise',
+      text: 'Can you produce a complete audit trail from design requirement to signed submission (e.g. Form G/H) in under 30 minutes?',
+      options: [
+        'Yes, consistently',
+        'Sometimes, depending on the project',
+        'No, it takes much longer and involves significant hunting'
+      ], scores: [3, 1, 0] },
+
+    // Q14 — AI reaction (type of attitude matters)
+    { id: 14, pillar: 'Digitalise',
+      text: 'When AI tools come up in team conversation, what is the typical reaction?',
+      options: [
+        'Active interest or healthy scepticism, open to evidence',
+        'Uncertainty, we are not sure where to start',
+        'Resistance, there is pushback on the idea'
+      ], scores: [3, 1, 0] },
+
+    // Q15 — knowledge walking out (degree, inverted)
+    { id: 15, pillar: 'Digitalise', scale: true,
+      text: 'If a senior engineer left tomorrow, how much of your core engineering capability and project knowledge would leave with them?',
+      scaleMin: 'Critical capability would walk out the door',
+      scaleMax: 'Very little, it is all in our systems and documented processes',
+      scores: [] },
+
+    // ── SEGMENTATION (unscored, personalises results) ──
+    { id: 16, pillar: 'Segmentation', segment: true,
+      text: 'How big is your delivery team?',
+      options: [
+        '1 to 5 people, engineer or engineering manager (e.g. CEM/CRE) coverage is thin',
+        '6 to 12 people, multiple schemes reliant on key senior engineers',
+        '13 to 30 people, multiple engineering managers running parallel streams',
+        '31 or more people, delivering assurance at scale'
+      ], scores: [0, 0, 0, 0] },
+
+    { id: 17, pillar: 'Segmentation', segment: true, other: true,
+      text: 'What is your primary role?',
+      options: [
+        'Technical Director, I set strategy and oversee delivery',
+        'Engineering Manager (e.g. CEM/CRE), I lead delivery and sign off submissions',
+        'Engineer, I produce or support the engineering deliverables',
+        'Business Development or Bid Manager, I look after the pipeline and sales side',
+        'Other'
+      ], scores: [0, 0, 0, 0, 0] },
+
+    { id: 18, pillar: 'Segmentation', multi: true, maxSelect: 2,
+      text: 'Pick your top 2 priorities for the next 90 days:',
+      options: [
+        'Reduce submission comments and resubmissions (e.g. DRN)',
+        'Stop relying on 1 or 2 key engineers for quality',
+        'Reduce time lost to admin, version control and document management',
+        'Make standards and past precedents easy to find',
+        'Improve traceability and audit trail speed',
+        'Stop the feast-or-famine pipeline cycle'
+      ], scores: [0, 0, 0, 0, 0, 0] },
+
+    { id: 19, pillar: 'Segmentation', segment: true,
+      text: 'What type of support are you most open to?',
+      options: [
+        'Pilot a risk-free, low-commitment automation project with an AI expert to solve an existing repeating friction point',
+        'A signed-off engineering resource (e.g. CEM/CRE) delivering on a mission-critical live scheme with AI-enabled solutions',
+        'An off-the-shelf toolkit on a SaaS platform that engineers can plug into their existing workflow',
+        'Training to help our team understand the best way to adopt AI in our business (e.g. webinar, CPD, Lunch and Learn)'
+      ], scores: [0, 0, 0, 0] },
+
+    // Q20 — open text (skippable)
+    { id: 20, pillar: 'Segmentation', openText: true,
+      text: 'Anything else you\u2019d like us to know before we show your results? (Optional)' }
   ];
 
   const pillarNames = ['Pilot', 'Automate', 'Compound', 'Evolve', 'Digitalise'];
@@ -674,12 +881,23 @@
     let html = '<div class="sc-screen active">';
     if (q.pillar !== 'Segmentation') {
       html += '<div class="sc-pillar-badge">' + q.pillar + '</div>';
+    } else if (!q.openText) {
+      html += '<div class="sc-segment-header">Almost there \u2014 help us personalise your results</div>';
     }
     html += '<div class="sc-question-num">Question ' + q.id + ' of ' + totalQ + '</div>';
     html += '<div class="sc-question-text">' + q.text + '</div>';
 
     if (q.openText) {
       html += '<textarea class="sc-textarea" id="open-text" placeholder="Optional \u2014 share anything that would help us understand your situation...">' + (answers[idx] || '') + '</textarea>';
+    } else if (q.scale) {
+      // 1-10 number picker
+      const currentVal = answers[idx] !== undefined ? answers[idx] : null;
+      html += '<div class="sc-scale-anchors"><span>' + q.scaleMin + '</span><span>' + q.scaleMax + '</span></div>';
+      html += '<div class="sc-scale-btns">';
+      for (let n = 1; n <= 10; n++) {
+        html += '<button class="sc-scale-btn' + (currentVal === n ? ' selected' : '') + '" data-val="' + n + '">' + n + '</button>';
+      }
+      html += '</div>';
     } else if (q.multi) {
       html += '<div class="sc-options">';
       const selected = answers[idx] || [];
@@ -698,6 +916,9 @@
     }
 
     // Nav
+    const isLastScored = idx === totalQ - 1;
+    const isOpenText = q.openText;
+    const needsNext = q.scale || q.multi; // scale & multi use explicit Next btn
     html += '<div class="sc-nav">';
     if (idx > 0) {
       html += '<button class="sc-btn sc-btn-back" onclick="app.prev()">&#8592; Back</button>';
@@ -705,24 +926,42 @@
       html += '<div></div>';
     }
 
-    if (q.openText) {
+    if (isOpenText) {
       html += '<button class="sc-btn sc-btn-next" onclick="app.next()">See My Results</button>';
-    } else if (idx === totalQ - 1) {
-      html += '<button class="sc-btn sc-btn-next" onclick="app.next()" id="next-btn">See My Results</button>';
+    } else if (isLastScored || needsNext) {
+      const disabled = answers[idx] === undefined ? ' disabled' : '';
+      const label = isLastScored ? 'See My Results' : 'Next';
+      html += '<button class="sc-btn sc-btn-next" onclick="app.next()" id="next-btn"' + disabled + '>' + label + '</button>';
     } else {
-      html += '<button class="sc-btn sc-btn-next" onclick="app.next()" id="next-btn"' + (answers[idx] === undefined ? ' disabled' : '') + '>Next</button>';
+      html += '<div></div>';
     }
     html += '</div>';
 
-    if (q.openText) {
+    if (isOpenText) {
       html += '<button class="sc-skip" onclick="app.next()">Skip this question</button>';
     }
 
     html += '</div>';
     main.innerHTML = html;
 
-    // Bind option clicks
-    if (!q.openText) {
+    // Bind scale button clicks
+    if (q.scale) {
+      main.querySelectorAll('.sc-scale-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const val = parseInt(this.dataset.val);
+          answers[idx] = val;
+          main.querySelectorAll('.sc-scale-btn').forEach(b => b.classList.remove('selected'));
+          this.classList.add('selected');
+          const nb = document.getElementById('next-btn');
+          if (nb) nb.disabled = false;
+          // Auto-advance after selection
+          setTimeout(() => app.next(), 350);
+        });
+      });
+    }
+
+    // Bind MCQ option clicks
+    if (!q.openText && !q.scale) {
       main.querySelectorAll('.sc-option').forEach(btn => {
         btn.addEventListener('click', function() {
           const optIdx = parseInt(this.dataset.idx);
@@ -737,14 +976,52 @@
             renderQuestion(idx);
           } else {
             answers[idx] = optIdx;
-            // Auto-advance after a brief pause
             main.querySelectorAll('.sc-option').forEach(o => o.classList.remove('selected'));
             this.classList.add('selected');
-            setTimeout(() => app.next(), 300);
+            // Show "Other" text input if last option selected on a q.other question
+            if (q.other && optIdx === q.options.length - 1) {
+              let otherWrap = document.getElementById('other-input-wrap');
+              if (!otherWrap) {
+                otherWrap = document.createElement('div');
+                otherWrap.id = 'other-input-wrap';
+                otherWrap.style.cssText = 'margin-top:0.75rem;';
+                const inp = document.createElement('input');
+                inp.type = 'text';
+                inp.id = 'other-text-input';
+                inp.placeholder = 'Please specify your role';
+                inp.value = answers['otherText_' + idx] || '';
+                inp.style.cssText = 'width:100%;padding:0.875rem 1rem;border:1.5px solid var(--gray-200);border-radius:10px;font-family:var(--font-body);font-size:0.9375rem;color:var(--navy);outline:none;transition:border-color 150ms;';
+                inp.addEventListener('focus', () => inp.style.borderColor = 'var(--orange)');
+                inp.addEventListener('blur', () => inp.style.borderColor = 'var(--gray-200)');
+                inp.addEventListener('input', () => { answers['otherText_' + idx] = inp.value; });
+                otherWrap.appendChild(inp);
+                main.querySelector('.sc-options').after(otherWrap);
+                setTimeout(() => inp.focus(), 50);
+              }
+            } else {
+              // Remove other input if a different option selected
+              const otherWrap = document.getElementById('other-input-wrap');
+              if (otherWrap) otherWrap.remove();
+              // Auto-advance for non-Other options
+              setTimeout(() => app.next(), 300);
+            }
           }
         });
       });
     }
+  }
+
+  function scaleToScore(val) {
+    // 1-10 banded: 1-3 → 0pts, 4-6 → 1pt, 7-10 → 3pts
+    if (val >= 7) return 3;
+    if (val >= 4) return 1;
+    return 0;
+  }
+
+  // For Q10 (opinion-driven comments) the scale is inverted — low score = good
+  // handled by flipping the value before band mapping
+  function scaleToScoreInverted(val) {
+    return scaleToScore(11 - val);
   }
 
   function calcScores() {
@@ -752,8 +1029,20 @@
     pillarNames.forEach(p => { pillarScores[p] = { earned: 0, max: 0 }; });
 
     questions.forEach((q, idx) => {
-      if (pillarNames.includes(q.pillar) && answers[idx] !== undefined) {
-        pillarScores[q.pillar].max += 3;
+      if (!pillarNames.includes(q.pillar)) return;
+      if (answers[idx] === undefined) return;
+
+      pillarScores[q.pillar].max += 3;
+
+      if (q.scale) {
+        const val = answers[idx];
+        // Q10 is inverted (low frequency of opinion comments = good = high score)
+        const pts = (q.id === 10) ? scaleToScoreInverted(val) : scaleToScore(val);
+        // Q15 is also inverted (high capability walking out = bad = low score)
+        // but phrased as "how much leaves" so high val = bad → invert
+        const finalPts = (q.id === 15) ? scaleToScoreInverted(val) : pts;
+        pillarScores[q.pillar].earned += finalPts;
+      } else {
         pillarScores[q.pillar].earned += q.scores[answers[idx]] || 0;
       }
     });
@@ -799,6 +1088,9 @@
 
   function renderResults() {
     const { pillarPcts, overall, weakest } = calcScores();
+    // Store for submitReport — avoids embedding JSON in HTML attribute (breaks on double-quotes)
+    window._lastOverall = overall;
+    window._lastPillarPcts = pillarPcts;
     const lvl = getLevel(overall);
     currentQ = totalQ;
     updateProgress();
@@ -839,7 +1131,7 @@
     html += '<div class="email-gate">';
     html += '<h3>Get your detailed PDF breakdown</h3>';
     html += '<p>Specific insights and prioritised next steps for each pillar — sent instantly to your inbox.</p>';
-    html += '<form class="email-gate-form" id="report-form" onsubmit="submitReport(event, ' + overall + ', \'' + JSON.stringify(pillarPcts).replace(/'/g, "\\'") + '\')">';
+    html += '<form class="email-gate-form" id="report-form" onsubmit="submitReport(event)">';
     html += '<div><label>Full Name *</label><input type="text" name="name" placeholder="John Smith" required></div>';
     html += '<div><label>Company *</label><input type="text" name="company" placeholder="Your company" required></div>';
     html += '<div><label>Role *</label><input type="text" name="role" placeholder="e.g. Engineering Manager" required></div>';
@@ -889,10 +1181,12 @@
   renderQuestion(0);
 })();
 
-function submitReport(e, overallScore, pillarPctsJson) {
+function submitReport(e) {
   e.preventDefault();
   var form = document.getElementById('report-form');
   var btn = form.querySelector('button');
+  var overallScore = window._lastOverall;
+  var pillarPcts = window._lastPillarPcts;
 
   // Build full responses from the live questions/answers data
   var responses = [];
@@ -904,10 +1198,18 @@ function submitReport(e, overallScore, pillarPctsJson) {
     var entry = { question: q.text, pillar: q.pillar };
     if (q.openText) {
       entry.answer = a || '';
+    } else if (q.scale) {
+      // Scale questions store the numeric value directly
+      entry.selected = a !== undefined ? a + '/10' : null;
     } else if (q.multi) {
       entry.selected = Array.isArray(a) ? a.map(function(idx) { return q.options[idx]; }) : [];
     } else if (a !== undefined) {
-      entry.selected = q.options[a];
+      var selectedText = q.options[a];
+      // Include "Other" typed text if present
+      if (q.other && a === q.options.length - 1 && ans['otherText_' + i]) {
+        selectedText += ': ' + ans['otherText_' + i];
+      }
+      entry.selected = selectedText;
     } else {
       entry.selected = null;
     }
@@ -921,7 +1223,7 @@ function submitReport(e, overallScore, pillarPctsJson) {
     email: form.email.value,
     phone: form.phone.value || '',
     overallScore: overallScore,
-    pillarScores: JSON.parse(pillarPctsJson),
+    pillarScores: pillarPcts,
     responses: responses,
     source: 'Scorecard PDF Request',
     timestamp: new Date().toISOString()
@@ -936,11 +1238,16 @@ function submitReport(e, overallScore, pillarPctsJson) {
     body: JSON.stringify(data)
   })
   .then(function(res) {
-    if (!res.ok) throw new Error('Network error');
+    if (!res.ok) {
+      return res.text().then(function(txt) {
+        throw new Error('HTTP ' + res.status + ': ' + txt);
+      });
+    }
     btn.textContent = 'Report Sent!';
     btn.style.background = '#10B981';
   })
-  .catch(function() {
+  .catch(function(err) {
+    console.error('[Scorecard] Webhook error:', err);
     btn.textContent = 'Error — try again';
     btn.disabled = false;
     btn.style.background = '#EF4444';
