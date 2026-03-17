@@ -468,6 +468,8 @@
   .section-sub.center { margin: 0 auto; }
 
   /* ========== SERVICES ========== */
+  #services .container { max-width: 1280px; }
+
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -475,33 +477,97 @@
     margin-top: 3rem;
   }
 
+  /* ---- Spotlight glow card system ---- */
   .service-card {
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius);
-    padding: 2.5rem 2rem;
+    --glow-base: 15;
+    --glow-spread: 30;
+    --glow-radius: 16;
+    --glow-border: 2;
+    --glow-size: 220;
+    --glow-spot-opacity: 0.08;
+    --glow-border-spot-opacity: 1;
+    --glow-border-light-opacity: 0.6;
+    --glow-outer: 1;
+    --glow-border-size: calc(var(--glow-border) * 1px);
+    --glow-spotlight-size: calc(var(--glow-size) * 1px);
+    --glow-hue: calc(var(--glow-base) + (var(--glow-xp, 0) * var(--glow-spread)));
+    background-image: radial-gradient(
+      var(--glow-spotlight-size) var(--glow-spotlight-size) at
+      calc(var(--glow-x, 0) * 1px)
+      calc(var(--glow-y, 0) * 1px),
+      hsl(var(--glow-hue) 100% 70% / var(--glow-spot-opacity)),
+      transparent
+    );
+    background-color: var(--white);
+    background-size: calc(100% + (2 * var(--glow-border-size))) calc(100% + (2 * var(--glow-border-size)));
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    border: var(--glow-border-size) solid hsl(0 0% 60% / 0.12);
+    border-radius: calc(var(--glow-radius) * 1px);
+    padding: 2rem 1.75rem;
     position: relative;
     overflow: hidden;
-    transition: box-shadow var(--transition-med), transform var(--transition-med), border-color var(--transition-med);
+    touch-action: none;
+    transition: box-shadow var(--transition-med), transform var(--transition-med);
+  }
+
+  .service-card::before,
+  .service-card::after {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    inset: calc(var(--glow-border-size) * -1);
+    border: var(--glow-border-size) solid transparent;
+    border-radius: calc(var(--glow-radius) * 1px);
+    background-attachment: fixed;
+    background-size: calc(100% + (2 * var(--glow-border-size))) calc(100% + (2 * var(--glow-border-size)));
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+    -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+    mask-clip: padding-box, border-box;
+    -webkit-mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
   }
 
   .service-card::before {
-    content: '';
+    background-image: radial-gradient(
+      calc(var(--glow-spotlight-size) * 0.75) calc(var(--glow-spotlight-size) * 0.75) at
+      calc(var(--glow-x, 0) * 1px)
+      calc(var(--glow-y, 0) * 1px),
+      hsl(var(--glow-hue) 100% 50% / var(--glow-border-spot-opacity)),
+      transparent 100%
+    );
+    filter: brightness(2);
+  }
+
+  .service-card::after {
+    background-image: radial-gradient(
+      calc(var(--glow-spotlight-size) * 0.5) calc(var(--glow-spotlight-size) * 0.5) at
+      calc(var(--glow-x, 0) * 1px)
+      calc(var(--glow-y, 0) * 1px),
+      hsl(0 100% 100% / var(--glow-border-light-opacity)),
+      transparent 100%
+    );
+  }
+
+  /* Outer glow layer */
+  .service-card .glow-outer {
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--orange-light), var(--orange-dark));
-    opacity: 0;
-    transition: opacity var(--transition-med);
+    inset: 0;
+    will-change: filter;
+    opacity: var(--glow-outer);
+    border-radius: calc(var(--glow-radius) * 1px);
+    filter: blur(calc(var(--glow-border-size) * 10));
+    background: none;
+    pointer-events: none;
   }
 
   .service-card:hover {
     box-shadow: 0 12px 40px rgba(0,0,0,0.06);
     transform: translateY(-3px);
-    border-color: rgba(249,101,50,0.15);
   }
-
-  .service-card:hover::before { opacity: 1; }
 
   .service-icon {
     width: 48px;
@@ -512,7 +578,7 @@
     align-items: center;
     justify-content: center;
     color: var(--orange);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .service-icon svg { width: 24px; height: 24px; }
@@ -522,7 +588,7 @@
     font-size: 1.1875rem;
     font-weight: 700;
     color: var(--navy);
-    margin-bottom: 0.625rem;
+    margin-bottom: 0.375rem;
     letter-spacing: -0.01em;
   }
 
@@ -530,7 +596,7 @@
     font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--gray-500);
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
   }
 
   .service-features {
@@ -748,6 +814,127 @@
     100% { opacity: 1; transform: translateY(0); }
   }
 
+  /* Timeline */
+  .pace-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .pace-tl-item {
+    display: flex;
+    gap: 0.75rem;
+    padding-bottom: 1.25rem;
+    position: relative;
+  }
+
+  .pace-tl-item:last-child { padding-bottom: 0; }
+
+  /* Vertical line connecting markers */
+  .pace-tl-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 18px;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  .pace-tl-marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.2);
+    background: transparent;
+    flex-shrink: 0;
+    margin-top: 2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pace-tl-done .pace-tl-marker {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  .pace-tl-current .pace-tl-marker {
+    border-color: var(--orange);
+    background: var(--orange);
+    box-shadow: 0 0 0 4px rgba(249,101,50,0.3);
+    animation: tlPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes tlPulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(249,101,50,0.3); }
+    50% { box-shadow: 0 0 0 8px rgba(249,101,50,0.1); }
+  }
+
+  .pace-tl-label {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .pace-tl-current .pace-tl-label {
+    color: var(--white);
+  }
+
+  .pace-tl-text {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+  }
+
+  .pace-tl-done .pace-tl-text { color: rgba(255,255,255,0.4); }
+  .pace-tl-current .pace-tl-text { color: rgba(255,255,255,0.85); }
+
+  /* Perks list */
+  .pace-perks {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+  }
+
+  .pace-perks h4 {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.625rem;
+  }
+
+  .pace-perks ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pace-perks ul li {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+    padding: 0.2rem 0 0.2rem 1rem;
+    position: relative;
+  }
+
+  .pace-perks ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 5px;
+    height: 5px;
+    background: var(--orange);
+    border-radius: 50%;
+  }
+
   .pace-waitlist input::placeholder { color: rgba(255,255,255,0.35); }
   .pace-waitlist input:focus { border-color: var(--orange); }
 
@@ -798,43 +985,184 @@
     border-bottom: 1px solid var(--gray-200);
   }
 
-  /* Top row: headline left, CTA right */
-  .scorecard-top {
+  .scorecard-section .container { max-width: 1280px; }
+
+  .scorecard-hero {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 380px;
     gap: 3rem;
     align-items: center;
     margin-bottom: 3rem;
   }
 
-  .scorecard-top h2 {
+  .scorecard-hero h2 {
     font-family: var(--font-heading);
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
     font-weight: 800;
     line-height: 1.15;
     letter-spacing: -0.03em;
     color: var(--navy);
+    margin-bottom: 0.75rem;
   }
 
-  .scorecard-highlight {
-    color: var(--orange);
+  .scorecard-hero .sc-subheadline {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 600;
+    color: var(--gray-600);
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
   }
 
-  .scorecard-top p {
+  .scorecard-hero .sc-body p {
     font-size: 0.9375rem;
     color: var(--gray-500);
     line-height: 1.7;
-    margin-top: 1rem;
-    max-width: 520px;
+    margin-bottom: 1rem;
   }
 
+  .sc-stat-callout {
+    background: var(--white);
+    border-left: 3px solid var(--orange);
+    padding: 1rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 3rem;
+  }
+
+  .sc-stat-callout p {
+    font-size: 1rem;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .scorecard-highlight { color: var(--orange); }
+
+  /* Insight cards (extracted from chart) */
+  .sc-insight-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .sc-insight-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .sc-insight-card h4 {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+
+  .sc-insight-card p {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .sc-insight-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sc-insight-card ul li {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    padding: 0.25rem 0 0.25rem 1rem;
+    position: relative;
+  }
+
+  .sc-insight-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.625rem;
+    width: 5px;
+    height: 5px;
+    background: var(--orange);
+    border-radius: 50%;
+  }
+
+  .sc-insight-card.sc-insight-pain {
+    border-color: rgba(237,74,59,0.3);
+    border-style: dashed;
+  }
+
+  .sc-insight-card.sc-insight-pain h4 { color: var(--orange-dark); }
+  .sc-insight-card.sc-insight-pain ul li::before { background: var(--orange-dark); }
+
+  .sc-insight-card.sc-insight-payoff {
+    border-color: rgba(34,197,94,0.3);
+  }
+
+  .sc-insight-card.sc-insight-payoff h4 { color: #16a34a; }
+  .sc-insight-card.sc-insight-payoff ul li::before { background: #16a34a; }
+
+  .sc-insight-source {
+    font-size: 0.6875rem;
+    color: var(--gray-400);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  /* Chart container */
+  .sc-chart-wrap {
+    margin-bottom: 3rem;
+  }
+
+  .sc-chart-bridge {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .sc-chart-bridge p {
+    font-size: 1rem;
+    color: var(--gray-600);
+    font-style: italic;
+  }
+
+  .sc-chart-container {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    padding: 1.5rem;
+    overflow: hidden;
+  }
+
+  .sc-chart-svg { display: block; width: 100%; height: auto; }
+
+  .sc-chart-bridge-bottom {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .sc-chart-bridge-bottom p {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  /* CTA box */
   .scorecard-cta-box {
     text-align: center;
     background: var(--white);
     border: 1px solid var(--gray-200);
     border-radius: 16px;
     padding: 2.5rem 2rem;
-    min-width: 280px;
   }
 
   .scorecard-cta-box h3 {
@@ -940,23 +1268,32 @@
     text-align: center;
   }
 
+
   /* ========== ABOUT / AUTHORITY ========== */
   .about-section {
     padding: var(--section-spacing) 0;
   }
 
   .about-intro {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2.5rem;
+    align-items: start;
     margin-top: 3rem;
     margin-bottom: 2.5rem;
   }
 
+  .about-photo-wrap {
+    width: 220px;
+    height: 280px;
+    border-radius: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
   .about-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center 15%;
     border: 3px solid var(--white);
@@ -1029,22 +1366,288 @@
     line-height: 1.35;
   }
 
+  /* Testimonial slider */
+  .testimonials-heading {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .testimonial-slider {
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+
+  .testimonial-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .testimonial-slide {
+    flex-shrink: 0;
+    width: calc(100% / 3);
+    padding: 0 0.625rem;
+    box-sizing: border-box;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    padding: 1.75rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+  }
+
+  /* Quote watermark */
+  .testimonial-card::before {
+    content: '\201C';
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    font-size: 5rem;
+    font-family: Georgia, serif;
+    color: var(--orange);
+    opacity: 0.08;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .testimonial-org {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-quote {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--navy);
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--gray-200);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Slider controls */
+  .testimonial-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .testimonial-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+
+  .testimonial-btn:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(249,101,50,0.3);
+  }
+
+  .testimonial-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: var(--gray-50);
+  }
+
+  .testimonial-btn:disabled:hover {
+    background: var(--gray-50);
+    border-color: var(--gray-200);
+    color: var(--navy);
+    box-shadow: none;
+  }
+
+  .testimonial-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .testimonial-dots {
+    display: flex;
+    gap: 0.375rem;
+  }
+
+  .testimonial-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gray-300);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+
+  .testimonial-dot.active {
+    background: var(--orange);
+    transform: scale(1.3);
+  }
+
+  @media (max-width: 1024px) {
+    .testimonial-slide { width: 50%; }
+  }
+
+  @media (max-width: 640px) {
+    .testimonial-slide { width: 100%; }
+  }
+
+  /* ========== PROOF METRICS ========== */
+  .proof-strip {
+    padding: 3.5rem 0;
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .proof-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .proof-metric-num {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1.1;
+    margin-bottom: 0.375rem;
+  }
+
+  .proof-metric-label {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 768px) {
+    .proof-metrics { grid-template-columns: repeat(2, 1fr); }
+  }
+
   /* ========== CASE STUDIES ========== */
+  #case-studies .container { max-width: 1360px; }
+
   .cases-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
     margin-top: 3rem;
   }
 
   .case-card {
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius);
+    --glow-base: 15;
+    --glow-spread: 30;
+    --glow-radius: 16;
+    --glow-border: 2;
+    --glow-size: 220;
+    --glow-spot-opacity: 0.06;
+    --glow-border-spot-opacity: 1;
+    --glow-border-light-opacity: 0.5;
+    --glow-outer: 1;
+    --glow-border-size: calc(var(--glow-border) * 1px);
+    --glow-spotlight-size: calc(var(--glow-size) * 1px);
+    --glow-hue: calc(var(--glow-base) + (var(--glow-xp, 0) * var(--glow-spread)));
+    background-image: radial-gradient(
+      var(--glow-spotlight-size) var(--glow-spotlight-size) at
+      calc(var(--glow-x, 0) * 1px)
+      calc(var(--glow-y, 0) * 1px),
+      hsl(var(--glow-hue) 100% 70% / var(--glow-spot-opacity)),
+      transparent
+    );
+    background-color: var(--white);
+    background-size: calc(100% + (2 * var(--glow-border-size))) calc(100% + (2 * var(--glow-border-size)));
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    border: var(--glow-border-size) solid hsl(0 0% 60% / 0.12);
+    border-radius: calc(var(--glow-radius) * 1px);
+    touch-action: none;
     padding: 2rem 1.75rem;
     transition: box-shadow var(--transition-med), transform var(--transition-med);
     display: flex;
     flex-direction: column;
+  }
+
+  .case-card::before,
+  .case-card::after {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    inset: calc(var(--glow-border-size) * -1);
+    border: var(--glow-border-size) solid transparent;
+    border-radius: calc(var(--glow-radius) * 1px);
+    background-attachment: fixed;
+    background-size: calc(100% + (2 * var(--glow-border-size))) calc(100% + (2 * var(--glow-border-size)));
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+    -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+    mask-clip: padding-box, border-box;
+    -webkit-mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
+
+  .case-card::before {
+    background-image: radial-gradient(
+      calc(var(--glow-spotlight-size) * 0.75) calc(var(--glow-spotlight-size) * 0.75) at
+      calc(var(--glow-x, 0) * 1px) calc(var(--glow-y, 0) * 1px),
+      hsl(var(--glow-hue) 100% 50% / var(--glow-border-spot-opacity)),
+      transparent 100%
+    );
+    filter: brightness(2);
+  }
+
+  .case-card::after {
+    background-image: radial-gradient(
+      calc(var(--glow-spotlight-size) * 0.5) calc(var(--glow-spotlight-size) * 0.5) at
+      calc(var(--glow-x, 0) * 1px) calc(var(--glow-y, 0) * 1px),
+      hsl(0 100% 100% / var(--glow-border-light-opacity)),
+      transparent 100%
+    );
   }
 
   .case-card:hover {
@@ -1088,11 +1691,10 @@
   }
 
   .case-desc {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     line-height: 1.65;
     color: var(--gray-500);
-    margin-bottom: 1.5rem;
-    flex: 1;
+    margin-bottom: 0.5rem;
   }
 
   .case-metrics {
@@ -1114,6 +1716,89 @@
     font-size: 0.6875rem;
     color: var(--gray-400);
     margin-top: 0.25rem;
+  }
+
+  /* ========== RESEARCH CREDIBILITY ========== */
+  .research-section {
+    padding: var(--section-spacing) 0;
+    background: var(--navy-deep);
+    color: var(--white);
+  }
+
+  .research-section .container { max-width: 1280px; }
+
+  .research-section .section-eyebrow { color: var(--orange); }
+  .research-section .section-heading { color: var(--white); }
+  .research-section .section-sub { color: rgba(255,255,255,0.6); }
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .research-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .research-card:hover {
+    border-color: rgba(249,101,50,0.3);
+    transform: translateY(-2px);
+  }
+
+  .research-source {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+
+  .research-stat {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .research-desc {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .research-link {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--orange);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: gap 0.2s;
+  }
+
+  .research-link:hover { gap: 0.5rem; }
+
+  .research-footer-text {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.4);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .research-grid { grid-template-columns: 1fr; }
   }
 
   /* ========== CTA ========== */
@@ -1269,11 +1954,14 @@
   @media (max-width: 768px) {
     .services-grid { grid-template-columns: 1fr; }
     .pace-grid { grid-template-columns: 1fr; }
-    .scorecard-top { grid-template-columns: 1fr; }
+    .scorecard-hero { grid-template-columns: 1fr; }
     .scorecard-pillars { grid-template-columns: 1fr; }
-    .about-intro { flex-direction: column; text-align: center; }
+    .sc-insight-cards { grid-template-columns: 1fr; }
+    .about-intro { grid-template-columns: 1fr; text-align: center; }
+    .about-photo-wrap { margin: 0 auto; }
     .about-cards { grid-template-columns: repeat(2, 1fr); }
-    .cases-grid { grid-template-columns: 1fr; }
+    .cases-grid { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 640px) { .cases-grid { grid-template-columns: 1fr; } }
     .navbar-links { display: none; }
     .mobile-toggle { display: flex; }
     .hero-actions { flex-direction: column; }
@@ -1396,9 +2084,10 @@
       <p class="section-sub center">Three complementary services that transform your delivery and competitive position.</p>
     </div>
 
-    <div class="services-grid">
+    <div class="services-grid" id="services-grid">
       <!-- Design Assurance -->
       <div class="service-card">
+        <div class="glow-outer"></div>
         <div class="service-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
         </div>
@@ -1414,6 +2103,7 @@
 
       <!-- Knowledge Systems -->
       <div class="service-card">
+        <div class="glow-outer"></div>
         <div class="service-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg>
         </div>
@@ -1429,6 +2119,7 @@
 
       <!-- Tender Support -->
       <div class="service-card">
+        <div class="glow-outer"></div>
         <div class="service-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6.75 12H9.75m3 0l-3-3m3 3l-3 3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9H3.375z"/></svg>
         </div>
@@ -1483,13 +2174,42 @@
         </div>
       </div>
       <div class="pace-visual">
-        <div class="pace-roadmap">
-          <div class="pace-pill"><span class="pace-pill-dot orange"></span> Scribtive&trade; &mdash; Form G assurance</div>
-          <div class="pace-pill"><span class="pace-pill-dot blue"></span> Scribtive&trade; &mdash; All PACE deliverables generation &amp; assurance</div>
-          <div class="pace-pill"><span class="pace-pill-dot green"></span> PACE OS &mdash; Let engineers do engineering, not admin</div>
+        <!-- Timeline -->
+        <div class="pace-timeline">
+          <div class="pace-tl-item pace-tl-done">
+            <div class="pace-tl-marker"></div>
+            <div class="pace-tl-content">
+              <div class="pace-tl-label">Q4 2025</div>
+              <div class="pace-tl-text">Scribtive&trade; Form G prototype built &amp; tested</div>
+            </div>
+          </div>
+          <div class="pace-tl-item pace-tl-current">
+            <div class="pace-tl-marker"></div>
+            <div class="pace-tl-content">
+              <div class="pace-tl-label">Q1 2026 &mdash; You are here</div>
+              <div class="pace-tl-text">Alpha testing with early adopters</div>
+            </div>
+          </div>
+          <div class="pace-tl-item">
+            <div class="pace-tl-marker"></div>
+            <div class="pace-tl-content">
+              <div class="pace-tl-label">Q2 2026</div>
+              <div class="pace-tl-text">Beta launch &amp; public waitlist access</div>
+            </div>
+          </div>
         </div>
-        <h3>The Future of Railway Delivery</h3>
-        <p>Be among the first to experience PACE OS when it launches.</p>
+
+        <!-- What you get -->
+        <div class="pace-perks">
+          <h4>Join the waitlist and get:</h4>
+          <ul>
+            <li>Early access before public launch</li>
+            <li>Founding member pricing, locked in</li>
+            <li>Direct input into feature priorities</li>
+            <li>Monthly insights from Bill on AI in rail</li>
+          </ul>
+        </div>
+
         <div class="pace-waitlist">
           <input type="email" placeholder="Enter your email" id="waitlist-email">
           <button class="btn btn-primary" onclick="handleWaitlist()">Join Waitlist</button>
@@ -1502,13 +2222,17 @@
 <!-- ===== SCORECARD ===== -->
 <section class="scorecard-section" id="scorecard">
   <div class="container">
-    <!-- Top: headline + CTA -->
-    <div class="scorecard-top">
+
+    <!-- Hero: context left, CTA right -->
+    <div class="scorecard-hero">
       <div>
         <div class="section-eyebrow">Free AI Readiness Self-Assessment</div>
-        <h2>Are you ready to become the supplier that <span class="scorecard-highlight">clients call first?</span></h2>
-        <p>Take this self-assessment to find out your business's AI Readiness Level benchmarked against the <span class="scorecard-highlight"><strong>P.A.C.E.-D</strong></span> method.</p>
-        <p>You will receive a free tailored <span class="scorecard-highlight"><strong>AI-Readiness Insight Report</strong></span> sent to your inbox.</p>
+        <h2>Benchmark Your Team&rsquo;s AI Maturity <span class="scorecard-highlight">&mdash; Fast, Free, Credible</span></h2>
+        <div class="sc-subheadline">Unlock productivity, quality, and work-winning gains in rail engineering &mdash; without risking compliance or safety.</div>
+        <div class="sc-body">
+          <p>Most rail engineering businesses see AI&rsquo;s potential, but struggle to turn experiments into embedded, measurable improvement &mdash; especially with growing client expectations, documentation requirements, and the need for robust assurance.</p>
+          <p>This assessment is built specifically for technical leaders in rail delivery, reflecting realities like IP sensitivity, knowledge management, traceability, and repeatable workflows. In just minutes, get a clear profile of your strengths and gaps across the five <span class="scorecard-highlight"><strong>P.A.C.E.-D</strong></span> pillars &mdash; and receive tailored, actionable feedback to identify high-impact quick wins for the next 90 days.</p>
+        </div>
       </div>
       <div class="scorecard-cta-box">
         <h3>Take the Free Self-Assessment</h3>
@@ -1528,6 +2252,113 @@
             <div class="scorecard-stat-label">Results</div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Full-width stat callout -->
+    <div class="sc-stat-callout">
+      <p>Over 70% of consultancies report AI adoption as a top priority, but fewer than 15% have a structured approach. <strong>Where does your business sit?</strong></p>
+    </div>
+
+    <!-- Insight cards: extracted from chart boxes -->
+    <div class="sc-insight-cards">
+      <div class="sc-insight-card sc-insight-pain">
+        <h4>Sound Familiar?</h4>
+        <ul>
+          <li>Hero employees holding everything together</li>
+          <li>Senior engineers buried in compliance busywork</li>
+          <li>Feast or famine &mdash; pipeline vs delivery</li>
+          <li>Quality depends on individuals, not systems</li>
+          <li>One CAT 3 rejection erodes your margin</li>
+        </ul>
+      </div>
+      <div class="sc-insight-card">
+        <h4>Industry Insight</h4>
+        <p>McKinsey research shows that engineering firms adopting digital workflows achieve <strong>20&ndash;30% productivity gains</strong> and <strong>40% faster project delivery</strong>.</p>
+        <p>Yet over 70% of rail SMEs still rely on manual compliance processes &mdash; creating a structural advantage for early movers.</p>
+        <div class="sc-insight-source">Source: McKinsey Global Institute &middot; AutomateX client research 2024&ndash;25</div>
+      </div>
+      <div class="sc-insight-card sc-insight-payoff">
+        <h4>The Payoff</h4>
+        <ul>
+          <li>First-time approvals &mdash; no rework cycles</li>
+          <li>Engineers focus on judgement, not busywork</li>
+          <li>Scale without burning out your best people</li>
+          <li>Knowledge compounds with every project</li>
+          <li>Become the supplier clients call first</li>
+          <li>Premium pricing with defensible margins</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- P.A.C.E-D Journey Chart (cleaned — no small-text boxes) -->
+    <div class="sc-chart-wrap">
+      <div class="sc-chart-bridge">
+        <p>Most rail businesses are stuck in the Status Quo. The <strong>P.A.C.E-D method</strong> shows the path to becoming the supplier clients call first.</p>
+      </div>
+      <div class="sc-chart-container">
+        <svg id="pacedChart" class="sc-chart-svg" viewBox="0 0 1066 540" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMeet">
+          <defs>
+            <marker id="arrNavy" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1A1F36"/></marker>
+          </defs>
+
+          <!-- Axes -->
+          <line x1="60" y1="400" x2="1020" y2="400" stroke="#DCDCDC" stroke-width="1.5"/>
+
+          <!-- Phase separators (subtle, no cutoffs) -->
+          <line x1="280" y1="30" x2="280" y2="400" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="6 4"/>
+          <line x1="365" y1="30" x2="365" y2="400" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="6 4"/>
+          <line x1="765" y1="30" x2="765" y2="400" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="6 4"/>
+          <line x1="935" y1="30" x2="935" y2="400" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="6 4"/>
+
+          <g id="pcGreyBars"></g>
+          <g id="pcOrangeBars"></g>
+
+          <!-- Status quo line -->
+          <line x1="60" y1="385" x2="280" y2="380" stroke="#1A1F36" stroke-width="2.5"/>
+          <line x1="280" y1="380" x2="1020" y2="374" stroke="#1A1F36" stroke-width="1.5" stroke-dasharray="8 6"/>
+          <path id="pcExpCurve" fill="none" stroke="#F96532" stroke-width="4" stroke-linecap="round"/>
+
+          <!-- X-axis: Status Quo label -->
+          <text x="170" y="395" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="11" fill="#9CA3AF" font-style="italic">Selling man-hours / linear growth</text>
+          <text x="170" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="700" font-size="15" fill="#1A1F36" letter-spacing="2">STATUS QUO</text>
+
+          <!-- Phase labels (large) -->
+          <text x="322" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">PILOT</text>
+          <text x="565" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">AUTOMATE</text>
+          <text x="850" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">COMPOUND</text>
+          <text x="977" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">EVOLVE</text>
+
+          <!-- Phase subtitles -->
+          <text x="322" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">Validate</text>
+          <text x="322" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Risk-free &middot; Low commitment</text>
+
+          <text x="565" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">AI Readiness</text>
+          <text x="565" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Friction removal &middot; Productivity</text>
+
+          <text x="850" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">Scale</text>
+          <text x="850" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Knowledge System &middot; Flywheel</text>
+
+          <text x="977" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">Productise</text>
+          <text x="977" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Outcomes &middot; Repeatable</text>
+
+          <!-- Crossing the chasm banner -->
+          <rect x="365" y="30" width="400" height="24" rx="4" fill="#F96532"/>
+          <text x="565" y="47" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="12" fill="#FFFFFF" letter-spacing="2">CROSSING THE CHASM</text>
+
+          <!-- Digitalise bar (bottom) -->
+          <line x1="300" y1="490" x2="1000" y2="490" stroke="#1A1F36" stroke-width="2" marker-end="url(#arrNavy)"/>
+          <text x="650" y="510" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="700" font-size="14" fill="#1A1F36" letter-spacing="4">DIGITALISE</text>
+          <text x="650" y="530" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="500" font-size="12" fill="#4B5563">
+            <tspan>Defensible Moat</tspan><tspan dx="14">&#183;</tspan><tspan dx="14">Unfair Advantage</tspan><tspan dx="14">&#183;</tspan><tspan dx="14">Premier Positioning</tspan>
+          </text>
+
+          <!-- Y-axis label -->
+          <text x="1046" y="220" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="600" font-size="12" fill="#9CA3AF" letter-spacing="2" transform="rotate(90, 1046, 220)">AI ENABLED RAIL BUSINESS</text>
+        </svg>
+      </div>
+      <div class="sc-chart-bridge-bottom">
+        <p>Find out where you sit on this curve.</p>
       </div>
     </div>
 
@@ -1577,11 +2408,13 @@
     </div>
 
     <div class="about-intro">
-      <img src="images/Header.png" alt="Bill Guo" class="about-photo">
+      <div class="about-photo-wrap"><img src="images/Header.png" alt="Bill Guo" class="about-photo"></div>
       <div class="about-intro-text">
-        <h3>Bill Guo CEng FICE</h3>
+        <h3>Bill Guo FICE CEng MEng</h3>
         <div class="about-intro-role">Founder &amp; Engineering Director, AutomateX Advisory Ltd</div>
-        <p class="about-bio">Fellow of ICE, Chartered Civil Engineer, and Imperial College London alumnus. Former Network Rail Lead DPE and HS2 Engineering Manager. Built a supplier office from scratch to &pound;900k+ fees with 40%+ gross margin. Founded AutomateX to bridge the gap between rigorous engineering assurance and operational speed &mdash; delivering Tier&nbsp;1 certainty without the administrative drag.</p>
+        <p class="about-bio">Over the past 10 years, I&rsquo;ve worked with over 100 railway businesses &mdash; on both sides of the table, clients and suppliers &mdash; and I keep seeing the same patterns and friction points repeat. Senior engineers buried in compliance admin. Quality that depends on who&rsquo;s in the room. Growth that stalls the moment you win more work than your best people can personally oversee.</p>
+        <p class="about-bio">In 2023, I leveraged AI to scale a railway consultancy from zero &mdash; no clients, no pipeline, no revenue &mdash; to approximately &pound;1m ARR by 2025. I turned a corner-shop design consultancy into one of the 16 tactical design partner seats on Southern Renew Enterprise (SRE). That journey is the proof behind everything AutomateX teaches.</p>
+        <p class="about-bio" style="font-style:italic; color:var(--orange);">&ldquo;Engineering excellence shouldn&rsquo;t depend on who&rsquo;s in the room.&rdquo;</p>
       </div>
     </div>
 
@@ -1635,6 +2468,73 @@
         <div class="about-card-label">Imperial College London</div>
       </div>
     </div>
+
+    <!-- Testimonial Slider -->
+    <div class="testimonials-heading">
+      <div class="section-eyebrow">What People Say</div>
+    </div>
+    <div class="testimonial-slider" id="testimonialSlider">
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-org">Train Operating Company</div>
+            <div class="testimonial-quote">&ldquo;Bill managed to deliver a large volume of station survey work with innovative methods, including drones and artificial intelligence. This allowed us to get the best quality results at a very affordable price.&rdquo;</div>
+            <div class="testimonial-author">Project Manager, Station Assets</div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-org">Major Infrastructure Programme</div>
+            <div class="testimonial-quote">&ldquo;Remarkable performance. He led all the assurance efforts and closed out over 3,000 comments across more than 10,000 deliverables. That level of throughput speaks for itself.&rdquo;</div>
+            <div class="testimonial-author">Engineering Lead, Design Delivery</div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-org">National Rail Client</div>
+            <div class="testimonial-quote">&ldquo;The innovative approach to assurance documentation drastically improved our compliance rate and cut back-and-forth at the review stage. Submissions now get approved first time, consistently.&rdquo;</div>
+            <div class="testimonial-author">Engineering Manager, Capital Delivery</div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-org">Infrastructure Consultancy</div>
+            <div class="testimonial-quote">&ldquo;Incredibly sharp &mdash; he understands things fast and sees the bigger picture clearly. His client focus is second to none, and he brings a calm, confident leadership style that helps teams deliver. Always a few steps ahead.&rdquo;</div>
+            <div class="testimonial-author">Operations Director</div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-org">Rail Design Consultancy</div>
+            <div class="testimonial-quote">&ldquo;He built our delivery team from a standing start into a core part of the business. His knowledge of the railway is strong, and he has developed a network of clients who trust him to deliver viable engineering solutions.&rdquo;</div>
+            <div class="testimonial-author">Associate Director</div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-org">Tier 2 Rail Consultancy</div>
+            <div class="testimonial-quote">&ldquo;The AI workflow reduced the time to produce each deliverable by 35%. That freed our engineers to focus on work that actually needs their judgement, not formatting and admin.&rdquo;</div>
+            <div class="testimonial-author">Technical Director</div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-org">Tier 3 Contractor</div>
+            <div class="testimonial-quote">&ldquo;We needed a large number of site inspection and drainage reports produced fast. AI was used to automate production, allowing our surveyors to focus on capturing data while the rest was handled automatically.&rdquo;</div>
+            <div class="testimonial-author">Operations Manager, Survey Division</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-controls">
+      <button class="testimonial-btn" id="tsPrev" aria-label="Previous">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+      </button>
+      <div class="testimonial-dots" id="tsDots"></div>
+      <button class="testimonial-btn" id="tsNext" aria-label="Next">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -1679,77 +2579,189 @@
   </div>
 </div>
 
+<!-- ===== PROOF METRICS ===== -->
+<section class="proof-strip">
+  <div class="container">
+    <div class="proof-metrics">
+      <div>
+        <div class="proof-metric-num">80%</div>
+        <div class="proof-metric-label">Reduction in Form G production time</div>
+      </div>
+      <div>
+        <div class="proof-metric-num">3x fewer</div>
+        <div class="proof-metric-label">Revision cycles per submission</div>
+      </div>
+      <div>
+        <div class="proof-metric-num">55</div>
+        <div class="proof-metric-label">Stations surveyed with AI analysis</div>
+      </div>
+      <div>
+        <div class="proof-metric-num">&pound;0 &rarr; &pound;1m</div>
+        <div class="proof-metric-label">ARR scaled with AI in 2 years</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CASE STUDIES ===== -->
 <section class="section section-border-top" id="case-studies" style="background:var(--gray-50);">
   <div class="container">
     <div class="text-center">
-      <div class="section-eyebrow">Track Record</div>
-      <h2 class="section-heading">Proven delivery across major rail programmes</h2>
+      <div class="section-eyebrow">AI in Action</div>
+      <h2 class="section-heading">Real-world AI that delivers measurable results</h2>
+      <p class="section-sub center">Not experiments. Not prototypes. These are production deployments solving real problems in live rail delivery.</p>
     </div>
 
     <div class="cases-grid">
-      <!-- HS2 -->
+      <!-- Form G Automation -->
       <div class="case-card">
         <div class="case-award">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
-          Young Railway Professional 2023
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+          AI-Powered Assurance
         </div>
-        <h3>HS2 Washwood Heath Depot</h3>
-        <div class="case-client">HS2 Limited &middot; 2021&ndash;2023</div>
-        <p class="case-desc">Led multi-disciplinary concept and scheme design for the UK's largest infrastructure project. Coordinated 25 engineering disciplines and rebuilt trust with HS2 from the ground up.</p>
+        <h3>Form G Automation with Scribtive&trade;</h3>
+        <div class="case-client">AI-Enabled Assurance Process</div>
+        <p class="case-desc"><strong>The challenge:</strong> Form G production consumed 20+ hours per submission and averaged 3 revision cycles, tying up senior engineers in repetitive compliance work.</p>
+        <p class="case-desc"><strong>The solution:</strong> Scribtive&trade; automates the generation and assurance of PACE documentation, anchoring every section to cited standards and past precedents.</p>
+        <p class="case-desc"><strong>The result:</strong> Submissions are produced faster, get approved first time, and engineers are freed to focus on engineering judgement.</p>
         <div class="case-metrics">
           <div>
-            <div class="case-metric-val">&pound;345m</div>
-            <div class="case-metric-label">Project value</div>
+            <div class="case-metric-val">80%</div>
+            <div class="case-metric-label">Faster production</div>
           </div>
           <div>
-            <div class="case-metric-val">&pound;46m</div>
-            <div class="case-metric-label">VE savings</div>
+            <div class="case-metric-val">3 &rarr; 1</div>
+            <div class="case-metric-label">Revision cycles</div>
           </div>
         </div>
       </div>
 
-      <!-- Greater Anglia -->
+      <!-- Greater Anglia AI Surveys -->
       <div class="case-card">
         <div class="case-award">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
           ICE Merit Award 2025
         </div>
-        <h3>Station &amp; HCE Survey Programme</h3>
-        <div class="case-client">Greater Anglia &middot; 2023&ndash;2025</div>
-        <p class="case-desc">Pioneered AI-integrated survey process combining drone technology and 360&deg; imaging across 55 stations. Identified critical hidden defects that traditional methods missed.</p>
+        <h3>AI-Powered Station Surveys</h3>
+        <div class="case-client">Train Operating Company &middot; 55 Stations</div>
+        <p class="case-desc"><strong>The challenge:</strong> Survey 55 stations for hidden critical elements. Traditional inspections missed structural defects invisible at surface level.</p>
+        <p class="case-desc"><strong>The solution:</strong> Drones captured 360&deg; imaging data. AI processed the survey information to identify defects, generate insights, and produce condition reports automatically.</p>
+        <p class="case-desc"><strong>The result:</strong> Hidden defects identified across the portfolio, safety risks addressed, and reporting time reduced dramatically.</p>
         <div class="case-metrics">
           <div>
             <div class="case-metric-val">55</div>
-            <div class="case-metric-label">Stations</div>
+            <div class="case-metric-label">Stations surveyed</div>
           </div>
           <div>
-            <div class="case-metric-val">AI</div>
-            <div class="case-metric-label">Integrated</div>
+            <div class="case-metric-val">Award</div>
+            <div class="case-metric-label">ICE Asset Resilience</div>
           </div>
         </div>
       </div>
 
-      <!-- Network Rail -->
+      <!-- SRE Tender Automation -->
       <div class="case-card">
-        <div class="case-award" style="background:#f0fdf4; border-color:#bbf7d0; color:#166534;">
+        <div class="case-award">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
-          Commercial Excellence
+          AI-Enabled Work Winning
         </div>
-        <h3>Dust Suppression National Programme</h3>
-        <div class="case-client">Network Rail SCO &middot; 2018&ndash;2021</div>
-        <p class="case-desc">Tendered, priced, and delivered dust suppression upgrades across 14 nationwide depots. Brought entire delivery model in-house to significantly improve commercial margin.</p>
+        <h3>Tender Automation for Strategic Framework</h3>
+        <div class="case-client">Southern Renew Enterprise (SRE)</div>
+        <p class="case-desc"><strong>The challenge:</strong> A small consultancy with no track record competing against established firms for one of 16 tactical design partner seats on a &pound;35m, 10-year framework spanning CP7 and CP8.</p>
+        <p class="case-desc"><strong>The solution:</strong> Built an AI knowledge base that synthesised the business&rsquo;s core capabilities against tender requirements. AI identified the strongest case studies, generated optimised responses for each section, and allowed the founder to focus purely on judgement and strategy.</p>
+        <p class="case-desc"><strong>The result:</strong> Appointed as one of the 16 SRE Tactical Design Partners, securing a long-term pipeline of professional service fees across two control periods.</p>
         <div class="case-metrics">
           <div>
-            <div class="case-metric-val">14</div>
-            <div class="case-metric-label">Locations</div>
+            <div class="case-metric-val">&pound;35m</div>
+            <div class="case-metric-label">Framework value</div>
           </div>
           <div>
-            <div class="case-metric-val">&pound;350k+</div>
-            <div class="case-metric-label">Value</div>
+            <div class="case-metric-val">10 yr</div>
+            <div class="case-metric-label">CP7 + CP8</div>
           </div>
         </div>
       </div>
+
+      <!-- Founder Track Record -->
+      <div class="case-card">
+        <div class="case-award" style="background:rgba(30,41,59,0.06); border-color:rgba(30,41,59,0.15); color:var(--navy);">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+          Founder Track Record
+        </div>
+        <h3>The Experience Behind AutomateX</h3>
+        <div class="case-client">HS2, Network Rail, Tier 1 Contractors</div>
+        <p class="case-desc">Before founding AutomateX, Bill served as Engineering Manager on the &pound;345m HS2 Washwood Heath Depot (delivering &pound;46m in VE savings), Lead DPE at Network Rail, and managed national programmes across 14 sites.</p>
+        <p class="case-desc">This decade of delivery across client, contractor, and consultant sides informs the P.A.C.E-D method and every AI solution AutomateX builds.</p>
+        <div class="case-metrics">
+          <div>
+            <div class="case-metric-val">10+</div>
+            <div class="case-metric-label">Years UK rail</div>
+          </div>
+          <div>
+            <div class="case-metric-val">100+</div>
+            <div class="case-metric-label">Businesses worked with</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESEARCH CREDIBILITY ===== -->
+<section class="research-section" id="research">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Backed by Research</div>
+      <h2 class="section-heading">The evidence behind the P.A.C.E-D method</h2>
+      <p class="section-sub center">Every claim we make is grounded in published research from the world&rsquo;s leading institutions. This isn&rsquo;t opinion &mdash; it&rsquo;s evidence.</p>
+    </div>
+
+    <div class="research-grid">
+      <div class="research-card">
+        <div class="research-source">McKinsey</div>
+        <div class="research-stat">88% adopt AI. Only 6% get real value.</div>
+        <div class="research-desc">Two-thirds of organisations remain stuck in pilot. Only about 6% qualify as AI high performers achieving more than 5% EBIT impact.</div>
+        <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a>
+      </div>
+
+      <div class="research-card">
+        <div class="research-source">BCG</div>
+        <div class="research-stat">AI leaders achieve 2x revenue growth</div>
+        <div class="research-desc">Leaders also deliver 3.6x total shareholder return and 1.6x EBIT margin versus laggards &mdash; and plan to invest 2x more, widening the gap further.</div>
+        <a href="https://www.bcg.com/press/30september2025-ai-leaders-outpace-laggards-revenue-growth-cost-savings" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a>
+      </div>
+
+      <div class="research-card">
+        <div class="research-source">McKinsey</div>
+        <div class="research-stat">Construction productivity has flatlined for 80 years</div>
+        <div class="research-desc">Manufacturing improved 90%. The total economy improved 50%. Construction? Just 10% in 22 years. The status quo is selling man-hours with no leverage.</div>
+        <a href="https://www.mckinsey.com/capabilities/operations/our-insights/delivering-on-construction-productivity-is-no-longer-optional" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a>
+      </div>
+
+      <div class="research-card">
+        <div class="research-source">RICS</div>
+        <div class="research-stat">45% of AEC firms have zero AI use</div>
+        <div class="research-desc">From a global survey of 2,200+ construction professionals. Fewer than 1% have AI embedded across multiple processes. The window for early movers is still open.</div>
+        <a href="https://www.rics.org/news-insights/artificial-intelligence-in-construction-report" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a>
+      </div>
+
+      <div class="research-card">
+        <div class="research-source">Deloitte</div>
+        <div class="research-stat">499,000 new workers needed in 2026 alone</div>
+        <div class="research-desc">The labour crisis is real. Unfilled positions could cost the industry &pound;124 billion in lost output. AI isn&rsquo;t replacing people &mdash; it&rsquo;s the only way to scale without them.</div>
+        <a href="https://www.deloitte.com/us/en/insights/industry/engineering-and-construction/engineering-and-construction-industry-outlook.html" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a>
+      </div>
+
+      <div class="research-card">
+        <div class="research-source">Mercer / McKinsey</div>
+        <div class="research-stat">54% of leaders say they won&rsquo;t be competitive by 2030</div>
+        <div class="research-desc">Without adopting AI at scale. The World Economic Forum reports AI and automation will transform 86% of businesses by 2030. The question is when, not if.</div>
+        <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="research-footer-text">
+      Sources: McKinsey Global Institute, BCG, PwC, Deloitte, RICS, Bluebeam, World Economic Forum, GIRI, UIC &middot; Full reference list available on request.
     </div>
   </div>
 </section>
@@ -1815,6 +2827,181 @@
 </footer>
 
 <!-- ===== SCRIPTS ===== -->
+
+<!-- P.A.C.E-D chart rendering -->
+<script>
+(function() {
+  var chartLeft = 60, chartRight = 1020, chartTop = 30, chartBottom = 400, paceStart = 280;
+  var sqStartY = 385, sqPaceY = 380, sqEndY = 374;
+
+  function linearY(x) {
+    if (x <= paceStart) return sqStartY + ((x - chartLeft) / (paceStart - chartLeft)) * (sqPaceY - sqStartY);
+    return sqPaceY + ((x - paceStart) / (chartRight - paceStart)) * (sqEndY - sqPaceY);
+  }
+
+  function curveY(x) {
+    if (x <= paceStart) return linearY(x);
+    var t = (x - paceStart) / (chartRight - paceStart);
+    var linearComp = t * 45;
+    var k = 7.5;
+    var expVal = (Math.exp(k * t) - 1) / (Math.exp(k) - 1);
+    return Math.max(chartTop, sqPaceY - linearComp - expVal * 350);
+  }
+
+  var greyBarsGroup = document.getElementById('pcGreyBars');
+  var orangeBarsGroup = document.getElementById('pcOrangeBars');
+  if (!greyBarsGroup) return;
+
+  var sections = [
+    { start: 280, end: 365,  color: 'rgba(253, 180, 130, 0.5)' },
+    { start: 365, end: 765,  color: 'rgba(251, 140, 80, 0.6)' },
+    { start: 765, end: 935,  color: 'rgba(245, 100, 55, 0.75)' },
+    { start: 935, end: 1020, color: 'rgba(237, 74, 59, 0.9)' },
+  ];
+
+  var stripH = 3, stripGap = 1.2, sectionGap = 6;
+
+  sections.forEach(function(sec) {
+    var x1 = sec.start + sectionGap / 2, x2 = sec.end - sectionGap / 2;
+    var w = x2 - x1, midX = (sec.start + sec.end) / 2;
+    var greyTop = linearY(midX);
+
+    for (var y = chartBottom - stripH; y >= greyTop; y -= (stripH + stripGap)) {
+      var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      rect.setAttribute('x', x1); rect.setAttribute('y', y);
+      rect.setAttribute('width', w); rect.setAttribute('height', stripH);
+      rect.setAttribute('fill', 'rgb(230, 230, 234)'); rect.setAttribute('rx', '1');
+      greyBarsGroup.appendChild(rect);
+    }
+
+    for (var y2 = greyTop - stripGap - stripH; y2 >= chartTop; y2 -= (stripH + stripGap)) {
+      var stripLeft = -1;
+      for (var sx = x2; sx >= x1; sx -= 2) {
+        if (curveY(sx) <= y2) { stripLeft = sx; } else { break; }
+      }
+      if (stripLeft >= 0 && stripLeft < x2) {
+        var rect2 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rect2.setAttribute('x', stripLeft); rect2.setAttribute('y', y2);
+        rect2.setAttribute('width', x2 - stripLeft); rect2.setAttribute('height', stripH);
+        rect2.setAttribute('fill', sec.color); rect2.setAttribute('rx', '1');
+        orangeBarsGroup.appendChild(rect2);
+      }
+    }
+  });
+
+  var curvePath = document.getElementById('pcExpCurve');
+  var d = 'M ' + paceStart + ' ' + linearY(paceStart);
+  for (var x = paceStart + 2; x <= chartRight; x += 2) d += ' L ' + x + ' ' + curveY(x);
+  curvePath.setAttribute('d', d);
+})();
+</script>
+
+<!-- Testimonial slider -->
+<script>
+(function() {
+  var track = document.getElementById('testimonialTrack');
+  var prevBtn = document.getElementById('tsPrev');
+  var nextBtn = document.getElementById('tsNext');
+  var dotsWrap = document.getElementById('tsDots');
+  if (!track) return;
+
+  var slides = track.querySelectorAll('.testimonial-slide');
+  var total = slides.length;
+  var current = 0;
+  var autoTimer = null;
+  var startX = 0;
+  var dragging = false;
+
+  function getVisible() {
+    var w = window.innerWidth;
+    if (w >= 1024) return 3;
+    if (w >= 640) return 2;
+    return 1;
+  }
+
+  function maxIndex() { return Math.max(0, total - getVisible()); }
+
+  function update() {
+    var vis = getVisible();
+    var pct = (current / total) * 100;
+    track.style.transform = 'translateX(-' + pct + '%)';
+    prevBtn.disabled = current <= 0;
+    nextBtn.disabled = current >= maxIndex();
+    var dots = dotsWrap.querySelectorAll('.testimonial-dot');
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    var max = maxIndex();
+    for (var i = 0; i <= max; i++) {
+      var dot = document.createElement('button');
+      dot.className = 'testimonial-dot' + (i === current ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      (function(idx) { dot.onclick = function() { current = idx; update(); resetAuto(); }; })(i);
+      dotsWrap.appendChild(dot);
+    }
+  }
+
+  prevBtn.onclick = function() { if (current > 0) { current--; update(); resetAuto(); } };
+  nextBtn.onclick = function() { if (current < maxIndex()) { current++; update(); resetAuto(); } };
+
+  function autoAdvance() {
+    if (current >= maxIndex()) { current = 0; } else { current++; }
+    update();
+  }
+
+  function startAuto() { autoTimer = setInterval(autoAdvance, 5000); }
+  function resetAuto() { clearInterval(autoTimer); startAuto(); }
+
+  // Touch/drag support
+  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; dragging = true; }, { passive: true });
+  track.addEventListener('touchend', function(e) {
+    if (!dragging) return;
+    dragging = false;
+    var diff = startX - e.changedTouches[0].clientX;
+    if (diff > 40 && current < maxIndex()) { current++; update(); resetAuto(); }
+    else if (diff < -40 && current > 0) { current--; update(); resetAuto(); }
+  });
+
+  // Mouse drag
+  track.addEventListener('mousedown', function(e) { startX = e.clientX; dragging = true; track.style.cursor = 'grabbing'; });
+  document.addEventListener('mouseup', function(e) {
+    if (!dragging) return;
+    dragging = false;
+    track.style.cursor = '';
+    var diff = startX - e.clientX;
+    if (diff > 40 && current < maxIndex()) { current++; update(); resetAuto(); }
+    else if (diff < -40 && current > 0) { current--; update(); resetAuto(); }
+  });
+
+  window.addEventListener('resize', function() { if (current > maxIndex()) current = maxIndex(); buildDots(); update(); });
+
+  buildDots();
+  update();
+  startAuto();
+})();
+</script>
+
+<!-- Spotlight glow card pointer tracking -->
+<script>
+(function() {
+  var cards = document.querySelectorAll('.service-card, .case-card');
+  document.addEventListener('pointermove', function(e) {
+    var x = e.clientX.toFixed(2);
+    var xp = (e.clientX / window.innerWidth).toFixed(2);
+    var y = e.clientY.toFixed(2);
+    cards.forEach(function(card) {
+      card.style.setProperty('--glow-x', x);
+      card.style.setProperty('--glow-xp', xp);
+      card.style.setProperty('--glow-y', y);
+    });
+  });
+})();
+</script>
+
 <!-- Grid background ripple effect -->
 <script>
 (function() {
