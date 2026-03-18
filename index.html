@@ -908,6 +908,7 @@
     font-weight: 700;
     color: var(--white);
     margin-bottom: 0.625rem;
+    text-align: left;
   }
 
   .pace-perks ul {
@@ -922,6 +923,7 @@
     line-height: 1.5;
     padding: 0.2rem 0 0.2rem 1rem;
     position: relative;
+    text-align: left;
   }
 
   .pace-perks ul li::before {
@@ -2039,7 +2041,7 @@
       <li><a href="#case-studies">Case Studies</a></li>
       <li><a href="#scorecard">Assessment</a></li>
     </ul>
-    <a href="#pace-os" class="btn btn-primary">Join PACE OS Waitlist</a>
+    <a href="#pace-os" class="btn btn-primary">Join the Waitlist</a>
     <div class="mobile-toggle" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </div>
@@ -2055,7 +2057,7 @@
   <a href="#about" onclick="this.parentElement.classList.remove('open')">About</a>
   <a href="#case-studies" onclick="this.parentElement.classList.remove('open')">Case Studies</a>
   <a href="#scorecard" onclick="this.parentElement.classList.remove('open')">Assessment</a>
-  <a href="#pace-os" onclick="this.parentElement.classList.remove('open')" class="btn btn-primary">Join PACE OS Waitlist</a>
+  <a href="#pace-os" onclick="this.parentElement.classList.remove('open')" class="btn btn-primary">Join the Waitlist</a>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -2772,7 +2774,7 @@
     <h2 class="cta-heading">Ready to deliver with confidence?</h2>
     <p class="cta-text">Be among the first to experience PACE OS &mdash; the AI-enabled operating system for railway project delivery.</p>
     <div class="cta-actions">
-      <a href="#pace-os" class="btn btn-primary btn-primary-lg">Join PACE OS Waitlist</a>
+      <a href="#pace-os" class="btn btn-primary btn-primary-lg">Join the Waitlist</a>
       <a href="scorecard.html" class="btn btn-outline">Take the Free Self-Assessment</a>
     </div>
   </div>
@@ -3082,17 +3084,21 @@
 
 <script>
 function handleWaitlist() {
-  const email = document.getElementById('waitlist-email').value;
+  var email = document.getElementById('waitlist-email').value;
   if (!email || !email.includes('@')) {
     alert('Please enter a valid email address.');
     return;
   }
 
-  const btn = document.querySelector('.pace-waitlist .btn');
-  const originalText = btn.textContent;
-  btn.textContent = 'Sending...';
+  var btn = document.querySelector('.pace-waitlist .btn');
+  var originalText = btn.textContent;
   btn.disabled = true;
 
+  // Show success animation immediately
+  document.getElementById('waitlist-email').value = '';
+  showMagnetizeSuccess(btn, originalText);
+
+  // Fire webhook in background (don't wait for response)
   fetch('https://billguo.app.n8n.cloud/webhook/pace-waitlist', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -3101,17 +3107,7 @@ function handleWaitlist() {
       source: 'PACE OS Waitlist',
       timestamp: new Date().toISOString()
     })
-  })
-  .then(function(res) {
-    if (!res.ok) throw new Error('Network error');
-    document.getElementById('waitlist-email').value = '';
-    showMagnetizeSuccess(btn, originalText);
-  })
-  .catch(function() {
-    alert('Something went wrong. Please try again.');
-    btn.textContent = originalText;
-    btn.disabled = false;
-  });
+  }).catch(function() {});
 }
 
 function showMagnetizeSuccess(btn, originalText) {
