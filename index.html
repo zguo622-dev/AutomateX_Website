@@ -1272,6 +1272,60 @@
   }
 
 
+  /* ========== SCORECARD ANIMATIONS ========== */
+  .sc-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1),
+                transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    will-change: opacity, transform;
+  }
+  .sc-reveal.sc-revealed { opacity: 1; transform: translateY(0); }
+  .sc-stagger-1 { transition-delay: 0.1s; }
+  .sc-stagger-2 { transition-delay: 0.2s; }
+  .sc-stagger-3 { transition-delay: 0.3s; }
+  .sc-stagger-4 { transition-delay: 0.4s; }
+  .sc-stagger-5 { transition-delay: 0.5s; }
+
+  #pcExpCurve {
+    stroke-dasharray: var(--curve-length, 2000);
+    stroke-dashoffset: var(--curve-length, 2000);
+    transition: stroke-dashoffset 1.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  #pcExpCurve.sc-drawn { stroke-dashoffset: 0; }
+
+  #pcOrangeBars rect {
+    transform: scaleY(0);
+    transform-origin: center bottom;
+    transform-box: fill-box;
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+  }
+  #pcOrangeBars.sc-bars-grown rect { transform: scaleY(1); }
+
+  .sc-phase-label { opacity: 0; transition: opacity 0.5s ease; }
+  .sc-chart-animated .sc-phase-label { opacity: 1; }
+
+  .sc-chasm-banner {
+    opacity: 0; transform: scale(0.8); transform-origin: center; transform-box: fill-box;
+    transition: opacity 0.4s ease 2s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 2s;
+  }
+  .sc-chart-animated .sc-chasm-banner { opacity: 1; transform: scale(1); }
+
+  .sc-insight-card { transition: transform var(--transition-med), box-shadow var(--transition-med); }
+  .sc-insight-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+
+  .pillar-card:hover {
+    transform: scale(1.03); border-color: var(--orange);
+    box-shadow: 0 8px 20px rgba(249,101,50,0.1);
+  }
+
+  @keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(249,101,50,0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(249,101,50,0); }
+  }
+  .scorecard-cta-box .btn-primary { animation: ctaPulse 2.5s ease-in-out infinite 1s; }
+  .scorecard-cta-box .btn-primary:hover { animation: none; box-shadow: 0 6px 24px rgba(249,101,50,0.45); }
+
   /* ========== ABOUT / AUTHORITY ========== */
   .about-section {
     padding: var(--section-spacing) 0;
@@ -2228,7 +2282,7 @@
 
     <!-- Hero: context left, CTA right -->
     <div class="scorecard-hero">
-      <div>
+      <div class="sc-reveal">
         <div class="section-eyebrow">Free AI Readiness Self-Assessment</div>
         <h2>Benchmark Your Team&rsquo;s AI Maturity <span class="scorecard-highlight">&mdash; Fast, Free, Credible</span></h2>
         <div class="sc-subheadline">Unlock productivity, quality, and work-winning gains in rail engineering &mdash; without risking compliance or safety.</div>
@@ -2237,21 +2291,21 @@
           <p>This assessment is built specifically for technical leaders in rail delivery, reflecting realities like IP sensitivity, knowledge management, traceability, and repeatable workflows. In just minutes, get a clear profile of your strengths and gaps across the five <span class="scorecard-highlight"><strong>P.A.C.E.-D</strong></span> pillars &mdash; and receive tailored, actionable feedback to identify high-impact quick wins for the next 90 days.</p>
         </div>
       </div>
-      <div class="scorecard-cta-box">
+      <div class="scorecard-cta-box sc-reveal sc-stagger-1">
         <h3>Take the Free Self-Assessment</h3>
         <p>20 honest questions about how your team actually delivers. No research required.</p>
         <a href="scorecard.html" class="btn btn-primary btn-primary-lg" style="width:100%;">Start &mdash; Free, 5 Minutes</a>
         <div class="scorecard-stats">
           <div class="scorecard-stat">
-            <div class="scorecard-stat-num">20</div>
+            <div class="scorecard-stat-num" data-count="20">20</div>
             <div class="scorecard-stat-label">Questions</div>
           </div>
           <div class="scorecard-stat">
-            <div class="scorecard-stat-num">5 min</div>
+            <div class="scorecard-stat-num" data-count="5" data-suffix=" min">5 min</div>
             <div class="scorecard-stat-label">Duration</div>
           </div>
           <div class="scorecard-stat">
-            <div class="scorecard-stat-num">Instant</div>
+            <div class="scorecard-stat-num" data-count-text="Instant">Instant</div>
             <div class="scorecard-stat-label">Results</div>
           </div>
         </div>
@@ -2259,13 +2313,13 @@
     </div>
 
     <!-- Full-width stat callout -->
-    <div class="sc-stat-callout">
+    <div class="sc-stat-callout sc-reveal">
       <p>Over 70% of consultancies report AI adoption as a top priority, but fewer than 15% have a structured approach. <strong>Where does your business sit?</strong></p>
     </div>
 
     <!-- Insight cards: extracted from chart boxes -->
     <div class="sc-insight-cards">
-      <div class="sc-insight-card sc-insight-pain">
+      <div class="sc-insight-card sc-insight-pain sc-reveal sc-stagger-1">
         <h4>Sound Familiar?</h4>
         <ul>
           <li>Hero employees holding everything together</li>
@@ -2275,13 +2329,13 @@
           <li>One CAT 3 rejection erodes your margin</li>
         </ul>
       </div>
-      <div class="sc-insight-card">
+      <div class="sc-insight-card sc-reveal sc-stagger-2">
         <h4>Industry Insight</h4>
         <p>McKinsey research shows that engineering firms adopting digital workflows achieve <strong>20&ndash;30% productivity gains</strong> and <strong>40% faster project delivery</strong>.</p>
         <p>Yet over 70% of rail SMEs still rely on manual compliance processes &mdash; creating a structural advantage for early movers.</p>
         <div class="sc-insight-source">Source: McKinsey Global Institute &middot; AutomateX client research 2024&ndash;25</div>
       </div>
-      <div class="sc-insight-card sc-insight-payoff">
+      <div class="sc-insight-card sc-insight-payoff sc-reveal sc-stagger-3">
         <h4>The Payoff</h4>
         <ul>
           <li>First-time approvals &mdash; no rework cycles</li>
@@ -2295,7 +2349,7 @@
     </div>
 
     <!-- P.A.C.E-D Journey Chart (cleaned — no small-text boxes) -->
-    <div class="sc-chart-wrap">
+    <div class="sc-chart-wrap sc-reveal">
       <div class="sc-chart-bridge">
         <p>Most rail businesses are stuck in the Status Quo. The <strong>P.A.C.E-D method</strong> shows the path to becoming the supplier clients call first.</p>
       </div>
@@ -2327,27 +2381,27 @@
           <text x="170" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="700" font-size="15" fill="#1A1F36" letter-spacing="2">STATUS QUO</text>
 
           <!-- Phase labels (large) -->
-          <text x="322" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">PILOT</text>
-          <text x="565" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">AUTOMATE</text>
-          <text x="850" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">COMPOUND</text>
-          <text x="977" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">EVOLVE</text>
+          <text class="sc-phase-label" x="322" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">PILOT</text>
+          <text class="sc-phase-label" x="565" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">AUTOMATE</text>
+          <text class="sc-phase-label" x="850" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">COMPOUND</text>
+          <text class="sc-phase-label" x="977" y="425" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" fill="#F96532">EVOLVE</text>
 
           <!-- Phase subtitles -->
-          <text x="322" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">Validate</text>
-          <text x="322" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Risk-free &middot; Low commitment</text>
+          <text class="sc-phase-label" x="322" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">Validate</text>
+          <text class="sc-phase-label" x="322" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Risk-free &middot; Low commitment</text>
 
-          <text x="565" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">AI Readiness</text>
-          <text x="565" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Friction removal &middot; Productivity</text>
+          <text class="sc-phase-label" x="565" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">AI Readiness</text>
+          <text class="sc-phase-label" x="565" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Friction removal &middot; Productivity</text>
 
-          <text x="850" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">Scale</text>
-          <text x="850" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Knowledge System &middot; Flywheel</text>
+          <text class="sc-phase-label" x="850" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">Scale</text>
+          <text class="sc-phase-label" x="850" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Knowledge System &middot; Flywheel</text>
 
-          <text x="977" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">Productise</text>
-          <text x="977" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Outcomes &middot; Repeatable</text>
+          <text class="sc-phase-label" x="977" y="445" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#4B5563">Productise</text>
+          <text class="sc-phase-label" x="977" y="460" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="400" font-size="10" fill="#9CA3AF">Outcomes &middot; Repeatable</text>
 
           <!-- Crossing the chasm banner -->
-          <rect x="365" y="30" width="400" height="24" rx="4" fill="#F96532"/>
-          <text x="565" y="47" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="12" fill="#FFFFFF" letter-spacing="2">CROSSING THE CHASM</text>
+          <rect class="sc-chasm-banner" x="365" y="30" width="400" height="24" rx="4" fill="#F96532"/>
+          <text class="sc-chasm-banner" x="565" y="47" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="12" fill="#FFFFFF" letter-spacing="2">CROSSING THE CHASM</text>
 
           <!-- Digitalise bar (bottom) -->
           <line x1="300" y1="490" x2="1000" y2="490" stroke="#1A1F36" stroke-width="2" marker-end="url(#arrNavy)"/>
@@ -2367,38 +2421,38 @@
 
     <!-- PACED pillars: 5 across -->
     <div class="scorecard-pillars">
-      <div class="pillar-card">
+      <div class="pillar-card sc-reveal sc-stagger-1">
         <div class="pillar-letter">P</div>
         <div class="pillar-name">Pilot</div>
         <div class="pillar-concept">Validation<br>Build Trust</div>
         <div class="pillar-desc">Pilot AI on a risk free project. Build proof before commitment. Understand the true cost of doing nothing. Trust is earned through evidence.</div>
       </div>
-      <div class="pillar-card">
+      <div class="pillar-card sc-reveal sc-stagger-2">
         <div class="pillar-letter">A</div>
         <div class="pillar-name">Automate</div>
         <div class="pillar-concept">AI Readiness<br>Take Ownership</div>
         <div class="pillar-desc">Build the digital infrastructure. Create a semantic knowledge layer that links your systems, captures your standards, and makes your knowledge queryable.</div>
       </div>
-      <div class="pillar-card">
+      <div class="pillar-card sc-reveal sc-stagger-3">
         <div class="pillar-letter">C</div>
         <div class="pillar-name">Compound</div>
         <div class="pillar-concept">Scalability<br>Controlled Growth</div>
         <div class="pillar-desc">Scale impact across projects and teams. Every project makes the next one faster. Knowledge compounds. Growth no longer requires more headcount.</div>
       </div>
-      <div class="pillar-card">
+      <div class="pillar-card sc-reveal sc-stagger-4">
         <div class="pillar-letter">E</div>
         <div class="pillar-name">Evolve</div>
         <div class="pillar-concept">Productisation<br>Start Transformation</div>
         <div class="pillar-desc">Stop selling time. Start selling outcomes. Differentiate what AI handles from what requires engineering judgment &mdash; compete on a new dimension.</div>
       </div>
-      <div class="pillar-card">
+      <div class="pillar-card sc-reveal sc-stagger-5">
         <div class="pillar-letter">D</div>
         <div class="pillar-name">Digitalise</div>
         <div class="pillar-concept">Moat<br>Become Mastery</div>
         <div class="pillar-desc">Turn operational advantages into digital systems competitors can't replicate. Your expertise combined with AI becomes a moat that widens with every project.</div>
       </div>
     </div>
-    <div class="pillar-footer">The five essential principles for rail businesses who want to build their unfair advantage in the AI era.</div>
+    <div class="pillar-footer sc-reveal sc-stagger-5">The five essential principles for rail businesses who want to build their unfair advantage in the AI era.</div>
   </div>
 </section>
 
@@ -2899,6 +2953,89 @@
 })();
 </script>
 
+<!-- Scorecard scroll animations -->
+<script>
+(function() {
+  /* Scroll-reveal observer */
+  var scObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sc-revealed');
+        scObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('#scorecard .sc-reveal').forEach(function(el) {
+    scObserver.observe(el);
+  });
+
+  /* SVG chart animation */
+  var chartContainer = document.querySelector('.sc-chart-container');
+  if (chartContainer) {
+    var curvePath = document.getElementById('pcExpCurve');
+    var orangeBars = document.getElementById('pcOrangeBars');
+    var svg = document.getElementById('pacedChart');
+    if (curvePath && curvePath.getTotalLength) {
+      var len = curvePath.getTotalLength();
+      curvePath.style.setProperty('--curve-length', len);
+      curvePath.style.strokeDasharray = len;
+      curvePath.style.strokeDashoffset = len;
+    }
+    var chartObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          if (curvePath) curvePath.classList.add('sc-drawn');
+          if (orangeBars) setTimeout(function() { orangeBars.classList.add('sc-bars-grown'); }, 300);
+          if (svg) {
+            svg.classList.add('sc-chart-animated');
+            svg.querySelectorAll('.sc-phase-label').forEach(function(label, i) {
+              label.style.transitionDelay = (1.0 + i * 0.15) + 's';
+            });
+          }
+          chartObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    chartObserver.observe(chartContainer);
+  }
+
+  /* Counter animation */
+  var ctaBox = document.querySelector('.scorecard-cta-box');
+  if (ctaBox) {
+    function animateCounter(el, target, suffix, duration) {
+      var start = performance.now();
+      suffix = suffix || '';
+      function tick(now) {
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    var counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          ctaBox.querySelectorAll('.scorecard-stat-num').forEach(function(stat) {
+            if (stat.dataset.count) {
+              animateCounter(stat, parseInt(stat.dataset.count, 10), stat.dataset.suffix || '', 1000);
+            } else if (stat.dataset.countText) {
+              stat.style.opacity = '0';
+              stat.style.transition = 'opacity 0.6s ease 0.8s';
+              stat.offsetHeight;
+              stat.style.opacity = '1';
+            }
+          });
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counterObserver.observe(ctaBox);
+  }
+})();
+</script>
+
 <!-- Testimonial slider -->
 <script>
 (function() {
@@ -3174,7 +3311,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.service-card, .case-card, .credential-card, .pillar-card').forEach(el => {
+document.querySelectorAll('.service-card, .case-card, .credential-card').forEach(el => {
   el.style.opacity = '0';
   observer.observe(el);
 });
