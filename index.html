@@ -1286,29 +1286,6 @@
   .sc-stagger-4 { transition-delay: 0.4s; }
   .sc-stagger-5 { transition-delay: 0.5s; }
 
-  #pcExpCurve {
-    stroke-dasharray: var(--curve-length, 2000);
-    stroke-dashoffset: var(--curve-length, 2000);
-    transition: stroke-dashoffset 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-  }
-  #pcExpCurve.sc-drawn { stroke-dashoffset: 0; }
-
-  #pcOrangeBars rect {
-    transform: scaleY(0);
-    transform-origin: center bottom;
-    transform-box: fill-box;
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  #pcOrangeBars.sc-bars-grown rect { transform: scaleY(1); }
-
-  .sc-phase-label { opacity: 0; transition: opacity 0.3s ease; }
-  .sc-chart-animated .sc-phase-label { opacity: 1; }
-
-  .sc-chasm-banner {
-    opacity: 0; transform: scale(0.8); transform-origin: center; transform-box: fill-box;
-    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .sc-chasm-visible .sc-chasm-banner { opacity: 1; transform: scale(1); }
 
   .sc-insight-card { transition: transform var(--transition-med), box-shadow var(--transition-med); }
   .sc-insight-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
@@ -2976,38 +2953,6 @@
     scObserver.observe(el);
   });
 
-  /* SVG chart animation */
-  var chartContainer = document.querySelector('.sc-chart-container');
-  if (chartContainer) {
-    var curvePath = document.getElementById('pcExpCurve');
-    var orangeBars = document.getElementById('pcOrangeBars');
-    var svg = document.getElementById('pacedChart');
-    if (curvePath && curvePath.getTotalLength) {
-      var len = curvePath.getTotalLength();
-      curvePath.style.setProperty('--curve-length', len);
-      curvePath.style.strokeDasharray = len;
-      curvePath.style.strokeDashoffset = len;
-    }
-    var chartObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          // 1. Bars grow + labels + chasm banner appear together
-          if (orangeBars) orangeBars.classList.add('sc-bars-grown');
-          if (svg) {
-            svg.querySelectorAll('.sc-phase-label').forEach(function(label, i) {
-              label.style.transitionDelay = (0.1 + i * 0.05) + 's';
-            });
-            svg.classList.add('sc-chart-animated');
-            svg.classList.add('sc-chasm-visible');
-          }
-          // 2. Orange curve draws LAST (after bars settle)
-          if (curvePath) setTimeout(function() { curvePath.classList.add('sc-drawn'); }, 600);
-          chartObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    chartObserver.observe(chartContainer);
-  }
 
   /* Counter animation */
   var ctaBox = document.querySelector('.scorecard-cta-box');
