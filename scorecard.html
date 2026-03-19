@@ -980,7 +980,7 @@
     // Nav
     const isLastScored = idx === totalQ - 1;
     const isOpenText = q.openText;
-    const needsNext = q.scale || q.multi; // scale & multi use explicit Next btn
+    const needsNext = q.multi; // only multi-select needs explicit Next btn (scale + single MCQ auto-advance)
     html += '<div class="sc-nav">';
     if (idx > 0) {
       html += '<button class="sc-btn sc-btn-back" onclick="app.prev()">&#8592; Back</button>';
