@@ -823,7 +823,7 @@
 
     // Q10 — clarity of assurance feedback
     { id: 10, pillar: 'Compound', scale: true,
-      text: 'How clear and standards-referenced is the feedback you typically receive from an assurer (e.g. DPE/PE) during assurance reviews?',
+      text: 'How clear and standards-referenced is the feedback you typically receive from an assurer (e.g. DPE/PE) during assurance process (e.g. DRN)?',
       scaleMin: 'Comments often cite no clear standards and feel opinion-based',
       scaleMax: 'Comments consistently cite specific standards and clauses',
       scores: [] },
@@ -864,7 +864,7 @@
         'Resistance, there is pushback on the idea'
       ], scores: [3, 1, 0] },
 
-    // Q15 — knowledge walking out (degree, inverted)
+    // Q15 — knowledge walking out (degree)
     { id: 15, pillar: 'Digitalise', scale: true,
       text: 'If a senior engineer left tomorrow, how much of your core engineering capability and project knowledge would leave with them?',
       scaleMin: 'Critical capability would walk out the door',
@@ -1080,12 +1080,6 @@
     return 0;
   }
 
-  // For Q10 (opinion-driven comments) the scale is inverted — low score = good
-  // handled by flipping the value before band mapping
-  function scaleToScoreInverted(val) {
-    return scaleToScore(11 - val);
-  }
-
   function calcScores() {
     const pillarScores = {};
     pillarNames.forEach(p => { pillarScores[p] = { earned: 0, max: 0 }; });
@@ -1097,13 +1091,7 @@
       pillarScores[q.pillar].max += 3;
 
       if (q.scale) {
-        const val = answers[idx];
-        // Q10 is inverted (low frequency of opinion comments = good = high score)
-        const pts = (q.id === 10) ? scaleToScoreInverted(val) : scaleToScore(val);
-        // Q15 is also inverted (high capability walking out = bad = low score)
-        // but phrased as "how much leaves" so high val = bad → invert
-        const finalPts = (q.id === 15) ? scaleToScoreInverted(val) : pts;
-        pillarScores[q.pillar].earned += finalPts;
+        pillarScores[q.pillar].earned += scaleToScore(answers[idx]);
       } else {
         pillarScores[q.pillar].earned += q.scores[answers[idx]] || 0;
       }
