@@ -2113,13 +2113,101 @@
   </div>
   <div class="container animate-in">
     <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span> AI Automation for UK Rail &amp; Infrastructure</div>
-    <h1>Your engineers aren't for <em>admin</em>.</h1>
+    <h1>Your Engineers Aren't For <em>Admin</em></h1>
     <p class="hero-sub">They're for judgment. AutomateX automates the <strong style="color:var(--orange);">high-friction workflows</strong> draining your team. AI fluency meets a decade in the domain.</p>
     <div class="hero-actions">
       <a href="#scorecard" class="btn btn-primary btn-primary-lg">Take the Free AI Readiness Self-Assessment</a>
     </div>
   </div>
 </section>
+
+<!-- ===== WHO WE HELP ===== -->
+<section class="section" id="who-we-help">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow sc-reveal">Who we work with</div>
+      <h2 class="section-heading sc-reveal">Three teams we build for.</h2>
+      <p class="section-sub center sc-reveal">You already know the risk of inaction on AI is greater than the risk of action. You see AI as opportunity, not threat. You just need a partner who has built this before, in your domain, and can architect the first move.</p>
+    </div>
+
+    <div class="who-grid">
+      <div class="who-card sc-reveal">
+        <div class="who-card-label">Client organisations</div>
+        <h3 class="who-card-title">Heads of Profession, Programme Managers, Digital Leads</h3>
+        <p class="who-card-orgs">Network Rail, TfL, HS2, RSSB</p>
+        <p class="who-card-body">You're governance-bound. You need AI capability you can assure, not just trial.</p>
+      </div>
+      <div class="who-card sc-reveal">
+        <div class="who-card-label">Tier-1 consultancies &amp; contractors</div>
+        <h3 class="who-card-title">Associate Directors, Digital Leads</h3>
+        <p class="who-card-orgs">Arcadis, Jacobs, WSP, AECOM, Mott MacDonald</p>
+        <p class="who-card-body">Margin pressure is squeezing billable hours. You need your engineers back on delivery.</p>
+      </div>
+      <div class="who-card sc-reveal">
+        <div class="who-card-label">Mid-sized firms &amp; owner-operators</div>
+        <h3 class="who-card-title">Technical Directors, Managing Directors</h3>
+        <p class="who-card-orgs">Specialist consultancies and engineering SMEs</p>
+        <p class="who-card-body">You compete on capability, not headcount. AI is how you punch above weight.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #who-we-help { padding-top: 5rem; padding-bottom: 5rem; background: var(--white); }
+  #who-we-help .container { max-width: 1280px; }
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .who-card {
+    background: var(--white);
+    border: 1px solid hsl(0 0% 60% / 0.18);
+    border-radius: 16px;
+    padding: 2rem 1.75rem;
+    transition: border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med);
+  }
+  .who-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px hsl(var(--navy-h, 220) 30% 20% / 0.08);
+  }
+  .who-card-label {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--orange);
+    margin-bottom: 0.875rem;
+  }
+  .who-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--navy);
+    margin: 0 0 0.5rem 0;
+  }
+  .who-card-orgs {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 0 0 1rem 0;
+    opacity: 0.75;
+  }
+  .who-card-body {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--gray-500);
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .who-grid { grid-template-columns: 1fr; gap: 1rem; }
+  }
+</style>
 
 <!-- ===== SERVICES ===== -->
 <section class="section" id="services">
