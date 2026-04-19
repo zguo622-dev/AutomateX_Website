@@ -2324,6 +2324,133 @@
   }
 </style>
 
+<!-- ===== COMMISSION SHAPES ===== -->
+<section class="section" id="commission-shapes">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow sc-reveal">How we engage</div>
+      <h2 class="section-heading sc-reveal">Four ways in.</h2>
+      <p class="section-sub center sc-reveal">One capability, four commission shapes. Chosen by where you are, not where we'd like you to be.</p>
+    </div>
+
+    <div class="commission-grid">
+      <div class="commission-card sc-reveal">
+        <div class="commission-num">01</div>
+        <h3 class="commission-title">Business Case</h3>
+        <p class="commission-state">When you're here: you know AI matters, but you don't yet know where it lands in your context or how to make the case internally.</p>
+        <div class="commission-divider"></div>
+        <p class="commission-label">What we deliver</p>
+        <p class="commission-body">A business case, opportunity map, or white paper. Written to your governance context and defensible under challenge. The artefact your board can act on.</p>
+      </div>
+
+      <div class="commission-card sc-reveal">
+        <div class="commission-num">02</div>
+        <h3 class="commission-title">Five A's</h3>
+        <p class="commission-state">When you're here: you have ideas, but you're not sure which are actionable, which should be automated, or where the real leverage is.</p>
+        <div class="commission-divider"></div>
+        <p class="commission-label">What we deliver</p>
+        <p class="commission-body">The full method with you. Audit the friction, architect the sequence, pilot the first automation, assure it, and help your team adopt it.</p>
+      </div>
+
+      <div class="commission-card sc-reveal">
+        <div class="commission-num">03</div>
+        <h3 class="commission-title">Build</h3>
+        <p class="commission-state">When you're here: you already know the friction point. You want it automated, not discussed.</p>
+        <div class="commission-divider"></div>
+        <p class="commission-label">What we deliver</p>
+        <p class="commission-body">Production-grade automation built directly against your use case. Tested, integrated into your workflow, handed over with training.</p>
+      </div>
+
+      <div class="commission-card sc-reveal">
+        <div class="commission-num">04</div>
+        <h3 class="commission-title">Retainer</h3>
+        <p class="commission-state">When you're here: you want sustained AI capability, not a project.</p>
+        <div class="commission-divider"></div>
+        <p class="commission-label">What we deliver</p>
+        <p class="commission-body">An ongoing delivery relationship. Domain expertise and AI fluency embedded in your team's rhythm. New automations as priorities shift, optimisation of what's already running, a standing partner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #commission-shapes {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background: var(--white);
+  }
+  #commission-shapes .container { max-width: 1280px; }
+  .commission-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+  .commission-card {
+    background: var(--white);
+    border: 1px solid hsl(0 0% 60% / 0.18);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med);
+  }
+  .commission-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px hsla(220, 30%, 20%, 0.08);
+  }
+  .commission-num {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--orange);
+    opacity: 0.65;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .commission-title {
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem 0;
+  }
+  .commission-state {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--gray-600);
+    margin: 0 0 1.25rem 0;
+  }
+  .commission-divider {
+    height: 1px;
+    background: hsl(0 0% 60% / 0.2);
+    margin: 0 0 1.25rem 0;
+  }
+  .commission-label {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--orange);
+    margin: 0 0 0.625rem 0;
+  }
+  .commission-body {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--gray-700);
+    margin: 0;
+  }
+  @media (max-width: 1180px) {
+    .commission-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  }
+  @media (max-width: 560px) {
+    .commission-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
 <!-- ===== SERVICES ===== -->
 <section class="section" id="services">
   <div class="container">
