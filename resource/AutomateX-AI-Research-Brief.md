@@ -1,6 +1,6 @@
 # AutomateX Research Brief: AI Adoption, Defensibility & Safety in AEC
 
-**Prepared for:** Bill Guo, Founder — AutomateX Advisory
+**Prepared for:** Bill Guo, Founder — AutomateX
 **Date:** 17 March 2026
 **Purpose:** Evidence base for the P.A.C.E-D method, credibility positioning, and authority-building in AI safety for AEC consultancies and contractors
 
@@ -219,4 +219,4 @@ That is the authority position AutomateX should own.
 
 ---
 
-*Compiled by AutomateX Advisory — 17 March 2026*
+*Compiled by AutomateX — 17 March 2026*
