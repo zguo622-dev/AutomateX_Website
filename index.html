@@ -2460,41 +2460,95 @@
       <p class="section-sub center sc-reveal">Domain knowledge, engineering capability, AI-native discipline. Most advisors live in one. We operate where the three meet.</p>
     </div>
 
-    <div class="venn-hero sc-reveal">
-      <svg class="venn-svg" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="vennTitle vennDesc">
-        <title id="vennTitle">The AutomateX intersection</title>
-        <desc id="vennDesc">Three-circle Venn diagram with Domain Knowledge, Engineering Capability, and AI-native lobes. The AutomateX logo sits inside the highlighted triple intersection.</desc>
+    <div class="venn-cred-layout sc-reveal">
+      <div class="venn-cred-left">
+        <svg class="venn-svg" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="vennTitle vennDesc">
+          <title id="vennTitle">The AutomateX intersection</title>
+          <desc id="vennDesc">Three-circle Venn diagram with Domain Knowledge, Engineering Capability, and AI-native lobes. The AutomateX logo sits inside the highlighted triple intersection.</desc>
 
-        <defs>
-          <clipPath id="clipA"><circle cx="235" cy="220" r="120"/></clipPath>
-          <clipPath id="clipB"><circle cx="365" cy="220" r="120"/></clipPath>
-          <path id="labelPathA" d="M 102.05 196.56 A 135 135 0 0 1 292.05 97.65" fill="none"/>
-          <path id="labelPathB" d="M 307.95 97.65 A 135 135 0 0 1 497.95 196.56" fill="none"/>
-          <filter id="whitenLogo"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter>
-        </defs>
+          <defs>
+            <clipPath id="clipA"><circle cx="235" cy="220" r="120"/></clipPath>
+            <clipPath id="clipB"><circle cx="365" cy="220" r="120"/></clipPath>
+            <path id="labelPathA" d="M 102.05 196.56 A 135 135 0 0 1 292.05 97.65" fill="none"/>
+            <path id="labelPathB" d="M 307.95 97.65 A 135 135 0 0 1 497.95 196.56" fill="none"/>
+            <filter id="whitenLogo"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"/></filter>
+          </defs>
 
-        <!-- Three soft lobes -->
-        <circle cx="235" cy="220" r="120" fill="#1A1F36" fill-opacity="0.12" stroke="#1A1F36" stroke-opacity="0.50" stroke-width="1.5"/>
-        <circle cx="365" cy="220" r="120" fill="#C9974B" fill-opacity="0.18" stroke="#9A6F2F" stroke-opacity="0.55" stroke-width="1.5"/>
-        <circle cx="300" cy="332" r="120" fill="#F96532" fill-opacity="0.14" stroke="#F96532" stroke-opacity="0.60" stroke-width="1.5"/>
+          <!-- Three soft lobes -->
+          <circle cx="235" cy="220" r="120" fill="#1A1F36" fill-opacity="0.12" stroke="#1A1F36" stroke-opacity="0.50" stroke-width="1.5"/>
+          <circle cx="365" cy="220" r="120" fill="#C9974B" fill-opacity="0.18" stroke="#9A6F2F" stroke-opacity="0.55" stroke-width="1.5"/>
+          <circle cx="300" cy="332" r="120" fill="#F96532" fill-opacity="0.14" stroke="#F96532" stroke-opacity="0.60" stroke-width="1.5"/>
 
-        <!-- Triple intersection (A ∩ B ∩ C) filled solid brand orange via nested clipPaths -->
-        <g clip-path="url(#clipA)">
-          <g clip-path="url(#clipB)">
-            <circle cx="300" cy="332" r="120" fill="#F96532"/>
+          <!-- Triple intersection (A ∩ B ∩ C) filled solid brand orange via nested clipPaths -->
+          <g clip-path="url(#clipA)">
+            <g clip-path="url(#clipB)">
+              <circle cx="300" cy="332" r="120" fill="#F96532"/>
+            </g>
           </g>
-        </g>
 
-        <!-- AutomateX logo inside the highlighted intersection, rendered white for contrast -->
-        <image href="brand_assets/Logo.png" x="268" y="230" width="64" height="64" preserveAspectRatio="xMidYMid meet" filter="url(#whitenLogo)"/>
+          <!-- AutomateX logo inside the highlighted intersection, rendered white for contrast -->
+          <image href="brand_assets/Logo.png" x="268" y="230" width="64" height="64" preserveAspectRatio="xMidYMid meet" filter="url(#whitenLogo)"/>
 
-        <!-- Curved top labels follow each circle's outer arc -->
-        <text class="venn-label" fill="#1A1F36" text-anchor="middle"><textPath href="#labelPathA" startOffset="50%">DOMAIN KNOWLEDGE</textPath></text>
-        <text class="venn-label" fill="#9A6F2F" text-anchor="middle"><textPath href="#labelPathB" startOffset="50%">ENGINEERING CAPABILITY</textPath></text>
+          <!-- Curved top labels follow each circle's outer arc -->
+          <text class="venn-label" fill="#1A1F36" text-anchor="middle"><textPath href="#labelPathA" startOffset="50%">DOMAIN KNOWLEDGE</textPath></text>
+          <text class="venn-label" fill="#9A6F2F" text-anchor="middle"><textPath href="#labelPathB" startOffset="50%">ENGINEERING CAPABILITY</textPath></text>
 
-        <!-- Bottom straight label -->
-        <text class="venn-label" x="300" y="470" text-anchor="middle" fill="#C14B24">AI-NATIVE</text>
-      </svg>
+          <!-- Bottom straight label -->
+          <text class="venn-label" x="300" y="470" text-anchor="middle" fill="#C14B24">AI-NATIVE</text>
+        </svg>
+      </div>
+
+      <div class="venn-cred-right">
+        <div class="cred-row">
+          <div class="cred-row-label">
+            <div class="cred-row-header">
+              <span class="cred-dot cred-dot-industrial"></span>
+              <h3 class="cred-column-title">Domain Knowledge</h3>
+            </div>
+            <p class="cred-column-tagline">Lived delivery and recognition.</p>
+          </div>
+          <ul class="cred-list">
+            <li><svg class="cred-check industrial" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>10+ Years UK Rail Infrastructure</span></li>
+            <li><svg class="cred-check industrial" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Young Railway Professional of the Year 2023</span></li>
+            <li><svg class="cred-check industrial" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>ICE East England Asset Resilience 2025</span></li>
+            <li><svg class="cred-check industrial" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Scaled Supplier &pound;0 to &pound;1m ARR in CP7</span></li>
+            <li><svg class="cred-check industrial" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>SRE Tactical Design Partner</span></li>
+          </ul>
+        </div>
+
+        <div class="cred-row">
+          <div class="cred-row-label">
+            <div class="cred-row-header">
+              <span class="cred-dot cred-dot-qualification"></span>
+              <h3 class="cred-column-title">Engineering Capability</h3>
+            </div>
+            <p class="cred-column-tagline">Formal engineering authority.</p>
+          </div>
+          <ul class="cred-list">
+            <li><svg class="cred-check qualification" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Fellow of the Institution of Civil Engineers (FICE)</span></li>
+            <li><svg class="cred-check qualification" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Chartered Engineer (CEng)</span></li>
+            <li><svg class="cred-check qualification" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Imperial College London</span></li>
+          </ul>
+        </div>
+
+        <div class="cred-row">
+          <div class="cred-row-label">
+            <div class="cred-row-header">
+              <span class="cred-dot cred-dot-ai"></span>
+              <h3 class="cred-column-title">AI-native</h3>
+            </div>
+            <p class="cred-column-tagline">Discipline, not tool-use.</p>
+          </div>
+          <ul class="cred-list">
+            <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Agentic AI</span></li>
+            <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Generative AI</span></li>
+            <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Machine Learning</span></li>
+            <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>AI Automation</span></li>
+            <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Retrieval-Augmented Generation</span></li>
+            <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Knowledge Graph</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="about-intro">
@@ -2505,52 +2559,6 @@
         <p class="about-bio">Ten years on both sides of the table. Over 100 railway businesses, the client-side governance seat and the supplier-side delivery seat. Same patterns keep repeating: senior engineers buried in compliance admin, quality that depends on who&rsquo;s in the room, growth that stalls the moment the best people run out of hours.</p>
         <p class="about-bio">In 2023 I used AI to scale a rail consultancy from zero to approximately &pound;1m ARR by 2025, and won one of 16 tactical design partner seats on Southern Renew Enterprise. The tools aren&rsquo;t theory. They&rsquo;re how I got here.</p>
         <p class="about-bio" style="font-style:italic; color:var(--orange);">&ldquo;Engineering excellence shouldn&rsquo;t depend on who&rsquo;s in the room.&rdquo;</p>
-      </div>
-    </div>
-
-    <div class="cred-columns sc-reveal">
-      <div class="cred-column">
-        <div class="cred-column-header">
-          <span class="cred-dot cred-dot-industrial"></span>
-          <h3 class="cred-column-title">Domain Knowledge</h3>
-        </div>
-        <p class="cred-column-tagline">Lived delivery and recognition.</p>
-        <ul class="cred-list">
-          <li><svg class="cred-check industrial" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>10+ Years UK Rail Infrastructure</span></li>
-          <li><svg class="cred-check industrial" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Young Railway Professional of the Year 2023</span></li>
-          <li><svg class="cred-check industrial" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>ICE East England Asset Resilience 2025</span></li>
-          <li><svg class="cred-check industrial" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Scaled Supplier &pound;0 to &pound;1m ARR in CP7</span></li>
-          <li><svg class="cred-check industrial" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>SRE Tactical Design Partner</span></li>
-        </ul>
-      </div>
-
-      <div class="cred-column">
-        <div class="cred-column-header">
-          <span class="cred-dot cred-dot-qualification"></span>
-          <h3 class="cred-column-title">Engineering Capability</h3>
-        </div>
-        <p class="cred-column-tagline">Formal engineering authority.</p>
-        <ul class="cred-list">
-          <li><svg class="cred-check qualification" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Fellow of the Institution of Civil Engineers (FICE)</span></li>
-          <li><svg class="cred-check qualification" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Chartered Engineer (CEng)</span></li>
-          <li><svg class="cred-check qualification" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Imperial College London</span></li>
-        </ul>
-      </div>
-
-      <div class="cred-column">
-        <div class="cred-column-header">
-          <span class="cred-dot cred-dot-ai"></span>
-          <h3 class="cred-column-title">AI-native</h3>
-        </div>
-        <p class="cred-column-tagline">Discipline, not tool-use.</p>
-        <ul class="cred-list">
-          <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Agentic AI</span></li>
-          <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Generative AI</span></li>
-          <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Machine Learning</span></li>
-          <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>AI Automation</span></li>
-          <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Retrieval-Augmented Generation</span></li>
-          <li><svg class="cred-check ai" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10.5l3.5 3.5L15 7"/></svg><span>Knowledge Graph</span></li>
-        </ul>
       </div>
     </div>
 
@@ -2607,19 +2615,24 @@
   #credibility { padding-top: 5rem; padding-bottom: 5rem; }
   #credibility .container { max-width: 1200px; }
 
-  /* Venn hero */
-  .venn-hero {
-    margin: 3rem auto 1rem;
-    max-width: 560px;
-    width: 100%;
+  /* Venn + cred rows side-by-side */
+  .venn-cred-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 3rem;
+    align-items: center;
+    margin: 3rem 0 3rem;
+  }
+  .venn-cred-left {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   .venn-svg {
     display: block;
     width: 100%;
     height: auto;
-    max-width: 560px;
+    max-width: 520px;
   }
   .venn-label {
     font-family: var(--font-heading);
@@ -2627,31 +2640,38 @@
     font-weight: 800;
     letter-spacing: 0.14em;
   }
-
-  /* Cred columns */
-  .cred-columns {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
+  .venn-cred-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
-  .cred-column {
+
+  /* Cred rows */
+  .cred-row {
     background: var(--white);
     border: 1px solid var(--gray-200);
-    border-radius: 16px;
-    padding: 2rem 1.75rem;
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1.75rem;
+    align-items: start;
     transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
   }
-  .cred-column:hover {
+  .cred-row:hover {
     border-color: #cbd5e0;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 24px rgba(26,31,54,0.06);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(26,31,54,0.05);
   }
-  .cred-column-header {
+  .cred-row-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .cred-row-header {
     display: flex;
     align-items: center;
     gap: 0.625rem;
-    margin-bottom: 0.5rem;
   }
   .cred-dot {
     width: 12px;
@@ -2672,17 +2692,18 @@
     text-transform: uppercase;
   }
   .cred-column-tagline {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--gray-500);
-    margin: 0 0 1.25rem;
+    margin: 0;
     font-style: italic;
+    line-height: 1.4;
   }
   .cred-list { list-style: none; padding: 0; margin: 0; }
   .cred-list li {
     display: flex;
     align-items: flex-start;
     gap: 0.625rem;
-    padding: 0.75rem 0;
+    padding: 0.5rem 0;
     border-top: 1px solid #f0f1f4;
     font-size: 0.9375rem;
     line-height: 1.5;
@@ -2702,12 +2723,21 @@
   #credibility .testimonials-heading { margin-top: 4.5rem; }
 
   @media (max-width: 960px) {
-    .cred-columns { grid-template-columns: 1fr; max-width: 540px; margin-left: auto; margin-right: auto; }
-    .venn-hero { max-width: 440px; }
+    .venn-cred-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .venn-svg { max-width: 440px; }
+    .cred-row {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1.5rem;
+    }
   }
   @media (max-width: 560px) {
-    .venn-hero { max-width: 340px; }
-    .venn-label { font-size: 13px; letter-spacing: 0.14em; }
+    .venn-svg { max-width: 340px; }
+    .venn-label { font-size: 12px; letter-spacing: 0.12em; }
+    .cred-row { padding: 1.25rem 1.25rem; }
   }
 </style>
 
