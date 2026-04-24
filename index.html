@@ -2121,62 +2121,76 @@
   </div>
 </section>
 
-<!-- ===== HOW WE HELP — ORBITAL METHOD ===== -->
+<!-- ===== HOW WE HELP — MAGNIFIER LENS ===== -->
 <section class="section" id="five-as">
   <div class="container">
     <div class="text-center">
       <div class="section-eyebrow sc-reveal">How we help</div>
-      <h2 class="section-heading sc-reveal">The Five A's.</h2>
-      <p class="section-sub center sc-reveal">Your X sits at the centre. The Five A's are how we resolve it. Click any stage to see how it applies in rail delivery.</p>
+      <h2 class="section-heading sc-reveal">We automate your <span class="heading-x">X</span>.</h2>
+      <p class="section-sub center sc-reveal">Your X is the friction slowing rail delivery. Move the lens across the canvas to find it. Click any friction point to see how AutomateX resolves it.</p>
     </div>
 
-    <div class="orbit-wrap sc-reveal">
-      <div class="orbit-panel" id="orbit-panel">
-        <div class="orbit-bg" aria-hidden="true"></div>
-        <div class="orbit-ring" aria-hidden="true"></div>
+    <div class="lens-wrap sc-reveal">
+      <div class="lens-panel" id="lens-panel">
+        <div class="lens-canvas" id="lens-canvas">
 
-        <div class="orbit-centre" aria-hidden="true">
-          <div class="orbit-centre-mark">Your <span class="orbit-x">X</span></div>
-          <div class="orbit-centre-sub">the friction<br>slowing delivery</div>
+          <div class="lens-blurred" aria-hidden="true">
+            <span class="lp md" style="top:9%;  left:10%;">Form G</span>
+            <span class="lp sm" style="top:11%; left:30%;">Take-off</span>
+            <span class="lp lg" style="top:8%;  left:52%;">DRN</span>
+            <span class="lp sm" style="top:12%; left:76%;">AIP</span>
+            <span class="lp sm" style="top:26%; left:6%;">Form A</span>
+            <span class="lp md" style="top:28%; left:26%;">CR-T</span>
+            <span class="lp sm" style="top:24%; left:50%;">Hazard log</span>
+            <span class="lp md" style="top:29%; left:72%;">ITP</span>
+            <span class="lp lg" style="top:46%; left:12%;">Assurance</span>
+            <span class="lp sm" style="top:48%; left:38%;">Cat 3 Check</span>
+            <span class="lp md" style="top:45%; left:64%;">Change control</span>
+            <span class="lp sm" style="top:66%; left:8%;">Interface register</span>
+            <span class="lp md" style="top:64%; left:36%;">Risk register</span>
+            <span class="lp lg" style="top:68%; left:66%;">NCR</span>
+          </div>
+
+          <div class="lens-sharp" id="lens-sharp">
+            <button class="lp-btn md" data-key="form-g"     type="button" style="top:9%;  left:10%;">Form G</button>
+            <button class="lp-btn sm" data-key="take-off"   type="button" style="top:11%; left:30%;">Take-off</button>
+            <button class="lp-btn lg" data-key="drn"        type="button" style="top:8%;  left:52%;">DRN</button>
+            <button class="lp-btn sm" data-key="aip"        type="button" style="top:12%; left:76%;">AIP</button>
+            <button class="lp-btn sm" data-key="form-a"     type="button" style="top:26%; left:6%;">Form A</button>
+            <button class="lp-btn md" data-key="cr-t"       type="button" style="top:28%; left:26%;">CR-T</button>
+            <button class="lp-btn sm" data-key="hazard-log" type="button" style="top:24%; left:50%;">Hazard log</button>
+            <button class="lp-btn md" data-key="itp"        type="button" style="top:29%; left:72%;">ITP</button>
+            <button class="lp-btn lg" data-key="assurance"  type="button" style="top:46%; left:12%;">Assurance</button>
+            <button class="lp-btn sm" data-key="cat-3"      type="button" style="top:48%; left:38%;">Cat 3 Check</button>
+            <button class="lp-btn md" data-key="change"     type="button" style="top:45%; left:64%;">Change control</button>
+            <button class="lp-btn sm" data-key="interface"  type="button" style="top:66%; left:8%;">Interface register</button>
+            <button class="lp-btn md" data-key="risk"       type="button" style="top:64%; left:36%;">Risk register</button>
+            <button class="lp-btn lg" data-key="ncr"        type="button" style="top:68%; left:66%;">NCR</button>
+          </div>
+
+          <div class="lens-mag" id="lens-mag" aria-hidden="true">
+            <svg viewBox="0 0 80 80" focusable="false" aria-hidden="true">
+              <circle cx="40" cy="40" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="58.5" y1="21.5" x2="70" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="58.5" y1="58.5" x2="70" y2="70" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="21.5" y1="58.5" x2="10" y2="70" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="21.5" y1="21.5" x2="10" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
         </div>
 
-        <svg class="orbit-connector" id="orbit-connector" aria-hidden="true" focusable="false">
-          <line x1="0" y1="0" x2="0" y2="0"></line>
-        </svg>
-
-        <button class="orbit-node" type="button" data-index="0" aria-label="Stage 01 Audit">
-          <span class="orbit-dot"><span class="orbit-num">01</span></span>
-          <span class="orbit-label">Audit</span>
-        </button>
-        <button class="orbit-node" type="button" data-index="1" aria-label="Stage 02 Architect">
-          <span class="orbit-dot"><span class="orbit-num">02</span></span>
-          <span class="orbit-label">Architect</span>
-        </button>
-        <button class="orbit-node" type="button" data-index="2" aria-label="Stage 03 Automate">
-          <span class="orbit-dot"><span class="orbit-num">03</span></span>
-          <span class="orbit-label">Automate</span>
-        </button>
-        <button class="orbit-node" type="button" data-index="3" aria-label="Stage 04 Assure">
-          <span class="orbit-dot"><span class="orbit-num">04</span></span>
-          <span class="orbit-label">Assure</span>
-        </button>
-        <button class="orbit-node" type="button" data-index="4" aria-label="Stage 05 Adopt">
-          <span class="orbit-dot"><span class="orbit-num">05</span></span>
-          <span class="orbit-label">Adopt</span>
-        </button>
-
-        <div class="orbit-info" aria-live="polite">
-          <div class="orbit-info-default" id="orbit-info-default">
-            <div class="orbit-info-hint">Select a stage</div>
-            <p class="orbit-info-prompt">Click any orbiting node to see how AutomateX applies this stage in rail delivery.</p>
+        <div class="lens-info" aria-live="polite">
+          <div class="lens-info-default" id="lens-info-default">
+            <div class="lens-info-hint">Focus the lens</div>
+            <p class="lens-info-prompt">Move your cursor onto the canvas above. Each friction point sharpens as the lens passes. Click one to see what AutomateX does with it.</p>
           </div>
-          <div class="orbit-info-content" id="orbit-info-content" hidden>
-            <div class="orbit-info-head">
-              <span class="orbit-info-num" id="orbit-info-num">01</span>
-              <h3 class="orbit-info-title" id="orbit-info-title">Audit</h3>
+          <div class="lens-info-content" id="lens-info-content" hidden>
+            <div class="lens-info-head">
+              <h3 class="lens-info-title" id="lens-info-title"></h3>
+              <span class="lens-info-subtitle" id="lens-info-subtitle"></span>
             </div>
-            <p class="orbit-info-promise" id="orbit-info-promise"></p>
-            <p class="orbit-info-body" id="orbit-info-body"></p>
+            <p class="lens-info-pain" id="lens-info-pain"></p>
+            <p class="lens-info-resolve" id="lens-info-resolve"></p>
           </div>
         </div>
       </div>
@@ -2192,9 +2206,15 @@
   }
   #five-as .container { max-width: 1280px; }
   #five-as .section-sub.center { max-width: 680px; }
+  #five-as .heading-x {
+    color: var(--orange);
+    font-weight: 900;
+    font-size: 1.1em;
+    letter-spacing: 0.01em;
+  }
 
-  .orbit-wrap { margin-top: 3rem; }
-  .orbit-panel {
+  .lens-wrap { margin-top: 3rem; }
+  .lens-panel {
     position: relative;
     width: 100%;
     max-width: 960px;
@@ -2205,140 +2225,99 @@
     overflow: hidden;
     box-shadow: 0 24px 56px hsla(220, 30%, 20%, 0.2);
   }
-  .orbit-bg {
+  .lens-canvas {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 440px;
+    cursor: none;
+  }
+  .lens-canvas::before {
+    content: '';
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 40px 40px;
-    mask-image: radial-gradient(ellipse at 50% 36%, black 40%, transparent 85%);
-    -webkit-mask-image: radial-gradient(ellipse at 50% 36%, black 40%, transparent 85%);
+    mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 85%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 85%);
     pointer-events: none;
   }
-  .orbit-ring {
-    position: absolute;
-    top: 0; left: 0;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-  }
-  .orbit-centre {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    pointer-events: none;
-    z-index: 4;
-  }
-  .orbit-centre-mark {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.375rem;
-    color: rgba(255,255,255,0.88);
-    letter-spacing: -0.01em;
-    line-height: 1;
-  }
-  .orbit-x {
-    color: var(--orange);
-    font-weight: 900;
-    font-size: 1.35em;
-    letter-spacing: 0.01em;
-  }
-  .orbit-centre-sub {
-    margin-top: 0.65rem;
-    font-family: var(--font-heading);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: rgba(255,255,255,0.4);
-    line-height: 1.35;
-  }
-  .orbit-connector {
+
+  .lens-blurred, .lens-sharp {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
+  }
+  .lens-blurred {
+    filter: blur(4.5px);
+    opacity: 0.55;
     pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  .lens-sharp {
     z-index: 2;
   }
-  .orbit-connector.is-visible { opacity: 1; }
-  .orbit-connector line {
-    stroke: rgba(249,101,50,0.55);
-    stroke-width: 1;
-    stroke-dasharray: 3 4;
-  }
-
-  .orbit-node {
+  .lens-blurred .lp,
+  .lens-sharp .lp-btn {
     position: absolute;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.005em;
+    white-space: nowrap;
     transform: translate(-50%, -50%);
+  }
+  .lens-blurred .lp {
+    color: rgba(255,255,255,0.75);
+  }
+  .lens-blurred .lp.sm, .lens-sharp .lp-btn.sm { font-size: 0.875rem; }
+  .lens-blurred .lp.md, .lens-sharp .lp-btn.md { font-size: 1.0625rem; }
+  .lens-blurred .lp.lg, .lens-sharp .lp-btn.lg { font-size: 1.375rem; }
+
+  .lens-sharp .lp-btn {
     background: transparent;
     border: 0;
-    padding: 0;
+    padding: 0.25rem 0.5rem;
     margin: 0;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 5;
-    font: inherit;
+    cursor: none;
+    font-family: var(--font-heading);
+    color: rgba(255,255,255,0.95);
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+  }
+  .lens-sharp .lp-btn:hover {
+    color: var(--orange);
+    text-shadow: 0 0 14px rgba(249,101,50,0.45);
+  }
+  .lens-sharp .lp-btn.is-active {
+    color: var(--orange);
+    text-shadow: 0 0 10px rgba(249,101,50,0.35);
+  }
+
+  .lens-mag {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    transform: translate(-50%, -50%);
+    color: var(--orange);
+    pointer-events: none;
+    z-index: 3;
+    filter: drop-shadow(0 0 18px rgba(249,101,50,0.3));
     transition: opacity 0.3s ease;
   }
-  .orbit-node:focus-visible {
-    outline: 2px solid var(--orange);
-    outline-offset: 6px;
-    border-radius: 10px;
+  .lens-mag svg { width: 100%; height: 100%; }
+  .lens-mag.is-capturing {
+    animation: lensCapture 0.45s ease-out;
   }
-  .orbit-dot {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(255,255,255,0.22);
-    background: var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  @keyframes lensCapture {
+    0%   { transform: translate(-50%, -50%) scale(1); }
+    50%  { transform: translate(-50%, -50%) scale(1.15); }
+    100% { transform: translate(-50%, -50%) scale(1); }
   }
-  .orbit-num {
-    font-family: var(--font-heading);
-    font-size: 0.9375rem;
-    font-weight: 800;
-    color: rgba(255,255,255,0.85);
-    letter-spacing: -0.01em;
-  }
-  .orbit-label {
-    margin-top: 0.7rem;
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: rgba(255,255,255,0.7);
-    white-space: nowrap;
-  }
-  .orbit-node:hover .orbit-dot {
-    border-color: rgba(249,101,50,0.55);
-    transform: scale(1.06);
-  }
-  .orbit-node:hover .orbit-label { color: rgba(255,255,255,1); }
-  .orbit-node.is-active .orbit-dot {
-    border-color: var(--orange);
-    background: rgba(249,101,50,0.15);
-    transform: scale(1.14);
-  }
-  .orbit-node.is-active .orbit-num { color: var(--orange); }
-  .orbit-node.is-active .orbit-label { color: var(--white); }
-  .orbit-node.is-dimmed { opacity: 0.4; }
-  .orbit-node.is-dimmed .orbit-dot { border-color: rgba(255,255,255,0.12); }
 
-  .orbit-info {
+  .lens-info {
     position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 200px;
+    left: 0; right: 0;
+    top: 440px;
+    bottom: 0;
     padding: 1.75rem 2.25rem 2rem;
     background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 65%);
     border-top: 1px solid rgba(255,255,255,0.06);
@@ -2346,9 +2325,9 @@
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
-    z-index: 6;
+    z-index: 4;
   }
-  .orbit-info-hint {
+  .lens-info-hint {
     font-family: var(--font-heading);
     font-size: 0.6875rem;
     font-weight: 700;
@@ -2357,28 +2336,21 @@
     color: var(--orange);
     margin-bottom: 0.625rem;
   }
-  .orbit-info-prompt {
+  .lens-info-prompt {
     font-size: 0.9375rem;
     line-height: 1.6;
     color: rgba(255,255,255,0.65);
     max-width: 560px;
     margin: 0;
   }
-  .orbit-info-head {
+  .lens-info-head {
     display: flex;
     align-items: baseline;
     gap: 0.875rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.625rem;
+    flex-wrap: wrap;
   }
-  .orbit-info-num {
-    font-family: var(--font-heading);
-    font-size: 1.375rem;
-    font-weight: 800;
-    color: var(--orange);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-  .orbit-info-title {
+  .lens-info-title {
     font-family: var(--font-heading);
     font-size: 1.625rem;
     font-weight: 800;
@@ -2386,177 +2358,168 @@
     letter-spacing: -0.01em;
     margin: 0;
   }
-  .orbit-info-promise {
-    font-size: 1rem;
+  .lens-info-subtitle {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
     font-weight: 600;
-    color: rgba(255,255,255,0.85);
-    margin: 0 0 0.5rem 0;
-    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.5);
+  }
+  .lens-info-pain {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.78);
+    margin: 0 0 0.625rem 0;
+    line-height: 1.55;
     max-width: 680px;
   }
-  .orbit-info-body {
-    font-size: 0.875rem;
-    line-height: 1.65;
-    color: rgba(255,255,255,0.62);
+  .lens-info-resolve {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
     margin: 0;
     max-width: 680px;
+    padding-left: 0.875rem;
+    border-left: 2px solid rgba(249,101,50,0.55);
   }
 
   @media (max-width: 760px) {
-    .orbit-panel { height: 680px; }
-    .orbit-info { padding: 1.25rem 1.25rem 1.5rem; height: 220px; }
-    .orbit-info-title { font-size: 1.375rem; }
-    .orbit-centre-mark { font-size: 1.125rem; }
-    .orbit-label { font-size: 0.6875rem; letter-spacing: 0.1em; }
-    .orbit-dot { width: 44px; height: 44px; }
-    .orbit-num { font-size: 0.8125rem; }
+    .lens-panel { height: 720px; }
+    .lens-canvas { height: 480px; }
+    .lens-info { top: 480px; padding: 1.25rem 1.25rem 1.5rem; }
+    .lens-info-title { font-size: 1.375rem; }
+    .lens-blurred .lp.lg, .lens-sharp .lp-btn.lg { font-size: 1.125rem; }
+    .lens-blurred .lp.md, .lens-sharp .lp-btn.md { font-size: 0.9375rem; }
+    .lens-blurred .lp.sm, .lens-sharp .lp-btn.sm { font-size: 0.75rem; }
+    .lens-mag { width: 140px; height: 140px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .orbit-node, .orbit-dot, .orbit-connector { transition: none; }
+    .lens-mag { opacity: 0.75; }
   }
 </style>
 
 <script>
 (function(){
-  var panel = document.getElementById('orbit-panel');
+  var panel = document.getElementById('lens-panel');
   if (!panel) return;
+  var canvas = document.getElementById('lens-canvas');
+  var sharp = document.getElementById('lens-sharp');
+  var mag = document.getElementById('lens-mag');
+  var infoDefault = document.getElementById('lens-info-default');
+  var infoContent = document.getElementById('lens-info-content');
+  var infoTitle = document.getElementById('lens-info-title');
+  var infoSubtitle = document.getElementById('lens-info-subtitle');
+  var infoPain = document.getElementById('lens-info-pain');
+  var infoResolve = document.getElementById('lens-info-resolve');
+  if (!canvas || !sharp || !mag) return;
 
-  var STAGES = [
-    { num: '01', title: 'Audit',     promise: 'So you invest in the right problem.',            body: 'We map the high-friction workflows actually slowing your team down. Not what looks good on a status report. Output: a ranked list of the three automations with the largest lift.' },
-    { num: '02', title: 'Architect', promise: 'So the sequence compounds, not conflicts.',       body: 'We design the target state and order the moves. What gets automated first, what stays human, what gets rebuilt. You get a sequenced roadmap, not a pile of good ideas.' },
-    { num: '03', title: 'Automate',  promise: 'So your engineers get their time back.',          body: 'We build the agents, pipelines, and integrations. Engineered for your stack, your data, and the realities of rail delivery. Agentic AI where it earns its keep, classic automation where it does not.' },
-    { num: '04', title: 'Assure',    promise: 'So it holds up in production, not just in demo.', body: 'We stress-test against extreme use cases. Sandbox environments where failure modes get probed before anything touches live. Full QA discipline applied to AI, the same rigour you would demand of any business-critical system.' },
-    { num: '05', title: 'Adopt',     promise: 'So it sticks, not stalls as a pilot.',            body: 'We embed the system in delivery workflows, train the operators, and measure the lift. The handover is when your team does not need us.' }
-  ];
+  var FRICTION = {
+    'form-g':     { title: 'Form G',             subtitle: 'Network Rail design acceptance form',    pain: 'Senior engineers assemble evidence and cross-reference standards for each submission.',         resolve: 'AutomateX agents assemble, cross-reference, and draft. Senior review stays. Senior drafting goes.' },
+    'cr-t':       { title: 'CR-T',               subtitle: 'Technical change request',               pain: 'Drafted by hand, a hundred times over, against near-identical change sources.',                resolve: 'AutomateX drafts each CR-T from the change source with citations. Human approves, does not draft.' },
+    'take-off':   { title: 'Take-off',           subtitle: 'Quantities from drawings and BIM',       pain: 'Eats junior engineer weeks and still errs at the precision edge.',                            resolve: 'AutomateX extracts quantities from PDFs and BIM models with audit trail per line.' },
+    'assurance':  { title: 'Assurance',          subtitle: 'Submissions through acceptance gates',   pain: 'Assurance cycles are measured in weeks. Evidence assembly is the longest pole.',               resolve: 'AutomateX compiles the pack. Discipline rigour stays. Senior hours come back.' },
+    'drn':        { title: 'DRN',                subtitle: 'Design Review Note responses',           pain: 'Each comment hand-drafted against a register that goes stale between cycles.',                 resolve: 'AutomateX matches comments to clauses, drafts responses, keeps the register live.' },
+    'aip':        { title: 'AIP',                subtitle: 'Approval in Principle submission',       pain: 'Weeks of document assembly, mostly reformatting existing design intent.',                     resolve: 'AutomateX stages the AIP pack from design intent inputs. Human approves structure and claims.' },
+    'form-a':     { title: 'Form A',             subtitle: 'Design assumption register',             pain: 'Maintained by hand, siloed by discipline, stale between submissions.',                         resolve: 'AutomateX sources from design outputs and keeps the register live across disciplines.' },
+    'cat-3':      { title: 'Cat 3 Check',        subtitle: 'Category 3 independent check',           pain: 'Finding traceability is the silent friction. Each finding wants a breadcrumb.',                resolve: 'AutomateX traces each finding to its source artefact. Checker reviews conclusions, not breadcrumbs.' },
+    'hazard-log': { title: 'Hazard log',         subtitle: 'Rolling log of identified hazards',      pain: 'Updates lag source design changes. CSM-RA linkage is manual.',                                 resolve: 'AutomateX links hazard entries to source CAD and CSM-RA assessments. Stays current.' },
+    'itp':        { title: 'ITP',                subtitle: 'Inspection and Test Plan',               pain: 'Boilerplate heavy. Small variations re-drafted each time.',                                    resolve: 'AutomateX generates from discipline templates and project data. Variations highlighted for review.' },
+    'interface':  { title: 'Interface register', subtitle: 'Cross-discipline interface tracking',    pain: 'Owner-less until something breaks at the boundary.',                                           resolve: 'AutomateX parses design issues and flags interface events as they occur.' },
+    'risk':       { title: 'Risk register',      subtitle: 'Risk capture and mitigation tracking',   pain: 'Refreshed monthly by hand. Out of date when the programme moves fast.',                        resolve: 'AutomateX pulls live from source systems into register entries. Senior owns judgement.' },
+    'change':     { title: 'Change control',     subtitle: 'Change impact across disciplines',       pain: 'Repetitive cross-referencing. Every change touches multiple disciplines.',                     resolve: 'AutomateX maps the change to discipline artefacts. SME approves the impact, not the mapping.' },
+    'ncr':        { title: 'NCR',                subtitle: 'Non-conformance report',                 pain: 'Drafted reactively, often against vague specification memory.',                                resolve: 'AutomateX drafts from the issue source with the relevant clause already cited.' }
+  };
 
-  var nodes = panel.querySelectorAll('.orbit-node');
-  var ring = panel.querySelector('.orbit-ring');
-  var centre = panel.querySelector('.orbit-centre');
-  var connector = document.getElementById('orbit-connector');
-  var connectorLine = connector ? connector.querySelector('line') : null;
-  var infoDefault = document.getElementById('orbit-info-default');
-  var infoContent = document.getElementById('orbit-info-content');
-  var infoNum = document.getElementById('orbit-info-num');
-  var infoTitle = document.getElementById('orbit-info-title');
-  var infoPromise = document.getElementById('orbit-info-promise');
-  var infoBody = document.getElementById('orbit-info-body');
+  var buttons = sharp.querySelectorAll('.lp-btn');
+  var mouseInside = false;
+  var mouseX = 50, mouseY = 50;
+  var autoX = 25, autoY = 35;
+  var autoVX = 0.45, autoVY = 0.28;
+  var lastFrame = null;
+  var REDUCED = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
-  var SPEED = 0.006; // degrees per ms (~6 deg/sec)
-  var rotation = 0;
-  var autoRotate = true;
-  var activeIndex = null;
-  var lastTime = null;
+  function posPct(e) {
+    var r = canvas.getBoundingClientRect();
+    return {
+      x: Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100)),
+      y: Math.max(0, Math.min(100, ((e.clientY - r.top) / r.height) * 100))
+    };
+  }
 
-  function infoHeight() { return window.innerWidth < 760 ? 220 : 200; }
-  function getRect() { return panel.getBoundingClientRect(); }
-  function getCentre() {
-    var r = getRect();
-    return { x: r.width / 2, y: (r.height - infoHeight()) / 2 };
+  canvas.addEventListener('mouseenter', function(){ mouseInside = true; });
+  canvas.addEventListener('mouseleave', function(){ mouseInside = false; });
+  canvas.addEventListener('mousemove', function(e){
+    var p = posPct(e);
+    mouseX = p.x; mouseY = p.y;
+    mouseInside = true;
+  });
+
+  function getLensRadiusPx() {
+    var rect = canvas.getBoundingClientRect();
+    return rect.width < 760 ? 70 : 85;
   }
-  function getRadius() {
-    var r = getRect();
-    return Math.min(r.width * 0.34, (r.height - infoHeight()) * 0.4);
-  }
-  function nodePosition(i) {
-    var total = nodes.length;
-    var baseAngle = (i / total) * 360;
-    var angle = (baseAngle + rotation) % 360;
-    var rad = (angle - 90) * Math.PI / 180;
-    var c = getCentre();
-    var radius = getRadius();
-    return { x: c.x + Math.cos(rad) * radius, y: c.y + Math.sin(rad) * radius };
-  }
-  function render() {
-    var c = getCentre();
-    var radius = getRadius();
-    if (ring) {
-      ring.style.left = c.x + 'px';
-      ring.style.top = c.y + 'px';
-      ring.style.width = (radius * 2) + 'px';
-      ring.style.height = (radius * 2) + 'px';
+
+  function tick(now){
+    if (lastFrame === null) lastFrame = now;
+    var dt = (now - lastFrame) / 16.67;
+    lastFrame = now;
+
+    var x, y;
+    if (mouseInside) {
+      x = mouseX; y = mouseY;
+    } else if (!REDUCED) {
+      autoX += autoVX * dt;
+      autoY += autoVY * dt;
+      if (autoX < 10 || autoX > 90) autoVX *= -1;
+      if (autoY < 12 || autoY > 85) autoVY *= -1;
+      autoX = Math.max(8, Math.min(92, autoX));
+      autoY = Math.max(10, Math.min(88, autoY));
+      x = autoX; y = autoY;
+    } else {
+      x = autoX; y = autoY;
     }
-    if (centre) {
-      centre.style.left = c.x + 'px';
-      centre.style.top = c.y + 'px';
-    }
-    for (var i = 0; i < nodes.length; i++) {
-      var p = nodePosition(i);
-      nodes[i].style.left = p.x + 'px';
-      nodes[i].style.top = p.y + 'px';
-    }
-    if (activeIndex !== null && connectorLine) {
-      var pa = nodePosition(activeIndex);
-      connectorLine.setAttribute('x1', c.x);
-      connectorLine.setAttribute('y1', c.y);
-      connectorLine.setAttribute('x2', pa.x);
-      connectorLine.setAttribute('y2', pa.y);
-    }
-  }
-  function tick(now) {
-    if (lastTime === null) lastTime = now;
-    var dt = now - lastTime;
-    lastTime = now;
-    if (autoRotate) {
-      rotation = (rotation + SPEED * dt) % 360;
-      render();
-    }
+
+    mag.style.left = x + '%';
+    mag.style.top = y + '%';
+    var r = getLensRadiusPx();
+    sharp.style.clipPath = 'circle(' + r + 'px at ' + x + '% ' + y + '%)';
+    sharp.style.webkitClipPath = 'circle(' + r + 'px at ' + x + '% ' + y + '%)';
+
     requestAnimationFrame(tick);
   }
-  function selectStage(i) {
-    var stage = STAGES[i];
-    if (!stage) return;
-    infoDefault.hidden = true;
-    infoContent.hidden = false;
-    infoNum.textContent = stage.num;
-    infoTitle.textContent = stage.title;
-    infoPromise.textContent = stage.promise;
-    infoBody.textContent = stage.body;
-    for (var idx = 0; idx < nodes.length; idx++) {
-      nodes[idx].classList.toggle('is-active', idx === i);
-      nodes[idx].classList.toggle('is-dimmed', idx !== i);
-    }
-    if (connector) connector.classList.add('is-visible');
-    activeIndex = i;
-    autoRotate = false;
-    render();
-  }
-  function clearSelection() {
-    infoDefault.hidden = false;
-    infoContent.hidden = true;
-    for (var idx = 0; idx < nodes.length; idx++) {
-      nodes[idx].classList.remove('is-active');
-      nodes[idx].classList.remove('is-dimmed');
-    }
-    if (connector) connector.classList.remove('is-visible');
-    activeIndex = null;
-    autoRotate = true;
-    lastTime = null;
-  }
-  for (var k = 0; k < nodes.length; k++) {
-    (function(i){
-      nodes[i].addEventListener('click', function(e){
-        e.stopPropagation();
-        if (activeIndex === i) clearSelection();
-        else selectStage(i);
-      });
-    })(k);
-  }
-  panel.addEventListener('click', function(e){
-    var t = e.target;
-    if (t === panel || (t.classList && t.classList.contains('orbit-bg')) || t === ring) {
-      clearSelection();
-    }
-  });
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    autoRotate = false;
-  }
-  var resizeTimer;
-  window.addEventListener('resize', function(){
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(render, 100);
-  });
-  render();
   requestAnimationFrame(tick);
+
+  for (var i = 0; i < buttons.length; i++) {
+    (function(btn){
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var key = btn.dataset.key;
+        var data = FRICTION[key];
+        if (!data) return;
+        infoDefault.hidden = true;
+        infoContent.hidden = false;
+        infoTitle.textContent = data.title;
+        infoSubtitle.textContent = data.subtitle;
+        infoPain.textContent = data.pain;
+        infoResolve.textContent = data.resolve;
+        for (var j = 0; j < buttons.length; j++) buttons[j].classList.remove('is-active');
+        btn.classList.add('is-active');
+        mag.classList.remove('is-capturing');
+        void mag.offsetWidth;
+        mag.classList.add('is-capturing');
+      });
+    })(buttons[i]);
+  }
+
+  canvas.addEventListener('click', function(e){
+    var t = e.target;
+    if (t === canvas || t.classList.contains('lens-blurred') || t.classList.contains('lens-sharp') || t.tagName === 'SPAN') {
+      infoDefault.hidden = false;
+      infoContent.hidden = true;
+      for (var j = 0; j < buttons.length; j++) buttons[j].classList.remove('is-active');
+    }
+  });
 })();
 </script>
 
