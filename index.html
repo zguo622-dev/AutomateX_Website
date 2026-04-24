@@ -2121,6 +2121,201 @@
   </div>
 </section>
 
+<!-- ===== HOW WE HELP + YOUR X (two-column split) ===== -->
+<section class="section" id="how-we-help">
+  <div class="container">
+    <div class="hwh-grid">
+      <!-- LEFT: method (Five A's, placeholder until Delivery Method rebuild) -->
+      <div class="hwh-col hwh-method">
+        <div class="section-eyebrow sc-reveal">How we help</div>
+        <h2 class="section-heading sc-reveal">The Five A's.</h2>
+        <p class="hwh-sub sc-reveal">A repeatable method for turning AI from pilot into production.</p>
+        <ol class="hwh-stages sc-reveal">
+          <li><span class="hwh-num">01</span><div class="hwh-stage-body"><h3>Audit</h3><p>So you invest in the right problem.</p></div></li>
+          <li><span class="hwh-num">02</span><div class="hwh-stage-body"><h3>Architect</h3><p>So the sequence compounds, not conflicts.</p></div></li>
+          <li><span class="hwh-num">03</span><div class="hwh-stage-body"><h3>Automate</h3><p>So your engineers get their time back.</p></div></li>
+          <li><span class="hwh-num">04</span><div class="hwh-stage-body"><h3>Assure</h3><p>So it holds up in production, not just in demo.</p></div></li>
+          <li><span class="hwh-num">05</span><div class="hwh-stage-body"><h3>Adopt</h3><p>So it sticks, not stalls as a pilot.</p></div></li>
+        </ol>
+      </div>
+
+      <!-- RIGHT: Your X visual -->
+      <div class="hwh-col hwh-x">
+        <div class="section-eyebrow sc-reveal">What we automate</div>
+        <h2 class="section-heading sc-reveal">Your <em>X</em>.</h2>
+        <p class="hwh-sub sc-reveal">Every rail leader carries their own X. Some universal, some unique to your team, your discipline, your project. We automate it.</p>
+        <div class="hwh-x-panel sc-reveal" aria-hidden="true">
+          <span class="hwh-phrase size-md" style="top:8%;  left:8%;  animation-delay: 0s, 0s;">Form G generation</span>
+          <span class="hwh-phrase size-sm" style="top:14%; left:60%; animation-delay: -2s, -3s;">CR-T drafting</span>
+          <span class="hwh-phrase size-lg" style="top:26%; left:18%; animation-delay: -4s, -6s;">AIP writing</span>
+          <span class="hwh-phrase size-sm" style="top:32%; left:66%; animation-delay: -6s, -9s;">Form A submissions</span>
+          <span class="hwh-phrase size-md" style="top:44%; left:4%;  animation-delay: -8s, -13s;">Category 3 Checks</span>
+          <span class="hwh-phrase size-md" style="top:50%; left:68%; animation-delay: -10s, -16s;">Assurance cycles</span>
+          <span class="hwh-phrase size-sm" style="top:62%; left:14%; animation-delay: -12s, -19s;">Change control</span>
+          <span class="hwh-phrase size-md" style="top:68%; left:58%; animation-delay: -14s, -22s;">Hazard logs</span>
+          <span class="hwh-phrase size-sm" style="top:80%; left:24%; animation-delay: -16s, -26s;">Interface registers</span>
+          <span class="hwh-phrase size-lg" style="top:86%; left:56%; animation-delay: -18s, -29s;">Knowledge management</span>
+          <svg class="hwh-cross" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 4 L20 20 M20 4 L4 20" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #how-we-help {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background: var(--white);
+  }
+  #how-we-help .container { max-width: 1280px; }
+  .hwh-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+  .hwh-col { display: flex; flex-direction: column; }
+  .hwh-col .section-eyebrow { margin-bottom: 0.75rem; }
+  .hwh-col .section-heading { font-size: clamp(1.75rem, 3.2vw, 2.375rem); margin-bottom: 1rem; }
+  .hwh-x .section-heading em { font-style: normal; color: var(--orange); }
+  .hwh-sub {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--gray-500);
+    max-width: 520px;
+    margin: 0 0 2rem 0;
+  }
+
+  /* Left: stage list */
+  .hwh-stages {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .hwh-stages li {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    gap: 0.875rem;
+    align-items: start;
+    padding: 1rem 0;
+    border-top: 1px solid var(--gray-200);
+  }
+  .hwh-stages li:first-child { border-top: none; padding-top: 0.25rem; }
+  .hwh-num {
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: var(--orange);
+    opacity: 0.7;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    padding-top: 0.1rem;
+  }
+  .hwh-stages h3 {
+    font-family: var(--font-heading);
+    font-size: 1.1875rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.3rem 0;
+    letter-spacing: -0.01em;
+  }
+  .hwh-stages p {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--gray-500);
+    margin: 0;
+  }
+
+  /* Right: X panel */
+  .hwh-x-panel {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    max-width: 520px;
+    background: var(--navy-deep);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 48px hsla(220, 30%, 20%, 0.18);
+  }
+  .hwh-x-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
+  }
+
+  .hwh-phrase {
+    position: absolute;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: 0.015em;
+    color: rgba(255,255,255,0.12);
+    white-space: nowrap;
+    will-change: transform, color, text-shadow;
+    animation:
+      hwhDrift 22s ease-in-out infinite,
+      hwhPulse 32s ease-in-out infinite;
+  }
+  .hwh-phrase.size-sm { font-size: 0.6875rem; color: rgba(255,255,255,0.10); }
+  .hwh-phrase.size-md { font-size: 0.8125rem; color: rgba(255,255,255,0.13); }
+  .hwh-phrase.size-lg { font-size: 0.9375rem; color: rgba(255,255,255,0.16); }
+
+  @keyframes hwhDrift {
+    0%   { transform: translate3d(0, 0, 0); }
+    50%  { transform: translate3d(-10px, -6px, 0); }
+    100% { transform: translate3d(0, 0, 0); }
+  }
+  @keyframes hwhPulse {
+    0%, 93%, 100% { color: rgba(255,255,255,0.12); text-shadow: none; }
+    95% { color: rgba(249,101,50,0.9); text-shadow: 0 0 16px rgba(249,101,50,0.5); }
+    98% { color: rgba(255,255,255,0.12); text-shadow: none; }
+  }
+
+  .hwh-cross {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    top: 0;
+    left: 0;
+    color: rgba(249,101,50,0.7);
+    filter: drop-shadow(0 0 14px rgba(249,101,50,0.5));
+    animation: hwhRoam 32s linear infinite;
+  }
+  @keyframes hwhRoam {
+    0%   { top: 8%;  left: 8%;  opacity: 0.85; }
+    10%  { top: 14%; left: 60%; opacity: 0.7;  }
+    20%  { top: 26%; left: 18%; opacity: 0.85; }
+    30%  { top: 32%; left: 66%; opacity: 0.7;  }
+    40%  { top: 44%; left: 4%;  opacity: 0.85; }
+    50%  { top: 50%; left: 68%; opacity: 0.7;  }
+    60%  { top: 62%; left: 14%; opacity: 0.85; }
+    70%  { top: 68%; left: 58%; opacity: 0.7;  }
+    80%  { top: 80%; left: 24%; opacity: 0.85; }
+    90%  { top: 86%; left: 56%; opacity: 0.7;  }
+    100% { top: 8%;  left: 8%;  opacity: 0.85; }
+  }
+
+  @media (max-width: 900px) {
+    .hwh-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hwh-x-panel { max-width: 100%; aspect-ratio: 5 / 4; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hwh-phrase, .hwh-cross { animation: none; }
+    .hwh-cross { top: 20%; left: 45%; opacity: 0.6; }
+  }
+</style>
+
 <!-- ===== WHO WE HELP ===== -->
 <section class="section" id="who-we-help">
   <div class="container">
