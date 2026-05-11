@@ -2216,7 +2216,6 @@
       <li><a href="#find-your-x">Find your X</a></li>
       <li><a href="#where-to-start">Where to start</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="scorecard.html">Assessment</a></li>
     </ul>
     <div class="nav-cta-group">
       <a href="scorecard.html" class="btn btn-primary">Take the Assessment</a>
@@ -2244,7 +2243,6 @@
   <a href="#find-your-x" onclick="this.parentElement.classList.remove('open')">Find your X</a>
   <a href="#where-to-start" onclick="this.parentElement.classList.remove('open')">Where to start</a>
   <a href="#about" onclick="this.parentElement.classList.remove('open')">About</a>
-  <a href="scorecard.html" onclick="this.parentElement.classList.remove('open')">Assessment</a>
   <a href="scorecard.html" onclick="this.parentElement.classList.remove('open')" class="btn btn-primary">Take the Assessment</a>
   <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" onclick="this.parentElement.classList.remove('open')" class="btn btn-outline">Book a call</a>
 </div>
@@ -3628,7 +3626,7 @@
 </style>
 
 <!-- ===== CREDIBILITY ===== -->
-<section class="about-section" id="credibility" style="background:var(--white);">
+<section class="about-section" id="about" style="background:var(--white);">
   <div class="hero-grid-wrap particle-section">
     <div class="particle-bg" id="cred-particles"></div>
     <div class="particle-fade-light"></div>
@@ -3787,8 +3785,8 @@
 </section>
 
 <style>
-  #credibility { padding-top: 5rem; padding-bottom: 5rem; }
-  #credibility .container { max-width: 1200px; }
+  #about { padding-top: 5rem; padding-bottom: 5rem; }
+  #about .container { max-width: 1200px; }
 
   /* Venn + cred rows. Same grid-template-columns + gap as .about-intro so
      row 2 (this) aligns column-for-column with row 1 above.
@@ -3910,7 +3908,7 @@
   .cred-check.qualification { color: #9A6F2F; }
   .cred-check.ai { color: var(--orange); }
 
-  #credibility .testimonials-heading { margin-top: 3.5rem; }
+  #about .testimonials-heading { margin-top: 3.5rem; }
 
   @media (max-width: 960px) {
     .venn-cred-layout {
@@ -4244,19 +4242,19 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
-            <span class="ai-chip-label">AI Station Surveys</span>
+            <span class="ai-chip-label">AI-empowered survey processing</span>
           </button>
           <button type="button" class="ai-chip" role="tab" data-index="1" aria-selected="false">
             <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
             </svg>
-            <span class="ai-chip-label">InstaTrace</span>
+            <span class="ai-chip-label">AI-empowered drawing take-off</span>
           </button>
           <button type="button" class="ai-chip" role="tab" data-index="2" aria-selected="false">
             <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
             </svg>
-            <span class="ai-chip-label">Auto-DRN, CR-T, V&amp;V</span>
+            <span class="ai-chip-label">AI-empowered design review &amp; verification</span>
           </button>
           <button type="button" class="ai-chip" role="tab" data-index="3" aria-selected="false">
             <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -4277,14 +4275,14 @@
       <div class="ai-cards-panel">
         <div class="ai-cards-stage">
 
-          <!-- Card 1: AI Station Surveys -->
+          <!-- Card 1: AI-empowered survey processing -->
           <article class="ai-card is-active" data-index="0" role="tabpanel">
             <div class="ai-card-photo-wrap">
               <img class="ai-card-photo" src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering">
               <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Live</span></div>
             </div>
             <div class="ai-card-content">
-              <div class="ai-card-chip">01 &middot; AI Station Surveys</div>
+              <div class="ai-card-chip">01 &middot; AI-empowered survey processing</div>
               <p class="ai-card-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p>
               <div class="ai-card-figures">
                 <div class="ai-fig"><div class="ai-fig-num">7,650</div><div class="ai-fig-label">HD photos</div></div>
@@ -4294,14 +4292,14 @@
             </div>
           </article>
 
-          <!-- Card 2: InstaTrace -->
+          <!-- Card 2: AI-empowered drawing take-off (whitelabeled) -->
           <article class="ai-card" data-index="1" role="tabpanel">
             <div class="ai-card-photo-wrap">
               <img class="ai-card-photo" src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing">
               <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Live</span></div>
             </div>
             <div class="ai-card-content">
-              <div class="ai-card-chip">02 &middot; InstaTrace</div>
+              <div class="ai-card-chip">02 &middot; AI-empowered drawing take-off</div>
               <p class="ai-card-desc">Automated linear take-off from rail engineering drawings. AI extracts measurements with full audit trail. Hours not days, with cited evidence per line.</p>
               <div class="ai-card-figures">
                 <div class="ai-fig"><div class="ai-fig-num">&plusmn;0.05<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Accuracy</div></div>
@@ -4311,15 +4309,15 @@
             </div>
           </article>
 
-          <!-- Card 3: Auto-DRN, CR-T, V&V -->
+          <!-- Card 3: AI-empowered design review & verification (whitelabeled) -->
           <article class="ai-card" data-index="2" role="tabpanel">
             <div class="ai-card-photo-wrap">
-              <img class="ai-card-photo" src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across RRD, CR-T, design, as-built and EIS stages">
+              <img class="ai-card-photo" src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages">
               <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Live</span></div>
             </div>
             <div class="ai-card-content">
-              <div class="ai-card-chip">03 &middot; Auto-DRN, CR-T, V&amp;V</div>
-              <p class="ai-card-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from RRD through to operational acceptance.</p>
+              <div class="ai-card-chip">03 &middot; AI-empowered design review &amp; verification</div>
+              <p class="ai-card-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p>
               <div class="ai-card-figures">
                 <div class="ai-fig"><div class="ai-fig-num">&pound;300<span style="font-size:0.7em;">k</span></div><div class="ai-fig-label">Annual saving</div></div>
                 <div class="ai-fig"><div class="ai-fig-num">5</div><div class="ai-fig-label">Stages traced</div></div>
@@ -6466,6 +6464,11 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
   }
 </style>
 
+<!-- ===== CHAT WIDGET PARKED 2026-05-11 =====
+     The chatbot UI shell is parked while the n8n backend ("Phase C: LLM brain")
+     is not yet wired up. To re-enable: remove this opening comment and the
+     matching closing comment near "</script>" below the chat IIFE. No other
+     dependencies. CSS for .chat-widget stays in the stylesheet harmlessly.
 <div id="chat-widget" class="chat-widget" data-state="closed">
   <button id="chat-bubble" class="chat-bubble pulse" type="button" aria-label="Open chat with AutomateX">
     <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -6742,6 +6745,7 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
   });
 })();
 </script>
+===== END CHAT WIDGET PARKED ===== -->
 
 <!-- Vercel Web Analytics — cookie-free, GDPR-compliant. Enable in Vercel Project → Analytics. -->
 <script defer src="/_vercel/insights/script.js"></script>
