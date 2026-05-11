@@ -1079,7 +1079,7 @@
       <span class="sc-cover-incentive-text">Completing the Assessment unlocks the 1-hour CPD at <strong>&pound;250</strong> (was &pound;300) and the Find Your X Workshop at <strong>&pound;1,500</strong> (was &pound;1,800).</span>
     </div>
 
-    <button type="button" class="sc-cover-start" onclick="document.getElementById('sc-main').scrollIntoView({ behavior: 'smooth', block: 'start' });">
+    <button type="button" class="sc-cover-start" onclick="if(window.va)window.va('event',{name:'assessment_started'});document.getElementById('sc-main').scrollIntoView({ behavior: 'smooth', block: 'start' });">
       <span>Start Assessment</span>
       <span class="sc-cover-start-arrow" aria-hidden="true">&rarr;</span>
     </button>
@@ -2039,6 +2039,11 @@ function submitReport(e) {
   }).catch(function(err) {
     console.error('[Scorecard v3] Webhook error:', err);
   });
+
+  // Funnel event: assessment completed. Logs to Vercel Analytics if loaded.
+  if (window.va) {
+    window.va('event', { name: 'assessment_completed', cohort: cohort, score: overallScore });
+  }
 
   // Immediately show success (don't wait for workflow to finish)
   btn.textContent = 'Sending...';

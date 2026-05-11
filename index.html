@@ -6534,4 +6534,33 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
 
   var WELCOME_MESSAGE = "Welcome. I can answer questions about how AutomateX works, the Delivery Method, pricing, data handling, or your specific X. Pick a starter or ask anything.";
   var ERROR_MESSAGE = "Connection issue on our end. Drop a note to bill@automatex.uk and we'll respond directly.";
-  var TIMEOUT_MESSAGE = "Still thinking. If this takes more than a moment, email bill@automatex.
+  var TIMEOUT_MESSAGE = "Still thinking. If this takes more than a moment, email bill@automatex.uk and we'll respond directly.";
+})();
+</script>
+===== END CHAT WIDGET PARKED ===== -->
+
+<!-- Vercel Web Analytics . cookie-free, GDPR-compliant. Enable in Vercel Project . Analytics. -->
+<script defer src="/_vercel/insights/script.js"></script>
+
+<!-- Funnel event tracking. Fires "assessment_cta_clicked" on any click of a
+     link or button pointing at the scorecard. The matching "assessment_completed"
+     event is fired from scorecard.html when the form actually submits. -->
+<script>
+(function() {
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('a, button');
+    if (!el) return;
+    var href = el.getAttribute('href') || '';
+    var label = (el.textContent || '').toLowerCase();
+    var isCta = href.indexOf('scorecard.html') !== -1 ||
+                label.indexOf('take the assessment') !== -1 ||
+                label.indexOf("let's find your x") !== -1;
+    if (isCta && window.va) {
+      window.va('event', { name: 'assessment_cta_clicked', source: href || label });
+    }
+  }, { passive: true });
+})();
+</script>
+
+</body>
+</html>
