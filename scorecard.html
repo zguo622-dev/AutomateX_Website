@@ -406,6 +406,53 @@
     border: 1px solid rgba(16,185,129,0.4);
   }
 
+  /* Four-band ladder shown under the speedometer so the lead can see
+     where they sit on the maturity scale alongside the other bands. */
+  .band-ladder {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin: 1.25rem auto 0;
+    max-width: 600px;
+    width: 100%;
+  }
+  .band-step {
+    padding: 0.5rem 0.5rem;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.06);
+    text-align: center;
+    opacity: 0.55;
+    transition: opacity 200ms ease, transform 200ms ease;
+  }
+  .band-step.is-current {
+    opacity: 1;
+    background: rgba(249,101,50,0.10);
+    border-color: rgba(249,101,50,0.45);
+    box-shadow: 0 4px 14px rgba(249,101,50,0.18);
+    transform: translateY(-2px);
+  }
+  .band-step-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1F2937;
+  }
+  .band-step.is-current .band-step-label {
+    color: var(--orange);
+  }
+  .band-step-range {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    color: #6B7280;
+    margin-top: 0.125rem;
+  }
+  @media (max-width: 480px) {
+    .band-ladder { grid-template-columns: repeat(2, 1fr); max-width: 360px; }
+  }
+
   .results-headline {
     font-family: var(--font-heading);
     font-size: 1.375rem;
@@ -1066,7 +1113,7 @@
     { id: 1, pillar: 'Hero Dependency', weight: 0.50,
       text: 'If 2 to 4 core or senior members of your team were unavailable for a month, what is the realistic impact?',
       options: [
-        'We would absorb it cleanly. Depth covers it.',
+        'We would absorb it cleanly. Other seniors step in.',
         'Manageable. Some schedule slip.',
         'Real strain. Key reviews back up.',
         'Programme slips and margin takes a hit.'
@@ -1074,7 +1121,7 @@
       scores: [100, 72, 38, 8] },
 
     { id: 2, pillar: 'Hero Dependency', weight: 0.30,
-      text: 'When a complex deliverable needs senior judgment, how often does it queue on the same 2 to 4 people?',
+      text: 'When a complex deliverable needs senior judgement, how often does it queue on the same 2 to 4 people?',
       options: [
         'Rarely. We have senior depth.',
         'Occasionally. Manageable.',
@@ -1095,12 +1142,12 @@
 
     /* ---------- PILLAR 2: EXPERTISE LEVERAGE ---------- */
     { id: 4, pillar: 'Expertise Leverage', weight: 0.50,
-      text: 'What share of your seniors\u2019 week goes to high-judgment work versus admin, status reporting, formatting, coordination?',
+      text: 'What share of your seniors\u2019 week goes to high-judgement work versus admin, status reporting, formatting, coordination?',
       options: [
-        'Almost entirely judgment work.',
-        'Mostly judgment work, some admin.',
+        'Almost entirely judgement work.',
+        'Mostly judgement work, some admin.',
         'Roughly half and half.',
-        'Less than a third on judgment work.'
+        'Less than a third on judgement work.'
       ],
       scores: [100, 75, 40, 10] },
 
@@ -1115,12 +1162,12 @@
       scores: [95, 65, 28, 5] },
 
     { id: 6, pillar: 'Expertise Leverage', weight: 0.20,
-      text: 'When workload surges (multiple peaks at once) or falls (pipeline gaps), how cleanly can you scale capability up or down without breaking quality or the firm?',
+      text: 'How easily can you scale capability up or down as workload peaks and troughs, without compromising quality or forcing redundancy?',
       options: [
-        'We scale cleanly. Surge capacity exists, pipeline gaps absorbed.',
-        'We scale with effort. Quality dips on surges, gaps cause stress.',
+        'We scale cleanly. Peak capacity exists, troughs absorbed.',
+        'We scale with effort. Quality dips on peaks, troughs cause stress.',
         'We struggle to scale. Peaks force hiring, troughs force cuts.',
-        'Feast or famine is our reality. The hire-rehire cycle bleeds margin.'
+        'Peak and trough is our reality. The hire-rehire cycle bleeds margin.'
       ],
       scores: [100, 70, 35, 8] },
 
@@ -1177,7 +1224,7 @@
       scores: [95, 70, 32, 5] },
 
     { id: 12, pillar: 'First-Time Approval', weight: 0.20,
-      text: 'When rework happens on assurance submissions, do you track the cause categories (formatting, standards interpretation, missing evidence) or is each cycle treated as a one-off?',
+      text: 'When rework happens on engineering deliverables, do you track the cause categories (formatting, standards interpretation, missing evidence) or is each cycle treated as a one-off?',
       options: [
         'Yes. We track cause categories and act on the patterns.',
         'We track informally. Patterns surface in retrospectives.',
@@ -1202,10 +1249,10 @@
       options: [
         'Few. We are ahead of the curve.',
         'Some. We are with the pack.',
-        'Many. We are at risk of falling behind.',
-        'Most. We are behind.'
+        'Many or most. We are at risk of falling behind.',
+        'Not sure. We have not read the peer landscape.'
       ],
-      scores: [95, 70, 35, 10] },
+      scores: [95, 70, 25, 35] },
 
     { id: 15, pillar: 'AI Readiness', weight: 0.30,
       text: 'If a client asked tomorrow to see your AI-enabled delivery in a live workflow, what would you show them?',
@@ -1249,12 +1296,12 @@
       values: ['cold', 'warm', 'hot', 'hot'] },
 
     { id: 19, qualify: 'intent_pilot',
-      text: 'Openness to a paid pilot.',
+      text: 'If we identified a clear, costed automation opportunity that fit your team, how soon would you be open to a paid pilot to prove it out?',
       options: [
-        'Yes, in the next 30 days if it is a fit.',
-        'Open in the next 6 months.',
-        'Not right now. Keep us in the loop.',
-        'Not a fit.'
+        'Yes, within the next 30 days if the fit is right.',
+        'Yes, within the next 6 months.',
+        'Not right now, but keep us in the loop.',
+        'Not a fit for our firm.'
       ],
       values: ['hot', 'warm', 'cold-nurture', 'cold-drop'] },
 
@@ -1424,19 +1471,25 @@
   /* =========================================================================
    * BAND + LABEL
    * ========================================================================= */
+  /* Band thresholds aligned with the PDF report (Reactive / Structured /
+     Optimised / Systemised). Same labels are used in the Claude-generated
+     report so the on-screen result and the emailed PDF agree exactly. */
   function getBand(pct) {
-    if (pct >= 75) return 'high';
-    if (pct >= 50) return 'mid-high';
-    if (pct >= 25) return 'mid-low';
-    return 'low';
+    if (pct >= 76) return 'high';        // 76-100 Systemised
+    if (pct >= 51) return 'mid-high';    // 51-75  Optimised
+    if (pct >= 26) return 'mid-low';     // 26-50  Structured
+    return 'low';                         // 0-25   Reactive
   }
 
+  /* Band labels match the PDF report exactly: Reactive / Structured /
+     Optimised / Systemised. Keep CSS class names (low/mid-low/mid-high/high)
+     unchanged so existing styles still apply. */
   function getBandLabel(band) {
     return ({
-      'low': 'AT RISK',
-      'mid-low': 'BUILDING',
-      'mid-high': 'ON TRACK',
-      'high': 'LEADING'
+      'low': 'REACTIVE',
+      'mid-low': 'STRUCTURED',
+      'mid-high': 'OPTIMISED',
+      'high': 'SYSTEMISED'
     })[band] || 'BUILDING';
   }
 
@@ -1462,11 +1515,11 @@
       'Hero Dependency': {
         headline: 'Your delivery quality runs through one or two people.',
         body: 'When key seniors are stretched, in demand, or simply on leave, work queues, reviews back up, and quality dips. The exposure is real and it shows up in your margin.',
-        bridge: 'In our Delivery Method, this is what the <strong>Frame</strong> stage addresses. We map where the firm depends on individuals and design AI-assisted workflows that distribute that load without diluting senior judgment.'
+        bridge: 'In our Delivery Method, this is what the <strong>Frame</strong> stage addresses. We map where the firm depends on individuals and design AI-assisted workflows that distribute that load without diluting senior judgement.'
       },
       'Expertise Leverage': {
-        headline: 'Your seniors are spending judgment-grade time on admin-grade work.',
-        body: 'Every hour a senior spends formatting, coordinating, or reworking a junior draft is an hour of high-value judgment you do not get back. The leverage gap compounds across every project.',
+        headline: 'Your seniors are spending judgement-grade time on admin-grade work.',
+        body: 'Every hour a senior spends formatting, coordinating, or reworking a junior draft is an hour of high-value judgement you do not get back. The leverage gap compounds across every project.',
         bridge: 'In our Delivery Method, this is what the <strong>Build &amp; Validate</strong> stage addresses. We build automations that absorb the admin layer so seniors operate at the level you actually pay them for.'
       },
       'Continuous Improvement': {
@@ -1726,6 +1779,13 @@
     html += '</div>';
     html += '<div class="results-headline">' + getHeadline(overall) + '</div>';
     html += '<div class="results-subtitle">' + getSubtitle(overall) + '</div>';
+    /* Four-band ladder so the lead can see where they sit relative to other bands. */
+    html += '<div class="band-ladder">';
+    html +=   '<div class="band-step ' + (band === 'low' ? 'is-current' : '') + '"><div class="band-step-label">Reactive</div><div class="band-step-range">0-25</div></div>';
+    html +=   '<div class="band-step ' + (band === 'mid-low' ? 'is-current' : '') + '"><div class="band-step-label">Structured</div><div class="band-step-range">26-50</div></div>';
+    html +=   '<div class="band-step ' + (band === 'mid-high' ? 'is-current' : '') + '"><div class="band-step-label">Optimised</div><div class="band-step-range">51-75</div></div>';
+    html +=   '<div class="band-step ' + (band === 'high' ? 'is-current' : '') + '"><div class="band-step-label">Systemised</div><div class="band-step-range">76-100</div></div>';
+    html += '</div>';
     html += '</div>';
 
     /* ----- Pillar breakdown ----- */
@@ -1943,61 +2003,4 @@ function submitReport(e) {
     overallScore: overallScore,
     pillarScores: pillarPcts,
     responses: responses,
-    source: 'AI Readiness Assessment v3',
-    timestamp: new Date().toISOString()
-  };
-
-  // Fire-and-forget . don't block on the n8n workflow
-  fetch('https://billguo.app.n8n.cloud/webhook/pace-scorecard', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  }).catch(function(err) {
-    console.error('[Scorecard v3] Webhook error:', err);
-  });
-
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-
-  setTimeout(function() {
-    btn.textContent = 'Report Sent';
-    btn.style.background = '#10B981';
-    showScorecardSuccess(btn);
-
-    /* Swipe transition: email gate slides out left, cohort CTA slides in
-     * from right into the same slot. After the animation completes, we
-     * promote the CTA to normal flow and release the height lock so the
-     * page sizes naturally to whichever card is taller. */
-    setTimeout(function() {
-      var stage = document.getElementById('swipe-stage');
-      var gate = document.getElementById('email-gate');
-      var cta = document.getElementById('cohort-cta');
-      if (!stage || !gate || !cta) return;
-
-      // Lock stage to the taller of the two so the swap doesn't collapse.
-      var lockHeight = Math.max(gate.offsetHeight, cta.scrollHeight);
-      stage.style.minHeight = lockHeight + 'px';
-
-      // Trigger swipe on the next frame so the lock takes effect first.
-      requestAnimationFrame(function() {
-        gate.classList.add('swipe-out');
-        cta.classList.add('swipe-in');
-      });
-
-      // After the transition, promote the CTA to normal flow and clean up.
-      setTimeout(function() {
-        gate.style.display = 'none';
-        cta.classList.add('swipe-in-complete');
-        stage.style.minHeight = '';
-        cta.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 700);
-    }, 900);
-  }, 700);
-}
-</script>
-
-<!-- Vercel Web Analytics -->
-<script defer src="/_vercel/insights/script.js"></script>
-
-</body>
-</html>
+    source: 'AI Readine
