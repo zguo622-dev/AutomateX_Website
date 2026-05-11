@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free AI Readiness Self-Assessment | AutomateX</title>
-<meta name="description" content="Take the free AI Readiness Self-Assessment. 20 questions, 5 minutes, instant results.">
+<title>AI Readiness Assessment | AutomateX</title>
+<meta name="description" content="Free 20-question AI Readiness Assessment for UK rail firms. 5 minutes, instant tailored report.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
     --gray-600: #4b5563;
     --gray-700: #374151;
     --green: #10B981;
+    --green-soft: #34D399;
     --yellow: #F59E0B;
     --red: #EF4444;
     --font-heading: 'Montserrat', sans-serif;
@@ -127,6 +128,11 @@
     justify-content: center;
   }
 
+  .sc-main.results-view {
+    max-width: 720px;
+    justify-content: flex-start;
+  }
+
   /* ========== QUESTION SCREEN ========== */
   .sc-screen {
     display: none;
@@ -155,6 +161,16 @@
     padding: 0.25rem 0.75rem;
     border-radius: 100px;
     margin-bottom: 1.25rem;
+  }
+
+  .sc-segment-header {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
   }
 
   .sc-question-num {
@@ -211,103 +227,6 @@
     box-shadow: 0 0 0 3px rgba(249,101,50,0.08);
   }
 
-  /* ── 1-10 Scale UI ── */
-  .sc-scale-anchors {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8125rem;
-    color: var(--gray-500);
-    margin-bottom: 0.875rem;
-    line-height: 1.4;
-    gap: 1rem;
-  }
-
-  .sc-scale-anchors span:last-child { text-align: right; }
-
-  .sc-scale-btns {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 0.5rem;
-  }
-
-  .sc-scale-btn {
-    width: 52px;
-    height: 52px;
-    border-radius: 10px;
-    border: 1.5px solid var(--gray-200);
-    background: var(--white);
-    font-family: var(--font-heading);
-    font-size: 1.0625rem;
-    font-weight: 700;
-    color: var(--navy);
-    cursor: pointer;
-    transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-  }
-
-  .sc-scale-btn:hover {
-    border-color: var(--orange);
-    transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgba(249,101,50,0.12);
-  }
-
-  .sc-scale-btn.selected {
-    background: var(--orange);
-    border-color: var(--orange);
-    color: var(--white);
-    box-shadow: 0 4px 14px rgba(249,101,50,0.3);
-    transform: translateY(-2px);
-  }
-
-  /* Segmentation header */
-  .sc-segment-header {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 0.5rem;
-  }
-
-  /* Multi-select for Q18 */
-  .sc-option-multi {
-    position: relative;
-    padding-left: 2.75rem;
-  }
-
-  .sc-option-multi::before {
-    content: '';
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    border: 1.5px solid var(--gray-300);
-    border-radius: 4px;
-    transition: var(--transition-fast);
-  }
-
-  .sc-option-multi.selected::before {
-    background: var(--orange);
-    border-color: var(--orange);
-  }
-
-  .sc-option-multi.selected::after {
-    content: '';
-    position: absolute;
-    left: 1.25rem;
-    top: 50%;
-    transform: translateY(-60%) rotate(45deg);
-    width: 5px;
-    height: 9px;
-    border: 2px solid var(--white);
-    border-top: none;
-    border-left: none;
-  }
-
   /* Open text */
   .sc-textarea {
     width: 100%;
@@ -345,6 +264,8 @@
     cursor: pointer;
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
     border: none;
+    text-decoration: none;
+    display: inline-block;
   }
 
   .sc-btn:hover { transform: translateY(-1px); }
@@ -387,65 +308,123 @@
 
   .sc-skip:hover { color: var(--gray-600); }
 
-  /* ========== RESULTS ========== */
+  /* ========== RESULTS HEADER + SPEEDOMETER ========== */
   .results-header {
     text-align: center;
     margin-bottom: 2.5rem;
   }
 
-  .results-score-circle {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background: var(--white);
-    border: 6px solid var(--gray-200);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
+  .speedometer-wrap {
+    width: 380px;
+    max-width: 100%;
+    margin: 0 auto 0.5rem;
     position: relative;
   }
 
-  .results-score-circle.low { border-color: var(--red); }
-  .results-score-circle.mid { border-color: var(--yellow); }
-  .results-score-circle.high { border-color: var(--green); }
+  .speedometer-svg { width: 100%; height: auto; display: block; }
 
-  .results-score-num {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1;
-    color: var(--navy);
+  /* Background ring (full half-arc) and foreground gradient ring share these */
+  .speedometer-track,
+  .speedometer-track-bg {
+    fill: none;
+    stroke-width: 11;
+    stroke-linecap: round;
   }
 
-  .results-score-label {
+  .speedometer-track-bg { stroke: rgba(0,0,0,0.06); }
+
+  /* Glow layer rendered behind the colored arc */
+  .speedometer-glow {
+    fill: none;
+    stroke-width: 11;
+    stroke-linecap: round;
+    opacity: 0.45;
+    filter: blur(2.5px);
+  }
+
+  .speedometer-needle {
+    transform-origin: 100px 100px;
+    transform: rotate(-90deg);
+    transition: transform 1.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* Score number + band pill, rendered as HTML below the SVG */
+  .speedometer-score-display {
+    text-align: center;
+    margin-top: 0.25rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .speedometer-score-num {
     font-family: var(--font-heading);
-    font-size: 0.75rem;
+    font-size: 3.25rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.75rem;
+  }
+
+  .speedometer-score-num span {
+    font-size: 1.125rem;
     font-weight: 600;
     color: var(--gray-400);
+    margin-left: 0.0625rem;
+    vertical-align: super;
+  }
+
+  .speedometer-band {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 0.25rem;
+    padding: 0.4375rem 0.9375rem;
+    display: inline-block;
+    border-radius: 100px;
+  }
+
+  .speedometer-band.band-low {
+    color: #B91C1C;
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.25);
+  }
+  .speedometer-band.band-mid-low {
+    color: #B45309;
+    background: rgba(245,158,11,0.1);
+    border: 1px solid rgba(245,158,11,0.25);
+  }
+  .speedometer-band.band-mid-high {
+    color: #047857;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.25);
+  }
+  .speedometer-band.band-high {
+    color: #065F46;
+    background: rgba(16,185,129,0.18);
+    border: 1px solid rgba(16,185,129,0.4);
   }
 
   .results-headline {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     font-weight: 700;
     color: var(--navy);
     margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    letter-spacing: -0.01em;
   }
 
   .results-subtitle {
     font-size: 0.9375rem;
     color: var(--gray-500);
     line-height: 1.6;
-    max-width: 480px;
+    max-width: 520px;
     margin: 0 auto;
   }
 
-  /* Pillar breakdown */
+  /* ========== PILLAR BREAKDOWN ========== */
   .pillar-breakdown {
     background: var(--white);
     border: 1px solid var(--gray-200);
@@ -464,7 +443,7 @@
 
   .pillar-row {
     display: grid;
-    grid-template-columns: 100px 1fr 44px;
+    grid-template-columns: 160px 1fr 44px;
     align-items: center;
     gap: 1rem;
     margin-bottom: 0.875rem;
@@ -489,11 +468,13 @@
   .pillar-bar-fill {
     height: 100%;
     border-radius: 5px;
-    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 0%;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .pillar-bar-fill.low { background: var(--red); }
-  .pillar-bar-fill.mid { background: var(--yellow); }
+  .pillar-bar-fill.mid-low { background: var(--yellow); }
+  .pillar-bar-fill.mid-high { background: var(--green-soft); }
   .pillar-bar-fill.high { background: var(--green); }
 
   .pillar-pct {
@@ -504,55 +485,91 @@
     text-align: right;
   }
 
+  /* ========== WEAKEST PILLAR CALLOUT ========== */
   .weakest-callout {
-    background: rgba(239,68,68,0.04);
-    border: 1px solid rgba(239,68,68,0.12);
-    border-radius: 10px;
-    padding: 1.25rem 1.5rem;
+    background: rgba(249,101,50,0.04);
+    border: 1px solid rgba(249,101,50,0.18);
+    border-radius: 12px;
+    padding: 1.5rem;
     margin-bottom: 1.5rem;
-    display: flex;
-    gap: 0.75rem;
-    align-items: flex-start;
   }
 
-  .weakest-callout-icon {
-    width: 20px;
-    height: 20px;
-    color: var(--red);
-    flex-shrink: 0;
-    margin-top: 2px;
+  .weakest-callout-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
   }
 
   .weakest-callout h4 {
     font-family: var(--font-heading);
-    font-size: 0.875rem;
+    font-size: 1.0625rem;
     font-weight: 700;
     color: var(--navy);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
   }
 
   .weakest-callout p {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     line-height: 1.6;
-    color: var(--gray-500);
+    color: var(--gray-600);
+    margin-bottom: 0.75rem;
   }
 
-  /* Email gate */
+  .weakest-callout p:last-child { margin-bottom: 0; }
+
+  .weakest-callout .bridge {
+    font-size: 0.8125rem;
+    color: var(--gray-500);
+    padding-top: 0.875rem;
+    border-top: 1px dashed rgba(249,101,50,0.2);
+  }
+
+  .weakest-callout .bridge strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ========== SWIPE STAGE (email gate <-> cohort CTA) ========== */
+  .swipe-stage {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ========== EMAIL GATE ========== */
   .email-gate {
     background: var(--white);
     border: 1px solid var(--gray-200);
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
-    margin-bottom: 1.5rem;
+    transition: transform 550ms cubic-bezier(0.65, 0, 0.35, 1), opacity 400ms ease;
+  }
+
+  .email-gate.swipe-out {
+    transform: translateX(-30%);
+    opacity: 0;
+    pointer-events: none;
   }
 
   .email-gate h3 {
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
     color: var(--navy);
-    margin-bottom: 0.375rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+
+  .email-gate h3 em {
+    color: var(--orange);
+    font-style: normal;
   }
 
   .email-gate p {
@@ -570,9 +587,7 @@
     text-align: left;
   }
 
-  .email-gate-form .full-width {
-    grid-column: 1 / -1;
-  }
+  .email-gate-form .full-width { grid-column: 1 / -1; }
 
   .email-gate-form label {
     font-family: var(--font-heading);
@@ -618,7 +633,6 @@
     font-size: 0.9375rem;
     border: none;
     cursor: pointer;
-    white-space: nowrap;
     transition: background var(--transition-fast), transform var(--transition-fast);
     margin-top: 0.25rem;
   }
@@ -626,16 +640,106 @@
   .email-gate-form button:hover { background: var(--orange-dark); transform: translateY(-1px); }
   .email-gate-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-  /* Magnetize particle (reused from waitlist) */
+  /* ========== COHORT CTA PANELS ========== */
+  /* Lives inside .swipe-stage. Starts off-screen right, slides in when
+     .swipe-in is added after form submission. Sits absolutely on top of
+     the email gate during the transition so the swap looks like one card
+     replacing another. After the animation completes, .swipe-in-complete
+     promotes it to normal flow so the page sizes correctly. */
+  .cohort-cta {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 2rem 1.75rem;
+    border-radius: 16px;
+    transform: translateX(30%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 600ms cubic-bezier(0.34, 1.4, 0.64, 1), opacity 400ms ease 100ms;
+  }
+
+  .cohort-cta.swipe-in {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cohort-cta.swipe-in-complete {
+    position: relative;
+  }
+
+  .cohort-cta-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.625rem;
+  }
+
+  .cohort-cta h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.625rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cohort-cta p {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Hot variants . orange */
+  .cohort-cta.cohort-hot {
+    background: linear-gradient(135deg, rgba(249,101,50,0.08), rgba(249,101,50,0.02));
+    border: 1px solid rgba(249,101,50,0.25);
+  }
+  .cohort-cta.cohort-hot .cohort-cta-eyebrow { color: var(--orange); }
+
+  /* Warm . soft blue */
+  .cohort-cta.cohort-warm {
+    background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(59,130,246,0.02));
+    border: 1px solid rgba(59,130,246,0.2);
+  }
+  .cohort-cta.cohort-warm .cohort-cta-eyebrow { color: #2563EB; }
+
+  /* Scribtive . purple */
+  .cohort-cta.cohort-scribtive {
+    background: linear-gradient(135deg, rgba(139,92,246,0.06), rgba(139,92,246,0.02));
+    border: 1px solid rgba(139,92,246,0.2);
+  }
+  .cohort-cta.cohort-scribtive .cohort-cta-eyebrow { color: #7C3AED; }
+
+  /* Cold . neutral */
+  .cohort-cta.cohort-cold {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+  }
+  .cohort-cta.cohort-cold .cohort-cta-eyebrow { color: var(--gray-500); }
+
+  .cohort-cta .sc-btn-next {
+    margin: 0;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  /* Magnetize particle for submit button */
   .sc-submit-wrap {
     position: relative;
     display: block;
     grid-column: 1 / -1;
     width: 100%;
   }
-  .sc-submit-wrap button {
-    width: 100%;
-  }
+  .sc-submit-wrap button { width: 100%; }
   .sc-magnetize-particle {
     position: absolute;
     width: 6px;
@@ -651,66 +755,18 @@
   .sc-magnetize-particle.attracted { transform: translate(0,0) !important; opacity: 1; }
   .sc-magnetize-particle.burst { opacity: 0; transition: transform 0.5s ease-out, opacity 0.5s ease-out; }
 
-  /* Earned CTA */
-  .earned-cta {
-    display: none;
-    text-align: center;
-    margin-top: 1.5rem;
-    padding: 1.5rem;
-    background: linear-gradient(135deg, rgba(249,101,50,0.06), rgba(249,101,50,0.02));
-    border: 1px solid rgba(249,101,50,0.2);
-    border-radius: 16px;
-    animation: earnedFadeIn 0.6s ease forwards;
-  }
-  @keyframes earnedFadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .earned-cta-eyebrow {
-    font-family: var(--font-heading);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 0.5rem;
-  }
-  .earned-cta h4 {
-    font-family: var(--font-heading);
-    font-size: 1.0625rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.375rem;
-  }
-  .earned-cta p {
-    font-size: 0.875rem;
-    color: var(--gray-500);
-    margin-bottom: 1.25rem;
-  }
-
-  /* CTA */
-  .results-cta {
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-
-  .results-cta p {
-    font-size: 0.875rem;
-    color: var(--gray-500);
-    margin-bottom: 1rem;
-  }
-
-  .results-cta .sc-btn-next {
-    margin: 0;
-    padding: 0.875rem 2rem;
-    font-size: 1rem;
-  }
-
   /* ========== RESPONSIVE ========== */
   @media (max-width: 640px) {
     .sc-progress-wrap { max-width: 180px; margin-left: 1rem; }
     .email-gate-form { grid-template-columns: 1fr; }
-    .pillar-row { grid-template-columns: 80px 1fr 36px; gap: 0.625rem; }
+    .pillar-row { grid-template-columns: 130px 1fr 36px; gap: 0.625rem; }
+    .pillar-name { font-size: 0.75rem; }
+    .speedometer-wrap { width: 280px; }
+  }
+
+  @media (max-width: 420px) {
+    .pillar-row { grid-template-columns: 110px 1fr 36px; }
+    .pillar-name { font-size: 0.6875rem; }
   }
 </style>
 </head>
@@ -732,6 +788,242 @@
   </div>
 </header>
 
+<!-- ===== COVER ===== -->
+<style>
+  .sc-cover {
+    padding: 2.5rem 1.5rem 3.5rem;
+    background: var(--gray-50);
+  }
+  .sc-cover-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .sc-cover-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.875rem;
+  }
+  .sc-cover-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.625rem, 4vw, 2.125rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 1rem;
+  }
+  .sc-cover-highlight { color: var(--orange); }
+  .sc-cover-sub {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    font-weight: 600;
+    color: var(--gray-600);
+    line-height: 1.45;
+    margin-bottom: 1.5rem;
+  }
+  .sc-cover-body p {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 0.875rem;
+  }
+
+  .sc-cover-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.25rem 0;
+    margin: 1.75rem 0;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+  }
+  .sc-cover-stat { text-align: center; }
+  .sc-cover-stat-num {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .sc-cover-stat-label {
+    font-size: 0.6875rem;
+    color: var(--gray-500);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .sc-cover-incentive {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.125rem;
+    background: rgba(249,101,50,0.06);
+    border: 1px solid rgba(249,101,50,0.22);
+    border-radius: 10px;
+    margin-bottom: 2.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--gray-700);
+  }
+  .sc-cover-incentive-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .sc-cover-incentive-text strong { color: var(--navy); }
+
+  .sc-cover-pillars-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .sc-cover-pillars-sub {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .sc-cover-pillars {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.625rem;
+    margin-bottom: 2.5rem;
+  }
+  .sc-cover-pillar {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 1.125rem 1rem;
+    transition: border-color var(--transition-med), box-shadow var(--transition-med);
+  }
+  .sc-cover-pillar:hover {
+    border-color: rgba(249,101,50,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+  .sc-cover-pillar-num {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--orange);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+  .sc-cover-pillar h3 {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 0.4375rem;
+  }
+  .sc-cover-pillar-lead {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    line-height: 1.5;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+  .sc-cover-pillar-body {
+    font-size: 0.75rem;
+    color: var(--gray-600);
+    line-height: 1.55;
+  }
+
+  .sc-cover-start {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    width: 100%;
+    padding: 1.125rem 1.5rem;
+    background: var(--orange);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(249,101,50,0.25);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  .sc-cover-start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(249,101,50,0.35);
+  }
+  .sc-cover-start-arrow {
+    transition: transform 0.3s ease;
+    font-size: 1.125rem;
+  }
+  .sc-cover-start:hover .sc-cover-start-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 720px) {
+    .sc-cover-pillars { grid-template-columns: 1fr 1fr; }
+    .sc-cover-stats { gap: 1rem; padding: 1rem 0.5rem; }
+  }
+  @media (max-width: 480px) {
+    .sc-cover-pillars { grid-template-columns: 1fr; }
+  }
+</style>
+<section class="sc-cover" id="sc-cover">
+  <div class="sc-cover-inner">
+    <div class="sc-cover-eyebrow">5-Minute AI Readiness Assessment</div>
+    <h1 class="sc-cover-title">Are you ready to make your team <span class="sc-cover-highlight">truly AI-enabled?</span></h1>
+    <p class="sc-cover-sub">A 5-minute diagnostic built by rail, for rail. Twenty questions across five operational pillars. Personalised report.</p>
+    <div class="sc-cover-body">
+      <p>You get a report that names your strongest pillar, your two weakest, one quick win you can act on this week, and three Ways Forward that fit where you are. No generic advice. No AI snake oil.</p>
+    </div>
+
+    <div class="sc-cover-stats">
+      <div class="sc-cover-stat">
+        <div class="sc-cover-stat-num">20</div>
+        <div class="sc-cover-stat-label">Questions</div>
+      </div>
+      <div class="sc-cover-stat">
+        <div class="sc-cover-stat-num">5 min</div>
+        <div class="sc-cover-stat-label">Duration</div>
+      </div>
+      <div class="sc-cover-stat">
+        <div class="sc-cover-stat-num">Instant</div>
+        <div class="sc-cover-stat-label">Results</div>
+      </div>
+    </div>
+
+    <div class="sc-cover-incentive">
+      <span class="sc-cover-incentive-icon" aria-hidden="true">+</span>
+      <span class="sc-cover-incentive-text">Completing the Assessment unlocks the 1-hour CPD at <strong>&pound;250</strong> (was &pound;300) and the Find Your X Workshop at <strong>&pound;1,500</strong> (was &pound;1,800).</span>
+    </div>
+
+    <button type="button" class="sc-cover-start" onclick="document.getElementById('sc-main').scrollIntoView({ behavior: 'smooth', block: 'start' });">
+      <span>Start Assessment</span>
+      <span class="sc-cover-start-arrow" aria-hidden="true">&rarr;</span>
+    </button>
+  </div>
+</section>
+
 <!-- ===== MAIN ===== -->
 <main class="sc-main" id="sc-main">
   <!-- Screens injected by JS -->
@@ -739,189 +1031,254 @@
 
 <script>
 (function() {
-  // ========== QUESTION DATA ==========
-  // scale: true  = 1-10 slider question; scaleMin/scaleMax = anchor labels
-  // Scoring for scale: 1-3 → 0pts, 4-6 → 1pt, 7-10 → 3pts
-  // Scoring for MCQ:   best=3, mid=1, worst=0
-  // Scored pillars: Pilot, Automate, Compound, Evolve, Digitalise (Q1-Q15)
-  // Unscored: Segmentation (Q16-Q19), openText (Q20)
-  const questions = [
-    // ── OPENING: most relatable questions first ──
-    // Q1 — AUTOMATE (universal pain: hunting for info)
-    { id: 1, pillar: 'Automate', scale: true,
-      text: 'How easily can your engineers find the right standard or past precedent before starting a submission?',
-      scaleMin: 'Significant time lost hunting across emails and shared drives',
-      scaleMax: 'Instant \u2014 everything is organised and accessible',
-      scores: [] },
+  /* =========================================================================
+   * QUESTION DATA
+   *
+   * SCORING SANITY CHECK (read this carefully):
+   *
+   * Q1-Q15 (DIAGNOSTIC) all use scores: [100, 66, 33, 0]
+   *   - options[0] is ALWAYS the BEST answer (firm in good shape, low pain).
+   *   - options[3] is ALWAYS the WORST answer (firm in significant pain).
+   *   - scores[0] = 100 → highest contribution to AI Readiness Score.
+   *   - scores[3] = 0   → lowest contribution.
+   *
+   * Higher AI Readiness Score = firm is more AI-ready (less pain).
+   * Lower AI Readiness Score  = firm has more pain (more lead-worthy resonance).
+   *
+   * Visitor expectation: "I scored 80%, I'm ahead." This is correct.
+   *
+   * Q16-Q20 (QUALIFICATION) do NOT contribute to the diagnostic score.
+   * They set hidden routing variables (authority, archetype, intent, decision speed).
+   *
+   * Q21 is free text.
+   * ========================================================================= */
 
-    // Q2 — PILOT (templates / starting fresh)
-    { id: 2, pillar: 'Pilot', scale: true,
-      text: 'How consistently does your team start new schemes from structured templates informed by past projects?',
-      scaleMin: 'We largely start from scratch each time',
-      scaleMax: 'Always \u2014 templates are embedded and used by everyone',
-      scores: [] },
-
-    // Q3 — EVOLVE (pipeline vs delivery tension)
-    { id: 3, pillar: 'Evolve', scale: true,
-      text: 'When your team is heads-down on live delivery, how well does your pipeline of new work hold up?',
-      scaleMin: 'Pipeline dries up completely when we\u2019re busy delivering',
-      scaleMax: 'Both run smoothly and in parallel',
-      scores: [] },
-
-    // ── PILOT ──
-    // Q4 — behaviour after a comment (type matters, not degree)
-    { id: 4, pillar: 'Pilot',
-      text: 'When you receive a significant review comment on a submission (e.g. CAT 3), what typically happens next?',
-      options: [
-        'We update our process so the same issue cannot recur',
-        'We sometimes adjust, but it is not consistent',
-        'We fix that specific comment and move on'
-      ], scores: [3, 1, 0] },
-
-    // Q5 — measurable improvement (yes/partly/no)
-    { id: 5, pillar: 'Pilot',
-      text: 'In the last 6 months, have you made a measurable improvement to your submission and assurance process (e.g. Form G production, DRN comments resolution)?',
-      options: [
-        'Yes, with clear evidence of fewer comments or faster approval',
-        'We have made changes but have not measured the impact',
-        'No specific changes have been made'
-      ], scores: [3, 1, 0] },
-
-    // ── AUTOMATE ──
-    // Q6 — compliance map (does team know the specific standards/clauses required)
-    { id: 6, pillar: 'Automate',
-      text: 'Does your team have a clear and documented method to identify the specific standards, clauses, and compliance gates required for each project scope (e.g. Form A/B/G requirements)?',
-      options: [
-        'Yes, it is clearly documented and accessible, and junior engineers can work to it without guidance',
-        'We have something, but it is incomplete or inconsistently applied across projects',
-        'No, it relies on experienced engineers knowing what applies'
-      ], scores: [3, 1, 0] },
-
-    // Q7 — documented knowledge (degree)
-    { id: 7, pillar: 'Automate', scale: true,
-      text: 'How well is your engineering knowledge documented so a new or junior engineer can work on a simple submission (e.g. Form G/H) independently?',
-      scaleMin: 'Almost everything lives in experienced engineers\u2019 heads',
-      scaleMax: 'Fully documented and accessible to anyone on the team',
-      scores: [] },
-
-    // ── COMPOUND ──
-    // Q8 — tracking revision cycles (do you or don't you)
-    { id: 8, pillar: 'Compound',
-      text: 'Do you track how many revision cycles your submissions go through, and is that number improving?',
-      options: [
-        'Yes, we track it and it is lower than 12 months ago',
-        'We track loosely but have not seen clear improvement',
-        'We do not track revision cycles'
-      ], scores: [3, 1, 0] },
-
-    // Q9 — past project knowledge accessibility (degree)
-    { id: 9, pillar: 'Compound', scale: true,
-      text: 'How easily can a new engineer or engineering manager (e.g. CEM/CRE) find and apply knowledge from a similar past project without asking a colleague?',
-      scaleMin: 'They\u2019d have to ask around for days',
-      scaleMax: 'Everything is findable independently within hours',
-      scores: [] },
-
-    // Q10 — clarity of assurance feedback
-    { id: 10, pillar: 'Compound', scale: true,
-      text: 'How clear and standards-referenced is the feedback you typically receive from an assurer (e.g. DPE/PE) during assurance process (e.g. DRN)?',
-      scaleMin: 'Comments often cite no clear standards and feel opinion-based',
-      scaleMax: 'Comments consistently cite specific standards and clauses',
-      scores: [] },
-
-    // ── EVOLVE ──
-    // Q11 — why clients return (type of reason matters)
-    { id: 11, pillar: 'Evolve',
-      text: 'When a client gives you repeat work, why do they come back?',
-      options: [
-        'They actively sought us out, we are their first call',
-        'A mix, reputation and price both played a role',
-        'We competed on price again'
-      ], scores: [3, 1, 0] },
-
-    // Q12 — pipeline resilience (degree)
-    { id: 12, pillar: 'Evolve', scale: true,
-      text: 'If your two biggest client contacts moved on tomorrow, how resilient would your pipeline be?',
-      scaleMin: 'At serious risk \u2014 most work flows through a few key relationships',
-      scaleMax: 'Strong \u2014 we have systems that generate work independently',
-      scores: [] },
-
-    // ── DIGITALISE ──
-    // Q13 — audit trail (can you or can't you)
-    { id: 13, pillar: 'Digitalise',
-      text: 'Can you produce a complete audit trail from design requirement to signed submission (e.g. Form G/H) in under 30 minutes?',
-      options: [
-        'Yes, consistently',
-        'Sometimes, depending on the project',
-        'No, it takes much longer and involves significant hunting'
-      ], scores: [3, 1, 0] },
-
-    // Q14 — AI reaction (type of attitude matters)
-    { id: 14, pillar: 'Digitalise',
-      text: 'When AI tools come up in team conversation, what is the typical reaction?',
-      options: [
-        'Active interest or healthy scepticism, open to evidence',
-        'Uncertainty, we are not sure where to start',
-        'Resistance, there is pushback on the idea'
-      ], scores: [3, 1, 0] },
-
-    // Q15 — knowledge walking out (degree)
-    { id: 15, pillar: 'Digitalise', scale: true,
-      text: 'If a senior engineer left tomorrow, how much of your core engineering capability and project knowledge would leave with them?',
-      scaleMin: 'Critical capability would walk out the door',
-      scaleMax: 'Very little, it is all in our systems and documented processes',
-      scores: [] },
-
-    // ── SEGMENTATION (unscored, personalises results) ──
-    { id: 16, pillar: 'Segmentation', segment: true,
-      text: 'How big is your delivery team?',
-      options: [
-        '1 to 5 people, engineer or engineering manager (e.g. CEM/CRE) coverage is thin',
-        '6 to 12 people, multiple schemes reliant on key senior engineers',
-        '13 to 30 people, multiple engineering managers running parallel streams',
-        '31 or more people, delivering assurance at scale'
-      ], scores: [0, 0, 0, 0] },
-
-    { id: 17, pillar: 'Segmentation', segment: true, other: true,
-      text: 'What is your primary role?',
-      options: [
-        'Technical Director, I set strategy and oversee delivery',
-        'Engineering Manager (e.g. CEM/CRE), I lead delivery and sign off submissions',
-        'Engineer, I produce or support the engineering deliverables',
-        'Business Development or Bid Manager, I look after the pipeline and sales side',
-        'Other'
-      ], scores: [0, 0, 0, 0, 0] },
-
-    { id: 18, pillar: 'Segmentation', multi: true, maxSelect: 2,
-      text: 'Pick your top 2 priorities for the next 90 days:',
-      options: [
-        'Reduce submission comments and resubmissions (e.g. DRN)',
-        'Stop relying on 1 or 2 key engineers for quality',
-        'Reduce time lost to admin, version control and document management',
-        'Make standards and past precedents easy to find',
-        'Improve traceability and audit trail speed',
-        'Stop the feast-or-famine pipeline cycle'
-      ], scores: [0, 0, 0, 0, 0, 0] },
-
-    { id: 19, pillar: 'Segmentation', segment: true,
-      text: 'What type of support are you most open to?',
-      options: [
-        'Pilot a risk-free, low-commitment automation project with an AI expert to solve an existing repeating friction point',
-        'A signed-off engineering resource (e.g. CEM/CRE) delivering on a mission-critical live scheme with AI-enabled solutions',
-        'An off-the-shelf toolkit on a SaaS platform that engineers can plug into their existing workflow',
-        'Training to help our team understand the best way to adopt AI in our business (e.g. webinar, CPD, Lunch and Learn)'
-      ], scores: [0, 0, 0, 0] },
-
-    // Q20 — open text (skippable)
-    { id: 20, pillar: 'Segmentation', openText: true,
-      text: 'Anything else you\u2019d like us to know before we show your results? (Optional)' }
+  const PILLARS = [
+    'Hero Dependency',
+    'Expertise Leverage',
+    'Continuous Improvement',
+    'First-Time Approval',
+    'AI Readiness'
   ];
 
-  const pillarNames = ['Pilot', 'Automate', 'Compound', 'Evolve', 'Digitalise'];
-  const totalQ = questions.length;
+  const questions = [
+    /* ---------- PILLAR 1: HERO DEPENDENCY ---------- */
+    { id: 1, pillar: 'Hero Dependency', weight: 0.50,
+      text: 'If 2 to 4 core or senior members of your team were unavailable for a month, what is the realistic impact?',
+      options: [
+        'We would absorb it cleanly. Depth covers it.',
+        'Manageable. Some schedule slip.',
+        'Real strain. Key reviews back up.',
+        'Programme slips and margin takes a hit.'
+      ],
+      scores: [100, 72, 38, 8] },
+
+    { id: 2, pillar: 'Hero Dependency', weight: 0.30,
+      text: 'When a complex deliverable needs senior judgment, how often does it queue on the same 2 to 4 people?',
+      options: [
+        'Rarely. We have senior depth.',
+        'Occasionally. Manageable.',
+        'Often, especially at gates.',
+        'Constantly. It is our biggest scheduling friction.'
+      ],
+      scores: [95, 68, 32, 5] },
+
+    { id: 3, pillar: 'Hero Dependency', weight: 0.20,
+      text: 'How much of your firm\u2019s working know-how lives in retrievable systems versus inside specific people\u2019s heads?',
+      options: [
+        'Almost all in systems. Documented, searchable, current.',
+        'Mixed. Critical things documented, day-to-day in people.',
+        'Mostly in people. Documents exist but are dated.',
+        'Effectively all in people. We rely on the memory of seniors.'
+      ],
+      scores: [100, 70, 35, 5] },
+
+    /* ---------- PILLAR 2: EXPERTISE LEVERAGE ---------- */
+    { id: 4, pillar: 'Expertise Leverage', weight: 0.50,
+      text: 'What share of your seniors\u2019 week goes to high-judgment work versus admin, status reporting, formatting, coordination?',
+      options: [
+        'Almost entirely judgment work.',
+        'Mostly judgment work, some admin.',
+        'Roughly half and half.',
+        'Less than a third on judgment work.'
+      ],
+      scores: [100, 75, 40, 10] },
+
+    { id: 5, pillar: 'Expertise Leverage', weight: 0.30,
+      text: 'When juniors produce a draft (form, design memo, register entry), how much senior time does the rework typically eat?',
+      options: [
+        'Light. Drafts are usable with comments.',
+        'Moderate. Targeted edits.',
+        'Significant. Often near full rewrite.',
+        'Often more than producing it from scratch would have taken.'
+      ],
+      scores: [95, 65, 28, 5] },
+
+    { id: 6, pillar: 'Expertise Leverage', weight: 0.20,
+      text: 'When workload surges (multiple peaks at once) or falls (pipeline gaps), how cleanly can you scale capability up or down without breaking quality or the firm?',
+      options: [
+        'We scale cleanly. Surge capacity exists, pipeline gaps absorbed.',
+        'We scale with effort. Quality dips on surges, gaps cause stress.',
+        'We struggle to scale. Peaks force hiring, troughs force cuts.',
+        'Feast or famine is our reality. The hire-rehire cycle bleeds margin.'
+      ],
+      scores: [100, 70, 35, 8] },
+
+    /* ---------- PILLAR 3: CONTINUOUS IMPROVEMENT ---------- */
+    { id: 7, pillar: 'Continuous Improvement', weight: 0.50,
+      text: 'When a project closes, how reliably do its lessons reach the next project that would benefit?',
+      options: [
+        'Reliably. We have a working capture-and-apply loop.',
+        'Usually, with effort.',
+        'Inconsistently. Depends on the team.',
+        'Almost never. Each project re-solves the same problems.'
+      ],
+      scores: [100, 72, 35, 5] },
+
+    { id: 8, pillar: 'Continuous Improvement', weight: 0.30,
+      text: 'Across your last three similar projects, are you measurably faster, leaner, or higher-quality on the third than the first?',
+      options: [
+        'Yes, materially.',
+        'Yes, modestly.',
+        'Some improvement, hard to quantify.',
+        'No measurable improvement.'
+      ],
+      scores: [100, 68, 30, 0] },
+
+    { id: 9, pillar: 'Continuous Improvement', weight: 0.20,
+      text: 'When a new method or tool proves itself on one project, how systematically does it spread to other projects?',
+      options: [
+        'Reliably. We have an adoption playbook.',
+        'Often, with a champion pushing.',
+        'Inconsistently. Depends on overlap of people.',
+        'Rarely. Each project chooses its own way.'
+      ],
+      scores: [95, 65, 32, 8] },
+
+    /* ---------- PILLAR 4: FIRST-TIME APPROVAL ---------- */
+    { id: 10, pillar: 'First-Time Approval', weight: 0.50,
+      text: 'Honest first-time approval rate on the engineering deliverables your team produces?',
+      options: [
+        'Above 85%. Tight quality control.',
+        '70 to 85%. Cleaner than the norm.',
+        '50 to 70%. Resubmission expected on most.',
+        'Below 50%. Rework cycles are normal.'
+      ],
+      scores: [100, 72, 38, 10] },
+
+    { id: 11, pillar: 'First-Time Approval', weight: 0.30,
+      text: 'How much margin or schedule do rework cycles cost per project?',
+      options: [
+        'Minor. Rework is the exception.',
+        'Some. Manageable.',
+        'Notable. Hits gross margin every project.',
+        'Material. Significant un-billable hours absorbed.'
+      ],
+      scores: [95, 70, 32, 5] },
+
+    { id: 12, pillar: 'First-Time Approval', weight: 0.20,
+      text: 'When rework happens on assurance submissions, do you track the cause categories (formatting, standards interpretation, missing evidence) or is each cycle treated as a one-off?',
+      options: [
+        'Yes. We track cause categories and act on the patterns.',
+        'We track informally. Patterns surface in retrospectives.',
+        'We discuss case by case. No systematic categorisation.',
+        'Each cycle is treated as a one-off. No tracking.'
+      ],
+      scores: [100, 68, 35, 0] },
+
+    /* ---------- PILLAR 5: AI READINESS ---------- */
+    { id: 13, pillar: 'AI Readiness', weight: 0.50,
+      text: 'When a recent tender asked about your AI capability, how confident were you in the answer?',
+      options: [
+        'Answered with a portfolio of evidence.',
+        'Answered with one or two examples.',
+        'Answered with intent, not evidence.',
+        'We did not have one. Deflected or lost the question.'
+      ],
+      scores: [100, 72, 38, 8] },
+
+    { id: 14, pillar: 'AI Readiness', weight: 0.20,
+      text: 'What share of your peer or competitor firms are visibly investing in AI capability right now?',
+      options: [
+        'Few. We are ahead of the curve.',
+        'Some. We are with the pack.',
+        'Many. We are at risk of falling behind.',
+        'Most. We are behind.'
+      ],
+      scores: [95, 70, 35, 10] },
+
+    { id: 15, pillar: 'AI Readiness', weight: 0.30,
+      text: 'If a client asked tomorrow to see your AI-enabled delivery in a live workflow, what would you show them?',
+      options: [
+        'An embedded capability across multiple projects.',
+        'A working tool in limited use.',
+        'A pilot, mostly conceptual.',
+        'Nothing concrete.'
+      ],
+      scores: [100, 65, 30, 5] },
+
+    /* ---------- QUALIFICATION (Q16-Q20) ---------- */
+    { id: 16, qualify: 'authority',
+      text: 'Your role.',
+      options: [
+        'Owner / Managing Director / Partner',
+        'Technical Director / Head of Discipline / Programme Manager',
+        'Senior Professional (Engineer, Designer, Consultant)',
+        'Junior Member (Graduate, Assistant, Other)'
+      ],
+      values: ['T1', 'T2', 'T3', 'T4'] },
+
+    { id: 17, qualify: 'archetype',
+      text: 'Which best describes your firm?',
+      options: [
+        'Client organisation',
+        'Tier 1 / Tier 2 consultancy or contractor',
+        'SME consultancy or contractor (specialist rail firm)',
+        'Micro consultancy or self-employed'
+      ],
+      values: ['client', 'tier12', 'sme', 'micro'] },
+
+    { id: 18, qualify: 'intent_budget',
+      text: 'If we could give your senior engineers back 200+ hours of bottleneck time per year, what would you consider a reasonable investment to capture that?',
+      options: [
+        'Under \u00a35k',
+        '\u00a35k to \u00a350k',
+        '\u00a350k to \u00a3100k',
+        'Above \u00a3100k'
+      ],
+      values: ['cold', 'warm', 'hot', 'hot'] },
+
+    { id: 19, qualify: 'intent_pilot',
+      text: 'Openness to a paid pilot.',
+      options: [
+        'Yes, in the next 30 days if it is a fit.',
+        'Open in the next 6 months.',
+        'Not right now. Keep us in the loop.',
+        'Not a fit.'
+      ],
+      values: ['hot', 'warm', 'cold-nurture', 'cold-drop'] },
+
+    { id: 20, qualify: 'decision_speed',
+      text: 'If you decided to proceed, how would the decision typically be made?',
+      options: [
+        'I decide. I sign off independently.',
+        'I decide with one partner or co-director.',
+        'I propose, the board or leadership team approves.',
+        'It would need to go through procurement / formal process.'
+      ],
+      values: ['self', 'partner', 'board', 'procurement'] },
+
+    /* ---------- Q21: FREE TEXT ---------- */
+    { id: 21, openText: true,
+      text: 'Anything specific you would want us to look at first?' }
+  ];
+
+  const totalQ = questions.length;       // 21 internal (20 scored + 1 free-text bonus)
+  const displayTotal = totalQ - 1;        // 20 user-facing (Q21 free-text shown as bonus, not counted)
   let currentQ = 0;
   let answers = {};
 
-  // Expose for submitReport to read dynamically
+  // Expose for submitReport
   window._scorecardQuestions = questions;
   window._scorecardAnswers = answers;
 
@@ -930,44 +1287,41 @@
   const progressText = document.getElementById('progress-text');
 
   function updateProgress() {
-    const pct = Math.round(((currentQ) / totalQ) * 100);
+    /* Clamp to displayTotal so Q21 (free-text bonus) doesn't push the bar past 20/20. */
+    const displayCurrent = Math.min(currentQ, displayTotal);
+    const pct = Math.round((displayCurrent / displayTotal) * 100);
     progressFill.style.width = pct + '%';
-    progressText.textContent = currentQ + ' / ' + totalQ;
+    progressText.textContent = displayCurrent + ' / ' + displayTotal;
   }
 
+  /* =========================================================================
+   * RENDER QUESTION
+   * ========================================================================= */
   function renderQuestion(idx) {
     const q = questions[idx];
     currentQ = idx;
+    main.classList.remove('results-view');
     updateProgress();
 
     let html = '<div class="sc-screen active">';
-    if (q.pillar !== 'Segmentation') {
+
+    if (q.pillar) {
       html += '<div class="sc-pillar-badge">' + q.pillar + '</div>';
-    } else if (!q.openText) {
-      html += '<div class="sc-segment-header">Almost there \u2014 help us personalise your results</div>';
+    } else if (q.qualify) {
+      html += '<div class="sc-segment-header">Almost there \u2014 a few quick details</div>';
+    } else if (q.openText) {
+      html += '<div class="sc-segment-header">Last question</div>';
     }
-    html += '<div class="sc-question-num">Question ' + q.id + ' of ' + totalQ + '</div>';
+
+    /* Q21 (openText) is the free-text bonus; suppress the "Question N of N" line.
+       Its sc-segment-header above already labels it as "Last question". */
+    if (!q.openText) {
+      html += '<div class="sc-question-num">Question ' + q.id + ' of ' + displayTotal + '</div>';
+    }
     html += '<div class="sc-question-text">' + q.text + '</div>';
 
     if (q.openText) {
-      html += '<textarea class="sc-textarea" id="open-text" placeholder="Optional \u2014 share anything that would help us understand your situation...">' + (answers[idx] || '') + '</textarea>';
-    } else if (q.scale) {
-      // 1-10 number picker
-      const currentVal = answers[idx] !== undefined ? answers[idx] : null;
-      html += '<div class="sc-scale-anchors"><span>' + q.scaleMin + '</span><span>' + q.scaleMax + '</span></div>';
-      html += '<div class="sc-scale-btns">';
-      for (let n = 1; n <= 10; n++) {
-        html += '<button class="sc-scale-btn' + (currentVal === n ? ' selected' : '') + '" data-val="' + n + '">' + n + '</button>';
-      }
-      html += '</div>';
-    } else if (q.multi) {
-      html += '<div class="sc-options">';
-      const selected = answers[idx] || [];
-      q.options.forEach((opt, i) => {
-        const isSelected = selected.includes(i);
-        html += '<button class="sc-option sc-option-multi' + (isSelected ? ' selected' : '') + '" data-idx="' + i + '">' + opt + '</button>';
-      });
-      html += '</div>';
+      html += '<textarea class="sc-textarea" id="open-text" placeholder="Optional. Share a workflow, a friction point, or a specific outcome you would like us to look at...">' + (answers[idx] || '') + '</textarea>';
     } else {
       html += '<div class="sc-options">';
       q.options.forEach((opt, i) => {
@@ -978,9 +1332,7 @@
     }
 
     // Nav
-    const isLastScored = idx === totalQ - 1;
-    const isOpenText = q.openText;
-    const needsNext = q.multi; // only multi-select needs explicit Next btn (scale + single MCQ auto-advance)
+    const isLast = idx === totalQ - 1;
     html += '<div class="sc-nav">';
     if (idx > 0) {
       html += '<button class="sc-btn sc-btn-back" onclick="app.prev()">&#8592; Back</button>';
@@ -988,229 +1340,471 @@
       html += '<div></div>';
     }
 
-    if (isOpenText) {
+    if (q.openText) {
       html += '<button class="sc-btn sc-btn-next" onclick="app.next()">See My Results</button>';
-    } else if (isLastScored || needsNext) {
+    } else if (isLast) {
       const disabled = answers[idx] === undefined ? ' disabled' : '';
-      const label = isLastScored ? 'See My Results' : 'Next';
-      html += '<button class="sc-btn sc-btn-next" onclick="app.next()" id="next-btn"' + disabled + '>' + label + '</button>';
+      html += '<button class="sc-btn sc-btn-next" onclick="app.next()" id="next-btn"' + disabled + '>See My Results</button>';
     } else {
       html += '<div></div>';
     }
     html += '</div>';
 
-    if (isOpenText) {
+    if (q.openText) {
       html += '<button class="sc-skip" onclick="app.next()">Skip this question</button>';
     }
 
     html += '</div>';
     main.innerHTML = html;
 
-    // Bind scale button clicks
-    if (q.scale) {
-      main.querySelectorAll('.sc-scale-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          const val = parseInt(this.dataset.val);
-          answers[idx] = val;
-          main.querySelectorAll('.sc-scale-btn').forEach(b => b.classList.remove('selected'));
-          this.classList.add('selected');
-          const nb = document.getElementById('next-btn');
-          if (nb) nb.disabled = false;
-          // Auto-advance after selection
-          setTimeout(() => app.next(), 350);
-        });
-      });
-    }
-
-    // Bind MCQ option clicks
-    if (!q.openText && !q.scale) {
+    // Bind option clicks (single-select with auto-advance)
+    if (!q.openText) {
       main.querySelectorAll('.sc-option').forEach(btn => {
         btn.addEventListener('click', function() {
           const optIdx = parseInt(this.dataset.idx);
-          if (q.multi) {
-            let sel = answers[idx] || [];
-            if (sel.includes(optIdx)) {
-              sel = sel.filter(s => s !== optIdx);
-            } else if (sel.length < (q.maxSelect || 2)) {
-              sel = [...sel, optIdx];
-            }
-            answers[idx] = sel;
-            renderQuestion(idx);
-          } else {
-            answers[idx] = optIdx;
-            main.querySelectorAll('.sc-option').forEach(o => o.classList.remove('selected'));
-            this.classList.add('selected');
-            // Show "Other" text input if last option selected on a q.other question
-            if (q.other && optIdx === q.options.length - 1) {
-              let otherWrap = document.getElementById('other-input-wrap');
-              if (!otherWrap) {
-                otherWrap = document.createElement('div');
-                otherWrap.id = 'other-input-wrap';
-                otherWrap.style.cssText = 'margin-top:0.75rem;';
-                const inp = document.createElement('input');
-                inp.type = 'text';
-                inp.id = 'other-text-input';
-                inp.placeholder = 'Please specify your role';
-                inp.value = answers['otherText_' + idx] || '';
-                inp.style.cssText = 'width:100%;padding:0.875rem 1rem;border:1.5px solid var(--gray-200);border-radius:10px;font-family:var(--font-body);font-size:0.9375rem;color:var(--navy);outline:none;transition:border-color 150ms;';
-                inp.addEventListener('focus', () => inp.style.borderColor = 'var(--orange)');
-                inp.addEventListener('blur', () => inp.style.borderColor = 'var(--gray-200)');
-                inp.addEventListener('input', () => { answers['otherText_' + idx] = inp.value; });
-                otherWrap.appendChild(inp);
-                main.querySelector('.sc-options').after(otherWrap);
-                setTimeout(() => inp.focus(), 50);
-              }
-            } else {
-              // Remove other input if a different option selected
-              const otherWrap = document.getElementById('other-input-wrap');
-              if (otherWrap) otherWrap.remove();
-              // Auto-advance for non-Other options
-              setTimeout(() => app.next(), 300);
-            }
-          }
+          answers[idx] = optIdx;
+          main.querySelectorAll('.sc-option').forEach(o => o.classList.remove('selected'));
+          this.classList.add('selected');
+          // Auto-advance after a short pause
+          setTimeout(() => app.next(), 300);
         });
       });
     }
   }
 
-  function scaleToScore(val) {
-    // 1-10 banded: 1-3 → 0pts, 4-6 → 1pt, 7-10 → 3pts
-    if (val >= 7) return 3;
-    if (val >= 4) return 1;
-    return 0;
-  }
-
+  /* =========================================================================
+   * SCORING
+   *
+   * AI Readiness Score = average of all answered Q1-Q15 question scores.
+   * Pillar score        = average of answered questions in that pillar.
+   * Weakest pillar      = pillar with lowest score (with tie-break by
+   *                       fixed order if equal).
+   * ========================================================================= */
   function calcScores() {
-    const pillarScores = {};
-    pillarNames.forEach(p => { pillarScores[p] = { earned: 0, max: 0 }; });
+    /* Weighted pillar scoring (v2, 2026-05-11).
+       Each pillar question carries a weight (anchor 0.50, supporting 0.30,
+       deeper 0.20). Pillar score is the weighted sum of answered questions,
+       normalised by the sum of weights of answered questions so partials
+       still compute fairly. Overall score is the mean of the five pillar
+       scores. Option scores vary per question (no longer 100/66/33/0) so
+       averages no longer cluster on suspicious clean numbers. */
+    const pillarTotals = {};
+    PILLARS.forEach(p => { pillarTotals[p] = { weightedSum: 0, weightSum: 0 }; });
 
     questions.forEach((q, idx) => {
-      if (!pillarNames.includes(q.pillar)) return;
-      if (answers[idx] === undefined) return;
-
-      pillarScores[q.pillar].max += 3;
-
-      if (q.scale) {
-        pillarScores[q.pillar].earned += scaleToScore(answers[idx]);
-      } else {
-        pillarScores[q.pillar].earned += q.scores[answers[idx]] || 0;
-      }
+      if (!q.pillar) return;                        // skip qualification + open text
+      if (answers[idx] === undefined) return;       // skip unanswered (defensive)
+      const score = q.scores[answers[idx]];
+      if (typeof score !== 'number') return;
+      const w = (typeof q.weight === 'number') ? q.weight : (1 / 3); // safe default
+      pillarTotals[q.pillar].weightedSum += score * w;
+      pillarTotals[q.pillar].weightSum += w;
     });
 
     const pillarPcts = {};
-    let totalEarned = 0, totalMax = 0;
-    pillarNames.forEach(p => {
-      const s = pillarScores[p];
-      pillarPcts[p] = s.max > 0 ? Math.round((s.earned / s.max) * 100) : 0;
-      totalEarned += s.earned;
-      totalMax += s.max;
+    PILLARS.forEach(p => {
+      const t = pillarTotals[p];
+      pillarPcts[p] = t.weightSum > 0 ? Math.round(t.weightedSum / t.weightSum) : 0;
     });
 
-    const overall = totalMax > 0 ? Math.round((totalEarned / totalMax) * 100) : 0;
-    const weakest = pillarNames.reduce((min, p) => pillarPcts[p] < pillarPcts[min] ? p : min, pillarNames[0]);
+    /* Overall = mean of the five pillar scores. Equal pillar weighting. */
+    let pSum = 0, pCount = 0;
+    PILLARS.forEach(p => { pSum += pillarPcts[p]; pCount += 1; });
+    const overall = pCount > 0 ? Math.round(pSum / pCount) : 0;
+
+    // Find weakest. Tie-break by PILLARS array order (stable).
+    let weakest = PILLARS[0];
+    PILLARS.forEach(p => {
+      if (pillarPcts[p] < pillarPcts[weakest]) weakest = p;
+    });
 
     return { pillarPcts, overall, weakest };
   }
 
-  function getLevel(pct) {
-    if (pct >= 67) return 'high';
-    if (pct >= 34) return 'mid';
+  /* =========================================================================
+   * BAND + LABEL
+   * ========================================================================= */
+  function getBand(pct) {
+    if (pct >= 75) return 'high';
+    if (pct >= 50) return 'mid-high';
+    if (pct >= 25) return 'mid-low';
     return 'low';
   }
 
+  function getBandLabel(band) {
+    return ({
+      'low': 'AT RISK',
+      'mid-low': 'BUILDING',
+      'mid-high': 'ON TRACK',
+      'high': 'LEADING'
+    })[band] || 'BUILDING';
+  }
+
   function getHeadline(pct) {
-    if (pct >= 75) return 'Strong foundation — time to compound your advantage.';
-    if (pct >= 50) return 'Decent base, but fragile under pressure.';
-    if (pct >= 25) return 'Significant gaps — your delivery depends on heroics.';
-    return 'Critical: your system needs fundamental rebuilding.';
+    if (pct >= 75) return 'You are ahead of the rail pack on AI readiness.';
+    if (pct >= 50) return 'You are on track. There are specific places to compound your edge.';
+    if (pct >= 25) return 'You are building. The gaps are concrete and addressable.';
+    return 'You are exposed where rail competitors are quietly investing.';
   }
 
-  function getWeakestInsight(pillar) {
-    const insights = {
-      'Pilot': 'Your team isn\'t capturing "what good looks like" in reusable form. Every scheme starts cold, which means inconsistent quality and avoidable rework.',
-      'Automate': 'Quality is trapped in individuals, not embedded in your systems. When key people are unavailable, your output suffers.',
-      'Compound': 'Improvements aren\'t accumulating. You\'re solving the same problems repeatedly instead of building on past learning.',
-      'Evolve': 'Your growth model depends on personal relationships and heroics rather than a repeatable system that generates work independently.',
-      'Digitalise': 'Your traceability and information retrieval are manual and fragile. Audit trails take too long, and capability walks out the door with people.'
+  function getSubtitle(pct) {
+    if (pct >= 75) return 'Most of your team-and-delivery system is performing. Your remaining gains come from compounding what already works.';
+    if (pct >= 50) return 'Solid foundations with specific friction points. Below is where your weakest pillar sits and what would move it most.';
+    if (pct >= 25) return 'You are not behind, but the firms that act now are pulling ahead. Below is what would shift the most for the least effort.';
+    return 'You are not alone here. The pillars below show where the exposure is concentrated and what would move the dial first.';
+  }
+
+  /* =========================================================================
+   * WEAKEST-PILLAR CONTENT (resonance copy + bridge to Delivery Method)
+   * ========================================================================= */
+  function getPillarContent(pillar) {
+    const map = {
+      'Hero Dependency': {
+        headline: 'Your delivery quality runs through one or two people.',
+        body: 'When key seniors are stretched, in demand, or simply on leave, work queues, reviews back up, and quality dips. The exposure is real and it shows up in your margin.',
+        bridge: 'In our Delivery Method, this is what the <strong>Frame</strong> stage addresses. We map where the firm depends on individuals and design AI-assisted workflows that distribute that load without diluting senior judgment.'
+      },
+      'Expertise Leverage': {
+        headline: 'Your seniors are spending judgment-grade time on admin-grade work.',
+        body: 'Every hour a senior spends formatting, coordinating, or reworking a junior draft is an hour of high-value judgment you do not get back. The leverage gap compounds across every project.',
+        bridge: 'In our Delivery Method, this is what the <strong>Build &amp; Validate</strong> stage addresses. We build automations that absorb the admin layer so seniors operate at the level you actually pay them for.'
+      },
+      'Continuous Improvement': {
+        headline: 'You are re-solving problems your firm has solved before.',
+        body: 'Lessons captured on one project rarely make it into the next. Methods that work on one job do not spread. The flywheel that should be compounding is not turning.',
+        bridge: 'In our Delivery Method, this is what the <strong>Operate &amp; Evolve</strong> stage addresses. We build the capture-and-spread loops so improvements stick across projects, not just within them.'
+      },
+      'First-Time Approval': {
+        headline: 'Rework is bleeding margin every project.',
+        body: 'Submissions that come back with comments cost twice. Once to do, once to redo. And rejection patterns rarely surprise the team that produced the work.',
+        bridge: 'In our Delivery Method, this is what the <strong>Deploy &amp; Assure</strong> stage addresses. We embed assurance-grade quality control into the production workflow so submissions are right the first time.'
+      },
+      'AI Readiness': {
+        headline: 'Tender AI questions are the new BIM Maturity questions.',
+        body: 'Clients are asking. Competitors are quietly answering. The firms that can show evidence of AI-enabled delivery, not promises, are pulling ahead in shortlists.',
+        bridge: 'In our Delivery Method, this is what the <strong>Diagnose</strong> stage addresses. We build a credible AI capability story with shipped evidence, so the next tender question becomes a strength, not a deflection.'
+      }
     };
-    return insights[pillar] || '';
+    return map[pillar] || { headline: '', body: '', bridge: '' };
   }
 
+  /* =========================================================================
+   * COHORT ROUTING
+   *
+   * Matrix: archetype × authority sets the CEILING.
+   * Intent (Q18 + Q19) sets POSITION under the ceiling.
+   * Q20 (decision speed) is captured for sales context, not for cohort gating.
+   * ========================================================================= */
+  function calcCohort() {
+    const auth = getQualValue('authority');       // T1, T2, T3, T4
+    const arch = getQualValue('archetype');       // client, tier12, sme, micro
+    const budget = getQualValue('intent_budget'); // cold, warm, hot
+    const pilot = getQualValue('intent_pilot');   // hot, warm, cold-nurture, cold-drop
+
+    // ---- Step 1: ceiling ----
+    let ceiling;
+    if (arch === 'micro') {
+      ceiling = 'scribtive';
+    } else if (arch === 'client') {
+      if (auth === 'T1' || auth === 'T2') ceiling = 'hot';
+      else if (auth === 'T3') ceiling = 'warm';
+      else ceiling = 'cold'; // T4 consultant working for client org . no advisory pursuit
+    } else { // tier12 or sme
+      if (auth === 'T1' || auth === 'T2') ceiling = 'hot';
+      else if (auth === 'T3') ceiling = 'warm';
+      else ceiling = 'scribtive'; // T4 of tier12/sme → Scribtive product fit
+    }
+
+    // ---- Step 2: position under ceiling ----
+    if (ceiling === 'hot') {
+      const fullHot = (budget === 'hot' && pilot === 'hot');
+      const fullCold = (budget === 'cold' && (pilot === 'cold-drop' || pilot === 'cold-nurture'));
+      if (fullHot) return 'hot-priority';
+      if (fullCold) return 'warm';   // Hot ceiling but cold intent → demote to warm
+      return 'hot-standard';
+    }
+    if (ceiling === 'warm') return 'warm';
+    if (ceiling === 'scribtive') return 'scribtive-hot';
+    return 'cold';
+  }
+
+  function getQualValue(key) {
+    for (let i = 0; i < questions.length; i++) {
+      const q = questions[i];
+      if (q.qualify === key && answers[i] !== undefined) {
+        return q.values[answers[i]];
+      }
+    }
+    return null;
+  }
+
+  /* =========================================================================
+   * COHORT CTA CONFIG
+   * ========================================================================= */
+  function getCohortCTA(cohort) {
+    const cfg = {
+      'hot-priority': {
+        cls: 'cohort-hot',
+        eyebrow: 'Priority opportunity. You have earned this.',
+        h4: 'Your free 30-minute AI Readiness Consultation',
+        body: 'Based on your assessment, you are exactly the kind of firm we built AutomateX for. Bill will walk through your weakest pillar in detail and map one specific automation you could deploy in the next 30 days. You have also unlocked discounted Diagnose options: £250 CPD (saving £50) and £1,500 Workshop (saving £300).',
+        btnText: 'Book your consultation',
+        btnHref: 'https://calendly.com/bill-guo-automatex/discovery-chat',
+        external: true
+      },
+      'hot-standard': {
+        cls: 'cohort-hot',
+        eyebrow: 'Strong fit. You have earned this.',
+        h4: 'Your free 30-minute AI Readiness Consultation',
+        body: 'Your assessment shows clear places where AutomateX could move the dial. Book a 30-minute conversation and we will walk through your tailored report with you. You have also unlocked discounted Diagnose options: £250 CPD (saving £50) and £1,500 Workshop (saving £300).',
+        btnText: 'Book your consultation',
+        btnHref: 'https://calendly.com/bill-guo-automatex/discovery-chat',
+        external: true
+      },
+      'warm': {
+        cls: 'cohort-warm',
+        eyebrow: 'You have earned this',
+        h4: 'Your discounted 1-hour CPD session',
+        body: "Completing the Assessment unlocks the £250 CPD rate (otherwise £300). 1-to-1 or small group, walking through your results and the practical first moves for your context. You have also unlocked £300 off the 3-hour Diagnose Workshop (£1,500), if you want a deeper structured session with a Diagnose & Readiness Report.",
+        btnText: 'Book your CPD',
+        btnHref: 'https://calendly.com/bill-guo-automatex/cpd',
+        external: true
+      },
+      'scribtive-hot': {
+        cls: 'cohort-scribtive',
+        eyebrow: 'Scribtive\u2122 is built for you',
+        h4: 'Join the Scribtive waitlist',
+        body: 'Scribtive is the AI-assisted drafting tooling we are building for rail technical deliverables under PACE. It understands rail project delivery, rail standards interpretation, and your specific project environment. You are exactly who we are building it for.',
+        btnText: 'Join the Scribtive waitlist',
+        btnHref: 'index.html#pace-os',
+        external: false
+      },
+      'cold': {
+        cls: 'cohort-cold',
+        eyebrow: 'Your report is on its way',
+        h4: 'Tailored PDF report sent',
+        body: 'Thanks for completing the assessment. Your detailed PDF will arrive in your inbox shortly. Feel free to explore our research and case studies in the meantime.',
+        btnText: 'Read the AutomateX research',
+        btnHref: 'index.html#research',
+        external: false
+      }
+    };
+    return cfg[cohort] || cfg['cold'];
+  }
+
+  /* =========================================================================
+   * SPEEDOMETER (SVG semicircle gauge)
+   *
+   * Geometry:
+   *   Center (160, 160), radius 130.
+   *   Arc spans 180° from left (180°) over the top to right (0°).
+   *   Score 0 → needle points left  (-90° rotation from default vertical).
+   *   Score 100 → needle points right (+90° rotation from default vertical).
+   *   Score 50  → needle points straight up (0° rotation from default vertical).
+   *
+   * 4 color zones, each 25% (45° of the 180° arc):
+   *   0-25  red    (180° → 135°)
+   *   25-50 yellow (135° → 90°)
+   *   50-75 green-soft (90° → 45°)
+   *   75-100 green (45° → 0°)
+   * ========================================================================= */
+  function arcPath(cx, cy, r, startAngleDeg, endAngleDeg) {
+    // angles measured from positive x-axis, counter-clockwise.
+    // SVG arc draws clockwise when sweep-flag = 1, but our angles go clockwise on screen
+    // because SVG y is inverted. We use sweep-flag = 0 to draw the upper-half arc.
+    const toRad = a => (a * Math.PI) / 180;
+    const x1 = cx + r * Math.cos(toRad(startAngleDeg));
+    const y1 = cy - r * Math.sin(toRad(startAngleDeg));
+    const x2 = cx + r * Math.cos(toRad(endAngleDeg));
+    const y2 = cy - r * Math.sin(toRad(endAngleDeg));
+    const largeArc = Math.abs(endAngleDeg - startAngleDeg) > 180 ? 1 : 0;
+    // sweep = 0 because we want to go counter-clockwise from start → end in math terms,
+    // which renders as the upper arc on screen (since SVG y-axis is flipped).
+    return ['M', x1, y1, 'A', r, r, 0, largeArc, 0, x2, y2].join(' ');
+  }
+
+  function renderSpeedometerSVG(score, band) {
+    /* Geometry: clean round numbers in a 200x125 viewBox.
+     *   Center (100, 100), radius 78, stroke 11.
+     *   Arc spans 180deg as upper half-circle.
+     *   Path constructed manually with sweep-flag = 1 so the arc renders
+     *   over the TOP of the chord (the previous bug used sweep=0 with an
+     *   exactly-180deg span, which the renderer drew as the lower arc).
+     */
+    const cx = 100, cy = 100, r = 78;
+    const trackD = 'M ' + (cx - r) + ' ' + cy + ' A ' + r + ' ' + r + ' 0 0 1 ' + (cx + r) + ' ' + cy;
+
+    // Needle rotation: -90deg at 0%, 0deg (vertical up) at 50%, +90deg at 100%
+    const needleAngle = ((score / 100) - 0.5) * 180;
+
+    // Tick labels just outside the arc
+    const tickRadius = r + 14;
+    const tickAngles = [180, 135, 90, 45, 0];
+    const tickValues = [0, 25, 50, 75, 100];
+    let tickEls = '';
+    tickAngles.forEach((a, i) => {
+      const tx = cx + tickRadius * Math.cos((a * Math.PI) / 180);
+      const ty = cy - tickRadius * Math.sin((a * Math.PI) / 180);
+      tickEls += '<text x="' + tx.toFixed(2) + '" y="' + ty.toFixed(2) + '" text-anchor="middle" dominant-baseline="middle" font-family="Montserrat, sans-serif" font-size="7" font-weight="700" fill="#9ca3af">' + tickValues[i] + '</text>';
+    });
+
+    // Needle: thick teardrop triangle pointing UP from pivot
+    const needleLen = r * 0.72;
+    const needleTip = cy - needleLen;
+    const baseHalf = 4;
+
+    return [
+      '<svg class="speedometer-svg" viewBox="0 0 200 125" xmlns="http://www.w3.org/2000/svg">',
+        '<defs>',
+          // Linear gradient mapped left-to-right across the bounding box,
+          // so colors approximately track the arc from 0% (red) to 100% (green).
+          '<linearGradient id="speedGrad" x1="0%" y1="0%" x2="100%" y2="0%">',
+            '<stop offset="0%"   stop-color="#EF4444"/>',
+            '<stop offset="35%"  stop-color="#F59E0B"/>',
+            '<stop offset="65%"  stop-color="#34D399"/>',
+            '<stop offset="100%" stop-color="#10B981"/>',
+          '</linearGradient>',
+          // Soft drop-shadow for the needle
+          '<filter id="needleShadow" x="-50%" y="-50%" width="200%" height="200%">',
+            '<feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000" flood-opacity="0.22"/>',
+          '</filter>',
+        '</defs>',
+
+        // Faint background track for depth (full half-arc, always visible)
+        '<path class="speedometer-track-bg" d="' + trackD + '"/>',
+
+        // Glow layer (blurred copy of the colored arc) sits behind the main arc
+        '<path class="speedometer-glow" stroke="url(#speedGrad)" d="' + trackD + '"/>',
+
+        // Colored gradient arc with rounded caps
+        '<path class="speedometer-track" stroke="url(#speedGrad)" d="' + trackD + '"/>',
+
+        // Tick numbers
+        tickEls,
+
+        // Needle group (rotates around pivot center)
+        '<g class="speedometer-needle" id="needle" data-target="' + needleAngle + '" filter="url(#needleShadow)">',
+          '<path d="M ' + (cx - baseHalf) + ' ' + cy + ' L ' + cx + ' ' + needleTip + ' L ' + (cx + baseHalf) + ' ' + cy + ' Z" fill="#1A1F36"/>',
+          '<circle cx="' + cx + '" cy="' + cy + '" r="9" fill="#1A1F36"/>',
+          '<circle cx="' + cx + '" cy="' + cy + '" r="3.5" fill="#F96532"/>',
+        '</g>',
+      '</svg>'
+    ].join('');
+  }
+
+  /* =========================================================================
+   * RENDER RESULTS
+   * ========================================================================= */
   function renderResults() {
     const { pillarPcts, overall, weakest } = calcScores();
-    // Store for submitReport — avoids embedding JSON in HTML attribute (breaks on double-quotes)
+    const cohort = calcCohort();
+    const band = getBand(overall);
+
+    // Stash for submitReport
     window._lastOverall = overall;
     window._lastPillarPcts = pillarPcts;
-    const lvl = getLevel(overall);
+    window._lastWeakest = weakest;
+    window._lastCohort = cohort;
+
     currentQ = totalQ;
     updateProgress();
+    main.classList.add('results-view');
 
     let html = '<div class="sc-screen active">';
 
-    // Header
+    /* ----- Header: speedometer + headline + subtitle ----- */
+    /* Render once with actual score. Needle starts at CSS default rotate(-90deg) */
+    /* and transitions to the target after a 250ms delay (set below). */
+    /* Score number + band pill render as HTML BELOW the SVG for clean layout. */
     html += '<div class="results-header">';
-    html += '<div class="results-score-circle ' + lvl + '">';
-    html += '<div class="results-score-num">' + overall + '%</div>';
-    html += '<div class="results-score-label">Overall</div>';
+    html += '<div class="speedometer-wrap">';
+    html +=   renderSpeedometerSVG(overall, band);
+    html +=   '<div class="speedometer-score-display">';
+    html +=     '<div class="speedometer-score-num">' + overall + '<span>%</span></div>';
+    html +=     '<div class="speedometer-band band-' + band + '">' + getBandLabel(band) + '</div>';
+    html +=   '</div>';
     html += '</div>';
     html += '<div class="results-headline">' + getHeadline(overall) + '</div>';
-    html += '<div class="results-subtitle">Here\'s how your delivery system scores across the five P.A.C.E-D\u2122 pillars.</div>';
+    html += '<div class="results-subtitle">' + getSubtitle(overall) + '</div>';
     html += '</div>';
 
-    // Pillar breakdown
-    html += '<div class="pillar-breakdown"><h3>Score by Pillar</h3>';
-    pillarNames.forEach(p => {
+    /* ----- Pillar breakdown ----- */
+    html += '<div class="pillar-breakdown"><h3>How you scored across the five pillars</h3>';
+    PILLARS.forEach(p => {
       const pct = pillarPcts[p];
-      const l = getLevel(pct);
+      const b = getBand(pct);
       html += '<div class="pillar-row">';
       html += '<div class="pillar-name">' + p + '</div>';
-      html += '<div class="pillar-bar"><div class="pillar-bar-fill ' + l + '" style="width:0%" data-width="' + pct + '"></div></div>';
+      html += '<div class="pillar-bar"><div class="pillar-bar-fill ' + b + '" data-width="' + pct + '"></div></div>';
       html += '<div class="pillar-pct">' + pct + '%</div>';
       html += '</div>';
     });
     html += '</div>';
 
-    // Weakest pillar callout
-    html += '<div class="weakest-callout">';
-    html += '<svg class="weakest-callout-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>';
-    html += '<div><h4>Your weakest pillar: ' + weakest + ' (' + pillarPcts[weakest] + '%)</h4>';
-    html += '<p>' + getWeakestInsight(weakest) + '</p></div>';
-    html += '</div>';
+    /* Weakest-pillar visible callout removed 2026-04-27 per Bill.
+     * weakest_pillar still flows into the n8n payload so the emailed PDF
+     * can tailor content per cohort. */
 
-    // Contact gate for PDF report
-    html += '<div class="email-gate">';
-    html += '<h3>Get your detailed PDF breakdown</h3>';
-    html += '<p>Specific insights and prioritised next steps for each pillar — sent instantly to your inbox.</p>';
+    /* ----- Email gate (wrapped in swipe-stage with cohort CTA) ----- */
+    html += '<div class="swipe-stage" id="swipe-stage">';
+    html += '<div class="email-gate" id="email-gate">';
+    html += '<h3>Get your free and tailored <em>AI Readiness Assessment</em> PDF report direct to your inbox.</h3>';
+    html += '<p>A detailed breakdown of all five pillars, with prioritised next steps for your specific score profile.</p>';
     html += '<form class="email-gate-form" id="report-form" onsubmit="submitReport(event)">';
     html += '<div><label>Full Name *</label><input type="text" name="name" placeholder="John Smith" required></div>';
     html += '<div><label>Company *</label><input type="text" name="company" placeholder="Your company" required></div>';
-    html += '<div><label>Role *</label><input type="text" name="role" placeholder="e.g. Engineering Manager" required></div>';
     html += '<div><label>Email *</label><input type="email" name="email" placeholder="you@company.com" required></div>';
-    html += '<div class="full-width"><label>Phone <span class="optional">(optional)</span></label><input type="tel" name="phone" placeholder="+44 7xxx xxx xxx"></div>';
+    html += '<div><label>Phone <span class="optional">(optional)</span></label><input type="tel" name="phone" placeholder="+44 7xxx xxx xxx"></div>';
     html += '<div class="sc-submit-wrap"><button type="submit">Send My Report</button></div>';
     html += '</form>';
     html += '</div>';
 
-    // Earned CTA — hidden until form submitted
-    html += '<div class="earned-cta" id="earned-cta">';
-    html += '<div class="earned-cta-eyebrow">Complimentary offer</div>';
-    html += '<h4>You\'ve earned a free 30-minute AI Workflow Audit</h4>';
-    html += '<p>Based on your results, Bill will walk through your weakest pillar and map out one specific workflow you could automate in the next 30 days.</p>';
-    html += '<a href="https://calendly.com/bill-guo-automatex/30min" target="_blank" rel="noopener" class="sc-btn sc-btn-next">Book Your Free Audit Call</a>';
-    html += '</div>';
+    /* ----- Cohort CTA panel (hidden until form submitted) ----- */
+    const cta = getCohortCTA(cohort);
+    html += '<div class="cohort-cta ' + cta.cls + '" id="cohort-cta">';
+    html += '<div class="cohort-cta-eyebrow">' + cta.eyebrow + '</div>';
+    html += '<h4>' + cta.h4 + '</h4>';
+    html += '<p>' + cta.body + '</p>';
+    if (cta.external) {
+      html += '<a href="' + cta.btnHref + '" target="_blank" rel="noopener" class="sc-btn sc-btn-next">' + cta.btnText + '</a>';
+    } else {
+      html += '<a href="' + cta.btnHref + '" class="sc-btn sc-btn-next">' + cta.btnText + '</a>';
+    }
+    html += '</div>';   /* close .cohort-cta */
+    html += '</div>';   /* close .swipe-stage */
 
-    html += '</div>';
+    html += '</div>';   /* close .sc-screen */
     main.innerHTML = html;
 
-    // Animate bars
+    // Scroll to the top of the results container, not the page.
+    // Page top is now the cover page, so window.scrollTo(0) would land the
+    // user back on the intro screen instead of their freshly-rendered results.
+    var resultsTop = document.getElementById('sc-main');
+    if (resultsTop) {
+      resultsTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Animate speedometer needle + pillar bars after a beat.
+    // CSS sets needle to rotate(-90deg) initially (pointing LEFT = 0%).
+    // After 250ms we set inline transform to the target angle; the CSS
+    // transition handles the smooth swing.
     setTimeout(() => {
+      const needle = main.querySelector('#needle');
+      if (needle) {
+        const target = parseFloat(needle.dataset.target);
+        needle.style.transform = 'rotate(' + target + 'deg)';
+      }
       main.querySelectorAll('.pillar-bar-fill').forEach(bar => {
         bar.style.width = bar.dataset.width + '%';
       });
-    }, 100);
+    }, 250);
   }
 
-  // ========== APP CONTROLLER ==========
+  /* =========================================================================
+   * APP CONTROLLER
+   * ========================================================================= */
   window.app = {
     next() {
       const q = questions[currentQ];
@@ -1233,6 +1827,13 @@
   renderQuestion(0);
 })();
 
+/* =========================================================================
+ * SUBMIT TO N8N WEBHOOK
+ *
+ * Payload additions vs old scorecard:
+ *   archetype, authority_tier, intent_budget, intent_pilot, decision_speed,
+ *   intent (resolved Hot/Warm/Cold/Scribtive), cohort, weakest_pillar, freetext
+ * ========================================================================= */
 function showScorecardSuccess(btn) {
   var wrap = btn.closest('.sc-submit-wrap');
   if (!wrap) return;
@@ -1268,80 +1869,134 @@ function submitReport(e) {
   e.preventDefault();
   var form = document.getElementById('report-form');
   var btn = form.querySelector('button');
+
   var overallScore = window._lastOverall;
   var pillarPcts = window._lastPillarPcts;
+  var weakest = window._lastWeakest;
+  var cohort = window._lastCohort;
 
   // Build full responses from the live questions/answers data
   var responses = [];
   var qs = window._scorecardQuestions;
   var ans = window._scorecardAnswers;
+  var qualValues = {};
+  var freetext = '';
+
   for (var i = 0; i < qs.length; i++) {
     var q = qs[i];
     var a = ans[i];
-    var entry = { question: q.text, pillar: q.pillar };
+    var entry = { id: q.id, question: q.text };
+    if (q.pillar) entry.pillar = q.pillar;
+    if (q.qualify) entry.qualify = q.qualify;
+
     if (q.openText) {
       entry.answer = a || '';
-    } else if (q.scale) {
-      // Scale questions store the numeric value directly
-      entry.selected = a !== undefined ? a + '/10' : null;
-    } else if (q.multi) {
-      entry.selected = Array.isArray(a) ? a.map(function(idx) { return q.options[idx]; }) : [];
+      freetext = a || '';
     } else if (a !== undefined) {
-      var selectedText = q.options[a];
-      // Include "Other" typed text if present
-      if (q.other && a === q.options.length - 1 && ans['otherText_' + i]) {
-        selectedText += ': ' + ans['otherText_' + i];
+      entry.selected = q.options[a];
+      if (q.pillar) entry.score = q.scores[a];
+      if (q.qualify) {
+        entry.value = q.values[a];
+        qualValues[q.qualify] = q.values[a];
       }
-      entry.selected = selectedText;
     } else {
       entry.selected = null;
     }
     responses.push(entry);
   }
 
+  // Resolve top-level intent label for Salesforce / CRM filtering convenience
+  var intentLabel = 'cold';
+  if (cohort === 'hot-priority' || cohort === 'hot-standard') intentLabel = 'hot';
+  else if (cohort === 'warm') intentLabel = 'warm';
+  else if (cohort === 'scribtive-hot') intentLabel = 'scribtive';
+  else intentLabel = 'cold';
+
+  // Human-readable role label, derived from the authority-tier code, so the
+  // n8n report prompt has a natural-language role to reference.
+  var roleLabels = {
+    'T1': 'Owner / Managing Director / Partner',
+    'T2': 'Technical Director / Head of Discipline / Programme Manager',
+    'T3': 'Senior Professional (Engineer, Designer, Consultant)',
+    'T4': 'Junior Member (Graduate, Assistant, Other)'
+  };
+
   var data = {
     name: form.name.value,
     company: form.company.value,
-    role: form.role.value,
     email: form.email.value,
     phone: form.phone.value || '',
+    role: roleLabels[qualValues.authority] || 'Senior rail professional',
+
+    // ---- New v3 fields ----
+    archetype: qualValues.archetype || null,
+    authority_tier: qualValues.authority || null,
+    intent_budget: qualValues.intent_budget || null,
+    intent_pilot: qualValues.intent_pilot || null,
+    decision_speed: qualValues.decision_speed || null,
+    intent: intentLabel,
+    cohort: cohort,
+    weakest_pillar: weakest,
+    freetext: freetext,
+
+    // ---- Existing fields ----
     overallScore: overallScore,
     pillarScores: pillarPcts,
     responses: responses,
-    source: 'Scorecard PDF Request',
+    source: 'AI Readiness Assessment v3',
     timestamp: new Date().toISOString()
   };
 
-  // Fire-and-forget — don't block on the 30s n8n workflow
+  // Fire-and-forget . don't block on the n8n workflow
   fetch('https://billguo.app.n8n.cloud/webhook/pace-scorecard', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   }).catch(function(err) {
-    console.error('[Scorecard] Webhook error:', err);
+    console.error('[Scorecard v3] Webhook error:', err);
   });
 
-  // Immediately show success (don't wait for workflow to finish)
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
   setTimeout(function() {
-    btn.textContent = 'Report Sent!';
+    btn.textContent = 'Report Sent';
     btn.style.background = '#10B981';
     showScorecardSuccess(btn);
-    // Reveal earned CTA after the animation settles
+
+    /* Swipe transition: email gate slides out left, cohort CTA slides in
+     * from right into the same slot. After the animation completes, we
+     * promote the CTA to normal flow and release the height lock so the
+     * page sizes naturally to whichever card is taller. */
     setTimeout(function() {
-      var cta = document.getElementById('earned-cta');
-      if (cta) {
-        cta.style.display = 'block';
-        cta.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
+      var stage = document.getElementById('swipe-stage');
+      var gate = document.getElementById('email-gate');
+      var cta = document.getElementById('cohort-cta');
+      if (!stage || !gate || !cta) return;
+
+      // Lock stage to the taller of the two so the swap doesn't collapse.
+      var lockHeight = Math.max(gate.offsetHeight, cta.scrollHeight);
+      stage.style.minHeight = lockHeight + 'px';
+
+      // Trigger swipe on the next frame so the lock takes effect first.
+      requestAnimationFrame(function() {
+        gate.classList.add('swipe-out');
+        cta.classList.add('swipe-in');
+      });
+
+      // After the transition, promote the CTA to normal flow and clean up.
+      setTimeout(function() {
+        gate.style.display = 'none';
+        cta.classList.add('swipe-in-complete');
+        stage.style.minHeight = '';
+        cta.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 700);
     }, 900);
-  }, 800);
+  }, 700);
 }
 </script>
 
-<!-- Vercel Web Analytics — cookie-free, GDPR-compliant. Enable in Vercel Project → Analytics. -->
+<!-- Vercel Web Analytics -->
 <script defer src="/_vercel/insights/script.js"></script>
 
 </body>
