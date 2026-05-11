@@ -2003,4 +2003,40 @@ function submitReport(e) {
     overallScore: overallScore,
     pillarScores: pillarPcts,
     responses: responses,
-    source: 'AI Readine
+    source: 'AI ReadineReadiness Assessment v3',
+    timestamp: new Date().toISOString()
+  };
+
+  // Fire-and-forget . don't block on the n8n workflow
+  fetch('https://billguo.app.n8n.cloud/webhook/pace-scorecard', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).catch(function(err) {
+    console.error('[Scorecard v3] Webhook error:', err);
+  });
+
+  // Immediately show success (don't wait for workflow to finish)
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  setTimeout(function() {
+    btn.textContent = 'Report Sent!';
+    btn.style.background = '#10B981';
+    showScorecardSuccess(btn);
+    setTimeout(function() {
+      var cta = document.getElementById('earned-cta');
+      if (cta) {
+        cta.style.display = 'block';
+        cta.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }, 900);
+  }, 800);
+}
+</script>
+
+<!-- Vercel Web Analytics . cookie-free, GDPR-compliant. Enable in Vercel Project . Analytics. -->
+<script defer src="/_vercel/insights/script.js"></script>
+
+</body>
+</html>
