@@ -1,7 +1,18 @@
 {
+  "name": "automatex-website",
+  "version": "1.0.0",
+  "description": "AutomateX website with Vercel Speed Insights",
+  "scripts": {
+    "build:speed-insights": "esbuild speed-insights.js --bundle --format=iife --outfile=speed-insights.bundle.js",
+    "serve": "node serve.mjs"
+  },
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "puppeteer": "^24.39.0",
     "sharp": "^0.34.5",
     "simplex-noise": "^4.0.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
   }
 }
