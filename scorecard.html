@@ -423,7 +423,22 @@
     border: 1px solid rgba(0,0,0,0.06);
     text-align: center;
     opacity: 0.55;
-    transition: opacity 200ms ease, transform 200ms ease;
+    transition: opacity 200ms ease, transform 200ms ease, background 200ms ease;
+    cursor: help;
+  }
+  .band-step:hover {
+    opacity: 0.85;
+    background: rgba(249,101,50,0.06);
+  }
+  .band-description {
+    max-width: 600px;
+    margin: 0.75rem auto 0;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: #4B5563;
+    font-style: italic;
+    line-height: 1.5;
   }
   .band-step.is-current {
     opacity: 1;
@@ -1779,13 +1794,22 @@
     html += '</div>';
     html += '<div class="results-headline">' + getHeadline(overall) + '</div>';
     html += '<div class="results-subtitle">' + getSubtitle(overall) + '</div>';
-    /* Four-band ladder so the lead can see where they sit relative to other bands. */
+    /* Four-band ladder so the lead can see where they sit and what each band means.
+       Each pill is hover-tooltip-enabled and the current band shows a fuller description
+       beneath the ladder. */
+    const bandDescriptions = {
+      'low':       'Each project starts from scratch. Heroes carry the firm.',
+      'mid-low':   'Foundations exist. Lessons captured, but compounding is inconsistent.',
+      'mid-high':  'The mechanics work. Specific friction points limit further gains.',
+      'high':      'Runs on a system that compounds. AI is evidenceable, not aspirational.'
+    };
     html += '<div class="band-ladder">';
-    html +=   '<div class="band-step ' + (band === 'low' ? 'is-current' : '') + '"><div class="band-step-label">Reactive</div><div class="band-step-range">0-25</div></div>';
-    html +=   '<div class="band-step ' + (band === 'mid-low' ? 'is-current' : '') + '"><div class="band-step-label">Structured</div><div class="band-step-range">26-50</div></div>';
-    html +=   '<div class="band-step ' + (band === 'mid-high' ? 'is-current' : '') + '"><div class="band-step-label">Optimised</div><div class="band-step-range">51-75</div></div>';
-    html +=   '<div class="band-step ' + (band === 'high' ? 'is-current' : '') + '"><div class="band-step-label">Systemised</div><div class="band-step-range">76-100</div></div>';
+    html +=   '<div class="band-step ' + (band === 'low' ? 'is-current' : '') + '" title="' + bandDescriptions['low'] + '"><div class="band-step-label">Reactive</div><div class="band-step-range">0-25</div></div>';
+    html +=   '<div class="band-step ' + (band === 'mid-low' ? 'is-current' : '') + '" title="' + bandDescriptions['mid-low'] + '"><div class="band-step-label">Structured</div><div class="band-step-range">26-50</div></div>';
+    html +=   '<div class="band-step ' + (band === 'mid-high' ? 'is-current' : '') + '" title="' + bandDescriptions['mid-high'] + '"><div class="band-step-label">Optimised</div><div class="band-step-range">51-75</div></div>';
+    html +=   '<div class="band-step ' + (band === 'high' ? 'is-current' : '') + '" title="' + bandDescriptions['high'] + '"><div class="band-step-label">Systemised</div><div class="band-step-range">76-100</div></div>';
     html += '</div>';
+    html += '<div class="band-description">' + bandDescriptions[band] + '</div>';
     html += '</div>';
 
     /* ----- Pillar breakdown ----- */
