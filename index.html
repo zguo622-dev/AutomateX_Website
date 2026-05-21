@@ -2142,6 +2142,7 @@
     .cases-grid { grid-template-columns: 1fr 1fr; }
     @media (max-width: 640px) { .cases-grid { grid-template-columns: 1fr; } }
     .navbar-links { display: none; }
+    .nav-cta-group { display: none; }
     .mobile-toggle { display: flex; }
     .hero-actions { flex-direction: column; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -2215,12 +2216,11 @@
     <ul class="navbar-links">
       <li><a href="#find-your-x">Find your X</a></li>
       <li><a href="#case-studies">AI in Action</a></li>
-      <li><a href="#pace-os">Scribtive&trade;</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#where-to-start">Where to start</a></li>
     </ul>
     <div class="nav-cta-group">
-      <a href="scorecard.html" class="btn btn-primary">Take the Assessment</a>
+      <a href="#pace-os" class="btn btn-primary">Join the Waitlist</a>
       <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="nav-icon-btn" aria-label="Book a call" title="Book a call">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -2244,10 +2244,9 @@
   </div>
   <a href="#find-your-x" onclick="this.parentElement.classList.remove('open')">Find your X</a>
   <a href="#case-studies" onclick="this.parentElement.classList.remove('open')">AI in Action</a>
-  <a href="#pace-os" onclick="this.parentElement.classList.remove('open')">Scribtive&trade;</a>
   <a href="#about" onclick="this.parentElement.classList.remove('open')">About</a>
   <a href="#where-to-start" onclick="this.parentElement.classList.remove('open')">Where to start</a>
-  <a href="scorecard.html" onclick="this.parentElement.classList.remove('open')" class="btn btn-primary">Take the Assessment</a>
+  <a href="#pace-os" onclick="this.parentElement.classList.remove('open')" class="btn btn-primary">Join the Waitlist</a>
   <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" onclick="this.parentElement.classList.remove('open')" class="btn btn-outline">Book a call</a>
 </div>
 
@@ -2264,8 +2263,33 @@
     </h1>
     <p class="hero-sub">Free your team from the <a class="brand-x" href="#find-your-x">X</a> that drains them. <strong style="color:var(--orange);">Truly AI-enabled, finally.</strong></p>
     <div class="hero-actions">
-      <a href="#find-your-x" class="btn btn-primary btn-primary-lg">Let's find your X</a>
+      <a href="scorecard.html" class="btn btn-primary btn-primary-lg">Take the Assessment</a>
       <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-outline btn-primary-lg">Book a call</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DELIVERABLE ENTRY STRIP (added 2026-05-20) ===== -->
+<style>
+  .deliverable-strip { background: var(--gray-50); border-bottom: 1px solid var(--gray-200); padding: 1.75rem 0; }
+  .deliverable-strip .container { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
+  .deliverable-strip-label { font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; color: var(--navy); margin: 0; }
+  .deliverable-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .deliverable-chip { display: inline-flex; align-items: center; padding: 0.45rem 0.95rem; border: 1px solid var(--gray-200); border-radius: 100px; background: #fff; color: var(--navy); font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: border-color 150ms ease, color 150ms ease, background 150ms ease; }
+  .deliverable-chip:hover { border-color: var(--orange); color: var(--orange); }
+  .deliverable-chip-more { border-style: dashed; color: var(--gray-500); }
+  @media (max-width: 640px) { .deliverable-strip-label { width: 100%; } }
+</style>
+<section class="deliverable-strip" aria-label="Deliverables we automate">
+  <div class="container">
+    <p class="deliverable-strip-label">What does your discipline own?</p>
+    <div class="deliverable-chips">
+      <a href="#case-studies" class="deliverable-chip">DRN drafting &amp; assurance</a>
+      <a href="#case-studies" class="deliverable-chip">Hazard logs &amp; HAZID</a>
+      <a href="#case-studies" class="deliverable-chip">PACE forms (A / B / G)</a>
+      <a href="#case-studies" class="deliverable-chip">Drawing take-offs</a>
+      <a href="#case-studies" class="deliverable-chip">Design review &amp; verification</a>
+      <a href="#find-your-x" class="deliverable-chip deliverable-chip-more">Something else &rarr;</a>
     </div>
   </div>
 </section>
@@ -3258,6 +3282,11 @@
           </div>
         </div>
 
+        <!-- Mobile fallback: the magnifier lens is desktop-only; phones get a readable summary. -->
+        <div class="lens-mobile-note">
+          <p>We automate 19+ rail deliverables, including DRN, HAZID, NCR, ITP, take-offs and standards search. <a href="#case-studies">See how we'd automate yours &rarr;</a></p>
+        </div>
+
         <div class="lens-archetypes" aria-label="Filter friction points by organisation type">
           <div class="archetype-eyebrow">Tailor for your context</div>
           <button class="archetype-card" data-archetype="client" type="button">
@@ -3670,6 +3699,36 @@
     .lens-blurred .lp, .lens-sharp .lp-btn { font-size: 0.875rem; }
     .lens-mag { width: 160px; height: 160px; }
   }
+  /* The scattered magnifier canvas is unreadable on phones; swap it for a
+     static summary and stacked archetype cards. The deliverable entry strip
+     under the hero carries the tappable per-deliverable routing on mobile. */
+  .lens-mobile-note { display: none; }
+  @media (max-width: 560px) {
+    .lens-canvas { display: none; }
+    .lens-panel { height: auto; min-height: 0; }
+    .lens-mobile-note { display: block; }
+    .lens-mobile-note p {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .lens-mobile-note a { color: var(--orange); font-weight: 600; text-decoration: none; white-space: nowrap; }
+    .lens-archetypes {
+      position: static;
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+      overflow: visible;
+      gap: 0.625rem;
+      padding: 0;
+      margin-top: 1.75rem;
+      border-top: 0;
+    }
+    .archetype-card { flex: none; width: 100%; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .lens-mag { opacity: 0.75; }
     .lens-card.is-active { animation: none; opacity: 1; transform: translateX(0); }
@@ -3926,294 +3985,6 @@
 })();
 </script>
 
-
-<!-- ===== PAIN — Systemic pain narrative ===== -->
-<section id="where-to-start" class="start-section">
-  <div class="hero-grid-wrap particle-section">
-    <div class="particle-bg" id="start-particles"></div>
-    <div class="particle-fade-light"></div>
-  </div>
-  <div class="container">
-    <div class="text-center">
-      <div class="section-eyebrow sc-reveal">Where to start</div>
-      <h2 class="section-heading sc-reveal">Still need help to <em>find your X</em>?</h2>
-      <p class="section-sub center sc-reveal">We help you diagnose your X in three depths, pick the one that fits where you are. The Assessment surfaces candidate friction. The CPD opens the conversation. The Workshop digs deep. Each step credits forward.</p>
-    </div>
-
-    <div class="start-grid">
-      <a class="start-card sc-reveal" href="scorecard.html">
-        <div class="start-card-head">
-          <span class="start-card-num">01</span>
-          <span class="start-card-tier">Free</span>
-        </div>
-        <h3 class="start-card-title">AI Readiness Assessment</h3>
-        <p class="start-card-promise">Know where you stand. Surface your candidate X.</p>
-        <ul class="start-card-meta">
-          <li><span class="start-meta-label">Format</span><span class="start-meta-val">Online, self-serve</span></li>
-          <li><span class="start-meta-label">Time</span><span class="start-meta-val">8 minutes</span></li>
-          <li><span class="start-meta-label">Investment</span><span class="start-meta-val">Free</span></li>
-        </ul>
-        <div class="start-card-section">
-          <div class="start-card-section-label">What you walk away with</div>
-          <p class="start-card-section-text">A 5-pillar readiness report that flags your candidate friction points and how AI-ready your firm is to tackle them. A cohort-matched next step. <span class="start-discount">&pound;50 off</span> the CPD. <span class="start-discount">&pound;300 off</span> the Workshop.</p>
-        </div>
-        <div class="start-card-cta">
-          <span class="start-card-cta-text">Take the Assessment</span>
-          <span class="start-card-cta-arrow" aria-hidden="true">&rarr;</span>
-        </div>
-      </a>
-
-      <a class="start-card sc-reveal" href="https://calendly.com/bill-guo-automatex/cpd" target="_blank" rel="noopener">
-        <div class="start-card-head">
-          <span class="start-card-num">02</span>
-          <span class="start-card-tier">Conversation</span>
-        </div>
-        <h3 class="start-card-title">1-hour CPD</h3>
-        <p class="start-card-promise">The AI-in-rail landscape, with your team in the room.</p>
-        <ul class="start-card-meta">
-          <li><span class="start-meta-label">Format</span><span class="start-meta-val">1-to-1 or group, virtual or onsite</span></li>
-          <li><span class="start-meta-label">Time</span><span class="start-meta-val">60 minutes</span></li>
-          <li><span class="start-meta-label">Investment</span><span class="start-meta-val">&pound;300, <span class="start-discount">&pound;250</span> with Assessment</span></li>
-        </ul>
-        <div class="start-card-section">
-          <div class="start-card-section-label">What you walk away with</div>
-          <p class="start-card-section-text">A group session covering the current AI landscape in UK rail, real deployments to learn from, and a working framework for spotting your X internally. Live Q&amp;A throughout. CPD certificate.</p>
-        </div>
-        <div class="start-card-cta">
-          <span class="start-card-cta-text">Book the CPD</span>
-          <span class="start-card-cta-arrow" aria-hidden="true">&rarr;</span>
-        </div>
-      </a>
-
-      <a class="start-card start-card-feature sc-reveal" href="https://calendly.com/bill-guo-automatex/automatex-find-your-x-workshop" target="_blank" rel="noopener">
-        <div class="start-card-head">
-          <span class="start-card-num">03</span>
-          <span class="start-card-tier">Diagnosis</span>
-        </div>
-        <h3 class="start-card-title">Find Your X Workshop</h3>
-        <p class="start-card-promise">Find the workflow worth automating first, with the business case to back it.</p>
-        <ul class="start-card-meta">
-          <li><span class="start-meta-label">Format</span><span class="start-meta-val">Half-day, your team and ours</span></li>
-          <li><span class="start-meta-label">Time</span><span class="start-meta-val">3 hours</span></li>
-          <li><span class="start-meta-label">Investment</span><span class="start-meta-val">&pound;1,800, <span class="start-discount">&pound;1,500</span> with Assessment</span></li>
-        </ul>
-        <div class="start-card-section">
-          <div class="start-card-section-label">What you walk away with</div>
-          <p class="start-card-section-text">A hosted, structured workshop that walks your team through identifying top friction points across work-winning, delivery, assurance, operations, anywhere they sit. Output: a tailored Find Your X Report with options assessed and ROIs costed, so you know which one to automate first. Workshop fee 100% credited toward Build within 60 days.</p>
-        </div>
-        <div class="start-card-cta">
-          <span class="start-card-cta-text">Book the Workshop</span>
-          <span class="start-card-cta-arrow" aria-hidden="true">&rarr;</span>
-        </div>
-      </a>
-    </div>
-
-    <p class="start-footnote sc-reveal">Already know your X? <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book a discovery call</a> to discuss how we build and implement it.</p>
-  </div>
-</section>
-
-<style>
-  .start-section {
-    background: var(--white);
-    padding: 6rem 0;
-    position: relative;
-  }
-  .start-section .container { position: relative; z-index: 1; }
-  .start-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
-    align-items: stretch;
-  }
-  .start-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: 16px;
-    padding: 2rem 1.75rem 1.75rem;
-    text-decoration: none;
-    color: var(--navy);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .start-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--orange);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-  .start-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(26, 31, 54, 0.08);
-    border-color: rgba(249, 101, 50, 0.3);
-  }
-  .start-card:hover::before {
-    transform: scaleX(1);
-  }
-  .start-card-feature {
-    background: linear-gradient(180deg, rgba(249,101,50,0.05) 0%, var(--white) 35%);
-    border-color: rgba(249,101,50,0.3);
-  }
-  .start-card-feature::before {
-    transform: scaleX(1);
-  }
-
-  .start-card-head {
-    display: flex;
-    align-items: center;
-    gap: 0.875rem;
-    margin-bottom: 1.25rem;
-  }
-  .start-card-num {
-    font-family: var(--font-heading);
-    font-size: 0.875rem;
-    font-weight: 800;
-    color: var(--orange);
-    letter-spacing: 0.08em;
-  }
-  .start-card-tier {
-    font-family: var(--font-heading);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gray-500);
-    padding: 0.25rem 0.625rem;
-    background: var(--gray-50);
-    border-radius: 100px;
-    border: 1px solid var(--gray-200);
-  }
-
-  .start-card-title {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--navy);
-    margin: 0 0 0.625rem;
-    letter-spacing: -0.015em;
-    line-height: 1.2;
-  }
-  .start-card-promise {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--gray-700);
-    margin: 0 0 1.5rem;
-    font-weight: 600;
-  }
-
-  .start-card-meta {
-    list-style: none;
-    margin: 0 0 1.5rem;
-    padding: 1rem 0;
-    border-top: 1px solid var(--gray-100);
-    border-bottom: 1px solid var(--gray-100);
-  }
-  .start-card-meta li {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 0.3125rem 0;
-    gap: 0.75rem;
-  }
-  .start-meta-label {
-    font-family: var(--font-heading);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gray-500);
-    flex-shrink: 0;
-  }
-  .start-meta-val {
-    font-size: 0.875rem;
-    color: var(--navy);
-    text-align: right;
-    font-weight: 500;
-  }
-  .start-discount {
-    background: var(--orange);
-    color: var(--white);
-    padding: 0.0625rem 0.4375rem;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 0.8125rem;
-    margin: 0 0.0625rem;
-    white-space: nowrap;
-  }
-
-  .start-card-section {
-    margin-bottom: 1.75rem;
-    flex: 1;
-  }
-  .start-card-section-label {
-    font-family: var(--font-heading);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 0.5rem;
-  }
-  .start-card-section-text {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    color: var(--gray-600);
-    margin: 0;
-  }
-
-  .start-card-cta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--orange);
-    font-family: var(--font-heading);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    margin-top: auto;
-    padding-top: 0.5rem;
-  }
-  .start-card-cta-arrow {
-    display: inline-block;
-    transition: transform 0.3s ease;
-  }
-  .start-card:hover .start-card-cta-arrow {
-    transform: translateX(4px);
-  }
-
-  .start-footnote {
-    text-align: center;
-    margin-top: 2.75rem;
-    font-size: 0.9375rem;
-    color: var(--gray-500);
-  }
-  .start-footnote a {
-    color: var(--orange);
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  @media (max-width: 960px) {
-    .start-grid {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-      max-width: 540px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .start-section { padding: 4rem 0; }
-  }
-</style>
 
 <!-- ===== CASE STUDIES ===== -->
 <section class="section ai-actions" id="case-studies">
@@ -4943,6 +4714,294 @@
   @media (max-width: 560px) {
     .paced-reframe-title { font-size: 1.375rem; }
     .paced-reframe-sub { font-size: 0.9375rem; }
+  }
+</style>
+
+<!-- ===== PAIN — Systemic pain narrative ===== -->
+<section id="where-to-start" class="start-section">
+  <div class="hero-grid-wrap particle-section">
+    <div class="particle-bg" id="start-particles"></div>
+    <div class="particle-fade-light"></div>
+  </div>
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow sc-reveal">Where to start</div>
+      <h2 class="section-heading sc-reveal">Still need help to <em>find your X</em>?</h2>
+      <p class="section-sub center sc-reveal">We help you diagnose your X in three depths, pick the one that fits where you are. The Assessment surfaces candidate friction. The CPD opens the conversation. The Workshop digs deep. Each step credits forward.</p>
+    </div>
+
+    <div class="start-grid">
+      <a class="start-card sc-reveal" href="scorecard.html">
+        <div class="start-card-head">
+          <span class="start-card-num">01</span>
+          <span class="start-card-tier">Free</span>
+        </div>
+        <h3 class="start-card-title">AI Readiness Assessment</h3>
+        <p class="start-card-promise">Know where you stand. Surface your candidate X.</p>
+        <ul class="start-card-meta">
+          <li><span class="start-meta-label">Format</span><span class="start-meta-val">Online, self-serve</span></li>
+          <li><span class="start-meta-label">Time</span><span class="start-meta-val">8 minutes</span></li>
+          <li><span class="start-meta-label">Investment</span><span class="start-meta-val">Free</span></li>
+        </ul>
+        <div class="start-card-section">
+          <div class="start-card-section-label">What you walk away with</div>
+          <p class="start-card-section-text">A 5-pillar readiness report that flags your candidate friction points and how AI-ready your firm is to tackle them. A cohort-matched next step. <span class="start-discount">&pound;50 off</span> the CPD. <span class="start-discount">&pound;300 off</span> the Workshop.</p>
+        </div>
+        <div class="start-card-cta">
+          <span class="start-card-cta-text">Take the Assessment</span>
+          <span class="start-card-cta-arrow" aria-hidden="true">&rarr;</span>
+        </div>
+      </a>
+
+      <a class="start-card sc-reveal" href="https://calendly.com/bill-guo-automatex/cpd" target="_blank" rel="noopener">
+        <div class="start-card-head">
+          <span class="start-card-num">02</span>
+          <span class="start-card-tier">Conversation</span>
+        </div>
+        <h3 class="start-card-title">1-hour CPD</h3>
+        <p class="start-card-promise">The AI-in-rail landscape, with your team in the room.</p>
+        <ul class="start-card-meta">
+          <li><span class="start-meta-label">Format</span><span class="start-meta-val">1-to-1 or group, virtual or onsite</span></li>
+          <li><span class="start-meta-label">Time</span><span class="start-meta-val">60 minutes</span></li>
+          <li><span class="start-meta-label">Investment</span><span class="start-meta-val">&pound;300, <span class="start-discount">&pound;250</span> with Assessment</span></li>
+        </ul>
+        <div class="start-card-section">
+          <div class="start-card-section-label">What you walk away with</div>
+          <p class="start-card-section-text">A group session covering the current AI landscape in UK rail, real deployments to learn from, and a working framework for spotting your X internally. Live Q&amp;A throughout. CPD certificate.</p>
+        </div>
+        <div class="start-card-cta">
+          <span class="start-card-cta-text">Book the CPD</span>
+          <span class="start-card-cta-arrow" aria-hidden="true">&rarr;</span>
+        </div>
+      </a>
+
+      <a class="start-card start-card-feature sc-reveal" href="https://calendly.com/bill-guo-automatex/automatex-find-your-x-workshop" target="_blank" rel="noopener">
+        <div class="start-card-head">
+          <span class="start-card-num">03</span>
+          <span class="start-card-tier">Diagnosis</span>
+        </div>
+        <h3 class="start-card-title">Find Your X Workshop</h3>
+        <p class="start-card-promise">Find the workflow worth automating first, with the business case to back it.</p>
+        <ul class="start-card-meta">
+          <li><span class="start-meta-label">Format</span><span class="start-meta-val">Half-day, your team and ours</span></li>
+          <li><span class="start-meta-label">Time</span><span class="start-meta-val">3 hours</span></li>
+          <li><span class="start-meta-label">Investment</span><span class="start-meta-val">&pound;1,800, <span class="start-discount">&pound;1,500</span> with Assessment</span></li>
+        </ul>
+        <div class="start-card-section">
+          <div class="start-card-section-label">What you walk away with</div>
+          <p class="start-card-section-text">A hosted, structured workshop that walks your team through identifying top friction points across work-winning, delivery, assurance, operations, anywhere they sit. Output: a tailored Find Your X Report with options assessed and ROIs costed, so you know which one to automate first. Workshop fee 100% credited toward Build within 60 days.</p>
+        </div>
+        <div class="start-card-cta">
+          <span class="start-card-cta-text">Book the Workshop</span>
+          <span class="start-card-cta-arrow" aria-hidden="true">&rarr;</span>
+        </div>
+      </a>
+    </div>
+
+    <p class="start-footnote sc-reveal">Already know your X? <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book a discovery call</a> to discuss how we build and implement it.</p>
+  </div>
+</section>
+
+<style>
+  .start-section {
+    background: var(--white);
+    padding: 6rem 0;
+    position: relative;
+  }
+  .start-section .container { position: relative; z-index: 1; }
+  .start-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    align-items: stretch;
+  }
+  .start-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    padding: 2rem 1.75rem 1.75rem;
+    text-decoration: none;
+    color: var(--navy);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .start-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .start-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(26, 31, 54, 0.08);
+    border-color: rgba(249, 101, 50, 0.3);
+  }
+  .start-card:hover::before {
+    transform: scaleX(1);
+  }
+  .start-card-feature {
+    background: linear-gradient(180deg, rgba(249,101,50,0.05) 0%, var(--white) 35%);
+    border-color: rgba(249,101,50,0.3);
+  }
+  .start-card-feature::before {
+    transform: scaleX(1);
+  }
+
+  .start-card-head {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-bottom: 1.25rem;
+  }
+  .start-card-num {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--orange);
+    letter-spacing: 0.08em;
+  }
+  .start-card-tier {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    padding: 0.25rem 0.625rem;
+    background: var(--gray-50);
+    border-radius: 100px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .start-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin: 0 0 0.625rem;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+  .start-card-promise {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--gray-700);
+    margin: 0 0 1.5rem;
+    font-weight: 600;
+  }
+
+  .start-card-meta {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .start-card-meta li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.3125rem 0;
+    gap: 0.75rem;
+  }
+  .start-meta-label {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    flex-shrink: 0;
+  }
+  .start-meta-val {
+    font-size: 0.875rem;
+    color: var(--navy);
+    text-align: right;
+    font-weight: 500;
+  }
+  .start-discount {
+    background: var(--orange);
+    color: var(--white);
+    padding: 0.0625rem 0.4375rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    margin: 0 0.0625rem;
+    white-space: nowrap;
+  }
+
+  .start-card-section {
+    margin-bottom: 1.75rem;
+    flex: 1;
+  }
+  .start-card-section-label {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+  }
+  .start-card-section-text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--gray-600);
+    margin: 0;
+  }
+
+  .start-card-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--orange);
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+  .start-card-cta-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  .start-card:hover .start-card-cta-arrow {
+    transform: translateX(4px);
+  }
+
+  .start-footnote {
+    text-align: center;
+    margin-top: 2.75rem;
+    font-size: 0.9375rem;
+    color: var(--gray-500);
+  }
+  .start-footnote a {
+    color: var(--orange);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 960px) {
+    .start-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .start-section { padding: 4rem 0; }
   }
 </style>
 
