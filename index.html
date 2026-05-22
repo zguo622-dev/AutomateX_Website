@@ -2269,31 +2269,6 @@
   </div>
 </section>
 
-<!-- ===== DELIVERABLE ENTRY STRIP (added 2026-05-20) ===== -->
-<style>
-  .deliverable-strip { background: var(--gray-50); border-bottom: 1px solid var(--gray-200); padding: 1.75rem 0; }
-  .deliverable-strip .container { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
-  .deliverable-strip-label { font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; color: var(--navy); margin: 0; }
-  .deliverable-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-  .deliverable-chip { display: inline-flex; align-items: center; padding: 0.45rem 0.95rem; border: 1px solid var(--gray-200); border-radius: 100px; background: #fff; color: var(--navy); font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: border-color 150ms ease, color 150ms ease, background 150ms ease; }
-  .deliverable-chip:hover { border-color: var(--orange); color: var(--orange); }
-  .deliverable-chip-more { border-style: dashed; color: var(--gray-500); }
-  @media (max-width: 640px) { .deliverable-strip-label { width: 100%; } }
-</style>
-<section class="deliverable-strip" aria-label="Deliverables we automate">
-  <div class="container">
-    <p class="deliverable-strip-label">What does your discipline own?</p>
-    <div class="deliverable-chips">
-      <a href="#case-studies" class="deliverable-chip">DRN drafting &amp; assurance</a>
-      <a href="#case-studies" class="deliverable-chip">Hazard logs &amp; HAZID</a>
-      <a href="#case-studies" class="deliverable-chip">PACE forms (A / B / G)</a>
-      <a href="#case-studies" class="deliverable-chip">Drawing take-offs</a>
-      <a href="#case-studies" class="deliverable-chip">Design review &amp; verification</a>
-      <a href="#find-your-x" class="deliverable-chip deliverable-chip-more">Something else &rarr;</a>
-    </div>
-  </div>
-</section>
-
 <!-- ===== FIND YOUR X — MAGNIFIER LENS CANVAS ===== -->
 <section class="pain-section" id="pain">
   <div class="hero-grid-wrap particle-section">
@@ -6522,81 +6497,12 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
   }
 </style>
 
-<!-- ===== CHAT WIDGET PARKED 2026-05-11 =====
-     The chatbot UI shell is parked while the n8n backend ("Phase C: LLM brain")
-     is not yet wired up. To re-enable: remove this opening comment and the
-     matching closing comment near "</script>" below the chat IIFE. No other
-     dependencies. CSS for .chat-widget stays in the stylesheet harmlessly.
-<div id="chat-widget" class="chat-widget" data-state="closed">
-  <button id="chat-bubble" class="chat-bubble pulse" type="button" aria-label="Open chat with AutomateX">
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M7 7L25 25M25 7L7 25" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
-    </svg>
-  </button>
-
-  <div class="chat-panel" role="dialog" aria-labelledby="chat-title-text" aria-modal="false">
-    <div class="chat-header">
-      <div class="chat-title">
-        <img src="brand_assets/Logo.png" alt="">
-        <span id="chat-title-text">AutomateX</span>
-        <span class="chat-title-meta">live</span>
-      </div>
-      <button id="chat-close" class="chat-close" type="button" aria-label="Close chat">&times;</button>
-    </div>
-
-    <div class="chat-body" id="chat-body">
-      <!-- Identity gate (initial) -->
-      <div class="chat-identity" id="chat-identity">
-        <h3>Hi. What's slowing your rail delivery?</h3>
-        <p>Drop your details and ask anything. We typically reply in seconds during UK working hours.</p>
-        <form class="chat-identity-form" id="chat-identity-form" autocomplete="on">
-          <input type="text" name="name" placeholder="Your name" required autocomplete="name">
-          <input type="email" name="email" placeholder="Your work email" required autocomplete="email">
-          <label class="chat-consent">
-            <input type="checkbox" name="consent" required>
-            <span>I'm OK with logging this conversation so AutomateX can follow up. <a href="privacy.html" target="_blank" rel="noopener">Privacy</a>.</span>
-          </label>
-          <button type="submit">Start chat</button>
-        </form>
-      </div>
-
-      <!-- Conversation (after identity) -->
-      <!-- Messages stream here, then suggested chips below -->
-    </div>
-
-    <form class="chat-input-form" id="chat-input-form" hidden autocomplete="off">
-      <input type="text" id="chat-input" class="chat-input" placeholder="Ask anything about AutomateX..." autocomplete="off">
-      <button type="submit" class="chat-send" aria-label="Send message">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M5 12L19 12M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-    </form>
-  </div>
-</div>
-
-<script>
-(function(){
-  /* ===== Configuration ===== */
-  var CHAT_WEBHOOK = 'https://billguo.app.n8n.cloud/webhook/chat';
-  var CHAT_TIMEOUT_MS = 8000;
-  var CHAT_HISTORY_MAX = 30; // cap localStorage payload
-  var CHAT_STORAGE_KEY = 'automatex_chat_v1';
-
-  var STARTER_QUESTIONS = [
-    "What's a typical engagement timeline?",
-    "How does AutomateX handle our project data?",
-    "Walk me through your Delivery Method.",
-    "Are you a product or a service?",
-    "I'm a smaller firm, can you still help?"
-  ];
-
-  var WELCOME_MESSAGE = "Welcome. I can answer questions about how AutomateX works, the Delivery Method, pricing, data handling, or your specific X. Pick a starter or ask anything.";
-  var ERROR_MESSAGE = "Connection issue on our end. Drop a note to bill@automatex.uk and we'll respond directly.";
-  var TIMEOUT_MESSAGE = "Still thinking. If this takes more than a moment, email bill@automatex.uk and we'll respond directly.";
-})();
-</script>
-===== END CHAT WIDGET PARKED ===== -->
+<!-- ===== CHAT WIDGET REMOVED 2026-05-22 =====
+     Chat widget HTML + config IIFE removed. It was meant to be parked behind an
+     HTML comment, but a nested inner comment ("Identity gate") closed the wrapper
+     early, so the identity form (the "Start chat" button) kept rendering live.
+     The n8n "Phase C: LLM brain" backend was never wired. CSS for .chat-widget
+     is left in the stylesheet harmlessly. Restore from git history if needed. -->
 
 <!-- Vercel Web Analytics . cookie-free, GDPR-compliant. Enable in Vercel Project . Analytics. -->
 <script defer src="/_vercel/insights/script.js"></script>
