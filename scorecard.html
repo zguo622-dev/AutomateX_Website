@@ -2027,7 +2027,7 @@ function submitReport(e) {
     overallScore: overallScore,
     pillarScores: pillarPcts,
     responses: responses,
-    source: 'AI ReadineReadiness Assessment v3',
+    source: 'AI Readiness Assessment v3',
     timestamp: new Date().toISOString()
   };
 
@@ -2039,6 +2039,24 @@ function submitReport(e) {
   }).catch(function(err) {
     console.error('[Scorecard v3] Webhook error:', err);
   });
+
+  // Bridge: add every assessment completer to the waiting-list tab (unconditional, labelled).
+  // Upserts on Email, so no duplicates; fires regardless of report approval.
+  if (data.email) {
+    fetch('https://billguo.app.n8n.cloud/webhook/crm-sheet-write', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        tab: 'waiting list',
+        _key: 'Email',
+        Email: data.email,
+        'Date Added': new Date().toISOString().slice(0, 10),
+        Source: 'AI Readiness Assessment'
+      })
+    }).catch(function(err) {
+      console.error('[Scorecard v3] Waitlist bridge error:', err);
+    });
+  }
 
   // Funnel event: assessment completed. Logs to Vercel Analytics if loaded.
   if (window.va) {
