@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutomateX | AI Automation for UK Rail</title>
-<meta name="description" content="AI solution for UK rail. AutomateX automates the high-friction workflows slowing rail project delivery so engineers can engineer, not admin. Built by a rail engineer, for rail teams.">
-<link rel="canonical" href="https://automatex.uk/index.html" data-pass="canonical-pass-2026-06-06">
+<title>AI in Action | AutomateX</title>
+<meta name="description" content="AutomateX case studies in UK rail: production AI deployments delivering measurable results in PACE assurance, knowledge retrieval, and process automation. Live work, not pilots.">
+<link rel="canonical" href="https://automatex.uk/ai-in-action.html" data-pass="canonical-pass-2026-06-06">
 <!-- Open Graph (Facebook, LinkedIn previews) -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://automatex.uk/index.html">
+<meta property="og:url" content="https://automatex.uk/ai-in-action.html">
 <meta property="og:title" content="AutomateX | AI Automation for UK Rail">
 <meta property="og:description" content="AI solution for UK rail. AutomateX automates the high-friction workflows slowing rail project delivery so engineers can engineer, not admin. Built by a rail engineer, for rail teams.">
 <meta property="og:image" content="https://automatex.uk/images/og-image.png">
@@ -2582,21 +2582,40 @@
 }
 :focus:not(:focus-visible) { outline: none; }
 </style>
+<style id="footer-darken-2026-06-07">
+/* Dark footer override — match the canonical homepage footer (transparent on
+   the dark canvas + white-on-navy text). Cascades over the earlier light
+   .footer rules in this file. */
+.footer { background: transparent !important; border-top: 1px solid rgba(255,255,255,0.06) !important; }
+.footer .footer-col h4 { color: var(--white) !important; }
+.footer .footer-col a,
+.footer .footer-bottom,
+.footer .footer-legal,
+.footer .footer-contact,
+.footer .footer-contact a,
+.footer .footer-brand p { color: rgba(255,255,255,0.68) !important; }
+.footer .footer-col a:hover,
+.footer .footer-contact a:hover { color: var(--orange) !important; }
+.footer .footer-bottom { border-top-color: rgba(255,255,255,0.08) !important; }
+.footer .footer-certs img { filter: none; opacity: 0.85; }
+.footer .navbar-logo { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
+</style>
 </head>
 <body>
 <div id="site-particles" aria-hidden="true"></div>
 
+
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar">
   <div class="container">
-    <a href="#" class="navbar-logo" aria-label="AutomateX home">
+    <a href="index.html" class="navbar-logo" aria-label="AutomateX home">
       <img src="brand_assets/automatex-wordmark.png" alt="AutomateX">
     </a>
     <ul class="navbar-links">
       <li class="has-dropdown">
-        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">What we offer</button>
+        <button type="button" class="nav-dropdown-toggle is-current" aria-haspopup="true" aria-expanded="false">What we offer</button>
         <div class="nav-dropdown" role="menu">
-          <a href="ai-in-action.html" role="menuitem">Production-grade custom AI</a>
+          <a href="ai-in-action.html" role="menuitem" aria-current="page" class="is-current">Production-grade custom AI</a>
           <a href="bootcamp.html" role="menuitem">AutomateX Bootcamp</a>
           <a href="waitlist.html" role="menuitem">PACE OS &amp; Scribtive</a>
           <a href="scorecard.html" role="menuitem">Free AI Readiness Assessment</a>
@@ -2628,2325 +2647,714 @@
   <div class="mobile-close" onclick="this.parentElement.classList.remove('open')">
     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
   </div>
-  <a href="about.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Who we are</a>
+  <a href="about.html" onclick="this.parentElement.classList.remove('open')">Who we are</a>
   <div class="mobile-sub-wrap">
-    <button type="button" class="mobile-sub-toggle" aria-expanded="false">
-      <span>What we offer</span>
-      <svg class="mobile-sub-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 5 7 9 10 5"/></svg>
-    </button>
-    <div class="mobile-sub" data-collapsed="true">
-      <a href="ai-in-action.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Production-grade custom AI</a>
-      <a href="bootcamp.html" onclick="this.closest('.mobile-menu').classList.remove('open')">AutomateX Bootcamp</a>
-      <a href="waitlist.html" onclick="this.closest('.mobile-menu').classList.remove('open')">PACE OS &amp; Scribtive</a>
+    <button type="button" class="mobile-sub-toggle" onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden">What we do</button>
+    <div class="mobile-sub" hidden>
       <a href="scorecard.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Free AI Readiness Assessment</a>
+      <a href="bootcamp.html" onclick="this.closest('.mobile-menu').classList.remove('open')">AutomateX Bootcamp</a>
+      <a href="ai-in-action.html" onclick="this.closest('.mobile-menu').classList.remove('open')" aria-current="page" class="is-current">Production-grade custom AI</a>
+      <a href="waitlist.html" onclick="this.closest('.mobile-menu').classList.remove('open')">PACE OS &amp; Scribtive</a>
     </div>
   </div>
   <a href="resources.html" onclick="this.parentElement.classList.remove('open')">Insights</a>
-  <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-outline btn-primary-lg">Book a call</a>
-</div><!-- /.mobile-menu -->
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  
-  <div class="container animate-in">
-    <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span> AI solution for UK Rail.</div>
-    <h1 class="hero-headline hero-prize">
-      Let <em>engineers</em> engineer.
-    </h1>
-    <p class="hero-sub">Free your team from the <a class="brand-x" href="#find-your-x">X</a> that drains them. <strong style="color:var(--orange);">Truly AI-enabled, finally.</strong></p>
-    <div class="hero-actions">
-      <a href="scorecard.html" class="btn btn-primary btn-primary-lg">Start with the Free AI Readiness Assessment</a>
-      <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-outline btn-primary-lg">Book a call</a>
-    </div>
-  </div>
-</section>
-
-<!-- ====================================================================== -->
-<!-- WHO WE HELP — self-identification + routing bowtie (added 2026-06-05) -->
-<!-- ====================================================================== -->
-<style id="who-we-help-styles-2026-06-05">
-:root {
-  --orange-tint: rgba(249,101,50,0.08);
-  --orange-soft: rgba(249,101,50,0.30);
-  --who-font-h: 'Montserrat', system-ui, sans-serif;
-  --who-font-b: 'Open Sans', system-ui, sans-serif;
-  --who-ease: cubic-bezier(.4,0,.2,1);
-}
-
-.who-we-help {
-  position: relative;
-  background: var(--white);
-  padding: 44px 0 36px;
-  font-family: var(--who-font-b);
-  color: var(--navy);
-  overflow: hidden;
-}
-.who-we-help::before {
-  content: ""; position: absolute; inset: 0 0 auto 0; height: 1px;
-  background: linear-gradient(to right, transparent, rgba(249,101,50,0.28), transparent);
-}
-.who-we-help::after {
-  content: ""; position: absolute; inset: 28% -8% 0 -8%;
-  background: radial-gradient(55% 45% at 50% 50%, rgba(249,101,50,0.05), transparent 60%);
-  pointer-events: none; z-index: 0;
-}
-.who-container {
-  max-width: 1220px; margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 48px);
-  position: relative; z-index: 1;
-}
-/* Header — matches the .pain-section header structure for site consistency. */
-.who-we-help .who-header { margin-bottom: 2.25rem; }
-.who-we-help .who-eyebrow { color: var(--orange); }
-.who-we-help .who-heading {
-  font-family: var(--font-heading);
-  font-size: clamp(1.625rem, 3vw, 2.25rem);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
-  color: var(--navy);
-  max-width: 720px;
-  margin: 0 auto 0.875rem;
-}
-.who-we-help .who-sub {
-  font-family: var(--font-heading);
-  font-size: clamp(0.9375rem, 1.2vw, 1rem);
-  font-weight: 500;
-  line-height: 1.55;
-  color: var(--gray-600);
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-.bowtie {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(280px, 340px) auto minmax(280px, 1fr);
-  gap: clamp(28px, 4.5vw, 68px);
-  align-items: center;
-}
-.bowtie > * { position: relative; z-index: 1; }
-.connectors {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  pointer-events: none; z-index: 0; overflow: visible;
-}
-.conn {
-  stroke: var(--orange-soft); stroke-width: 1.4; fill: none;
-  stroke-dasharray: 5 7; opacity: 0.5;
-  transition: stroke 320ms var(--who-ease), opacity 320ms var(--who-ease), stroke-width 320ms var(--who-ease);
-}
-@keyframes who-conn-flow { to { stroke-dashoffset: -36; } }
-.who-we-help[data-current] .conn.is-active {
-  stroke: var(--orange); opacity: 1; stroke-width: 2;
-  animation: who-conn-flow 1.6s linear infinite;
-}
-.who-we-help:not([data-current="none"]) .conn:not(.is-active) { opacity: 0.16; }
-
-.identity-col { display: flex; flex-direction: column; gap: 9px; }
-.identity-card {
-  appearance: none; -webkit-appearance: none;
-  display: flex; align-items: center; gap: 13px;
-  text-align: left;
-  background: var(--white);
-  border: 1.5px solid var(--gray-200);
-  border-radius: 14px;
-  padding: 11px 16px 11px 17px;
-  cursor: pointer;
-  transition: border-color 240ms var(--who-ease), background 240ms var(--who-ease), transform 240ms var(--who-ease), box-shadow 240ms var(--who-ease), padding 240ms var(--who-ease);
-  font-family: var(--who-font-h);
-  position: relative;
-  min-height: 60px;
-  box-shadow: 0 1px 0 rgba(13,17,23,0.04);
-}
-.identity-card:hover { border-color: var(--gray-300); transform: translateY(-1px); box-shadow: 0 10px 20px -14px rgba(13,17,23,0.12); }
-.identity-card:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
-.identity-icon {
-  flex: 0 0 36px; width: 36px; height: 36px;
-  border-radius: 10px;
-  background: var(--gray-100); color: var(--gray-700, #374151);
-  display: flex; align-items: center; justify-content: center;
-  transition: background 240ms var(--who-ease), color 240ms var(--who-ease), transform 240ms var(--who-ease);
-}
-.identity-icon svg { width: 18px; height: 18px; display: block; }
-.identity-title {
-  flex: 1 1 auto;
-  font-family: var(--who-font-h); font-weight: 600;
-  font-size: 0.875rem; line-height: 1.35; color: var(--navy);
-  letter-spacing: -0.005em;
-}
-.identity-port {
-  flex: 0 0 12px; width: 12px; height: 12px;
-  border-radius: 50%; background: var(--white);
-  border: 2px solid var(--gray-300);
-  margin-right: -7px;
-  transition: border-color 240ms var(--who-ease), background 240ms var(--who-ease), transform 240ms var(--who-ease);
-}
-.identity-card[aria-pressed="true"] {
-  border-color: var(--orange); border-width: 2px;
-  padding: 10px 15px 10px 16px;
-  background: var(--orange-tint);
-  box-shadow: 0 12px 24px -14px rgba(249,101,50,0.30);
-}
-.identity-card[aria-pressed="true"] .identity-icon { background: var(--orange); color: var(--white); transform: scale(1.04); }
-.identity-card[aria-pressed="true"] .identity-port { background: var(--orange); border-color: var(--orange); transform: scale(1.18); }
-
-.centre { display: flex; align-items: center; justify-content: center; }
-.logo-badge {
-  position: relative;
-  width: 96px; height: 96px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 28%, var(--white), rgba(255,255,255,0.92) 60%, rgba(249,101,50,0.04) 100%), var(--white);
-  border: 1.5px solid var(--gray-200);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 24px 50px -28px rgba(13,17,23,0.22), 0 4px 10px -6px rgba(13,17,23,0.08);
-  transition: border-color 360ms var(--who-ease), box-shadow 360ms var(--who-ease), transform 360ms var(--who-ease);
-}
-.logo-badge::before {
-  content: ""; position: absolute; inset: -14px;
-  border-radius: 50%;
-  border: 1px dashed rgba(249,101,50,0.22);
-  transition: border-color 360ms var(--who-ease);
-  pointer-events: none;
-}
-.logo-badge::after {
-  content: ""; position: absolute; inset: -28px;
-  border-radius: 50%;
-  border: 1px dashed rgba(209,213,219,0.55);
-  opacity: 0.7; pointer-events: none;
-  transition: opacity 360ms var(--who-ease), transform 360ms var(--who-ease);
-}
-.who-we-help:not([data-current="none"]) .logo-badge {
-  border-color: var(--orange); transform: scale(1.04);
-  box-shadow: 0 30px 60px -28px rgba(249,101,50,0.4), 0 0 0 5px rgba(249,101,50,0.06);
-}
-.who-we-help:not([data-current="none"]) .logo-badge::before { border-color: var(--orange); }
-.who-we-help:not([data-current="none"]) .logo-badge::after { border-color: rgba(249,101,50,0.32); transform: rotate(45deg); }
-.logo-x { width: 70px; height: 70px; display: block; position: relative; z-index: 1; object-fit: contain; }
-
-.pill-col { display: flex; flex-direction: column; gap: 7px; }
-.pill {
-  position: relative;
-  display: flex; flex-direction: column;
-  background: var(--white);
-  border: 1.5px solid var(--gray-200);
-  border-radius: 999px;
-  padding: 0;
-  text-decoration: none; color: inherit;
-  cursor: pointer;
-  min-height: 44px;
-  overflow: hidden;
-  transition: opacity 320ms var(--who-ease), filter 320ms var(--who-ease), border-color 280ms var(--who-ease), border-radius 280ms var(--who-ease), box-shadow 240ms var(--who-ease), transform 220ms var(--who-ease);
-  box-shadow: 0 1px 0 rgba(13,17,23,0.04);
-}
-.pill:hover { border-color: var(--gray-300); transform: translateY(-1px); box-shadow: 0 10px 22px -16px rgba(13,17,23,0.14); }
-.pill:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
-.pill-port {
-  position: absolute; left: -7px; top: 22px;
-  width: 12px; height: 12px;
-  border-radius: 50%; background: var(--white);
-  border: 2px solid var(--gray-300);
-  transition: border-color 240ms var(--who-ease), background 240ms var(--who-ease), transform 240ms var(--who-ease);
-  z-index: 2;
-}
-.pill-row {
-  display: flex; align-items: center; gap: 12px;
-  padding: 5px 18px 5px 8px;
-  min-height: 44px;
-}
-.pill-icon {
-  flex: 0 0 32px; width: 32px; height: 32px;
-  border-radius: 50%;
-  background: var(--orange-tint); color: var(--orange);
-  display: flex; align-items: center; justify-content: center;
-  transition: background 280ms var(--who-ease), color 280ms var(--who-ease), transform 280ms var(--who-ease);
-}
-.pill-icon svg { width: 16px; height: 16px; display: block; }
-.pill-title {
-  flex: 1 1 auto;
-  font-family: var(--who-font-h); font-weight: 600;
-  font-size: 0.875rem; line-height: 1.3; color: var(--navy);
-  letter-spacing: -0.005em;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.pill-chevron {
-  flex: 0 0 14px; color: var(--gray-400);
-  transition: transform 280ms var(--who-ease), color 240ms var(--who-ease);
-}
-.pill-panel {
-  max-height: 0; opacity: 0; overflow: hidden;
-  padding: 0 22px;
-  transition: max-height 320ms var(--who-ease), opacity 220ms var(--who-ease), padding 320ms var(--who-ease);
-}
-.pill-panel-inner {
-  padding: 4px 0 14px;
-  display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
-  text-align: left;
-}
-.pill-prop {
-  font-family: var(--who-font-b);
-  font-size: 0.8125rem; line-height: 1.5; color: var(--gray-600);
-  margin: 0;
-}
-.pill-prop em { font-style: normal; font-weight: 700; color: var(--orange-dark); }
-.pill-prop a { color: var(--orange); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
-.pill-cta {
-  align-self: center;
-  display: inline-flex; align-items: center; gap: 6px;
-  font-family: var(--who-font-h);
-  font-weight: 700; font-size: 0.75rem; letter-spacing: 0.005em;
-  text-transform: uppercase; color: var(--white);
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
-  box-shadow: 0 4px 12px rgba(249,101,50,0.25);
-  text-decoration: none;
-  transition: transform 200ms var(--who-ease), box-shadow 200ms var(--who-ease);
-}
-.pill-cta::after { content: "→"; font-size: 0.875rem; letter-spacing: 0; transition: transform 200ms var(--who-ease); }
-.pill-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(249,101,50,0.35); }
-.pill-cta:hover::after { transform: translateX(3px); }
-.pill[aria-expanded="true"] {
-  border-radius: 18px; border-color: var(--orange); border-width: 2px;
-  box-shadow: 0 16px 32px -18px rgba(249,101,50,0.32);
-}
-.pill[aria-expanded="true"] .pill-row { padding: 4px 17px 4px 7px; }
-.pill[aria-expanded="true"] .pill-icon { background: var(--orange); color: var(--white); }
-.pill[aria-expanded="true"] .pill-chevron { transform: rotate(90deg); color: var(--orange); }
-.pill[aria-expanded="true"] .pill-panel { max-height: 220px; opacity: 1; padding: 0 22px; }
-.pill[aria-expanded="true"] .pill-port { background: var(--orange); border-color: var(--orange); transform: scale(1.18); }
-
-.who-we-help[data-current="none"] .pill { opacity: 1; }
-.who-we-help:not([data-current="none"]) .pill { opacity: 0.45; filter: saturate(0.4); }
-.who-we-help[data-current="leader"] .pill[data-for~="leader"],
-.who-we-help[data-current="team"]   .pill[data-for~="team"],
-.who-we-help[data-current="senior"] .pill[data-for~="senior"],
-.who-we-help[data-current="junior"] .pill[data-for~="junior"] { opacity: 1; filter: none; }
-.who-we-help[data-current="leader"] .pill[data-for~="leader"]:not([aria-expanded="true"]),
-.who-we-help[data-current="team"]   .pill[data-for~="team"]:not([aria-expanded="true"]),
-.who-we-help[data-current="senior"] .pill[data-for~="senior"]:not([aria-expanded="true"]),
-.who-we-help[data-current="junior"] .pill[data-for~="junior"]:not([aria-expanded="true"]) { border-color: var(--orange); }
-.who-we-help[data-current="leader"] .pill[data-for~="leader"] .pill-icon,
-.who-we-help[data-current="team"]   .pill[data-for~="team"] .pill-icon,
-.who-we-help[data-current="senior"] .pill[data-for~="senior"] .pill-icon,
-.who-we-help[data-current="junior"] .pill[data-for~="junior"] .pill-icon { background: var(--orange); color: var(--white); }
-.who-we-help[data-current="leader"] .pill[data-for~="leader"] .pill-port,
-.who-we-help[data-current="team"]   .pill[data-for~="team"] .pill-port,
-.who-we-help[data-current="senior"] .pill[data-for~="senior"] .pill-port,
-.who-we-help[data-current="junior"] .pill[data-for~="junior"] .pill-port { background: var(--orange); border-color: var(--orange); }
-
-.newsletter-strip {
-  margin-top: 22px;
-  display: flex; align-items: center; gap: 16px;
-  background: linear-gradient(135deg, var(--gray-50) 0%, rgba(249,101,50,0.05) 100%);
-  border: 1.5px solid var(--gray-200);
-  border-radius: 999px;
-  padding: 8px 14px 8px 12px;
-  flex-wrap: wrap;
-}
-.newsletter-icon {
-  flex: 0 0 36px; width: 36px; height: 36px;
-  border-radius: 50%;
-  background: var(--white); color: var(--orange);
-  border: 1.5px solid var(--orange-tint);
-  display: inline-flex; align-items: center; justify-content: center;
-}
-.newsletter-icon svg { width: 18px; height: 18px; display: block; }
-.newsletter-copy {
-  flex: 1 1 360px; min-width: 0;
-  display: flex; flex-direction: column; gap: 1px;
-}
-.newsletter-title {
-  font-family: var(--who-font-h); font-weight: 700;
-  font-size: 0.9375rem; color: var(--navy); letter-spacing: -0.01em;
-  margin: 0;
-}
-.newsletter-reason {
-  font-family: var(--who-font-b);
-  font-size: 0.8125rem; line-height: 1.4; color: var(--gray-600);
-  margin: 0;
-}
-.newsletter-form {
-  display: flex; gap: 8px;
-  flex: 0 1 380px; min-width: 240px;
-}
-.newsletter-form input {
-  flex: 1 1 auto; min-width: 0;
-  padding: 9px 14px;
-  border-radius: 999px;
-  border: 1.5px solid var(--gray-200);
-  background: var(--white); color: var(--navy);
-  font-family: var(--who-font-b);
-  font-size: 0.8125rem;
-  outline: none;
-  transition: border-color 200ms var(--who-ease);
-}
-.newsletter-form input:focus { border-color: var(--orange); }
-.newsletter-form button {
-  appearance: none; border: 0;
-  background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
-  color: var(--white);
-  font-family: var(--who-font-h);
-  font-weight: 700; font-size: 0.75rem;
-  text-transform: uppercase; letter-spacing: 0.005em;
-  padding: 0 16px;
-  border-radius: 999px;
-  cursor: pointer; white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(249,101,50,0.25);
-  transition: transform 200ms var(--who-ease), box-shadow 200ms var(--who-ease);
-}
-.newsletter-form button:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(249,101,50,0.35); }
-.newsletter-form button:disabled { opacity: 0.6; cursor: wait; }
-.newsletter-success,
-.newsletter-error {
-  display: none;
-  flex: 1 1 240px;
-  font-family: var(--who-font-h);
-  font-weight: 700; font-size: 0.8125rem;
-}
-.newsletter-success { color: var(--orange-dark); }
-.newsletter-error { color: #ED4A3B; }
-.newsletter-strip[data-sent="1"] .newsletter-form { display: none; }
-.newsletter-strip[data-sent="1"] .newsletter-success { display: inline-flex; align-items: center; }
-.newsletter-strip[data-error="1"] .newsletter-error { display: inline-flex; align-items: center; }
-
-@media (max-width: 920px) {
-  .who-we-help { padding: 36px 0 28px; }
-  .bowtie { grid-template-columns: 1fr; gap: 16px; }
-  .connectors, .centre { display: none; }
-  .identity-col { flex-direction: row; flex-wrap: wrap; gap: 8px; }
-  .identity-card { flex: 1 1 calc(50% - 4px); min-height: 0; padding: 10px 12px; gap: 10px; }
-  .identity-card[aria-pressed="true"] { padding: 9px 11px; }
-  .identity-icon { flex-basis: 32px; width: 32px; height: 32px; }
-  .identity-icon svg { width: 16px; height: 16px; }
-  .identity-title { font-size: 0.75rem; }
-  .identity-port { display: none; }
-  .pill-port { display: none; }
-  .newsletter-strip { border-radius: 18px; padding: 14px 16px; }
-  .newsletter-form { width: 100%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .conn, .conn.is-active { animation: none !important; transition: none !important; }
-  .identity-card, .pill, .pill-panel, .logo-badge, .identity-icon, .pill-icon { transition: none !important; transform: none !important; }
-}
-</style>
-
-<section class="who-we-help" id="who-we-help" data-current="none" aria-label="Who we help">
-  <div class="who-container">
-
-    <div class="text-center who-header sc-reveal">
-      <div class="section-eyebrow who-eyebrow">Who we help</div>
-      <h2 class="who-heading">For ambitious rail teams and leaders.</h2>
-    </div>
-
-    <div class="bowtie">
-
-      <svg class="connectors" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
-
-      <div class="identity-col" role="tablist" aria-label="Pick your archetype">
-
-        <button class="identity-card" type="button" role="tab"
-                data-archetype="leader" aria-pressed="false" aria-controls="who-pill-region">
-          <span class="identity-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="15 6 21 6 21 12"/></svg>
-          </span>
-          <span class="identity-title">I drive innovation at a large rail organisation</span>
-          <span class="identity-port" aria-hidden="true"></span>
-        </button>
-
-        <button class="identity-card" type="button" role="tab"
-                data-archetype="team" aria-pressed="false" aria-controls="who-pill-region">
-          <span class="identity-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="11" r="2.4"/><path d="M3 19c0-2.7 2.7-5 6-5s6 2.3 6 5"/><path d="M14.5 18c.4-1.6 2-2.7 4-2.7s3.4 1 3.5 2.6"/></svg>
-          </span>
-          <span class="identity-title">I lead a growing rail team or business</span>
-          <span class="identity-port" aria-hidden="true"></span>
-        </button>
-
-        <button class="identity-card" type="button" role="tab"
-                data-archetype="senior" aria-pressed="false" aria-controls="who-pill-region">
-          <span class="identity-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><polyline points="8.5 13 7 21 12 18 17 21 15.5 13"/></svg>
-          </span>
-          <span class="identity-title">I'm a senior rail professional</span>
-          <span class="identity-port" aria-hidden="true"></span>
-        </button>
-
-        <button class="identity-card" type="button" role="tab"
-                data-archetype="junior" aria-pressed="false" aria-controls="who-pill-region">
-          <span class="identity-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.2L18 9l-4.4 1.8L12 15l-1.6-4.2L6 9l4.4-1.8z"/><line x1="4.5" y1="20" x2="6.5" y2="18"/><line x1="19.5" y1="20" x2="17.5" y2="18"/><line x1="12" y1="20" x2="12" y2="18"/></svg>
-          </span>
-          <span class="identity-title">I'm at the start of my rail career</span>
-          <span class="identity-port" aria-hidden="true"></span>
-        </button>
-
-      </div>
-
-      <div class="centre" aria-hidden="true">
-        <div class="logo-badge">
-          <img class="logo-x" src="brand_assets/automatex-mark.png" alt="AutomateX" aria-hidden="true">
-        </div>
-      </div>
-
-      <div class="pill-col" id="who-pill-region" role="region" aria-live="polite">
-
-        <button class="pill" type="button" data-cta="ai-strategy" data-for="leader team" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
-            <span class="pill-title">AI Strategy</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop">A clear path from AI ambition to delivery, built around your organisation's standards, governance and context.</p>
-            <a class="pill-cta" href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book discovery call</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="business-case" data-for="leader" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><rect x="5" y="11" width="3" height="9"/><rect x="10.5" y="6" width="3" height="14"/><rect x="16" y="13" width="3" height="7"/></svg></span>
-            <span class="pill-title">Business Case Study</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop">A defensible business case from a proven evaluation framework, for the AI investment in the direction of your organisation's choice.</p>
-            <a class="pill-cta" href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book discovery call</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="custom-ai" data-for="leader team" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></span>
-            <span class="pill-title">Production-grade custom AI</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop"><em>If you know your <a href="#find-your-x">X</a> well,</em> we would scope and ship a custom AI to remove it.</p>
-            <a class="pill-cta" href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book scoping call</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="bootcamp" data-for="team senior" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 9 8h6z"/><path d="M5 14c0-3 3-6 7-6s7 3 7 6c0 5-3 8-7 8s-7-3-7-8z"/><path d="M9 18c0-2 1.4-4 3-4s3 2 3 4"/></svg></span>
-            <span class="pill-title">AutomateX Bootcamp</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop"><em>If you need help identifying your <a href="#find-your-x">X</a>,</em> this is where you would start.</p>
-            <a class="pill-cta" href="bootcamp.html">Visit the Bootcamp</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="assessment" data-for="team senior" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><polyline points="9 11 11 13 15 9"/><line x1="9" y1="17" x2="15" y2="17"/></svg></span>
-            <span class="pill-title">AI Readiness Assessment</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop">A 5-minute diagnostic across 5 operational pillars. Tailored and instant report.</p>
-            <a class="pill-cta" href="scorecard.html">Take the Assessment</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="scribtive-waitlist" data-for="senior junior" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></span>
-            <span class="pill-title">Scribtive&trade; Waitlist</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop">Early access to Scribtive&trade;, our PACE assurance generator in build.</p>
-            <a class="pill-cta" href="waitlist.html">Join the Waitlist</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="resources" data-for="junior" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"/><line x1="4" y1="19" x2="18" y2="19"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/></svg></span>
-            <span class="pill-title">Resources</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop">Plain-English articles and frameworks on AI in rail.</p>
-            <a class="pill-cta" href="resources.html">Browse Resources</a>
-          </div></div>
-        </button>
-
-      </div>
-    </div>
-
-    <div class="newsletter-strip" data-source="Newsletter sign up" aria-label="Newsletter signup">
-      <span class="newsletter-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
-      </span>
-      <div class="newsletter-copy">
-        <p class="newsletter-title">Or just stay in the loop.</p>
-        <p class="newsletter-reason">A monthly newsletter from Bill on what is actually moving for AI in UK rail. Brief, honest, easy to unsubscribe.</p>
-      </div>
-      <form class="newsletter-form" novalidate>
-        <input type="email" placeholder="your@work-email" aria-label="Email for newsletter" required>
-        <button type="submit">Subscribe</button>
-      </form>
-      <span class="newsletter-success" aria-live="polite">Thanks. You're on the list.</span>
-      <span class="newsletter-error" aria-live="polite">Something went wrong. Please try again or email bill.guo@automatex.uk.</span>
-    </div>
-
-  </div>
-</section>
-
-<script id="who-we-help-js-2026-06-05">
-(function () {
-  var section = document.querySelector('.who-we-help');
-  if (!section) return;
-  var bowtie = section.querySelector('.bowtie');
-  var svg = section.querySelector('.connectors');
-  var logoBadge = section.querySelector('.logo-badge');
-  var identityCards = section.querySelectorAll('.identity-card');
-  var pills = section.querySelectorAll('.pill');
-
-  var redrawLocked = false;
-  var lockTimer = null;
-  function lockRedraw(ms) {
-    redrawLocked = true;
-    clearTimeout(lockTimer);
-    lockTimer = setTimeout(function () {
-      redrawLocked = false;
-      drawConnectors();
-    }, ms);
-  }
-
-  identityCards.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var key = btn.dataset.archetype;
-      var alreadyOn = btn.getAttribute('aria-pressed') === 'true';
-      var anyPillWasOpen = false;
-      pills.forEach(function (p) {
-        if (p.getAttribute('aria-expanded') === 'true') anyPillWasOpen = true;
-        p.setAttribute('aria-expanded', 'false');
-      });
-      identityCards.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
-      if (alreadyOn) section.dataset.current = 'none';
-      else { btn.setAttribute('aria-pressed', 'true'); section.dataset.current = key; }
-      activateConnectors();
-      if (anyPillWasOpen) lockRedraw(380);
-    });
-  });
-
-  pills.forEach(function (pill) {
-    pill.addEventListener('click', function (e) {
-      if (e.target.closest('.pill-cta')) return;
-      var was = pill.getAttribute('aria-expanded') === 'true';
-      pills.forEach(function (p) { p.setAttribute('aria-expanded', 'false'); });
-      if (!was) pill.setAttribute('aria-expanded', 'true');
-      lockRedraw(380);
-    });
-  });
-
-  var strip = section.querySelector('.newsletter-strip');
-  if (strip) {
-    var form = strip.querySelector('.newsletter-form');
-    var button = form.querySelector('button');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var input = form.querySelector('input[type="email"]');
-      var email = (input.value || '').trim();
-      if (!email || email.indexOf('@') < 0) { input.focus(); return; }
-      button.disabled = true;
-      strip.dataset.sent = '';
-      strip.dataset.error = '';
-      var payload = {
-        tab: 'waiting list',
-        _key: 'Email',
-        Email: email,
-        'Date Added': new Date().toISOString(),
-        Source: 'Newsletter sign up'
-      };
-      fetch('https://billguo.app.n8n.cloud/webhook/crm-sheet-write', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
-      }).then(function (r) {
-        if (!r.ok) throw new Error('http ' + r.status);
-        strip.dataset.sent = '1';
-        input.value = '';
-      }).catch(function () {
-        strip.dataset.error = '1';
-        button.disabled = false;
-      });
-    });
-  }
-
-  function clearSvg() { while (svg.firstChild) svg.removeChild(svg.firstChild); }
-  function ptCentre(el, container) {
-    var r = el.getBoundingClientRect();
-    var c = container.getBoundingClientRect();
-    return { x: r.left + r.width / 2 - c.left, y: r.top + r.height / 2 - c.top };
-  }
-  function buildPath(start, end) {
-    var dx = end.x - start.x;
-    var pull = Math.max(50, Math.abs(dx) * 0.55);
-    return 'M ' + start.x + ',' + start.y +
-           ' C ' + (start.x + pull) + ',' + start.y +
-           ' '   + (end.x - pull)   + ',' + end.y +
-           ' '   + end.x            + ',' + end.y;
-  }
-  function drawConnectors() {
-    if (!bowtie || !svg || !logoBadge) return;
-    if (window.innerWidth <= 920) { clearSvg(); return; }
-    var gridRect = bowtie.getBoundingClientRect();
-    svg.setAttribute('viewBox', '0 0 ' + gridRect.width + ' ' + gridRect.height);
-    var logoCentre = ptCentre(logoBadge, bowtie);
-    var ns = 'http://www.w3.org/2000/svg';
-    if (!svg.firstChild) {
-      identityCards.forEach(function (card) {
-        var p = document.createElementNS(ns, 'path');
-        p.setAttribute('class', 'conn conn-in');
-        p.setAttribute('data-identity', card.dataset.archetype);
-        svg.appendChild(p);
-      });
-      pills.forEach(function (pill) {
-        var p = document.createElementNS(ns, 'path');
-        p.setAttribute('class', 'conn conn-out');
-        p.setAttribute('data-identities', pill.dataset.for);
-        p.setAttribute('data-cta', pill.dataset.cta);
-        svg.appendChild(p);
-      });
-    }
-    identityCards.forEach(function (card) {
-      var port = card.querySelector('.identity-port');
-      var start = ptCentre(port || card, bowtie);
-      var p = svg.querySelector('.conn-in[data-identity="' + card.dataset.archetype + '"]');
-      if (p) p.setAttribute('d', buildPath(start, logoCentre));
-    });
-    pills.forEach(function (pill) {
-      var port = pill.querySelector('.pill-port');
-      var end = ptCentre(port || pill, bowtie);
-      var p = svg.querySelector('.conn-out[data-cta="' + pill.dataset.cta + '"]');
-      if (p) p.setAttribute('d', buildPath(logoCentre, end));
-    });
-    activateConnectors();
-  }
-  function activateConnectors() {
-    var current = section.dataset.current;
-    svg.querySelectorAll('.conn').forEach(function (p) { p.classList.remove('is-active'); });
-    if (!current || current === 'none') return;
-    svg.querySelectorAll('.conn-in[data-identity="' + current + '"]').forEach(function (p) { p.classList.add('is-active'); });
-    svg.querySelectorAll('.conn-out').forEach(function (p) {
-      var ids = (p.getAttribute('data-identities') || '').split(/\s+/);
-      if (ids.indexOf(current) !== -1) p.classList.add('is-active');
-    });
-  }
-  function debounce(fn, ms) { var t; return function () { clearTimeout(t); t = setTimeout(fn, ms); }; }
-  var redraw = debounce(function () { if (!redrawLocked) drawConnectors(); }, 60);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawConnectors);
-  window.addEventListener('load', drawConnectors);
-  window.addEventListener('resize', redraw);
-  if (window.ResizeObserver) {
-    var ro = new ResizeObserver(redraw);
-    ro.observe(bowtie);
-  }
-  drawConnectors();
-}());
-</script>
-<!-- ====================================================================== -->
-<!-- END WHO WE HELP                                                        -->
-<!-- ====================================================================== -->
-
-<!-- ===== FIND YOUR X — MAGNIFIER LENS CANVAS ===== -->
-<section class="pain-section" id="pain">
-  
-  <div class="container">
-    <div class="text-center pain-header">
-      <div class="section-eyebrow pain-eyebrow sc-reveal">The pain</div>
-      <h2 class="pain-heading sc-reveal">What&rsquo;s draining your team.</h2>
-      <p class="pain-sub sc-reveal">Your seniors got into rail to solve problems and exercise engineering judgement, not to feel stuck in admin. Today they spend half their week on work AI can already do better. The work they joined for waits.</p>
-    </div>
-
-    <div class="pain-grid">
-      <article class="pain-card sc-reveal">
-        <div class="pain-num">01</div>
-        <h3 class="pain-card-title">Engineers buried in admin.</h3>
-        <p class="pain-card-body">Form A/B/C/G. Cat 3 comments. Standards searching. Moving data from one template to another. Repetitive, error-prone, soul-crushing. The work AI can do better, done by your most expensive people. The work they were hired to do queues behind it.</p>
-      </article>
-      <article class="pain-card sc-reveal">
-        <div class="pain-num">02</div>
-        <h3 class="pain-card-title">AI-readiness anxiety.</h3>
-        <p class="pain-card-body">Tenders are starting to ask AI questions the way they asked BIM questions a decade ago. Your last response had to bluff. The next one will lose. Your clients are starting to audit your AI readiness. The window closes fast.</p>
-      </article>
-      <article class="pain-card sc-reveal">
-        <div class="pain-num">03</div>
-        <h3 class="pain-card-title">Hero dependency.</h3>
-        <p class="pain-card-body">Two people hold the whole firm together. They are the system rather than enabled by one. When they take leave, the programme stalls. When they burn out or leave, the operation collapses. Your risk register is your senior org chart. You know it.</p>
-      </article>
-      <article class="pain-card sc-reveal">
-        <div class="pain-num">04</div>
-        <h3 class="pain-card-title">Margin walking out.</h3>
-        <p class="pain-card-body">Every Cat 3 comment, every rework cycle, every late deliverable. You see the P&amp;L. You do not see the AI-native competitor&rsquo;s P&amp;L improving every quarter.</p>
-      </article>
-      <article class="pain-card sc-reveal">
-        <div class="pain-num">05</div>
-        <h3 class="pain-card-title">Peak and trough.</h3>
-        <p class="pain-card-body">Rail runs in peaks and troughs. Today the only way to scale your core team&rsquo;s capability is to hire. Every peak forces new hires. Every trough turns those hires into a risk you cannot carry. The hire-rehire cycle bleeds margin. The alternative is a system that enables your core team to cover more, without growing headcount.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRIZE — Future state and count-up figures ===== -->
-<section class="prize-section" id="prize">
-  
-  <div class="container">
-    <div class="text-center prize-header">
-      <div class="section-eyebrow prize-eyebrow sc-reveal">The prize</div>
-      <h2 class="prize-heading sc-reveal">Your team, truly AI-enabled.</h2>
-      <p class="prize-subtitle sc-reveal">And you are the leader who took them there.</p>
-      <p class="prize-sub sc-reveal">18 months from now your team is doing engineering, not admin. Your firm runs on a system that compounds with every project.</p>
-    </div>
-
-    <div class="prize-figures sc-reveal" id="prize-figures">
-      <div class="prize-figure">
-        <div class="prize-fig-label">Integrated knowledge base</div>
-        <div class="prize-fig-sub">An AI-queryable knowledge layer across your standards, templates, and project history.</div>
-      </div>
-      <div class="prize-figure">
-        <div class="prize-fig-label">Reduced rework</div>
-        <div class="prize-fig-sub">Human error in repetitive document workflows materially reduced.</div>
-      </div>
-      <div class="prize-figure">
-        <div class="prize-fig-label">Streamlined workflows</div>
-        <div class="prize-fig-sub">Administrative and template-driven tasks shifted off engineers&rsquo; plates.</div>
-      </div>
-      <div class="prize-figure">
-        <div class="prize-fig-label">Higher accuracy</div>
-        <div class="prize-fig-sub">Knowledge searching and standards interpretation faster and surer.</div>
-      </div>
-      <div class="prize-figure">
-        <div class="prize-fig-label">Grounded outputs</div>
-        <div class="prize-fig-sub">Every output cited against your knowledge base. Hallucination mitigated by design.</div>
-      </div>
-    </div>
-
-    <div class="prize-layers">
-      <div class="prize-layer sc-reveal">
-        <div class="prize-layer-num">01</div>
-        <h3 class="prize-layer-title">Engineers engineering.</h3>
-        <p class="prize-layer-body">Your seniors do the work that compounds. Junior engineers get mentored. The work that drains the firm is gone. The work that builds it gets done.</p>
-      </div>
-      <div class="prize-layer sc-reveal">
-        <div class="prize-layer-num">02</div>
-        <h3 class="prize-layer-title">Firms compounding.</h3>
-        <p class="prize-layer-body">Every project leaves the firm sharper. Standards reusable. Lessons that stick. Tenders that cite evidence. Win rate moves. Margin recovers. The firm stops running uphill.</p>
-      </div>
-      <div class="prize-layer sc-reveal">
-        <div class="prize-layer-num">03</div>
-        <h3 class="prize-layer-title">The leader who saw it.</h3>
-        <p class="prize-layer-body">You become the leader who took your firm into the AI era. The one whose board sees the curve. Career-defining. Career-proofing. Your name shows up in the conversations that matter.</p>
-      </div>
-    </div>
-
-    <div class="prize-cta sc-reveal">
-      <a href="ai-in-action.html#case-studies" class="btn btn-primary btn-primary-lg prize-cta-btn">
-        See it in action
-        <span class="prize-cta-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<style>
-  /* ===== PAIN section — light, restrained, weighty ===== */
-  .pain-section {
-    background: var(--white);
-    position: relative;
-    padding: 5.5rem 0 6rem;
-    color: var(--navy);
-  }
-  .pain-section .container { position: relative; z-index: 1; }
-
-  .pain-eyebrow {
-    color: var(--orange);
-  }
-  .pain-heading {
-    font-family: var(--font-heading);
-    font-size: clamp(1.875rem, 3.6vw, 2.625rem);
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.025em;
-    color: var(--navy);
-    max-width: 760px;
-    margin: 0 auto 1.25rem;
-  }
-  .pain-sub {
-    font-family: var(--font-heading);
-    font-size: clamp(1rem, 1.4vw, 1.125rem);
-    font-weight: 500;
-    line-height: 1.6;
-    color: var(--gray-600);
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .pain-header { margin-bottom: 3.5rem; }
-
-  .pain-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  .pain-card {
-    background: var(--gray-50);
-    border: 1px solid var(--gray-200);
-    border-radius: 12px;
-    padding: 1.75rem 1.375rem;
-    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
-  }
-  .pain-card:hover {
-    border-color: rgba(249,101,50,0.4);
-    background: var(--white);
-    box-shadow: 0 8px 24px rgba(26,31,54,0.06);
-    transform: translateY(-3px);
-  }
-  .pain-num {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--orange);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.75rem;
-  }
-  .pain-card-title {
-    font-family: var(--font-heading);
-    font-size: 1.0625rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.875rem;
-    letter-spacing: -0.015em;
-    line-height: 1.3;
-  }
-  .pain-card-body {
-    font-size: 0.8125rem;
-    line-height: 1.65;
-    color: var(--gray-600);
-    margin: 0;
-  }
-
-  /* ===== PRIZE section — dark navy with orange drama ===== */
-  .prize-section {
-    background: var(--navy-deep, #0D1117);
-    position: relative;
-    padding: 5.5rem 0 6rem;
-    color: var(--white);
-    overflow: hidden;
-  }
-  .prize-section .container { position: relative; z-index: 2; }
-  /* Subtle ramps at both ends so dark/light boundaries feel softened, not slammed.
-     White at 0.05 opacity, 2rem tall — almost invisible alone but kills the hard
-     visual edge. Prize borders Pain (light) above and Industry Voice (light) below. */
-  .prize-section::before,
-  .prize-section::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 2rem;
-    pointer-events: none;
-    z-index: 1;
-  }
-  .prize-section::before {
-    top: 0;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, transparent 100%);
-  }
-  .prize-section::after {
-    bottom: 0;
-    background: linear-gradient(to top, rgba(255,255,255,0.05) 0%, transparent 100%);
-  }
-  /* Boundary fade utility — same subtle white-to-transparent ramp used at every
-     dark-to-light section transition. 2rem tall, very low opacity so the edge
-     softens without producing a visible bright band. */
-  #find-your-x::after,
-  .ai-actions::before,
-  .ai-actions::after,
-  .research-section::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 2rem;
-    pointer-events: none;
-    z-index: 1;
-  }
-  #find-your-x::after { bottom: 0; background: linear-gradient(to top, rgba(255,255,255,0.05) 0%, transparent 100%); }
-  .ai-actions::before { top: 0; background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, transparent 100%); }
-  .ai-actions::after  { bottom: 0; background: linear-gradient(to top, rgba(255,255,255,0.05) 0%, transparent 100%); }
-  .research-section::before { top: 0; background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, transparent 100%); }
-
-
-  .prize-eyebrow {
-    color: var(--orange) !important;
-  }
-  .prize-heading {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    color: var(--white);
-    max-width: 820px;
-    margin: 0 auto 1.25rem;
-  }
-  /* Smaller italic credit line that sits between the prize title and the
-     descriptive sub. Holds the personal-status prize ("you are the leader…")
-     without competing visually with the team-level prize title above it. */
-  .prize-subtitle {
-    font-family: var(--font-heading);
-    font-size: clamp(1rem, 1.6vw, 1.25rem);
-    font-weight: 500;
-    font-style: italic;
-    line-height: 1.4;
-    color: var(--orange);
-    max-width: 700px;
-    margin: -0.5rem auto 1.5rem;
-    text-align: center;
-    letter-spacing: -0.005em;
-  }
-  .prize-sub {
-    font-family: var(--font-heading);
-    font-size: clamp(1rem, 1.4vw, 1.125rem);
-    font-weight: 500;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.78);
-    max-width: 740px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .prize-header { margin-bottom: 3.5rem; }
-
-  /* Big figures with count-up animation. Five-card grid on desktop. */
-  .prize-figures {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-    max-width: 1280px;
-    margin: 0 auto 4.5rem;
-  }
-  .prize-figure {
-    text-align: center;
-    background: rgba(249,101,50,0.05);
-    border: 1px solid rgba(249,101,50,0.22);
-    border-radius: 14px;
-    padding: 2rem 1rem 1.5rem;
-    transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
-  }
-  .prize-figure:hover {
-    transform: translateY(-4px);
-    border-color: rgba(249,101,50,0.5);
-    background: rgba(249,101,50,0.08);
-  }
-  .prize-fig-num {
-    font-family: var(--font-heading);
-    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
-    font-weight: 900;
-    color: var(--orange);
-    line-height: 1;
-    letter-spacing: -0.04em;
-    margin-bottom: 0.75rem;
-    font-variant-numeric: tabular-nums;
-  }
-  .prize-fig-label {
-    font-family: var(--font-heading);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-  .prize-fig-sub {
-    font-size: 0.8125rem;
-    line-height: 1.5;
-    color: rgba(255,255,255,0.55);
-    font-weight: 500;
-  }
-
-  /* Three layer descriptions */
-  .prize-layers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 0 auto 3.5rem;
-  }
-  .prize-layer {
-    position: relative;
-    padding-top: 1.5rem;
-    border-top: 2px solid var(--orange);
-  }
-  .prize-layer-num {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--orange);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.625rem;
-  }
-  .prize-layer-title {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 0.875rem;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
-  }
-  .prize-layer-body {
-    font-size: 0.9375rem;
-    line-height: 1.65;
-    color: rgba(255,255,255,0.75);
-    margin: 0;
-  }
-
-  .prize-cta { text-align: center; }
-  .prize-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .prize-cta-arrow {
-    display: inline-block;
-    transition: transform 0.3s ease;
-  }
-  .prize-cta-btn:hover .prize-cta-arrow {
-    transform: translateX(5px);
-  }
-
-  @media (max-width: 1024px) {
-    .pain-grid { grid-template-columns: repeat(2, 1fr); }
-    .prize-figures { grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
-    .prize-layers { grid-template-columns: 1fr; gap: 1.5rem; }
-  }
-  @media (max-width: 640px) {
-    .pain-grid { grid-template-columns: 1fr; }
-    .prize-figures { grid-template-columns: 1fr; gap: 0.75rem; }
-    .pain-section, .prize-section { padding: 4rem 0; }
-  }
-</style>
-
-<script>
-/* Count-up animation for the prize figures.
-   Five figures count UP from 0 to target: 1 brain, 60% accuracy, 80% efficiency,
-   50% less rework, 100% grounded. Triggered when the figures block enters viewport.
-   Absolute £ figures retired 2026-05-11; capability-shape figures only. */
-(function() {
-  var figContainer = document.getElementById('prize-figures');
-  if (!figContainer) return;
-  var nums = figContainer.querySelectorAll('.prize-fig-num');
-  if (!nums.length) return;
-  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var DURATION = 1800;
-
-  function animateNum(el) {
-    var target = parseFloat(el.dataset.target);
-    var from = el.dataset.from ? parseFloat(el.dataset.from) : 0;
-    var prefix = el.dataset.prefix || '';
-    var suffix = el.dataset.suffix || '';
-
-    if (REDUCED) {
-      el.textContent = prefix + target + suffix;
-      return;
-    }
-
-    var startTs = null;
-    function step(ts) {
-      if (!startTs) startTs = ts;
-      var progress = Math.min((ts - startTs) / DURATION, 1);
-      var eased = 1 - Math.pow(1 - progress, 3); /* ease-out cubic */
-      var current = Math.round(from + (target - from) * eased);
-      el.textContent = prefix + current + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          nums.forEach(animateNum);
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.35 });
-    observer.observe(figContainer);
-  } else {
-    nums.forEach(animateNum);
-  }
-})();
-</script>
-<!-- (Who we help section retired 2026-04-25; archetype cards merged into #find-your-x canvas) -->
-
-
-<!-- (Commission shapes section retired 2026-04-25; superseded 2026-05-09 by #where-to-start three-card entry block) -->
-
-<!-- ===== INDUSTRY VOICE — GBRX pull-quote ===== -->
-<!-- ===== CREDIBILITY ===== -->
-<!-- (Trust bar retired 2026-04-28: redundant noise for problem-aware buyers) -->
-
-<!-- ===== SHARED DARK STACK · find-your-x + case-studies + bootcamp share ONE
-     particle canvas so the constellation + linking lines flow continuously
-     across all three sections, with no per-section canvas breaks. Wrapper
-     paints the navy-deep background once; each inner section is transparent
-     so the shared canvas shows through. ============================== -->
-<div class="dark-stack">
-  
-
-<!-- ===== FIND YOUR X — magnifier lens canvas ===== -->
-<section class="section" id="find-your-x">
+</div>
+<main>
+<!-- ===== WHAT WE OFFER · production-grade custom AI ===== -->
+<section class="pgcai-section" id="what-we-offer">
   <div class="container">
     <div class="text-center">
-      <div class="section-eyebrow sc-reveal">Find your X</div>
-      <h2 class="section-heading sc-reveal">We automate your <span class="heading-x">X</span>.</h2>
-      <p class="section-sub center sc-reveal">Your <span class="brand-x">X</span> is the error-prone, repetitive, and time-consuming friction in your workflow, often unique to your operational context and organisation type. Move the lens, hover any point to see how AutomateX resolves it. Click to pin.</p>
+      <div class="section-eyebrow sc-reveal">What we offer</div>
+      <h1 class="section-heading sc-reveal">Production-grade custom AI for rail teams.</h1>
+      <p class="section-sub center sc-reveal">Our spirit: custom builds that automate your friction points ("<span class="brand-x">X</span>"). Built by AutomateX&rsquo;s rail-native and AI-native engineering team, fitted to your delivery context, deployed with post-launch support and continuous service.</p>
     </div>
 
-    <div class="lens-wrap sc-reveal">
-      <div class="lens-panel" id="lens-panel">
-        <div class="lens-canvas" id="lens-canvas">
+    <div class="pgcai-pillars sc-reveal">
+      <div class="pgcai-card">
+        <div class="pgcai-num">01</div>
+        <h3 class="pgcai-title">Custom by design.</h3>
+        <p class="pgcai-body">No off-the-shelf SaaS. Every build is scoped to your operational context, your data, and the deliverables your team ships. Rail standards are baked in before any code is written.</p>
+      </div>
+      <div class="pgcai-card">
+        <div class="pgcai-num">02</div>
+        <h3 class="pgcai-title">Production-grade, not pilot.</h3>
+        <p class="pgcai-body">Validated against your retrospective work. Blind-evaluated against your assurance environment. Deployed inside the systems your team already uses. Every output is cited against its source. Model drift is re-evaluated on a cadence.</p>
+      </div>
+      <div class="pgcai-card">
+        <div class="pgcai-num">03</div>
+        <h3 class="pgcai-title">Lives in your workflow.</h3>
+        <p class="pgcai-body">Web-based and integrated with your existing CDE. Empowers the workflows your team already runs, wrapped tightly around your identified friction points ("<span class="brand-x">X</span>") to remove them at source.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <div class="lens-blurred" aria-hidden="true">
-            <span class="lp md" style="top:11%; left:8%;">Form A/B/C/G</span>
-            <span class="lp md" style="top:18%; left:26%;">AIP</span>
-            <span class="lp md" style="top:8%;  left:46%;">DRN</span>
-            <span class="lp md" style="top:19%; left:64%;">IDC/R</span>
-            <span class="lp md" style="top:9%;  left:84%;">HAZID</span>
-            <span class="lp md" style="top:31%; left:8%;">CR-T</span>
-            <span class="lp md" style="top:40%; left:24%;">NCR</span>
-            <span class="lp md" style="top:30%; left:42%;">ITP</span>
-            <span class="lp md" style="top:38%; left:62%;">Audit &amp; Compliance</span>
-            <span class="lp md" style="top:41%; left:84%;">EIS</span>
-            <span class="lp md" style="top:60%; left:8%;">V&amp;V Reqts</span>
-            <span class="lp md" style="top:56%; left:26%;">Clash Detection</span>
-            <span class="lp md" style="top:65%; left:46%;">Take-off</span>
-            <span class="lp md" style="top:55%; left:65%;">Interface Register</span>
-            <span class="lp md" style="top:64%; left:86%;">Tender Return</span>
-            <span class="lp md" style="top:80%; left:16%;">Compliance Matrix</span>
-            <span class="lp md" style="top:89%; left:38%;">Standards search</span>
-            <span class="lp md" style="top:81%; left:60%;">Lessons Learned</span>
-            <span class="lp md" style="top:87%; left:82%;">Programme Reporting</span>
+<style id="pgcai-styles-2026-06-07">
+.pgcai-section { background: transparent; padding: 4.5rem 0 3rem; position: relative; z-index: 1; }
+.pgcai-section .text-center { max-width: 1100px; margin: 0 auto 3rem; }
+.pgcai-section .section-heading { max-width: 880px; margin-left: auto; margin-right: auto; }
+.pgcai-section .section-eyebrow { color: var(--orange); }
+.pgcai-section .section-heading {
+  color: var(--white); font-family: var(--font-heading);
+  font-size: clamp(1.875rem, 3.5vw, 2.5rem); font-weight: 800;
+  line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem;
+}
+.pgcai-section .section-sub { color: rgba(255,255,255,0.72); font-size: 1.0625rem; line-height: 1.55; max-width: 1100px; margin-left: auto; margin-right: auto; }
+.pgcai-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.pgcai-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 1.75rem 1.5rem;
+  transition: border-color 200ms, transform 200ms;
+}
+.pgcai-card:hover { border-color: rgba(249,101,50,0.4); transform: translateY(-2px); }
+.pgcai-num { color: var(--orange); font-family: var(--font-heading); font-weight: 800; font-size: 0.875rem; letter-spacing: 0.04em; margin-bottom: 1rem; }
+.pgcai-title { color: var(--white); font-family: var(--font-heading); font-size: 1.125rem; font-weight: 700; margin: 0 0 0.625rem; letter-spacing: -0.01em; }
+.pgcai-body { color: rgba(255,255,255,0.72); font-size: 0.9375rem; line-height: 1.65; margin: 0; }
+@media (max-width: 880px) {
+  .pgcai-pillars { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- ===== CASE STUDIES ===== -->
+<section class="section ai-actions" id="case-studies">
+  <!-- Standalone particle host (no longer in the homepage .dark-stack). -->
+  
+  <!-- Particle background now shared at the dark-stack wrapper level
+       (one canvas across find-your-x + case-studies + bootcamp). -->
+
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow sc-reveal">AI in Action</div>
+      <h2 class="section-heading sc-reveal">Real-world AI delivering measurable results.</h2>
           </div>
 
-          <div class="lens-sharp" id="lens-sharp">
-            <button class="lp-btn md" data-key="form-a"              data-category="assurance" type="button" style="top:11%; left:8%;">Form A/B/C/G</button>
-            <button class="lp-btn md" data-key="aip"                 data-category="assurance" type="button" style="top:18%; left:26%;">AIP</button>
-            <button class="lp-btn md" data-key="drn"                 data-category="assurance" type="button" style="top:8%;  left:46%;">DRN</button>
-            <button class="lp-btn md" data-key="idcr"                data-category="assurance" type="button" style="top:19%; left:64%;">IDC/R</button>
-            <button class="lp-btn md" data-key="hazid"               data-category="assurance" type="button" style="top:9%;  left:84%;">HAZID</button>
-            <button class="lp-btn md" data-key="cr-t"                data-category="assurance" type="button" style="top:31%; left:8%;">CR-T</button>
-            <button class="lp-btn md" data-key="ncr"                 data-category="assurance" type="button" style="top:40%; left:24%;">NCR</button>
-            <button class="lp-btn md" data-key="itp"                 data-category="assurance" type="button" style="top:30%; left:42%;">ITP</button>
-            <button class="lp-btn md" data-key="audit-compliance"    data-category="assurance" type="button" style="top:38%; left:62%;">Audit &amp; Compliance</button>
-            <button class="lp-btn md" data-key="eis"                 data-category="assurance" type="button" style="top:41%; left:84%;">EIS</button>
-            <button class="lp-btn md" data-key="vandv"               data-category="assurance" type="button" style="top:60%; left:8%;">V&amp;V Reqts</button>
-            <button class="lp-btn md" data-key="clash-detection"     data-category="design"    type="button" style="top:56%; left:26%;">Clash Detection</button>
-            <button class="lp-btn md" data-key="take-off"            data-category="design"    type="button" style="top:65%; left:46%;">Take-off</button>
-            <button class="lp-btn md" data-key="interface"           data-category="design"    type="button" style="top:55%; left:65%;">Interface Register</button>
-            <button class="lp-btn md" data-key="tender-return"       data-category="tender"    type="button" style="top:64%; left:86%;">Tender Return</button>
-            <button class="lp-btn md" data-key="compliance-matrix"   data-category="tender"    type="button" style="top:80%; left:16%;">Compliance Matrix</button>
-            <button class="lp-btn md" data-key="standards-search"    data-category="knowledge" type="button" style="top:89%; left:38%;">Standards search</button>
-            <button class="lp-btn md" data-key="lessons-learned"     data-category="knowledge" type="button" style="top:81%; left:60%;">Lessons Learned</button>
-            <button class="lp-btn md" data-key="programme-reporting" data-category="controls"  type="button" style="top:87%; left:82%;">Programme Reporting</button>
-          </div>
-
-          <div class="lens-mag" id="lens-mag" aria-hidden="true">
-            <div class="lens-mag-ring"></div>
-            <img class="lens-mag-handle" src="images/Logo.png" alt=""/>
-          </div>
-
-          <!-- Friction-point detail card, lives inside the canvas. Hidden by
-               default. Hover a friction point to preview, click to pin,
-               click again or click empty canvas to unpin. -->
-          <div class="lens-card-detail" id="lens-card-detail" aria-live="polite" hidden>
-            <div class="lens-card-head">
-              <h3 class="lens-card-title" id="card-title"></h3>
-              <span class="lens-card-subtitle" id="card-subtitle"></span>
-            </div>
-            <p class="lens-card-pain" id="card-pain"></p>
-            <p class="lens-card-resolve" id="card-resolve"></p>
-          </div>
-        </div>
-
-        <!-- Mobile fallback: the magnifier lens is desktop-only; phones get a readable summary. -->
-        <div class="lens-mobile-note">
-          <p>We automate 19+ rail deliverables, including DRN, HAZID, NCR, ITP, take-offs and standards search. <a href="ai-in-action.html">See how we'd automate yours &rarr;</a></p>
-        </div>
-
-        <div class="lens-archetypes" aria-label="Filter friction points by organisation type">
-          <div class="archetype-eyebrow">Tailor for your context</div>
-          <button class="archetype-card" data-archetype="client" type="button">
-            <h4>Client Organisations</h4>
-            <p>Governance and assurance heavy bodies such as NR, ToCs.</p>
+    <div class="ai-carousel" id="ai-carousel">
+      <!-- LEFT PANEL: chips list -->
+      <div class="ai-chips-panel">
+        <div class="ai-chips" role="tablist" aria-label="Case studies">
+          <button type="button" class="ai-chip is-active" role="tab" data-index="0" aria-selected="true">
+            <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="ai-chip-label">AI-empowered survey processing</span>
           </button>
-          <button class="archetype-card" data-archetype="tier1" type="button">
-            <h4>Tier 1 / 2 Consultancies &amp; Contractors</h4>
-            <p>Engineering delivery and tender-winning across complex rail programmes.</p>
+          <button type="button" class="ai-chip" role="tab" data-index="1" aria-selected="false">
+            <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+            </svg>
+            <span class="ai-chip-label">AI-empowered drawing take-off</span>
           </button>
-          <button class="archetype-card" data-archetype="sme" type="button">
-            <h4>SMEs</h4>
-            <p>Specialist consultancies and owner-operators competing on capability, not headcount.</p>
+          <button type="button" class="ai-chip" role="tab" data-index="2" aria-selected="false">
+            <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+            <span class="ai-chip-label">AI-empowered design review &amp; verification</span>
+          </button>
+          <button type="button" class="ai-chip" role="tab" data-index="3" aria-selected="false">
+            <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+            <span class="ai-chip-label">Tender Knowledge Base</span>
+          </button>
+          <button type="button" class="ai-chip" role="tab" data-index="4" aria-selected="false">
+            <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <span class="ai-chip-label">Scribtive&trade;</span>
           </button>
         </div>
       </div>
 
+      <!-- RIGHT PANEL: cards stage -->
+      <div class="ai-cards-panel">
+        <div class="ai-cards-stage">
+
+          <!-- Card 1: AI-empowered survey processing -->
+          <article class="ai-card is-active" data-index="0" role="tabpanel">
+            <div class="ai-card-photo-wrap">
+              <img class="ai-card-photo" src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering">
+              <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Live</span></div>
+            </div>
+            <div class="ai-card-content">
+              <div class="ai-card-chip">01 &middot; AI-empowered survey processing</div>
+              <p class="ai-card-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p>
+              <div class="ai-card-figures">
+                <div class="ai-fig"><div class="ai-fig-num">7,650</div><div class="ai-fig-label">HD photos</div></div>
+                <div class="ai-fig"><div class="ai-fig-num">300+</div><div class="ai-fig-label">Survey flights</div></div>
+                <div class="ai-fig"><div class="ai-fig-num">0</div><div class="ai-fig-label">Closures</div></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: AI-empowered drawing take-off (whitelabeled) -->
+          <article class="ai-card" data-index="1" role="tabpanel">
+            <div class="ai-card-photo-wrap">
+              <img class="ai-card-photo" src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing">
+              <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Live</span></div>
+            </div>
+            <div class="ai-card-content">
+              <div class="ai-card-chip">02 &middot; AI-empowered drawing take-off</div>
+              <p class="ai-card-desc">Automated linear take-off from rail engineering drawings. AI extracts measurements with full audit trail. Hours not days, with cited evidence per line.</p>
+              <div class="ai-card-figures">
+                <div class="ai-fig"><div class="ai-fig-num">99<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Accuracy</div></div>
+                <div class="ai-fig"><div class="ai-fig-num">100<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Traceable</div></div>
+                <div class="ai-fig"><div class="ai-fig-num">80<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Time reduction</div></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: AI-empowered design review & verification (whitelabeled) -->
+          <article class="ai-card" data-index="2" role="tabpanel">
+            <div class="ai-card-photo-wrap">
+              <img class="ai-card-photo" src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages">
+              <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Live</span></div>
+            </div>
+            <div class="ai-card-content">
+              <div class="ai-card-chip">03 &middot; AI-empowered design review &amp; verification</div>
+              <p class="ai-card-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p>
+              <div class="ai-card-figures">
+                <div class="ai-fig"><div class="ai-fig-num">&pound;300<span style="font-size:0.7em;">k</span></div><div class="ai-fig-label">Potential annual saving</div></div>
+                <div class="ai-fig"><div class="ai-fig-num">5</div><div class="ai-fig-label">Stages traced</div></div>
+                <div class="ai-fig"><div class="ai-fig-num">0</div><div class="ai-fig-label">Broken links</div></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Tender Knowledge Base -->
+          <article class="ai-card" data-index="3" role="tabpanel">
+            <div class="ai-card-photo-wrap">
+              <img class="ai-card-photo" src="images/case-knowledge-graph.jpg" alt="Knowledge graph trained on rail standards, taxonomy, and project history">
+              <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Live</span></div>
+            </div>
+            <div class="ai-card-content">
+              <div class="ai-card-chip">04 &middot; Tender Knowledge Base</div>
+              <p class="ai-card-desc">A rail-specific knowledge graph trained on standards, taxonomy, and project history. Drove tender response quality and efficiency. Every output cited, grounded in your domain.</p>
+              <div class="ai-card-figures">
+                <div class="ai-fig"><div class="ai-fig-num">80<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Efficiency gain</div></div>
+                <div class="ai-fig"><div class="ai-fig-num">100<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Cited evidence</div></div>
+                <div class="ai-fig"><div class="ai-fig-num">100<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Grounded</div></div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: Scribtive -->
+          <article class="ai-card" data-index="4" role="tabpanel">
+            <div class="ai-card-photo-wrap">
+              <img class="ai-card-photo" src="images/case-scribtive.jpg" alt="Scribtive doc assistance UI for PACE-compliant rail forms">
+              <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Pilot</span></div>
+            </div>
+            <div class="ai-card-content">
+              <div class="ai-card-chip">05 &middot; Scribtive&trade;</div>
+              <p class="ai-card-desc">Doc assistance for PACE-compliant rail forms. Section-by-section drafting with cited evidence and compliance gates. Currently in pilot.</p>
+              <div class="ai-card-figures">
+                <div class="ai-fig"><div class="ai-fig-num">PACE</div><div class="ai-fig-label">Aligned</div></div>
+                <div class="ai-fig"><div class="ai-fig-num">RAG</div><div class="ai-fig-label">Knowledge enabled</div></div>
+                <div class="ai-fig"><div class="ai-fig-num">&infin;</div><div class="ai-fig-label">Audit trail</div></div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  #find-your-x {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background: var(--navy-deep);
+  /* ===== AI in Action carousel =====
+     Two-panel layout: chips on the left, card stack on the right.
+     Chips animate active/inactive states; cards transform with translate +
+     scale + rotate to create the "deck" effect (active in front, prev/next
+     faded behind). Auto-plays every 4s, pauses on hover, honours reduced
+     motion. Poster mode is default; photo mode swaps in by adding an <img>
+     before the .ai-poster inside .ai-card-bg. */
+
+  .ai-actions {
+    background: var(--navy-deep, #0D1117);
     position: relative;
     overflow: hidden;
+    color: var(--white);
   }
-  #find-your-x .container {
-    max-width: 1280px;
-    position: relative;
-    z-index: 1;
-  }
-  #find-your-x .section-sub.center {
-    max-width: 720px;
-    color: rgba(255,255,255,0.7);
-  }
-  #find-your-x .section-eyebrow { color: var(--orange); }
-  #find-your-x .section-heading { color: var(--white); }
-  #find-your-x .heading-x {
-    color: var(--orange);
-    font-weight: 900;
-    font-style: italic;
-    font-size: 1.1em;
-    letter-spacing: 0.01em;
-  }
+  .ai-actions .container { position: relative; z-index: 2; }
+  /* No top/bottom fade overlays — they were creating visible light bands.
+     The section now reads as solidly dark navy from edge to edge. */
+  /* Dark-section header text */
+  .ai-actions .section-heading { color: var(--white); }
+  .ai-actions .section-sub { color: rgba(255,255,255,0.72); }
+  .ai-actions .section-eyebrow { color: var(--orange); }
 
-  .lens-wrap { margin-top: 3rem; position: relative; z-index: 1; }
-  /* Lens panel is now frameless — blends directly into the dark page bg.
-     The soft framing visible to the visitor sits on .lens-canvas instead. */
-  .lens-panel {
+  /* (Atmospheric image-switch background retired 2026-05-10 — replaced by
+     standard hero-style particle background for visual consistency with
+     other dark sections.) */
+
+  /* New card layout: image on top, content panel below.
+     Image takes ~45% of card height, content fills the rest. */
+  .ai-card-photo-wrap {
     position: relative;
     width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    height: 480px;
-    background: transparent;
-    border-radius: 0;
-    overflow: visible;
-    box-shadow: none;
-  }
-  .lens-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 280px;
-    cursor: none;
-    /* Low-profile orange glow framing the floating friction examples.
-       Reads as a contained "discovery field" against the dark particle bg.
-       The magnifier lens floats in/out of it without its own border. */
-    background: rgba(249,101,50,0.018);
-    border: 1px solid rgba(249,101,50,0.22);
-    border-radius: 18px;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
-    box-shadow: 0 0 32px rgba(249,101,50,0.12),
-                inset 0 0 60px rgba(249,101,50,0.05);
+    background: var(--navy-deep);
+    flex-shrink: 0;
   }
-
-  .lens-archetypes {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 280px;
-    padding: 1.5rem 1rem;
-    box-sizing: border-box;
+  .ai-card-content {
+    flex: 1;
+    padding: 1.125rem 1.25rem 1.25rem;
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
-    z-index: 4;
+    background: var(--white);
+    min-height: 0;
   }
-  .archetype-eyebrow {
+  .ai-card-content .ai-card-chip {
+    align-self: flex-start;
+    background: var(--orange);
+    color: var(--white);
+    padding: 0.3125rem 0.75rem;
+    border-radius: 100px;
     font-family: var(--font-heading);
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--orange);
-    margin-bottom: 0.375rem;
+    letter-spacing: 0.12em;
+    margin: 0;
+    box-shadow: none;
   }
-  .archetype-card {
-    background: hsla(0, 0%, 100%, 0.04);
-    border: 1px solid hsla(0, 0%, 100%, 0.1);
-    border-radius: 12px;
-    padding: 0.875rem 1rem;
-    text-align: left;
-    cursor: pointer;
-    transition: border-color 0.2s ease, background 0.2s ease;
-    font-family: var(--font-heading);
-    color: inherit;
-    /* Three cards share the canvas height equally — vertically aligned to
-       match the lens panel. justify-content: center keeps copy visually
-       balanced inside each tall card. */
-    flex: 1 1 0;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .archetype-card:hover {
-    border-color: rgba(249,101,50,0.4);
-    background: hsla(0, 0%, 100%, 0.07);
-  }
-  .archetype-card.is-active {
-    border-color: var(--orange);
-    background: rgba(249,101,50,0.12);
-  }
-  .archetype-card h4 {
-    font-family: var(--font-heading);
-    font-size: 0.9375rem;
-    font-weight: 800;
-    color: var(--white);
-    margin: 0 0 0.375rem 0;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-  }
-  .archetype-card p {
+  .ai-card-content .ai-card-desc {
+    font-family: var(--font-body);
     font-size: 0.8125rem;
-    line-height: 1.45;
-    color: rgba(255,255,255,0.6);
+    line-height: 1.55;
+    color: var(--gray-700);
     margin: 0;
-    font-family: var(--font-body, var(--font-heading));
-    font-weight: 400;
+    font-weight: 500;
   }
-  .archetype-card.is-active p {
-    color: rgba(255,255,255,0.85);
+  .ai-card-figures {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--gray-200);
   }
-
-  /* Friction points hidden when an archetype filter is active */
-  .lens-blurred .lp.is-archetype-hidden,
-  .lens-sharp .lp-btn.is-archetype-hidden {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.45s ease;
-  }
-  .lens-canvas::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 85%);
-    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 85%);
-    pointer-events: none;
-  }
-
-  .lens-blurred, .lens-sharp {
-    position: absolute;
-    inset: 0;
-  }
-  .lens-blurred {
-    filter: blur(2.5px);
-    opacity: 0.7;
-    pointer-events: none;
-    z-index: 1;
-  }
-  .lens-sharp {
-    z-index: 2;
-  }
-  .lens-blurred .lp,
-  .lens-sharp .lp-btn {
-    position: absolute;
+  .ai-fig { text-align: center; }
+  .ai-fig-num {
     font-family: var(--font-heading);
+    font-weight: 800;
     font-size: 1rem;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 1.2;
-    letter-spacing: 0.005em;
-    white-space: nowrap;
-    translate: -50% -50%;
-    scale: 1;
-    transition: scale 0.25s ease, color 0.2s ease, text-shadow 0.2s ease;
-    will-change: translate, scale;
-  }
-  .lens-blurred .lp {
-    color: rgba(255,255,255,0.75);
-  }
-
-  .lens-sharp .lp-btn {
-    background: transparent;
-    border: 0;
-    padding: 0.25rem 0.5rem;
-    margin: 0;
-    cursor: none;
-    color: rgba(255,255,255,0.95);
-  }
-  .lens-sharp .lp-btn.is-active {
     color: var(--orange);
-    text-shadow: 0 0 10px rgba(249,101,50,0.35);
+    line-height: 1;
+    letter-spacing: -0.02em;
   }
-
-  /* Slow random wiggle: 4 keyframe variants applied via nth-child so neighbours move out of phase */
-  .lens-blurred .lp:nth-child(4n+1),
-  .lens-sharp .lp-btn:nth-child(4n+1) { animation: phraseWiggleA 12s ease-in-out infinite; }
-  .lens-blurred .lp:nth-child(4n+2),
-  .lens-sharp .lp-btn:nth-child(4n+2) { animation: phraseWiggleB 14s ease-in-out infinite -2.4s; }
-  .lens-blurred .lp:nth-child(4n+3),
-  .lens-sharp .lp-btn:nth-child(4n+3) { animation: phraseWiggleC 11s ease-in-out infinite -4.8s; }
-  .lens-blurred .lp:nth-child(4n+4),
-  .lens-sharp .lp-btn:nth-child(4n+4) { animation: phraseWiggleD 13s ease-in-out infinite -6.2s; }
-
-  @keyframes phraseWiggleA {
-    0%, 100% { translate: -50% -50%; }
-    33%      { translate: calc(-50% + 9px) calc(-50% - 5px); }
-    66%      { translate: calc(-50% - 7px) calc(-50% + 8px); }
-  }
-  @keyframes phraseWiggleB {
-    0%, 100% { translate: -50% -50%; }
-    25%      { translate: calc(-50% - 8px) calc(-50% - 7px); }
-    50%      { translate: calc(-50% + 10px) calc(-50% + 5px); }
-    75%      { translate: calc(-50% + 4px) calc(-50% - 9px); }
-  }
-  @keyframes phraseWiggleC {
-    0%, 100% { translate: -50% -50%; }
-    50%      { translate: calc(-50% + 8px) calc(-50% + 10px); }
-  }
-  @keyframes phraseWiggleD {
-    0%, 100% { translate: -50% -50%; }
-    20%      { translate: calc(-50% + 7px) calc(-50% + 9px); }
-    60%      { translate: calc(-50% - 9px) calc(-50% - 6px); }
-  }
-
-  /* When the lens is over a phrase: pause its wiggle and enlarge it */
-  .lens-blurred .lp.is-focus,
-  .lens-sharp .lp-btn.is-focus {
-    animation-play-state: paused;
-    scale: 1.18;
-    z-index: 5;
-  }
-  .lens-sharp .lp-btn.is-focus {
-    color: var(--orange);
-    text-shadow: 0 0 14px rgba(249,101,50,0.5);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .lens-blurred .lp,
-    .lens-sharp .lp-btn { animation: none; }
-  }
-
-  .lens-mag {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    transform: translate(-50%, -50%);
-    color: var(--orange);
-    pointer-events: none;
-    z-index: 3;
-    filter: drop-shadow(0 0 14px rgba(249,101,50,0.28));
-    transition: opacity 0.3s ease;
-  }
-  .lens-mag-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60%;
-    aspect-ratio: 1;
-    transform: translate(-50%, -50%);
-    border: 2.5px solid var(--orange);
-    border-radius: 50%;
-    box-sizing: border-box;
-  }
-  .lens-mag-handle {
-    position: absolute;
-    top: 67%;
-    left: 67%;
-    width: 28%;
-    height: auto;
-    user-select: none;
-    pointer-events: none;
-    -webkit-user-drag: none;
-    z-index: 2;
-  }
-  .lens-mag.is-capturing {
-    animation: lensCapture 0.45s ease-out;
-  }
-  @keyframes lensCapture {
-    0%   { transform: translate(-50%, -50%) scale(1); }
-    50%  { transform: translate(-50%, -50%) scale(1.15); }
-    100% { transform: translate(-50%, -50%) scale(1); }
-  }
-
-  /* Card slot below the panel. Fixed min-height covers the tallest possible
-     card content (Form A/B/C/G with the long Scribtive walk-through), so
-     the section height stays stable when a friction point is clicked.
-     Only the card text inside the slot changes; the layout below doesn't
-     reflow and there's no flash of the next section's bg at the bottom. */
-  /* Detail card sits inside the canvas as a bottom-aligned overlay.
-     Default state: hidden entirely. Slides up + fades in on hover or pin. */
-  .lens-card-detail {
-    position: absolute;
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
-    z-index: 30;
-    box-sizing: border-box;
-    padding: 1rem 1.25rem 1.125rem 1.5rem;
-    background: rgba(13, 17, 23, 0.78);
-    backdrop-filter: blur(12px) saturate(1.1);
-    -webkit-backdrop-filter: blur(12px) saturate(1.1);
-    border: 1px solid rgba(249, 101, 50, 0.32);
-    border-left: 4px solid var(--orange);
-    border-radius: 12px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
-    opacity: 0;
-    transform: translateY(12px);
-    pointer-events: none;
-    transition: opacity 0.28s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-  }
-  .lens-card-detail[hidden] { display: none; }
-  .lens-card-detail.is-active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .lens-card-pin {
+  .ai-fig-label {
     font-family: var(--font-heading);
     font-size: 0.5625rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--orange);
-    padding: 0.1875rem 0.5rem;
-    background: rgba(249, 101, 50, 0.12);
-    border: 1px solid rgba(249, 101, 50, 0.35);
-    border-radius: 100px;
-  }
-  .lens-card-head {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    margin-bottom: 0.5rem;
-    flex-wrap: wrap;
-  }
-  .lens-card-title {
-    font-family: var(--font-heading);
-    font-size: 1.125rem;
-    font-weight: 800;
-    color: var(--white);
-    letter-spacing: -0.01em;
-    margin: 0;
-  }
-  .lens-card-subtitle {
-    font-family: var(--font-heading);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: rgba(255,255,255,0.5);
-  }
-  .lens-card-pain,
-  .lens-card-resolve {
-    font-size: 0.8125rem;
-    line-height: 1.55;
-    font-weight: 400;
-    color: rgba(255,255,255,0.78);
-    margin: 0;
-  }
-  .lens-card-pain {
-    margin-bottom: 0.4375rem;
-  }
-  .lens-card-resolve {
-    padding-left: 0.75rem;
-    border-left: 2px solid var(--orange);
-    color: rgba(255,255,255,0.88);
+    letter-spacing: 0.06em;
+    color: var(--gray-500);
+    margin-top: 0.3125rem;
+    line-height: 1.2;
   }
 
-  @media (max-width: 760px) {
-    .lens-panel { height: 760px; }
-    .lens-canvas { right: 0; bottom: 240px; }
-    .lens-archetypes {
-      top: auto;
-      bottom: 0;
-      width: 100%;
-      height: 240px;
+  .ai-carousel {
+    margin-top: 3rem;
+    border-radius: 28px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(280px, 38%) 1fr;
+    min-height: 580px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: transparent;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  }
+
+  /* LEFT panel: orange chip stage with vertical fade at top + bottom */
+  .ai-chips-panel {
+    background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .ai-chips-panel::before,
+  .ai-chips-panel::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 60px;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .ai-chips-panel::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(237, 74, 59, 0.65), transparent);
+  }
+  .ai-chips-panel::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(237, 74, 59, 0.65), transparent);
+  }
+
+  .ai-chips {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+  .ai-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem 1.25rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 100px;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    transition:
+      background 500ms cubic-bezier(0.34, 1.4, 0.64, 1),
+      color 500ms ease,
+      border-color 500ms ease,
+      transform 500ms cubic-bezier(0.34, 1.4, 0.64, 1),
+      box-shadow 500ms ease;
+  }
+  .ai-chip:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.32);
+    color: rgba(255, 255, 255, 0.95);
+  }
+  .ai-chip.is-active {
+    background: var(--white);
+    border-color: var(--white);
+    color: var(--orange);
+    font-weight: 700;
+    transform: translateX(8px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+  }
+  .ai-chip-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: color 500ms ease;
+  }
+  .ai-chip.is-active .ai-chip-icon { color: var(--orange); }
+  .ai-chip-label { flex: 1; line-height: 1.25; }
+
+  /* RIGHT panel: card stage (deck of cards, only active fully visible) */
+  .ai-cards-panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    overflow: hidden;
+    background: transparent;
+  }
+  .ai-cards-stage {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 4 / 5;
+  }
+
+  .ai-card {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 6px solid var(--white);
+    background: var(--white);
+    box-shadow: 0 24px 56px rgba(26, 31, 54, 0.20);
+    transform: translateX(0) scale(0.7) rotate(0);
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    transition:
+      transform 700ms cubic-bezier(0.34, 1.4, 0.64, 1),
+      opacity 600ms ease;
+  }
+  .ai-card-photo-wrap { position: relative; }
+  .ai-card.is-active {
+    transform: translateX(0) scale(1) rotate(0);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 20;
+  }
+  .ai-card.is-prev {
+    transform: translateX(-90px) scale(0.85) rotate(-3deg);
+    opacity: 0.45;
+    z-index: 10;
+  }
+  .ai-card.is-next {
+    transform: translateX(90px) scale(0.85) rotate(3deg);
+    opacity: 0.45;
+    z-index: 10;
+  }
+
+  /* Card background: poster mode by default. Photo mode = an <img> sitting
+     on top via z-index. */
+  .ai-card-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background:
+      radial-gradient(circle at 25% 25%, rgba(249, 101, 50, 0.28) 0%, transparent 55%),
+      radial-gradient(circle at 75% 80%, rgba(249, 101, 50, 0.16) 0%, transparent 50%),
+      var(--navy-deep);
+  }
+  .ai-card-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 5;
+  }
+
+  /* Poster typography */
+  .ai-poster {
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+  }
+  .ai-poster-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--orange);
+    margin-bottom: 1.5rem;
+  }
+  .ai-poster-metric {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.04em;
+  }
+  .ai-poster-num {
+    font-size: clamp(4.5rem, 11vw, 7rem);
+  }
+  .ai-poster-unit {
+    font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+    color: var(--orange);
+    font-weight: 800;
+  }
+  .ai-poster-label {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+    max-width: 240px;
+    margin: 0 auto;
+    line-height: 1.4;
+  }
+
+  /* Live-case badge: top-left of active card */
+  .ai-card-live {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4375rem;
+    padding: 0.3125rem 0.6875rem;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 100px;
+    z-index: 10;
+    font-family: var(--font-heading);
+    font-size: 0.5625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: rgba(255, 255, 255, 0.95);
+  }
+  .ai-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    box-shadow: 0 0 10px rgba(249, 101, 50, 0.7);
+    animation: aiPulse 1.6s ease-in-out infinite;
+  }
+  @keyframes aiPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(1.35); }
+  }
+
+  /* Bottom overlay: chip + description */
+  .ai-card-overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 2rem 1.5rem 1.5rem;
+    background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.40) 60%,
+      transparent 100%);
+    z-index: 10;
+  }
+  .ai-card-chip {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    background: var(--white);
+    color: var(--navy);
+    border-radius: 100px;
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.875rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  }
+  .ai-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--white);
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  /* Mobile: stack chips above card. Chips become a horizontal scroll row. */
+  @media (max-width: 768px) {
+    .ai-carousel {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      min-height: auto;
+    }
+    .ai-chips-panel {
+      padding: 1.75rem 1.25rem;
+    }
+    .ai-chips-panel::before,
+    .ai-chips-panel::after { display: none; }
+    .ai-chips {
       flex-direction: row;
       overflow-x: auto;
       gap: 0.625rem;
-      padding: 0.875rem;
-      border-top: 1px solid hsla(0,0%,100%,0.06);
+      padding-bottom: 0.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.3) transparent;
     }
-    .archetype-eyebrow { display: none; }
-    .archetype-card { flex: 0 0 220px; }
-    .lens-card-detail { left: 0.5rem; right: 0.5rem; bottom: 0.5rem; padding: 0.875rem 1rem; }
-    .lens-card { padding: 1.25rem 1.5rem; }
-    .lens-card-title { font-size: 1.375rem; }
-    .lens-blurred .lp, .lens-sharp .lp-btn { font-size: 0.875rem; }
-    .lens-mag { width: 160px; height: 160px; }
+    .ai-chip {
+      flex-shrink: 0;
+      width: auto;
+      padding: 0.625rem 1rem;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+    .ai-chip.is-active {
+      transform: scale(1.04);
+    }
+    .ai-cards-panel { padding: 2.5rem 1.5rem 3rem; }
+    .ai-card.is-prev { transform: translateX(-50px) scale(0.85) rotate(-3deg); }
+    .ai-card.is-next { transform: translateX(50px) scale(0.85) rotate(3deg); }
   }
-  /* The scattered magnifier canvas is unreadable on phones; swap it for a
-     static summary and stacked archetype cards. The deliverable entry strip
-     under the hero carries the tappable per-deliverable routing on mobile. */
-  .lens-mobile-note { display: none; }
-  @media (max-width: 560px) {
-    .lens-canvas { display: none; }
-    .lens-panel { height: auto; min-height: 0; }
-    .lens-mobile-note { display: block; }
-    .lens-mobile-note p {
-      color: rgba(255,255,255,0.82);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      text-align: center;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-    .lens-mobile-note a { color: var(--orange); font-weight: 600; text-decoration: none; white-space: nowrap; }
-    .lens-archetypes {
-      position: static;
-      width: 100%;
-      height: auto;
-      flex-direction: column;
-      overflow: visible;
-      gap: 0.625rem;
-      padding: 0;
-      margin-top: 1.75rem;
-      border-top: 0;
-    }
-    .archetype-card { flex: none; width: 100%; }
-  }
+
   @media (prefers-reduced-motion: reduce) {
-    .lens-mag { opacity: 0.75; }
-    .lens-card.is-active { animation: none; opacity: 1; transform: translateX(0); }
+    .ai-card,
+    .ai-chip,
+    .ai-chip-icon { transition: none; }
+    .ai-dot { animation: none; }
   }
 </style>
 
 <script>
-(function(){
-  var panel = document.getElementById('lens-panel');
-  if (!panel) return;
-  var canvas = document.getElementById('lens-canvas');
-  var sharp = document.getElementById('lens-sharp');
-  var mag = document.getElementById('lens-mag');
-  var cardDetail = document.getElementById('lens-card-detail');
-  var cardTitle = document.getElementById('card-title');
-  var cardSubtitle = document.getElementById('card-subtitle');
-  var cardPain = document.getElementById('card-pain');
-  var cardResolve = document.getElementById('card-resolve');
-  if (!canvas || !sharp || !mag) return;
+/* AI in Action carousel controller. State is just an active index;
+   chips and cards reflect it via .is-active / .is-prev / .is-next classes.
+   Auto-advances every 4s, pauses on hover, restarts on click. */
+(function() {
+  var carousel = document.getElementById('ai-carousel');
+  if (!carousel) return;
+  var chips = carousel.querySelectorAll('.ai-chip');
+  var cards = carousel.querySelectorAll('.ai-card');
+  if (!chips.length || !cards.length) return;
+  var N = chips.length;
+  var activeIndex = 0;
+  var autoplayTimer = null;
+  var AUTOPLAY_MS = 4000;
+  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var FRICTION = {
-    'form-a':              { title: 'Form A/B/C/G',         subtitle: 'NR engineering assurance forms',           pain: 'Each form has its own structure, evidence base, and reviewer expectations. Senior engineer hours absorbed by formatting, citation chasing, and version drift.',                                  resolve: "AutomateX's Scribtive walks through the draft of each form from your PACE deliverables with continuous Human-In-The-Loop, with structure and clause references aligned to the relevant reviewer checklist to significantly reduce drafting time and improve approval rate." },
-    'aip':                 { title: 'AIP / Form B',         subtitle: 'Approval In Principle',                    pain: 'Discipline leads ping-pong the same draft through three review rounds before submission.',                                                                                                resolve: "Pre-submission compliance check against the AIP reviewer's checklist before it ever hits their desk." },
-    'cr-t':                { title: 'CR-T',                 subtitle: 'Contract Requirement Technical',           pain: 'The technical requirement document on every rail project. Drafted, tracked, and reconciled by hand across hundreds of clauses. Status drifts as design evolves.',                          resolve: 'AutomateX drafts and tracks the CR-T against the source brief, keeping requirement status current as design evolves.' },
-    'drn':                 { title: 'DRN & CAT 3 Comments', subtitle: 'Design Review Notice',                     pain: 'Opinion-driven, preference-based comments at B01 review. Signature chasing across reviewers. Commercial rabbit holes when comment closure goes sideways.',                              resolve: 'AutomateX classifies comments by type and reviewer, drafts responses tied to clauses, and tracks closure to keep the commercial conversation off the design.' },
-    'hazid':               { title: 'HAZID',                subtitle: 'Hazard Identification Workshop Record',    pain: 'Workshop outputs live in spreadsheets that never sync to the project hazard log.',                                                                                                         resolve: 'Workshop transcription and structuring directly into a CSM-RA compliant hazard log with full traceability.' },
-    'idcr':                { title: 'IDC/R',                subtitle: 'Interdisciplinary Check / Review',         pain: 'The key P01 coordination stage. Comments arrive from each discipline in different formats. Closing them out to drive design from P01 to B01 is the choke point.',                         resolve: 'AutomateX captures IDC/R comments, structures them into the design issue log, and produces the IDC/R certification with full traceability.' },
-    'ncr':                 { title: 'NCR',                  subtitle: 'Non-Conformance Report',                   pain: 'Site issues land in WhatsApp groups and lose the chain back to the design assumption that was breached.',                                                                                  resolve: 'NCR routing with auto-classification and links to applicable design decisions and standards.' },
-    'itp':                 { title: 'ITP',                  subtitle: 'Inspection and Test Plan',                 pain: 'Generic templates cobbled together from prior projects. Inspection points missed during execution.',                                                                                       resolve: 'ITP authoring tied to specific design deliverables, with inspection scheduling and evidence capture.' },
-    'eis':                 { title: 'EIS',                  subtitle: 'Enter Into Service',                       pain: 'Forms and large volumes of H&S files mapped and logged into legacy systems like NRG. Manual data entry under deadline pressure.',                                                       resolve: 'AutomateX assembles the EIS pack, completes the forms, and pushes records into NRG and equivalent legacy systems.' },
-    'vandv':               { title: 'V&V Requirement Management', subtitle: 'Verification and Validation traceability', pain: 'Mapping requirements through the V&V cycle by hand. The golden thread breaks when designs change. Auditors find the gaps before you do.',                                          resolve: 'AutomateX builds and maintains the requirement traceability, the golden thread from requirement to verification artefact, demonstrating each requirement is met across the V&V cycle.' },
-    'take-off':            { title: 'Take-off',             subtitle: 'Quantity extraction from drawings',        pain: 'Two days of measuring drawings for a tender, and the BoQ goes wrong anyway.',                                                                                                              resolve: 'Automated take-off from PDF and CAD drawings with line-by-line audit and human review.' },
-    'interface':           { title: 'Interface Register',   subtitle: 'Cross-discipline interface management',    pain: "Lives in someone's head. Junior engineers don't know what they don't know.",                                                                                                               resolve: 'Interface scanning across discipline drawings with proposed register entries flagged for review.' },
-    'tender-return':       { title: 'Tender Return',        subtitle: 'Bid response document assembly',           pain: 'Bid manager and discipline leads reinvent the wheel every submission. Win themes and past evidence scattered across project folders. Late nights to assemble.',                            resolve: 'AutomateX drafts the tender return from your win library, evidence base, and the RFP requirements, ready for bid manager polish.' },
-    'compliance-matrix':   { title: 'Compliance Matrix',    subtitle: 'RFP requirement coverage',                 pain: "Late-night spreadsheet work to prove you've answered every requirement.",                                                                                                                  resolve: 'Auto-generated compliance matrix with evidence traceability to your draft response.' },
-    'standards-search':    { title: 'Standards search',     subtitle: 'NR/L2 \u00b7 NR/L3 \u00b7 RSSB \u00b7 CSM',pain: 'Nine thousand standards across the railway. The right clause is in there somewhere.',                                                                                                      resolve: 'Natural-language standards retrieval with clause-level citation across NR, RSSB, CSM-RA, BS, EN.' },
-    'lessons-learned':     { title: 'Lessons Learned',      subtitle: 'Project knowledge capture',                pain: 'Captured at project end, never read again. Same mistakes on the next scheme.',                                                                                                             resolve: 'Active lessons surfaced into project workflows when relevant, not buried in SharePoint.' },
-    'programme-reporting': { title: 'Programme Reporting',  subtitle: 'Status / progress dashboards',             pain: 'PMs spend half their week assembling status reports.',                                                                                                                                     resolve: 'Live programme dashboards from your existing schedule and ERP, no manual rekeying.' },
-    'clash-detection':     { title: 'Clash Detection',      subtitle: 'Final coordination check across deliverables', pain: 'Before every submission, design changes need to be reconciled across drawings, specs, and BIM. Hours spent verifying every change carried through. Easy to miss a deviation that propagates downstream.', resolve: 'AutomateX runs the final clash check across all deliverables and files, surfacing inconsistencies before submission. Peace of mind that the package is internally consistent.' },
-    'audit-compliance':    { title: 'Audit & Compliance',   subtitle: 'RISQS, ISO, framework audits, regulator queries', pain: 'RISQS audits, ISO compliance reviews, framework audits, regulator queries. Each one a multi-week scramble through SharePoint to reassemble evidence the business already has.',          resolve: 'AutomateX makes your company knowledge query-ready. Audit and compliance questions answered with traceable evidence in minutes, not weeks.' }
-  };
-
-  var buttons = sharp.querySelectorAll('.lp-btn');
-  var blurredItems = panel.querySelectorAll('.lens-blurred .lp');
-
-  // Archetype filtering: each archetype shows a curated subset of friction points
-  var archetypeCards = panel.querySelectorAll('.archetype-card');
-  var ARCHETYPE_MAP = {
-    'client': ['cr-t', 'vandv', 'eis', 'audit-compliance', 'standards-search', 'drn', 'hazid', 'idcr', 'ncr', 'programme-reporting', 'lessons-learned'],
-    'tier1':  ['form-a', 'aip', 'tender-return', 'compliance-matrix', 'idcr', 'take-off', 'itp', 'interface', 'drn', 'clash-detection', 'audit-compliance', 'programme-reporting', 'hazid'],
-    'sme':    ['form-a', 'audit-compliance', 'standards-search', 'lessons-learned', 'take-off', 'ncr', 'itp', 'interface', 'hazid', 'drn', 'programme-reporting', 'clash-detection']
-  };
-  var activeArchetype = null;
-
-  function applyArchetypeFilter() {
-    var allowed = activeArchetype ? ARCHETYPE_MAP[activeArchetype] : null;
-    for (var i = 0; i < buttons.length; i++) {
-      var btn = buttons[i];
-      var key = btn.dataset.key;
-      var hidden = !!(allowed && allowed.indexOf(key) === -1);
-      btn.classList.toggle('is-archetype-hidden', hidden);
-      if (blurredItems[i]) blurredItems[i].classList.toggle('is-archetype-hidden', hidden);
-    }
+  function setActive(index) {
+    activeIndex = ((index % N) + N) % N;
+    chips.forEach(function(chip, i) {
+      var isActive = i === activeIndex;
+      chip.classList.toggle('is-active', isActive);
+      chip.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+    cards.forEach(function(card, i) {
+      card.classList.remove('is-active', 'is-prev', 'is-next');
+      var diff = i - activeIndex;
+      if (diff > N / 2) diff -= N;
+      if (diff < -N / 2) diff += N;
+      if (diff === 0) card.classList.add('is-active');
+      else if (diff === -1) card.classList.add('is-prev');
+      else if (diff === 1) card.classList.add('is-next');
+    });
   }
 
-  for (var ai = 0; ai < archetypeCards.length; ai++) {
-    (function(card){
-      card.addEventListener('click', function(){
-        var key = card.dataset.archetype;
-        if (activeArchetype === key) {
-          // Toggle off
-          activeArchetype = null;
-          card.classList.remove('is-active');
-        } else {
-          // Activate this card, clear others
-          for (var j = 0; j < archetypeCards.length; j++) archetypeCards[j].classList.remove('is-active');
-          card.classList.add('is-active');
-          activeArchetype = key;
-        }
-        applyArchetypeFilter();
-      });
-    })(archetypeCards[ai]);
+  function startAutoplay() {
+    if (REDUCED) return;
+    stopAutoplay();
+    autoplayTimer = setInterval(function() { setActive(activeIndex + 1); }, AUTOPLAY_MS);
+  }
+  function stopAutoplay() {
+    if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+  }
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
   }
 
-  var mouseInside = false;
-  var mouseX = 50, mouseY = 50;
-  var autoX = 25, autoY = 35;
-  var autoVX = 0.225, autoVY = 0.14;
-  var lastFrame = null;
-  var REDUCED = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-
-  function posPct(e) {
-    var r = canvas.getBoundingClientRect();
-    return {
-      x: Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100)),
-      y: Math.max(0, Math.min(100, ((e.clientY - r.top) / r.height) * 100))
-    };
-  }
-
-  canvas.addEventListener('mouseenter', function(e){
-    mouseInside = true;
-    var p = posPct(e);
-    mouseX = p.x; mouseY = p.y;
-  });
-  canvas.addEventListener('mouseleave', function(){
-    mouseInside = false;
-  });
-  canvas.addEventListener('mousemove', function(e){
-    var p = posPct(e);
-    mouseX = p.x; mouseY = p.y;
-    mouseInside = true;
-  });
-
-  function getLensRadiusPx() {
-    var rect = canvas.getBoundingClientRect();
-    return rect.width < 760 ? 48 : 54;
-  }
-
-  function tick(now){
-    if (lastFrame === null) lastFrame = now;
-    var dt = (now - lastFrame) / 16.67;
-    lastFrame = now;
-
-    var x, y;
-    if (mouseInside) {
-      x = mouseX; y = mouseY;
-    } else if (!REDUCED) {
-      autoX += autoVX * dt;
-      autoY += autoVY * dt;
-      if (autoX < 10 || autoX > 90) autoVX *= -1;
-      if (autoY < 12 || autoY > 85) autoVY *= -1;
-      autoX = Math.max(8, Math.min(92, autoX));
-      autoY = Math.max(10, Math.min(88, autoY));
-      x = autoX; y = autoY;
-    } else {
-      x = autoX; y = autoY;
-    }
-
-    mag.style.left = x + '%';
-    mag.style.top = y + '%';
-    var r = getLensRadiusPx();
-    sharp.style.clipPath = 'circle(' + r + 'px at ' + x + '% ' + y + '%)';
-    sharp.style.webkitClipPath = 'circle(' + r + 'px at ' + x + '% ' + y + '%)';
-
-    var canvasRect = canvas.getBoundingClientRect();
-    var xpx = (x / 100) * canvasRect.width;
-    var ypx = (y / 100) * canvasRect.height;
-    var thresholdSq = Math.pow(r + 8, 2);
-    for (var i = 0; i < buttons.length; i++) {
-      var btn = buttons[i];
-      var bx = (parseFloat(btn.style.left) / 100) * canvasRect.width;
-      var by = (parseFloat(btn.style.top) / 100) * canvasRect.height;
-      var dx = xpx - bx;
-      var dy = ypx - by;
-      var inFocus = (dx * dx + dy * dy) < thresholdSq;
-      btn.classList.toggle('is-focus', inFocus);
-      if (blurredItems[i]) blurredItems[i].classList.toggle('is-focus', inFocus);
-    }
-
-    requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-
-  /* Card behaviour:
-       - Default state: card hidden entirely.
-       - Hover a friction point: card slides in with that point's content (preview).
-       - Mouse leaves the point: card slides out (unless something is pinned).
-       - Click a friction point: pins that point. Card stays.
-       - Click the same pinned point again: unpins, card slides out.
-       - Click a different point while one is pinned: pin moves to the new one.
-       - Click empty canvas: unpins.
-     A pinned point keeps its "is-active" class so it stays highlighted. */
-
-  var pinnedKey = null;
-
-  function fillCard(data) {
-    cardTitle.textContent = data.title;
-    cardSubtitle.textContent = data.subtitle;
-    cardPain.textContent = data.pain;
-    cardResolve.textContent = data.resolve;
-  }
-  function showCard(data, pinned) {
-    fillCard(data);
-    cardDetail.hidden = false;
-    /* Force reflow then add is-active for the slide-in transition. */
-    void cardDetail.offsetWidth;
-    cardDetail.classList.add('is-active');
-  }
-  function hideCard() {
-    cardDetail.classList.remove('is-active');
-    /* Wait for transition to finish before fully hiding. */
-    setTimeout(function() {
-      if (!cardDetail.classList.contains('is-active')) cardDetail.hidden = true;
-    }, 280);
-  }
-  function unpinAll() {
-    pinnedKey = null;
-    for (var j = 0; j < buttons.length; j++) buttons[j].classList.remove('is-active');
-  }
-
-  for (var i = 0; i < buttons.length; i++) {
-    (function(btn){
-      var key = btn.dataset.key;
-      var data = FRICTION[key];
-      if (!data) return;
-
-      btn.addEventListener('mouseenter', function(){
-        if (pinnedKey) return; /* pinned content takes priority */
-        showCard(data, false);
-      });
-      btn.addEventListener('mouseleave', function(){
-        if (pinnedKey) return; /* keep pinned card visible */
-        hideCard();
-      });
-      btn.addEventListener('focus', function(){
-        if (pinnedKey) return;
-        showCard(data, false);
-      });
-      btn.addEventListener('blur', function(){
-        if (pinnedKey) return;
-        hideCard();
-      });
-
-      btn.addEventListener('click', function(e){
-        e.stopPropagation();
-        if (pinnedKey === key) {
-          /* Toggle off the existing pin */
-          unpinAll();
-          hideCard();
-        } else {
-          /* Pin this one (replaces any previous pin) */
-          unpinAll();
-          pinnedKey = key;
-          btn.classList.add('is-active');
-          showCard(data, true);
-          mag.classList.remove('is-capturing');
-          void mag.offsetWidth;
-          mag.classList.add('is-capturing');
-        }
-      });
-    })(buttons[i]);
-  }
-
-  /* Click on canvas blank area (not a button): unpin and hide. */
-  canvas.addEventListener('click', function(e){
-    var t = e.target;
-    if (t === canvas || t.classList.contains('lens-blurred') || t.classList.contains('lens-sharp') || t.tagName === 'SPAN') {
-      if (pinnedKey) {
-        unpinAll();
-        hideCard();
-      }
-    }
-  });
-})();
-</script>
-
-
-<!-- (Diagnostic section retired 2026-04-25; 5 pillars merged into #scorecard above) -->
-
-<style>
-  .diag-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
-    margin-top: 3rem;
-  }
-  .diag-card {
-    background: var(--gray-50);
-    border: 1px solid var(--gray-200);
-    border-top: 3px solid var(--orange);
-    border-radius: 8px;
-    padding: 1.5rem 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .diag-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-  }
-  .diag-num {
-    font-family: var(--font-mono, 'Menlo', 'Consolas', monospace);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: var(--orange);
-    text-transform: uppercase;
-  }
-  .diag-title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--navy, #0f172a);
-    margin: 0;
-    line-height: 1.25;
-  }
-  .diag-lead {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--navy, #0f172a);
-    margin: 0;
-    line-height: 1.4;
-  }
-  .diag-body {
-    font-size: 0.875rem;
-    line-height: 1.55;
-    color: var(--gray-600, #475569);
-    margin: 0;
-  }
-  .diag-cta {
-    margin-top: 3rem;
-    text-align: center;
-  }
-  .diag-cta-note {
-    margin-top: 0.875rem;
-    font-size: 0.8125rem;
-    color: var(--gray-500, #64748b);
-  }
-  @media (max-width: 1024px) {
-    .diag-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 560px) {
-    .diag-grid { grid-template-columns: 1fr; }
-  }
-
-  /* PACED reframe header (inside #scorecard) */
-  .paced-reframe-header {
-    text-align: center;
-    max-width: 820px;
-    margin: 4rem auto 2rem;
-  }
-  .paced-reframe-header .section-eyebrow { margin-bottom: 0.75rem; }
-  .paced-reframe-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--navy, #0f172a);
-    line-height: 1.25;
-    margin: 0 0 0.875rem;
-  }
-  .paced-reframe-sub {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--gray-600, #475569);
-    margin: 0;
-  }
-  @media (max-width: 560px) {
-    .paced-reframe-title { font-size: 1.375rem; }
-    .paced-reframe-sub { font-size: 0.9375rem; }
-  }
-</style>
-</div><!-- /.dark-stack -->
-
-<!-- ===== RESEARCH CREDIBILITY ===== -->
-<!-- (Proof Metrics section retired 2026-04-25 per Bill) -->
-
-<!-- (CTA section retired 2026-06-01: removed in multi-page split — Assessment + Book-a-call live in the navbar.) -->
-
-<!-- ===== FAQ ===== -->
-<section class="faq-section" id="faq">
-  
-  <div class="container">
-    <div class="text-center">
-      <div class="section-eyebrow sc-reveal">Common questions</div>
-      <h2 class="section-heading sc-reveal">Before you book a call.</h2>
-      <p class="section-sub center sc-reveal">The questions rail teams ask us most. If yours is not here, drop it through the chat or book a 30-minute consultation off the back of the <a class="link-assessment" href="scorecard.html">AI Readiness Assessment</a>.</p>
-    </div>
-
-    <div class="faq-list sc-reveal">
-      <details class="faq-item">
-        <summary class="faq-q">
-          Where should we start?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-a">
-          <p>Two paths depending on where you are. If you already know your friction points ("<span class="brand-x">X</span>"), take the <a class="link-assessment" href="scorecard.html">AI Readiness Assessment</a> and book a 30-minute consultation off the back of it. We&rsquo;ll walk through your results together and map a clear first move.</p>
-          <p>If you&rsquo;re earlier in your thinking, the <a class="link-assessment" href="bootcamp.html">AutomateX Bootcamp</a> is the structured route in. It walks your team through finding your friction points ("<span class="brand-x">X</span>"), builds the business case, and ends with a live AI-native prototype on your own data.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">
-          Are you selling a product or a service?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-a">
-          <p>AutomateX is a custom-build service business, not a SaaS product. We diagnose your friction points ("<span class="brand-x">X</span>"), then build the AI-enabled solution that fits your operational context, your data, and your assurance environment. Each engagement is bespoke. Our strength is at the intersection of rail domain expertise and AI implementation, applied to your specific friction.</p>
-          <p>For teams that want a packaged AI tool rather than a custom build, we&rsquo;re developing Scribtive&trade; and PACE OS&trade; as adjacent product offerings. Those are on the waitlist. The core AutomateX engagement remains custom build.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">
-          How long does a typical engagement take?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-a">
-          <p>About 1 week to Diagnose. Up to 2 weeks for Alpha build and validation against retrospective data. Around 4 weeks for Beta build and independent blind evaluation. Then 3 to 6 months from Deploy to a live, fully assured workflow.</p>
-          <p>Complexity moves these. A tightly-scoped Form A automation lands sooner. A multi-discipline Operate &amp; Evolve programme takes longer.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">
-          How is pricing determined?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-a">
-          <p>Pricing depends on what you need. The structured entry point is the <a class="link-assessment" href="bootcamp.html">AutomateX Bootcamp</a> at <strong>&pound;1,800 + VAT</strong>, credited in full against your build if you take the work forward with us.</p>
-          <p>Not every team needs the Bootcamp. Many already know their friction points ("<span class="brand-x">X</span>") and want to go straight to the Build phase.</p>
-          <p>For build engagements, pricing is outcome-based, not input-based. Every build is different, sized against the friction we&rsquo;re removing and the value of the solution. We quote case by case. Talk to us directly for a quote on your specific situation.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">
-          What does AutomateX do with our project data?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-a">
-          <p>Your data stays in the UK. Uploaded documents are stored in a relational database and cloud object storage with our UK-based infrastructure provider. Document content is anonymised at ingest. Un-anonymised data is only ever visible from the user account that uploaded it.</p>
-          <p>AutomateX is ICO-registered and operates under ISO/IEC 42001-aligned controls.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">
-          ISO/IEC 42001 alignment, what does that mean in practice?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-a">
-          <p>ISO/IEC 42001 is the new international standard for AI management systems, the AI-governance equivalent of ISO 27001 for information security. For AutomateX it means three things in practice:</p>
-          <p><strong>1. Documented framing.</strong> Every AI-enabled workflow we deploy has a framing artefact covering scope, hazards, success criteria, and acceptance thresholds, agreed by your sponsor before build starts.</p>
-          <p><strong>2. Audit-traced output.</strong> The model version, the original wording, and any accept/override decision are all logged per artefact.</p>
-          <p><strong>3. Drift evaluation.</strong> We re-run evaluations on a regular cadence to catch model drift before it surfaces in production.</p>
-          <p>Rail-grade assurance discipline applied to AI delivery.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">
-          Why rail-only?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-a">
-          <p>Domain knowledge is where the value sits. AI tooling is increasingly commoditised. What&rsquo;s defensible is the rail expertise that knows what good looks like, where the friction actually lives, and how the assurance process really works.</p>
-          <p>We don&rsquo;t want to wait for AI generalists to figure out rail. We&rsquo;re rail insiders building at the implementation layer ourselves, so solutions land in workflows that engineers actually use.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">
-          What if my firm is too small or too big?
-          <span class="faq-icon" aria-hidden="true"></span>
-        </summary>
-        <div class="faq-a">
-          <p>Every rail firm has friction points ("<span class="brand-x">X</span>"). Larger firms typically get most value from productivity and engineering-leverage gains, freeing senior judgement from admin. Smaller firms get most value from removing single-point-of-failure bottlenecks and reducing rework.</p>
-          <p>Firm size is not the constraint. The real question is whether you are ready to use AI responsibly and have the appetite for change. If you do, we can help.</p>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<style>
-  .faq-section {
-    padding: var(--section-spacing) 0;
-    background: var(--white);
-    position: relative;
-  }
-  .faq-section .container { position: relative; z-index: 1; }
-  .faq-section .container { max-width: 880px; }
-  .faq-section .section-sub.center { max-width: 640px; }
-
-  .faq-list {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-  }
-
-  .faq-item {
-    background: var(--gray-50);
-    border: 1px solid var(--gray-200);
-    border-radius: 12px;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-  }
-  .faq-item:hover {
-    border-color: rgba(249,101,50,0.3);
-  }
-  .faq-item[open] {
-    background: var(--white);
-    border-color: rgba(249,101,50,0.4);
-    box-shadow: 0 8px 28px rgba(26,31,54,0.06);
-  }
-
-  .faq-q {
-    list-style: none;
-    cursor: pointer;
-    padding: 1.125rem 1.5rem;
-    font-family: var(--font-heading);
-    font-size: 1.0625rem;
-    font-weight: 700;
-    color: var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    user-select: none;
-  }
-  .faq-q::-webkit-details-marker { display: none; }
-  .faq-q:hover { color: var(--orange); }
-
-  /* Plus / minus icon as pure CSS */
-  .faq-icon {
-    flex-shrink: 0;
-    position: relative;
-    width: 18px;
-    height: 18px;
-    transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
-  }
-  .faq-icon::before,
-  .faq-icon::after {
-    content: '';
-    position: absolute;
-    background: var(--orange);
-    border-radius: 1px;
-    transition: transform 0.3s ease;
-  }
-  .faq-icon::before {
-    /* horizontal bar */
-    top: 8px;
-    left: 0;
-    right: 0;
-    height: 2px;
-  }
-  .faq-icon::after {
-    /* vertical bar */
-    top: 0;
-    bottom: 0;
-    left: 8px;
-    width: 2px;
-  }
-  .faq-item[open] .faq-icon {
-    transform: rotate(90deg);
-  }
-  .faq-item[open] .faq-icon::after {
-    transform: scaleY(0);
-  }
-
-  .faq-a {
-    padding: 0 1.5rem 1.25rem;
-    font-size: 0.9375rem;
-    line-height: 1.7;
-    color: var(--gray-600);
-  }
-  .faq-a p { margin: 0 0 0.625rem; }
-  .faq-a p:last-child { margin-bottom: 0; }
-  .faq-pricelist {
-    list-style: none;
-    margin: 0 0 0.875rem;
-    padding: 0.875rem 1rem;
-    background: rgba(249,101,50,0.04);
-    border: 1px solid rgba(249,101,50,0.18);
-    border-left: 3px solid var(--orange);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .faq-pricelist li {
-    color: var(--gray-700);
-    line-height: 1.55;
-  }
-  .faq-pricelist strong { color: var(--navy); }
-  .faq-discount {
-    display: inline-block;
-    padding: 0.0625rem 0.4375rem;
-    background: var(--orange);
-    color: var(--white);
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 0.8125rem;
-    margin: 0 0.125rem;
-  }
-
-  @media (max-width: 640px) {
-    .faq-q { font-size: 1rem; padding: 1rem 1.125rem; }
-    .faq-a { padding: 0 1.125rem 1rem; }
-  }
-</style>
-
-<script>
-/* Accordion behaviour: only one FAQ item open at a time.
-   When an item is opened, close any others that were open. */
-(function(){
-  var items = document.querySelectorAll('.faq-section .faq-item');
-  if (!items.length) return;
-  items.forEach(function(item){
-    item.addEventListener('toggle', function(){
-      if (!item.open) return;
-      items.forEach(function(other){
-        if (other !== item && other.open) other.open = false;
-      });
+  chips.forEach(function(chip, i) {
+    chip.addEventListener('click', function() {
+      setActive(i);
+      restartAutoplay();
     });
   });
+
+  carousel.addEventListener('mouseenter', stopAutoplay);
+  carousel.addEventListener('mouseleave', startAutoplay);
+
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) stopAutoplay();
+    else startAutoplay();
+  });
+
+  setActive(0);
+  startAutoplay();
 })();
 </script>
-
+</main>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="navbar-logo" aria-label="AutomateX home">
+        <a href="index.html" class="navbar-logo" aria-label="AutomateX home">
       <img src="brand_assets/automatex-wordmark-dark-bg-transparent.png" alt="AutomateX">
     </a>
         <p>Systemising success for the UK rail supply chain.</p>
@@ -4954,7 +3362,7 @@
       <div class="footer-col">
         <h4>Approach</h4>
         <ul>
-          <li><a href="#find-your-x">Find your X</a></li>
+          <li><a href="index.html#find-your-x">Find your X</a></li>
           <li><a href="bootcamp.html">Where to start</a></li>
           <li><a href="waitlist.html">PACE OS&trade;</a></li>
         </ul>
@@ -4963,7 +3371,7 @@
         <h4>Company</h4>
         <ul>
           <li><a href="about.html">Founder&rsquo;s journey</a></li>
-          <li><a href="ai-in-action.html">Case Studies</a></li>
+          <li><a href="ai-in-action.html" aria-current="page">Case Studies</a></li>
           <li><a href="scorecard.html">Assessment</a></li>
         </ul>
       </div>
@@ -5386,24 +3794,18 @@
   }
   
   /* === Single page-tall particle canvas (rev. 2026-06-03 c) =========== */
-  var lastParticlesH = 0;
-  var refreshParticlesTimer = null;
-  function refreshParticles() {
-    if (!window.pJSDom || !window.pJSDom.length) return;
-    var pjs = window.pJSDom[0].pJS;
-    if (!pjs || !pjs.canvas) return;
-    var h = document.documentElement.scrollHeight;
-    if (Math.abs(h - lastParticlesH) < 8) return;
-    lastParticlesH = h;
-    pjs.canvas.el.style.height = '100%';
-    pjs.fn.canvasSize();
-    pjs.fn.particlesRefresh();
-  }
   function syncCanvasHeight() {
     var h = document.documentElement.scrollHeight;
     document.documentElement.style.setProperty('--page-h', h + 'px');
-    clearTimeout(refreshParticlesTimer);
-    refreshParticlesTimer = setTimeout(refreshParticles, 200);
+    /* Tell particles.js to re-evaluate canvas size if already initialised. */
+    if (window.pJSDom && window.pJSDom.length) {
+      var pjs = window.pJSDom[0].pJS;
+      if (pjs && pjs.canvas) {
+        pjs.canvas.el.style.height = '100%';
+        pjs.fn.canvasSize();
+        pjs.fn.particlesRefresh();
+      }
+    }
   }
   function initSiteParticles() {
     var host = document.getElementById('site-particles');
@@ -5885,122 +4287,6 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
     .chat-bubble { transition: none; }
     .chat-typing span { animation: none; }
   }
-</style>
-
-<style id="dark-everywhere-2026-06-05">
-/* =====================================================================
-   FULL-PAGE DARK THEME — added 2026-06-05
-   Bill wants every section to read the same as the hero (navy-deep + the
-   page-tall particle canvas backdrop). The canvas already lives behind
-   the page via #site-particles; this block makes the remaining opaque
-   surfaces (navbar, footer, who-we-help, pain-section) transparent and
-   re-skins their content for dark surfaces with light text.
-   ===================================================================== */
-
-/* --- Section surfaces (navbar kept as previous white per Bill's revert) --- */
-.footer { background: transparent !important; border-top: 1px solid rgba(255,255,255,0.06); }
-.who-we-help { background: transparent !important; }
-.pain-section { background: transparent !important; }
-.faq-section { background: transparent !important; }
-
-/* --- Footer --- */
-.footer-brand p,
-.footer-col a,
-.footer-bottom,
-.footer-legal,
-.footer-contact,
-.footer-contact a { color: rgba(255,255,255,0.65) !important; }
-.footer-col h4 { color: var(--white) !important; }
-.footer-col a:hover, .footer-contact a:hover { color: var(--orange) !important; }
-/* Footer logo — uses the dark-bg wordmark variant (white text + orange Xs),
-   so it sits flush on the dark navy canvas with no card behind it. */
-.footer .navbar-logo { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
-.footer-certs img { opacity: 0.85; }
-
-/* --- FAQ section --- */
-.faq-section .section-eyebrow { color: var(--orange) !important; }
-.faq-section .section-heading,
-.faq-section h2,
-.faq-section .section-sub.center { color: var(--white) !important; }
-.faq-section .section-sub,
-.faq-section .section-sub.center,
-.faq-section p { color: rgba(255,255,255,0.7) !important; }
-.faq-section .faq-item {
-  background: rgba(255,255,255,0.04) !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  box-shadow: none !important;
-  color: rgba(255,255,255,0.85) !important;
-}
-.faq-section .faq-item > summary,
-.faq-section .faq-item summary { color: var(--white) !important; }
-.faq-section .faq-item[open] { background: rgba(255,255,255,0.06) !important; }
-.faq-section .faq-item *:not(summary):not(summary *) { color: rgba(255,255,255,0.72) !important; }
-
-/* --- Who we help — dark theme --- */
-.who-we-help::after { background: radial-gradient(55% 45% at 50% 50%, rgba(249,101,50,0.12), transparent 60%) !important; }
-.who-we-help .who-heading { color: var(--white); }
-.who-we-help .who-sub { color: rgba(255,255,255,0.65); }
-
-.who-we-help .identity-card,
-.who-we-help .pill {
-  background: rgba(255,255,255,0.04);
-  border-color: rgba(255,255,255,0.10);
-  box-shadow: none;
-}
-.who-we-help .identity-card:hover,
-.who-we-help .pill:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(255,255,255,0.20);
-}
-.who-we-help .identity-icon { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.82); }
-.who-we-help .identity-title,
-.who-we-help .pill-title { color: var(--white); }
-.who-we-help .identity-port,
-.who-we-help .pill-port { background: rgba(13,17,23,0.92); border-color: rgba(255,255,255,0.22); }
-.who-we-help .pill-chevron { color: rgba(255,255,255,0.4); }
-.who-we-help .pill-prop { color: rgba(255,255,255,0.75); }
-.who-we-help .pill-icon { background: rgba(249,101,50,0.14); color: var(--orange); }
-
-.who-we-help .identity-card[aria-pressed="true"],
-.who-we-help .pill[aria-expanded="true"],
-.who-we-help[data-current="leader"] .pill[data-for~="leader"]:not([aria-expanded="true"]),
-.who-we-help[data-current="team"]   .pill[data-for~="team"]:not([aria-expanded="true"]),
-.who-we-help[data-current="senior"] .pill[data-for~="senior"]:not([aria-expanded="true"]),
-.who-we-help[data-current="junior"] .pill[data-for~="junior"]:not([aria-expanded="true"]) {
-  background: rgba(249,101,50,0.12);
-  border-color: var(--orange);
-}
-
-/* Logo badge — keep a near-white surface so the orange mark sits crisply. */
-.who-we-help .logo-badge { border-color: rgba(255,255,255,0.18); }
-.who-we-help .logo-badge::after { border-color: rgba(255,255,255,0.14); }
-
-/* Newsletter strip — dark + warm */
-.who-we-help .newsletter-strip {
-  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(249,101,50,0.08));
-  border-color: rgba(255,255,255,0.10);
-}
-.who-we-help .newsletter-icon { background: rgba(255,255,255,0.04); border-color: rgba(249,101,50,0.30); }
-.who-we-help .newsletter-title { color: var(--white); }
-.who-we-help .newsletter-reason { color: rgba(255,255,255,0.7); }
-.who-we-help .newsletter-form input {
-  background: rgba(255,255,255,0.05);
-  border-color: rgba(255,255,255,0.14);
-  color: var(--white);
-}
-.who-we-help .newsletter-form input::placeholder { color: rgba(255,255,255,0.45); }
-
-/* --- Pain section — dark --- */
-.pain-section .pain-heading { color: var(--white) !important; }
-.pain-section .pain-sub { color: rgba(255,255,255,0.7) !important; }
-.pain-section .pain-card {
-  background: rgba(255,255,255,0.04) !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  box-shadow: none !important;
-}
-.pain-section .pain-card-title { color: var(--white) !important; }
-.pain-section .pain-card-body { color: rgba(255,255,255,0.72) !important; }
-.pain-section .pain-num { color: var(--orange) !important; }
 </style>
 
 <!-- ===== CHAT WIDGET REMOVED 2026-05-22 =====

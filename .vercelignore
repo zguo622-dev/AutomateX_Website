@@ -1,6 +1,6 @@
+# Mirror of .gitignore — keeps dev archive + scratch files out of Vercel deploy
 node_modules/
 temporary screenshots/
-/webflow*.png
 AX Website by Manus/
 Scorecard Funnel Agent-Bill.pdf
 images/Header-original.png
@@ -13,12 +13,10 @@ Scorecard_v3_Spec.html
 # Scratch / component snippets — not referenced by any page
 Component/
 images/AutomateX-PACED-Chart-v2.html
-resource/1771880401492.png
-resource/1772552006275.png
-resource/linkedin_article_2_graduates_and_scribtive.html
+resource/
 meeting_chunks/
 
-# Pre-deploy archive (dev artefacts, .bak-* snapshots, scratch test pages)
+# Pre-deploy archive + bak files + tmp scratch
 _archive/
 *.bak-*
 *.tmp
