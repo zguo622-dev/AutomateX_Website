@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1066 540" role="img" aria-labelledby="pacedTitle pacedDesc">
+  <title id="pacedTitle">AutomateX P.A.C.E-D adoption journey</title>
+  <desc id="pacedDesc">Long-term AI adoption curve across Pilot, Automate, Compound, Evolve, and Digitalise phases. The orange exponential curve diverges from the navy "Status Quo" line at the Pilot transition.</desc>
+  <defs>
+    <marker id="arrNavy" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#FFFFFF"/></marker>
+  </defs>
+
+  <!-- Axes -->
+  <line x1="60" y1="400" x2="1020" y2="400" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+  <!-- Phase separators -->
+  <line x1="280" y1="30" x2="280" y2="400" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="6 4"/>
+  <line x1="365" y1="30" x2="365" y2="400" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="6 4"/>
+  <line x1="765" y1="30" x2="765" y2="400" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="6 4"/>
+  <line x1="935" y1="30" x2="935" y2="400" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="6 4"/>
+
+  <!-- Grey baseline strips -->
+  <g id="pcGreyBars">
+        <rect x="283.00" y="397.00" width="79.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="283.00" y="392.80" width="79.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="283.00" y="388.60" width="79.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="283.00" y="384.40" width="79.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="283.00" y="380.20" width="79.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="368.00" y="397.00" width="394.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="368.00" y="392.80" width="394.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="368.00" y="388.60" width="394.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="368.00" y="384.40" width="394.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="368.00" y="380.20" width="394.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="768.00" y="397.00" width="164.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="768.00" y="392.80" width="164.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="768.00" y="388.60" width="164.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="768.00" y="384.40" width="164.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="768.00" y="380.20" width="164.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="768.00" y="376.00" width="164.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="938.00" y="397.00" width="79.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="938.00" y="392.80" width="79.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="938.00" y="388.60" width="79.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="938.00" y="384.40" width="79.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="938.00" y="380.20" width="79.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+    <rect x="938.00" y="376.00" width="79.00" height="3" fill="rgba(255,255,255,0.18)" rx="1"/>
+  </g>
+  <!-- Orange compounding strips -->
+  <g id="pcOrangeBars">
+        <rect x="352.00" y="375.46" width="10.00" height="3" fill="rgba(253, 180, 130, 0.5)" rx="1"/>
+    <rect x="382.00" y="373.49" width="380.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="444.00" y="369.29" width="318.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="500.00" y="365.09" width="262.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="550.00" y="360.89" width="212.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="592.00" y="356.69" width="170.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="628.00" y="352.49" width="134.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="658.00" y="348.29" width="104.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="684.00" y="344.09" width="78.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="706.00" y="339.89" width="56.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="726.00" y="335.69" width="36.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="742.00" y="331.49" width="20.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="756.00" y="327.29" width="6.00" height="3" fill="rgba(251, 140, 80, 0.6)" rx="1"/>
+    <rect x="768.00" y="371.18" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="768.00" y="366.98" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="768.00" y="362.78" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="768.00" y="358.58" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="768.00" y="354.38" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="768.00" y="350.18" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="768.00" y="345.98" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="768.00" y="341.78" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="768.00" y="337.58" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="768.00" y="333.38" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="768.00" y="329.18" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="768.00" y="324.98" width="164.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="776.00" y="320.78" width="156.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="788.00" y="316.58" width="144.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="798.00" y="312.38" width="134.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="808.00" y="308.18" width="124.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="816.00" y="303.98" width="116.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="824.00" y="299.78" width="108.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="832.00" y="295.58" width="100.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="838.00" y="291.38" width="94.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="844.00" y="287.18" width="88.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="852.00" y="282.98" width="80.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="856.00" y="278.78" width="76.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="862.00" y="274.58" width="70.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="868.00" y="270.38" width="64.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="872.00" y="266.18" width="60.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="878.00" y="261.98" width="54.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="882.00" y="257.78" width="50.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="886.00" y="253.58" width="46.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="890.00" y="249.38" width="42.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="896.00" y="245.18" width="36.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="898.00" y="240.98" width="34.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="902.00" y="236.78" width="30.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="906.00" y="232.58" width="26.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="910.00" y="228.38" width="22.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="914.00" y="224.18" width="18.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="916.00" y="219.98" width="16.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="920.00" y="215.78" width="12.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="922.00" y="211.58" width="10.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="926.00" y="207.38" width="6.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="928.00" y="203.18" width="4.00" height="3" fill="rgba(245, 100, 55, 0.75)" rx="1"/>
+    <rect x="939.00" y="370.14" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="365.94" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="361.74" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="357.54" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="353.34" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="349.14" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="344.94" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="340.74" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="336.54" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="332.34" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="328.14" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="323.94" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="319.74" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="315.54" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="311.34" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="307.14" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="302.94" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="298.74" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="294.54" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="290.34" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="286.14" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="281.94" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="277.74" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="273.54" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="269.34" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="265.14" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="260.94" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="256.74" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="252.54" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="248.34" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="244.14" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="239.94" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="235.74" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="231.54" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="227.34" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="223.14" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="218.94" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="214.74" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="210.54" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="206.34" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="202.14" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="197.94" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="193.74" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="939.00" y="189.54" width="78.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="941.00" y="185.34" width="76.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="943.00" y="181.14" width="74.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="945.00" y="176.94" width="72.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="947.00" y="172.74" width="70.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="951.00" y="168.54" width="66.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="953.00" y="164.34" width="64.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="955.00" y="160.14" width="62.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="957.00" y="155.94" width="60.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="959.00" y="151.74" width="58.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="961.00" y="147.54" width="56.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="963.00" y="143.34" width="54.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="965.00" y="139.14" width="52.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="967.00" y="134.94" width="50.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="969.00" y="130.74" width="48.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="971.00" y="126.54" width="46.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="973.00" y="122.34" width="44.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="975.00" y="118.14" width="42.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="977.00" y="113.94" width="40.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="979.00" y="109.74" width="38.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="981.00" y="105.54" width="36.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="983.00" y="101.34" width="34.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="983.00" y="97.14" width="34.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="985.00" y="92.94" width="32.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="987.00" y="88.74" width="30.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="989.00" y="84.54" width="28.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="991.00" y="80.34" width="26.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="991.00" y="76.14" width="26.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="993.00" y="71.94" width="24.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="995.00" y="67.74" width="22.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="997.00" y="63.54" width="20.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="997.00" y="59.34" width="20.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="999.00" y="55.14" width="18.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="1001.00" y="50.94" width="16.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="1003.00" y="46.74" width="14.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="1003.00" y="42.54" width="14.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="1005.00" y="38.34" width="12.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+    <rect x="1007.00" y="34.14" width="10.00" height="3" fill="rgba(237, 74, 59, 0.9)" rx="1"/>
+  </g>
+
+  <!-- Status Quo line -->
+  <line x1="60" y1="385" x2="280" y2="380" stroke="#FFFFFF" stroke-width="2.5"/>
+  <line x1="280" y1="380" x2="1020" y2="374" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="8 6"/>
+
+  <!-- Exponential curve -->
+  <path d="M 280 380.00 L 282 379.87 L 284 379.75 L 286 379.62 L 288 379.50 L 290 379.37 L 292 379.25 L 294 379.12 L 296 378.99 L 298 378.87 L 300 378.74 L 302 378.61 L 304 378.49 L 306 378.36 L 308 378.23 L 310 378.11 L 312 377.98 L 314 377.85 L 316 377.73 L 318 377.60 L 320 377.47 L 322 377.34 L 324 377.22 L 326 377.09 L 328 376.96 L 330 376.83 L 332 376.70 L 334 376.58 L 336 376.45 L 338 376.32 L 340 376.19 L 342 376.06 L 344 375.93 L 346 375.80 L 348 375.67 L 350 375.54 L 352 375.41 L 354 375.28 L 356 375.15 L 358 375.02 L 360 374.89 L 362 374.76 L 364 374.63 L 366 374.50 L 368 374.37 L 370 374.24 L 372 374.11 L 374 373.98 L 376 373.84 L 378 373.71 L 380 373.58 L 382 373.45 L 384 373.31 L 386 373.18 L 388 373.05 L 390 372.91 L 392 372.78 L 394 372.65 L 396 372.51 L 398 372.38 L 400 372.24 L 402 372.11 L 404 371.97 L 406 371.84 L 408 371.70 L 410 371.56 L 412 371.43 L 414 371.29 L 416 371.15 L 418 371.02 L 420 370.88 L 422 370.74 L 424 370.60 L 426 370.46 L 428 370.33 L 430 370.19 L 432 370.05 L 434 369.91 L 436 369.77 L 438 369.62 L 440 369.48 L 442 369.34 L 444 369.20 L 446 369.06 L 448 368.91 L 450 368.77 L 452 368.63 L 454 368.48 L 456 368.34 L 458 368.19 L 460 368.05 L 462 367.90 L 464 367.75 L 466 367.61 L 468 367.46 L 470 367.31 L 472 367.16 L 474 367.01 L 476 366.86 L 478 366.71 L 480 366.56 L 482 366.41 L 484 366.26 L 486 366.10 L 488 365.95 L 490 365.80 L 492 365.64 L 494 365.49 L 496 365.33 L 498 365.17 L 500 365.01 L 502 364.86 L 504 364.70 L 506 364.54 L 508 364.38 L 510 364.21 L 512 364.05 L 514 363.89 L 516 363.72 L 518 363.56 L 520 363.39 L 522 363.23 L 524 363.06 L 526 362.89 L 528 362.72 L 530 362.55 L 532 362.38 L 534 362.21 L 536 362.03 L 538 361.86 L 540 361.68 L 542 361.50 L 544 361.33 L 546 361.15 L 548 360.97 L 550 360.79 L 552 360.60 L 554 360.42 L 556 360.23 L 558 360.05 L 560 359.86 L 562 359.67 L 564 359.48 L 566 359.29 L 568 359.09 L 570 358.90 L 572 358.70 L 574 358.50 L 576 358.30 L 578 358.10 L 580 357.90 L 582 357.69 L 584 357.49 L 586 357.28 L 588 357.07 L 590 356.86 L 592 356.65 L 594 356.43 L 596 356.21 L 598 355.99 L 600 355.77 L 602 355.55 L 604 355.32 L 606 355.10 L 608 354.87 L 610 354.64 L 612 354.40 L 614 354.16 L 616 353.93 L 618 353.69 L 620 353.44 L 622 353.20 L 624 352.95 L 626 352.70 L 628 352.44 L 630 352.19 L 632 351.93 L 634 351.66 L 636 351.40 L 638 351.13 L 640 350.86 L 642 350.59 L 644 350.31 L 646 350.03 L 648 349.74 L 650 349.46 L 652 349.17 L 654 348.87 L 656 348.58 L 658 348.28 L 660 347.97 L 662 347.66 L 664 347.35 L 666 347.04 L 668 346.72 L 670 346.39 L 672 346.06 L 674 345.73 L 676 345.39 L 678 345.05 L 680 344.71 L 682 344.36 L 684 344.00 L 686 343.64 L 688 343.28 L 690 342.91 L 692 342.53 L 694 342.15 L 696 341.77 L 698 341.38 L 700 340.98 L 702 340.58 L 704 340.17 L 706 339.76 L 708 339.34 L 710 338.92 L 712 338.48 L 714 338.05 L 716 337.60 L 718 337.15 L 720 336.69 L 722 336.23 L 724 335.76 L 726 335.28 L 728 334.79 L 730 334.30 L 732 333.80 L 734 333.29 L 736 332.77 L 738 332.25 L 740 331.72 L 742 331.17 L 744 330.62 L 746 330.07 L 748 329.50 L 750 328.92 L 752 328.33 L 754 327.74 L 756 327.13 L 758 326.52 L 760 325.89 L 762 325.26 L 764 324.61 L 766 323.95 L 768 323.28 L 770 322.61 L 772 321.91 L 774 321.21 L 776 320.50 L 778 319.77 L 780 319.03 L 782 318.28 L 784 317.52 L 786 316.74 L 788 315.95 L 790 315.14 L 792 314.33 L 794 313.49 L 796 312.65 L 798 311.78 L 800 310.91 L 802 310.01 L 804 309.10 L 806 308.18 L 808 307.24 L 810 306.28 L 812 305.31 L 814 304.31 L 816 303.30 L 818 302.27 L 820 301.23 L 822 300.16 L 824 299.07 L 826 297.97 L 828 296.84 L 830 295.70 L 832 294.53 L 834 293.34 L 836 292.13 L 838 290.90 L 840 289.64 L 842 288.37 L 844 287.06 L 846 285.74 L 848 284.39 L 850 283.01 L 852 281.61 L 854 280.18 L 856 278.73 L 858 277.24 L 860 275.73 L 862 274.19 L 864 272.63 L 866 271.03 L 868 269.40 L 870 267.74 L 872 266.05 L 874 264.33 L 876 262.58 L 878 260.79 L 880 258.97 L 882 257.11 L 884 255.22 L 886 253.29 L 888 251.33 L 890 249.32 L 892 247.28 L 894 245.20 L 896 243.08 L 898 240.92 L 900 238.71 L 902 236.46 L 904 234.17 L 906 231.84 L 908 229.46 L 910 227.03 L 912 224.56 L 914 222.04 L 916 219.47 L 918 216.85 L 920 214.17 L 922 211.45 L 924 208.67 L 926 205.84 L 928 202.95 L 930 200.01 L 932 197.01 L 934 193.95 L 936 190.83 L 938 187.64 L 940 184.40 L 942 181.09 L 944 177.71 L 946 174.27 L 948 170.76 L 950 167.19 L 952 163.54 L 954 159.82 L 956 156.02 L 958 152.15 L 960 148.20 L 962 144.18 L 964 140.07 L 966 135.89 L 968 131.62 L 970 127.26 L 972 122.82 L 974 118.29 L 976 113.67 L 978 108.96 L 980 104.15 L 982 99.25 L 984 94.25 L 986 89.15 L 988 83.94 L 990 78.64 L 992 73.23 L 994 67.70 L 996 62.07 L 998 56.33 L 1000 50.47 L 1002 44.49 L 1004 38.40 L 1006 32.18 L 1008 30.00 L 1010 30.00 L 1012 30.00 L 1014 30.00 L 1016 30.00 L 1018 30.00 L 1020 30.00" fill="none" stroke="#F96532" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- X-axis Status Quo label -->
+  <text x="170" y="395" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-weight="400" font-size="11" fill="rgba(255,255,255,0.45)" font-style="italic">Selling man-hours / linear growth</text>
+  <text x="170" y="425" text-anchor="middle" font-family="Montserrat, Arial Black, Arial, sans-serif" font-weight="700" font-size="15" fill="#FFFFFF" letter-spacing="2">STATUS QUO</text>
+
+  <!-- Phase labels -->
+  <text x="322" y="425" text-anchor="middle" font-family="Montserrat, Arial Black, Arial, sans-serif" font-weight="800" font-size="18" fill="#F96532">PILOT</text>
+  <text x="565" y="425" text-anchor="middle" font-family="Montserrat, Arial Black, Arial, sans-serif" font-weight="800" font-size="18" fill="#F96532">AUTOMATE</text>
+  <text x="850" y="425" text-anchor="middle" font-family="Montserrat, Arial Black, Arial, sans-serif" font-weight="800" font-size="18" fill="#F96532">COMPOUND</text>
+  <text x="977" y="425" text-anchor="middle" font-family="Montserrat, Arial Black, Arial, sans-serif" font-weight="800" font-size="18" fill="#F96532">EVOLVE</text>
+
+  <!-- Phase subtitles -->
+  <text x="322" y="445" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.7)">Validate</text>
+  <text x="322" y="460" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.45)">Risk-free &#183; Low commitment</text>
+  <text x="565" y="445" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.7)">AI Readiness</text>
+  <text x="565" y="460" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.45)">Friction removal &#183; Productivity</text>
+  <text x="850" y="445" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.7)">Scale</text>
+  <text x="850" y="460" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.45)">Knowledge System &#183; Flywheel</text>
+  <text x="977" y="445" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.7)">Productise</text>
+  <text x="977" y="460" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.45)">Outcomes &#183; Repeatable</text>
+
+  <!-- Crossing the chasm banner -->
+  <rect x="365" y="30" width="400" height="24" rx="4" fill="#F96532"/>
+  <text x="565" y="47" text-anchor="middle" font-family="Montserrat, Arial Black, Arial, sans-serif" font-weight="800" font-size="12" fill="#FFFFFF" letter-spacing="2">CROSSING THE CHASM</text>
+
+  <!-- Digitalise bar -->
+  <line x1="300" y1="490" x2="1000" y2="490" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arrNavy)"/>
+  <text x="650" y="510" text-anchor="middle" font-family="Montserrat, Arial Black, Arial, sans-serif" font-weight="700" font-size="14" fill="#FFFFFF" letter-spacing="4">DIGITALISE</text>
+  <text x="650" y="530" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-weight="500" font-size="12" fill="rgba(255,255,255,0.7)">Defensible Moat &#183; Unfair Advantage &#183; Premier Positioning</text>
+
+  <!-- Y-axis label -->
+  <text x="1046" y="220" text-anchor="middle" font-family="Montserrat, Arial Black, Arial, sans-serif" font-weight="600" font-size="12" fill="rgba(255,255,255,0.45)" letter-spacing="2" transform="rotate(90, 1046, 220)">AI ENABLED RAIL BUSINESS</text>
+</svg>

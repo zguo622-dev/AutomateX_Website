@@ -1,0 +1,1 @@
+Your AI Readiness Assessment Results. {{ $('Scorecard Webhook').first().json.body.overallScore }}/100
