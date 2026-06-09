@@ -8,6 +8,7 @@
   <url><loc>https://automatex.uk/scorecard.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://automatex.uk/waitlist.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://automatex.uk/careers.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://automatex.uk/careers-founding-ai-engineer.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://automatex.uk/blog.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://automatex.uk/blog-graduate-engineer.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://automatex.uk/blog-rag-truths.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
