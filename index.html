@@ -2785,11 +2785,11 @@
   position: relative;
   width: 96px; height: 96px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 28%, var(--white), rgba(255,255,255,0.92) 60%, rgba(249,101,50,0.04) 100%), var(--white);
-  border: 1.5px solid var(--gray-200);
+  background: transparent;
+  border: none;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 24px 50px -28px rgba(13,17,23,0.22), 0 4px 10px -6px rgba(13,17,23,0.08);
-  transition: border-color 360ms var(--who-ease), box-shadow 360ms var(--who-ease), transform 360ms var(--who-ease);
+  box-shadow: none;
+  transition: transform 360ms var(--who-ease);
 }
 .logo-badge::before {
   content: ""; position: absolute; inset: -14px;
