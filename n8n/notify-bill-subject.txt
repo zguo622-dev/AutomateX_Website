@@ -1,1 +1,0 @@
-AI Readiness Assessment: {{ $('Scorecard Webhook').first().json.body.name }} ({{ $('Scorecard Webhook').first().json.body.company }}) {{ $('Scorecard Webhook').first().json.body.overallScore }}/100 [{{ $('Build HTML Report').first().json.insights.overallVerdict.maturityLevel }}]

@@ -22,3 +22,18 @@ meeting_chunks/
 _archive/
 *.bak-*
 *.tmp
+
+# Office lock files
+.~lock.*
+
+# Internal / not for deploy
+n8n/
+preview.bat
+resource/Case study/
+video/
+slide-*.jpg
+images/gbrx-cover-tmp-*.jpg
+AutomateX_Capability_Brochure.*
+automatex_friction_points.xlsx
+AutomateX_Scorecard_Ground_Truth.xlsx
+brand_assets/AutomateX_Canva_BrandGuidelines_Copy.md
