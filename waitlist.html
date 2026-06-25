@@ -2769,7 +2769,7 @@ function handleWaitlist() {
   var originalLabel = btn.textContent;
   btn.textContent = 'Joining...';
 
-  fetch('https://billguo.app.n8n.cloud/webhook/pace-waitlist', {
+  fetch('https://n8n.automatex.uk/webhook/pace-waitlist', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -3489,7 +3489,7 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
      consent/url) and renders whatever the webhook returns as the bot reply.
 
      Webhook contract:
-       POST  https://billguo.app.n8n.cloud/webhook/chat
+       POST  https://n8n.automatex.uk/webhook/chat
        Body: {
          session_id: string (UUID generated client-side, persisted),
          name: string,

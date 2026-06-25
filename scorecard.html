@@ -2513,7 +2513,7 @@ function submitReport(e) {
   };
 
   // Fire-and-forget . don't block on the n8n workflow
-  fetch('https://billguo.app.n8n.cloud/webhook/pace-scorecard', {
+  fetch('https://n8n.automatex.uk/webhook/pace-scorecard', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -2524,7 +2524,7 @@ function submitReport(e) {
   // Bridge: add every assessment completer to the waiting-list tab (unconditional, labelled).
   // Upserts on Email, so no duplicates; fires regardless of report approval.
   if (data.email) {
-    fetch('https://billguo.app.n8n.cloud/webhook/crm-sheet-write', {
+    fetch('https://n8n.automatex.uk/webhook/crm-sheet-write', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
