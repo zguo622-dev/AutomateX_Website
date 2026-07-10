@@ -2,6 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<script>/* motion gate for ported homepage sections (axr) */document.documentElement.classList.add('js');try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('reduced');}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Accelerating AI adoption for UK rail | AutomateX</title>
 <meta name="description" content="AI solution for UK rail. AutomateX automates the high-friction workflows slowing rail project delivery so engineers can engineer, not admin. Built by a rail engineer, for rail teams.">
@@ -2582,6 +2583,524 @@
 }
 :focus:not(:focus-visible) { outline: none; }
 </style>
+<style id="axr-ported-2026-07-10">
+.axr-hero, #pain, #find-your-x{--grad-brand:linear-gradient(120deg,var(--orange-light),var(--orange) 45%,var(--orange-dark));--font-h:'Montserrat',system-ui,sans-serif;--font-b:'Open Sans',system-ui,sans-serif;--px:clamp(1.25rem,4vw,2.5rem);--container:1240px;--nav-h:76px;--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);--ink-dim:#b9c2cf;--navy-surface:#131921;--card-dark:#161B22;--shadow-lift:0 14px 40px -18px rgba(13,17,23,.25);--white:#ffffff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--orange:#F96532;--orange-light:#FB7B3A;--orange-dark:#ED4A3B;--navy:#1A1F36;--navy-deep:#0D1117;}
+/* ---------- shared type ---------- */
+.eyebrow {
+  font-family: var(--font-h); font-weight:700; font-size:.75rem;
+  letter-spacing:.16em; text-transform:uppercase; color: var(--orange);
+  display:flex; align-items:center; gap:.6rem;
+}
+.eyebrow::before { content:""; width:26px; height:2px; background: var(--grad-brand); border-radius:2px; flex:0 0 auto; }
+.eyebrow.axr-center { justify-content:center; }
+.eyebrow.axr-center::after { content:""; width:26px; height:2px; background: var(--grad-brand); border-radius:2px; }
+.h2 {
+  font-family: var(--font-h); font-weight:800;
+  font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+  line-height:1.08; letter-spacing:-.025em; margin:.9rem 0 1rem;
+}
+.sub { font-size: clamp(1rem, 1.25vw, 1.11rem); color: var(--gray-600); max-width: 640px; }
+.sec-dark .sub { color: var(--ink-dim); }
+.axr-center { text-align:center; }
+.axr-center .sub { margin-left:auto; margin-right:auto; }
+.axr-brand-x, .axr-heading-x {
+  font-family: var(--font-h); font-style: italic; font-weight: 800;
+  background: var(--grad-brand);
+  -webkit-background-clip:text; background-clip:text; color: transparent;
+  padding-right: .06em;
+}
+a.axr-brand-x { border-bottom: 2px solid rgba(249,101,50,.5); }
+a.axr-brand-x:hover { border-bottom-color: var(--orange); }
+
+/* ---------- sections ---------- */
+.sec { position:relative; padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
+.sec-light { background: var(--white); color: var(--navy); }
+.sec-dark  { background: var(--navy-deep); color: var(--white); }
+.sec-dark .h2 { color: var(--white); }
+
+/* blueprint grid + grain for dark scenes */
+.bg-grid { position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.033) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.033) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 40%, transparent 100%);
+          mask-image: radial-gradient(120% 100% at 50% 0%, #000 40%, transparent 100%);
+}
+.sec-dark > .container, .axr-hero > .container { position:relative; z-index:2; }
+
+/* ---------- buttons ---------- */
+.axr-btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+  font-family: var(--font-h); font-weight:700; font-size:.95rem;
+  padding: .95rem 1.6rem; border-radius: 10px;
+  transition: transform .25s var(--ease-out), box-shadow .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease);
+  will-change: transform;
+}
+.axr-btn-primary { background: var(--orange); color: var(--white); box-shadow: 0 10px 30px -10px rgba(249,101,50,.55); }
+.axr-btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 16px 36px -10px rgba(249,101,50,.6); }
+.axr-btn-primary:active { transform: translateY(0); }
+.axr-btn-ghost-dark { border:1.5px solid rgba(255,255,255,.28); color: var(--white); background: rgba(255,255,255,.03); }
+.axr-btn-ghost-dark:hover { border-color: var(--orange); color: var(--orange-light); transform: translateY(-2px); }
+.axr-btn-ghost-light { border:1.5px solid var(--gray-300); color: var(--navy); background: var(--white); }
+.axr-btn-ghost-light:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+.axr-btn .arr { transition: transform .25s var(--ease-out); }
+.axr-btn:hover .arr { transform: translateX(4px); }
+.axr-btn:focus-visible { outline: 2.5px solid var(--orange); outline-offset: 3px; border-radius: 6px; }
+
+/* ---------- reveal on scroll ---------- */
+[data-reveal] { opacity:0; transform: translateY(26px); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); }
+[data-reveal].in { opacity:1; transform:none; }
+html:not(.js) [data-reveal], html.reduced [data-reveal] { opacity:1; transform:none; transition:none; }
+
+/* ============================================================
+   HERO — the document that writes itself
+   ============================================================ */
+.axr-hero {
+  position:relative; background: var(--navy-deep); color: var(--white);
+  min-height: 100vh; min-height: 100svh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding: calc(var(--nav-h) + 4.5rem) 0 5.5rem;
+  overflow:hidden;
+}
+.axr-hero-glow { position:absolute; z-index:0; width:1100px; height:1100px; right:-320px; top:-380px; pointer-events:none;
+  background: radial-gradient(closest-side, rgba(249,101,50,.15), transparent 68%);
+}
+.axr-hero-glow2 { position:absolute; z-index:0; width:800px; height:800px; left:-360px; bottom:-420px; pointer-events:none;
+  background: radial-gradient(closest-side, rgba(249,101,50,.07), transparent 70%);
+}
+.axr-hero-xmark { position:absolute; z-index:0; right:-4vw; bottom:-9vw; width: 46vw; max-width:720px; opacity:.55; pointer-events:none; }
+.axr-hero-xmark path { fill:none; stroke-width: 2.4; stroke-linecap:round; }
+.axr-hero-xmark .x1 { stroke: rgba(249,101,50,.34); stroke-dasharray: 1300; stroke-dashoffset: 1300; animation: drawX 2.6s var(--ease-out) .5s forwards; }
+.axr-hero-xmark .x2 { stroke: rgba(255,255,255,.10); stroke-dasharray: 1300; stroke-dashoffset: 1300; animation: drawX 2.6s var(--ease-out) .8s forwards; }
+@keyframes drawX { to { stroke-dashoffset: 0; } }
+html.reduced .axr-hero-xmark path { animation:none; stroke-dashoffset:0; }
+
+.axr-hero-grid { display:grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr); gap: clamp(2.5rem, 5vw, 5rem); align-items:center; }
+.axr-hero-grid > *, .who-grid > * { min-width:0; }
+
+.axr-hero-eyebrow {
+  display:inline-flex; align-items:center; gap:.65rem;
+  font-family:var(--font-h); font-weight:600; font-size:.8rem; letter-spacing:.1em; text-transform:uppercase;
+  color: var(--gray-300);
+  border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:.5rem 1rem .5rem .75rem;
+  background: rgba(255,255,255,.04);
+}
+.axr-hero-eyebrow .dot { width:8px; height:8px; border-radius:50%; background: var(--orange); box-shadow: 0 0 0 0 rgba(249,101,50,.6); animation: pulseDot 2.4s ease-out infinite; }
+@keyframes pulseDot { 0%{ box-shadow:0 0 0 0 rgba(249,101,50,.55);} 70%{ box-shadow:0 0 0 11px rgba(249,101,50,0);} 100%{ box-shadow:0 0 0 0 rgba(249,101,50,0);} }
+html.reduced .axr-hero-eyebrow .dot { animation:none; }
+
+.axr-hero-h1 {
+  font-family: var(--font-h); font-weight:800;
+  font-size: clamp(2.7rem, 5.6vw, 4.6rem);
+  line-height: 1.03; letter-spacing: -.032em;
+  margin: 1.4rem 0 1.3rem;
+}
+.axr-hero-h1 .hl-line { display:block; overflow:hidden; padding-bottom:.08em; margin-bottom:-.08em; }
+.axr-hero-h1 .hl-line > span { display:block; transform: translateY(112%); animation: riseIn 1s var(--ease-out) forwards; }
+.axr-hero-h1 .hl-line:nth-child(2) > span { animation-delay: .12s; }
+@keyframes riseIn { to { transform: translateY(0); } }
+html.reduced .axr-hero-h1 .hl-line > span, html:not(.js) .axr-hero-h1 .hl-line > span { animation:none; transform:none; }
+.axr-hero-h1 em { font-style: italic; color: var(--white); }
+.axr-hero-h1 .fullstop { color: var(--orange); }
+
+.axr-hero-sub { font-size: clamp(1.05rem, 1.4vw, 1.23rem); color: var(--ink-dim); max-width: 34rem; }
+.axr-hero-sub strong { color: var(--orange-light); font-weight:700; display:inline-block; }
+
+.axr-hero-actions { display:flex; flex-wrap:wrap; gap: .9rem; margin-top: 2rem; }
+.axr-hero-trust { margin-top: 2.1rem; display:flex; flex-wrap:wrap; gap:.5rem 1.4rem; font-size:.82rem; color: var(--gray-400); }
+.axr-hero-trust span { display:inline-flex; align-items:center; gap:.45rem; }
+.axr-hero-trust svg { width:14px; height:14px; color: var(--orange); flex:0 0 auto; }
+
+/* --- the self-drafting document --- */
+.axr-hero-demo { position:relative; z-index:2; opacity:0; transform: translateY(26px) ; animation: demoIn 1s var(--ease-out) .35s forwards; }
+@keyframes demoIn { to { opacity:1; transform:none; } }
+html.reduced .axr-hero-demo, html:not(.js) .axr-hero-demo { animation:none; opacity:1; transform:none; }
+
+.doc-card {
+  position:relative;
+  background: linear-gradient(180deg, var(--navy-surface), var(--card-dark));
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 18px;
+  box-shadow: 0 40px 90px -40px rgba(0,0,0,.7), 0 0 0 1px rgba(0,0,0,.2);
+  overflow:hidden;
+  min-height: 430px;
+  display:flex; flex-direction:column;
+}
+.doc-card::before { /* orange spine */
+  content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background: var(--grad-brand);
+}
+.doc-head { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding: 1.05rem 1.25rem .95rem 1.35rem; border-bottom:1px solid rgba(255,255,255,.07); }
+.doc-idwrap { display:flex; align-items:center; gap:.8rem; min-width:0; }
+.doc-mark { width:34px; height:34px; flex:0 0 auto; filter: drop-shadow(0 4px 10px rgba(249,101,50,.35)); }
+.doc-title { display:block; font-family:var(--font-h); font-weight:700; font-size:.95rem; letter-spacing:-.01em; color:var(--white); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.doc-standard { display:block; font-size:.72rem; letter-spacing:.09em; text-transform:uppercase; color: var(--gray-400); margin-top:.1rem; }
+.doc-status {
+  flex:0 0 auto; display:inline-flex; align-items:center; gap:.45rem;
+  font-family:var(--font-h); font-weight:700; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase;
+  padding:.42rem .8rem; border-radius:999px;
+  border:1px solid rgba(249,101,50,.4); color: var(--orange-light); background: rgba(249,101,50,.08);
+  transition: border-color .4s, color .4s, background .4s;
+}
+.doc-status .doc-status-dot { width:7px; height:7px; border-radius:50%; background: var(--orange); animation: blinkDot 1s ease-in-out infinite alternate; }
+@keyframes blinkDot { from{opacity:.35;} to{opacity:1;} }
+.doc-status[data-state="done"] { border-color: rgba(255,255,255,.25); color: var(--white); background: rgba(255,255,255,.06); }
+.doc-status[data-state="done"] .doc-status-dot { background: var(--white); animation:none; }
+html.reduced .doc-status .doc-status-dot { animation:none; }
+
+.doc-progress { height:2px; background: rgba(255,255,255,.07); }
+.doc-progress i { display:block; height:100%; width:0%; background: var(--grad-brand); transition: width .5s var(--ease); }
+
+.doc-body { padding: 1.15rem 1.35rem 1rem; display:flex; flex-direction:column; gap: .95rem; flex:1; }
+.doc-row { opacity:0; transform: translateY(8px); transition: opacity .45s var(--ease-out), transform .45s var(--ease-out); }
+.doc-row.on { opacity:1; transform:none; }
+html:not(.js) .doc-row { opacity:1; transform:none; }
+.doc-label { font-family:var(--font-h); font-weight:700; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-500); margin-bottom:.3rem; display:flex; align-items:center; gap:.55rem; }
+.doc-label::before { content:""; width:5px; height:5px; border-radius:50%; background: var(--orange); opacity:.7; }
+.doc-value { font-size:.92rem; color: var(--gray-300); line-height:1.55; min-height:1.5em; }
+.doc-value .caret { display:inline-block; width:8px; height:1.05em; margin-left:2px; vertical-align:text-bottom; background: var(--orange); animation: blinkDot .7s steps(2) infinite; border-radius:1px; }
+html.reduced .doc-value .caret { display:none; }
+.doc-cite {
+  display:inline-flex; align-items:center; gap:.35rem;
+  font-family:var(--font-h); font-weight:600; font-size:.67rem; letter-spacing:.05em;
+  color: var(--orange-light); background: rgba(249,101,50,.1);
+  border: 1px solid rgba(249,101,50,.32); border-radius: 6px;
+  padding: .22rem .5rem; margin-top:.45rem;
+  opacity:0; transform: scale(.85);
+  transition: opacity .35s var(--ease-out), transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.doc-cite.on { opacity:1; transform:none; }
+html:not(.js) .doc-cite { opacity:1; transform:none; }
+.doc-cite svg { width:10px; height:10px; }
+
+.doc-stamp {
+  position:absolute; right: 1.4rem; bottom: 1.2rem;
+  width: 108px; height: 108px; pointer-events:none;
+  opacity:0; transform: rotate(-14deg) scale(1.5);
+  transition: opacity .4s var(--ease-out), transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.doc-stamp.show { opacity:1; transform: rotate(-9deg) scale(1); }
+html:not(.js) .doc-stamp { opacity:1; transform: rotate(-9deg); }
+.doc-foot { padding: 0 1.35rem 1.15rem; display:flex; align-items:center; gap:.6rem; font-size:.74rem; color:var(--gray-500); }
+.doc-foot svg { width:13px; height:13px; color: var(--orange); flex:0 0 auto; }
+
+.doc-tabs { display:flex; gap:.5rem; margin-top: 1rem; }
+.doc-tabs button {
+  font-family:var(--font-h); font-weight:600; font-size:.76rem; letter-spacing:.02em;
+  color: var(--gray-400); border:1px solid rgba(255,255,255,.13); border-radius:999px;
+  padding:.45rem .95rem; transition: all .25s var(--ease); background: rgba(255,255,255,.02);
+}
+.doc-tabs button:hover { color:var(--white); border-color: rgba(255,255,255,.3); }
+.doc-tabs button.on { color: var(--white); border-color: var(--orange); background: rgba(249,101,50,.12); }
+.axr-hero-demo-caption { margin-top: .85rem; font-size:.78rem; color: var(--gray-500); max-width: 46ch; }
+
+.scroll-cue {
+  position:absolute; left:50%; bottom:1.4rem; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:.5rem; z-index:2;
+  font-family:var(--font-h); font-weight:600; font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gray-500);
+}
+.scroll-cue i { width:1px; height:44px; background: linear-gradient(var(--orange), transparent); position:relative; overflow:hidden; }
+.scroll-cue i::after { content:""; position:absolute; left:0; top:-40%; width:100%; height:40%; background:var(--white); animation: cueDrop 1.8s var(--ease) infinite; }
+@keyframes cueDrop { to { top:110%; } }
+html.reduced .scroll-cue i::after { animation:none; }
+
+/* ============================================================
+   FIND YOUR X — friction constellation
+   ============================================================ */
+.fx-filters { display:flex; flex-wrap:wrap; justify-content:center; gap:.55rem; margin: 2.1rem 0 1.6rem; }
+.fx-filters button {
+  font-family:var(--font-h); font-weight:600; font-size:.8rem;
+  border:1.5px solid var(--gray-200); border-radius:999px; padding:.55rem 1.1rem;
+  color: var(--gray-600); background:var(--white);
+  transition: all .25s var(--ease);
+}
+.fx-filters button:hover { border-color: var(--gray-400); transform: translateY(-1px); }
+.fx-filters button.on { border-color: var(--orange); color: var(--orange); background: rgba(249,101,50,.07); box-shadow: 0 8px 20px -12px rgba(249,101,50,.5); }
+
+.fx-board {
+  position:relative;
+  border: 1.5px solid var(--gray-200); border-radius: 22px;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(26,31,54,.07) 1px, transparent 1.6px) 0 0 / 26px 26px,
+    linear-gradient(180deg, var(--gray-50), var(--white));
+  padding: clamp(1.4rem, 3.4vw, 3.2rem);
+}
+.fx-spot { position:absolute; inset:0; pointer-events:none; z-index:0; opacity:0; transition: opacity .4s var(--ease); border-radius: 20px; overflow:hidden;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(249,101,50,.12), transparent 72%);
+}
+@media (pointer:fine) { .fx-board:hover .fx-spot { opacity:1; } }
+
+.fx-cloud { position:relative; z-index:1; display:flex; flex-wrap:wrap; justify-content:center; gap: .85rem .8rem; max-width: 980px; margin: 0 auto; }
+.fx-chip {
+  font-family:var(--font-h); font-weight:600; font-size: clamp(.8rem, 1vw, .9rem); letter-spacing:-.005em;
+  color: var(--navy); background: var(--white);
+  border: 1.5px solid var(--gray-200); border-radius: 999px;
+  padding: .62rem 1.05rem .62rem .85rem;
+  display:inline-flex; align-items:center; gap:.5rem;
+  box-shadow: 0 1px 0 rgba(13,17,23,.04);
+  transition: transform .3s var(--ease-out), border-color .25s var(--ease), box-shadow .3s var(--ease), opacity .45s var(--ease), filter .45s var(--ease);
+}
+.fx-chip .fx-dot { width:8px; height:8px; border-radius:50%; flex:0 0 auto; background: var(--gray-400); }
+.fx-chip[data-cat="assurance"] .fx-dot { background: var(--orange); }
+.fx-chip[data-cat="design"]    .fx-dot { background: var(--navy); }
+.fx-chip[data-cat="tender"]    .fx-dot { background: var(--orange-dark); }
+.fx-chip[data-cat="knowledge"] .fx-dot { background: var(--gray-500); }
+.fx-chip[data-cat="controls"]  .fx-dot { background: var(--orange-light); }
+.fx-chip:hover, .fx-chip.hot { border-color: var(--orange); transform: translateY(-3px); box-shadow: 0 14px 26px -16px rgba(249,101,50,.45); }
+.fx-chip.pin { border-color: var(--orange); border-width:2px; background: rgba(249,101,50,.06); }
+.fx-chip.dim { opacity:.18; filter: grayscale(1); pointer-events:none; }
+/* organic scatter */
+@media (min-width: 901px) {
+  .fx-cloud { padding: .6rem 0 1rem; min-height: 430px; align-content: center; gap: 1.7rem 1.05rem; }
+  .fx-cloud .fx-chip:nth-child(3n)   { transform: translateY(10px); }
+  .fx-cloud .fx-chip:nth-child(4n+1) { transform: translateY(-8px); }
+  .fx-cloud .fx-chip:nth-child(5n+2) { transform: translateY(16px); }
+  .fx-cloud .fx-chip:nth-child(3n):hover, .fx-cloud .fx-chip:nth-child(3n).hot { transform: translateY(7px); }
+  .fx-cloud .fx-chip:nth-child(4n+1):hover, .fx-cloud .fx-chip:nth-child(4n+1).hot { transform: translateY(-11px); }
+  .fx-cloud .fx-chip:nth-child(5n+2):hover, .fx-cloud .fx-chip:nth-child(5n+2).hot { transform: translateY(13px); }
+}
+
+/* floating detail card (desktop hover) */
+.fx-float {
+  position:absolute; z-index:5; width: 384px; max-width: 86vw;
+  background: var(--navy-deep); color: var(--white);
+  border:1px solid rgba(249,101,50,.35); border-radius: 14px;
+  padding: 1.05rem 1.15rem;
+  box-shadow: 0 30px 60px -25px rgba(13,17,23,.55);
+  opacity:0; transform: translateY(8px) scale(.98); pointer-events:none;
+  transition: opacity .22s var(--ease-out), transform .22s var(--ease-out);
+}
+.fx-float.show { opacity:1; transform:none; }
+.fx-float.interactive { pointer-events:auto; }
+.fx-cat { font-family:var(--font-h); font-weight:700; font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; color: var(--orange-light); }
+.fx-title { font-family:var(--font-h); font-weight:700; font-size:1.02rem; margin:.25rem 0 0; color:var(--white); }
+.fx-sub2 { font-size:.74rem; color:var(--gray-400); margin-bottom:.6rem; }
+.fx-pain { font-size:.84rem; color:var(--gray-300); line-height:1.55; padding-left:.75rem; border-left:2px solid rgba(255,255,255,.16); margin-bottom:.6rem; }
+.fx-resolve { font-size:.84rem; color:var(--white); line-height:1.55; padding-left:.75rem; border-left:2px solid var(--orange); }
+.fx-resolve strong { color: var(--orange-light); font-family:var(--font-h); font-weight:700; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; display:block; margin-bottom:.15rem; }
+.fx-float .fx-link { display:inline-flex; align-items:center; gap:.4rem; margin-top:.75rem; font-family:var(--font-h); font-weight:700; font-size:.78rem; color:var(--orange-light); }
+.fx-float .fx-link:hover { color: var(--orange); }
+
+/* in-flow detail panel (mobile / coarse pointer) */
+.fx-panel {
+  display:none; margin-top: 1.2rem;
+  background: var(--navy-deep); color:var(--white);
+  border-radius: 14px; border:1px solid rgba(249,101,50,.35);
+  padding: 1.05rem 1.15rem;
+}
+.fx-panel.show { display:block; animation: panelIn .35s var(--ease-out); }
+@keyframes panelIn { from { opacity:0; transform: translateY(10px); } }
+html.reduced .fx-panel.show { animation:none; }
+
+.fx-meta { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:.5rem 1.6rem; margin-top:1.6rem; font-size:.82rem; color:var(--gray-500); }
+.fx-meta strong { color: var(--navy); font-family:var(--font-h); }
+.fx-legend { display:inline-flex; align-items:center; gap:.35rem; }
+.fx-legend i { width:8px; height:8px; border-radius:50%; display:inline-block; }
+
+/* ============================================================
+   THE FRICTION RINGS — sticky scrollytelling
+   (engineering at the core; admin layers peel away, outside in)
+   ============================================================ */
+.week-wrap { position:relative; background: var(--navy-deep); color:var(--white); }
+.week-track { height: 880vh; position:relative; }
+.week-sticky { position: sticky; top: 0; height: 100vh; height:100svh; overflow:hidden; display:flex; align-items:center; }
+.week-sticky .bg-grid { -webkit-mask-image:none; mask-image:none; opacity:.7; }
+/* full-viewport stage: the animation IS the section */
+.rings-stage {
+  width:100%; min-height:100vh; min-height:100svh; position:relative; z-index:1;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  padding: calc(var(--nav-h) + .6rem) clamp(1rem, 3vw, 2rem) 1.1rem;
+}
+.rings-stage::before { content:""; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(46vh circle at 50% 54%, rgba(249,101,50,.075), transparent 72%); }
+.rs-head { max-width: 62rem; }
+.rs-head .eyebrow { justify-content:center; }
+.rs-count { font-family:var(--font-h); font-weight:800; letter-spacing:-.02em; color:var(--white);
+  font-size: clamp(1.2rem, 2.3vw, 1.85rem); display:flex; align-items:baseline; justify-content:center; gap:.55rem; margin-top:.3rem; }
+.rs-num { color: var(--orange); font-size: clamp(2rem, 3.8vw, 3.1rem); line-height:1; min-width:1.1ch; display:inline-block; }
+.week-wrap.prized .rs-num { color: var(--orange-light); }
+
+.week-ticks { display:flex; gap:.45rem; margin-top: .5rem; align-items:center; justify-content:center; }
+.week-ticks i { width: 30px; height: 3px; border-radius:2px; background: rgba(255,255,255,.14); transition: background .4s var(--ease), width .4s var(--ease); }
+.week-ticks i.on { background: var(--orange); width: 44px; }
+.week-ticks .wt-label { font-family:var(--font-h); font-weight:600; font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color: var(--gray-500); margin-left:.6rem; }
+
+/* the rings: engineering at the core, friction layers wrapped around it */
+.rings-tilt { will-change: transform; margin: clamp(.4rem, 1.2vh, 1rem) 0;
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .18s linear; }
+html.reduced .rings-tilt { transform:none; transition:none; }
+.rings-svg { display:block; width: min(92vw, 51vh, 580px); height:auto; margin: 0 auto; overflow:visible; }
+.ring { transform-box: view-box; transform-origin: 50% 50%; transition: transform .95s var(--ease); }
+.ring-band { fill:none; stroke: rgba(255,255,255,.08); stroke-width: 15;
+  stroke-dasharray: 100; stroke-dashoffset: 0;
+  transition: stroke-dashoffset .95s var(--ease) var(--dd, 0s), stroke .35s var(--ease); }
+html.js .rings-svg.predraw .ring-band { stroke-dashoffset: 100; transition: none; }
+.ring-tex { fill:none; stroke: rgba(255,255,255,.14); stroke-width: 2; stroke-dasharray: 3 9;
+  transform-box: view-box; transform-origin: 50% 50%; animation: ringSpin 70s linear infinite; }
+.ring:nth-child(odd) .ring-tex { animation-direction: reverse; animation-duration: 90s; }
+@keyframes ringSpin { to { transform: rotate(360deg); } }
+.ring-label { font-family: var(--font-h); font-weight: 700; font-size: 12.5px; letter-spacing: .16em;
+  fill: var(--gray-500); paint-order: stroke; stroke: var(--navy-deep); stroke-width: 4px; }
+.ring text { pointer-events:none; }
+.ring-tex, .ring-label { transition: opacity .35s var(--ease), stroke .35s var(--ease), fill .35s var(--ease); }
+.ring-hit { fill:none; stroke: transparent; stroke-width: 20; pointer-events: stroke; cursor: pointer; }
+.ring.hov .ring-band { stroke: rgba(249,101,50,.32); }
+.ring.hov .ring-tex { stroke: rgba(249,101,50,.55); }
+.ring.hov .ring-label { fill: var(--white); }
+/* removal: the ring unwinds, its texture and label evaporate */
+.ring.gone { transform: rotate(4deg); }
+.ring.gone .ring-band { stroke-dashoffset: -100; transition-delay: 0s; }
+.ring.gone .ring-tex, .ring.gone .ring-label { opacity: 0; }
+.ring.gone .ring-hit { cursor: pointer; }
+html.reduced .ring, html:not(.js) .ring { transition:none; }
+html.reduced .ring-band, html:not(.js) .ring-band { transition:none; }
+html.reduced .ring-tex { animation: none; }
+
+.core { transform-box: view-box; transform-origin: 50% 50%; transform: scale(var(--core-s, 1)); transition: transform .95s var(--ease); }
+.core-halo { fill: rgba(249,101,50,.4); transition: fill .4s var(--ease); }
+@media (pointer:fine) { .core:hover .core-halo { fill: rgba(249,101,50,.6); } }
+.core-disc { fill: url(#coreGrad); }
+.core-t { font-family: var(--font-h); font-weight: 800; font-size: 15px; letter-spacing: .1em; fill: #fff; text-anchor: middle; }
+.core-sub { font-family: var(--font-b); font-size: 9px; letter-spacing: .04em; fill: rgba(255,255,255,.85); text-anchor: middle; }
+html.reduced .core { transition:none; }
+.rs-shock { fill:none; stroke: var(--orange); stroke-width: 2.5; opacity: 0;
+  transform-box: view-box; transform-origin: 50% 50%; pointer-events:none; }
+
+/* hover tip: the depth lives on demand, not in a wall of text */
+.rs-tip { position:absolute; z-index:6; width: 302px; text-align:left; pointer-events:none;
+  background: var(--navy-surface); border:1px solid rgba(249,101,50,.4); border-radius: 12px;
+  padding: .8rem .95rem; box-shadow: 0 24px 50px -20px rgba(0,0,0,.65);
+  opacity:0; transform: translateY(6px); transition: opacity .18s var(--ease-out), transform .18s var(--ease-out); }
+.rs-tip.show { opacity:1; transform:none; }
+.rs-tip .tip-num { font-family:var(--font-h); font-weight:800; font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color: var(--orange-light); margin-bottom:.3rem; }
+.rs-tip .tip-pain { font-size:.8rem; color: var(--gray-300); line-height:1.5; }
+.rs-tip .tip-act { margin-top:.45rem; font-family:var(--font-h); font-weight:700; font-size:.68rem; letter-spacing:.04em; color: var(--orange); }
+
+/* annotation line + finale (one slot, no boxes) */
+.rs-foot { display:flex; flex-direction:column; align-items:center; gap:.8rem; width:100%; min-height: 8.4rem; }
+.rs-annot { font-size:.95rem; color: var(--ink-dim); line-height:1.55; max-width: 58ch; min-height: 2.5em; }
+.rs-annot strong { color: var(--orange-light); font-family:var(--font-h); font-weight:700; }
+.rs-annot .ra-arrow { color: var(--orange); padding: 0 .3rem; }
+.rs-finale { display:none; flex-direction:column; align-items:center; gap:.95rem; }
+.week-wrap.prized .rs-finale { display:flex; animation: finaleIn .6s var(--ease-out); }
+.week-wrap.prized .rs-annot { display:none; }
+html.js .week-wrap.prized .rs-chips { display:none; }
+@keyframes finaleIn { from { opacity:0; transform: translateY(12px); } }
+.rs-finale p { font-family:var(--font-h); font-weight:700; font-size:1.08rem; color:var(--white); line-height:1.5; }
+.rs-finale p em { font-style:normal; color: var(--orange-light); }
+.rs-finale .rs-same { display:block; margin-top:.25rem; font-family:var(--font-b); font-weight:400; font-size:.85rem; color: var(--gray-400); }
+.rs-finale .rs-same strong { color: var(--gray-200); }
+
+/* docked solutions: a borderless shelf of what now runs in the system */
+.rs-chips { display:flex; flex-wrap:wrap; justify-content:center; gap:.45rem; max-width: 64rem; }
+.dock-chip { display:inline-flex; align-items:center; gap:.4rem;
+  font-family:var(--font-h); font-weight:600; font-size:.7rem; color: var(--gray-300);
+  background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:.34rem .72rem;
+  opacity:0; transform: translateY(-8px) scale(.85);
+  transition: opacity .5s var(--ease-out), transform .5s cubic-bezier(.34,1.56,.64,1), border-color .5s var(--ease); }
+.dock-chip.on { opacity:1; transform:none; border-color: rgba(249,101,50,.5); }
+.dock-chip svg { width:11px; height:11px; color: var(--orange); }
+
+/* reduced / no-JS fallback: the eight layers as a plain readable list */
+.rs-list { display:none; list-style:none; margin: 1.4rem auto 0; max-width: 64ch; text-align:left; }
+.rs-list li { padding:.55rem 0; border-bottom:1px solid rgba(255,255,255,.07); font-size:.9rem; color: var(--ink-dim); line-height:1.55; }
+.rs-list li strong { color: var(--white); font-family:var(--font-h); font-weight:700; }
+.rs-list li em { font-style:normal; color: var(--orange-light); }
+
+
+/* prize layers after the pinned scene */
+.layers { background: var(--navy-deep); color:var(--white); padding: 0 0 clamp(4.5rem, 8vw, 7rem); position:relative; }
+.layers-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.4rem; }
+.layer {
+  background: linear-gradient(180deg, var(--navy-surface), var(--card-dark));
+  border:1px solid rgba(255,255,255,.08); border-radius: 16px;
+  padding: 1.6rem 1.5rem;
+  transition: transform .35s var(--ease-out), border-color .35s var(--ease), box-shadow .35s var(--ease);
+}
+.layer:hover { transform: translateY(-5px); border-color: rgba(249,101,50,.4); box-shadow: 0 24px 50px -28px rgba(249,101,50,.35); }
+.layer-num { font-family:var(--font-h); font-weight:800; font-size:.78rem; color: var(--orange); letter-spacing:.08em; }
+.layer h3 { font-family:var(--font-h); font-weight:800; font-size:1.18rem; letter-spacing:-.02em; margin:.55rem 0 .6rem; color:var(--white); }
+.layer p { font-size:.9rem; color: var(--ink-dim); line-height:1.7; }
+.layers .prize-sub-line { text-align:center; margin-top: 2.4rem; }
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .axr-hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .axr-hero { min-height:0; padding-bottom: 4rem; }
+  .axr-hero-demo { max-width: 620px; }
+  .scroll-cue { display:none; }
+  .layers-grid { grid-template-columns: 1fr; }
+  .f-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .nav-links { display:none; }
+  .nav-burger { display:block; }
+  /* rings stay full-viewport and sticky on touch; shorter track for thumb scrolling */
+  .week-track { height: 700vh; }
+  .rings-svg { width: min(90vw, 48vh); }
+  .rs-tip { display:none !important; }
+  /* proof: native swipe */
+  .proof-sticky { position:static; height:auto; overflow:visible; padding: clamp(4.5rem, 9vw, 7rem) 0 3.5rem; }
+  .proof-head { padding-top:0; }
+  .proof-cards { overflow-x:auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .proof-cards::-webkit-scrollbar { display:none; }
+  .proof-card, .proof-endcap { scroll-snap-align: start; width: min(84vw, 380px); }
+  .proof-track-outer { height:auto !important; }
+  .proof-progress { display:none; }
+  .who-grid { grid-template-columns: 1fr; }
+  .who-conn { display:none; }
+  .id-col { flex-direction:row; flex-wrap:wrap; }
+  .id-card { flex: 1 1 46%; min-height:56px; }
+  .fx-float { display:none !important; }
+}
+@media (max-width: 640px) {
+  .axr-hero-actions .axr-btn { width:100%; }
+  .axr-hero-eyebrow { font-size:.66rem; letter-spacing:.06em; }
+  .doc-head { flex-wrap:wrap; row-gap:.5rem; }
+  .doc-status { white-space:nowrap; }
+  .final-actions .axr-btn { width: min(100%, 340px); }
+  .f-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+  .id-card { flex-basis:100%; }
+  /* phones: rings + counter + one annotation line; chips fold away */
+  .rings-svg { width: min(92vw, 44vh); }
+  .rs-chips { display:none; }
+  .rs-count { flex-direction:column; gap:.15rem; align-items:center; }
+  .rs-annot { font-size:.86rem; }
+  .rs-foot { min-height: 6.4rem; }
+  .doc-card { min-height: 470px; }
+  .news-form { flex-basis: 100%; }
+}
+/* static/no-JS: show everything, kill sticky theatre */
+html.reduced .week-track, html:not(.js) .week-track { height:auto; }
+html.reduced .week-sticky, html:not(.js) .week-sticky { position:static; height:auto; overflow:visible; padding: clamp(3rem,6vw,4.5rem) 0 2rem; }
+html.reduced .rings-stage, html:not(.js) .rings-stage { min-height:0; padding-top: 1rem; }
+html.reduced .week-ticks, html:not(.js) .week-ticks { display:none; }
+html.reduced .rs-annot, html:not(.js) .rs-annot { display:none; }
+html.reduced .rs-list, html:not(.js) .rs-list { display:block; }
+html.reduced .dock-chip, html:not(.js) .dock-chip { opacity:1; transform:none; }
+html.reduced .rs-finale, html:not(.js) .rs-finale { display:flex; }
+html.reduced .rs-tip, html:not(.js) .rs-tip, html:not(.js) .ring-hit { display:none; }
+html.reduced .proof-sticky { position:static; height:auto; padding: clamp(4.5rem,9vw,7rem) 0 3rem; }
+html.reduced .proof-head { padding-top:0; }
+html.reduced .proof-cards { overflow-x:auto; }
+html.reduced .proof-track-outer { height:auto !important; }
+html.reduced .proof-progress, html.reduced .proof-hint { display:none; }
+html:not(.js) .proof-sticky { position:static; height:auto; }
+html:not(.js) .proof-cards { overflow-x:auto; }
+/* screenshot test rig (query-param gated, no production effect) */
+html.shot { scroll-behavior:auto !important; }
+html.shot-freeze .week-track { height:auto; }
+html.shot-freeze .week-sticky { position:static; height:auto; overflow:visible; padding: clamp(4.5rem,9vw,7rem) 0; }
+html.shot-freeze .proof-track-outer { height:auto !important; }
+html.shot-freeze .proof-sticky { position:static; height:auto; padding: clamp(4.5rem,9vw,7rem) 0 3rem; }
+html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
+.axr-hero{background:var(--navy-deep);}
+
+</style>
 </head>
 <body>
 <div id="site-particles" aria-hidden="true"></div>
@@ -2639,19 +3158,97 @@
 </div><!-- /.mobile-menu -->
 
 <!-- ===== HERO ===== -->
-<section class="hero">
-  
-  <div class="container animate-in">
-    <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span> Accelerating AI adoption for UK rail.</div>
-    <h1 class="hero-headline hero-prize">
-      Let <em>engineers</em> engineer.
-    </h1>
-    <p class="hero-sub">Free your team from the <a class="brand-x" href="#find-your-x">X</a> that drains them. <strong style="color:var(--orange);">Truly AI-enabled, finally.</strong></p>
-    <div class="hero-actions">
-      <a href="scorecard.html" class="btn btn-primary btn-primary-lg">Start with the Free AI Readiness Assessment</a>
+
+<!-- ===== HERO (ported self-drafting doc) ===== -->
+<header class="axr-hero" id="home-hero" data-nav-theme="dark">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="axr-hero-glow" aria-hidden="true"></div>
+  <div class="axr-hero-glow2" aria-hidden="true"></div>
+  <svg class="axr-hero-xmark" viewBox="0 0 600 600" aria-hidden="true" fill="none">
+    <path class="x1" d="M96 96 L504 504"/>
+    <path class="x2" d="M504 96 L96 504"/>
+  </svg>
+
+  <div class="container axr-hero-grid">
+    <div class="axr-hero-copy">
+      <div class="axr-hero-eyebrow"><span class="dot"></span> Accelerating AI adoption for UK rail</div>
+      <h1 class="axr-hero-h1">
+        <span class="hl-line"><span>Let <em>engineers</em></span></span>
+        <span class="hl-line"><span>engineer<span class="fullstop">.</span></span></span>
+      </h1>
+      <p class="axr-hero-sub">Free your team from the <a class="axr-brand-x" href="#find-your-x">X</a> that drains them. <strong>Truly AI-enabled, finally.</strong></p>
+      <div class="axr-hero-actions">
+        <a class="axr-btn axr-btn-primary" href="scorecard.html">Start with the Free AI Readiness Assessment <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a class="axr-btn axr-btn-ghost-dark" href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book a call</a>
+      </div>
+      <div class="axr-hero-trust">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/></svg> RISQS Verified</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> ICO Registered</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg> Built by a Chartered rail engineer</span>
+      </div>
+    </div>
+
+    <div class="axr-hero-demo">
+      <div class="doc-card" id="doc-card" aria-label="Illustrative demonstration of an assurance deliverable drafting itself">
+        <div class="doc-head">
+          <div class="doc-idwrap">
+            <img class="doc-mark" src="brand_assets/automatex-mark.png" alt="" aria-hidden="true">
+            <div style="min-width:0;">
+              <span class="doc-title" id="doc-title">Form G</span>
+              <span class="doc-standard" id="doc-standard">PACE &middot; NR/L2/RSE/02009</span>
+            </div>
+          </div>
+          <span class="doc-status" id="doc-status" data-state="drafting"><span class="doc-status-dot"></span><span id="doc-status-text">Drafting</span></span>
+        </div>
+        <div class="doc-progress"><i id="doc-progress-bar" style="width:100%"></i></div>
+
+        <div class="doc-body" id="doc-body">
+          <!-- Static fallback (rebuilt live by JS): completed Form G -->
+          <div class="doc-row on">
+            <div class="doc-label">Project</div>
+            <div class="doc-value">Station canopy refurbishment &middot; Southern region</div>
+            <span class="doc-cite on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 10a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Cited &middot; Project brief</span>
+          </div>
+          <div class="doc-row on">
+            <div class="doc-label">Deliverable</div>
+            <div class="doc-value">Engineering assurance form (Form G), drafted section by section</div>
+            <span class="doc-cite on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 10a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Cited &middot; PACE deliverable list</span>
+          </div>
+          <div class="doc-row on">
+            <div class="doc-label">Compliance statement</div>
+            <div class="doc-value">Design complies with the approved requirements and applicable standards.</div>
+            <span class="doc-cite on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 10a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Cited &middot; NR/L2/RSE/02009</span>
+          </div>
+        </div>
+
+        <div class="doc-foot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span>Nothing ships without your engineer&rsquo;s review. Human in the loop, by design.</span>
+        </div>
+
+        <svg class="doc-stamp" id="doc-stamp" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="stampArc" d="M60,16 a44,44 0 1,1 -0.01,0"/></defs>
+          <circle cx="60" cy="60" r="54" fill="none" stroke="#F96532" stroke-width="2.5" opacity=".95"/>
+          <circle cx="60" cy="60" r="34" fill="none" stroke="#F96532" stroke-width="1" stroke-dasharray="3 4" opacity=".8"/>
+          <text font-family="Montserrat, sans-serif" font-weight="700" font-size="10" letter-spacing="2.2" fill="#FB7B3A">
+            <textPath href="#stampArc">ENGINEER REVIEWED &#183; HITL &#183;</textPath>
+          </text>
+          <path d="M48 61 l8 8 l17 -19" fill="none" stroke="#F96532" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="doc-tabs" id="doc-tabs" role="tablist" aria-label="Choose a deliverable to watch drafting">
+        <button class="on" data-doc="0" role="tab" aria-selected="true">Form G</button>
+        <button data-doc="1" role="tab" aria-selected="false">DRN response</button>
+        <button data-doc="2" role="tab" aria-selected="false">HAZID log</button>
+      </div>
+      <p class="axr-hero-demo-caption">Illustrative output. Real deliverables are drafted against your own templates and knowledge base, cited clause by clause, and reviewed by your engineers.</p>
     </div>
   </div>
-</section>
+
+  <div class="scroll-cue" aria-hidden="true"><span>Find your X</span><i></i></div>
+</header>
+
 
 <!-- ====================================================================== -->
 <!-- WHO WE HELP — self-identification + routing bowtie (added 2026-06-05) -->
@@ -3354,1327 +3951,187 @@
 <!-- ====================================================================== -->
 
 <!-- ===== FIND YOUR X — MAGNIFIER LENS CANVAS ===== -->
-<section class="pain-section" id="pain">
-  
-  <div class="container">
-    <div class="text-center pain-header">
-      <div class="section-eyebrow pain-eyebrow sc-reveal">The pain</div>
-      <h2 class="pain-heading sc-reveal">What&rsquo;s draining your team.</h2>
-      <p class="pain-sub sc-reveal">Your seniors got into rail to solve problems and exercise engineering judgement, not to feel stuck in admin. Today they spend half their week on work AI can already do better. The work they joined for waits.</p>
-    </div>
 
-    <div class="pain-grid">
-      <article class="pain-card sc-reveal">
-        <div class="pain-num">01</div>
-        <h3 class="pain-card-title">Engineers buried in admin.</h3>
-        <p class="pain-card-body">Form A/B/C/G. Cat 3 comments. Standards searching. Moving data from one template to another. Repetitive, error-prone, soul-crushing. The work AI can do better, done by your most expensive people. The work they were hired to do queues behind it.</p>
-      </article>
-      <article class="pain-card sc-reveal">
-        <div class="pain-num">02</div>
-        <h3 class="pain-card-title">AI-readiness anxiety.</h3>
-        <p class="pain-card-body">Tenders are starting to ask AI questions the way they asked BIM questions a decade ago. Your last response had to bluff. The next one will lose. Your clients are starting to audit your AI readiness. The window closes fast.</p>
-      </article>
-      <article class="pain-card sc-reveal">
-        <div class="pain-num">03</div>
-        <h3 class="pain-card-title">Hero dependency.</h3>
-        <p class="pain-card-body">Two people hold the whole firm together. They are the system rather than enabled by one. When they take leave, the programme stalls. When they burn out or leave, the operation collapses. Your risk register is your senior org chart. You know it.</p>
-      </article>
-      <article class="pain-card sc-reveal">
-        <div class="pain-num">04</div>
-        <h3 class="pain-card-title">Margin walking out.</h3>
-        <p class="pain-card-body">Every Cat 3 comment, every rework cycle, every late deliverable. You see the P&amp;L. You do not see the AI-native competitor&rsquo;s P&amp;L improving every quarter.</p>
-      </article>
-      <article class="pain-card sc-reveal">
-        <div class="pain-num">05</div>
-        <h3 class="pain-card-title">Peak and trough.</h3>
-        <p class="pain-card-body">Rail runs in peaks and troughs. Today the only way to scale your core team&rsquo;s capability is to hire. Every peak forces new hires. Every trough turns those hires into a risk you cannot carry. The hire-rehire cycle bleeds margin. The alternative is a system that enables your core team to cover more, without growing headcount.</p>
-      </article>
+<!-- ===== FRICTION RINGS (ported, replaces pain+prize) ===== -->
+<section class="week-wrap" id="pain" data-nav-theme="dark">
+  <div class="week-track" id="week-track">
+    <div class="week-sticky">
+      <div class="bg-grid" aria-hidden="true"></div>
+      <div class="rings-stage">
+        <div class="rs-head">
+          <div class="eyebrow axr-center">The pain &rarr; the prize</div>
+          <h2 class="rs-count"><span class="rs-num" id="rs-num">8</span> <span id="rs-count-text">layers between your engineers and engineering.</span></h2>
+        </div>
+
+        <div class="rings-tilt" id="rings-tilt">
+          <svg class="rings-svg" id="rings-svg" viewBox="0 0 560 560" role="img" aria-label="Eight layers of admin friction wrapped around an engineering core. AI automation removes them one by one until only engineering remains.">
+            <defs>
+              <radialGradient id="coreGrad" cx="38%" cy="30%" r="85%">
+                <stop offset="0%" stop-color="#FB7B3A"/>
+                <stop offset="55%" stop-color="#F96532"/>
+                <stop offset="100%" stop-color="#ED4A3B"/>
+              </radialGradient>
+              <filter id="coreBlur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="16"/></filter>
+            </defs>
+            <g class="ring" data-ring="forms">
+              <circle class="ring-band" cx="280" cy="280" r="250" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="250"/>
+              <path id="rp-forms" d="M 30 280 a 250 250 0 1 1 500 0 a 250 250 0 1 1 -500 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-forms" startOffset="25%" text-anchor="middle">FORMS</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="250"/>
+            </g>
+            <g class="ring" data-ring="tender-returns">
+              <circle class="ring-band" cx="280" cy="280" r="228" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="228"/>
+              <path id="rp-tret" d="M 52 280 a 228 228 0 1 1 456 0 a 228 228 0 1 1 -456 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-tret" startOffset="25%" text-anchor="middle">TENDER RETURNS</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="228"/>
+            </g>
+            <g class="ring" data-ring="tender-scramble">
+              <circle class="ring-band" cx="280" cy="280" r="206" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="206"/>
+              <path id="rp-tscr" d="M 74 280 a 206 206 0 1 1 412 0 a 206 206 0 1 1 -412 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-tscr" startOffset="25%" text-anchor="middle">TENDER SCRAMBLE</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="206"/>
+            </g>
+            <g class="ring" data-ring="standards">
+              <circle class="ring-band" cx="280" cy="280" r="184" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="184"/>
+              <path id="rp-stds" d="M 96 280 a 184 184 0 1 1 368 0 a 184 184 0 1 1 -368 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-stds" startOffset="25%" text-anchor="middle">STANDARDS SEARCH</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="184"/>
+            </g>
+            <g class="ring" data-ring="comments">
+              <circle class="ring-band" cx="280" cy="280" r="162" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="162"/>
+              <path id="rp-cmts" d="M 118 280 a 162 162 0 1 1 324 0 a 162 162 0 1 1 -324 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-cmts" startOffset="25%" text-anchor="middle">CAT 3 COMMENTS</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="162"/>
+            </g>
+            <g class="ring" data-ring="reporting">
+              <circle class="ring-band" cx="280" cy="280" r="140" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="140"/>
+              <path id="rp-rpt" d="M 140 280 a 140 140 0 1 1 280 0 a 140 140 0 1 1 -280 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-rpt" startOffset="25%" text-anchor="middle">REPORTING</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="140"/>
+            </g>
+            <g class="ring" data-ring="drafting">
+              <circle class="ring-band" cx="280" cy="280" r="118" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="118"/>
+              <path id="rp-drf" d="M 162 280 a 118 118 0 1 1 236 0 a 118 118 0 1 1 -236 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-drf" startOffset="25%" text-anchor="middle">DRAFTING</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="118"/>
+            </g>
+            <g class="ring" data-ring="meetings">
+              <circle class="ring-band" cx="280" cy="280" r="96" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="96"/>
+              <path id="rp-mtg" d="M 184 280 a 96 96 0 1 1 192 0 a 96 96 0 1 1 -192 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-mtg" startOffset="25%" text-anchor="middle">MEETINGS &amp; COORDINATION</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="96"/>
+            </g>
+            <g class="core" id="rings-core">
+              <circle class="core-halo" cx="280" cy="280" r="80" filter="url(#coreBlur)"/>
+              <circle class="core-disc" cx="280" cy="280" r="70"/>
+              <text class="core-t" x="280" y="277">ENGINEERING</text>
+              <text class="core-sub" x="280" y="296">judgement &middot; decisions &middot; risk</text>
+            </g>
+            <circle class="rs-shock" id="rs-shock" cx="280" cy="280" r="78"/>
+          </svg>
+        </div>
+        <aside class="rs-tip" id="rs-tip" aria-hidden="true"></aside>
+
+        <div class="rs-foot">
+          <p class="rs-annot" id="rs-annot">Hover a layer to read it. Click to automate it away. Or just scroll.</p>
+          <div class="rs-finale" id="rs-finale">
+            <p>Your team, truly <em>AI-enabled</em>.<span class="rs-same"><strong>Same team.</strong> The system runs the admin. Your engineers review, decide, and engineer.</span></p>
+            <a class="axr-btn axr-btn-primary" href="ai-in-action.html#case-studies">See it in action <span class="arr" aria-hidden="true">&rarr;</span></a>
+          </div>
+          <div class="rs-chips" id="rs-chips" aria-label="Running in the AutomateX system">
+            <span class="dock-chip" data-chip="forms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Forms &middot; drafted &amp; cited</span>
+            <span class="dock-chip" data-chip="tender-returns"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Tender returns &middot; assembled</span>
+            <span class="dock-chip" data-chip="tender-scramble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Evidence &middot; found &amp; cited</span>
+            <span class="dock-chip" data-chip="standards"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Standards &middot; clause-level answers</span>
+            <span class="dock-chip" data-chip="comments"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Comment responses &middot; drafted</span>
+            <span class="dock-chip" data-chip="reporting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Reporting &middot; live, not rekeyed</span>
+            <span class="dock-chip" data-chip="drafting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Drafting &middot; grounded first drafts</span>
+            <span class="dock-chip" data-chip="meetings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Meetings &middot; actions chased</span>
+          </div>
+          <div class="week-ticks" id="week-ticks" aria-hidden="true">
+            <i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <span class="wt-label">Scroll</span>
+          </div>
+          <ul class="rs-list" aria-label="The eight layers and what replaces them">
+            <li><strong>Forms &middot; A/B/C/G.</strong> Senior hours lost to formatting, citation chasing and version drift. <em>&rarr; Drafted section by section, cited clause by clause, routed for review.</em></li>
+            <li><strong>Tender returns.</strong> Every submission reinvents the wheel. <em>&rarr; Assembled from your win library and evidence base.</em></li>
+            <li><strong>Tender scramble.</strong> The 11th-hour hunt for proof you know exists. <em>&rarr; Evidence found, matched and cited in seconds.</em></li>
+            <li><strong>Standards search.</strong> Nine thousand standards across the railway. <em>&rarr; Clause-level answers across NR, RSSB and CSM-RA.</em></li>
+            <li><strong>Cat 3 comments.</strong> Opinion-driven comment cycles and signature chasing. <em>&rarr; Responses drafted against the clause, closure tracked.</em></li>
+            <li><strong>Reporting.</strong> Half a week assembling status reports. <em>&rarr; Live dashboards, nothing rekeyed.</em></li>
+            <li><strong>Drafting.</strong> Every deliverable starts at a blank page. <em>&rarr; Grounded first drafts in minutes, from your templates.</em></li>
+            <li><strong>Meetings &amp; coordination.</strong> Actions that die in inboxes. <em>&rarr; Captured, assigned and chased by the system.</em></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== PRIZE — Future state and count-up figures ===== -->
-<section class="prize-section" id="prize">
-  
+<!-- ===== FIND YOUR X (ported constellation, replaces lens) ===== -->
+<section class="sec sec-light" id="find-your-x" data-nav-theme="light">
   <div class="container">
-    <div class="text-center prize-header">
-      <div class="section-eyebrow prize-eyebrow sc-reveal">The prize</div>
-      <h2 class="prize-heading sc-reveal">Your team, truly AI-enabled.</h2>
-      <p class="prize-subtitle sc-reveal">And you are the leader who took them there.</p>
-      <p class="prize-sub sc-reveal">18 months from now your team is doing engineering, not admin. Your firm runs on a system that compounds with every project.</p>
+    <div class="axr-center">
+      <div class="eyebrow axr-center" data-reveal>Find your X</div>
+      <h2 class="h2" data-reveal>We automate your <span class="axr-heading-x">X</span>.</h2>
+      <p class="sub axr-center" data-reveal>Your <span class="axr-brand-x">X</span> is the error-prone, repetitive, time-consuming friction in your workflow, often unique to your operational context and organisation type. Hover any point to see how AutomateX resolves it. Click to pin. On a phone, just tap.</p>
     </div>
 
-    <div class="prize-figures sc-reveal" id="prize-figures">
-      <div class="prize-figure">
-        <div class="prize-fig-label">Integrated knowledge base</div>
-        <div class="prize-fig-sub">An AI-queryable knowledge layer across your standards, templates, and project history.</div>
-      </div>
-      <div class="prize-figure">
-        <div class="prize-fig-label">Reduced rework</div>
-        <div class="prize-fig-sub">Human error in repetitive document workflows materially reduced.</div>
-      </div>
-      <div class="prize-figure">
-        <div class="prize-fig-label">Streamlined workflows</div>
-        <div class="prize-fig-sub">Administrative and template-driven tasks shifted off engineers&rsquo; plates.</div>
-      </div>
-      <div class="prize-figure">
-        <div class="prize-fig-label">Higher accuracy</div>
-        <div class="prize-fig-sub">Knowledge searching and standards interpretation faster and surer.</div>
-      </div>
-      <div class="prize-figure">
-        <div class="prize-fig-label">Grounded outputs</div>
-        <div class="prize-fig-sub">Every output cited against your knowledge base. Hallucination mitigated by design.</div>
-      </div>
+    <div class="fx-filters" data-reveal role="group" aria-label="Filter friction points by organisation type">
+      <button class="on" data-arch="all" aria-pressed="true">All 19 friction points</button>
+      <button data-arch="client" aria-pressed="false">Client organisations</button>
+      <button data-arch="tier1" aria-pressed="false">Tier 1 / 2 consultancies &amp; contractors</button>
+      <button data-arch="sme" aria-pressed="false">SMEs</button>
     </div>
 
-    <div class="prize-layers">
-      <div class="prize-layer sc-reveal">
-        <div class="prize-layer-num">01</div>
-        <h3 class="prize-layer-title">Let engineers engineer.</h3>
-        <p class="prize-layer-body">Your seniors do the work that compounds. Junior engineers get mentored. The work that drains the firm is gone. The work that builds it gets done.</p>
+    <div class="fx-board" id="fx-board" data-reveal>
+      <div class="fx-spot" id="fx-spot" aria-hidden="true"></div>
+      <div class="fx-cloud" id="fx-cloud">
+        <button class="fx-chip" data-key="form-a" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>Form A/B/C/G</button>
+        <button class="fx-chip" data-key="aip" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>AIP</button>
+        <button class="fx-chip" data-key="drn" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>DRN</button>
+        <button class="fx-chip" data-key="idcr" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>IDC/R</button>
+        <button class="fx-chip" data-key="hazid" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>HAZID</button>
+        <button class="fx-chip" data-key="cr-t" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>CR-T</button>
+        <button class="fx-chip" data-key="ncr" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>NCR</button>
+        <button class="fx-chip" data-key="itp" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>ITP</button>
+        <button class="fx-chip" data-key="audit-compliance" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>Audit &amp; Compliance</button>
+        <button class="fx-chip" data-key="eis" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>EIS</button>
+        <button class="fx-chip" data-key="vandv" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>V&amp;V Reqts</button>
+        <button class="fx-chip" data-key="clash-detection" data-cat="design" aria-pressed="false"><span class="fx-dot"></span>Clash Detection</button>
+        <button class="fx-chip" data-key="take-off" data-cat="design" aria-pressed="false"><span class="fx-dot"></span>Take-off</button>
+        <button class="fx-chip" data-key="interface" data-cat="design" aria-pressed="false"><span class="fx-dot"></span>Interface Register</button>
+        <button class="fx-chip" data-key="tender-return" data-cat="tender" aria-pressed="false"><span class="fx-dot"></span>Tender Return</button>
+        <button class="fx-chip" data-key="compliance-matrix" data-cat="tender" aria-pressed="false"><span class="fx-dot"></span>Compliance Matrix</button>
+        <button class="fx-chip" data-key="standards-search" data-cat="knowledge" aria-pressed="false"><span class="fx-dot"></span>Standards search</button>
+        <button class="fx-chip" data-key="lessons-learned" data-cat="knowledge" aria-pressed="false"><span class="fx-dot"></span>Lessons Learned</button>
+        <button class="fx-chip" data-key="programme-reporting" data-cat="controls" aria-pressed="false"><span class="fx-dot"></span>Programme Reporting</button>
       </div>
-      <div class="prize-layer sc-reveal">
-        <div class="prize-layer-num">02</div>
-        <h3 class="prize-layer-title">Firms compounding.</h3>
-        <p class="prize-layer-body">Every project leaves the firm sharper. Standards reusable. Lessons that stick. Tenders that cite evidence. Win rate moves. Margin recovers. The firm stops running uphill.</p>
-      </div>
-      <div class="prize-layer sc-reveal">
-        <div class="prize-layer-num">03</div>
-        <h3 class="prize-layer-title">The leader who saw it.</h3>
-        <p class="prize-layer-body">You become the leader who took your firm into the AI era. The one whose board sees the curve. Career-defining. Career-proofing. Your name shows up in the conversations that matter.</p>
-      </div>
+
+      <aside class="fx-float" id="fx-float" aria-hidden="true"></aside>
+      <div class="fx-panel" id="fx-panel" role="region" aria-live="polite"></div>
     </div>
 
-    <div class="prize-cta sc-reveal">
-      <a href="ai-in-action.html#case-studies" class="btn btn-primary btn-primary-lg prize-cta-btn">
-        See it in action
-        <span class="prize-cta-arrow" aria-hidden="true">&rarr;</span>
-      </a>
+    <div class="fx-meta" data-reveal>
+      <span><strong>19 friction points</strong> mapped across 5 workflow families</span>
+      <span class="fx-legend"><i style="background:var(--orange)"></i> Assurance</span>
+      <span class="fx-legend"><i style="background:var(--navy)"></i> Design</span>
+      <span class="fx-legend"><i style="background:var(--orange-dark)"></i> Tender</span>
+      <span class="fx-legend"><i style="background:var(--gray-500)"></i> Knowledge</span>
+      <span class="fx-legend"><i style="background:var(--orange-light)"></i> Controls</span>
+      <span><a href="ai-in-action.html" style="color:var(--orange); font-weight:700;">See how we&rsquo;d automate yours &rarr;</a></span>
     </div>
   </div>
 </section>
-
-<style>
-  /* ===== PAIN section — light, restrained, weighty ===== */
-  .pain-section {
-    background: var(--white);
-    position: relative;
-    padding: 5.5rem 0 6rem;
-    color: var(--navy);
-  }
-  .pain-section .container { position: relative; z-index: 1; }
-
-  .pain-eyebrow {
-    color: var(--orange);
-  }
-  .pain-heading {
-    font-family: var(--font-heading);
-    font-size: clamp(1.875rem, 3.6vw, 2.625rem);
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.025em;
-    color: var(--navy);
-    max-width: 760px;
-    margin: 0 auto 1.25rem;
-  }
-  .pain-sub {
-    font-family: var(--font-heading);
-    font-size: clamp(1rem, 1.4vw, 1.125rem);
-    font-weight: 500;
-    line-height: 1.6;
-    color: var(--gray-600);
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .pain-header { margin-bottom: 3.5rem; }
-
-  .pain-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  .pain-card {
-    background: var(--gray-50);
-    border: 1px solid var(--gray-200);
-    border-radius: 12px;
-    padding: 1.75rem 1.375rem;
-    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
-  }
-  .pain-card:hover {
-    border-color: rgba(249,101,50,0.4);
-    background: var(--white);
-    box-shadow: 0 8px 24px rgba(26,31,54,0.06);
-    transform: translateY(-3px);
-  }
-  .pain-num {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--orange);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.75rem;
-  }
-  .pain-card-title {
-    font-family: var(--font-heading);
-    font-size: 1.0625rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.875rem;
-    letter-spacing: -0.015em;
-    line-height: 1.3;
-  }
-  .pain-card-body {
-    font-size: 0.8125rem;
-    line-height: 1.65;
-    color: var(--gray-600);
-    margin: 0;
-  }
-
-  /* ===== PRIZE section — dark navy with orange drama ===== */
-  .prize-section {
-    background: var(--navy-deep, #0D1117);
-    position: relative;
-    padding: 5.5rem 0 6rem;
-    color: var(--white);
-    overflow: hidden;
-  }
-  .prize-section .container { position: relative; z-index: 2; }
-  /* Subtle ramps at both ends so dark/light boundaries feel softened, not slammed.
-     White at 0.05 opacity, 2rem tall — almost invisible alone but kills the hard
-     visual edge. Prize borders Pain (light) above and Industry Voice (light) below. */
-  .prize-section::before,
-  .prize-section::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 2rem;
-    pointer-events: none;
-    z-index: 1;
-  }
-  .prize-section::before {
-    top: 0;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, transparent 100%);
-  }
-  .prize-section::after {
-    bottom: 0;
-    background: linear-gradient(to top, rgba(255,255,255,0.05) 0%, transparent 100%);
-  }
-  /* Boundary fade utility — same subtle white-to-transparent ramp used at every
-     dark-to-light section transition. 2rem tall, very low opacity so the edge
-     softens without producing a visible bright band. */
-  #find-your-x::after,
-  .ai-actions::before,
-  .ai-actions::after,
-  .research-section::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 2rem;
-    pointer-events: none;
-    z-index: 1;
-  }
-  #find-your-x::after { bottom: 0; background: linear-gradient(to top, rgba(255,255,255,0.05) 0%, transparent 100%); }
-  .ai-actions::before { top: 0; background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, transparent 100%); }
-  .ai-actions::after  { bottom: 0; background: linear-gradient(to top, rgba(255,255,255,0.05) 0%, transparent 100%); }
-  .research-section::before { top: 0; background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, transparent 100%); }
-
-
-  .prize-eyebrow {
-    color: var(--orange) !important;
-  }
-  .prize-heading {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    color: var(--white);
-    max-width: 820px;
-    margin: 0 auto 1.25rem;
-  }
-  /* Smaller italic credit line that sits between the prize title and the
-     descriptive sub. Holds the personal-status prize ("you are the leader…")
-     without competing visually with the team-level prize title above it. */
-  .prize-subtitle {
-    font-family: var(--font-heading);
-    font-size: clamp(1rem, 1.6vw, 1.25rem);
-    font-weight: 500;
-    font-style: italic;
-    line-height: 1.4;
-    color: var(--orange);
-    max-width: 700px;
-    margin: -0.5rem auto 1.5rem;
-    text-align: center;
-    letter-spacing: -0.005em;
-  }
-  .prize-sub {
-    font-family: var(--font-heading);
-    font-size: clamp(1rem, 1.4vw, 1.125rem);
-    font-weight: 500;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.78);
-    max-width: 740px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .prize-header { margin-bottom: 3.5rem; }
-
-  /* Big figures with count-up animation. Five-card grid on desktop. */
-  .prize-figures {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-    max-width: 1280px;
-    margin: 0 auto 4.5rem;
-  }
-  .prize-figure {
-    text-align: center;
-    background: rgba(249,101,50,0.05);
-    border: 1px solid rgba(249,101,50,0.22);
-    border-radius: 14px;
-    padding: 2rem 1rem 1.5rem;
-    transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
-  }
-  .prize-figure:hover {
-    transform: translateY(-4px);
-    border-color: rgba(249,101,50,0.5);
-    background: rgba(249,101,50,0.08);
-  }
-  .prize-fig-num {
-    font-family: var(--font-heading);
-    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
-    font-weight: 900;
-    color: var(--orange);
-    line-height: 1;
-    letter-spacing: -0.04em;
-    margin-bottom: 0.75rem;
-    font-variant-numeric: tabular-nums;
-  }
-  .prize-fig-label {
-    font-family: var(--font-heading);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-  .prize-fig-sub {
-    font-size: 0.8125rem;
-    line-height: 1.5;
-    color: rgba(255,255,255,0.55);
-    font-weight: 500;
-  }
-
-  /* Three layer descriptions */
-  .prize-layers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 0 auto 3.5rem;
-  }
-  .prize-layer {
-    position: relative;
-    padding-top: 1.5rem;
-    border-top: 2px solid var(--orange);
-  }
-  .prize-layer-num {
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--orange);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.625rem;
-  }
-  .prize-layer-title {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 0.875rem;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
-  }
-  .prize-layer-body {
-    font-size: 0.9375rem;
-    line-height: 1.65;
-    color: rgba(255,255,255,0.75);
-    margin: 0;
-  }
-
-  .prize-cta { text-align: center; }
-  .prize-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .prize-cta-arrow {
-    display: inline-block;
-    transition: transform 0.3s ease;
-  }
-  .prize-cta-btn:hover .prize-cta-arrow {
-    transform: translateX(5px);
-  }
-
-  @media (max-width: 1024px) {
-    .pain-grid { grid-template-columns: repeat(2, 1fr); }
-    .prize-figures { grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
-    .prize-layers { grid-template-columns: 1fr; gap: 1.5rem; }
-  }
-  @media (max-width: 640px) {
-    .pain-grid { grid-template-columns: 1fr; }
-    .prize-figures { grid-template-columns: 1fr; gap: 0.75rem; }
-    .pain-section, .prize-section { padding: 4rem 0; }
-  }
-</style>
-
-<script>
-/* Count-up animation for the prize figures.
-   Five figures count UP from 0 to target: 1 brain, 60% accuracy, 80% efficiency,
-   50% less rework, 100% grounded. Triggered when the figures block enters viewport.
-   Absolute £ figures retired 2026-05-11; capability-shape figures only. */
-(function() {
-  var figContainer = document.getElementById('prize-figures');
-  if (!figContainer) return;
-  var nums = figContainer.querySelectorAll('.prize-fig-num');
-  if (!nums.length) return;
-  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var DURATION = 1800;
-
-  function animateNum(el) {
-    var target = parseFloat(el.dataset.target);
-    var from = el.dataset.from ? parseFloat(el.dataset.from) : 0;
-    var prefix = el.dataset.prefix || '';
-    var suffix = el.dataset.suffix || '';
-
-    if (REDUCED) {
-      el.textContent = prefix + target + suffix;
-      return;
-    }
-
-    var startTs = null;
-    function step(ts) {
-      if (!startTs) startTs = ts;
-      var progress = Math.min((ts - startTs) / DURATION, 1);
-      var eased = 1 - Math.pow(1 - progress, 3); /* ease-out cubic */
-      var current = Math.round(from + (target - from) * eased);
-      el.textContent = prefix + current + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          nums.forEach(animateNum);
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.35 });
-    observer.observe(figContainer);
-  } else {
-    nums.forEach(animateNum);
-  }
-})();
-</script>
-<!-- (Who we help section retired 2026-04-25; archetype cards merged into #find-your-x canvas) -->
-
-
-<!-- (Commission shapes section retired 2026-04-25; superseded 2026-05-09 by #where-to-start three-card entry block) -->
-
-<!-- ===== INDUSTRY VOICE — GBRX pull-quote ===== -->
-<!-- ===== CREDIBILITY ===== -->
-<!-- (Trust bar retired 2026-04-28: redundant noise for problem-aware buyers) -->
-
-<!-- ===== SHARED DARK STACK · find-your-x + case-studies + bootcamp share ONE
-     particle canvas so the constellation + linking lines flow continuously
-     across all three sections, with no per-section canvas breaks. Wrapper
-     paints the navy-deep background once; each inner section is transparent
-     so the shared canvas shows through. ============================== -->
-<div class="dark-stack">
-  
-
-<!-- ===== FIND YOUR X — magnifier lens canvas ===== -->
-<section class="section" id="find-your-x">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-eyebrow sc-reveal">Find your X</div>
-      <h2 class="section-heading sc-reveal">We automate your <span class="heading-x">X</span>.</h2>
-      <p class="section-sub center sc-reveal">Your <span class="brand-x">X</span> is the error-prone, repetitive, and time-consuming friction in your workflow, often unique to your operational context and organisation type. Move the lens, hover any point to see how AutomateX resolves it. Click to pin.</p>
-    </div>
-
-    <div class="lens-wrap sc-reveal">
-      <div class="lens-panel" id="lens-panel">
-        <div class="lens-canvas" id="lens-canvas">
-
-          <div class="lens-blurred" aria-hidden="true">
-            <span class="lp md" style="top:11%; left:8%;">Form A/B/C/G</span>
-            <span class="lp md" style="top:18%; left:26%;">AIP</span>
-            <span class="lp md" style="top:8%;  left:46%;">DRN</span>
-            <span class="lp md" style="top:19%; left:64%;">IDC/R</span>
-            <span class="lp md" style="top:9%;  left:84%;">HAZID</span>
-            <span class="lp md" style="top:31%; left:8%;">CR-T</span>
-            <span class="lp md" style="top:40%; left:24%;">NCR</span>
-            <span class="lp md" style="top:30%; left:42%;">ITP</span>
-            <span class="lp md" style="top:38%; left:62%;">Audit &amp; Compliance</span>
-            <span class="lp md" style="top:41%; left:84%;">EIS</span>
-            <span class="lp md" style="top:60%; left:8%;">V&amp;V Reqts</span>
-            <span class="lp md" style="top:56%; left:26%;">Clash Detection</span>
-            <span class="lp md" style="top:65%; left:46%;">Take-off</span>
-            <span class="lp md" style="top:55%; left:65%;">Interface Register</span>
-            <span class="lp md" style="top:64%; left:86%;">Tender Return</span>
-            <span class="lp md" style="top:80%; left:16%;">Compliance Matrix</span>
-            <span class="lp md" style="top:89%; left:38%;">Standards search</span>
-            <span class="lp md" style="top:81%; left:60%;">Lessons Learned</span>
-            <span class="lp md" style="top:87%; left:82%;">Programme Reporting</span>
-          </div>
-
-          <div class="lens-sharp" id="lens-sharp">
-            <button class="lp-btn md" data-key="form-a"              data-category="assurance" type="button" style="top:11%; left:8%;">Form A/B/C/G</button>
-            <button class="lp-btn md" data-key="aip"                 data-category="assurance" type="button" style="top:18%; left:26%;">AIP</button>
-            <button class="lp-btn md" data-key="drn"                 data-category="assurance" type="button" style="top:8%;  left:46%;">DRN</button>
-            <button class="lp-btn md" data-key="idcr"                data-category="assurance" type="button" style="top:19%; left:64%;">IDC/R</button>
-            <button class="lp-btn md" data-key="hazid"               data-category="assurance" type="button" style="top:9%;  left:84%;">HAZID</button>
-            <button class="lp-btn md" data-key="cr-t"                data-category="assurance" type="button" style="top:31%; left:8%;">CR-T</button>
-            <button class="lp-btn md" data-key="ncr"                 data-category="assurance" type="button" style="top:40%; left:24%;">NCR</button>
-            <button class="lp-btn md" data-key="itp"                 data-category="assurance" type="button" style="top:30%; left:42%;">ITP</button>
-            <button class="lp-btn md" data-key="audit-compliance"    data-category="assurance" type="button" style="top:38%; left:62%;">Audit &amp; Compliance</button>
-            <button class="lp-btn md" data-key="eis"                 data-category="assurance" type="button" style="top:41%; left:84%;">EIS</button>
-            <button class="lp-btn md" data-key="vandv"               data-category="assurance" type="button" style="top:60%; left:8%;">V&amp;V Reqts</button>
-            <button class="lp-btn md" data-key="clash-detection"     data-category="design"    type="button" style="top:56%; left:26%;">Clash Detection</button>
-            <button class="lp-btn md" data-key="take-off"            data-category="design"    type="button" style="top:65%; left:46%;">Take-off</button>
-            <button class="lp-btn md" data-key="interface"           data-category="design"    type="button" style="top:55%; left:65%;">Interface Register</button>
-            <button class="lp-btn md" data-key="tender-return"       data-category="tender"    type="button" style="top:64%; left:86%;">Tender Return</button>
-            <button class="lp-btn md" data-key="compliance-matrix"   data-category="tender"    type="button" style="top:80%; left:16%;">Compliance Matrix</button>
-            <button class="lp-btn md" data-key="standards-search"    data-category="knowledge" type="button" style="top:89%; left:38%;">Standards search</button>
-            <button class="lp-btn md" data-key="lessons-learned"     data-category="knowledge" type="button" style="top:81%; left:60%;">Lessons Learned</button>
-            <button class="lp-btn md" data-key="programme-reporting" data-category="controls"  type="button" style="top:87%; left:82%;">Programme Reporting</button>
-          </div>
-
-          <div class="lens-mag" id="lens-mag" aria-hidden="true">
-            <div class="lens-mag-ring"></div>
-            <img class="lens-mag-handle" src="images/Logo.png" alt=""/>
-          </div>
-
-          <!-- Friction-point detail card, lives inside the canvas. Hidden by
-               default. Hover a friction point to preview, click to pin,
-               click again or click empty canvas to unpin. -->
-          <div class="lens-card-detail" id="lens-card-detail" aria-live="polite" hidden>
-            <div class="lens-card-head">
-              <h3 class="lens-card-title" id="card-title"></h3>
-              <span class="lens-card-subtitle" id="card-subtitle"></span>
-            </div>
-            <p class="lens-card-pain" id="card-pain"></p>
-            <p class="lens-card-resolve" id="card-resolve"></p>
-          </div>
-        </div>
-
-        <!-- Mobile fallback: the magnifier lens is desktop-only; phones get a readable summary. -->
-        <div class="lens-mobile-note">
-          <p>We automate 19+ rail deliverables, including DRN, HAZID, NCR, ITP, take-offs and standards search. <a href="ai-in-action.html">See how we'd automate yours &rarr;</a></p>
-        </div>
-
-        <div class="lens-archetypes" aria-label="Filter friction points by organisation type">
-          <div class="archetype-eyebrow">Tailor for your context</div>
-          <button class="archetype-card" data-archetype="client" type="button">
-            <h4>Client Organisations</h4>
-            <p>Governance and assurance heavy bodies such as NR, ToCs.</p>
-          </button>
-          <button class="archetype-card" data-archetype="tier1" type="button">
-            <h4>Tier 1 / 2 Consultancies &amp; Contractors</h4>
-            <p>Engineering delivery and tender-winning across complex rail programmes.</p>
-          </button>
-          <button class="archetype-card" data-archetype="sme" type="button">
-            <h4>SMEs</h4>
-            <p>Specialist consultancies and owner-operators competing on capability, not headcount.</p>
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<style>
-  #find-your-x {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background: var(--navy-deep);
-    position: relative;
-    overflow: hidden;
-  }
-  #find-your-x .container {
-    max-width: 1280px;
-    position: relative;
-    z-index: 1;
-  }
-  #find-your-x .section-sub.center {
-    max-width: 720px;
-    color: rgba(255,255,255,0.7);
-  }
-  #find-your-x .section-eyebrow { color: var(--orange); }
-  #find-your-x .section-heading { color: var(--white); }
-  #find-your-x .heading-x {
-    color: var(--orange);
-    font-weight: 900;
-    font-style: italic;
-    font-size: 1.1em;
-    letter-spacing: 0.01em;
-  }
-
-  .lens-wrap { margin-top: 3rem; position: relative; z-index: 1; }
-  /* Lens panel is now frameless — blends directly into the dark page bg.
-     The soft framing visible to the visitor sits on .lens-canvas instead. */
-  .lens-panel {
-    position: relative;
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    height: 480px;
-    background: transparent;
-    border-radius: 0;
-    overflow: visible;
-    box-shadow: none;
-  }
-  .lens-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 280px;
-    cursor: none;
-    /* Low-profile orange glow framing the floating friction examples.
-       Reads as a contained "discovery field" against the dark particle bg.
-       The magnifier lens floats in/out of it without its own border. */
-    background: rgba(249,101,50,0.018);
-    border: 1px solid rgba(249,101,50,0.22);
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 0 32px rgba(249,101,50,0.12),
-                inset 0 0 60px rgba(249,101,50,0.05);
-  }
-
-  .lens-archetypes {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 280px;
-    padding: 1.5rem 1rem;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-    z-index: 4;
-  }
-  .archetype-eyebrow {
-    font-family: var(--font-heading);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--orange);
-    margin-bottom: 0.375rem;
-  }
-  .archetype-card {
-    background: hsla(0, 0%, 100%, 0.04);
-    border: 1px solid hsla(0, 0%, 100%, 0.1);
-    border-radius: 12px;
-    padding: 0.875rem 1rem;
-    text-align: left;
-    cursor: pointer;
-    transition: border-color 0.2s ease, background 0.2s ease;
-    font-family: var(--font-heading);
-    color: inherit;
-    /* Three cards share the canvas height equally — vertically aligned to
-       match the lens panel. justify-content: center keeps copy visually
-       balanced inside each tall card. */
-    flex: 1 1 0;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .archetype-card:hover {
-    border-color: rgba(249,101,50,0.4);
-    background: hsla(0, 0%, 100%, 0.07);
-  }
-  .archetype-card.is-active {
-    border-color: var(--orange);
-    background: rgba(249,101,50,0.12);
-  }
-  .archetype-card h4 {
-    font-family: var(--font-heading);
-    font-size: 0.9375rem;
-    font-weight: 800;
-    color: var(--white);
-    margin: 0 0 0.375rem 0;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-  }
-  .archetype-card p {
-    font-size: 0.8125rem;
-    line-height: 1.45;
-    color: rgba(255,255,255,0.6);
-    margin: 0;
-    font-family: var(--font-body, var(--font-heading));
-    font-weight: 400;
-  }
-  .archetype-card.is-active p {
-    color: rgba(255,255,255,0.85);
-  }
-
-  /* Friction points hidden when an archetype filter is active */
-  .lens-blurred .lp.is-archetype-hidden,
-  .lens-sharp .lp-btn.is-archetype-hidden {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.45s ease;
-  }
-  .lens-canvas::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 85%);
-    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 85%);
-    pointer-events: none;
-  }
-
-  .lens-blurred, .lens-sharp {
-    position: absolute;
-    inset: 0;
-  }
-  .lens-blurred {
-    filter: blur(2.5px);
-    opacity: 0.7;
-    pointer-events: none;
-    z-index: 1;
-  }
-  .lens-sharp {
-    z-index: 2;
-  }
-  .lens-blurred .lp,
-  .lens-sharp .lp-btn {
-    position: absolute;
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 1.2;
-    letter-spacing: 0.005em;
-    white-space: nowrap;
-    translate: -50% -50%;
-    scale: 1;
-    transition: scale 0.25s ease, color 0.2s ease, text-shadow 0.2s ease;
-    will-change: translate, scale;
-  }
-  .lens-blurred .lp {
-    color: rgba(255,255,255,0.75);
-  }
-
-  .lens-sharp .lp-btn {
-    background: transparent;
-    border: 0;
-    padding: 0.25rem 0.5rem;
-    margin: 0;
-    cursor: none;
-    color: rgba(255,255,255,0.95);
-  }
-  .lens-sharp .lp-btn.is-active {
-    color: var(--orange);
-    text-shadow: 0 0 10px rgba(249,101,50,0.35);
-  }
-
-  /* Slow random wiggle: 4 keyframe variants applied via nth-child so neighbours move out of phase */
-  .lens-blurred .lp:nth-child(4n+1),
-  .lens-sharp .lp-btn:nth-child(4n+1) { animation: phraseWiggleA 12s ease-in-out infinite; }
-  .lens-blurred .lp:nth-child(4n+2),
-  .lens-sharp .lp-btn:nth-child(4n+2) { animation: phraseWiggleB 14s ease-in-out infinite -2.4s; }
-  .lens-blurred .lp:nth-child(4n+3),
-  .lens-sharp .lp-btn:nth-child(4n+3) { animation: phraseWiggleC 11s ease-in-out infinite -4.8s; }
-  .lens-blurred .lp:nth-child(4n+4),
-  .lens-sharp .lp-btn:nth-child(4n+4) { animation: phraseWiggleD 13s ease-in-out infinite -6.2s; }
-
-  @keyframes phraseWiggleA {
-    0%, 100% { translate: -50% -50%; }
-    33%      { translate: calc(-50% + 9px) calc(-50% - 5px); }
-    66%      { translate: calc(-50% - 7px) calc(-50% + 8px); }
-  }
-  @keyframes phraseWiggleB {
-    0%, 100% { translate: -50% -50%; }
-    25%      { translate: calc(-50% - 8px) calc(-50% - 7px); }
-    50%      { translate: calc(-50% + 10px) calc(-50% + 5px); }
-    75%      { translate: calc(-50% + 4px) calc(-50% - 9px); }
-  }
-  @keyframes phraseWiggleC {
-    0%, 100% { translate: -50% -50%; }
-    50%      { translate: calc(-50% + 8px) calc(-50% + 10px); }
-  }
-  @keyframes phraseWiggleD {
-    0%, 100% { translate: -50% -50%; }
-    20%      { translate: calc(-50% + 7px) calc(-50% + 9px); }
-    60%      { translate: calc(-50% - 9px) calc(-50% - 6px); }
-  }
-
-  /* When the lens is over a phrase: pause its wiggle and enlarge it */
-  .lens-blurred .lp.is-focus,
-  .lens-sharp .lp-btn.is-focus {
-    animation-play-state: paused;
-    scale: 1.18;
-    z-index: 5;
-  }
-  .lens-sharp .lp-btn.is-focus {
-    color: var(--orange);
-    text-shadow: 0 0 14px rgba(249,101,50,0.5);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .lens-blurred .lp,
-    .lens-sharp .lp-btn { animation: none; }
-  }
-
-  .lens-mag {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    transform: translate(-50%, -50%);
-    color: var(--orange);
-    pointer-events: none;
-    z-index: 3;
-    filter: drop-shadow(0 0 14px rgba(249,101,50,0.28));
-    transition: opacity 0.3s ease;
-  }
-  .lens-mag-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60%;
-    aspect-ratio: 1;
-    transform: translate(-50%, -50%);
-    border: 2.5px solid var(--orange);
-    border-radius: 50%;
-    box-sizing: border-box;
-  }
-  .lens-mag-handle {
-    position: absolute;
-    top: 67%;
-    left: 67%;
-    width: 28%;
-    height: auto;
-    user-select: none;
-    pointer-events: none;
-    -webkit-user-drag: none;
-    z-index: 2;
-  }
-  .lens-mag.is-capturing {
-    animation: lensCapture 0.45s ease-out;
-  }
-  @keyframes lensCapture {
-    0%   { transform: translate(-50%, -50%) scale(1); }
-    50%  { transform: translate(-50%, -50%) scale(1.15); }
-    100% { transform: translate(-50%, -50%) scale(1); }
-  }
-
-  /* Card slot below the panel. Fixed min-height covers the tallest possible
-     card content (Form A/B/C/G with the long Scribtive walk-through), so
-     the section height stays stable when a friction point is clicked.
-     Only the card text inside the slot changes; the layout below doesn't
-     reflow and there's no flash of the next section's bg at the bottom. */
-  /* Detail card sits inside the canvas as a bottom-aligned overlay.
-     Default state: hidden entirely. Slides up + fades in on hover or pin. */
-  .lens-card-detail {
-    position: absolute;
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
-    z-index: 30;
-    box-sizing: border-box;
-    padding: 1rem 1.25rem 1.125rem 1.5rem;
-    background: rgba(13, 17, 23, 0.78);
-    backdrop-filter: blur(12px) saturate(1.1);
-    -webkit-backdrop-filter: blur(12px) saturate(1.1);
-    border: 1px solid rgba(249, 101, 50, 0.32);
-    border-left: 4px solid var(--orange);
-    border-radius: 12px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
-    opacity: 0;
-    transform: translateY(12px);
-    pointer-events: none;
-    transition: opacity 0.28s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-  }
-  .lens-card-detail[hidden] { display: none; }
-  .lens-card-detail.is-active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .lens-card-pin {
-    font-family: var(--font-heading);
-    font-size: 0.5625rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--orange);
-    padding: 0.1875rem 0.5rem;
-    background: rgba(249, 101, 50, 0.12);
-    border: 1px solid rgba(249, 101, 50, 0.35);
-    border-radius: 100px;
-  }
-  .lens-card-head {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    margin-bottom: 0.5rem;
-    flex-wrap: wrap;
-  }
-  .lens-card-title {
-    font-family: var(--font-heading);
-    font-size: 1.125rem;
-    font-weight: 800;
-    color: var(--white);
-    letter-spacing: -0.01em;
-    margin: 0;
-  }
-  .lens-card-subtitle {
-    font-family: var(--font-heading);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: rgba(255,255,255,0.5);
-  }
-  .lens-card-pain,
-  .lens-card-resolve {
-    font-size: 0.8125rem;
-    line-height: 1.55;
-    font-weight: 400;
-    color: rgba(255,255,255,0.78);
-    margin: 0;
-  }
-  .lens-card-pain {
-    margin-bottom: 0.4375rem;
-  }
-  .lens-card-resolve {
-    padding-left: 0.75rem;
-    border-left: 2px solid var(--orange);
-    color: rgba(255,255,255,0.88);
-  }
-
-  @media (max-width: 760px) {
-    .lens-panel { height: 760px; }
-    .lens-canvas { right: 0; bottom: 240px; }
-    .lens-archetypes {
-      top: auto;
-      bottom: 0;
-      width: 100%;
-      height: 240px;
-      flex-direction: row;
-      overflow-x: auto;
-      gap: 0.625rem;
-      padding: 0.875rem;
-      border-top: 1px solid hsla(0,0%,100%,0.06);
-    }
-    .archetype-eyebrow { display: none; }
-    .archetype-card { flex: 0 0 220px; }
-    .lens-card-detail { left: 0.5rem; right: 0.5rem; bottom: 0.5rem; padding: 0.875rem 1rem; }
-    .lens-card { padding: 1.25rem 1.5rem; }
-    .lens-card-title { font-size: 1.375rem; }
-    .lens-blurred .lp, .lens-sharp .lp-btn { font-size: 0.875rem; }
-    .lens-mag { width: 160px; height: 160px; }
-  }
-  /* The scattered magnifier canvas is unreadable on phones; swap it for a
-     static summary and stacked archetype cards. The deliverable entry strip
-     under the hero carries the tappable per-deliverable routing on mobile. */
-  .lens-mobile-note { display: none; }
-  @media (max-width: 560px) {
-    .lens-canvas { display: none; }
-    .lens-panel { height: auto; min-height: 0; }
-    .lens-mobile-note { display: block; }
-    .lens-mobile-note p {
-      color: rgba(255,255,255,0.82);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      text-align: center;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-    .lens-mobile-note a { color: var(--orange); font-weight: 600; text-decoration: none; white-space: nowrap; }
-    .lens-archetypes {
-      position: static;
-      width: 100%;
-      height: auto;
-      flex-direction: column;
-      overflow: visible;
-      gap: 0.625rem;
-      padding: 0;
-      margin-top: 1.75rem;
-      border-top: 0;
-    }
-    .archetype-card { flex: none; width: 100%; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .lens-mag { opacity: 0.75; }
-    .lens-card.is-active { animation: none; opacity: 1; transform: translateX(0); }
-  }
-</style>
-
-<script>
-(function(){
-  var panel = document.getElementById('lens-panel');
-  if (!panel) return;
-  var canvas = document.getElementById('lens-canvas');
-  var sharp = document.getElementById('lens-sharp');
-  var mag = document.getElementById('lens-mag');
-  var cardDetail = document.getElementById('lens-card-detail');
-  var cardTitle = document.getElementById('card-title');
-  var cardSubtitle = document.getElementById('card-subtitle');
-  var cardPain = document.getElementById('card-pain');
-  var cardResolve = document.getElementById('card-resolve');
-  if (!canvas || !sharp || !mag) return;
-
-  var FRICTION = {
-    'form-a':              { title: 'Form A/B/C/G',         subtitle: 'NR engineering assurance forms',           pain: 'Each form has its own structure, evidence base, and reviewer expectations. Senior engineer hours absorbed by formatting, citation chasing, and version drift.',                                  resolve: "AutomateX's Scribtive walks through the draft of each form from your PACE deliverables with continuous Human-In-The-Loop, with structure and clause references aligned to the relevant reviewer checklist to significantly reduce drafting time and improve approval rate." },
-    'aip':                 { title: 'AIP / Form B',         subtitle: 'Approval In Principle',                    pain: 'Discipline leads ping-pong the same draft through three review rounds before submission.',                                                                                                resolve: "Pre-submission compliance check against the AIP reviewer's checklist before it ever hits their desk." },
-    'cr-t':                { title: 'CR-T',                 subtitle: 'Contract Requirement Technical',           pain: 'The technical requirement document on every rail project. Drafted, tracked, and reconciled by hand across hundreds of clauses. Status drifts as design evolves.',                          resolve: 'AutomateX drafts and tracks the CR-T against the source brief, keeping requirement status current as design evolves.' },
-    'drn':                 { title: 'DRN & CAT 3 Comments', subtitle: 'Design Review Notice',                     pain: 'Opinion-driven, preference-based comments at B01 review. Signature chasing across reviewers. Commercial rabbit holes when comment closure goes sideways.',                              resolve: 'AutomateX classifies comments by type and reviewer, drafts responses tied to clauses, and tracks closure to keep the commercial conversation off the design.' },
-    'hazid':               { title: 'HAZID',                subtitle: 'Hazard Identification Workshop Record',    pain: 'Workshop outputs live in spreadsheets that never sync to the project hazard log.',                                                                                                         resolve: 'Workshop transcription and structuring directly into a CSM-RA compliant hazard log with full traceability.' },
-    'idcr':                { title: 'IDC/R',                subtitle: 'Interdisciplinary Check / Review',         pain: 'The key P01 coordination stage. Comments arrive from each discipline in different formats. Closing them out to drive design from P01 to B01 is the choke point.',                         resolve: 'AutomateX captures IDC/R comments, structures them into the design issue log, and produces the IDC/R certification with full traceability.' },
-    'ncr':                 { title: 'NCR',                  subtitle: 'Non-Conformance Report',                   pain: 'Site issues land in WhatsApp groups and lose the chain back to the design assumption that was breached.',                                                                                  resolve: 'NCR routing with auto-classification and links to applicable design decisions and standards.' },
-    'itp':                 { title: 'ITP',                  subtitle: 'Inspection and Test Plan',                 pain: 'Generic templates cobbled together from prior projects. Inspection points missed during execution.',                                                                                       resolve: 'ITP authoring tied to specific design deliverables, with inspection scheduling and evidence capture.' },
-    'eis':                 { title: 'EIS',                  subtitle: 'Enter Into Service',                       pain: 'Forms and large volumes of H&S files mapped and logged into legacy systems like NRG. Manual data entry under deadline pressure.',                                                       resolve: 'AutomateX assembles the EIS pack, completes the forms, and pushes records into NRG and equivalent legacy systems.' },
-    'vandv':               { title: 'V&V Requirement Management', subtitle: 'Verification and Validation traceability', pain: 'Mapping requirements through the V&V cycle by hand. The golden thread breaks when designs change. Auditors find the gaps before you do.',                                          resolve: 'AutomateX builds and maintains the requirement traceability, the golden thread from requirement to verification artefact, demonstrating each requirement is met across the V&V cycle.' },
-    'take-off':            { title: 'Take-off',             subtitle: 'Quantity extraction from drawings',        pain: 'Two days of measuring drawings for a tender, and the BoQ goes wrong anyway.',                                                                                                              resolve: 'Automated take-off from PDF and CAD drawings with line-by-line audit and human review.' },
-    'interface':           { title: 'Interface Register',   subtitle: 'Cross-discipline interface management',    pain: "Lives in someone's head. Junior engineers don't know what they don't know.",                                                                                                               resolve: 'Interface scanning across discipline drawings with proposed register entries flagged for review.' },
-    'tender-return':       { title: 'Tender Return',        subtitle: 'Bid response document assembly',           pain: 'Bid manager and discipline leads reinvent the wheel every submission. Win themes and past evidence scattered across project folders. Late nights to assemble.',                            resolve: 'AutomateX drafts the tender return from your win library, evidence base, and the RFP requirements, ready for bid manager polish.' },
-    'compliance-matrix':   { title: 'Compliance Matrix',    subtitle: 'RFP requirement coverage',                 pain: "Late-night spreadsheet work to prove you've answered every requirement.",                                                                                                                  resolve: 'Auto-generated compliance matrix with evidence traceability to your draft response.' },
-    'standards-search':    { title: 'Standards search',     subtitle: 'NR/L2 \u00b7 NR/L3 \u00b7 RSSB \u00b7 CSM',pain: 'Nine thousand standards across the railway. The right clause is in there somewhere.',                                                                                                      resolve: 'Natural-language standards retrieval with clause-level citation across NR, RSSB, CSM-RA, BS, EN.' },
-    'lessons-learned':     { title: 'Lessons Learned',      subtitle: 'Project knowledge capture',                pain: 'Captured at project end, never read again. Same mistakes on the next scheme.',                                                                                                             resolve: 'Active lessons surfaced into project workflows when relevant, not buried in SharePoint.' },
-    'programme-reporting': { title: 'Programme Reporting',  subtitle: 'Status / progress dashboards',             pain: 'PMs spend half their week assembling status reports.',                                                                                                                                     resolve: 'Live programme dashboards from your existing schedule and ERP, no manual rekeying.' },
-    'clash-detection':     { title: 'Clash Detection',      subtitle: 'Final coordination check across deliverables', pain: 'Before every submission, design changes need to be reconciled across drawings, specs, and BIM. Hours spent verifying every change carried through. Easy to miss a deviation that propagates downstream.', resolve: 'AutomateX runs the final clash check across all deliverables and files, surfacing inconsistencies before submission. Peace of mind that the package is internally consistent.' },
-    'audit-compliance':    { title: 'Audit & Compliance',   subtitle: 'RISQS, ISO, framework audits, regulator queries', pain: 'RISQS audits, ISO compliance reviews, framework audits, regulator queries. Each one a multi-week scramble through SharePoint to reassemble evidence the business already has.',          resolve: 'AutomateX makes your company knowledge query-ready. Audit and compliance questions answered with traceable evidence in minutes, not weeks.' }
-  };
-
-  var buttons = sharp.querySelectorAll('.lp-btn');
-  var blurredItems = panel.querySelectorAll('.lens-blurred .lp');
-
-  // Archetype filtering: each archetype shows a curated subset of friction points
-  var archetypeCards = panel.querySelectorAll('.archetype-card');
-  var ARCHETYPE_MAP = {
-    'client': ['cr-t', 'vandv', 'eis', 'audit-compliance', 'standards-search', 'drn', 'hazid', 'idcr', 'ncr', 'programme-reporting', 'lessons-learned'],
-    'tier1':  ['form-a', 'aip', 'tender-return', 'compliance-matrix', 'idcr', 'take-off', 'itp', 'interface', 'drn', 'clash-detection', 'audit-compliance', 'programme-reporting', 'hazid'],
-    'sme':    ['form-a', 'audit-compliance', 'standards-search', 'lessons-learned', 'take-off', 'ncr', 'itp', 'interface', 'hazid', 'drn', 'programme-reporting', 'clash-detection']
-  };
-  var activeArchetype = null;
-
-  function applyArchetypeFilter() {
-    var allowed = activeArchetype ? ARCHETYPE_MAP[activeArchetype] : null;
-    for (var i = 0; i < buttons.length; i++) {
-      var btn = buttons[i];
-      var key = btn.dataset.key;
-      var hidden = !!(allowed && allowed.indexOf(key) === -1);
-      btn.classList.toggle('is-archetype-hidden', hidden);
-      if (blurredItems[i]) blurredItems[i].classList.toggle('is-archetype-hidden', hidden);
-    }
-  }
-
-  for (var ai = 0; ai < archetypeCards.length; ai++) {
-    (function(card){
-      card.addEventListener('click', function(){
-        var key = card.dataset.archetype;
-        if (activeArchetype === key) {
-          // Toggle off
-          activeArchetype = null;
-          card.classList.remove('is-active');
-        } else {
-          // Activate this card, clear others
-          for (var j = 0; j < archetypeCards.length; j++) archetypeCards[j].classList.remove('is-active');
-          card.classList.add('is-active');
-          activeArchetype = key;
-        }
-        applyArchetypeFilter();
-      });
-    })(archetypeCards[ai]);
-  }
-
-  var mouseInside = false;
-  var mouseX = 50, mouseY = 50;
-  var autoX = 25, autoY = 35;
-  var autoVX = 0.225, autoVY = 0.14;
-  var lastFrame = null;
-  var REDUCED = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-
-  function posPct(e) {
-    var r = canvas.getBoundingClientRect();
-    return {
-      x: Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100)),
-      y: Math.max(0, Math.min(100, ((e.clientY - r.top) / r.height) * 100))
-    };
-  }
-
-  canvas.addEventListener('mouseenter', function(e){
-    mouseInside = true;
-    var p = posPct(e);
-    mouseX = p.x; mouseY = p.y;
-  });
-  canvas.addEventListener('mouseleave', function(){
-    mouseInside = false;
-  });
-  canvas.addEventListener('mousemove', function(e){
-    var p = posPct(e);
-    mouseX = p.x; mouseY = p.y;
-    mouseInside = true;
-  });
-
-  function getLensRadiusPx() {
-    var rect = canvas.getBoundingClientRect();
-    return rect.width < 760 ? 48 : 54;
-  }
-
-  function tick(now){
-    if (lastFrame === null) lastFrame = now;
-    var dt = (now - lastFrame) / 16.67;
-    lastFrame = now;
-
-    var x, y;
-    if (mouseInside) {
-      x = mouseX; y = mouseY;
-    } else if (!REDUCED) {
-      autoX += autoVX * dt;
-      autoY += autoVY * dt;
-      if (autoX < 10 || autoX > 90) autoVX *= -1;
-      if (autoY < 12 || autoY > 85) autoVY *= -1;
-      autoX = Math.max(8, Math.min(92, autoX));
-      autoY = Math.max(10, Math.min(88, autoY));
-      x = autoX; y = autoY;
-    } else {
-      x = autoX; y = autoY;
-    }
-
-    mag.style.left = x + '%';
-    mag.style.top = y + '%';
-    var r = getLensRadiusPx();
-    sharp.style.clipPath = 'circle(' + r + 'px at ' + x + '% ' + y + '%)';
-    sharp.style.webkitClipPath = 'circle(' + r + 'px at ' + x + '% ' + y + '%)';
-
-    var canvasRect = canvas.getBoundingClientRect();
-    var xpx = (x / 100) * canvasRect.width;
-    var ypx = (y / 100) * canvasRect.height;
-    var thresholdSq = Math.pow(r + 8, 2);
-    for (var i = 0; i < buttons.length; i++) {
-      var btn = buttons[i];
-      var bx = (parseFloat(btn.style.left) / 100) * canvasRect.width;
-      var by = (parseFloat(btn.style.top) / 100) * canvasRect.height;
-      var dx = xpx - bx;
-      var dy = ypx - by;
-      var inFocus = (dx * dx + dy * dy) < thresholdSq;
-      btn.classList.toggle('is-focus', inFocus);
-      if (blurredItems[i]) blurredItems[i].classList.toggle('is-focus', inFocus);
-    }
-
-    requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-
-  /* Card behaviour:
-       - Default state: card hidden entirely.
-       - Hover a friction point: card slides in with that point's content (preview).
-       - Mouse leaves the point: card slides out (unless something is pinned).
-       - Click a friction point: pins that point. Card stays.
-       - Click the same pinned point again: unpins, card slides out.
-       - Click a different point while one is pinned: pin moves to the new one.
-       - Click empty canvas: unpins.
-     A pinned point keeps its "is-active" class so it stays highlighted. */
-
-  var pinnedKey = null;
-
-  function fillCard(data) {
-    cardTitle.textContent = data.title;
-    cardSubtitle.textContent = data.subtitle;
-    cardPain.textContent = data.pain;
-    cardResolve.textContent = data.resolve;
-  }
-  function showCard(data, pinned) {
-    fillCard(data);
-    cardDetail.hidden = false;
-    /* Force reflow then add is-active for the slide-in transition. */
-    void cardDetail.offsetWidth;
-    cardDetail.classList.add('is-active');
-  }
-  function hideCard() {
-    cardDetail.classList.remove('is-active');
-    /* Wait for transition to finish before fully hiding. */
-    setTimeout(function() {
-      if (!cardDetail.classList.contains('is-active')) cardDetail.hidden = true;
-    }, 280);
-  }
-  function unpinAll() {
-    pinnedKey = null;
-    for (var j = 0; j < buttons.length; j++) buttons[j].classList.remove('is-active');
-  }
-
-  for (var i = 0; i < buttons.length; i++) {
-    (function(btn){
-      var key = btn.dataset.key;
-      var data = FRICTION[key];
-      if (!data) return;
-
-      btn.addEventListener('mouseenter', function(){
-        if (pinnedKey) return; /* pinned content takes priority */
-        showCard(data, false);
-      });
-      btn.addEventListener('mouseleave', function(){
-        if (pinnedKey) return; /* keep pinned card visible */
-        hideCard();
-      });
-      btn.addEventListener('focus', function(){
-        if (pinnedKey) return;
-        showCard(data, false);
-      });
-      btn.addEventListener('blur', function(){
-        if (pinnedKey) return;
-        hideCard();
-      });
-
-      btn.addEventListener('click', function(e){
-        e.stopPropagation();
-        if (pinnedKey === key) {
-          /* Toggle off the existing pin */
-          unpinAll();
-          hideCard();
-        } else {
-          /* Pin this one (replaces any previous pin) */
-          unpinAll();
-          pinnedKey = key;
-          btn.classList.add('is-active');
-          showCard(data, true);
-          mag.classList.remove('is-capturing');
-          void mag.offsetWidth;
-          mag.classList.add('is-capturing');
-        }
-      });
-    })(buttons[i]);
-  }
-
-  /* Click on canvas blank area (not a button): unpin and hide. */
-  canvas.addEventListener('click', function(e){
-    var t = e.target;
-    if (t === canvas || t.classList.contains('lens-blurred') || t.classList.contains('lens-sharp') || t.tagName === 'SPAN') {
-      if (pinnedKey) {
-        unpinAll();
-        hideCard();
-      }
-    }
-  });
-})();
-</script>
-
-
-<!-- (Diagnostic section retired 2026-04-25; 5 pillars merged into #scorecard above) -->
-
-<style>
-  .diag-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
-    margin-top: 3rem;
-  }
-  .diag-card {
-    background: var(--gray-50);
-    border: 1px solid var(--gray-200);
-    border-top: 3px solid var(--orange);
-    border-radius: 8px;
-    padding: 1.5rem 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .diag-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-  }
-  .diag-num {
-    font-family: var(--font-mono, 'Menlo', 'Consolas', monospace);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: var(--orange);
-    text-transform: uppercase;
-  }
-  .diag-title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--navy, #0f172a);
-    margin: 0;
-    line-height: 1.25;
-  }
-  .diag-lead {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--navy, #0f172a);
-    margin: 0;
-    line-height: 1.4;
-  }
-  .diag-body {
-    font-size: 0.875rem;
-    line-height: 1.55;
-    color: var(--gray-600, #475569);
-    margin: 0;
-  }
-  .diag-cta {
-    margin-top: 3rem;
-    text-align: center;
-  }
-  .diag-cta-note {
-    margin-top: 0.875rem;
-    font-size: 0.8125rem;
-    color: var(--gray-500, #64748b);
-  }
-  @media (max-width: 1024px) {
-    .diag-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 560px) {
-    .diag-grid { grid-template-columns: 1fr; }
-  }
-
-  /* PACED reframe header (inside #scorecard) */
-  .paced-reframe-header {
-    text-align: center;
-    max-width: 820px;
-    margin: 4rem auto 2rem;
-  }
-  .paced-reframe-header .section-eyebrow { margin-bottom: 0.75rem; }
-  .paced-reframe-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--navy, #0f172a);
-    line-height: 1.25;
-    margin: 0 0 0.875rem;
-  }
-  .paced-reframe-sub {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--gray-600, #475569);
-    margin: 0;
-  }
-  @media (max-width: 560px) {
-    .paced-reframe-title { font-size: 1.375rem; }
-    .paced-reframe-sub { font-size: 0.9375rem; }
-  }
-</style>
-</div><!-- /.dark-stack -->
+<!-- /.dark-stack -->
 
 <!-- ===== RESEARCH CREDIBILITY ===== -->
 <!-- (Proof Metrics section retired 2026-04-25 per Bill) -->
@@ -6125,5 +5582,422 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script type="text/javascript">window.addEventListener('load', function() { if (window.Calendly) { Calendly.initBadgeWidget({ url: 'https://calendly.com/bill-guo-automatex/quick-chat-bill-guo?primary_color=f96532', text: 'Chat with Founder', color: '#f96532', textColor: '#ffffff', branding: false }); } });</script>
 
+<script id="axr-ported-2026-07-10">
+(function(){
+'use strict';
+var REDUCED = document.documentElement.classList.contains('reduced');
+  var FINE = window.matchMedia('(pointer: fine)').matches;
+  function isDesktop() { return window.matchMedia('(min-width: 901px)').matches; }
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function $(s, c) { return (c || document).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+
+  /* ---------- central rAF scroll/resize dispatcher ---------- */
+  var scrollFns = [], resizeFns = [], ticking = false;
+  function runFrame() { ticking = false; for (var i = 0; i < scrollFns.length; i++) scrollFns[i](); }
+  window.__axFrame = runFrame; /* test handle: lets headless/background harnesses drive scroll state */
+  function requestFrame() { if (!ticking) { ticking = true; requestAnimationFrame(runFrame); } }
+  window.addEventListener('scroll', requestFrame, { passive: true });
+  var rzT;
+  window.addEventListener('resize', function () {
+    clearTimeout(rzT);
+    rzT = setTimeout(function () { for (var i = 0; i < resizeFns.length; i++) resizeFns[i](); requestFrame(); }, 120);
+  });
+
+  /* ============ reveal on scroll ============ */
+  var revealEls = $$('[data-reveal]');
+  if (REDUCED || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    revealEls.forEach(function (el) { ro.observe(el); });
+  }
+
+  /* ============ HERO — the document that writes itself ============ */
+  var DOCS = [
+    { title: 'Form G', standard: 'PACE · NR/L2/RSE/02009', done: 'Ready for engineer review',
+      rows: [
+        { l: 'Project', v: 'Station canopy refurbishment · Southern region', c: 'Cited · Project brief' },
+        { l: 'Deliverable', v: 'Engineering assurance form (Form G), drafted section by section', c: 'Cited · PACE deliverable list' },
+        { l: 'Compliance statement', v: 'Design complies with the approved requirements and applicable standards.', c: 'Cited · NR/L2/RSE/02009' }
+      ] },
+    { title: 'DRN · Comment response', standard: 'Design Review Notice · B01', done: 'Routed for engineer sign-off',
+      rows: [
+        { l: 'Comment 014', v: '“Confirm clearance to the structure gauge at the platform end.”', c: 'Source · Reviewer log' },
+        { l: 'Classification', v: 'Technical · design evidence already exists', c: 'Auto-classified' },
+        { l: 'Draft response', v: 'Clearance assessment referenced and appended. No design change required.', c: 'Cited · Design log' }
+      ] },
+    { title: 'HAZID · Workshop record', standard: 'CSM-RA aligned hazard log', done: 'Structured into the hazard log',
+      rows: [
+        { l: 'Hazard 07', v: 'Temporary works adjacent to the open line.', c: 'Source · Workshop transcript' },
+        { l: 'Cause & consequence', v: 'Plant movement during possession changeover. Risk to workforce and line.', c: 'Source · Workshop transcript' },
+        { l: 'Mitigation', v: 'Exclusion zone with banksman control. Owner assigned, review date set.', c: 'Cited · CSM-RA' }
+      ] }
+  ];
+  var CITE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 10a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
+
+  var docBody = $('#doc-body'), docTitle = $('#doc-title'), docStd = $('#doc-standard'),
+      docStatus = $('#doc-status'), docStatusText = $('#doc-status-text'),
+      docProg = $('#doc-progress-bar'), docStamp = $('#doc-stamp'),
+      docTabs = $$('#doc-tabs button'), docCard = $('#doc-card');
+
+  var demoVisible = true, runId = 0;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { demoVisible = en[0].isIntersecting; }, { threshold: 0.15 }).observe(docCard);
+  }
+  function sleep(ms) { return new Promise(function (res) { setTimeout(res, ms); }); }
+  function waitVisible() {
+    return new Promise(function (res) {
+      (function check() { (demoVisible && !document.hidden) ? res() : setTimeout(check, 350); })();
+    });
+  }
+  function setTab(i) {
+    docTabs.forEach(function (b, j) {
+      b.classList.toggle('on', j === i);
+      b.setAttribute('aria-selected', String(j === i));
+    });
+  }
+  function buildRow(row) {
+    var d = document.createElement('div'); d.className = 'doc-row';
+    d.innerHTML = '<div class="doc-label"></div><div class="doc-value"></div><span class="doc-cite">' + CITE_SVG + ' <span class="cite-t"></span></span>';
+    $('.doc-label', d).textContent = row.l;
+    $('.cite-t', d).textContent = row.c;
+    return d;
+  }
+  function renderStatic(i) {
+    var doc = DOCS[i];
+    docTitle.textContent = doc.title; docStd.textContent = doc.standard;
+    docBody.innerHTML = '';
+    doc.rows.forEach(function (row) {
+      var d = buildRow(row);
+      d.classList.add('on'); $('.doc-value', d).textContent = row.v; $('.doc-cite', d).classList.add('on');
+      docBody.appendChild(d);
+    });
+    docProg.style.width = '100%';
+    docStatus.setAttribute('data-state', 'done'); docStatusText.textContent = doc.done;
+    docStamp.classList.add('show');
+  }
+  async function playDoc(i, id) {
+    var doc = DOCS[i];
+    setTab(i);
+    docStamp.classList.remove('show');
+    docStatus.setAttribute('data-state', 'drafting'); docStatusText.textContent = 'Drafting';
+    docTitle.textContent = doc.title; docStd.textContent = doc.standard;
+    docBody.innerHTML = ''; docProg.style.width = '0%';
+    var total = doc.rows.reduce(function (n, r) { return n + r.v.length; }, 0), typed = 0;
+    for (var r = 0; r < doc.rows.length; r++) {
+      if (id !== runId) return false;
+      var row = doc.rows[r], el = buildRow(row), val = $('.doc-value', el);
+      var caret = document.createElement('span'); caret.className = 'caret';
+      docBody.appendChild(el);
+      await sleep(60); if (id !== runId) return false;
+      el.classList.add('on');
+      var txt = document.createTextNode(''); val.appendChild(txt); val.appendChild(caret);
+      for (var ch = 0; ch < row.v.length; ch++) {
+        if (id !== runId) return false;
+        if (!demoVisible || document.hidden) await waitVisible();
+        if (id !== runId) return false;
+        txt.textContent += row.v[ch]; typed++;
+        docProg.style.width = (typed / total * 100).toFixed(1) + '%';
+        await sleep(row.v[ch] === ' ' ? 8 : 15);
+      }
+      caret.remove();
+      $('.doc-cite', el).classList.add('on');
+      await sleep(300);
+    }
+    if (id !== runId) return false;
+    docProg.style.width = '100%';
+    docStatus.setAttribute('data-state', 'done'); docStatusText.textContent = doc.done;
+    docStamp.classList.add('show');
+    return true;
+  }
+  async function cycle(start) {
+    var id = ++runId, i = start;
+    while (id === runId) {
+      if (REDUCED) { renderStatic(i); setTab(i); return; }
+      var ok = await playDoc(i, id);
+      if (!ok) return;
+      await sleep(3200); if (id !== runId) return;
+      if (!demoVisible || document.hidden) await waitVisible();
+      if (id !== runId) return;
+      i = (i + 1) % DOCS.length;
+    }
+  }
+  docTabs.forEach(function (b) {
+    b.addEventListener('click', function () { cycle(parseInt(b.getAttribute('data-doc'), 10)); });
+  });
+  cycle(0);
+
+  /* ============ FIND YOUR X ============ */
+  var FRICTION = {
+    'form-a':              { title: 'Form A/B/C/G',         sub: 'NR engineering assurance forms',           pain: 'Each form has its own structure, evidence base, and reviewer expectations. Senior engineer hours absorbed by formatting, citation chasing, and version drift.', resolve: "AutomateX's Scribtive walks through the draft of each form from your PACE deliverables with continuous Human-In-The-Loop, with structure and clause references aligned to the relevant reviewer checklist to significantly reduce drafting time and improve approval rate." },
+    'aip':                 { title: 'AIP / Form B',         sub: 'Approval In Principle',                    pain: 'Discipline leads ping-pong the same draft through three review rounds before submission.', resolve: "Pre-submission compliance check against the AIP reviewer's checklist before it ever hits their desk." },
+    'cr-t':                { title: 'CR-T',                 sub: 'Contract Requirement Technical',           pain: 'The technical requirement document on every rail project. Drafted, tracked, and reconciled by hand across hundreds of clauses. Status drifts as design evolves.', resolve: 'AutomateX drafts and tracks the CR-T against the source brief, keeping requirement status current as design evolves.' },
+    'drn':                 { title: 'DRN & CAT 3 Comments', sub: 'Design Review Notice',                     pain: 'Opinion-driven, preference-based comments at B01 review. Signature chasing across reviewers. Commercial rabbit holes when comment closure goes sideways.', resolve: 'AutomateX classifies comments by type and reviewer, drafts responses tied to clauses, and tracks closure to keep the commercial conversation off the design.' },
+    'hazid':               { title: 'HAZID',                sub: 'Hazard Identification Workshop Record',    pain: 'Workshop outputs live in spreadsheets that never sync to the project hazard log.', resolve: 'Workshop transcription and structuring directly into a CSM-RA compliant hazard log with full traceability.' },
+    'idcr':                { title: 'IDC/R',                sub: 'Interdisciplinary Check / Review',         pain: 'The key P01 coordination stage. Comments arrive from each discipline in different formats. Closing them out to drive design from P01 to B01 is the choke point.', resolve: 'AutomateX captures IDC/R comments, structures them into the design issue log, and produces the IDC/R certification with full traceability.' },
+    'ncr':                 { title: 'NCR',                  sub: 'Non-Conformance Report',                   pain: 'Site issues land in WhatsApp groups and lose the chain back to the design assumption that was breached.', resolve: 'NCR routing with auto-classification and links to applicable design decisions and standards.' },
+    'itp':                 { title: 'ITP',                  sub: 'Inspection and Test Plan',                 pain: 'Generic templates cobbled together from prior projects. Inspection points missed during execution.', resolve: 'ITP authoring tied to specific design deliverables, with inspection scheduling and evidence capture.' },
+    'eis':                 { title: 'EIS',                  sub: 'Enter Into Service',                       pain: 'Forms and large volumes of H&S files mapped and logged into legacy systems like NRG. Manual data entry under deadline pressure.', resolve: 'AutomateX assembles the EIS pack, completes the forms, and pushes records into NRG and equivalent legacy systems.' },
+    'vandv':               { title: 'V&V Requirement Management', sub: 'Verification and Validation traceability', pain: 'Mapping requirements through the V&V cycle by hand. The golden thread breaks when designs change. Auditors find the gaps before you do.', resolve: 'AutomateX builds and maintains the requirement traceability, the golden thread from requirement to verification artefact, demonstrating each requirement is met across the V&V cycle.' },
+    'take-off':            { title: 'Take-off',             sub: 'Quantity extraction from drawings',        pain: 'Two days of measuring drawings for a tender, and the BoQ goes wrong anyway.', resolve: 'Automated take-off from PDF and CAD drawings with line-by-line audit and human review.' },
+    'interface':           { title: 'Interface Register',   sub: 'Cross-discipline interface management',    pain: "Lives in someone's head. Junior engineers don't know what they don't know.", resolve: 'Interface scanning across discipline drawings with proposed register entries flagged for review.' },
+    'tender-return':       { title: 'Tender Return',        sub: 'Bid response document assembly',           pain: 'Bid manager and discipline leads reinvent the wheel every submission. Win themes and past evidence scattered across project folders. Late nights to assemble.', resolve: 'AutomateX drafts the tender return from your win library, evidence base, and the RFP requirements, ready for bid manager polish.' },
+    'compliance-matrix':   { title: 'Compliance Matrix',    sub: 'RFP requirement coverage',                 pain: "Late-night spreadsheet work to prove you've answered every requirement.", resolve: 'Auto-generated compliance matrix with evidence traceability to your draft response.' },
+    'standards-search':    { title: 'Standards search',     sub: 'NR/L2 · NR/L3 · RSSB · CSM', pain: 'Nine thousand standards across the railway. The right clause is in there somewhere.', resolve: 'Natural-language standards retrieval with clause-level citation across NR, RSSB, CSM-RA, BS, EN.' },
+    'lessons-learned':     { title: 'Lessons Learned',      sub: 'Project knowledge capture',                pain: 'Captured at project end, never read again. Same mistakes on the next scheme.', resolve: 'Active lessons surfaced into project workflows when relevant, not buried in SharePoint.' },
+    'programme-reporting': { title: 'Programme Reporting',  sub: 'Status / progress dashboards',             pain: 'PMs spend half their week assembling status reports.', resolve: 'Live programme dashboards from your existing schedule and ERP, no manual rekeying.' },
+    'clash-detection':     { title: 'Clash Detection',      sub: 'Final coordination check across deliverables', pain: 'Before every submission, design changes need to be reconciled across drawings, specs, and BIM. Hours spent verifying every change carried through. Easy to miss a deviation that propagates downstream.', resolve: 'AutomateX runs the final clash check across all deliverables and files, surfacing inconsistencies before submission. Peace of mind that the package is internally consistent.' },
+    'audit-compliance':    { title: 'Audit & Compliance',   sub: 'RISQS, ISO, framework audits, regulator queries', pain: 'RISQS audits, ISO compliance reviews, framework audits, regulator queries. Each one a multi-week scramble through SharePoint to reassemble evidence the business already has.', resolve: 'AutomateX makes your company knowledge query-ready. Audit and compliance questions answered with traceable evidence in minutes, not weeks.' }
+  };
+  var ARCHETYPE_MAP = {
+    'client': ['cr-t', 'vandv', 'eis', 'audit-compliance', 'standards-search', 'drn', 'hazid', 'idcr', 'ncr', 'programme-reporting', 'lessons-learned'],
+    'tier1':  ['form-a', 'aip', 'tender-return', 'compliance-matrix', 'idcr', 'take-off', 'itp', 'interface', 'drn', 'clash-detection', 'audit-compliance', 'programme-reporting', 'hazid'],
+    'sme':    ['form-a', 'audit-compliance', 'standards-search', 'lessons-learned', 'take-off', 'ncr', 'itp', 'interface', 'hazid', 'drn', 'programme-reporting', 'clash-detection']
+  };
+  var CAT_LABEL = { assurance: 'Assurance', design: 'Design', tender: 'Tender', knowledge: 'Knowledge', controls: 'Controls' };
+
+  var board = $('#fx-board'), cloud = $('#fx-cloud'), spot = $('#fx-spot'),
+      float_ = $('#fx-float'), panel = $('#fx-panel'), chips = $$('.fx-chip', cloud);
+  var pinnedKey = null;
+
+  function fxHTML(key, cat) {
+    var d = FRICTION[key];
+    return '<div class="fx-cat">' + CAT_LABEL[cat] + ' · friction point</div>' +
+      '<h3 class="fx-title">' + d.title + '</h3>' +
+      '<div class="fx-sub2">' + d.sub + '</div>' +
+      '<p class="fx-pain">' + d.pain + '</p>' +
+      '<p class="fx-resolve"><strong>How AutomateX resolves it</strong>' + d.resolve + '</p>' +
+      '<a class="fx-link" href="https://automatex.uk/ai-in-action.html">See how we’d automate yours →</a>';
+  }
+  function placeFloat(chip) {
+    var br = board.getBoundingClientRect(), cr = chip.getBoundingClientRect();
+    var fw = 384;
+    var x = clamp(cr.left - br.left + cr.width / 2 - fw / 2, 8, br.width - fw - 8);
+    var y = cr.bottom - br.top + 12;
+    float_.style.left = x + 'px'; float_.style.top = y + 'px';
+    // flip above the chip if the card would run past the bottom of the viewport;
+    // the board no longer clips, so the only constraint that matters is the screen
+    requestAnimationFrame(function () {
+      var fh = float_.offsetHeight;
+      var vb = window.innerHeight || document.documentElement.clientHeight;
+      if (cr.bottom + 12 + fh > vb - 8 && cr.top - fh - 12 > 8) {
+        float_.style.top = (cr.top - br.top - fh - 12) + 'px';
+      }
+    });
+  }
+  function showFor(chip, interactive) {
+    var key = chip.getAttribute('data-key'), cat = chip.getAttribute('data-cat');
+    float_.innerHTML = fxHTML(key, cat);
+    placeFloat(chip);
+    float_.classList.add('show');
+    float_.classList.toggle('interactive', !!interactive);
+    float_.setAttribute('aria-hidden', 'false');
+  }
+  function hideFloat() {
+    float_.classList.remove('show', 'interactive');
+    float_.setAttribute('aria-hidden', 'true');
+  }
+  function unpin() {
+    pinnedKey = null;
+    chips.forEach(function (c) { c.classList.remove('pin'); c.setAttribute('aria-pressed', 'false'); });
+    hideFloat();
+  }
+  chips.forEach(function (chip) {
+    if (FINE) {
+      chip.addEventListener('mouseenter', function () { if (!pinnedKey) { chip.classList.add('hot'); showFor(chip, false); } });
+      chip.addEventListener('mouseleave', function () { chip.classList.remove('hot'); if (!pinnedKey) hideFloat(); });
+      chip.addEventListener('focus', function () { if (!pinnedKey) showFor(chip, false); });
+      chip.addEventListener('blur', function () { if (!pinnedKey) hideFloat(); });
+    }
+    chip.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      var key = chip.getAttribute('data-key');
+      if (FINE && isDesktop()) {
+        if (pinnedKey === key) { unpin(); return; }
+        unpin(); pinnedKey = key;
+        chip.classList.add('pin'); chip.setAttribute('aria-pressed', 'true');
+        showFor(chip, true);
+      } else {
+        var was = chip.classList.contains('pin');
+        chips.forEach(function (c) { c.classList.remove('pin'); c.setAttribute('aria-pressed', 'false'); });
+        if (was) { panel.classList.remove('show'); panel.innerHTML = ''; return; }
+        chip.classList.add('pin'); chip.setAttribute('aria-pressed', 'true');
+        panel.innerHTML = fxHTML(key, chip.getAttribute('data-cat'));
+        panel.classList.add('show');
+      }
+    });
+  });
+  document.addEventListener('click', function (ev) {
+    if (pinnedKey && !float_.contains(ev.target)) unpin();
+  });
+  if (FINE) {
+    var mx = 0, my = 0, spotRaf = false;
+    board.addEventListener('mousemove', function (ev) {
+      var r = board.getBoundingClientRect();
+      mx = ev.clientX - r.left; my = ev.clientY - r.top;
+      if (!spotRaf) { spotRaf = true; requestAnimationFrame(function () { spotRaf = false; spot.style.setProperty('--mx', mx + 'px'); spot.style.setProperty('--my', my + 'px'); }); }
+    }, { passive: true });
+  }
+  $$('.fx-filters button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      $$('.fx-filters button').forEach(function (b) { b.classList.remove('on'); b.setAttribute('aria-pressed', 'false'); });
+      btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true');
+      var arch = btn.getAttribute('data-arch');
+      var allowed = arch === 'all' ? null : ARCHETYPE_MAP[arch];
+      chips.forEach(function (c) {
+        var dim = allowed && allowed.indexOf(c.getAttribute('data-key')) === -1;
+        c.classList.toggle('dim', !!dim);
+        if (dim && c.classList.contains('pin')) { unpin(); panel.classList.remove('show'); }
+      });
+    });
+  });
+
+  /* ============ THE FRICTION RINGS — full-viewport scene ============ */
+  var weekWrap = $('#pain'), weekTrack = $('#week-track'),
+      ticks = $$('.week-ticks i', weekWrap),
+      rsSvg = $('#rings-svg'), ringsCore = $('#rings-core'),
+      rsNum = $('#rs-num'), rsCountText = $('#rs-count-text'),
+      rsAnnot = $('#rs-annot'), rsTip = $('#rs-tip'),
+      ringsTilt = $('#rings-tilt'), rsShock = $('#rs-shock'),
+      rsStage = $('.rings-stage', weekWrap);
+  /* outermost first: ring i unwinds at beat i+1; its solution docks below */
+  var LAYERS = [
+    { key: 'forms', num: '08', name: 'Forms · A/B/C/G', pain: 'Every form has its own structure, evidence base and reviewer expectations. Senior hours lost to formatting and citation chasing.', annot: '<strong>Form A/B/C/G</strong><span class="ra-arrow">&rarr;</span>drafted section by section, cited clause by clause, routed for review' },
+    { key: 'tender-returns', num: '07', name: 'Tender returns', pain: 'Every submission reinvents the wheel. Win themes and evidence scattered across project folders.', annot: '<strong>Tender returns</strong><span class="ra-arrow">&rarr;</span>assembled from your win library and evidence base' },
+    { key: 'tender-scramble', num: '06', name: 'Tender scramble', pain: 'The 11th-hour hunt for proof you know exists.', annot: '<strong>The evidence scramble</strong><span class="ra-arrow">&rarr;</span>found, matched and cited in seconds' },
+    { key: 'standards', num: '05', name: 'Standards search', pain: 'Nine thousand standards across the railway. The right clause is in there somewhere.', annot: '<strong>Standards search</strong><span class="ra-arrow">&rarr;</span>clause-level answers across NR, RSSB and CSM-RA' },
+    { key: 'comments', num: '04', name: 'Cat 3 comments', pain: 'Opinion-driven comment cycles at B01. Signature chasing across reviewers.', annot: '<strong>Cat 3 comments</strong><span class="ra-arrow">&rarr;</span>responses drafted against the clause, closure tracked' },
+    { key: 'reporting', num: '03', name: 'Reporting', pain: 'Half a week assembling status reports. Nothing new gets decided.', annot: '<strong>Reporting</strong><span class="ra-arrow">&rarr;</span>live dashboards from your schedule and ERP, nothing rekeyed' },
+    { key: 'drafting', num: '02', name: 'Drafting', pain: 'Every deliverable starts at a blank page, written by your most expensive people.', annot: '<strong>Drafting</strong><span class="ra-arrow">&rarr;</span>grounded first drafts in minutes, from your own templates' },
+    { key: 'meetings', num: '01', name: 'Meetings & coordination', pain: 'Interfaces chased by email. Actions that die in inboxes.', annot: '<strong>Meetings &amp; coordination</strong><span class="ra-arrow">&rarr;</span>actions captured, assigned and chased' }
+  ];
+  var ringEls = {}, chipEls = {};
+  LAYERS.forEach(function (L) {
+    ringEls[L.key] = $('.ring[data-ring="' + L.key + '"]', rsSvg);
+    chipEls[L.key] = $('.dock-chip[data-chip="' + L.key + '"]');
+  });
+  var LAST_BEAT = 9;
+  var HINT = FINE ? 'Hover a layer to read it. Click to automate it away. Or just scroll.'
+                  : 'Tap a layer to automate it away. Or just scroll.';
+  rsAnnot.textContent = HINT;
+  var currentBeat = -1;
+  function popNum() {
+    if (REDUCED || !rsNum.animate) return;
+    rsNum.animate([{ transform: 'scale(1.35)', opacity: .35 }, { transform: 'scale(1)', opacity: 1 }], { duration: 340, easing: 'cubic-bezier(.34,1.56,.64,1)' });
+  }
+  function fireShock() {
+    if (REDUCED || !rsShock.animate) return;
+    rsShock.animate([{ transform: 'scale(1)', opacity: .5 }, { transform: 'scale(3.1)', opacity: 0 }], { duration: 800, easing: 'cubic-bezier(.22,.61,.36,1)' });
+  }
+  function setBeat(b, withText) {
+    if (b === currentBeat && withText !== 'force') return;
+    var prev = currentBeat; currentBeat = b;
+    ticks.forEach(function (t, i) { t.classList.toggle('on', i <= b); });
+    var gone = 0;
+    LAYERS.forEach(function (L, i) {
+      var g = b >= i + 1;
+      if (g) gone++;
+      ringEls[L.key].classList.toggle('gone', g);
+      chipEls[L.key].classList.toggle('on', g);
+    });
+    weekWrap.classList.toggle('prized', b >= LAST_BEAT);
+    ringsCore.style.setProperty('--core-s', b >= LAST_BEAT ? 1.5 : (1 + gone * 0.035).toFixed(3));
+    var left = LAYERS.length - gone;
+    if (rsNum.textContent !== String(left)) { rsNum.textContent = left; popNum(); }
+    rsCountText.textContent = b >= LAST_BEAT ? 'layers left. Just engineering.'
+      : (left === 1 ? 'layer between your engineers and engineering.' : 'layers between your engineers and engineering.');
+    if (b <= 0) rsAnnot.textContent = HINT;
+    else if (b <= LAYERS.length) rsAnnot.innerHTML = LAYERS[b - 1].annot;
+    if (prev >= 0 && b > prev && b >= 1) fireShock();
+    hideTip();
+  }
+  var FROZEN = false;
+  function weekScroll() {
+    if (REDUCED || FROZEN) return;
+    var r = weekTrack.getBoundingClientRect();
+    var total = r.height - window.innerHeight;
+    if (total <= 0) return;
+    var p = clamp(-r.top / total, 0, 1);
+    setBeat(Math.min(LAST_BEAT, Math.floor(p * (LAST_BEAT + 1))), true);
+  }
+  scrollFns.push(weekScroll);
+  /* entry: the layers draw themselves around the core, once */
+  if (!REDUCED) {
+    $$('.ring-band', rsSvg).forEach(function (el, i) { el.style.setProperty('--dd', (0.12 + i * 0.09).toFixed(2) + 's'); });
+    rsSvg.classList.add('predraw');
+    var startDraw = function () { requestAnimationFrame(function () { rsSvg.classList.remove('predraw'); }); };
+    if ('IntersectionObserver' in window) {
+      var dio = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { startDraw(); dio.disconnect(); } });
+      }, { threshold: .12 });
+      dio.observe(weekTrack);
+    } else { startDraw(); }
+  }
+  /* hover: the depth on demand; click: automate it away (seek that beat) */
+  function tipHTML(i, gone) {
+    var L = LAYERS[i];
+    return '<div class="tip-num">Layer ' + L.num + ' · ' + L.name + (gone ? ' · automated' : '') + '</div>' +
+      '<div class="tip-pain">' + (gone ? 'Running in the system. Your engineers review, decide, and sign.' : L.pain) + '</div>' +
+      '<div class="tip-act">' + (gone ? 'Click to put it back &uarr;' : 'Click to automate it away &rarr;') + '</div>';
+  }
+  function moveTip(ev) {
+    var sr = rsStage.getBoundingClientRect();
+    var x = clamp(ev.clientX - sr.left + 16, 8, sr.width - 312);
+    var y = clamp(ev.clientY - sr.top + 18, 8, sr.height - 40);
+    rsTip.style.left = x + 'px'; rsTip.style.top = y + 'px';
+  }
+  function hideTip() { rsTip.classList.remove('show'); rsTip.setAttribute('aria-hidden', 'true'); }
+  function seekBeat(b) {
+    var r = weekTrack.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var target = r.top + window.scrollY + ((b + 0.5) / (LAST_BEAT + 1)) * (r.height - vh);
+    window.scrollTo({ top: target, behavior: REDUCED ? 'auto' : 'smooth' });
+  }
+  $$('.ring', rsSvg).forEach(function (g, i) {
+    var hit = $('.ring-hit', g);
+    if (FINE) {
+      hit.addEventListener('mouseenter', function (ev) {
+        g.classList.add('hov');
+        rsTip.innerHTML = tipHTML(i, g.classList.contains('gone'));
+        moveTip(ev);
+        rsTip.classList.add('show');
+        rsTip.setAttribute('aria-hidden', 'false');
+      });
+      hit.addEventListener('mousemove', moveTip, { passive: true });
+      hit.addEventListener('mouseleave', function () { g.classList.remove('hov'); hideTip(); });
+    }
+    hit.addEventListener('click', function () {
+      seekBeat(g.classList.contains('gone') ? i : i + 1);
+    });
+  });
+  /* the whole system leans toward the cursor */
+  if (FINE && !REDUCED) {
+    var ptx = 0, pty = 0, pRaf = false;
+    weekWrap.addEventListener('mousemove', function (ev) {
+      var r = ringsTilt.getBoundingClientRect();
+      if (!r.width) return;
+      ptx = clamp((ev.clientX - r.left) / r.width - .5, -.65, .65);
+      pty = clamp((ev.clientY - r.top) / r.height - .5, -.65, .65);
+      if (!pRaf) {
+        pRaf = true;
+        requestAnimationFrame(function () {
+          pRaf = false;
+          ringsTilt.style.setProperty('--ry', (ptx * 7).toFixed(2) + 'deg');
+          ringsTilt.style.setProperty('--rx', (-pty * 7).toFixed(2) + 'deg');
+        });
+      }
+    }, { passive: true });
+    weekWrap.addEventListener('mouseleave', function () {
+      ringsTilt.style.setProperty('--rx', '0deg');
+      ringsTilt.style.setProperty('--ry', '0deg');
+    });
+  }
+
+  
+})();
+</script>
 </body>
 </html>
