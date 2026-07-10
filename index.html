@@ -3099,6 +3099,14 @@ html.shot-freeze .proof-track-outer { height:auto !important; }
 html.shot-freeze .proof-sticky { position:static; height:auto; padding: clamp(4.5rem,9vw,7rem) 0 3rem; }
 html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
 .axr-hero{background:var(--navy-deep);}
+/* ===== constellation: dark board to match the integrated dark page ===== */
+#find-your-x .fx-board{background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.05) 1px,transparent 1.6px) 0 0/26px 26px,linear-gradient(180deg,var(--navy-surface),var(--card-dark));border-color:rgba(255,255,255,.08);}
+#find-your-x .fx-filters button{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.18);color:var(--gray-300);}
+#find-your-x .fx-filters button:hover{border-color:rgba(255,255,255,.4);color:var(--white);}
+#find-your-x .fx-filters button.on{border-color:var(--orange);color:var(--orange-light);background:rgba(249,101,50,.12);}
+#find-your-x .fx-meta{color:var(--gray-400);}
+#find-your-x .fx-meta strong{color:var(--white);}
+#find-your-x .fx-legend i[style*="--navy"], #find-your-x .fx-legend i[style*="1A1F36"]{outline:1px solid rgba(255,255,255,.3);}
 
 </style>
 </head>
@@ -4077,7 +4085,7 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
 </section>
 
 <!-- ===== FIND YOUR X (ported constellation, replaces lens) ===== -->
-<section class="sec sec-light" id="find-your-x" data-nav-theme="light">
+<section class="sec sec-dark" id="find-your-x" data-nav-theme="dark">
   <div class="container">
     <div class="axr-center">
       <div class="eyebrow axr-center" data-reveal>Find your X</div>
