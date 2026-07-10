@@ -19,8 +19,10 @@
 <meta name="twitter:description" content="Free 20-question AI Readiness Assessment for UK rail firms. 5 minutes, instant tailored report.">
 <meta name="twitter:image" content="https://automatex.uk/brand_assets/automatex-wordmark.png">
 <style id="scorecard-canon-2026-06-06">
-/* Dark footer override for scorecard — overrides the earlier `.footer { background: #fff }` rule */
-.footer { background: transparent !important; color: rgba(255,255,255,0.7); padding: 3rem 0 1.75rem; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.06); }
+/* Hotfix 2026-07-10: the scorecard is a focused funnel page, no footer.
+   (The old dark-footer override fought a later `.footer { background:#fff }` rule
+   and rendered as a ghost footer beneath the quiz.) */
+.footer { display: none !important; }
 .footer .container { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
 .footer .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr) auto; gap: 2.5rem; align-items: start; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .footer .footer-brand img { height: 26px !important; width: auto !important; }
