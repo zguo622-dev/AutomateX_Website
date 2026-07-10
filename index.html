@@ -3107,6 +3107,14 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
 #find-your-x .fx-meta{color:var(--gray-400);}
 #find-your-x .fx-meta strong{color:var(--white);}
 #find-your-x .fx-legend i[style*="--navy"], #find-your-x .fx-legend i[style*="1A1F36"]{outline:1px solid rgba(255,255,255,.3);}
+/* ===== homepage navbar: transparent over hero, solid dark blur on scroll (white logo + links, stays visible) ===== */
+.navbar{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:transparent!important;transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;}
+.navbar.axr-scrolled{background:rgba(13,17,23,.82)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;border-bottom-color:rgba(255,255,255,.08)!important;}
+.navbar .navbar-links a,.navbar .nav-dropdown-toggle{color:rgba(255,255,255,.82)!important;}
+.navbar .navbar-links a:hover,.navbar .nav-dropdown-toggle:hover,.navbar .navbar-links a.is-current{color:#fff!important;}
+.navbar .nav-dropdown-toggle::after{border-color:rgba(255,255,255,.7)!important;}
+.navbar .mobile-toggle span{background:#fff!important;}
+.navbar.navbar-hidden{transform:none!important;}
 
 </style>
 </head>
@@ -3117,7 +3125,7 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
 <nav class="navbar">
   <div class="container">
     <a href="#" class="navbar-logo" aria-label="AutomateX home">
-      <img src="brand_assets/automatex-wordmark.png" alt="AutomateX">
+      <img src="brand_assets/automatex-wordmark-dark-bg-transparent.png" alt="AutomateX">
     </a>
     <ul class="navbar-links">
       <li class="has-dropdown">
@@ -6006,6 +6014,9 @@ var REDUCED = document.documentElement.classList.contains('reduced');
 
   
 })();
+</script>
+<script id="axr-navbar-scroll-2026-07-10">
+(function(){var nav=document.querySelector('.navbar');if(!nav)return;function upd(){nav.classList.toggle('axr-scrolled',(window.scrollY||window.pageYOffset||0)>60);}window.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 </body>
 </html>
