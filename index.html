@@ -3098,7 +3098,9 @@ html.shot-freeze .week-sticky { position:static; height:auto; overflow:visible; 
 html.shot-freeze .proof-track-outer { height:auto !important; }
 html.shot-freeze .proof-sticky { position:static; height:auto; padding: clamp(4.5rem,9vw,7rem) 0 3rem; }
 html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
-.axr-hero{background:var(--navy-deep);}
+/* let the shared knowledge-graph canvas show through every section (hero + rings were solid) */
+.axr-hero{background:transparent!important;}
+#pain, #pain .week-sticky{background:transparent!important;}
 /* ===== constellation: dark board to match the integrated dark page ===== */
 #find-your-x .fx-board{background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.05) 1px,transparent 1.6px) 0 0/26px 26px,linear-gradient(180deg,var(--navy-surface),var(--card-dark));border-color:rgba(255,255,255,.08);}
 #find-your-x .fx-filters button{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.18);color:var(--gray-300);}
