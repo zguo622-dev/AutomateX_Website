@@ -3107,6 +3107,31 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
 #find-your-x .fx-meta{color:var(--gray-400);}
 #find-your-x .fx-meta strong{color:var(--white);}
 #find-your-x .fx-legend i[style*="--navy"], #find-your-x .fx-legend i[style*="1A1F36"]{outline:1px solid rgba(255,255,255,.3);}
+/* --- constellation polish 2026-07-11 --- */
+/* pinned + dimmed pills legible on the dark board */
+#find-your-x .fx-chip.pin{background:#fff!important;border-color:var(--orange);border-width:2px;box-shadow:0 0 0 4px rgba(249,101,50,.16);}
+#find-your-x .fx-chip.dim{opacity:1;filter:none;background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1);color:var(--gray-400);box-shadow:none;}
+#find-your-x .fx-chip.dim .fx-dot{opacity:.4;}
+/* board: semi-transparent (graph shows through) + slow drifting glow, less dull */
+#find-your-x .fx-board{background:linear-gradient(180deg,rgba(22,27,34,.5),rgba(13,17,23,.62))!important;border-color:rgba(255,255,255,.07)!important;position:relative;}
+#find-your-x .fx-glowwrap{position:absolute;inset:0;border-radius:inherit;overflow:hidden;z-index:0;pointer-events:none;}
+#find-your-x .fx-glowwrap::before{content:"";position:absolute;width:60%;height:70%;left:20%;top:14%;background:radial-gradient(closest-side,rgba(249,101,50,.14),transparent 72%);animation:fxGlow 16s ease-in-out infinite;}
+#find-your-x .fx-cloud{position:relative;z-index:1;}
+@keyframes fxGlow{0%{transform:translate(-30%,-8%)}33%{transform:translate(35%,22%)}66%{transform:translate(12%,-28%)}100%{transform:translate(-30%,-8%)}}
+/* fluid floating pills, more breathing room, less empty board */
+@keyframes fxFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media (min-width:901px){
+  #find-your-x .fx-board{padding:2.1rem 2.3rem;}
+  #find-your-x .fx-cloud{gap:1.5rem 1.7rem;min-height:300px;}
+  #find-your-x .fx-chip{animation:fxFloat 6s ease-in-out infinite;}
+  #find-your-x .fx-chip:nth-child(2n){animation-duration:7.6s;animation-delay:-2s;}
+  #find-your-x .fx-chip:nth-child(3n){animation-duration:5.4s;animation-delay:-1.2s;}
+  #find-your-x .fx-chip:nth-child(4n){animation-duration:8.2s;animation-delay:-3.6s;}
+  #find-your-x .fx-chip:nth-child(5n){animation-duration:6.8s;animation-delay:-.7s;}
+  #find-your-x .fx-chip:hover,#find-your-x .fx-chip.pin,#find-your-x .fx-chip.hot{animation-play-state:paused;}
+}
+#find-your-x:not(.axr-inview) .fx-chip{animation-play-state:paused;}
+html.reduced #find-your-x .fx-chip{animation:none!important;}
 /* ===== homepage navbar: transparent over hero, solid dark blur on scroll (white logo + links, stays visible) ===== */
 .navbar{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:transparent!important;transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;}
 .navbar.axr-scrolled{background:rgba(13,17,23,.82)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;border-bottom-color:rgba(255,255,255,.08)!important;}
@@ -3120,8 +3145,8 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
    Pin it to the viewport so it stays ~1 viewport regardless of page height. */
 #site-particles{position:fixed!important;top:0!important;left:0!important;width:100%!important;height:100vh!important;}
 /* Rings scroll track was 880vh (page ~13 screens). Halve it for a snappier scroll + shorter page. */
-#pain .week-track{height:460vh!important;}
-@media (max-width:900px){#pain .week-track{height:360vh!important;}}
+#pain .week-track{height:300vh!important;}
+@media (max-width:900px){#pain .week-track{height:240vh!important;}}
 /* Pause the ring SVG spin + core blur when the rings are off-screen (they animated continuously). */
 #pain:not(.axr-inview) .ring-tex{animation:none!important;}
 #pain:not(.axr-inview) .core-halo{filter:none!important;}
@@ -4108,11 +4133,11 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
     <div class="axr-center">
       <div class="eyebrow axr-center" data-reveal>Find your X</div>
       <h2 class="h2" data-reveal>We automate your <span class="axr-heading-x">X</span>.</h2>
-      <p class="sub axr-center" data-reveal>Your <span class="axr-brand-x">X</span> is the error-prone, repetitive, time-consuming friction in your workflow, often unique to your operational context and organisation type. Hover any point to see how AutomateX resolves it. Click to pin. On a phone, just tap.</p>
+      <p class="sub axr-center" data-reveal>Your <span class="axr-brand-x">X</span> is the error-prone, repetitive, time-consuming friction in your workflow, often unique to your operational context and organisation type. A few of the ones we see most often:</p>
     </div>
 
     <div class="fx-filters" data-reveal role="group" aria-label="Filter friction points by organisation type">
-      <button class="on" data-arch="all" aria-pressed="true">All 19 friction points</button>
+      <button class="on" data-arch="all" aria-pressed="true">All examples</button>
       <button data-arch="client" aria-pressed="false">Client organisations</button>
       <button data-arch="tier1" aria-pressed="false">Tier 1 / 2 consultancies &amp; contractors</button>
       <button data-arch="sme" aria-pressed="false">SMEs</button>
@@ -4120,6 +4145,7 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
 
     <div class="fx-board" id="fx-board" data-reveal>
       <div class="fx-spot" id="fx-spot" aria-hidden="true"></div>
+      <div class="fx-glowwrap" aria-hidden="true"></div>
       <div class="fx-cloud" id="fx-cloud">
         <button class="fx-chip" data-key="form-a" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>Form A/B/C/G</button>
         <button class="fx-chip" data-key="aip" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>AIP</button>
@@ -4147,7 +4173,7 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
     </div>
 
     <div class="fx-meta" data-reveal>
-      <span><strong>19 friction points</strong> mapped across 5 workflow families</span>
+      <span><strong>A few examples</strong> across 5 workflow families</span>
       <span class="fx-legend"><i style="background:var(--orange)"></i> Assurance</span>
       <span class="fx-legend"><i style="background:var(--navy)"></i> Design</span>
       <span class="fx-legend"><i style="background:var(--orange-dark)"></i> Tender</span>
@@ -6032,10 +6058,12 @@ var REDUCED = document.documentElement.classList.contains('reduced');
 (function(){
   function nudge(){ try{ window.dispatchEvent(new Event('resize')); }catch(e){} }
   window.addEventListener('load', function(){ setTimeout(nudge,300); setTimeout(nudge,1500); });
-  var pain=document.getElementById('pain');
-  if(pain && 'IntersectionObserver' in window){
-    new IntersectionObserver(function(es){es.forEach(function(e){pain.classList.toggle('axr-inview', e.isIntersecting);});},{rootMargin:'250px'}).observe(pain);
-  } else if(pain){ pain.classList.add('axr-inview'); }
+  ['pain','find-your-x'].forEach(function(id){
+    var el=document.getElementById(id); if(!el) return;
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){es.forEach(function(e){el.classList.toggle('axr-inview', e.isIntersecting);});},{rootMargin:'250px'}).observe(el);
+    } else { el.classList.add('axr-inview'); }
+  });
 })();
 </script>
 </body>
