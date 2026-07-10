@@ -3115,6 +3115,16 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
 .navbar .nav-dropdown-toggle::after{border-color:rgba(255,255,255,.7)!important;}
 .navbar .mobile-toggle span{background:#fff!important;}
 .navbar.navbar-hidden{transform:none!important;}
+/* ===== PERF ===== */
+/* Particle canvas was sized to the whole document (~17MP, 2000+ particles redrawn every frame).
+   Pin it to the viewport so it stays ~1 viewport regardless of page height. */
+#site-particles{position:fixed!important;top:0!important;left:0!important;width:100%!important;height:100vh!important;}
+/* Rings scroll track was 880vh (page ~13 screens). Halve it for a snappier scroll + shorter page. */
+#pain .week-track{height:460vh!important;}
+@media (max-width:900px){#pain .week-track{height:360vh!important;}}
+/* Pause the ring SVG spin + core blur when the rings are off-screen (they animated continuously). */
+#pain:not(.axr-inview) .ring-tex{animation:none!important;}
+#pain:not(.axr-inview) .core-halo{filter:none!important;}
 
 </style>
 </head>
@@ -6017,6 +6027,16 @@ var REDUCED = document.documentElement.classList.contains('reduced');
 </script>
 <script id="axr-navbar-scroll-2026-07-10">
 (function(){var nav=document.querySelector('.navbar');if(!nav)return;function upd(){nav.classList.toggle('axr-scrolled',(window.scrollY||window.pageYOffset||0)>60);}window.addEventListener('scroll',upd,{passive:true});upd();})();
+</script>
+<script id="axr-perf-2026-07-10">
+(function(){
+  function nudge(){ try{ window.dispatchEvent(new Event('resize')); }catch(e){} }
+  window.addEventListener('load', function(){ setTimeout(nudge,300); setTimeout(nudge,1500); });
+  var pain=document.getElementById('pain');
+  if(pain && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){pain.classList.toggle('axr-inview', e.isIntersecting);});},{rootMargin:'250px'}).observe(pain);
+  } else if(pain){ pain.classList.add('axr-inview'); }
+})();
 </script>
 </body>
 </html>
