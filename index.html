@@ -3134,6 +3134,35 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
 }
 #find-your-x:not(.axr-inview) .fx-chip{animation-play-state:paused;}
 html.reduced #find-your-x .fx-chip{animation:none!important;}
+
+/* ===== case-study carousel (native swipe/drag, transparent so the graph shows) ===== */
+#proof{position:relative;background:transparent;color:var(--white);padding:clamp(3.5rem,7vw,6rem) 0;overflow:hidden;}
+#proof .h2{color:var(--white);}
+#proof .sub{color:var(--ink-dim);margin-inline:auto;}
+#proof .proof-rail{margin-top:2rem;}
+#proof .proof-cards{display:flex;gap:1.15rem;padding:.6rem var(--px) 1rem;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;}
+#proof .proof-cards::-webkit-scrollbar{display:none;}
+#proof .proof-cards.dragging{cursor:grabbing;scroll-snap-type:none;}
+#proof .proof-cards.dragging a{pointer-events:none;}
+#proof .proof-card{scroll-snap-align:start;flex:0 0 auto;width:clamp(300px,30vw,400px);background:linear-gradient(180deg,var(--navy-surface),var(--card-dark));border:1px solid rgba(255,255,255,.09);border-radius:18px;overflow:hidden;transition:transform .35s var(--ease-out),border-color .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column;text-align:left;}
+@media(pointer:fine){#proof .proof-card:hover{transform:translateY(-6px);border-color:rgba(249,101,50,.45);box-shadow:0 30px 60px -30px rgba(249,101,50,.3);}}
+#proof .pc-imgwrap{position:relative;aspect-ratio:16/9.5;overflow:hidden;}
+#proof .pc-imgwrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out);}
+#proof .proof-card:hover .pc-imgwrap img{transform:scale(1.045);}
+#proof .pc-live{position:absolute;top:.8rem;left:.8rem;display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-h);font-weight:700;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(13,17,23,.72);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:.32rem .7rem;}
+#proof .pc-live i{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:blinkDot 1.1s ease-in-out infinite alternate;}
+@keyframes blinkDot{to{opacity:.3;}}
+#proof:not(.axr-inview) .pc-live i{animation:none;}
+#proof .pc-body{padding:1.15rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.65rem;flex:1;}
+#proof .pc-chip{font-family:var(--font-h);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-light);}
+#proof .pc-desc{font-size:.88rem;color:var(--gray-300);line-height:1.65;flex:1;}
+#proof .pc-figs{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.2rem;}
+#proof .pc-fig-num{font-family:var(--font-h);font-weight:800;font-size:1.25rem;letter-spacing:-.02em;color:var(--white);}
+#proof .pc-fig-num small{font-size:.7em;}
+#proof .pc-fig-label{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-500);margin-top:.1rem;}
+#proof .proof-endcap{scroll-snap-align:start;flex:0 0 auto;width:clamp(260px,24vw,330px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1rem;border:1.5px dashed rgba(249,101,50,.4);border-radius:18px;padding:1.6rem;color:var(--ink-dim);font-size:.92rem;}
+#proof .proof-endcap .h3e{font-family:var(--font-h);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--white);}
+#proof .proof-hint{margin:1.1rem var(--px) 0;font-family:var(--font-h);font-weight:600;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-600);text-align:center;}
 /* ===== homepage navbar: transparent over hero, solid dark blur on scroll (white logo + links, stays visible) ===== */
 .navbar{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:transparent!important;transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;}
 .navbar.axr-scrolled{background:rgba(13,17,23,.82)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;border-bottom-color:rgba(255,255,255,.08)!important;}
@@ -4005,6 +4034,17 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
 
 <!-- ===== FIND YOUR X — MAGNIFIER LENS CANVAS ===== -->
 
+
+<!-- ===== CASE-STUDY CAROUSEL (ported, after who-we-help) ===== -->
+<section id="proof" data-nav-theme="dark">
+  <div class="container axr-center">
+    <div class="eyebrow axr-center" data-reveal>AI in action</div>
+    <h2 class="h2" data-reveal>Real-world AI, delivering measurable results.</h2>
+    <p class="sub" data-reveal>Not slideware. Systems in service on UK rail work today, with the figures they carry.</p>
+  </div>
+  <div class="proof-rail"><div class="proof-cards" id="proof-cards"><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">01 &middot; AI-empowered survey processing</div><p class="pc-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p><div class="pc-figs"><div><div class="pc-fig-num">7,650</div><div class="pc-fig-label">HD photos</div></div><div><div class="pc-fig-num">300+</div><div class="pc-fig-label">Survey flights</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Closures</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">02 &middot; AI-empowered drawing take-off</div><p class="pc-desc">Automated linear take-off from rail engineering drawings. AI extracts measurements with full audit trail. Hours not days, with cited evidence per line.</p><div class="pc-figs"><div><div class="pc-fig-num">99<small>%</small></div><div class="pc-fig-label">Accuracy</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Traceable</div></div><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Time reduction</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">03 &middot; AI-empowered design review &amp; verification</div><p class="pc-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p><div class="pc-figs"><div><div class="pc-fig-num">&pound;300<small>k</small></div><div class="pc-fig-label">Potential annual saving</div></div><div><div class="pc-fig-num">5</div><div class="pc-fig-label">Stages traced</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Broken links</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-knowledge-graph.jpg" alt="Knowledge graph trained on rail standards, taxonomy, and project history" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">04 &middot; Tender Knowledge Base</div><p class="pc-desc">A rail-specific knowledge graph trained on standards, taxonomy, and project history. Drove tender response quality and efficiency. Every output cited, grounded in your domain.</p><div class="pc-figs"><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Efficiency gain</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Cited evidence</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Grounded</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-scribtive.jpg" alt="Scribtive doc assistance UI for PACE-compliant rail forms" loading="lazy"><span class="pc-live"><i></i>Pilot</span></div><div class="pc-body"><div class="pc-chip">05 &middot; Scribtive&trade;</div><p class="pc-desc">Doc assistance for PACE-compliant rail forms. Section-by-section drafting with cited evidence and compliance gates. Currently in pilot.</p><div class="pc-figs"><div><div class="pc-fig-num">PACE</div><div class="pc-fig-label">Aligned</div></div><div><div class="pc-fig-num">RAG</div><div class="pc-fig-label">Knowledge enabled</div></div><div><div class="pc-fig-num">&infin;</div><div class="pc-fig-label">Audit trail</div></div></div></div></a><div class="proof-endcap"><div class="h3e">Your <span class="axr-heading-x">X</span> could be next.</div><p>See the full case studies, then tell us where your friction lives.</p><a class="axr-btn axr-btn-primary" href="ai-in-action.html#case-studies">See it in action <span class="arr" aria-hidden="true">&rarr;</span></a></div></div></div>
+  <div class="proof-hint">Drag or scroll &middot; 5 deployments</div>
+</section>
 <!-- ===== FRICTION RINGS (ported, replaces pain+prize) ===== -->
 <section class="week-wrap" id="pain" data-nav-theme="dark">
   <div class="week-track" id="week-track">
@@ -6060,13 +6100,16 @@ var REDUCED = document.documentElement.classList.contains('reduced');
 (function(){
   function nudge(){ try{ window.dispatchEvent(new Event('resize')); }catch(e){} }
   window.addEventListener('load', function(){ setTimeout(nudge,300); setTimeout(nudge,1500); });
-  ['pain','find-your-x'].forEach(function(id){
+  ['pain','find-your-x','proof'].forEach(function(id){
     var el=document.getElementById(id); if(!el) return;
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){es.forEach(function(e){el.classList.toggle('axr-inview', e.isIntersecting);});},{rootMargin:'250px'}).observe(el);
     } else { el.classList.add('axr-inview'); }
   });
 })();
+</script>
+<script id="axr-proof-2026-07-11">
+(function(){var el=document.getElementById("proof-cards");if(!el)return;var d=false,sx=0,sl=0;el.addEventListener("mousedown",function(e){d=true;sx=e.pageX;sl=el.scrollLeft;el.classList.add("dragging");});window.addEventListener("mouseup",function(){d=false;el.classList.remove("dragging");});el.addEventListener("mousemove",function(e){if(!d)return;e.preventDefault();el.scrollLeft=sl-(e.pageX-sx);});})();
 </script>
 </body>
 </html>
