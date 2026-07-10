@@ -3163,6 +3163,18 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
 #proof .proof-endcap{scroll-snap-align:start;flex:0 0 auto;width:clamp(260px,24vw,330px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1rem;border:1.5px dashed rgba(249,101,50,.4);border-radius:18px;padding:1.6rem;color:var(--ink-dim);font-size:.92rem;}
 #proof .proof-endcap .h3e{font-family:var(--font-h);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--white);}
 #proof .proof-hint{margin:1.1rem var(--px) 0;font-family:var(--font-h);font-weight:600;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-600);text-align:center;}
+/* dropdown items dark on the white panel (my white nav-link rule hid them) */
+.navbar .nav-dropdown{background:rgba(13,17,23,.97)!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 24px 50px -20px rgba(0,0,0,.6)!important;}
+.navbar li.has-dropdown .nav-dropdown a{color:rgba(255,255,255,.85)!important;}
+.navbar li.has-dropdown .nav-dropdown a:hover{color:#fff!important;background:rgba(249,101,50,.16)!important;}
+/* tighten hero -> find-your-x (remove the empty break band) */
+#home-hero{padding-bottom:1.4rem!important;}
+#find-your-x{padding-top:2.6rem!important;}
+
+/* fixed-size hero doc card so the animations don't resize it */
+#home-hero .doc-card{height:452px;overflow:hidden;}
+#home-hero .axr-hero-demo-caption{font-size:.72rem;line-height:1.45;}
+
 /* ===== homepage navbar: transparent over hero, solid dark blur on scroll (white logo + links, stays visible) ===== */
 .navbar{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:transparent!important;transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;}
 .navbar.axr-scrolled{background:rgba(13,17,23,.82)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;border-bottom-color:rgba(255,255,255,.08)!important;}
@@ -3204,8 +3216,8 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
         </div>
       </li>
       <li><a href="about.html">Who we are</a></li>
-      <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
       <li><a href="resources.html">Insights</a></li>
+      <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
     </ul>
     <div class="nav-cta-group">
       <a href="waitlist.html" class="btn btn-primary">Join the Waitlist</a>
@@ -3246,10 +3258,6 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="axr-hero-glow" aria-hidden="true"></div>
   <div class="axr-hero-glow2" aria-hidden="true"></div>
-  <svg class="axr-hero-xmark" viewBox="0 0 600 600" aria-hidden="true" fill="none">
-    <path class="x1" d="M96 96 L504 504"/>
-    <path class="x2" d="M504 96 L96 504"/>
-  </svg>
 
   <div class="container axr-hero-grid">
     <div class="axr-hero-copy">
@@ -3266,7 +3274,7 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
       <div class="axr-hero-trust">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/></svg> RISQS Verified</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> ICO Registered</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg> Built by a Chartered rail engineer</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg> Built by a rail insider</span>
       </div>
     </div>
 
@@ -3322,14 +3330,371 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
       <div class="doc-tabs" id="doc-tabs" role="tablist" aria-label="Choose a deliverable to watch drafting">
         <button class="on" data-doc="0" role="tab" aria-selected="true">Form G</button>
         <button data-doc="1" role="tab" aria-selected="false">DRN response</button>
-        <button data-doc="2" role="tab" aria-selected="false">HAZID log</button>
+        <button data-doc="2" role="tab" aria-selected="false">HAZlog</button>
       </div>
-      <p class="axr-hero-demo-caption">Illustrative output. Real deliverables are drafted against your own templates and knowledge base, cited clause by clause, and reviewed by your engineers.</p>
+      <p class="axr-hero-demo-caption">Illustrative. Real output is drafted from your own data, cited and engineer-reviewed.</p>
     </div>
   </div>
-
-  <div class="scroll-cue" aria-hidden="true"><span>Find your X</span><i></i></div>
 </header>
+<section class="sec sec-dark" id="find-your-x" data-nav-theme="dark">
+  <div class="container">
+    <div class="axr-center">
+      <div class="eyebrow axr-center" data-reveal>Find your X</div>
+      <h2 class="h2" data-reveal>We automate your <span class="axr-heading-x">X</span>.</h2>
+      <p class="sub axr-center" data-reveal>Your <span class="axr-brand-x">X</span> is the error-prone, repetitive, time-consuming friction in your workflow, often unique to your operational context and organisation type. A few of the ones we see most often:</p>
+    </div>
+
+    <div class="fx-filters" data-reveal role="group" aria-label="Filter friction points by organisation type">
+      <button class="on" data-arch="all" aria-pressed="true">All examples</button>
+      <button data-arch="client" aria-pressed="false">Client organisations</button>
+      <button data-arch="tier1" aria-pressed="false">Tier 1 / 2 consultancies &amp; contractors</button>
+      <button data-arch="sme" aria-pressed="false">SMEs</button>
+    </div>
+
+    <div class="fx-board" id="fx-board" data-reveal>
+      <div class="fx-spot" id="fx-spot" aria-hidden="true"></div>
+      <div class="fx-glowwrap" aria-hidden="true"></div>
+      <div class="fx-cloud" id="fx-cloud">
+        <button class="fx-chip" data-key="form-a" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>Form A/B/C/G</button>
+        <button class="fx-chip" data-key="aip" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>AIP</button>
+        <button class="fx-chip" data-key="drn" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>DRN</button>
+        <button class="fx-chip" data-key="idcr" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>IDC/R</button>
+        <button class="fx-chip" data-key="hazid" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>HAZID</button>
+        <button class="fx-chip" data-key="cr-t" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>CR-T</button>
+        <button class="fx-chip" data-key="ncr" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>NCR</button>
+        <button class="fx-chip" data-key="itp" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>ITP</button>
+        <button class="fx-chip" data-key="audit-compliance" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>Audit &amp; Compliance</button>
+        <button class="fx-chip" data-key="eis" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>EIS</button>
+        <button class="fx-chip" data-key="vandv" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>V&amp;V Reqts</button>
+        <button class="fx-chip" data-key="clash-detection" data-cat="design" aria-pressed="false"><span class="fx-dot"></span>Clash Detection</button>
+        <button class="fx-chip" data-key="take-off" data-cat="design" aria-pressed="false"><span class="fx-dot"></span>Take-off</button>
+        <button class="fx-chip" data-key="interface" data-cat="design" aria-pressed="false"><span class="fx-dot"></span>Interface Register</button>
+        <button class="fx-chip" data-key="tender-return" data-cat="tender" aria-pressed="false"><span class="fx-dot"></span>Tender Return</button>
+        <button class="fx-chip" data-key="compliance-matrix" data-cat="tender" aria-pressed="false"><span class="fx-dot"></span>Compliance Matrix</button>
+        <button class="fx-chip" data-key="standards-search" data-cat="knowledge" aria-pressed="false"><span class="fx-dot"></span>Standards search</button>
+        <button class="fx-chip" data-key="lessons-learned" data-cat="knowledge" aria-pressed="false"><span class="fx-dot"></span>Lessons Learned</button>
+        <button class="fx-chip" data-key="programme-reporting" data-cat="controls" aria-pressed="false"><span class="fx-dot"></span>Programme Reporting</button>
+      </div>
+
+      <aside class="fx-float" id="fx-float" aria-hidden="true"></aside>
+      <div class="fx-panel" id="fx-panel" role="region" aria-live="polite"></div>
+    </div>
+
+    <div class="fx-meta" data-reveal>
+      <span><strong>A few examples</strong> across 5 workflow families</span>
+      <span class="fx-legend"><i style="background:var(--orange)"></i> Assurance</span>
+      <span class="fx-legend"><i style="background:var(--navy)"></i> Design</span>
+      <span class="fx-legend"><i style="background:var(--orange-dark)"></i> Tender</span>
+      <span class="fx-legend"><i style="background:var(--gray-500)"></i> Knowledge</span>
+      <span class="fx-legend"><i style="background:var(--orange-light)"></i> Controls</span>
+      <span><a href="ai-in-action.html" style="color:var(--orange); font-weight:700;">See how we&rsquo;d automate yours &rarr;</a></span>
+    </div>
+  </div>
+</section>
+<section class="who-we-help" id="who-we-help" data-current="none" aria-label="Who we help">
+  <div class="who-container">
+
+    <div class="text-center who-header sc-reveal">
+      <div class="section-eyebrow who-eyebrow">Who we help</div>
+      <h2 class="who-heading">For ambitious rail teams and leaders.</h2>
+    </div>
+
+    <div class="bowtie">
+
+      <svg class="connectors" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
+
+      <div class="identity-col" role="tablist" aria-label="Pick your archetype">
+
+        <button class="identity-card" type="button" role="tab"
+                data-archetype="leader" aria-pressed="false" aria-controls="who-pill-region">
+          <span class="identity-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="15 6 21 6 21 12"/></svg>
+          </span>
+          <span class="identity-title">I drive innovation at a large rail organisation</span>
+          <span class="identity-port" aria-hidden="true"></span>
+        </button>
+
+        <button class="identity-card" type="button" role="tab"
+                data-archetype="team" aria-pressed="false" aria-controls="who-pill-region">
+          <span class="identity-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="11" r="2.4"/><path d="M3 19c0-2.7 2.7-5 6-5s6 2.3 6 5"/><path d="M14.5 18c.4-1.6 2-2.7 4-2.7s3.4 1 3.5 2.6"/></svg>
+          </span>
+          <span class="identity-title">I lead a growing rail team or business</span>
+          <span class="identity-port" aria-hidden="true"></span>
+        </button>
+
+        <button class="identity-card" type="button" role="tab"
+                data-archetype="senior" aria-pressed="false" aria-controls="who-pill-region">
+          <span class="identity-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><polyline points="8.5 13 7 21 12 18 17 21 15.5 13"/></svg>
+          </span>
+          <span class="identity-title">I'm a senior rail professional</span>
+          <span class="identity-port" aria-hidden="true"></span>
+        </button>
+
+        <button class="identity-card" type="button" role="tab"
+                data-archetype="junior" aria-pressed="false" aria-controls="who-pill-region">
+          <span class="identity-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.2L18 9l-4.4 1.8L12 15l-1.6-4.2L6 9l4.4-1.8z"/><line x1="4.5" y1="20" x2="6.5" y2="18"/><line x1="19.5" y1="20" x2="17.5" y2="18"/><line x1="12" y1="20" x2="12" y2="18"/></svg>
+          </span>
+          <span class="identity-title">I'm at the start of my rail career</span>
+          <span class="identity-port" aria-hidden="true"></span>
+        </button>
+
+      </div>
+
+      <div class="centre" aria-hidden="true">
+        <div class="logo-badge">
+          <img class="logo-x" src="brand_assets/automatex-mark.png" alt="AutomateX" aria-hidden="true">
+        </div>
+      </div>
+
+      <div class="pill-col" id="who-pill-region" role="region" aria-live="polite">
+
+        <button class="pill" type="button" data-cta="ai-strategy" data-for="leader team" aria-expanded="false">
+          <span class="pill-port" aria-hidden="true"></span>
+          <div class="pill-row">
+            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+            <span class="pill-title">AI Strategy</span>
+            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
+          </div>
+          <div class="pill-panel"><div class="pill-panel-inner">
+            <p class="pill-prop">A clear path from AI ambition to delivery, built around your organisation's standards, governance and context.</p>
+            <a class="pill-cta" href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book discovery call</a>
+          </div></div>
+        </button>
+
+        <button class="pill" type="button" data-cta="business-case" data-for="leader" aria-expanded="false">
+          <span class="pill-port" aria-hidden="true"></span>
+          <div class="pill-row">
+            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><rect x="5" y="11" width="3" height="9"/><rect x="10.5" y="6" width="3" height="14"/><rect x="16" y="13" width="3" height="7"/></svg></span>
+            <span class="pill-title">Business Case Study</span>
+            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
+          </div>
+          <div class="pill-panel"><div class="pill-panel-inner">
+            <p class="pill-prop">A defensible business case from a proven evaluation framework, for the AI investment in the direction of your organisation's choice.</p>
+            <a class="pill-cta" href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book discovery call</a>
+          </div></div>
+        </button>
+
+        <button class="pill" type="button" data-cta="custom-ai" data-for="leader team" aria-expanded="false">
+          <span class="pill-port" aria-hidden="true"></span>
+          <div class="pill-row">
+            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></span>
+            <span class="pill-title">Production-grade custom AI</span>
+            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
+          </div>
+          <div class="pill-panel"><div class="pill-panel-inner">
+            <p class="pill-prop"><em>If you know your <a href="#find-your-x">X</a> well,</em> we would scope and ship a custom AI to remove it.</p>
+            <a class="pill-cta" href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book scoping call</a>
+          </div></div>
+        </button>
+
+        <button class="pill" type="button" data-cta="bootcamp" data-for="team senior" aria-expanded="false">
+          <span class="pill-port" aria-hidden="true"></span>
+          <div class="pill-row">
+            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 9 8h6z"/><path d="M5 14c0-3 3-6 7-6s7 3 7 6c0 5-3 8-7 8s-7-3-7-8z"/><path d="M9 18c0-2 1.4-4 3-4s3 2 3 4"/></svg></span>
+            <span class="pill-title">AutomateX Bootcamp</span>
+            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
+          </div>
+          <div class="pill-panel"><div class="pill-panel-inner">
+            <p class="pill-prop"><em>If you need help identifying your <a href="#find-your-x">X</a>,</em> this is where you would start.</p>
+            <a class="pill-cta" href="bootcamp.html">Visit the Bootcamp</a>
+          </div></div>
+        </button>
+
+        <button class="pill" type="button" data-cta="assessment" data-for="team senior" aria-expanded="false">
+          <span class="pill-port" aria-hidden="true"></span>
+          <div class="pill-row">
+            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><polyline points="9 11 11 13 15 9"/><line x1="9" y1="17" x2="15" y2="17"/></svg></span>
+            <span class="pill-title">AI Readiness Assessment</span>
+            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
+          </div>
+          <div class="pill-panel"><div class="pill-panel-inner">
+            <p class="pill-prop">A 5-minute diagnostic across 5 operational pillars. Tailored and instant report.</p>
+            <a class="pill-cta" href="scorecard.html">Take the Assessment</a>
+          </div></div>
+        </button>
+
+        <button class="pill" type="button" data-cta="scribtive-waitlist" data-for="senior junior" aria-expanded="false">
+          <span class="pill-port" aria-hidden="true"></span>
+          <div class="pill-row">
+            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></span>
+            <span class="pill-title">Scribtive&trade; Waitlist</span>
+            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
+          </div>
+          <div class="pill-panel"><div class="pill-panel-inner">
+            <p class="pill-prop">Early access to Scribtive&trade;, our PACE assurance generator in build.</p>
+            <a class="pill-cta" href="waitlist.html">Join the Waitlist</a>
+          </div></div>
+        </button>
+
+        <button class="pill" type="button" data-cta="resources" data-for="junior" aria-expanded="false">
+          <span class="pill-port" aria-hidden="true"></span>
+          <div class="pill-row">
+            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"/><line x1="4" y1="19" x2="18" y2="19"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/></svg></span>
+            <span class="pill-title">Resources</span>
+            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
+          </div>
+          <div class="pill-panel"><div class="pill-panel-inner">
+            <p class="pill-prop">Plain-English articles and frameworks on AI in rail.</p>
+            <a class="pill-cta" href="resources.html">Browse Resources</a>
+          </div></div>
+        </button>
+
+      </div>
+    </div>
+
+    <div class="newsletter-strip" data-source="Newsletter sign up" aria-label="Newsletter signup">
+      <span class="newsletter-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+      </span>
+      <div class="newsletter-copy">
+        <p class="newsletter-title">Or just stay in the loop.</p>
+        <p class="newsletter-reason">A monthly newsletter from Bill on what is actually moving for AI in UK rail. Brief, honest, easy to unsubscribe.</p>
+      </div>
+      <form class="newsletter-form" novalidate>
+        <input type="email" placeholder="your@work-email" aria-label="Email for newsletter" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <span class="newsletter-success" aria-live="polite">Thanks. You're on the list.</span>
+      <span class="newsletter-error" aria-live="polite">Something went wrong. Please try again or email bill.guo@automatex.uk.</span>
+    </div>
+
+  </div>
+</section>
+<section class="week-wrap" id="pain" data-nav-theme="dark">
+  <div class="week-track" id="week-track">
+    <div class="week-sticky">
+      <div class="bg-grid" aria-hidden="true"></div>
+      <div class="rings-stage">
+        <div class="rs-head">
+          <div class="eyebrow axr-center">The pain &rarr; the prize</div>
+          <h2 class="rs-count"><span class="rs-num" id="rs-num">8</span> <span id="rs-count-text">layers between your engineers and engineering.</span></h2>
+        </div>
+
+        <div class="rings-tilt" id="rings-tilt">
+          <svg class="rings-svg" id="rings-svg" viewBox="0 0 560 560" role="img" aria-label="Eight layers of admin friction wrapped around an engineering core. AI automation removes them one by one until only engineering remains.">
+            <defs>
+              <radialGradient id="coreGrad" cx="38%" cy="30%" r="85%">
+                <stop offset="0%" stop-color="#FB7B3A"/>
+                <stop offset="55%" stop-color="#F96532"/>
+                <stop offset="100%" stop-color="#ED4A3B"/>
+              </radialGradient>
+              <filter id="coreBlur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="16"/></filter>
+            </defs>
+            <g class="ring" data-ring="forms">
+              <circle class="ring-band" cx="280" cy="280" r="250" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="250"/>
+              <path id="rp-forms" d="M 30 280 a 250 250 0 1 1 500 0 a 250 250 0 1 1 -500 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-forms" startOffset="25%" text-anchor="middle">FORMS</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="250"/>
+            </g>
+            <g class="ring" data-ring="tender-returns">
+              <circle class="ring-band" cx="280" cy="280" r="228" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="228"/>
+              <path id="rp-tret" d="M 52 280 a 228 228 0 1 1 456 0 a 228 228 0 1 1 -456 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-tret" startOffset="25%" text-anchor="middle">TENDER RETURNS</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="228"/>
+            </g>
+            <g class="ring" data-ring="tender-scramble">
+              <circle class="ring-band" cx="280" cy="280" r="206" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="206"/>
+              <path id="rp-tscr" d="M 74 280 a 206 206 0 1 1 412 0 a 206 206 0 1 1 -412 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-tscr" startOffset="25%" text-anchor="middle">TENDER SCRAMBLE</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="206"/>
+            </g>
+            <g class="ring" data-ring="standards">
+              <circle class="ring-band" cx="280" cy="280" r="184" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="184"/>
+              <path id="rp-stds" d="M 96 280 a 184 184 0 1 1 368 0 a 184 184 0 1 1 -368 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-stds" startOffset="25%" text-anchor="middle">STANDARDS SEARCH</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="184"/>
+            </g>
+            <g class="ring" data-ring="comments">
+              <circle class="ring-band" cx="280" cy="280" r="162" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="162"/>
+              <path id="rp-cmts" d="M 118 280 a 162 162 0 1 1 324 0 a 162 162 0 1 1 -324 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-cmts" startOffset="25%" text-anchor="middle">CAT 3 COMMENTS</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="162"/>
+            </g>
+            <g class="ring" data-ring="reporting">
+              <circle class="ring-band" cx="280" cy="280" r="140" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="140"/>
+              <path id="rp-rpt" d="M 140 280 a 140 140 0 1 1 280 0 a 140 140 0 1 1 -280 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-rpt" startOffset="25%" text-anchor="middle">REPORTING</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="140"/>
+            </g>
+            <g class="ring" data-ring="drafting">
+              <circle class="ring-band" cx="280" cy="280" r="118" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="118"/>
+              <path id="rp-drf" d="M 162 280 a 118 118 0 1 1 236 0 a 118 118 0 1 1 -236 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-drf" startOffset="25%" text-anchor="middle">DRAFTING</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="118"/>
+            </g>
+            <g class="ring" data-ring="meetings">
+              <circle class="ring-band" cx="280" cy="280" r="96" pathLength="100"/>
+              <circle class="ring-tex" cx="280" cy="280" r="96"/>
+              <path id="rp-mtg" d="M 184 280 a 96 96 0 1 1 192 0 a 96 96 0 1 1 -192 0" fill="none"/>
+              <text class="ring-label"><textPath href="#rp-mtg" startOffset="25%" text-anchor="middle">MEETINGS &amp; COORDINATION</textPath></text>
+              <circle class="ring-hit" cx="280" cy="280" r="96"/>
+            </g>
+            <g class="core" id="rings-core">
+              <circle class="core-halo" cx="280" cy="280" r="80" filter="url(#coreBlur)"/>
+              <circle class="core-disc" cx="280" cy="280" r="70"/>
+              <text class="core-t" x="280" y="277">ENGINEERING</text>
+              <text class="core-sub" x="280" y="296">judgement &middot; decisions &middot; risk</text>
+            </g>
+            <circle class="rs-shock" id="rs-shock" cx="280" cy="280" r="78"/>
+          </svg>
+        </div>
+        <aside class="rs-tip" id="rs-tip" aria-hidden="true"></aside>
+
+        <div class="rs-foot">
+          <p class="rs-annot" id="rs-annot">Hover a layer to read it. Click to automate it away. Or just scroll.</p>
+          <div class="rs-finale" id="rs-finale">
+            <p>Your team, truly <em>AI-enabled</em>.<span class="rs-same"><strong>Same team.</strong> The system runs the admin. Your engineers review, decide, and engineer.</span></p>
+            <a class="axr-btn axr-btn-primary" href="ai-in-action.html#case-studies">See it in action <span class="arr" aria-hidden="true">&rarr;</span></a>
+          </div>
+          <div class="rs-chips" id="rs-chips" aria-label="Running in the AutomateX system">
+            <span class="dock-chip" data-chip="forms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Forms &middot; drafted &amp; cited</span>
+            <span class="dock-chip" data-chip="tender-returns"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Tender returns &middot; assembled</span>
+            <span class="dock-chip" data-chip="tender-scramble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Evidence &middot; found &amp; cited</span>
+            <span class="dock-chip" data-chip="standards"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Standards &middot; clause-level answers</span>
+            <span class="dock-chip" data-chip="comments"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Comment responses &middot; drafted</span>
+            <span class="dock-chip" data-chip="reporting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Reporting &middot; live, not rekeyed</span>
+            <span class="dock-chip" data-chip="drafting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Drafting &middot; grounded first drafts</span>
+            <span class="dock-chip" data-chip="meetings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Meetings &middot; actions chased</span>
+          </div>
+          <div class="week-ticks" id="week-ticks" aria-hidden="true">
+            <i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <span class="wt-label">Scroll</span>
+          </div>
+          <ul class="rs-list" aria-label="The eight layers and what replaces them">
+            <li><strong>Forms &middot; A/B/C/G.</strong> Senior hours lost to formatting, citation chasing and version drift. <em>&rarr; Drafted section by section, cited clause by clause, routed for review.</em></li>
+            <li><strong>Tender returns.</strong> Every submission reinvents the wheel. <em>&rarr; Assembled from your win library and evidence base.</em></li>
+            <li><strong>Tender scramble.</strong> The 11th-hour hunt for proof you know exists. <em>&rarr; Evidence found, matched and cited in seconds.</em></li>
+            <li><strong>Standards search.</strong> Nine thousand standards across the railway. <em>&rarr; Clause-level answers across NR, RSSB and CSM-RA.</em></li>
+            <li><strong>Cat 3 comments.</strong> Opinion-driven comment cycles and signature chasing. <em>&rarr; Responses drafted against the clause, closure tracked.</em></li>
+            <li><strong>Reporting.</strong> Half a week assembling status reports. <em>&rarr; Live dashboards, nothing rekeyed.</em></li>
+            <li><strong>Drafting.</strong> Every deliverable starts at a blank page. <em>&rarr; Grounded first drafts in minutes, from your templates.</em></li>
+            <li><strong>Meetings &amp; coordination.</strong> Actions that die in inboxes. <em>&rarr; Captured, assigned and chased by the system.</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="proof" data-nav-theme="dark">
+  <div class="container axr-center">
+    <div class="eyebrow axr-center" data-reveal>AI in action</div>
+    <h2 class="h2" data-reveal>Real-world AI, delivering measurable results.</h2>
+    <p class="sub" data-reveal>Not slideware. Systems in service on UK rail work today, with the figures they carry.</p>
+  </div>
+  <div class="proof-rail"><div class="proof-cards" id="proof-cards"><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">01 &middot; AI-empowered survey processing</div><p class="pc-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p><div class="pc-figs"><div><div class="pc-fig-num">7,650</div><div class="pc-fig-label">HD photos</div></div><div><div class="pc-fig-num">300+</div><div class="pc-fig-label">Survey flights</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Closures</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">02 &middot; AI-empowered drawing take-off</div><p class="pc-desc">Automated linear take-off from rail engineering drawings. AI extracts measurements with full audit trail. Hours not days, with cited evidence per line.</p><div class="pc-figs"><div><div class="pc-fig-num">99<small>%</small></div><div class="pc-fig-label">Accuracy</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Traceable</div></div><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Time reduction</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">03 &middot; AI-empowered design review &amp; verification</div><p class="pc-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p><div class="pc-figs"><div><div class="pc-fig-num">&pound;300<small>k</small></div><div class="pc-fig-label">Potential annual saving</div></div><div><div class="pc-fig-num">5</div><div class="pc-fig-label">Stages traced</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Broken links</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-knowledge-graph.jpg" alt="Knowledge graph trained on rail standards, taxonomy, and project history" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">04 &middot; Tender Knowledge Base</div><p class="pc-desc">A rail-specific knowledge graph trained on standards, taxonomy, and project history. Drove tender response quality and efficiency. Every output cited, grounded in your domain.</p><div class="pc-figs"><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Efficiency gain</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Cited evidence</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Grounded</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-scribtive.jpg" alt="Scribtive doc assistance UI for PACE-compliant rail forms" loading="lazy"><span class="pc-live"><i></i>Pilot</span></div><div class="pc-body"><div class="pc-chip">05 &middot; Scribtive&trade;</div><p class="pc-desc">Doc assistance for PACE-compliant rail forms. Section-by-section drafting with cited evidence and compliance gates. Currently in pilot.</p><div class="pc-figs"><div><div class="pc-fig-num">PACE</div><div class="pc-fig-label">Aligned</div></div><div><div class="pc-fig-num">RAG</div><div class="pc-fig-label">Knowledge enabled</div></div><div><div class="pc-fig-num">&infin;</div><div class="pc-fig-label">Audit trail</div></div></div></div></a><div class="proof-endcap"><div class="h3e">Your <span class="axr-heading-x">X</span> could be next.</div><p>See the full case studies, then tell us where your friction lives.</p><a class="axr-btn axr-btn-primary" href="ai-in-action.html#case-studies">See it in action <span class="arr" aria-hidden="true">&rarr;</span></a></div></div></div>
+  <div class="proof-hint">Drag or scroll &middot; 5 deployments</div>
+</section>
+
 
 
 <!-- ====================================================================== -->
@@ -3701,178 +4066,7 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
 }
 </style>
 
-<section class="who-we-help" id="who-we-help" data-current="none" aria-label="Who we help">
-  <div class="who-container">
 
-    <div class="text-center who-header sc-reveal">
-      <div class="section-eyebrow who-eyebrow">Who we help</div>
-      <h2 class="who-heading">For ambitious rail teams and leaders.</h2>
-    </div>
-
-    <div class="bowtie">
-
-      <svg class="connectors" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
-
-      <div class="identity-col" role="tablist" aria-label="Pick your archetype">
-
-        <button class="identity-card" type="button" role="tab"
-                data-archetype="leader" aria-pressed="false" aria-controls="who-pill-region">
-          <span class="identity-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="15 6 21 6 21 12"/></svg>
-          </span>
-          <span class="identity-title">I drive innovation at a large rail organisation</span>
-          <span class="identity-port" aria-hidden="true"></span>
-        </button>
-
-        <button class="identity-card" type="button" role="tab"
-                data-archetype="team" aria-pressed="false" aria-controls="who-pill-region">
-          <span class="identity-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="11" r="2.4"/><path d="M3 19c0-2.7 2.7-5 6-5s6 2.3 6 5"/><path d="M14.5 18c.4-1.6 2-2.7 4-2.7s3.4 1 3.5 2.6"/></svg>
-          </span>
-          <span class="identity-title">I lead a growing rail team or business</span>
-          <span class="identity-port" aria-hidden="true"></span>
-        </button>
-
-        <button class="identity-card" type="button" role="tab"
-                data-archetype="senior" aria-pressed="false" aria-controls="who-pill-region">
-          <span class="identity-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><polyline points="8.5 13 7 21 12 18 17 21 15.5 13"/></svg>
-          </span>
-          <span class="identity-title">I'm a senior rail professional</span>
-          <span class="identity-port" aria-hidden="true"></span>
-        </button>
-
-        <button class="identity-card" type="button" role="tab"
-                data-archetype="junior" aria-pressed="false" aria-controls="who-pill-region">
-          <span class="identity-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.2L18 9l-4.4 1.8L12 15l-1.6-4.2L6 9l4.4-1.8z"/><line x1="4.5" y1="20" x2="6.5" y2="18"/><line x1="19.5" y1="20" x2="17.5" y2="18"/><line x1="12" y1="20" x2="12" y2="18"/></svg>
-          </span>
-          <span class="identity-title">I'm at the start of my rail career</span>
-          <span class="identity-port" aria-hidden="true"></span>
-        </button>
-
-      </div>
-
-      <div class="centre" aria-hidden="true">
-        <div class="logo-badge">
-          <img class="logo-x" src="brand_assets/automatex-mark.png" alt="AutomateX" aria-hidden="true">
-        </div>
-      </div>
-
-      <div class="pill-col" id="who-pill-region" role="region" aria-live="polite">
-
-        <button class="pill" type="button" data-cta="ai-strategy" data-for="leader team" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
-            <span class="pill-title">AI Strategy</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop">A clear path from AI ambition to delivery, built around your organisation's standards, governance and context.</p>
-            <a class="pill-cta" href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book discovery call</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="business-case" data-for="leader" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><rect x="5" y="11" width="3" height="9"/><rect x="10.5" y="6" width="3" height="14"/><rect x="16" y="13" width="3" height="7"/></svg></span>
-            <span class="pill-title">Business Case Study</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop">A defensible business case from a proven evaluation framework, for the AI investment in the direction of your organisation's choice.</p>
-            <a class="pill-cta" href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book discovery call</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="custom-ai" data-for="leader team" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></span>
-            <span class="pill-title">Production-grade custom AI</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop"><em>If you know your <a href="#find-your-x">X</a> well,</em> we would scope and ship a custom AI to remove it.</p>
-            <a class="pill-cta" href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener">Book scoping call</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="bootcamp" data-for="team senior" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 9 8h6z"/><path d="M5 14c0-3 3-6 7-6s7 3 7 6c0 5-3 8-7 8s-7-3-7-8z"/><path d="M9 18c0-2 1.4-4 3-4s3 2 3 4"/></svg></span>
-            <span class="pill-title">AutomateX Bootcamp</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop"><em>If you need help identifying your <a href="#find-your-x">X</a>,</em> this is where you would start.</p>
-            <a class="pill-cta" href="bootcamp.html">Visit the Bootcamp</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="assessment" data-for="team senior" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><polyline points="9 11 11 13 15 9"/><line x1="9" y1="17" x2="15" y2="17"/></svg></span>
-            <span class="pill-title">AI Readiness Assessment</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop">A 5-minute diagnostic across 5 operational pillars. Tailored and instant report.</p>
-            <a class="pill-cta" href="scorecard.html">Take the Assessment</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="scribtive-waitlist" data-for="senior junior" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></span>
-            <span class="pill-title">Scribtive&trade; Waitlist</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop">Early access to Scribtive&trade;, our PACE assurance generator in build.</p>
-            <a class="pill-cta" href="waitlist.html">Join the Waitlist</a>
-          </div></div>
-        </button>
-
-        <button class="pill" type="button" data-cta="resources" data-for="junior" aria-expanded="false">
-          <span class="pill-port" aria-hidden="true"></span>
-          <div class="pill-row">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"/><line x1="4" y1="19" x2="18" y2="19"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/></svg></span>
-            <span class="pill-title">Resources</span>
-            <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
-          </div>
-          <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop">Plain-English articles and frameworks on AI in rail.</p>
-            <a class="pill-cta" href="resources.html">Browse Resources</a>
-          </div></div>
-        </button>
-
-      </div>
-    </div>
-
-    <div class="newsletter-strip" data-source="Newsletter sign up" aria-label="Newsletter signup">
-      <span class="newsletter-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
-      </span>
-      <div class="newsletter-copy">
-        <p class="newsletter-title">Or just stay in the loop.</p>
-        <p class="newsletter-reason">A monthly newsletter from Bill on what is actually moving for AI in UK rail. Brief, honest, easy to unsubscribe.</p>
-      </div>
-      <form class="newsletter-form" novalidate>
-        <input type="email" placeholder="your@work-email" aria-label="Email for newsletter" required>
-        <button type="submit">Subscribe</button>
-      </form>
-      <span class="newsletter-success" aria-live="polite">Thanks. You're on the list.</span>
-      <span class="newsletter-error" aria-live="polite">Something went wrong. Please try again or email bill.guo@automatex.uk.</span>
-    </div>
-
-  </div>
-</section>
 
 <script id="who-we-help-js-2026-06-05">
 (function () {
@@ -4036,195 +4230,12 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
 
 
 <!-- ===== CASE-STUDY CAROUSEL (ported, after who-we-help) ===== -->
-<section id="proof" data-nav-theme="dark">
-  <div class="container axr-center">
-    <div class="eyebrow axr-center" data-reveal>AI in action</div>
-    <h2 class="h2" data-reveal>Real-world AI, delivering measurable results.</h2>
-    <p class="sub" data-reveal>Not slideware. Systems in service on UK rail work today, with the figures they carry.</p>
-  </div>
-  <div class="proof-rail"><div class="proof-cards" id="proof-cards"><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">01 &middot; AI-empowered survey processing</div><p class="pc-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p><div class="pc-figs"><div><div class="pc-fig-num">7,650</div><div class="pc-fig-label">HD photos</div></div><div><div class="pc-fig-num">300+</div><div class="pc-fig-label">Survey flights</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Closures</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">02 &middot; AI-empowered drawing take-off</div><p class="pc-desc">Automated linear take-off from rail engineering drawings. AI extracts measurements with full audit trail. Hours not days, with cited evidence per line.</p><div class="pc-figs"><div><div class="pc-fig-num">99<small>%</small></div><div class="pc-fig-label">Accuracy</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Traceable</div></div><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Time reduction</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">03 &middot; AI-empowered design review &amp; verification</div><p class="pc-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p><div class="pc-figs"><div><div class="pc-fig-num">&pound;300<small>k</small></div><div class="pc-fig-label">Potential annual saving</div></div><div><div class="pc-fig-num">5</div><div class="pc-fig-label">Stages traced</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Broken links</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-knowledge-graph.jpg" alt="Knowledge graph trained on rail standards, taxonomy, and project history" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">04 &middot; Tender Knowledge Base</div><p class="pc-desc">A rail-specific knowledge graph trained on standards, taxonomy, and project history. Drove tender response quality and efficiency. Every output cited, grounded in your domain.</p><div class="pc-figs"><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Efficiency gain</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Cited evidence</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Grounded</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-scribtive.jpg" alt="Scribtive doc assistance UI for PACE-compliant rail forms" loading="lazy"><span class="pc-live"><i></i>Pilot</span></div><div class="pc-body"><div class="pc-chip">05 &middot; Scribtive&trade;</div><p class="pc-desc">Doc assistance for PACE-compliant rail forms. Section-by-section drafting with cited evidence and compliance gates. Currently in pilot.</p><div class="pc-figs"><div><div class="pc-fig-num">PACE</div><div class="pc-fig-label">Aligned</div></div><div><div class="pc-fig-num">RAG</div><div class="pc-fig-label">Knowledge enabled</div></div><div><div class="pc-fig-num">&infin;</div><div class="pc-fig-label">Audit trail</div></div></div></div></a><div class="proof-endcap"><div class="h3e">Your <span class="axr-heading-x">X</span> could be next.</div><p>See the full case studies, then tell us where your friction lives.</p><a class="axr-btn axr-btn-primary" href="ai-in-action.html#case-studies">See it in action <span class="arr" aria-hidden="true">&rarr;</span></a></div></div></div>
-  <div class="proof-hint">Drag or scroll &middot; 5 deployments</div>
-</section>
+
 <!-- ===== FRICTION RINGS (ported, replaces pain+prize) ===== -->
-<section class="week-wrap" id="pain" data-nav-theme="dark">
-  <div class="week-track" id="week-track">
-    <div class="week-sticky">
-      <div class="bg-grid" aria-hidden="true"></div>
-      <div class="rings-stage">
-        <div class="rs-head">
-          <div class="eyebrow axr-center">The pain &rarr; the prize</div>
-          <h2 class="rs-count"><span class="rs-num" id="rs-num">8</span> <span id="rs-count-text">layers between your engineers and engineering.</span></h2>
-        </div>
 
-        <div class="rings-tilt" id="rings-tilt">
-          <svg class="rings-svg" id="rings-svg" viewBox="0 0 560 560" role="img" aria-label="Eight layers of admin friction wrapped around an engineering core. AI automation removes them one by one until only engineering remains.">
-            <defs>
-              <radialGradient id="coreGrad" cx="38%" cy="30%" r="85%">
-                <stop offset="0%" stop-color="#FB7B3A"/>
-                <stop offset="55%" stop-color="#F96532"/>
-                <stop offset="100%" stop-color="#ED4A3B"/>
-              </radialGradient>
-              <filter id="coreBlur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="16"/></filter>
-            </defs>
-            <g class="ring" data-ring="forms">
-              <circle class="ring-band" cx="280" cy="280" r="250" pathLength="100"/>
-              <circle class="ring-tex" cx="280" cy="280" r="250"/>
-              <path id="rp-forms" d="M 30 280 a 250 250 0 1 1 500 0 a 250 250 0 1 1 -500 0" fill="none"/>
-              <text class="ring-label"><textPath href="#rp-forms" startOffset="25%" text-anchor="middle">FORMS</textPath></text>
-              <circle class="ring-hit" cx="280" cy="280" r="250"/>
-            </g>
-            <g class="ring" data-ring="tender-returns">
-              <circle class="ring-band" cx="280" cy="280" r="228" pathLength="100"/>
-              <circle class="ring-tex" cx="280" cy="280" r="228"/>
-              <path id="rp-tret" d="M 52 280 a 228 228 0 1 1 456 0 a 228 228 0 1 1 -456 0" fill="none"/>
-              <text class="ring-label"><textPath href="#rp-tret" startOffset="25%" text-anchor="middle">TENDER RETURNS</textPath></text>
-              <circle class="ring-hit" cx="280" cy="280" r="228"/>
-            </g>
-            <g class="ring" data-ring="tender-scramble">
-              <circle class="ring-band" cx="280" cy="280" r="206" pathLength="100"/>
-              <circle class="ring-tex" cx="280" cy="280" r="206"/>
-              <path id="rp-tscr" d="M 74 280 a 206 206 0 1 1 412 0 a 206 206 0 1 1 -412 0" fill="none"/>
-              <text class="ring-label"><textPath href="#rp-tscr" startOffset="25%" text-anchor="middle">TENDER SCRAMBLE</textPath></text>
-              <circle class="ring-hit" cx="280" cy="280" r="206"/>
-            </g>
-            <g class="ring" data-ring="standards">
-              <circle class="ring-band" cx="280" cy="280" r="184" pathLength="100"/>
-              <circle class="ring-tex" cx="280" cy="280" r="184"/>
-              <path id="rp-stds" d="M 96 280 a 184 184 0 1 1 368 0 a 184 184 0 1 1 -368 0" fill="none"/>
-              <text class="ring-label"><textPath href="#rp-stds" startOffset="25%" text-anchor="middle">STANDARDS SEARCH</textPath></text>
-              <circle class="ring-hit" cx="280" cy="280" r="184"/>
-            </g>
-            <g class="ring" data-ring="comments">
-              <circle class="ring-band" cx="280" cy="280" r="162" pathLength="100"/>
-              <circle class="ring-tex" cx="280" cy="280" r="162"/>
-              <path id="rp-cmts" d="M 118 280 a 162 162 0 1 1 324 0 a 162 162 0 1 1 -324 0" fill="none"/>
-              <text class="ring-label"><textPath href="#rp-cmts" startOffset="25%" text-anchor="middle">CAT 3 COMMENTS</textPath></text>
-              <circle class="ring-hit" cx="280" cy="280" r="162"/>
-            </g>
-            <g class="ring" data-ring="reporting">
-              <circle class="ring-band" cx="280" cy="280" r="140" pathLength="100"/>
-              <circle class="ring-tex" cx="280" cy="280" r="140"/>
-              <path id="rp-rpt" d="M 140 280 a 140 140 0 1 1 280 0 a 140 140 0 1 1 -280 0" fill="none"/>
-              <text class="ring-label"><textPath href="#rp-rpt" startOffset="25%" text-anchor="middle">REPORTING</textPath></text>
-              <circle class="ring-hit" cx="280" cy="280" r="140"/>
-            </g>
-            <g class="ring" data-ring="drafting">
-              <circle class="ring-band" cx="280" cy="280" r="118" pathLength="100"/>
-              <circle class="ring-tex" cx="280" cy="280" r="118"/>
-              <path id="rp-drf" d="M 162 280 a 118 118 0 1 1 236 0 a 118 118 0 1 1 -236 0" fill="none"/>
-              <text class="ring-label"><textPath href="#rp-drf" startOffset="25%" text-anchor="middle">DRAFTING</textPath></text>
-              <circle class="ring-hit" cx="280" cy="280" r="118"/>
-            </g>
-            <g class="ring" data-ring="meetings">
-              <circle class="ring-band" cx="280" cy="280" r="96" pathLength="100"/>
-              <circle class="ring-tex" cx="280" cy="280" r="96"/>
-              <path id="rp-mtg" d="M 184 280 a 96 96 0 1 1 192 0 a 96 96 0 1 1 -192 0" fill="none"/>
-              <text class="ring-label"><textPath href="#rp-mtg" startOffset="25%" text-anchor="middle">MEETINGS &amp; COORDINATION</textPath></text>
-              <circle class="ring-hit" cx="280" cy="280" r="96"/>
-            </g>
-            <g class="core" id="rings-core">
-              <circle class="core-halo" cx="280" cy="280" r="80" filter="url(#coreBlur)"/>
-              <circle class="core-disc" cx="280" cy="280" r="70"/>
-              <text class="core-t" x="280" y="277">ENGINEERING</text>
-              <text class="core-sub" x="280" y="296">judgement &middot; decisions &middot; risk</text>
-            </g>
-            <circle class="rs-shock" id="rs-shock" cx="280" cy="280" r="78"/>
-          </svg>
-        </div>
-        <aside class="rs-tip" id="rs-tip" aria-hidden="true"></aside>
-
-        <div class="rs-foot">
-          <p class="rs-annot" id="rs-annot">Hover a layer to read it. Click to automate it away. Or just scroll.</p>
-          <div class="rs-finale" id="rs-finale">
-            <p>Your team, truly <em>AI-enabled</em>.<span class="rs-same"><strong>Same team.</strong> The system runs the admin. Your engineers review, decide, and engineer.</span></p>
-            <a class="axr-btn axr-btn-primary" href="ai-in-action.html#case-studies">See it in action <span class="arr" aria-hidden="true">&rarr;</span></a>
-          </div>
-          <div class="rs-chips" id="rs-chips" aria-label="Running in the AutomateX system">
-            <span class="dock-chip" data-chip="forms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Forms &middot; drafted &amp; cited</span>
-            <span class="dock-chip" data-chip="tender-returns"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Tender returns &middot; assembled</span>
-            <span class="dock-chip" data-chip="tender-scramble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Evidence &middot; found &amp; cited</span>
-            <span class="dock-chip" data-chip="standards"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Standards &middot; clause-level answers</span>
-            <span class="dock-chip" data-chip="comments"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Comment responses &middot; drafted</span>
-            <span class="dock-chip" data-chip="reporting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Reporting &middot; live, not rekeyed</span>
-            <span class="dock-chip" data-chip="drafting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Drafting &middot; grounded first drafts</span>
-            <span class="dock-chip" data-chip="meetings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5 11-11"/></svg>Meetings &middot; actions chased</span>
-          </div>
-          <div class="week-ticks" id="week-ticks" aria-hidden="true">
-            <i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-            <span class="wt-label">Scroll</span>
-          </div>
-          <ul class="rs-list" aria-label="The eight layers and what replaces them">
-            <li><strong>Forms &middot; A/B/C/G.</strong> Senior hours lost to formatting, citation chasing and version drift. <em>&rarr; Drafted section by section, cited clause by clause, routed for review.</em></li>
-            <li><strong>Tender returns.</strong> Every submission reinvents the wheel. <em>&rarr; Assembled from your win library and evidence base.</em></li>
-            <li><strong>Tender scramble.</strong> The 11th-hour hunt for proof you know exists. <em>&rarr; Evidence found, matched and cited in seconds.</em></li>
-            <li><strong>Standards search.</strong> Nine thousand standards across the railway. <em>&rarr; Clause-level answers across NR, RSSB and CSM-RA.</em></li>
-            <li><strong>Cat 3 comments.</strong> Opinion-driven comment cycles and signature chasing. <em>&rarr; Responses drafted against the clause, closure tracked.</em></li>
-            <li><strong>Reporting.</strong> Half a week assembling status reports. <em>&rarr; Live dashboards, nothing rekeyed.</em></li>
-            <li><strong>Drafting.</strong> Every deliverable starts at a blank page. <em>&rarr; Grounded first drafts in minutes, from your templates.</em></li>
-            <li><strong>Meetings &amp; coordination.</strong> Actions that die in inboxes. <em>&rarr; Captured, assigned and chased by the system.</em></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== FIND YOUR X (ported constellation, replaces lens) ===== -->
-<section class="sec sec-dark" id="find-your-x" data-nav-theme="dark">
-  <div class="container">
-    <div class="axr-center">
-      <div class="eyebrow axr-center" data-reveal>Find your X</div>
-      <h2 class="h2" data-reveal>We automate your <span class="axr-heading-x">X</span>.</h2>
-      <p class="sub axr-center" data-reveal>Your <span class="axr-brand-x">X</span> is the error-prone, repetitive, time-consuming friction in your workflow, often unique to your operational context and organisation type. A few of the ones we see most often:</p>
-    </div>
 
-    <div class="fx-filters" data-reveal role="group" aria-label="Filter friction points by organisation type">
-      <button class="on" data-arch="all" aria-pressed="true">All examples</button>
-      <button data-arch="client" aria-pressed="false">Client organisations</button>
-      <button data-arch="tier1" aria-pressed="false">Tier 1 / 2 consultancies &amp; contractors</button>
-      <button data-arch="sme" aria-pressed="false">SMEs</button>
-    </div>
-
-    <div class="fx-board" id="fx-board" data-reveal>
-      <div class="fx-spot" id="fx-spot" aria-hidden="true"></div>
-      <div class="fx-glowwrap" aria-hidden="true"></div>
-      <div class="fx-cloud" id="fx-cloud">
-        <button class="fx-chip" data-key="form-a" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>Form A/B/C/G</button>
-        <button class="fx-chip" data-key="aip" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>AIP</button>
-        <button class="fx-chip" data-key="drn" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>DRN</button>
-        <button class="fx-chip" data-key="idcr" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>IDC/R</button>
-        <button class="fx-chip" data-key="hazid" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>HAZID</button>
-        <button class="fx-chip" data-key="cr-t" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>CR-T</button>
-        <button class="fx-chip" data-key="ncr" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>NCR</button>
-        <button class="fx-chip" data-key="itp" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>ITP</button>
-        <button class="fx-chip" data-key="audit-compliance" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>Audit &amp; Compliance</button>
-        <button class="fx-chip" data-key="eis" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>EIS</button>
-        <button class="fx-chip" data-key="vandv" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>V&amp;V Reqts</button>
-        <button class="fx-chip" data-key="clash-detection" data-cat="design" aria-pressed="false"><span class="fx-dot"></span>Clash Detection</button>
-        <button class="fx-chip" data-key="take-off" data-cat="design" aria-pressed="false"><span class="fx-dot"></span>Take-off</button>
-        <button class="fx-chip" data-key="interface" data-cat="design" aria-pressed="false"><span class="fx-dot"></span>Interface Register</button>
-        <button class="fx-chip" data-key="tender-return" data-cat="tender" aria-pressed="false"><span class="fx-dot"></span>Tender Return</button>
-        <button class="fx-chip" data-key="compliance-matrix" data-cat="tender" aria-pressed="false"><span class="fx-dot"></span>Compliance Matrix</button>
-        <button class="fx-chip" data-key="standards-search" data-cat="knowledge" aria-pressed="false"><span class="fx-dot"></span>Standards search</button>
-        <button class="fx-chip" data-key="lessons-learned" data-cat="knowledge" aria-pressed="false"><span class="fx-dot"></span>Lessons Learned</button>
-        <button class="fx-chip" data-key="programme-reporting" data-cat="controls" aria-pressed="false"><span class="fx-dot"></span>Programme Reporting</button>
-      </div>
-
-      <aside class="fx-float" id="fx-float" aria-hidden="true"></aside>
-      <div class="fx-panel" id="fx-panel" role="region" aria-live="polite"></div>
-    </div>
-
-    <div class="fx-meta" data-reveal>
-      <span><strong>A few examples</strong> across 5 workflow families</span>
-      <span class="fx-legend"><i style="background:var(--orange)"></i> Assurance</span>
-      <span class="fx-legend"><i style="background:var(--navy)"></i> Design</span>
-      <span class="fx-legend"><i style="background:var(--orange-dark)"></i> Tender</span>
-      <span class="fx-legend"><i style="background:var(--gray-500)"></i> Knowledge</span>
-      <span class="fx-legend"><i style="background:var(--orange-light)"></i> Controls</span>
-      <span><a href="ai-in-action.html" style="color:var(--orange); font-weight:700;">See how we&rsquo;d automate yours &rarr;</a></span>
-    </div>
-  </div>
-</section>
 <!-- /.dark-stack -->
 
 <!-- ===== RESEARCH CREDIBILITY ===== -->
