@@ -2157,6 +2157,36 @@
 
   .footer-col a:hover { color: var(--orange); }
 
+  .footer-social {
+    display: flex;
+    gap: .65rem;
+    margin-top: 1.1rem;
+  }
+
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gray-200);
+    color: var(--gray-400);
+    transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .footer-social a:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+    background: rgba(249, 101, 50, .1);
+    transform: translateY(-2px);
+  }
+
+  .footer-social svg {
+    width: 17px;
+    height: 17px;
+  }
+
   .footer-certs {
     display: flex;
     align-items: center;
@@ -2572,7 +2602,7 @@
 </style>
 <!-- jsonld-pass-2026-06-06 -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AutomateX Ltd","alternateName":"AutomateX Advisory","url":"https://automatex.uk/","logo":"https://automatex.uk/brand_assets/automatex-wordmark.png","description":"UK rail-focused AI automation provider. We build production AI for Tier 1 contractors, consultancies, and Network Rail teams.","founder":{"@type":"Person","name":"Bill Guo"},"email":"bill.guo@automatex.uk","address":{"@type":"PostalAddress","streetAddress":"71-75 Shelton Street, Covent Garden","addressLocality":"London","postalCode":"WC2H 9JQ","addressCountry":"GB"},"vatID":"GB514079209","taxID":"16855291","sameAs":["https://www.linkedin.com/company/automatex-advisory/"]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Bill Guo","honorificSuffix":"FICE CEng MEng","jobTitle":"Founder, AutomateX Advisory","email":"bill.guo@automatex.uk","url":"https://automatex.uk/about.html","image":"https://automatex.uk/images/Header.png","worksFor":{"@type":"Organization","name":"AutomateX Ltd","url":"https://automatex.uk/"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Imperial College London"},"sameAs":["https://www.linkedin.com/in/billguo-rail/"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Bill Guo","honorificSuffix":"FICE CEng MEng","jobTitle":"Founder, AutomateX Advisory","email":"bill.guo@automatex.uk","url":"https://automatex.uk/about.html","image":"https://automatex.uk/images/Header.png","worksFor":{"@type":"Organization","name":"AutomateX Ltd","url":"https://automatex.uk/"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Imperial College London"},"sameAs":["https://www.linkedin.com/in/bill-guo-fice-ceng-meng-b0114681/"]}</script>
 <style id="focus-visible-pass-2026-06-06">
 /* Accessibility: keyboard focus indicator (works whether the page uses canon
    tokens or has its own --orange definition). */
@@ -2650,6 +2680,9 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 #about .section-sub{color:rgba(255,255,255,.72)!important;}
 #about .about-intro-text h3{color:#fff!important;}
 #about .about-intro-role{color:var(--orange)!important;}
+.about-linkedin{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-heading);font-size:.78rem;font-weight:600;color:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.35rem .8rem .35rem .6rem;margin-bottom:1.1rem;transition:color .2s,border-color .2s,background .2s;}
+.about-linkedin:hover{color:#fff;border-color:var(--orange);background:rgba(249,101,50,.14);}
+.about-linkedin svg{width:15px;height:15px;flex:0 0 auto;}
 #about .about-bio{color:rgba(255,255,255,.76)!important;}
 #about .about-photo-wrap{border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 90px -40px rgba(0,0,0,.75);border-radius:16px;overflow:hidden;}
 /* credential cards -> dark surface */
@@ -2704,6 +2737,10 @@ html.reduced .axr-scrollx .sx-head,html:not(.js) .axr-scrollx .sx-head{padding-t
 html.reduced .axr-scrollx .sx-outer,html:not(.js) .axr-scrollx .sx-outer{height:auto!important;}
 html.reduced .axr-scrollx .sx-cards,html:not(.js) .axr-scrollx .sx-cards{overflow-x:auto;}
 html.reduced .axr-scrollx .sx-progress,html:not(.js) .axr-scrollx .sx-progress{display:none;}
+</style>
+<style id="footer-social-dark-fix-2026-07-11">
+.footer-social a{border-color:rgba(255,255,255,.16)!important;color:rgba(255,255,255,.55)!important;}
+.footer-social a:hover{color:#fff!important;border-color:var(--orange)!important;background:rgba(249,101,50,.16)!important;}
 </style>
 </head>
 <body>
@@ -2829,6 +2866,10 @@ html.reduced .axr-scrollx .sx-progress,html:not(.js) .axr-scrollx .sx-progress{d
       <div class="about-intro-text sc-reveal sc-stagger-1">
         <h3>Bill Guo FICE CEng MEng</h3>
         <div class="about-intro-role">Founder, AutomateX Advisory</div>
+        <a class="about-linkedin" href="https://www.linkedin.com/in/bill-guo-fice-ceng-meng-b0114681/" target="_blank" rel="noopener" aria-label="Bill Guo on LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          <span>Connect on LinkedIn</span>
+        </a>
         <p class="about-bio">A decade on both sides of the rail delivery table. Imperial MEng. Network Rail Designated Project Engineer. Engineering Manager at Jacobs, leading significant programmes on HS2 as Engineering Lead. Director at an SME design consultancy. Same patterns kept repeating across every seat: senior engineers buried in compliance admin, quality that depends on who&rsquo;s in the room, growth that stalls the moment the best people run out of hours.</p>
         <p class="about-bio">In 2023 I started using AI to scale a rail business from zero to approximately &pound;1m ARR by 2025, and won one of 16 tactical design partner seats on Southern Renewals Enterprise (SRE). The tools aren&rsquo;t theory. They&rsquo;re how I got here.</p>
         <p class="about-bio">I founded AutomateX to bring that capability to the rest of UK rail. We automate the <span class="brand-x">X</span> that absorbs senior engineering hours, so the experts can focus on what only they can do.</p>
@@ -3142,6 +3183,14 @@ html.reduced .axr-scrollx .sx-progress,html:not(.js) .axr-scrollx .sx-progress{d
       <img src="brand_assets/automatex-wordmark-dark-bg-transparent.png" alt="AutomateX">
     </a>
         <p>Systemising success for the UK rail supply chain.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/automatex-advisory/" target="_blank" rel="noopener" aria-label="AutomateX on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@automatex-c5p" target="_blank" rel="noopener" aria-label="AutomateX on YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.42a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.95 1.96C5.12 19.5 12 19.5 12 19.5s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg>
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Approach</h4>
