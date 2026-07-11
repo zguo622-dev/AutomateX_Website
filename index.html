@@ -3263,12 +3263,11 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 /* Pause the ring SVG spin + core blur when the rings are off-screen (they animated continuously). */
 #pain:not(.axr-inview) .ring-tex{animation:none!important;}
 #pain:not(.axr-inview) .core-halo{filter:none!important;}
-/* ===== immersive sections: neighbours never peek when settled ===== */
-html{scroll-snap-type:y proximity;scroll-padding-top:76px;}
-#home-hero,#find-your-x,#who-we-help,#pain,#faq{scroll-snap-align:start;}
+/* ===== immersive full-viewport sections — NO scroll-snap (snap trapped wheel momentum on Chrome, causing the "stuck until you wiggle the mouse" jank). Sections stay 100svh so they still fill the viewport, but the wheel scrolls freely and smoothly. ===== */
+html{scroll-padding-top:76px;}
 #find-your-x,#who-we-help,#faq{min-height:100svh;display:flex;flex-direction:column;justify-content:center;}
 #who-we-help{padding-top:calc(76px + 1rem)!important;}
-@media (max-width:900px){html{scroll-snap-type:none;}#find-your-x,#who-we-help,#faq{min-height:0;display:block;}#who-we-help{padding-top:44px!important;}}
+@media (max-width:900px){#find-your-x,#who-we-help,#faq{min-height:0;display:block;}#who-we-help{padding-top:44px!important;}}
 
 </style>
 </head>
