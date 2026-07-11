@@ -2638,6 +2638,49 @@
 #axr-mega-veil{position:fixed;inset:0;z-index:90;background:rgba(8,11,16,.45);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .3s ease;}
 html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 </style>
+<script>document.documentElement.classList.add('js');try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('reduced');}catch(e){}</script>
+<style id="axr-dark-2026-07-11">
+/* ===== resources.html: finish the dark redesign, shared particle bg, scroll-stopping ===== */
+#site-particles{position:fixed!important;top:0!important;left:0!important;width:100%!important;height:100vh!important;background:var(--navy-deep)!important;z-index:0!important;}
+.footer{background:#0A0E13!important;}
+/* darken the industry-voice band (was white) */
+.industry-voice{background:transparent!important;}
+.iv-quote{color:rgba(255,255,255,.84)!important;}
+.iv-source-label{color:rgba(255,255,255,.5)!important;}
+.iv-rule{background:rgba(255,255,255,.3)!important;}
+/* hide the old static research grid + heading + footer (relocated into the pinned carousel) */
+#old-research-head,#research .research-grid,#research .research-divider,#research .research-footer-text{display:none!important;}
+/* ===== shared pinned horizontal scroll-through (matches homepage) ===== */
+.axr-scrollx{position:relative;--px:clamp(1.25rem,4vw,2.5rem);}
+.axr-scrollx .sx-outer{position:relative;}
+.axr-scrollx .sx-sticky{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;}
+.axr-scrollx .sx-head{padding-top:calc(76px + .5rem);max-width:1180px;margin:0 auto;padding-left:var(--px);padding-right:var(--px);}
+.axr-scrollx .sx-head .section-heading{color:#fff;text-align:left;margin:.4rem 0 0;}
+.axr-scrollx .sx-sub{color:rgba(255,255,255,.7);margin-top:.7rem;max-width:62ch;}
+.axr-scrollx .sx-rail{margin-top:2.2rem;}
+.axr-scrollx .sx-cards{display:flex;gap:1.25rem;padding:.6rem var(--px) 1rem;will-change:transform;}
+.axr-scrollx .research-card{flex:0 0 auto;width:clamp(300px,32vw,400px);display:flex;flex-direction:column;}
+.axr-scrollx .research-desc{flex:1;}
+@media(pointer:fine){.axr-scrollx .research-card:hover{transform:translateY(-6px);border-color:rgba(249,101,50,.45);box-shadow:0 30px 60px -30px rgba(249,101,50,.3);}}
+.axr-scrollx .sx-progress{margin:1.9rem var(--px) 0;height:2px;background:rgba(255,255,255,.09);border-radius:2px;max-width:420px;}
+.axr-scrollx .sx-progress i{display:block;height:100%;width:0;background:linear-gradient(120deg,#FB7B3A,#F96532);border-radius:2px;}
+.axr-scrollx .sx-hint{margin:1rem var(--px) 0;font-family:var(--font-heading);font-weight:600;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.axr-scrollx .sx-foot{margin:1.4rem var(--px) 0;font-size:.78rem;color:rgba(255,255,255,.4);max-width:70ch;}
+@media(max-width:900px){
+.axr-scrollx .sx-sticky{position:static;height:auto;overflow:visible;padding:clamp(3.5rem,7vw,6rem) 0 3rem;}
+.axr-scrollx .sx-head{padding-top:0;}
+.axr-scrollx .sx-cards{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.axr-scrollx .sx-cards::-webkit-scrollbar{display:none;}
+.axr-scrollx .research-card{scroll-snap-align:start;width:min(80vw,360px);}
+.axr-scrollx .sx-outer{height:auto!important;}
+.axr-scrollx .sx-progress,.axr-scrollx .sx-hint{display:none;}
+}
+html.reduced .axr-scrollx .sx-sticky,html:not(.js) .axr-scrollx .sx-sticky{position:static;height:auto;padding:clamp(3.5rem,7vw,6rem) 0 3rem;}
+html.reduced .axr-scrollx .sx-head,html:not(.js) .axr-scrollx .sx-head{padding-top:0;}
+html.reduced .axr-scrollx .sx-outer,html:not(.js) .axr-scrollx .sx-outer{height:auto!important;}
+html.reduced .axr-scrollx .sx-cards,html:not(.js) .axr-scrollx .sx-cards{overflow-x:auto;}
+html.reduced .axr-scrollx .sx-progress,html:not(.js) .axr-scrollx .sx-progress{display:none;}
+</style>
 </head>
 <body>
 <div id="axr-mega-veil" aria-hidden="true"></div>
@@ -2750,7 +2793,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 <main>
 
 <!-- ===== RESOURCES page header ===== -->
-<section class="section" style="background:var(--navy-deep);position:relative;padding:5rem 0 2rem;color:var(--white);text-align:center;">
+<section class="section" style="background:transparent;position:relative;padding:calc(76px + 3rem) 0 2rem;color:var(--white);text-align:center;">
   
   <div class="container" style="position:relative;z-index:2;">
     <div class="text-center">
@@ -3040,7 +3083,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
     <!-- Divider between PACED block and Research grid -->
     <div class="research-divider sc-reveal"></div>
 
-    <div class="text-center">
+    <div class="text-center" id="old-research-head">
       <div class="section-eyebrow sc-reveal">Backed by research</div>
       <h2 class="section-heading sc-reveal">The evidence behind the P.A.C.E-D&trade; method.</h2>
       <p class="section-sub center sc-reveal">Every claim we make is grounded in published research from the world&rsquo;s leading institutions. Evidence, not opinion.</p>
@@ -3098,6 +3141,21 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 
 
 
+<section class="axr-scrollx" id="research-evidence" data-nav-theme="dark">
+  <div class="sx-outer" id="proof-outer">
+    <div class="sx-sticky">
+      <div class="sx-head">
+        <div class="section-eyebrow">Backed by research</div>
+        <h2 class="section-heading">The evidence behind the P.A.C.E-D&trade; method.</h2>
+        <p class="sx-sub">Every claim we make is grounded in published research from the world&rsquo;s leading institutions. Evidence, not opinion.</p>
+      </div>
+      <div class="sx-rail"><div class="sx-cards" id="proof-cards"><div class="research-card"><div class="research-source">McKinsey</div><div class="research-stat">88% adopt AI. Only 6% get real value.</div><div class="research-desc">Two-thirds of organisations remain stuck in pilot. Only about 6% qualify as AI high performers achieving more than 5% EBIT impact.</div><a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a></div><div class="research-card"><div class="research-source">BCG</div><div class="research-stat">AI leaders achieve 2x revenue growth</div><div class="research-desc">Leaders also deliver 3.6x total shareholder return and 1.6x EBIT margin versus laggards, and plan to invest 2x more, widening the gap further.</div><a href="https://www.bcg.com/press/30september2025-ai-leaders-outpace-laggards-revenue-growth-cost-savings" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a></div><div class="research-card"><div class="research-source">McKinsey</div><div class="research-stat">Construction productivity has flatlined for 80 years</div><div class="research-desc">Manufacturing improved 90%. The total economy improved 50%. Construction? Just 10% in 22 years. The status quo is selling man-hours with no leverage.</div><a href="https://www.mckinsey.com/capabilities/operations/our-insights/delivering-on-construction-productivity-is-no-longer-optional" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a></div><div class="research-card"><div class="research-source">RICS</div><div class="research-stat">45% of AEC firms have zero AI use</div><div class="research-desc">From a global survey of 2,200+ construction professionals. Fewer than 1% have AI embedded across multiple processes. The window for early movers is still open.</div><a href="https://www.rics.org/news-insights/artificial-intelligence-in-construction-report" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a></div><div class="research-card"><div class="research-source">Deloitte</div><div class="research-stat">499,000 new workers needed in 2026 alone</div><div class="research-desc">The labour crisis is real. Unfilled positions could cost the industry &pound;124 billion in lost output. AI removes the admin drag so the same team can deliver more engineering.</div><a href="https://www.deloitte.com/us/en/insights/industry/engineering-and-construction/engineering-and-construction-industry-outlook.html" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a></div><div class="research-card"><div class="research-source">Mercer / McKinsey</div><div class="research-stat">54% of leaders say they won&rsquo;t be competitive by 2030</div><div class="research-desc">Without adopting AI at scale. The World Economic Forum reports AI and automation will transform 86% of businesses by 2030. The question is when, not if.</div><a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener" class="research-link">Read the research <span>&rarr;</span></a></div></div></div>
+      <div class="sx-progress" aria-hidden="true"><i id="proof-bar"></i></div>
+      <div class="sx-hint">Scroll to explore &middot; 6 studies</div>
+      <div class="sx-foot">Sources: McKinsey Global Institute, BCG, PwC, Deloitte, RICS, Bluebeam, World Economic Forum, GIRI, UIC &middot; Full reference list available on request.</div>
+    </div>
+  </div>
+</section>
 </main>
 
 <!-- ===== FOOTER ===== -->
@@ -4260,6 +4318,20 @@ li.addEventListener("mouseenter",cancel);
 new MutationObserver(sync).observe(li,{attributes:true,attributeFilter:["class"]});});
 if(veil)veil.addEventListener("click",closeAll);
 window.addEventListener("resize",sync);})();
+</script>
+<script id="axr-scrollx-2026-07-11">
+(function(){document.querySelectorAll(".axr-scrollx").forEach(function(root){
+var outer=root.querySelector(".sx-outer"),cards=root.querySelector(".sx-cards"),bar=root.querySelector(".sx-progress i");
+if(!outer||!cards)return;
+var mq=window.matchMedia("(min-width:900px)"),dist=0,ticking=false;
+function reduced(){return document.documentElement.classList.contains("reduced");}
+function onScroll(){if(!dist)return;var r=outer.getBoundingClientRect(),total=r.height-window.innerHeight;if(total<=0)return;var p=Math.min(1,Math.max(0,-r.top/total));cards.style.transform="translate3d("+(-p*dist).toFixed(1)+"px,0,0)";if(bar)bar.style.width=(p*100).toFixed(1)+"%";}
+function layout(){if(mq.matches&&!reduced()){dist=Math.max(0,cards.scrollWidth-window.innerWidth);outer.style.height=(window.innerHeight+dist)+"px";}else{dist=0;outer.style.height="";cards.style.transform="";}onScroll();}
+window.addEventListener("scroll",function(){if(ticking)return;ticking=true;requestAnimationFrame(function(){ticking=false;onScroll();});},{passive:true});
+var rz;window.addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(layout,120);});
+window.addEventListener("load",layout);
+Array.prototype.forEach.call(cards.querySelectorAll("img"),function(im){if(!im.complete)im.addEventListener("load",layout,{once:true});});
+layout();});})();
 </script>
 </body>
 </html>
