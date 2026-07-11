@@ -20,3 +20,7 @@ meeting_chunks/
 _archive/
 *.bak-*
 *.tmp
+
+# Dormant — Scribtive product page, not ready to ship. Kept in the repo for
+# future development once Scribtive launches; excluded from the live deploy.
+scribtive.html
