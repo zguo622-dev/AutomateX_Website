@@ -3177,6 +3177,29 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
 .navbar .nav-dropdown{background:rgba(13,17,23,.97)!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 24px 50px -20px rgba(0,0,0,.6)!important;}
 .navbar li.has-dropdown .nav-dropdown a{color:rgba(255,255,255,.85)!important;}
 .navbar li.has-dropdown .nav-dropdown a:hover{color:#fff!important;background:rgba(249,101,50,.16)!important;}
+/* click-only dropdown (hover no longer opens it) */
+.navbar-links .has-dropdown:not(.is-open) .nav-dropdown{opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
+/* enriched mega-menu */
+.navbar .nav-mega{position:fixed!important;top:calc(var(--nav-h) - 4px)!important;left:50%!important;width:min(780px,calc(100vw - 2rem))!important;min-width:0!important;padding:0!important;display:grid!important;grid-template-columns:1.05fr 1.25fr .95fr;overflow:hidden;border-radius:16px!important;}
+.nav-mega .nm-col{padding:1.4rem 1.5rem;}
+.nav-mega .nm-intro{background:rgba(255,255,255,.03);border-right:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;}
+.nav-mega .nm-eyebrow{font-family:var(--font-heading);font-weight:700;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:.7rem;}
+.nav-mega .nm-lead{font-size:.84rem;line-height:1.55;color:rgba(255,255,255,.72);margin-bottom:auto;}
+.nav-mega .nm-more{margin-top:1rem;font-family:var(--font-heading);font-weight:700;font-size:.8rem;color:var(--orange-light)!important;background:none!important;padding:0!important;}
+.nav-mega .nm-links{display:flex;flex-direction:column;gap:2px;border-right:1px solid rgba(255,255,255,.07);padding:1rem;}
+.nav-mega .nm-links a{display:block!important;padding:.55rem .7rem!important;border-radius:10px;color:inherit!important;}
+.nav-mega .nm-links a:hover{background:rgba(249,101,50,.1)!important;}
+.nav-mega .nm-t{display:block;font-family:var(--font-heading);font-weight:700;font-size:.85rem;color:#fff;}
+.nav-mega .nm-links a:hover .nm-t{color:var(--orange-light);}
+.nav-mega .nm-d{display:block;font-size:.73rem;line-height:1.4;color:rgba(255,255,255,.6);margin-top:.12rem;}
+.nav-mega .nm-feature{position:relative;display:block!important;padding:0!important;background:rgba(255,255,255,.02);color:inherit!important;}
+.nav-mega .nm-feature-img{aspect-ratio:16/10;overflow:hidden;}
+.nav-mega .nm-feature-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.nav-mega .nm-feature:hover .nm-feature-img img{transform:scale(1.05);}
+.nav-mega .nm-flabel{position:absolute;top:.8rem;left:.9rem;font-family:var(--font-heading);font-weight:800;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--orange);border-radius:999px;padding:.2rem .55rem;}
+.nav-mega .nm-ftitle{font-family:var(--font-heading);font-weight:800;font-size:.92rem;color:#fff;padding:.85rem 1.1rem .3rem;}
+.nav-mega .nm-fdesc{font-size:.74rem;line-height:1.45;color:rgba(255,255,255,.62);padding:0 1.1rem 1.1rem;}
+@media (max-width:900px){.navbar .nav-mega{display:none!important;}}
 /* tighten hero -> find-your-x (remove the empty break band) */
 #home-hero{padding-bottom:1.4rem!important;}
 #find-your-x{padding-top:2.6rem!important;padding-bottom:1.6rem!important;}
@@ -3218,11 +3241,24 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
     <ul class="navbar-links">
       <li class="has-dropdown">
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">What we offer</button>
-        <div class="nav-dropdown" role="menu">
-          <a href="ai-in-action.html" role="menuitem">Production-grade custom AI</a>
-          <a href="bootcamp.html" role="menuitem">AutomateX Bootcamp</a>
-          <a href="waitlist.html" role="menuitem">PACE OS &amp; Scribtive</a>
-          <a href="scorecard.html" role="menuitem">Free AI Readiness Assessment</a>
+        <div class="nav-dropdown nav-mega" role="menu">
+          <div class="nm-col nm-intro">
+            <div class="nm-eyebrow">What we offer</div>
+            <p class="nm-lead">Two ways to work with us &mdash; bespoke AI built for your rail workflows, and Scribtive, our PACE assurance product.</p>
+            <a class="nm-more" href="ai-in-action.html">See it in action &rarr;</a>
+          </div>
+          <div class="nm-col nm-links">
+            <a href="ai-in-action.html" role="menuitem"><span class="nm-t">Production-grade custom AI</span><span class="nm-d">Bespoke AI for your workflows, shipped to production.</span></a>
+            <a href="bootcamp.html" role="menuitem"><span class="nm-t">AutomateX Bootcamp</span><span class="nm-d">A five-step engagement to find and prove your highest-value automation.</span></a>
+            <a href="waitlist.html" role="menuitem"><span class="nm-t">PACE OS &amp; Scribtive</span><span class="nm-d">Our signature SaaS for rail PACE assurance deliverables.</span></a>
+            <a href="scorecard.html" role="menuitem"><span class="nm-t">Free AI Readiness Assessment</span><span class="nm-d">A five-minute diagnostic with a tailored report.</span></a>
+          </div>
+          <a class="nm-col nm-feature" href="bootcamp.html" role="menuitem">
+            <div class="nm-feature-img"><img src="images/case-golden-thread.jpg" alt="" loading="lazy"></div>
+            <div class="nm-flabel">Featured</div>
+            <div class="nm-ftitle">Start with the Bootcamp</div>
+            <div class="nm-fdesc">Find the single highest-value automation in your operation and prove it on your own data.</div>
+          </a>
         </div>
       </li>
       <li><a href="about.html">Who we are</a></li>
@@ -6136,6 +6172,9 @@ var REDUCED = document.documentElement.classList.contains('reduced');
 </script>
 <script id="axr-proof-2026-07-11">
 (function(){var el=document.getElementById("proof-cards");if(!el)return;var d=false,sx=0,sl=0;el.addEventListener("mousedown",function(e){d=true;sx=e.pageX;sl=el.scrollLeft;el.classList.add("dragging");});window.addEventListener("mouseup",function(){d=false;el.classList.remove("dragging");});el.addEventListener("mousemove",function(e){if(!d)return;e.preventDefault();el.scrollLeft=sl-(e.pageX-sx);});})();
+</script>
+<script id="axr-megamenu-2026-07-11">
+(function(){document.querySelectorAll(".navbar-links .has-dropdown").forEach(function(li){var t=null;function cancel(){if(t){clearTimeout(t);t=null;}}li.addEventListener("mouseleave",function(){if(li.classList.contains("is-open")){cancel();t=setTimeout(function(){li.classList.remove("is-open");var b=li.querySelector(".nav-dropdown-toggle");if(b)b.setAttribute("aria-expanded","false");},5000);}});li.addEventListener("mouseenter",cancel);});})();
 </script>
 </body>
 </html>
