@@ -2584,7 +2584,7 @@
 :focus:not(:focus-visible) { outline: none; }
 </style>
 <style id="axr-ported-2026-07-10">
-.axr-hero, #pain, #find-your-x{--grad-brand:linear-gradient(120deg,var(--orange-light),var(--orange) 45%,var(--orange-dark));--font-h:'Montserrat',system-ui,sans-serif;--font-b:'Open Sans',system-ui,sans-serif;--px:clamp(1.25rem,4vw,2.5rem);--container:1240px;--nav-h:76px;--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);--ink-dim:#b9c2cf;--navy-surface:#131921;--card-dark:#161B22;--shadow-lift:0 14px 40px -18px rgba(13,17,23,.25);--white:#ffffff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--orange:#F96532;--orange-light:#FB7B3A;--orange-dark:#ED4A3B;--navy:#1A1F36;--navy-deep:#0D1117;}
+.axr-hero, #pain, #find-your-x, #proof{--grad-brand:linear-gradient(120deg,var(--orange-light),var(--orange) 45%,var(--orange-dark));--font-h:'Montserrat',system-ui,sans-serif;--font-b:'Open Sans',system-ui,sans-serif;--px:clamp(1.25rem,4vw,2.5rem);--container:1240px;--nav-h:76px;--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);--ink-dim:#b9c2cf;--navy-surface:#131921;--card-dark:#161B22;--shadow-lift:0 14px 40px -18px rgba(13,17,23,.25);--white:#ffffff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--orange:#F96532;--orange-light:#FB7B3A;--orange-dark:#ED4A3B;--navy:#1A1F36;--navy-deep:#0D1117;}
 /* ---------- shared type ---------- */
 .eyebrow {
   font-family: var(--font-h); font-weight:700; font-size:.75rem;
@@ -2971,6 +2971,7 @@ html.reduced .ring-tex { animation: none; }
 .core-t2{font-family:var(--font-h);font-weight:800;font-size:13px;letter-spacing:.05em;fill:#fff;text-anchor:middle;}
 .core-b{font-family:var(--font-b);font-weight:600;font-size:8.5px;fill:rgba(255,255,255,.94);text-anchor:start;}
 .core-bd{fill:rgba(255,255,255,.9);}
+.core-dot{fill:#fff;}
 /* no scroll progress bar in the pain section */
 #pain .week-ticks{display:none!important;}
 html.reduced .core { transition:none; }
@@ -3146,14 +3147,30 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
 html.reduced #find-your-x .fx-chip{animation:none!important;}
 
 /* ===== case-study carousel (native swipe/drag, transparent so the graph shows) ===== */
-#proof{position:relative;background:transparent;color:var(--white);padding:clamp(3.5rem,7vw,6rem) 0;overflow:hidden;}
+#proof{position:relative;background:transparent;color:var(--white);}
+#proof .proof-track-outer{position:relative;}
+#proof .proof-sticky{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;}
+#proof .proof-head{padding-top:calc(var(--nav-h) + .5rem);}
+#proof .proof-rail{margin-top:2.2rem;}
+#proof .proof-progress{margin:1.9rem var(--px) 0;height:2px;background:rgba(255,255,255,.09);border-radius:2px;max-width:420px;}
+#proof .proof-progress i{display:block;height:100%;width:0%;background:var(--grad-brand);border-radius:2px;}
+@media (max-width:900px){
+#proof .proof-sticky{position:static;height:auto;overflow:visible;padding:clamp(3.5rem,7vw,6rem) 0 3rem;}
+#proof .proof-head{padding-top:0;}
+#proof .proof-cards{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+#proof .proof-track-outer{height:auto!important;}
+#proof .proof-progress,#proof .proof-hint{display:none;}
+}
+html.reduced #proof .proof-sticky,html:not(.js) #proof .proof-sticky{position:static;height:auto;padding:clamp(3.5rem,7vw,6rem) 0 3rem;}
+html.reduced #proof .proof-head,html:not(.js) #proof .proof-head{padding-top:0;}
+html.reduced #proof .proof-track-outer,html:not(.js) #proof .proof-track-outer{height:auto!important;}
+html.reduced #proof .proof-cards,html:not(.js) #proof .proof-cards{overflow-x:auto;}
+html.reduced #proof .proof-progress,html.reduced #proof .proof-hint,html:not(.js) #proof .proof-progress{display:none;}
 #proof .h2{color:var(--white);}
 #proof .sub{color:var(--ink-dim);margin-inline:auto;}
 #proof .proof-rail{margin-top:2rem;}
-#proof .proof-cards{display:flex;gap:1.15rem;padding:.6rem var(--px) 1rem;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;}
+#proof .proof-cards{display:flex;gap:1.15rem;padding:.6rem var(--px) 1rem;will-change:transform;}
 #proof .proof-cards::-webkit-scrollbar{display:none;}
-#proof .proof-cards.dragging{cursor:grabbing;scroll-snap-type:none;}
-#proof .proof-cards.dragging a{pointer-events:none;}
 #proof .proof-card{scroll-snap-align:start;flex:0 0 auto;width:clamp(300px,30vw,400px);background:linear-gradient(180deg,var(--navy-surface),var(--card-dark));border:1px solid rgba(255,255,255,.09);border-radius:18px;overflow:hidden;transition:transform .35s var(--ease-out),border-color .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column;text-align:left;}
 @media(pointer:fine){#proof .proof-card:hover{transform:translateY(-6px);border-color:rgba(249,101,50,.45);box-shadow:0 30px 60px -30px rgba(249,101,50,.3);}}
 #proof .pc-imgwrap{position:relative;aspect-ratio:16/9.5;overflow:hidden;}
@@ -3180,32 +3197,87 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
 /* click-only dropdown (hover no longer opens it) */
 .navbar-links .has-dropdown:not(.is-open) .nav-dropdown{opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
 /* enriched mega-menu */
-.navbar .nav-mega{position:fixed!important;top:calc(var(--nav-h) - 4px)!important;left:50%!important;width:min(780px,calc(100vw - 2rem))!important;min-width:0!important;padding:0!important;display:grid!important;grid-template-columns:1.05fr 1.25fr .95fr;overflow:hidden;border-radius:16px!important;}
-.nav-mega .nm-col{padding:1.4rem 1.5rem;}
+.navbar .nav-mega{position:fixed!important;top:64px;left:0!important;right:0!important;transform:none!important;width:auto!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0 max(2rem,calc((100vw - 1240px)/2))!important;display:grid!important;grid-template-columns:1.1fr 1.3fr .9fr;overflow:hidden;border-radius:0!important;border-left:none!important;border-right:none!important;border-top:1px solid rgba(255,255,255,.08)!important;box-shadow:0 30px 60px -20px rgba(0,0,0,.55)!important;}
+.nav-mega .nm-col{padding:2rem 2.2rem;}
 .nav-mega .nm-intro{background:rgba(255,255,255,.03);border-right:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;}
 .nav-mega .nm-eyebrow{font-family:var(--font-heading);font-weight:700;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:.7rem;}
-.nav-mega .nm-lead{font-size:.84rem;line-height:1.55;color:rgba(255,255,255,.72);margin-bottom:auto;}
+.nav-mega .nm-lead{font-size:.92rem;line-height:1.55;color:rgba(255,255,255,.72);margin-bottom:auto;}
 .nav-mega .nm-more{margin-top:1rem;font-family:var(--font-heading);font-weight:700;font-size:.8rem;color:var(--orange-light)!important;background:none!important;padding:0!important;}
-.nav-mega .nm-links{display:flex;flex-direction:column;gap:2px;border-right:1px solid rgba(255,255,255,.07);padding:1rem;}
-.nav-mega .nm-links a{display:block!important;padding:.55rem .7rem!important;border-radius:10px;color:inherit!important;}
+.nav-mega .nm-links{display:flex;flex-direction:column;justify-content:center;gap:4px;border-right:1px solid rgba(255,255,255,.07);padding:1.5rem 1.4rem;}
+.nav-mega .nm-links a{display:block!important;padding:.7rem .85rem!important;border-radius:10px;color:inherit!important;}
 .nav-mega .nm-links a:hover{background:rgba(249,101,50,.1)!important;}
-.nav-mega .nm-t{display:block;font-family:var(--font-heading);font-weight:700;font-size:.85rem;color:#fff;}
+.nav-mega .nm-t{display:block;font-family:var(--font-heading);font-weight:700;font-size:.95rem;color:#fff;}
 .nav-mega .nm-links a:hover .nm-t{color:var(--orange-light);}
-.nav-mega .nm-d{display:block;font-size:.73rem;line-height:1.4;color:rgba(255,255,255,.6);margin-top:.12rem;}
+.nav-mega .nm-d{display:block;font-size:.8rem;line-height:1.4;color:rgba(255,255,255,.6);margin-top:.12rem;}
 .nav-mega .nm-feature{position:relative;display:block!important;padding:0!important;background:rgba(255,255,255,.02);color:inherit!important;}
-.nav-mega .nm-feature-img{aspect-ratio:16/10;overflow:hidden;}
+.nav-mega .nm-feature-img{aspect-ratio:16/9;overflow:hidden;}
 .nav-mega .nm-feature-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
 .nav-mega .nm-feature:hover .nm-feature-img img{transform:scale(1.05);}
 .nav-mega .nm-flabel{position:absolute;top:.8rem;left:.9rem;font-family:var(--font-heading);font-weight:800;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--orange);border-radius:999px;padding:.2rem .55rem;}
-.nav-mega .nm-ftitle{font-family:var(--font-heading);font-weight:800;font-size:.92rem;color:#fff;padding:.85rem 1.1rem .3rem;}
-.nav-mega .nm-fdesc{font-size:.74rem;line-height:1.45;color:rgba(255,255,255,.62);padding:0 1.1rem 1.1rem;}
+.nav-mega .nm-ftitle{font-family:var(--font-heading);font-weight:800;font-size:1.02rem;color:#fff;padding:.85rem 1.1rem .3rem;}
+.nav-mega .nm-fdesc{font-size:.8rem;line-height:1.45;color:rgba(255,255,255,.62);padding:0 1.1rem 1.1rem;}
 @media (max-width:900px){.navbar .nav-mega{display:none!important;}}
+/* blur the page behind the open mega-menu */
+#axr-mega-veil{position:fixed;inset:0;z-index:90;background:rgba(8,11,16,.45);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .3s ease;}
+html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 /* tighten hero -> find-your-x (remove the empty break band) */
-#home-hero{padding-bottom:1.4rem!important;}
+#home-hero{min-height:0!important;padding-top:calc(var(--nav-h) + 2.4rem)!important;padding-bottom:1.4rem!important;}
 #find-your-x{padding-top:2.6rem!important;padding-bottom:1.6rem!important;}
 
 /* fixed-size hero doc card so the animations don't resize it */
 #home-hero .doc-card{height:452px;overflow:hidden;}
+/* --- hero demo surfaces: Knowledge search + Clash detection --- */
+.doc-tabs{flex-wrap:wrap;}
+.doc-demo{display:none;flex:1;min-height:0;flex-direction:column;padding:1.05rem 1.35rem .9rem;gap:.7rem;overflow:hidden;}
+.doc-demo.active{display:flex;}
+.ks-query{display:flex;align-items:center;gap:.55rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:.5rem .8rem;font-size:.84rem;color:var(--white);min-height:2.3rem;}
+.ks-query svg{width:14px;height:14px;color:var(--orange-light);flex:0 0 auto;}
+.ks-caret{width:8px;height:1.05em;background:var(--orange);border-radius:1px;animation:blinkDot .7s steps(2) infinite;flex:0 0 auto;}
+#demo-ks.done .ks-caret,html.reduced .ks-caret{display:none;}
+.ks-grid{display:flex;flex-direction:column;gap:.4rem;min-height:0;}
+.ks-hrow,.ks-row{display:grid;grid-template-columns:96px 52px 1fr 62px;gap:.65rem;align-items:center;}
+.ks-hrow{font-family:var(--font-h);font-weight:700;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-500);padding:0 .55rem;}
+.ks-row{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:.44rem .55rem;opacity:0;transform:translateY(7px);transition:opacity .4s var(--ease-out),transform .4s var(--ease-out);position:relative;overflow:hidden;}
+.ks-row::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.08) 50%,transparent 80%);transform:translateX(-100%);}
+.ks-row.on{opacity:1;transform:none;}
+.ks-row.on:not(.fill)::after{animation:ksShimmer 1s linear infinite;}
+@keyframes ksShimmer{to{transform:translateX(100%);}}
+.ks-src{font-family:var(--font-h);font-weight:700;font-size:.66rem;color:var(--white);letter-spacing:.02em;}
+.ks-cl{font-size:.66rem;color:var(--gray-400);}
+.ks-ans{font-size:.73rem;color:var(--gray-300);line-height:1.4;}
+.ks-row .ks-ans,.ks-row .ks-src,.ks-row .ks-cl{opacity:0;transition:opacity .35s var(--ease-out);}
+.ks-row.fill .ks-ans,.ks-row.fill .ks-src,.ks-row.fill .ks-cl{opacity:1;}
+.ks-st{justify-self:end;font-family:var(--font-h);font-weight:600;font-size:.6rem;letter-spacing:.05em;color:var(--orange-light);background:rgba(249,101,50,.1);border:1px solid rgba(249,101,50,.32);border-radius:6px;padding:.18rem .42rem;opacity:0;transform:scale(.85);transition:opacity .3s var(--ease-out),transform .3s cubic-bezier(.34,1.56,.64,1);}
+.ks-row.fill .ks-st{opacity:1;transform:none;}
+.cd-panes{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;flex:1;min-height:0;}
+.cd-pane{margin:0;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:.55rem .6rem .4rem;display:flex;flex-direction:column;min-height:0;}
+.cd-pane figcaption{font-family:var(--font-h);font-weight:700;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400);margin-bottom:.3rem;}
+.cd-pane svg{width:100%;flex:1;min-height:0;}
+.cd-pane svg .tr{fill:none;stroke:rgba(255,255,255,.66);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:460;stroke-dashoffset:460;}
+.cd-pane svg .tr.thin{stroke:rgba(255,255,255,.3);stroke-width:1;}
+#demo-cd.run svg .tr{animation:cdDraw 1.5s var(--ease-out) forwards;}
+#demo-cd.run svg .tr:nth-child(2){animation-delay:.07s;}
+#demo-cd.run svg .tr:nth-child(3){animation-delay:.14s;}
+#demo-cd.run svg .tr:nth-child(4){animation-delay:.2s;}
+#demo-cd.run svg .tr:nth-child(5){animation-delay:.28s;}
+#demo-cd.run svg .tr:nth-child(6){animation-delay:.38s;}
+#demo-cd.run svg .tr:nth-child(7){animation-delay:.46s;}
+#demo-cd.run svg .tr:nth-child(8){animation-delay:.52s;}
+#demo-cd.run svg .tr:nth-child(9){animation-delay:.58s;}
+@keyframes cdDraw{to{stroke-dashoffset:0;}}
+.cd-mark{opacity:0;}
+#demo-cd.marks .cd-mark{animation:cdPop .45s var(--ease-out) forwards,cdPulse 1.8s ease-in-out .6s infinite;}
+#demo-cd.marks .cd-mark:nth-of-type(2){animation-delay:.18s,.78s;}
+#demo-cd.marks .cd-mark:nth-of-type(3){animation-delay:.36s,.96s;}
+@keyframes cdPop{to{opacity:1;}}
+@keyframes cdPulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+#demo-cd.marks svg .diff{stroke:var(--orange-light);transition:stroke .5s;}
+.cd-found{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;min-height:1.8rem;}
+.cd-count{font-family:var(--font-h);font-weight:700;font-size:.7rem;color:var(--gray-300);}
+.cd-chip{font-family:var(--font-h);font-weight:600;font-size:.6rem;letter-spacing:.04em;color:var(--orange-light);background:rgba(249,101,50,.1);border:1px solid rgba(249,101,50,.32);border-radius:6px;padding:.2rem .48rem;opacity:0;transform:scale(.85);transition:opacity .3s var(--ease-out),transform .3s cubic-bezier(.34,1.56,.64,1);}
+.cd-chip.on{opacity:1;transform:none;}
+#demo-cd.done svg .tr,html.reduced #demo-cd svg .tr{animation:none;stroke-dashoffset:0;}
+#demo-cd.done .cd-mark,html.reduced #demo-cd.marks .cd-mark{animation:none;opacity:1;}
 #home-hero .axr-hero-demo-caption{font-size:.72rem;line-height:1.45;}
 
 /* ===== homepage navbar: transparent over hero, solid dark blur on scroll (white logo + links, stays visible) ===== */
@@ -3230,6 +3302,7 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
 </style>
 </head>
 <body>
+<div id="axr-mega-veil" aria-hidden="true"></div>
 <div id="site-particles" aria-hidden="true"></div>
 
 <!-- ===== NAVBAR ===== -->
@@ -3244,7 +3317,7 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
         <div class="nav-dropdown nav-mega" role="menu">
           <div class="nm-col nm-intro">
             <div class="nm-eyebrow">What we offer</div>
-            <p class="nm-lead">Two ways to work with us &mdash; bespoke AI built for your rail workflows, and Scribtive, our PACE assurance product.</p>
+            <p class="nm-lead">Two ways to work with us: bespoke AI built for your rail workflows, and Scribtive, our PACE assurance product.</p>
             <a class="nm-more" href="ai-in-action.html">See it in action &rarr;</a>
           </div>
           <div class="nm-col nm-links">
@@ -3357,6 +3430,52 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
           </div>
         </div>
 
+        <div class="doc-demo" id="demo-ks" aria-hidden="true">
+          <div class="ks-query"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span class="ks-q" id="ks-q"></span><span class="ks-caret"></span></div>
+          <div class="ks-grid">
+            <div class="ks-hrow"><span>Source</span><span>Clause</span><span>Answer</span><span></span></div>
+            <div class="ks-row"><span class="ks-src">NR/L2/OHS/019</span><span class="ks-cl">&sect;6.2</span><span class="ks-ans">Safe system of work planning adjacent to the open line</span><span class="ks-st">Cited</span></div>
+            <div class="ks-row"><span class="ks-src">NR/L2/CIV/003</span><span class="ks-cl">Table 2</span><span class="ks-ans">Certification route for the temporary works design</span><span class="ks-st">Cited</span></div>
+            <div class="ks-row"><span class="ks-src">CSM-RA</span><span class="ks-cl">Art. 4</span><span class="ks-ans">Significance test and risk evaluation for the change</span><span class="ks-st">Cited</span></div>
+            <div class="ks-row"><span class="ks-src">Your TW register</span><span class="ks-cl">Rev C</span><span class="ks-ans">Possession strategy and temporary works sequence</span><span class="ks-st">Matched</span></div>
+          </div>
+        </div>
+        <div class="doc-demo" id="demo-cd" aria-hidden="true">
+          <div class="cd-panes">
+            <figure class="cd-pane">
+              <figcaption>GA drawing &middot; Rev C</figcaption>
+              <svg viewBox="0 0 220 132" aria-hidden="true">
+                <path class="tr" d="M6,116 H214"/>
+                <path class="tr thin" d="M6,121 H214"/>
+                <path class="tr" d="M16,116 V84 H144 V116"/>
+                <path class="tr thin" d="M16,89 H144"/>
+                <path class="tr" d="M34,84 V40 H132 L140,50"/>
+                <path class="tr" d="M172,116 V32 M172,44 H150"/>
+                <path class="tr" d="M202,116 V92"/>
+                <circle class="tr" cx="202" cy="86" r="5"/>
+                <path class="tr thin" d="M16,126 H144"/>
+              </svg>
+            </figure>
+            <figure class="cd-pane">
+              <figcaption>GA drawing &middot; Rev D</figcaption>
+              <svg viewBox="0 0 220 132" aria-hidden="true">
+                <path class="tr" d="M6,116 H214"/>
+                <path class="tr thin" d="M6,121 H214"/>
+                <path class="tr" d="M16,116 V84 H144 V116"/>
+                <path class="tr thin" d="M16,89 H144"/>
+                <path class="tr diff" d="M34,84 V40 H114 L122,50"/>
+                <path class="tr diff" d="M186,116 V32 M186,44 H164"/>
+                <path class="tr" d="M202,116 V92"/>
+                <circle class="tr" cx="202" cy="86" r="5"/>
+                <g class="cd-mark" transform="translate(122,42)"><circle r="8" fill="none" stroke="#F96532" stroke-width="1.8"/><circle r="2.2" fill="#F96532"/></g>
+                <g class="cd-mark" transform="translate(180,62)"><circle r="8" fill="none" stroke="#F96532" stroke-width="1.8"/><circle r="2.2" fill="#F96532"/></g>
+                <g class="cd-mark" transform="translate(80,122)"><circle r="8" fill="none" stroke="#F96532" stroke-width="1.8"/><circle r="2.2" fill="#F96532"/></g>
+              </svg>
+            </figure>
+          </div>
+          <div class="cd-found"><span class="cd-count" id="cd-count">Tracing revisions&hellip;</span><span class="cd-chip">Canopy extent</span><span class="cd-chip">OLE mast position</span><span class="cd-chip">Drain run omitted</span></div>
+        </div>
+
         <div class="doc-foot">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
           <span>Nothing ships without your engineer&rsquo;s review. Human in the loop, by design.</span>
@@ -3377,6 +3496,8 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
         <button class="on" data-doc="0" role="tab" aria-selected="true">Form G</button>
         <button data-doc="1" role="tab" aria-selected="false">DRN response</button>
         <button data-doc="2" role="tab" aria-selected="false">HAZlog</button>
+        <button data-doc="3" role="tab" aria-selected="false">Knowledge search</button>
+        <button data-doc="4" role="tab" aria-selected="false">Clash detection</button>
       </div>
       <p class="axr-hero-demo-caption">Illustrative. Real output is drafted from your own data, cited and engineer-reviewed.</p>
     </div>
@@ -3690,10 +3811,11 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
               <circle class="core-disc" cx="280" cy="280" r="70"/>
               <text class="core-t core-default" x="280" y="286">engineering</text>
               <g class="core-final">
-                <text class="core-t2" x="280" y="249">engineering</text>
-                <circle class="core-bd" cx="246" cy="271" r="2.6"/><text class="core-b" x="256" y="275">Apply judgment</text>
-                <circle class="core-bd" cx="246" cy="291" r="2.6"/><text class="core-b" x="256" y="295">Make decisions</text>
-                <circle class="core-bd" cx="246" cy="311" r="2.6"/><text class="core-b" x="256" y="315">Manage risks</text>
+                <text class="core-t2" x="280" y="240">Let engineers</text>
+                <text class="core-t2" x="280" y="256">engineer<tspan class="core-dot">.</tspan></text>
+                <circle class="core-bd" cx="246" cy="276" r="2.6"/><text class="core-b" x="256" y="280">Apply judgements</text>
+                <circle class="core-bd" cx="246" cy="294" r="2.6"/><text class="core-b" x="256" y="298">Make decisions</text>
+                <circle class="core-bd" cx="246" cy="312" r="2.6"/><text class="core-b" x="256" y="316">Manage risks</text>
               </g>
             </g>
             <circle class="rs-shock" id="rs-shock" cx="280" cy="280" r="78"/>
@@ -3737,13 +3859,18 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
   </div>
 </section>
 <section id="proof" data-nav-theme="dark">
-  <div class="container axr-center">
-    <div class="eyebrow axr-center" data-reveal>AI in action</div>
-    <h2 class="h2" data-reveal>Real-world AI, delivering measurable results.</h2>
-    <p class="sub" data-reveal>Not slideware. Systems in service on UK rail work today, with the figures they carry.</p>
+  <div class="proof-track-outer" id="proof-outer">
+    <div class="proof-sticky">
+      <div class="container proof-head">
+        <div class="eyebrow" data-reveal>AI in action</div>
+        <h2 class="h2" data-reveal>Real-world AI, delivering measurable results.</h2>
+        <p class="sub" data-reveal>Not slideware. Systems in service on UK rail work today, with the figures they carry.</p>
+      </div>
+      <div class="proof-rail"><div class="proof-cards" id="proof-cards"><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">01 &middot; AI-empowered survey processing</div><p class="pc-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p><div class="pc-figs"><div><div class="pc-fig-num">7,650</div><div class="pc-fig-label">HD photos</div></div><div><div class="pc-fig-num">300+</div><div class="pc-fig-label">Survey flights</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Closures</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">02 &middot; AI-empowered drawing take-off</div><p class="pc-desc">Automated linear take-off from rail engineering drawings. AI extracts measurements with full audit trail. Hours not days, with cited evidence per line.</p><div class="pc-figs"><div><div class="pc-fig-num">99<small>%</small></div><div class="pc-fig-label">Accuracy</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Traceable</div></div><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Time reduction</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">03 &middot; AI-empowered design review &amp; verification</div><p class="pc-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p><div class="pc-figs"><div><div class="pc-fig-num">&pound;300<small>k</small></div><div class="pc-fig-label">Potential annual saving</div></div><div><div class="pc-fig-num">5</div><div class="pc-fig-label">Stages traced</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Broken links</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-knowledge-graph.jpg" alt="Knowledge graph trained on rail standards, taxonomy, and project history" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">04 &middot; Tender Knowledge Base</div><p class="pc-desc">A rail-specific knowledge graph trained on standards, taxonomy, and project history. Drove tender response quality and efficiency. Every output cited, grounded in your domain.</p><div class="pc-figs"><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Efficiency gain</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Cited evidence</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Grounded</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-scribtive.jpg" alt="Scribtive doc assistance UI for PACE-compliant rail forms" loading="lazy"><span class="pc-live"><i></i>Pilot</span></div><div class="pc-body"><div class="pc-chip">05 &middot; Scribtive&trade;</div><p class="pc-desc">Doc assistance for PACE-compliant rail forms. Section-by-section drafting with cited evidence and compliance gates. Currently in pilot.</p><div class="pc-figs"><div><div class="pc-fig-num">PACE</div><div class="pc-fig-label">Aligned</div></div><div><div class="pc-fig-num">RAG</div><div class="pc-fig-label">Knowledge enabled</div></div><div><div class="pc-fig-num">&infin;</div><div class="pc-fig-label">Audit trail</div></div></div></div></a><div class="proof-endcap"><div class="h3e">Your <span class="axr-heading-x">X</span> could be next.</div><p>See the full case studies, then tell us where your friction lives.</p><a class="axr-btn axr-btn-primary" href="ai-in-action.html#case-studies">See it in action <span class="arr" aria-hidden="true">&rarr;</span></a></div></div></div>
+      <div class="proof-progress" aria-hidden="true"><i id="proof-bar"></i></div>
+      <div class="proof-hint" id="proof-hint">Scroll to explore &middot; 5 deployments</div>
+    </div>
   </div>
-  <div class="proof-rail"><div class="proof-cards" id="proof-cards"><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">01 &middot; AI-empowered survey processing</div><p class="pc-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p><div class="pc-figs"><div><div class="pc-fig-num">7,650</div><div class="pc-fig-label">HD photos</div></div><div><div class="pc-fig-num">300+</div><div class="pc-fig-label">Survey flights</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Closures</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">02 &middot; AI-empowered drawing take-off</div><p class="pc-desc">Automated linear take-off from rail engineering drawings. AI extracts measurements with full audit trail. Hours not days, with cited evidence per line.</p><div class="pc-figs"><div><div class="pc-fig-num">99<small>%</small></div><div class="pc-fig-label">Accuracy</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Traceable</div></div><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Time reduction</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">03 &middot; AI-empowered design review &amp; verification</div><p class="pc-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p><div class="pc-figs"><div><div class="pc-fig-num">&pound;300<small>k</small></div><div class="pc-fig-label">Potential annual saving</div></div><div><div class="pc-fig-num">5</div><div class="pc-fig-label">Stages traced</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Broken links</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-knowledge-graph.jpg" alt="Knowledge graph trained on rail standards, taxonomy, and project history" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">04 &middot; Tender Knowledge Base</div><p class="pc-desc">A rail-specific knowledge graph trained on standards, taxonomy, and project history. Drove tender response quality and efficiency. Every output cited, grounded in your domain.</p><div class="pc-figs"><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Efficiency gain</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Cited evidence</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Grounded</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-scribtive.jpg" alt="Scribtive doc assistance UI for PACE-compliant rail forms" loading="lazy"><span class="pc-live"><i></i>Pilot</span></div><div class="pc-body"><div class="pc-chip">05 &middot; Scribtive&trade;</div><p class="pc-desc">Doc assistance for PACE-compliant rail forms. Section-by-section drafting with cited evidence and compliance gates. Currently in pilot.</p><div class="pc-figs"><div><div class="pc-fig-num">PACE</div><div class="pc-fig-label">Aligned</div></div><div><div class="pc-fig-num">RAG</div><div class="pc-fig-label">Knowledge enabled</div></div><div><div class="pc-fig-num">&infin;</div><div class="pc-fig-label">Audit trail</div></div></div></div></a><div class="proof-endcap"><div class="h3e">Your <span class="axr-heading-x">X</span> could be next.</div><p>See the full case studies, then tell us where your friction lives.</p><a class="axr-btn axr-btn-primary" href="ai-in-action.html#case-studies">See it in action <span class="arr" aria-hidden="true">&rarr;</span></a></div></div></div>
-  <div class="proof-hint">Drag or scroll &middot; 5 deployments</div>
 </section>
 
 
@@ -5790,14 +5917,26 @@ var REDUCED = document.documentElement.classList.contains('reduced');
         { l: 'Hazard 07', v: 'Temporary works adjacent to the open line.', c: 'Source · Workshop transcript' },
         { l: 'Cause & consequence', v: 'Plant movement during possession changeover. Risk to workforce and line.', c: 'Source · Workshop transcript' },
         { l: 'Mitigation', v: 'Exclusion zone with banksman control. Owner assigned, review date set.', c: 'Cited · CSM-RA' }
-      ] }
+      ] },
+    { title: 'Knowledge search', standard: 'Your knowledge base · clause-cited', done: 'Answered · 4 sources cited', demo: 'ks', rows: [] },
+    { title: 'Clash detection', standard: 'Cross-deliverable consistency check', done: '3 discrepancies flagged', demo: 'cd', rows: [] }
   ];
   var CITE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 10a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
 
   var docBody = $('#doc-body'), docTitle = $('#doc-title'), docStd = $('#doc-standard'),
       docStatus = $('#doc-status'), docStatusText = $('#doc-status-text'),
       docProg = $('#doc-progress-bar'), docStamp = $('#doc-stamp'),
-      docTabs = $$('#doc-tabs button'), docCard = $('#doc-card');
+      docTabs = $$('#doc-tabs button'), docCard = $('#doc-card'),
+      demoKS = $('#demo-ks'), demoCD = $('#demo-cd'), ksQ = $('#ks-q'),
+      ksRows = $$('#demo-ks .ks-row'), cdCount = $('#cd-count'), cdChips = $$('#demo-cd .cd-chip');
+  var KS_QUERY = 'What governs temporary works next to the open line?';
+  function showSurface(key) {
+    docBody.style.display = key ? 'none' : '';
+    demoKS.classList.toggle('active', key === 'ks');
+    demoCD.classList.toggle('active', key === 'cd');
+    if (key !== 'ks') demoKS.classList.remove('done');
+    if (key !== 'cd') demoCD.classList.remove('run', 'done', 'marks');
+  }
 
   var demoVisible = true, runId = 0;
   if ('IntersectionObserver' in window) {
@@ -5825,6 +5964,22 @@ var REDUCED = document.documentElement.classList.contains('reduced');
   function renderStatic(i) {
     var doc = DOCS[i];
     docTitle.textContent = doc.title; docStd.textContent = doc.standard;
+    showSurface(doc.demo || null);
+    if (doc.demo) {
+      if (doc.demo === 'ks') {
+        ksQ.textContent = KS_QUERY;
+        ksRows.forEach(function (r) { r.classList.add('on', 'fill'); });
+        demoKS.classList.add('done');
+      } else {
+        demoCD.classList.add('run', 'marks', 'done');
+        cdCount.textContent = '3 discrepancies found';
+        cdChips.forEach(function (ch) { ch.classList.add('on'); });
+      }
+      docProg.style.width = '100%';
+      docStatus.setAttribute('data-state', 'done'); docStatusText.textContent = doc.done;
+      docStamp.classList.add('show');
+      return;
+    }
     docBody.innerHTML = '';
     doc.rows.forEach(function (row) {
       var d = buildRow(row);
@@ -5841,6 +5996,8 @@ var REDUCED = document.documentElement.classList.contains('reduced');
     docStamp.classList.remove('show');
     docStatus.setAttribute('data-state', 'drafting'); docStatusText.textContent = 'Drafting';
     docTitle.textContent = doc.title; docStd.textContent = doc.standard;
+    showSurface(doc.demo || null);
+    if (doc.demo) return playDemo(doc, id);
     docBody.innerHTML = ''; docProg.style.width = '0%';
     var total = doc.rows.reduce(function (n, r) { return n + r.v.length; }, 0), typed = 0;
     for (var r = 0; r < doc.rows.length; r++) {
@@ -5862,6 +6019,55 @@ var REDUCED = document.documentElement.classList.contains('reduced');
       caret.remove();
       $('.doc-cite', el).classList.add('on');
       await sleep(300);
+    }
+    if (id !== runId) return false;
+    docProg.style.width = '100%';
+    docStatus.setAttribute('data-state', 'done'); docStatusText.textContent = doc.done;
+    docStamp.classList.add('show');
+    return true;
+  }
+  async function playDemo(doc, id) {
+    docProg.style.width = '0%';
+    if (doc.demo === 'ks') {
+      demoKS.classList.remove('done'); ksQ.textContent = '';
+      ksRows.forEach(function (r) { r.classList.remove('on', 'fill'); });
+      await sleep(350); if (id !== runId) return false;
+      for (var c = 0; c < KS_QUERY.length; c++) {
+        if (id !== runId) return false;
+        if (!demoVisible || document.hidden) await waitVisible();
+        if (id !== runId) return false;
+        ksQ.textContent += KS_QUERY[c];
+        docProg.style.width = (c / KS_QUERY.length * 30).toFixed(1) + '%';
+        await sleep(KS_QUERY[c] === ' ' ? 7 : 13);
+      }
+      for (var r2 = 0; r2 < ksRows.length; r2++) {
+        if (id !== runId) return false;
+        ksRows[r2].classList.add('on');
+        await sleep(340); if (id !== runId) return false;
+        ksRows[r2].classList.add('fill');
+        docProg.style.width = (30 + (r2 + 1) / ksRows.length * 70).toFixed(1) + '%';
+        await sleep(300);
+      }
+      demoKS.classList.add('done');
+    } else {
+      demoCD.classList.remove('done', 'marks', 'run');
+      cdChips.forEach(function (ch) { ch.classList.remove('on'); });
+      cdCount.textContent = 'Tracing revisions\u2026';
+      void demoCD.offsetWidth;
+      demoCD.classList.add('run');
+      for (var s3 = 1; s3 <= 6; s3++) { if (id !== runId) return false; docProg.style.width = (s3 * 8) + '%'; await sleep(300); }
+      if (id !== runId) return false;
+      cdCount.textContent = 'Comparing geometry\u2026';
+      await sleep(520); if (id !== runId) return false;
+      docProg.style.width = '60%';
+      demoCD.classList.add('marks');
+      cdCount.textContent = '3 discrepancies found';
+      for (var c4 = 0; c4 < cdChips.length; c4++) {
+        if (id !== runId) return false;
+        cdChips[c4].classList.add('on');
+        docProg.style.width = (60 + (c4 + 1) * 13) + '%';
+        await sleep(340);
+      }
     }
     if (id !== runId) return false;
     docProg.style.width = '100%';
@@ -6171,10 +6377,37 @@ var REDUCED = document.documentElement.classList.contains('reduced');
 })();
 </script>
 <script id="axr-proof-2026-07-11">
-(function(){var el=document.getElementById("proof-cards");if(!el)return;var d=false,sx=0,sl=0;el.addEventListener("mousedown",function(e){d=true;sx=e.pageX;sl=el.scrollLeft;el.classList.add("dragging");});window.addEventListener("mouseup",function(){d=false;el.classList.remove("dragging");});el.addEventListener("mousemove",function(e){if(!d)return;e.preventDefault();el.scrollLeft=sl-(e.pageX-sx);});})();
+(function(){var outer=document.getElementById("proof-outer"),cards=document.getElementById("proof-cards"),bar=document.getElementById("proof-bar");
+if(!outer||!cards)return;
+var mq=window.matchMedia("(min-width:900px)"),dist=0,ticking=false;
+function reduced(){return document.documentElement.classList.contains("reduced");}
+function onScroll(){if(!dist)return;
+var r=outer.getBoundingClientRect(),total=r.height-window.innerHeight;
+if(total<=0)return;
+var p=Math.min(1,Math.max(0,-r.top/total));
+cards.style.transform="translate3d("+(-p*dist).toFixed(1)+"px,0,0)";
+if(bar)bar.style.width=(p*100).toFixed(1)+"%";}
+function layout(){if(mq.matches&&!reduced()){dist=Math.max(0,cards.scrollWidth-window.innerWidth);outer.style.height=(window.innerHeight+dist)+"px";}
+else{dist=0;outer.style.height="";cards.style.transform="";}
+onScroll();}
+window.addEventListener("scroll",function(){if(ticking)return;ticking=true;requestAnimationFrame(function(){ticking=false;onScroll();});},{passive:true});
+var rz;window.addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(layout,120);});
+window.addEventListener("load",layout);
+Array.prototype.forEach.call(cards.querySelectorAll("img"),function(im){if(!im.complete)im.addEventListener("load",layout,{once:true});});
+layout();})();
 </script>
 <script id="axr-megamenu-2026-07-11">
-(function(){document.querySelectorAll(".navbar-links .has-dropdown").forEach(function(li){var t=null;function cancel(){if(t){clearTimeout(t);t=null;}}li.addEventListener("mouseleave",function(){if(li.classList.contains("is-open")){cancel();t=setTimeout(function(){li.classList.remove("is-open");var b=li.querySelector(".nav-dropdown-toggle");if(b)b.setAttribute("aria-expanded","false");},5000);}});li.addEventListener("mouseenter",cancel);});})();
+(function(){var root=document.documentElement,nav=document.querySelector(".navbar"),veil=document.getElementById("axr-mega-veil");
+var lis=document.querySelectorAll(".navbar-links .has-dropdown");
+function closeAll(){lis.forEach(function(li){li.classList.remove("is-open");var b=li.querySelector(".nav-dropdown-toggle");if(b)b.setAttribute("aria-expanded","false");});sync();}
+function sync(){var open=false;lis.forEach(function(li){if(li.classList.contains("is-open"))open=true;});root.classList.toggle("axr-mega-open",open);
+if(open&&nav){var b=nav.getBoundingClientRect().bottom;lis.forEach(function(li){var p=li.querySelector(".nav-mega");if(p)p.style.top=Math.max(0,b)+"px";});}}
+lis.forEach(function(li){var t=null;function cancel(){if(t){clearTimeout(t);t=null;}}
+li.addEventListener("mouseleave",function(){if(li.classList.contains("is-open")){cancel();t=setTimeout(closeAll,5000);}});
+li.addEventListener("mouseenter",cancel);
+new MutationObserver(sync).observe(li,{attributes:true,attributeFilter:["class"]});});
+if(veil)veil.addEventListener("click",closeAll);
+window.addEventListener("resize",sync);})();
 </script>
 </body>
 </html>
