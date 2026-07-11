@@ -2600,8 +2600,47 @@
 .footer .footer-certs img { filter: none; opacity: 0.85; }
 .footer .navbar-logo { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
 </style>
+<style id="axr-nav-2026-07-11">
+.navbar{background:rgba(13,17,23,.86)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;border-bottom:1px solid rgba(255,255,255,.08)!important;}
+.navbar .navbar-links a,.navbar .nav-dropdown-toggle{color:rgba(255,255,255,.82)!important;}
+.navbar .navbar-links a:hover,.navbar .nav-dropdown-toggle:hover,.navbar .navbar-links a.is-current{color:#fff!important;}
+.navbar .nav-dropdown-toggle::after{border-color:rgba(255,255,255,.7)!important;}
+.navbar .mobile-toggle span{background:#fff!important;}
+.navbar.navbar-hidden{transform:none!important;}
+.navbar .nav-dropdown{background:rgba(13,17,23,.97)!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 24px 50px -20px rgba(0,0,0,.6)!important;}
+.navbar li.has-dropdown .nav-dropdown a{color:rgba(255,255,255,.85)!important;}
+.navbar li.has-dropdown .nav-dropdown a:hover{color:#fff!important;background:rgba(249,101,50,.16)!important;}
+/* click-only dropdown (hover no longer opens it) */
+.navbar-links .has-dropdown:not(.is-open) .nav-dropdown{opacity:0!important;visibility:hidden!important;pointer-events:none!important;}
+/* enriched mega-menu */
+.navbar .nav-mega{position:fixed!important;top:64px;left:0!important;right:0!important;transform:none!important;width:auto!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0 max(2rem,calc((100vw - 1240px)/2))!important;display:grid!important;grid-template-columns:1.1fr 1.3fr .9fr;overflow:hidden;border-radius:0!important;border-left:none!important;border-right:none!important;border-top:1px solid rgba(255,255,255,.08)!important;box-shadow:0 30px 60px -20px rgba(0,0,0,.55)!important;}
+.nav-mega .nm-col{padding:2rem 2.2rem;}
+.nav-mega .nm-intro{background:rgba(255,255,255,.03);border-right:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;}
+.nav-mega .nm-eyebrow{font-family:var(--font-heading);font-weight:700;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:.7rem;}
+.nav-mega .nm-lead{font-size:.92rem;line-height:1.55;color:rgba(255,255,255,.72);margin-bottom:auto;}
+.nav-mega .nm-more{margin-top:1rem;font-family:var(--font-heading);font-weight:700;font-size:.8rem;color:var(--orange-light)!important;background:none!important;padding:0!important;}
+.nav-mega .nm-links{display:flex;flex-direction:column;justify-content:center;gap:4px;border-right:1px solid rgba(255,255,255,.07);padding:1.5rem 1.4rem;}
+.nav-mega .nm-links a{display:block!important;padding:.7rem .85rem!important;border-radius:10px;color:inherit!important;}
+.nav-mega .nm-links a:hover{background:rgba(249,101,50,.1)!important;}
+.nav-mega .nm-t{display:block;font-family:var(--font-heading);font-weight:700;font-size:.95rem;color:#fff;}
+.nav-mega .nm-links a:hover .nm-t{color:var(--orange-light);}
+.nav-mega .nm-d{display:block;font-size:.8rem;line-height:1.4;color:rgba(255,255,255,.6);margin-top:.12rem;}
+.nav-mega .nm-feature{position:relative;display:block!important;padding:0!important;background:rgba(255,255,255,.02);color:inherit!important;}
+.nav-mega .nm-feature-img{aspect-ratio:16/9;overflow:hidden;}
+.nav-mega .nm-feature-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.nav-mega .nm-feature-img svg{width:100%;height:100%;display:block;}
+.nav-mega .nm-feature:hover .nm-feature-img img{transform:scale(1.05);}
+.nav-mega .nm-flabel{position:absolute;top:.8rem;left:.9rem;font-family:var(--font-heading);font-weight:800;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--orange);border-radius:999px;padding:.2rem .55rem;}
+.nav-mega .nm-ftitle{font-family:var(--font-heading);font-weight:800;font-size:1.02rem;color:#fff;padding:.85rem 1.1rem .3rem;}
+.nav-mega .nm-fdesc{font-size:.8rem;line-height:1.45;color:rgba(255,255,255,.62);padding:0 1.1rem 1.1rem;}
+@media (max-width:900px){.navbar .nav-mega{display:none!important;}}
+/* blur the page behind the open mega-menu */
+#axr-mega-veil{position:fixed;inset:0;z-index:90;background:rgba(8,11,16,.45);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .3s ease;}
+html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
+</style>
 </head>
 <body>
+<div id="axr-mega-veil" aria-hidden="true"></div>
 <div id="site-particles" aria-hidden="true"></div>
 
 
@@ -2609,21 +2648,76 @@
 <nav class="navbar">
   <div class="container">
     <a href="index.html" class="navbar-logo" aria-label="AutomateX home">
-      <img src="brand_assets/automatex-wordmark.png" alt="AutomateX">
+      <img src="brand_assets/automatex-wordmark-dark-bg-transparent.png" alt="AutomateX">
     </a>
     <ul class="navbar-links">
       <li class="has-dropdown">
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">What we offer</button>
-        <div class="nav-dropdown" role="menu">
-          <a href="ai-in-action.html" role="menuitem">Production-grade custom AI</a>
-          <a href="bootcamp.html" role="menuitem">AutomateX Bootcamp</a>
-          <a href="waitlist.html" role="menuitem">PACE OS &amp; Scribtive</a>
-          <a href="scorecard.html" role="menuitem">Free AI Readiness Assessment</a>
+        <div class="nav-dropdown nav-mega" role="menu">
+          <div class="nm-col nm-intro">
+            <div class="nm-eyebrow">What we offer</div>
+            <p class="nm-lead">Two ways to work with us: bespoke AI built for your rail workflows, and Scribtive, our PACE assurance product.</p>
+            <a class="nm-more" href="ai-in-action.html">See it in action &rarr;</a>
+          </div>
+          <div class="nm-col nm-links">
+            <a href="ai-in-action.html" role="menuitem"><span class="nm-t">Production-grade custom AI</span><span class="nm-d">Bespoke AI for your workflows, shipped to production.</span></a>
+            <a href="bootcamp.html" role="menuitem"><span class="nm-t">AutomateX Bootcamp</span><span class="nm-d">A five-step engagement to find and prove your highest-value automation.</span></a>
+            <a href="waitlist.html" role="menuitem"><span class="nm-t">PACE OS &amp; Scribtive</span><span class="nm-d">Our signature SaaS for rail PACE assurance deliverables.</span></a>
+            <a href="scorecard.html" role="menuitem"><span class="nm-t">Free AI Readiness Assessment</span><span class="nm-d">A five-minute diagnostic with a tailored report.</span></a>
+          </div>
+          <a class="nm-col nm-feature" href="bootcamp.html" role="menuitem">
+            <div class="nm-feature-img"><svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="nmv-bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#161B22"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
+                  <linearGradient id="nmv-a" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F96532" stop-opacity=".30"/><stop offset="1" stop-color="#F96532" stop-opacity="0"/></linearGradient>
+                  <radialGradient id="nmv-g" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FB7B3A" stop-opacity=".8"/><stop offset="1" stop-color="#FB7B3A" stop-opacity="0"/></radialGradient>
+                </defs>
+                <rect width="480" height="300" fill="url(#nmv-bg)"/>
+
+                <!-- axes (static) -->
+                <line x1="60" y1="240" x2="430" y2="240" stroke="#374151" stroke-width="1.4"/>
+                <line x1="60" y1="40"  x2="60"  y2="240" stroke="#374151" stroke-width="1.4"/>
+                <line x1="245" y1="40" x2="245" y2="240" stroke="#374151" stroke-dasharray="3 3"/>
+                <line x1="60" y1="140" x2="430" y2="140" stroke="#374151" stroke-dasharray="3 3"/>
+
+                <!-- top-right quadrant shading -->
+                <rect x="245" y="40" width="185" height="100" fill="url(#nmv-a)" rx="6"/>
+                <text x="338" y="56" fill="#FB7B3A" font-family="Montserrat" font-weight="800" font-size="10" text-anchor="middle" letter-spacing="1.6">AUTOMATE NOW</text>
+
+                <!-- the other three quadrant labels (static, dim) -->
+                <text x="150" y="195" fill="#4B5563" font-family="Montserrat" font-weight="800" font-size="9" letter-spacing="1.6" text-anchor="middle">PARK</text>
+                <text x="338" y="195" fill="#4B5563" font-family="Montserrat" font-weight="800" font-size="9" letter-spacing="1.6" text-anchor="middle">EASY WIN</text>
+                <text x="150" y="90" fill="#4B5563" font-family="Montserrat" font-weight="800" font-size="9" letter-spacing="1.6" text-anchor="middle">TRANSFORM</text>
+
+                <!-- axis labels (static) -->
+                <text x="240" y="270" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="10" text-anchor="middle">PRIME &rarr; can it be automated</text>
+                <text x="40" y="140" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="10" transform="rotate(-90 40 140)" text-anchor="middle">VALUE &uarr; should we</text>
+
+                <!-- X marks in sequence (bottom-left → top-right). Each is a small cross. -->
+                <g data-i="1"><line x1="89" y1="212" x2="101" y2="224" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="101" y1="212" x2="89" y2="224" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="2"><line x1="134" y1="194" x2="146" y2="206" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="146" y1="194" x2="134" y2="206" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="3"><line x1="194" y1="204" x2="206" y2="216" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="206" y1="204" x2="194" y2="216" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="4"><line x1="104" y1="169" x2="116" y2="181" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="116" y1="169" x2="104" y2="181" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="5"><line x1="244" y1="174" x2="256" y2="186" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="256" y1="174" x2="244" y2="186" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="6"><line x1="304" y1="159" x2="316" y2="171" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="316" y1="159" x2="304" y2="171" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="7"><line x1="184" y1="124" x2="196" y2="136" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="196" y1="124" x2="184" y2="136" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="8"><line x1="324" y1="104" x2="336" y2="116" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="336" y1="104" x2="324" y2="116" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+
+                <!-- Glow + textless AutomateX mark (no frame) at top-right -->
+                <g ><circle cx="395" cy="78" r="48" fill="url(#nmv-g)"/></g>
+                <g >
+                  <image href="brand_assets/Logo.png" x="370" y="53" width="50" height="50" preserveAspectRatio="xMidYMid meet"/>
+                </g>
+              </svg></div>
+            <div class="nm-flabel">Featured</div>
+            <div class="nm-ftitle">Start with the Bootcamp</div>
+            <div class="nm-fdesc">Find the single highest-value automation in your operation and prove it on your own data.</div>
+          </a>
         </div>
       </li>
       <li><a href="about.html">Who we are</a></li>
-      <li><a href="careers.html" aria-current="page" class="is-current" data-pass="careers-nav-2026-06-09">Careers</a></li>
       <li><a href="resources.html">Insights</a></li>
+      <li><a href="careers.html" aria-current="page" class="is-current" data-pass="careers-nav-2026-06-09">Careers</a></li>
     </ul>
     <div class="nav-cta-group">
       <a href="waitlist.html" class="btn btn-primary">Join the Waitlist</a>
@@ -2649,8 +2743,8 @@
       <a href="waitlist.html" onclick="this.closest('.mobile-menu').classList.remove('open')">PACE OS &amp; Scribtive</a>
     </div>
   </div>
-  <a href="careers.html" onclick="this.parentElement.classList.remove('open')" aria-current="page" class="is-current" data-pass="careers-nav-2026-06-09">Careers</a>
   <a href="resources.html" onclick="this.parentElement.classList.remove('open')">Insights</a>
+  <a href="careers.html" onclick="this.parentElement.classList.remove('open')" aria-current="page" class="is-current" data-pass="careers-nav-2026-06-09">Careers</a>
 
 </div>
 <main>
@@ -3873,5 +3967,18 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <script type="text/javascript">window.addEventListener('load', function() { if (window.Calendly) { Calendly.initBadgeWidget({ url: 'https://calendly.com/bill-guo-automatex/quick-chat-bill-guo?primary_color=f96532', text: 'Chat with Founder', color: '#f96532', textColor: '#ffffff', branding: false }); } });</script>
 
+<script id="axr-megamenu-2026-07-11">
+(function(){var root=document.documentElement,nav=document.querySelector(".navbar"),veil=document.getElementById("axr-mega-veil");
+var lis=document.querySelectorAll(".navbar-links .has-dropdown");
+function closeAll(){lis.forEach(function(li){li.classList.remove("is-open");var b=li.querySelector(".nav-dropdown-toggle");if(b)b.setAttribute("aria-expanded","false");});sync();}
+function sync(){var open=false;lis.forEach(function(li){if(li.classList.contains("is-open"))open=true;});root.classList.toggle("axr-mega-open",open);
+if(open&&nav){var b=nav.getBoundingClientRect().bottom;lis.forEach(function(li){var p=li.querySelector(".nav-mega");if(p)p.style.top=Math.max(0,b)+"px";});}}
+lis.forEach(function(li){var t=null;function cancel(){if(t){clearTimeout(t);t=null;}}
+li.addEventListener("mouseleave",function(){if(li.classList.contains("is-open")){cancel();t=setTimeout(closeAll,5000);}});
+li.addEventListener("mouseenter",cancel);
+new MutationObserver(sync).observe(li,{attributes:true,attributeFilter:["class"]});});
+if(veil)veil.addEventListener("click",closeAll);
+window.addEventListener("resize",sync);})();
+</script>
 </body>
 </html>

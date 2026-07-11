@@ -2804,6 +2804,8 @@ html:not(.js) .doc-stamp { opacity:1; transform: rotate(-9deg); }
 .scroll-cue i::after { content:""; position:absolute; left:0; top:-40%; width:100%; height:40%; background:var(--white); animation: cueDrop 1.8s var(--ease) infinite; }
 @keyframes cueDrop { to { top:110%; } }
 html.reduced .scroll-cue i::after { animation:none; }
+a.scroll-cue{text-decoration:none;color:var(--gray-500);transition:color .3s var(--ease);}
+a.scroll-cue:hover{color:var(--white);}
 
 /* ============================================================
    FIND YOUR X — friction constellation
@@ -3239,7 +3241,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 #home-hero .axr-hero-demo-caption{font-size:.72rem;line-height:1.45;}
 
 /* ===== homepage navbar: transparent over hero, solid dark blur on scroll (white logo + links, stays visible) ===== */
-.navbar{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:transparent!important;transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;}
+.navbar{position:fixed!important;top:0!important;left:0!important;right:0!important;background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:transparent!important;transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;}
 .navbar.axr-scrolled{background:rgba(13,17,23,.82)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;border-bottom-color:rgba(255,255,255,.08)!important;}
 .navbar .navbar-links a,.navbar .nav-dropdown-toggle{color:rgba(255,255,255,.82)!important;}
 .navbar .navbar-links a:hover,.navbar .nav-dropdown-toggle:hover,.navbar .navbar-links a.is-current{color:#fff!important;}
@@ -3365,8 +3367,8 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
       <a href="scorecard.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Free AI Readiness Assessment</a>
     </div>
   </div>
-  <a href="careers.html" onclick="this.parentElement.classList.remove('open')" data-pass="careers-nav-2026-06-09">Careers</a>
   <a href="resources.html" onclick="this.parentElement.classList.remove('open')">Insights</a>
+  <a href="careers.html" onclick="this.parentElement.classList.remove('open')" data-pass="careers-nav-2026-06-09">Careers</a>
   <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-outline btn-primary-lg">Book a call</a>
 </div><!-- /.mobile-menu -->
 
@@ -3537,6 +3539,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
       <p class="axr-hero-demo-caption">Illustrative. Real output is drafted from your own data, cited and engineer-reviewed.</p>
     </div>
   </div>
+  <a class="scroll-cue" href="#find-your-x"><span>Find your X</span><i></i></a>
 </header>
 <section class="sec sec-dark" id="find-your-x" data-nav-theme="dark">
   <div class="container">
