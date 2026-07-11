@@ -2600,6 +2600,7 @@
 .footer .footer-certs img { filter: none; opacity: 0.85; }
 .footer .navbar-logo { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
 </style>
+<script>document.documentElement.classList.add('js');try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('reduced');}catch(e){}</script>
 </head>
 <body>
 <div id="site-particles" aria-hidden="true"></div>
@@ -2709,151 +2710,88 @@
 }
 </style>
 
-<!-- ===== CASE STUDIES ===== -->
-<section class="section ai-actions" id="case-studies">
-  <!-- Standalone particle host (no longer in the homepage .dark-stack). -->
-  
-  <!-- Particle background now shared at the dark-stack wrapper level
-       (one canvas across find-your-x + case-studies + bootcamp). -->
-
-  <div class="container">
-    <div class="text-center">
-      <div class="section-eyebrow sc-reveal">AI in Action</div>
-      <h2 class="section-heading sc-reveal">Real-world AI delivering measurable results.</h2>
-          </div>
-
-    <div class="ai-carousel" id="ai-carousel">
-      <!-- LEFT PANEL: chips list -->
-      <div class="ai-chips-panel">
-        <div class="ai-chips" role="tablist" aria-label="Case studies">
-          <button type="button" class="ai-chip is-active" role="tab" data-index="0" aria-selected="true">
-            <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            <span class="ai-chip-label">AI-empowered survey processing</span>
-          </button>
-          <button type="button" class="ai-chip" role="tab" data-index="1" aria-selected="false">
-            <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-            </svg>
-            <span class="ai-chip-label">AI-empowered drawing take-off</span>
-          </button>
-          <button type="button" class="ai-chip" role="tab" data-index="2" aria-selected="false">
-            <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-            <span class="ai-chip-label">AI-empowered design review &amp; verification</span>
-          </button>
-          <button type="button" class="ai-chip" role="tab" data-index="3" aria-selected="false">
-            <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-            </svg>
-            <span class="ai-chip-label">Tender Knowledge Base</span>
-          </button>
-          <button type="button" class="ai-chip" role="tab" data-index="4" aria-selected="false">
-            <svg class="ai-chip-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            <span class="ai-chip-label">Scribtive&trade;</span>
-          </button>
-        </div>
+<!-- ===== CASE STUDIES (scroll-linked carousel, moved from the homepage 2026-07-11) ===== -->
+<style id="case-studies-proof-2026-07-11">
+#case-studies{position:relative;background:transparent;color:var(--white);--grad-brand:linear-gradient(120deg,#FB7B3A,#F96532 45%,#ED4A3B);--font-h:'Montserrat',system-ui,sans-serif;--font-b:'Open Sans',system-ui,sans-serif;--px:clamp(1.25rem,4vw,2.5rem);--nav-h:76px;--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);--ink-dim:#b9c2cf;--navy-surface:#131921;--card-dark:#161B22;}
+#case-studies .proof-track-outer{position:relative;}
+#case-studies .proof-sticky{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;}
+#case-studies .proof-head{padding-top:calc(var(--nav-h) + .5rem);}
+#case-studies .proof-head .section-heading{margin:.5rem 0 0;text-align:left;}
+#case-studies .proof-sub{color:rgba(255,255,255,.7);font-size:.98rem;margin-top:.7rem;max-width:60ch;}
+#case-studies .proof-rail{margin-top:2.2rem;}
+#case-studies .proof-cards{display:flex;gap:1.15rem;padding:.6rem var(--px) 1rem;will-change:transform;}
+#case-studies .proof-card{flex:0 0 auto;width:clamp(310px,30vw,415px);background:linear-gradient(180deg,var(--navy-surface),var(--card-dark));border:1px solid rgba(255,255,255,.09);border-radius:18px;overflow:hidden;transition:transform .35s var(--ease-out),border-color .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column;}
+#case-studies .proof-card:hover{transform:translateY(-6px);border-color:rgba(249,101,50,.45);box-shadow:0 30px 60px -30px rgba(249,101,50,.3);}
+#case-studies .pc-imgwrap{position:relative;aspect-ratio:16/9.5;overflow:hidden;}
+#case-studies .pc-imgwrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out);}
+#case-studies .proof-card:hover .pc-imgwrap img{transform:scale(1.045);}
+#case-studies .pc-live{position:absolute;top:.8rem;left:.8rem;display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-h);font-weight:700;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(13,17,23,.72);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:.32rem .7rem;}
+#case-studies .pc-live i{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:csBlink 1.1s ease-in-out infinite alternate;}
+@keyframes csBlink{from{opacity:.35;}to{opacity:1;}}
+#case-studies .pc-body{padding:1.15rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.65rem;flex:1;}
+#case-studies .pc-chip{font-family:var(--font-h);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-light);}
+#case-studies .pc-desc{font-size:.88rem;color:var(--gray-300);line-height:1.65;flex:1;}
+#case-studies .pc-figs{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.2rem;}
+#case-studies .pc-fig-num{font-family:var(--font-h);font-weight:800;font-size:1.25rem;letter-spacing:-.02em;color:var(--white);}
+#case-studies .pc-fig-num small{font-size:.7em;}
+#case-studies .pc-fig-label{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-500);margin-top:.1rem;}
+#case-studies .proof-endcap{flex:0 0 auto;width:clamp(260px,24vw,330px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1rem;border:1.5px dashed rgba(249,101,50,.4);border-radius:18px;padding:1.6rem;color:var(--ink-dim);font-size:.92rem;}
+#case-studies .proof-endcap .h3e{font-family:var(--font-h);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--white);}
+#case-studies .heading-x2{color:var(--orange);}
+#case-studies .proof-cta{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-h);font-weight:700;font-size:.92rem;color:#fff;background:var(--grad-brand);border-radius:999px;padding:.8rem 1.5rem;box-shadow:0 10px 30px -12px rgba(249,101,50,.55);transition:transform .25s var(--ease);}
+#case-studies .proof-cta:hover{transform:translateY(-2px);}
+#case-studies .proof-progress{margin:1.9rem var(--px) 0;height:2px;background:rgba(255,255,255,.09);border-radius:2px;max-width:420px;}
+#case-studies .proof-progress i{display:block;height:100%;width:0%;background:var(--grad-brand);border-radius:2px;}
+#case-studies .proof-hint{margin:1.1rem var(--px) 0;font-family:var(--font-h);font-weight:600;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-500);}
+@media (max-width:900px){
+#case-studies .proof-sticky{position:static;height:auto;overflow:visible;padding:clamp(3.5rem,7vw,6rem) 0 3rem;}
+#case-studies .proof-head{padding-top:0;}
+#case-studies .proof-cards{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+#case-studies .proof-cards::-webkit-scrollbar{display:none;}
+#case-studies .proof-card,#case-studies .proof-endcap{scroll-snap-align:start;}
+#case-studies .proof-track-outer{height:auto!important;}
+#case-studies .proof-progress,#case-studies .proof-hint{display:none;}
+}
+html.reduced #case-studies .proof-sticky,html:not(.js) #case-studies .proof-sticky{position:static;height:auto;padding:clamp(3.5rem,7vw,6rem) 0 3rem;}
+html.reduced #case-studies .proof-head,html:not(.js) #case-studies .proof-head{padding-top:0;}
+html.reduced #case-studies .proof-track-outer,html:not(.js) #case-studies .proof-track-outer{height:auto!important;}
+html.reduced #case-studies .proof-cards,html:not(.js) #case-studies .proof-cards{overflow-x:auto;}
+html.reduced #case-studies .proof-progress,html.reduced #case-studies .proof-hint,html:not(.js) #case-studies .proof-progress{display:none;}
+</style>
+<section id="case-studies" data-nav-theme="dark">
+  <div class="proof-track-outer" id="proof-outer">
+    <div class="proof-sticky">
+      <div class="container proof-head">
+        <div class="section-eyebrow">AI in Action</div>
+        <h2 class="section-heading">Real-world AI, delivering measurable results.</h2>
+        <p class="proof-sub">Not slideware. Systems in service on UK rail work today, with the figures they carry.</p>
       </div>
-
-      <!-- RIGHT PANEL: cards stage -->
-      <div class="ai-cards-panel">
-        <div class="ai-cards-stage">
-
-          <!-- Card 1: AI-empowered survey processing -->
-          <article class="ai-card is-active" data-index="0" role="tabpanel">
-            <div class="ai-card-photo-wrap">
-              <img class="ai-card-photo" src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering">
-              <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Live</span></div>
-            </div>
-            <div class="ai-card-content">
-              <div class="ai-card-chip">01 &middot; AI-empowered survey processing</div>
-              <p class="ai-card-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p>
-              <div class="ai-card-figures">
-                <div class="ai-fig"><div class="ai-fig-num">7,650</div><div class="ai-fig-label">HD photos</div></div>
-                <div class="ai-fig"><div class="ai-fig-num">300+</div><div class="ai-fig-label">Survey flights</div></div>
-                <div class="ai-fig"><div class="ai-fig-num">0</div><div class="ai-fig-label">Closures</div></div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 2: AI-empowered drawing take-off (whitelabeled) -->
-          <article class="ai-card" data-index="1" role="tabpanel">
-            <div class="ai-card-photo-wrap">
-              <img class="ai-card-photo" src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing">
-              <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Live</span></div>
-            </div>
-            <div class="ai-card-content">
-              <div class="ai-card-chip">02 &middot; AI-empowered drawing take-off</div>
-              <p class="ai-card-desc">Automated linear take-off from rail engineering drawings. AI extracts measurements with full audit trail. Hours not days, with cited evidence per line.</p>
-              <div class="ai-card-figures">
-                <div class="ai-fig"><div class="ai-fig-num">99<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Accuracy</div></div>
-                <div class="ai-fig"><div class="ai-fig-num">100<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Traceable</div></div>
-                <div class="ai-fig"><div class="ai-fig-num">80<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Time reduction</div></div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3: AI-empowered design review & verification (whitelabeled) -->
-          <article class="ai-card" data-index="2" role="tabpanel">
-            <div class="ai-card-photo-wrap">
-              <img class="ai-card-photo" src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages">
-              <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Live</span></div>
-            </div>
-            <div class="ai-card-content">
-              <div class="ai-card-chip">03 &middot; AI-empowered design review &amp; verification</div>
-              <p class="ai-card-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p>
-              <div class="ai-card-figures">
-                <div class="ai-fig"><div class="ai-fig-num">&pound;300<span style="font-size:0.7em;">k</span></div><div class="ai-fig-label">Potential annual saving</div></div>
-                <div class="ai-fig"><div class="ai-fig-num">5</div><div class="ai-fig-label">Stages traced</div></div>
-                <div class="ai-fig"><div class="ai-fig-num">0</div><div class="ai-fig-label">Broken links</div></div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 4: Tender Knowledge Base -->
-          <article class="ai-card" data-index="3" role="tabpanel">
-            <div class="ai-card-photo-wrap">
-              <img class="ai-card-photo" src="images/case-knowledge-graph.jpg" alt="Knowledge graph trained on rail standards, taxonomy, and project history">
-              <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Live</span></div>
-            </div>
-            <div class="ai-card-content">
-              <div class="ai-card-chip">04 &middot; Tender Knowledge Base</div>
-              <p class="ai-card-desc">A rail-specific knowledge graph trained on standards, taxonomy, and project history. Drove tender response quality and efficiency. Every output cited, grounded in your domain.</p>
-              <div class="ai-card-figures">
-                <div class="ai-fig"><div class="ai-fig-num">80<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Efficiency gain</div></div>
-                <div class="ai-fig"><div class="ai-fig-num">100<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Cited evidence</div></div>
-                <div class="ai-fig"><div class="ai-fig-num">100<span style="font-size:0.7em;">%</span></div><div class="ai-fig-label">Grounded</div></div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 5: Scribtive -->
-          <article class="ai-card" data-index="4" role="tabpanel">
-            <div class="ai-card-photo-wrap">
-              <img class="ai-card-photo" src="images/case-scribtive.jpg" alt="Scribtive doc assistance UI for PACE-compliant rail forms">
-              <div class="ai-card-live"><span class="ai-dot" aria-hidden="true"></span><span>Pilot</span></div>
-            </div>
-            <div class="ai-card-content">
-              <div class="ai-card-chip">05 &middot; Scribtive&trade;</div>
-              <p class="ai-card-desc">Doc assistance for PACE-compliant rail forms. Section-by-section drafting with cited evidence and compliance gates. Currently in pilot.</p>
-              <div class="ai-card-figures">
-                <div class="ai-fig"><div class="ai-fig-num">PACE</div><div class="ai-fig-label">Aligned</div></div>
-                <div class="ai-fig"><div class="ai-fig-num">RAG</div><div class="ai-fig-label">Knowledge enabled</div></div>
-                <div class="ai-fig"><div class="ai-fig-num">&infin;</div><div class="ai-fig-label">Audit trail</div></div>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
+      <div class="proof-rail"><div class="proof-cards" id="proof-cards"><div class="proof-card"><div class="pc-imgwrap"><img src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">01 &middot; AI-empowered survey processing</div><p class="pc-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p><div class="pc-figs"><div><div class="pc-fig-num">7,650</div><div class="pc-fig-label">HD photos</div></div><div><div class="pc-fig-num">300+</div><div class="pc-fig-label">Survey flights</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Closures</div></div></div></div></div><div class="proof-card"><div class="pc-imgwrap"><img src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">02 &middot; AI-empowered drawing take-off</div><p class="pc-desc">Automated linear take-off from rail engineering drawings. AI extracts measurements with full audit trail. Hours not days, with cited evidence per line.</p><div class="pc-figs"><div><div class="pc-fig-num">99<small>%</small></div><div class="pc-fig-label">Accuracy</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Traceable</div></div><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Time reduction</div></div></div></div></div><div class="proof-card"><div class="pc-imgwrap"><img src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">03 &middot; AI-empowered design review &amp; verification</div><p class="pc-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p><div class="pc-figs"><div><div class="pc-fig-num">&pound;300<small>k</small></div><div class="pc-fig-label">Potential annual saving</div></div><div><div class="pc-fig-num">5</div><div class="pc-fig-label">Stages traced</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Broken links</div></div></div></div></div><div class="proof-card"><div class="pc-imgwrap"><img src="images/case-knowledge-graph.jpg" alt="Knowledge graph trained on rail standards, taxonomy, and project history" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">04 &middot; Tender Knowledge Base</div><p class="pc-desc">A rail-specific knowledge graph trained on standards, taxonomy, and project history. Drove tender response quality and efficiency. Every output cited, grounded in your domain.</p><div class="pc-figs"><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Efficiency gain</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Cited evidence</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Grounded</div></div></div></div></div><div class="proof-card"><div class="pc-imgwrap"><img src="images/case-scribtive.jpg" alt="Scribtive doc assistance UI for PACE-compliant rail forms" loading="lazy"><span class="pc-live"><i></i>Pilot</span></div><div class="pc-body"><div class="pc-chip">05 &middot; Scribtive&trade;</div><p class="pc-desc">Doc assistance for PACE-compliant rail forms. Section-by-section drafting with cited evidence and compliance gates. Currently in pilot.</p><div class="pc-figs"><div><div class="pc-fig-num">PACE</div><div class="pc-fig-label">Aligned</div></div><div><div class="pc-fig-num">RAG</div><div class="pc-fig-label">Knowledge enabled</div></div><div><div class="pc-fig-num">&infin;</div><div class="pc-fig-label">Audit trail</div></div></div></div></div><div class="proof-endcap"><div class="h3e">Your <span class="heading-x2">X</span> could be next.</div><p>Tell us where your friction lives.</p><a class="proof-cta" href="scorecard.html">Find your X <span aria-hidden="true">&rarr;</span></a></div></div></div>
+      <div class="proof-progress" aria-hidden="true"><i id="proof-bar"></i></div>
+      <div class="proof-hint" id="proof-hint">Scroll to explore &middot; 5 deployments</div>
     </div>
   </div>
 </section>
+<script id="case-studies-proof-js-2026-07-11">
+(function(){var outer=document.getElementById("proof-outer"),cards=document.getElementById("proof-cards"),bar=document.getElementById("proof-bar");
+if(!outer||!cards)return;
+var mq=window.matchMedia("(min-width:900px)"),dist=0,ticking=false;
+function reduced(){return document.documentElement.classList.contains("reduced");}
+function onScroll(){if(!dist)return;
+var r=outer.getBoundingClientRect(),total=r.height-window.innerHeight;
+if(total<=0)return;
+var p=Math.min(1,Math.max(0,-r.top/total));
+cards.style.transform="translate3d("+(-p*dist).toFixed(1)+"px,0,0)";
+if(bar)bar.style.width=(p*100).toFixed(1)+"%";}
+function layout(){if(mq.matches&&!reduced()){dist=Math.max(0,cards.scrollWidth-window.innerWidth);outer.style.height=(window.innerHeight+dist)+"px";}
+else{dist=0;outer.style.height="";cards.style.transform="";}
+onScroll();}
+window.addEventListener("scroll",function(){if(ticking)return;ticking=true;requestAnimationFrame(function(){ticking=false;onScroll();});},{passive:true});
+var rz;window.addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(layout,120);});
+window.addEventListener("load",layout);
+Array.prototype.forEach.call(cards.querySelectorAll("img"),function(im){if(!im.complete)im.addEventListener("load",layout,{once:true});});
+layout();})();
+</script>
 
 <style>
   /* ===== AI in Action carousel =====

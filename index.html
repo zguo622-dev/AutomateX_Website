@@ -2584,7 +2584,7 @@
 :focus:not(:focus-visible) { outline: none; }
 </style>
 <style id="axr-ported-2026-07-10">
-.axr-hero, #pain, #find-your-x, #proof{--grad-brand:linear-gradient(120deg,var(--orange-light),var(--orange) 45%,var(--orange-dark));--font-h:'Montserrat',system-ui,sans-serif;--font-b:'Open Sans',system-ui,sans-serif;--px:clamp(1.25rem,4vw,2.5rem);--container:1240px;--nav-h:76px;--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);--ink-dim:#b9c2cf;--navy-surface:#131921;--card-dark:#161B22;--shadow-lift:0 14px 40px -18px rgba(13,17,23,.25);--white:#ffffff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--orange:#F96532;--orange-light:#FB7B3A;--orange-dark:#ED4A3B;--navy:#1A1F36;--navy-deep:#0D1117;}
+.axr-hero, #pain, #find-your-x{--grad-brand:linear-gradient(120deg,var(--orange-light),var(--orange) 45%,var(--orange-dark));--font-h:'Montserrat',system-ui,sans-serif;--font-b:'Open Sans',system-ui,sans-serif;--px:clamp(1.25rem,4vw,2.5rem);--container:1240px;--nav-h:76px;--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);--ink-dim:#b9c2cf;--navy-surface:#131921;--card-dark:#161B22;--shadow-lift:0 14px 40px -18px rgba(13,17,23,.25);--white:#ffffff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--orange:#F96532;--orange-light:#FB7B3A;--orange-dark:#ED4A3B;--navy:#1A1F36;--navy-deep:#0D1117;}
 /* ---------- shared type ---------- */
 .eyebrow {
   font-family: var(--font-h); font-weight:700; font-size:.75rem;
@@ -3147,49 +3147,7 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
 html.reduced #find-your-x .fx-chip{animation:none!important;}
 
 /* ===== case-study carousel (native swipe/drag, transparent so the graph shows) ===== */
-#proof{position:relative;background:transparent;color:var(--white);}
-#proof .proof-track-outer{position:relative;}
-#proof .proof-sticky{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;}
-#proof .proof-head{padding-top:calc(var(--nav-h) + .5rem);}
-#proof .proof-rail{margin-top:2.2rem;}
-#proof .proof-progress{margin:1.9rem var(--px) 0;height:2px;background:rgba(255,255,255,.09);border-radius:2px;max-width:420px;}
-#proof .proof-progress i{display:block;height:100%;width:0%;background:var(--grad-brand);border-radius:2px;}
-@media (max-width:900px){
-#proof .proof-sticky{position:static;height:auto;overflow:visible;padding:clamp(3.5rem,7vw,6rem) 0 3rem;}
-#proof .proof-head{padding-top:0;}
-#proof .proof-cards{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
-#proof .proof-track-outer{height:auto!important;}
-#proof .proof-progress,#proof .proof-hint{display:none;}
-}
-html.reduced #proof .proof-sticky,html:not(.js) #proof .proof-sticky{position:static;height:auto;padding:clamp(3.5rem,7vw,6rem) 0 3rem;}
-html.reduced #proof .proof-head,html:not(.js) #proof .proof-head{padding-top:0;}
-html.reduced #proof .proof-track-outer,html:not(.js) #proof .proof-track-outer{height:auto!important;}
-html.reduced #proof .proof-cards,html:not(.js) #proof .proof-cards{overflow-x:auto;}
-html.reduced #proof .proof-progress,html.reduced #proof .proof-hint,html:not(.js) #proof .proof-progress{display:none;}
-#proof .h2{color:var(--white);}
-#proof .sub{color:var(--ink-dim);margin-inline:auto;}
-#proof .proof-rail{margin-top:2rem;}
-#proof .proof-cards{display:flex;gap:1.15rem;padding:.6rem var(--px) 1rem;will-change:transform;}
-#proof .proof-cards::-webkit-scrollbar{display:none;}
-#proof .proof-card{scroll-snap-align:start;flex:0 0 auto;width:clamp(300px,30vw,400px);background:linear-gradient(180deg,var(--navy-surface),var(--card-dark));border:1px solid rgba(255,255,255,.09);border-radius:18px;overflow:hidden;transition:transform .35s var(--ease-out),border-color .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column;text-align:left;}
-@media(pointer:fine){#proof .proof-card:hover{transform:translateY(-6px);border-color:rgba(249,101,50,.45);box-shadow:0 30px 60px -30px rgba(249,101,50,.3);}}
-#proof .pc-imgwrap{position:relative;aspect-ratio:16/9.5;overflow:hidden;}
-#proof .pc-imgwrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out);}
-#proof .proof-card:hover .pc-imgwrap img{transform:scale(1.045);}
-#proof .pc-live{position:absolute;top:.8rem;left:.8rem;display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-h);font-weight:700;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(13,17,23,.72);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:.32rem .7rem;}
-#proof .pc-live i{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:blinkDot 1.1s ease-in-out infinite alternate;}
 @keyframes blinkDot{to{opacity:.3;}}
-#proof:not(.axr-inview) .pc-live i{animation:none;}
-#proof .pc-body{padding:1.15rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.65rem;flex:1;}
-#proof .pc-chip{font-family:var(--font-h);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-light);}
-#proof .pc-desc{font-size:.88rem;color:var(--gray-300);line-height:1.65;flex:1;}
-#proof .pc-figs{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;border-top:1px solid rgba(255,255,255,.08);padding-top:.9rem;margin-top:.2rem;}
-#proof .pc-fig-num{font-family:var(--font-h);font-weight:800;font-size:1.25rem;letter-spacing:-.02em;color:var(--white);}
-#proof .pc-fig-num small{font-size:.7em;}
-#proof .pc-fig-label{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-500);margin-top:.1rem;}
-#proof .proof-endcap{scroll-snap-align:start;flex:0 0 auto;width:clamp(260px,24vw,330px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1rem;border:1.5px dashed rgba(249,101,50,.4);border-radius:18px;padding:1.6rem;color:var(--ink-dim);font-size:.92rem;}
-#proof .proof-endcap .h3e{font-family:var(--font-h);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--white);}
-#proof .proof-hint{margin:1.1rem var(--px) 0;font-family:var(--font-h);font-weight:600;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-600);text-align:center;}
 /* dropdown items dark on the white panel (my white nav-link rule hid them) */
 .navbar .nav-dropdown{background:rgba(13,17,23,.97)!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 24px 50px -20px rgba(0,0,0,.6)!important;}
 .navbar li.has-dropdown .nav-dropdown a{color:rgba(255,255,255,.85)!important;}
@@ -3212,6 +3170,7 @@ html.reduced #proof .proof-progress,html.reduced #proof .proof-hint,html:not(.js
 .nav-mega .nm-feature{position:relative;display:block!important;padding:0!important;background:rgba(255,255,255,.02);color:inherit!important;}
 .nav-mega .nm-feature-img{aspect-ratio:16/9;overflow:hidden;}
 .nav-mega .nm-feature-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.nav-mega .nm-feature-img svg{width:100%;height:100%;display:block;}
 .nav-mega .nm-feature:hover .nm-feature-img img{transform:scale(1.05);}
 .nav-mega .nm-flabel{position:absolute;top:.8rem;left:.9rem;font-family:var(--font-heading);font-weight:800;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--orange);border-radius:999px;padding:.2rem .55rem;}
 .nav-mega .nm-ftitle{font-family:var(--font-heading);font-weight:800;font-size:1.02rem;color:#fff;padding:.85rem 1.1rem .3rem;}
@@ -3221,7 +3180,7 @@ html.reduced #proof .proof-progress,html.reduced #proof .proof-hint,html:not(.js
 #axr-mega-veil{position:fixed;inset:0;z-index:90;background:rgba(8,11,16,.45);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .3s ease;}
 html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 /* tighten hero -> find-your-x (remove the empty break band) */
-#home-hero{min-height:0!important;padding-top:calc(var(--nav-h) + 2.4rem)!important;padding-bottom:1.4rem!important;}
+#home-hero{min-height:100vh!important;min-height:100svh!important;justify-content:flex-start!important;padding-top:calc(var(--nav-h) + 2.4rem)!important;padding-bottom:1.4rem!important;}
 #find-your-x{padding-top:2.6rem!important;padding-bottom:1.6rem!important;}
 
 /* fixed-size hero doc card so the animations don't resize it */
@@ -3256,15 +3215,14 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 .cd-pane svg .tr{fill:none;stroke:rgba(255,255,255,.66);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:460;stroke-dashoffset:460;}
 .cd-pane svg .tr.thin{stroke:rgba(255,255,255,.3);stroke-width:1;}
 #demo-cd.run svg .tr{animation:cdDraw 1.5s var(--ease-out) forwards;}
-#demo-cd.run svg .tr:nth-child(2){animation-delay:.07s;}
-#demo-cd.run svg .tr:nth-child(3){animation-delay:.14s;}
-#demo-cd.run svg .tr:nth-child(4){animation-delay:.2s;}
-#demo-cd.run svg .tr:nth-child(5){animation-delay:.28s;}
-#demo-cd.run svg .tr:nth-child(6){animation-delay:.38s;}
-#demo-cd.run svg .tr:nth-child(7){animation-delay:.46s;}
-#demo-cd.run svg .tr:nth-child(8){animation-delay:.52s;}
-#demo-cd.run svg .tr:nth-child(9){animation-delay:.58s;}
 @keyframes cdDraw{to{stroke-dashoffset:0;}}
+.cd-pane svg .tl{opacity:0;}
+.cd-pane svg path.tl{stroke:rgba(255,255,255,.42);stroke-width:.8;fill:none;}
+.cd-pane svg text{fill:rgba(255,255,255,.62);font-family:var(--font-b);font-size:6px;letter-spacing:.05em;stroke:none;}
+#demo-cd.run svg .tl{animation:cdFade .45s ease forwards;}
+@keyframes cdFade{to{opacity:1;}}
+#demo-cd.done svg .tl,html.reduced #demo-cd svg .tl{animation:none;opacity:1;}
+#demo-cd.marks svg text.diff{fill:var(--orange-light);}
 .cd-mark{opacity:0;}
 #demo-cd.marks .cd-mark{animation:cdPop .45s var(--ease-out) forwards,cdPulse 1.8s ease-in-out .6s infinite;}
 #demo-cd.marks .cd-mark:nth-of-type(2){animation-delay:.18s,.78s;}
@@ -3327,7 +3285,49 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
             <a href="scorecard.html" role="menuitem"><span class="nm-t">Free AI Readiness Assessment</span><span class="nm-d">A five-minute diagnostic with a tailored report.</span></a>
           </div>
           <a class="nm-col nm-feature" href="bootcamp.html" role="menuitem">
-            <div class="nm-feature-img"><img src="images/case-golden-thread.jpg" alt="" loading="lazy"></div>
+            <div class="nm-feature-img"><svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="nmv-bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#161B22"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
+                  <linearGradient id="nmv-a" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F96532" stop-opacity=".30"/><stop offset="1" stop-color="#F96532" stop-opacity="0"/></linearGradient>
+                  <radialGradient id="nmv-g" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FB7B3A" stop-opacity=".8"/><stop offset="1" stop-color="#FB7B3A" stop-opacity="0"/></radialGradient>
+                </defs>
+                <rect width="480" height="300" fill="url(#nmv-bg)"/>
+
+                <!-- axes (static) -->
+                <line x1="60" y1="240" x2="430" y2="240" stroke="#374151" stroke-width="1.4"/>
+                <line x1="60" y1="40"  x2="60"  y2="240" stroke="#374151" stroke-width="1.4"/>
+                <line x1="245" y1="40" x2="245" y2="240" stroke="#374151" stroke-dasharray="3 3"/>
+                <line x1="60" y1="140" x2="430" y2="140" stroke="#374151" stroke-dasharray="3 3"/>
+
+                <!-- top-right quadrant shading -->
+                <rect x="245" y="40" width="185" height="100" fill="url(#nmv-a)" rx="6"/>
+                <text x="338" y="56" fill="#FB7B3A" font-family="Montserrat" font-weight="800" font-size="10" text-anchor="middle" letter-spacing="1.6">AUTOMATE NOW</text>
+
+                <!-- the other three quadrant labels (static, dim) -->
+                <text x="150" y="195" fill="#4B5563" font-family="Montserrat" font-weight="800" font-size="9" letter-spacing="1.6" text-anchor="middle">PARK</text>
+                <text x="338" y="195" fill="#4B5563" font-family="Montserrat" font-weight="800" font-size="9" letter-spacing="1.6" text-anchor="middle">EASY WIN</text>
+                <text x="150" y="90" fill="#4B5563" font-family="Montserrat" font-weight="800" font-size="9" letter-spacing="1.6" text-anchor="middle">TRANSFORM</text>
+
+                <!-- axis labels (static) -->
+                <text x="240" y="270" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="10" text-anchor="middle">PRIME &rarr; can it be automated</text>
+                <text x="40" y="140" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="10" transform="rotate(-90 40 140)" text-anchor="middle">VALUE &uarr; should we</text>
+
+                <!-- X marks in sequence (bottom-left → top-right). Each is a small cross. -->
+                <g data-i="1"><line x1="89" y1="212" x2="101" y2="224" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="101" y1="212" x2="89" y2="224" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="2"><line x1="134" y1="194" x2="146" y2="206" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="146" y1="194" x2="134" y2="206" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="3"><line x1="194" y1="204" x2="206" y2="216" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="206" y1="204" x2="194" y2="216" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="4"><line x1="104" y1="169" x2="116" y2="181" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="116" y1="169" x2="104" y2="181" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="5"><line x1="244" y1="174" x2="256" y2="186" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="256" y1="174" x2="244" y2="186" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="6"><line x1="304" y1="159" x2="316" y2="171" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="316" y1="159" x2="304" y2="171" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="7"><line x1="184" y1="124" x2="196" y2="136" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="196" y1="124" x2="184" y2="136" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+                <g data-i="8"><line x1="324" y1="104" x2="336" y2="116" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="336" y1="104" x2="324" y2="116" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
+
+                <!-- Glow + textless AutomateX mark (no frame) at top-right -->
+                <g ><circle cx="395" cy="78" r="48" fill="url(#nmv-g)"/></g>
+                <g >
+                  <image href="brand_assets/Logo.png" x="370" y="53" width="50" height="50" preserveAspectRatio="xMidYMid meet"/>
+                </g>
+              </svg></div>
             <div class="nm-flabel">Featured</div>
             <div class="nm-ftitle">Start with the Bootcamp</div>
             <div class="nm-fdesc">Find the single highest-value automation in your operation and prove it on your own data.</div>
@@ -3443,37 +3443,72 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
         <div class="doc-demo" id="demo-cd" aria-hidden="true">
           <div class="cd-panes">
             <figure class="cd-pane">
-              <figcaption>GA drawing &middot; Rev C</figcaption>
-              <svg viewBox="0 0 220 132" aria-hidden="true">
-                <path class="tr" d="M6,116 H214"/>
-                <path class="tr thin" d="M6,121 H214"/>
-                <path class="tr" d="M16,116 V84 H144 V116"/>
-                <path class="tr thin" d="M16,89 H144"/>
-                <path class="tr" d="M34,84 V40 H132 L140,50"/>
-                <path class="tr" d="M172,116 V32 M172,44 H150"/>
-                <path class="tr" d="M202,116 V92"/>
-                <circle class="tr" cx="202" cy="86" r="5"/>
-                <path class="tr thin" d="M16,126 H144"/>
+              <figcaption>Connection detail &middot; Rev C</figcaption>
+              <svg viewBox="0 0 240 152" aria-hidden="true">
+                <path class="tr" d="M56,14 V96" style="animation-delay:0s"/>
+                <path class="tr" d="M72,14 V96" style="animation-delay:.05s"/>
+                <path class="tr" d="M52,14 H76" style="animation-delay:.1s"/>
+                <path class="tr thin" d="M50,30 H56 M50,46 H56 M50,62 H56 M50,78 H56" style="animation-delay:.16s"/>
+                <path class="tr" d="M84,18 V72" style="animation-delay:.24s"/>
+                <path class="tr" d="M148,38 H188 M168,38 V80 M148,80 H188" style="animation-delay:.32s"/>
+                <path class="tr" d="M72,96 H236" style="animation-delay:.42s"/>
+                <path class="tr" d="M72,104 H236" style="animation-delay:.48s"/>
+                <path class="tr" d="M62,106 L148,150" style="animation-delay:.56s"/>
+                <path class="tr" d="M74,98 L162,142" style="animation-delay:.62s"/>
+                <path class="tl" d="M78,104 H110 V134 H78 Z" stroke-dasharray="3 3" style="animation-delay:.95s"/>
+                <path class="tl" d="M87,111 h7 M90.5,107.5 v7 M99,119 h7 M102.5,115.5 v7 M87,127 h7 M90.5,123.5 v7" style="animation-delay:1.05s"/>
+                <path class="tl" d="M30,20 V96 M30,20 l2.2,4.5 M30,20 l-2.2,4.5 M30,96 l2.2,-4.5 M30,96 l-2.2,-4.5 M34,20 H52 M34,96 H52" style="animation-delay:1.15s"/>
+                <text class="tl" x="25" y="60" text-anchor="middle" transform="rotate(-90 25 60)" style="animation-delay:1.2s">660</text>
+                <path class="tl" d="M148,30 H188 M148,26 V34 M188,26 V34" style="animation-delay:1.25s"/>
+                <text class="tl" x="168" y="26" text-anchor="middle" style="animation-delay:1.3s">152</text>
+                <text class="tl" x="96" y="16" style="animation-delay:1.35s">13 THK GUSSET</text>
+                <path class="tl" d="M94,17 L86,24" style="animation-delay:1.35s"/>
+                <text class="tl" x="192" y="60" style="animation-delay:1.4s">254 x 114</text>
+                <path class="tl" d="M190,58 L172,56" style="animation-delay:1.4s"/>
+                <text class="tl" x="114" y="122" style="animation-delay:1.45s">13MM PACK</text>
+                <path class="tl" d="M112,120 L106,116" style="animation-delay:1.45s"/>
+                <text class="tl" x="236" y="92" text-anchor="end" style="animation-delay:1.5s">152 x 102 x 13 TEE</text>
+                <path class="tl" d="M212,94 L206,98" style="animation-delay:1.5s"/>
+                <text class="tl" x="166" y="146" style="animation-delay:1.55s">152 x 89 x 10 ANGLES</text>
+                <path class="tl" d="M164,144 L156,138" style="animation-delay:1.55s"/>
               </svg>
             </figure>
             <figure class="cd-pane">
-              <figcaption>GA drawing &middot; Rev D</figcaption>
-              <svg viewBox="0 0 220 132" aria-hidden="true">
-                <path class="tr" d="M6,116 H214"/>
-                <path class="tr thin" d="M6,121 H214"/>
-                <path class="tr" d="M16,116 V84 H144 V116"/>
-                <path class="tr thin" d="M16,89 H144"/>
-                <path class="tr diff" d="M34,84 V40 H114 L122,50"/>
-                <path class="tr diff" d="M186,116 V32 M186,44 H164"/>
-                <path class="tr" d="M202,116 V92"/>
-                <circle class="tr" cx="202" cy="86" r="5"/>
-                <g class="cd-mark" transform="translate(122,42)"><circle r="8" fill="none" stroke="#F96532" stroke-width="1.8"/><circle r="2.2" fill="#F96532"/></g>
-                <g class="cd-mark" transform="translate(180,62)"><circle r="8" fill="none" stroke="#F96532" stroke-width="1.8"/><circle r="2.2" fill="#F96532"/></g>
-                <g class="cd-mark" transform="translate(80,122)"><circle r="8" fill="none" stroke="#F96532" stroke-width="1.8"/><circle r="2.2" fill="#F96532"/></g>
+              <figcaption>Connection detail &middot; Rev D</figcaption>
+              <svg viewBox="0 0 240 152" aria-hidden="true">
+                <path class="tr" d="M56,14 V96" style="animation-delay:0s"/>
+                <path class="tr" d="M72,14 V96" style="animation-delay:.05s"/>
+                <path class="tr" d="M52,14 H76" style="animation-delay:.1s"/>
+                <path class="tr thin" d="M50,30 H56 M50,46 H56 M50,62 H56 M50,78 H56" style="animation-delay:.16s"/>
+                <path class="tr diff" d="M84,34 V72" style="animation-delay:.24s"/>
+                <path class="tr" d="M148,38 H188 M168,38 V80 M148,80 H188" style="animation-delay:.32s"/>
+                <path class="tr" d="M72,96 H236" style="animation-delay:.42s"/>
+                <path class="tr" d="M72,104 H236" style="animation-delay:.48s"/>
+                <path class="tr" d="M62,106 L148,150" style="animation-delay:.56s"/>
+                <path class="tr" d="M74,98 L162,142" style="animation-delay:.62s"/>
+                <path class="tl" d="M78,104 H110 V134 H78 Z" stroke-dasharray="3 3" style="animation-delay:.95s"/>
+                <path class="tl diff" d="M87,111 h7 M90.5,107.5 v7 M99,119 h7 M102.5,115.5 v7" style="animation-delay:1.05s"/>
+                <path class="tl" d="M30,20 V96 M30,20 l2.2,4.5 M30,20 l-2.2,4.5 M30,96 l2.2,-4.5 M30,96 l-2.2,-4.5 M34,20 H52 M34,96 H52" style="animation-delay:1.15s"/>
+                <text class="tl diff" x="25" y="60" text-anchor="middle" transform="rotate(-90 25 60)" style="animation-delay:1.2s">580</text>
+                <path class="tl" d="M148,30 H188 M148,26 V34 M188,26 V34" style="animation-delay:1.25s"/>
+                <text class="tl" x="168" y="26" text-anchor="middle" style="animation-delay:1.3s">152</text>
+                <text class="tl" x="96" y="16" style="animation-delay:1.35s">13 THK GUSSET</text>
+                <path class="tl" d="M94,17 L86,28" style="animation-delay:1.35s"/>
+                <text class="tl" x="192" y="60" style="animation-delay:1.4s">254 x 114</text>
+                <path class="tl" d="M190,58 L172,56" style="animation-delay:1.4s"/>
+                <text class="tl" x="114" y="122" style="animation-delay:1.45s">13MM PACK</text>
+                <path class="tl" d="M112,120 L106,116" style="animation-delay:1.45s"/>
+                <text class="tl" x="236" y="92" text-anchor="end" style="animation-delay:1.5s">152 x 102 x 13 TEE</text>
+                <path class="tl" d="M212,94 L206,98" style="animation-delay:1.5s"/>
+                <text class="tl" x="166" y="146" style="animation-delay:1.55s">152 x 89 x 10 ANGLES</text>
+                <path class="tl" d="M164,144 L156,138" style="animation-delay:1.55s"/>
+                <g class="cd-mark" transform="translate(84,26)"><circle r="8" fill="none" stroke="#F96532" stroke-width="1.8"/><circle r="2.2" fill="#F96532"/></g>
+                <g class="cd-mark" transform="translate(25,58)"><circle r="8" fill="none" stroke="#F96532" stroke-width="1.8"/><circle r="2.2" fill="#F96532"/></g>
+                <g class="cd-mark" transform="translate(96,124)"><circle r="8" fill="none" stroke="#F96532" stroke-width="1.8"/><circle r="2.2" fill="#F96532"/></g>
               </svg>
             </figure>
           </div>
-          <div class="cd-found"><span class="cd-count" id="cd-count">Tracing revisions&hellip;</span><span class="cd-chip">Canopy extent</span><span class="cd-chip">OLE mast position</span><span class="cd-chip">Drain run omitted</span></div>
+          <div class="cd-found"><span class="cd-count" id="cd-count">Tracing revisions&hellip;</span><span class="cd-chip">660 vs 580 dim</span><span class="cd-chip">Gusset shortened</span><span class="cd-chip">Pack bolt omitted</span></div>
         </div>
 
         <div class="doc-foot">
@@ -3858,20 +3893,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
     </div>
   </div>
 </section>
-<section id="proof" data-nav-theme="dark">
-  <div class="proof-track-outer" id="proof-outer">
-    <div class="proof-sticky">
-      <div class="container proof-head">
-        <div class="eyebrow" data-reveal>AI in action</div>
-        <h2 class="h2" data-reveal>Real-world AI, delivering measurable results.</h2>
-        <p class="sub" data-reveal>Not slideware. Systems in service on UK rail work today, with the figures they carry.</p>
-      </div>
-      <div class="proof-rail"><div class="proof-cards" id="proof-cards"><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">01 &middot; AI-empowered survey processing</div><p class="pc-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p><div class="pc-figs"><div><div class="pc-fig-num">7,650</div><div class="pc-fig-label">HD photos</div></div><div><div class="pc-fig-num">300+</div><div class="pc-fig-label">Survey flights</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Closures</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">02 &middot; AI-empowered drawing take-off</div><p class="pc-desc">Automated linear take-off from rail engineering drawings. AI extracts measurements with full audit trail. Hours not days, with cited evidence per line.</p><div class="pc-figs"><div><div class="pc-fig-num">99<small>%</small></div><div class="pc-fig-label">Accuracy</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Traceable</div></div><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Time reduction</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">03 &middot; AI-empowered design review &amp; verification</div><p class="pc-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p><div class="pc-figs"><div><div class="pc-fig-num">&pound;300<small>k</small></div><div class="pc-fig-label">Potential annual saving</div></div><div><div class="pc-fig-num">5</div><div class="pc-fig-label">Stages traced</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Broken links</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-knowledge-graph.jpg" alt="Knowledge graph trained on rail standards, taxonomy, and project history" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">04 &middot; Tender Knowledge Base</div><p class="pc-desc">A rail-specific knowledge graph trained on standards, taxonomy, and project history. Drove tender response quality and efficiency. Every output cited, grounded in your domain.</p><div class="pc-figs"><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Efficiency gain</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Cited evidence</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Grounded</div></div></div></div></a><a class="proof-card" href="ai-in-action.html#case-studies"><div class="pc-imgwrap"><img src="images/case-scribtive.jpg" alt="Scribtive doc assistance UI for PACE-compliant rail forms" loading="lazy"><span class="pc-live"><i></i>Pilot</span></div><div class="pc-body"><div class="pc-chip">05 &middot; Scribtive&trade;</div><p class="pc-desc">Doc assistance for PACE-compliant rail forms. Section-by-section drafting with cited evidence and compliance gates. Currently in pilot.</p><div class="pc-figs"><div><div class="pc-fig-num">PACE</div><div class="pc-fig-label">Aligned</div></div><div><div class="pc-fig-num">RAG</div><div class="pc-fig-label">Knowledge enabled</div></div><div><div class="pc-fig-num">&infin;</div><div class="pc-fig-label">Audit trail</div></div></div></div></a><div class="proof-endcap"><div class="h3e">Your <span class="axr-heading-x">X</span> could be next.</div><p>See the full case studies, then tell us where your friction lives.</p><a class="axr-btn axr-btn-primary" href="ai-in-action.html#case-studies">See it in action <span class="arr" aria-hidden="true">&rarr;</span></a></div></div></div>
-      <div class="proof-progress" aria-hidden="true"><i id="proof-bar"></i></div>
-      <div class="proof-hint" id="proof-hint">Scroll to explore &middot; 5 deployments</div>
-    </div>
-  </div>
-</section>
+
 
 
 
@@ -6376,26 +6398,7 @@ var REDUCED = document.documentElement.classList.contains('reduced');
   });
 })();
 </script>
-<script id="axr-proof-2026-07-11">
-(function(){var outer=document.getElementById("proof-outer"),cards=document.getElementById("proof-cards"),bar=document.getElementById("proof-bar");
-if(!outer||!cards)return;
-var mq=window.matchMedia("(min-width:900px)"),dist=0,ticking=false;
-function reduced(){return document.documentElement.classList.contains("reduced");}
-function onScroll(){if(!dist)return;
-var r=outer.getBoundingClientRect(),total=r.height-window.innerHeight;
-if(total<=0)return;
-var p=Math.min(1,Math.max(0,-r.top/total));
-cards.style.transform="translate3d("+(-p*dist).toFixed(1)+"px,0,0)";
-if(bar)bar.style.width=(p*100).toFixed(1)+"%";}
-function layout(){if(mq.matches&&!reduced()){dist=Math.max(0,cards.scrollWidth-window.innerWidth);outer.style.height=(window.innerHeight+dist)+"px";}
-else{dist=0;outer.style.height="";cards.style.transform="";}
-onScroll();}
-window.addEventListener("scroll",function(){if(ticking)return;ticking=true;requestAnimationFrame(function(){ticking=false;onScroll();});},{passive:true});
-var rz;window.addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(layout,120);});
-window.addEventListener("load",layout);
-Array.prototype.forEach.call(cards.querySelectorAll("img"),function(im){if(!im.complete)im.addEventListener("load",layout,{once:true});});
-layout();})();
-</script>
+
 <script id="axr-megamenu-2026-07-11">
 (function(){var root=document.documentElement,nav=document.querySelector(".navbar"),veil=document.getElementById("axr-mega-veil");
 var lis=document.querySelectorAll(".navbar-links .has-dropdown");
