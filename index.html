@@ -2963,6 +2963,16 @@ html.reduced .ring-tex { animation: none; }
 .core-disc { fill: url(#coreGrad); }
 .core-t { font-family: var(--font-h); font-weight: 800; font-size: 15px; letter-spacing: .1em; fill: #fff; text-anchor: middle; }
 .core-sub { font-family: var(--font-b); font-size: 9px; letter-spacing: .04em; fill: rgba(255,255,255,.85); text-anchor: middle; }
+/* core: default = "engineering"; finale = bigger + 3 bullets */
+.core-default{transition:opacity .4s var(--ease);}
+.core-final{opacity:0;transition:opacity .55s var(--ease);}
+.week-wrap.prized .core-default{opacity:0;}
+.week-wrap.prized .core-final{opacity:1;}
+.core-t2{font-family:var(--font-h);font-weight:800;font-size:13px;letter-spacing:.05em;fill:#fff;text-anchor:middle;}
+.core-b{font-family:var(--font-b);font-weight:600;font-size:8.5px;fill:rgba(255,255,255,.94);text-anchor:start;}
+.core-bd{fill:rgba(255,255,255,.9);}
+/* no scroll progress bar in the pain section */
+#pain .week-ticks{display:none!important;}
 html.reduced .core { transition:none; }
 .rs-shock { fill:none; stroke: var(--orange); stroke-width: 2.5; opacity: 0;
   transform-box: view-box; transform-origin: 50% 50%; pointer-events:none; }
@@ -3169,7 +3179,7 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
 .navbar li.has-dropdown .nav-dropdown a:hover{color:#fff!important;background:rgba(249,101,50,.16)!important;}
 /* tighten hero -> find-your-x (remove the empty break band) */
 #home-hero{padding-bottom:1.4rem!important;}
-#find-your-x{padding-top:2.6rem!important;}
+#find-your-x{padding-top:2.6rem!important;padding-bottom:1.6rem!important;}
 
 /* fixed-size hero doc card so the animations don't resize it */
 #home-hero .doc-card{height:452px;overflow:hidden;}
@@ -3642,8 +3652,13 @@ html.reduced #find-your-x .fx-chip{animation:none!important;}
             <g class="core" id="rings-core">
               <circle class="core-halo" cx="280" cy="280" r="80" filter="url(#coreBlur)"/>
               <circle class="core-disc" cx="280" cy="280" r="70"/>
-              <text class="core-t" x="280" y="277">ENGINEERING</text>
-              <text class="core-sub" x="280" y="296">judgement &middot; decisions &middot; risk</text>
+              <text class="core-t core-default" x="280" y="286">engineering</text>
+              <g class="core-final">
+                <text class="core-t2" x="280" y="249">engineering</text>
+                <circle class="core-bd" cx="246" cy="271" r="2.6"/><text class="core-b" x="256" y="275">Apply judgment</text>
+                <circle class="core-bd" cx="246" cy="291" r="2.6"/><text class="core-b" x="256" y="295">Make decisions</text>
+                <circle class="core-bd" cx="246" cy="311" r="2.6"/><text class="core-b" x="256" y="315">Manage risks</text>
+              </g>
             </g>
             <circle class="rs-shock" id="rs-shock" cx="280" cy="280" r="78"/>
           </svg>
@@ -6009,7 +6024,7 @@ var REDUCED = document.documentElement.classList.contains('reduced');
       chipEls[L.key].classList.toggle('on', g);
     });
     weekWrap.classList.toggle('prized', b >= LAST_BEAT);
-    ringsCore.style.setProperty('--core-s', b >= LAST_BEAT ? 1.5 : (1 + gone * 0.035).toFixed(3));
+    ringsCore.style.setProperty('--core-s', b >= LAST_BEAT ? 1.95 : (0.85 + gone * 0.05).toFixed(3));
     var left = LAYERS.length - gone;
     if (rsNum.textContent !== String(left)) { rsNum.textContent = left; popNum(); }
     rsCountText.textContent = b >= LAST_BEAT ? 'layers left. Just engineering.'
