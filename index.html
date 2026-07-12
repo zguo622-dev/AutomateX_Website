@@ -3252,7 +3252,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 .navbar .navbar-links a:hover,.navbar .nav-dropdown-toggle:hover,.navbar .navbar-links a.is-current{color:#fff!important;}
 .navbar .nav-dropdown-toggle::after{border-color:rgba(255,255,255,.7)!important;}
 .navbar .mobile-toggle span{background:#fff!important;}
-.navbar.navbar-hidden{transform:none!important;}
+.navbar{transition:transform .3s cubic-bezier(.4,0,.2,1),background .3s ease,border-color .3s ease,backdrop-filter .3s ease!important;}
 /* ===== PERF ===== */
 /* Particle canvas was sized to the whole document (~17MP, 2000+ particles redrawn every frame).
    Pin it to the viewport so it stays ~1 viewport regardless of page height. */
