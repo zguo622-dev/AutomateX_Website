@@ -3245,9 +3245,9 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 #demo-cd.done .cd-mark,html.reduced #demo-cd.marks .cd-mark{animation:none;opacity:1;}
 #home-hero .axr-hero-demo-caption{font-size:.72rem;line-height:1.45;}
 
-/* ===== homepage navbar: transparent over hero, solid dark blur on scroll (white logo + links, stays visible) ===== */
-.navbar{position:fixed!important;top:0!important;left:0!important;right:0!important;background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:transparent!important;transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;}
-.navbar.axr-scrolled{background:rgba(13,17,23,.82)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;border-bottom-color:rgba(255,255,255,.08)!important;}
+/* ===== homepage navbar: always transparent, no colour tint ever. Permanent blur (no background) keeps
+   the nav links legible against scrolling content underneath without ever showing a visible dark bar. ===== */
+.navbar{position:fixed!important;top:0!important;left:0!important;right:0!important;background:transparent!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important;border-bottom-color:transparent!important;transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;}
 .navbar .navbar-links a,.navbar .nav-dropdown-toggle{color:rgba(255,255,255,.82)!important;}
 .navbar .navbar-links a:hover,.navbar .nav-dropdown-toggle:hover,.navbar .navbar-links a.is-current{color:#fff!important;}
 .navbar .nav-dropdown-toggle::after{border-color:rgba(255,255,255,.7)!important;}
@@ -6412,9 +6412,6 @@ var REDUCED = document.documentElement.classList.contains('reduced');
 
   
 })();
-</script>
-<script id="axr-navbar-scroll-2026-07-10">
-(function(){var nav=document.querySelector('.navbar');if(!nav)return;function upd(){nav.classList.toggle('axr-scrolled',(window.scrollY||window.pageYOffset||0)>60);}window.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 <script id="axr-perf-2026-07-10">
 (function(){
