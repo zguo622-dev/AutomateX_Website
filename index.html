@@ -2619,14 +2619,6 @@ a.axr-brand-x:hover { border-bottom-color: var(--orange); }
 .sec-dark .h2 { color: var(--white); }
 
 /* blueprint grid + grain for dark scenes */
-.bg-grid { position:absolute; inset:0; pointer-events:none; z-index:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.033) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.033) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 40%, transparent 100%);
-          mask-image: radial-gradient(120% 100% at 50% 0%, #000 40%, transparent 100%);
-}
 .sec-dark > .container, .axr-hero > .container { position:relative; z-index:2; }
 
 /* ---------- buttons ---------- */
@@ -2662,12 +2654,6 @@ html:not(.js) [data-reveal], html.reduced [data-reveal] { opacity:1; transform:n
   display:flex; flex-direction:column; justify-content:center;
   padding: calc(var(--nav-h) + 4.5rem) 0 5.5rem;
   overflow:hidden;
-}
-.axr-hero-glow { position:absolute; z-index:0; width:1100px; height:1100px; right:-320px; top:-380px; pointer-events:none;
-  background: radial-gradient(closest-side, rgba(249,101,50,.15), transparent 68%);
-}
-.axr-hero-glow2 { position:absolute; z-index:0; width:800px; height:800px; left:-360px; bottom:-420px; pointer-events:none;
-  background: radial-gradient(closest-side, rgba(249,101,50,.07), transparent 70%);
 }
 .axr-hero-xmark { position:absolute; z-index:0; right:-4vw; bottom:-9vw; width: 46vw; max-width:720px; opacity:.55; pointer-events:none; }
 .axr-hero-xmark path { fill:none; stroke-width: 2.4; stroke-linecap:round; }
@@ -2912,7 +2898,6 @@ html.reduced .fx-panel.show { animation:none; }
 .week-wrap { position:relative; background: var(--navy-deep); color:var(--white); }
 .week-track { height: 880vh; position:relative; }
 .week-sticky { position: sticky; top: 0; height: 100vh; height:100svh; overflow:hidden; display:flex; align-items:center; }
-.week-sticky .bg-grid { -webkit-mask-image:none; mask-image:none; opacity:.7; }
 /* full-viewport stage: the animation IS the section */
 .rings-stage {
   width:100%; min-height:100vh; min-height:100svh; position:relative; z-index:1;
@@ -3134,10 +3119,7 @@ html.shot-freeze .proof-progress, html.shot-freeze .proof-hint { display:none; }
 #find-your-x .fx-chip.dim .fx-dot{opacity:.4;}
 /* board: semi-transparent (graph shows through) + slow drifting glow, less dull */
 #find-your-x .fx-board{background:linear-gradient(180deg,rgba(22,27,34,.5),rgba(13,17,23,.62))!important;border-color:rgba(255,255,255,.07)!important;position:relative;}
-#find-your-x .fx-glowwrap{position:absolute;inset:0;border-radius:inherit;overflow:hidden;z-index:0;pointer-events:none;}
-#find-your-x .fx-glowwrap::before{content:"";position:absolute;width:60%;height:70%;left:20%;top:14%;background:radial-gradient(closest-side,rgba(249,101,50,.14),transparent 72%);animation:fxGlow 16s ease-in-out infinite;}
 #find-your-x .fx-cloud{position:relative;z-index:1;}
-@keyframes fxGlow{0%{transform:translate(-30%,-8%)}33%{transform:translate(35%,22%)}66%{transform:translate(12%,-28%)}100%{transform:translate(-30%,-8%)}}
 /* fluid floating pills, more breathing room, less empty board */
 @keyframes fxFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @media (min-width:901px){
@@ -3394,9 +3376,6 @@ html{scroll-padding-top:76px;}
 
 <!-- ===== HERO (ported self-drafting doc) ===== -->
 <header class="axr-hero" id="home-hero" data-nav-theme="dark">
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="axr-hero-glow" aria-hidden="true"></div>
-  <div class="axr-hero-glow2" aria-hidden="true"></div>
 
   <div class="container axr-hero-grid">
     <div class="axr-hero-copy">
@@ -3577,7 +3556,6 @@ html{scroll-padding-top:76px;}
 
     <div class="fx-board" id="fx-board" data-reveal>
       <div class="fx-spot" id="fx-spot" aria-hidden="true"></div>
-      <div class="fx-glowwrap" aria-hidden="true"></div>
       <div class="fx-cloud" id="fx-cloud">
         <button class="fx-chip" data-key="form-a" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>Form A/B/C/G</button>
         <button class="fx-chip" data-key="aip" data-cat="assurance" aria-pressed="false"><span class="fx-dot"></span>AIP</button>
@@ -3790,7 +3768,6 @@ html{scroll-padding-top:76px;}
 <section class="week-wrap" id="pain" data-nav-theme="dark">
   <div class="week-track" id="week-track">
     <div class="week-sticky">
-      <div class="bg-grid" aria-hidden="true"></div>
       <div class="rings-stage">
         <div class="rs-head">
           <div class="eyebrow axr-center">The pain &rarr; the prize</div>
