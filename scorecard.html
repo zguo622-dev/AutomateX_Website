@@ -19,10 +19,10 @@
 <meta name="twitter:description" content="Free 20-question AI Readiness Assessment for UK rail firms. 5 minutes, instant tailored report.">
 <meta name="twitter:image" content="https://automatex.uk/brand_assets/automatex-wordmark.png">
 <style id="scorecard-canon-2026-06-06">
-/* Hotfix 2026-07-10: the scorecard is a focused funnel page, no footer.
-   (The old dark-footer override fought a later `.footer { background:#fff }` rule
-   and rendered as a ghost footer beneath the quiz.) */
-.footer { display: none !important; }
+/* Footer restored 2026-07-12: the display:none hotfix from 2026-07-10 is
+   superseded by axr-dark-2026-07-12, which resolves the background conflict
+   properly (transparent, particle canvas shows through, matching every
+   other page) instead of hiding the footer entirely. */
 .footer .container { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
 .footer .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr) auto; gap: 2.5rem; align-items: start; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .footer .footer-brand img { height: 26px !important; width: auto !important; }
@@ -1320,6 +1320,99 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 .footer-social a:hover{transform:translateY(-2px);}
 .footer-social a{border:1px solid var(--gray-200);color:var(--gray-400);}
 .footer-social a:hover{color:var(--orange);border-color:var(--orange);background:rgba(249,101,50,.1);}
+</style>
+<style id="axr-dark-2026-07-12">
+/* ===== scorecard.html: full dark conversion to match the rest of the site ===== */
+#site-particles{display:block!important;}
+body{background:transparent!important;}
+
+/* legacy light nav (nav-reorg-styles, pre-dates the dark navbar port) */
+.navbar{background:rgba(13,17,23,.86)!important;}
+.navbar-links a,.navbar-links a.is-current,.nav-dropdown a,.mobile-menu .mobile-sub-toggle{color:rgba(255,255,255,.82)!important;}
+.navbar-links a:hover,.nav-dropdown a:hover,.nav-dropdown a.is-current{color:var(--orange)!important;}
+.nav-dropdown{background:rgba(13,17,23,.97)!important;border-color:rgba(255,255,255,.1)!important;}
+.mobile-menu .mobile-sub a{color:rgba(255,255,255,.75)!important;}
+
+/* focused quiz header */
+.sc-header{background:transparent!important;border-bottom-color:rgba(255,255,255,.08)!important;}
+.sc-logo{color:#fff!important;}
+.sc-progress-bar{background:rgba(255,255,255,.12)!important;}
+.sc-progress-text{color:rgba(255,255,255,.5)!important;}
+
+/* cover */
+.sc-cover{background:transparent!important;}
+.sc-cover-title{color:#fff!important;}
+.sc-cover-sub{color:rgba(255,255,255,.78)!important;}
+.sc-cover-body p{color:rgba(255,255,255,.72)!important;}
+.sc-cover-stats{background:rgba(255,255,255,.04)!important;border-color:rgba(255,255,255,.1)!important;}
+.sc-cover-stat-num{color:#fff!important;}
+.sc-cover-stat-label{color:rgba(255,255,255,.55)!important;}
+.sc-cover-incentive{color:rgba(255,255,255,.82)!important;}
+.sc-cover-incentive-text strong{color:#fff!important;}
+.sc-cover-pillars-title{color:#fff!important;}
+.sc-cover-pillars-sub{color:rgba(255,255,255,.75)!important;}
+.sc-cover-pillar{background:rgba(255,255,255,.035)!important;border-color:rgba(255,255,255,.09)!important;}
+.sc-cover-pillar:hover{border-color:rgba(249,101,50,.4)!important;}
+.sc-cover-pillar h3{color:#fff!important;}
+.sc-cover-pillar-lead{color:rgba(255,255,255,.55)!important;}
+.sc-cover-pillar-body{color:rgba(255,255,255,.68)!important;}
+
+/* question screen */
+.sc-question-num{color:rgba(255,255,255,.5)!important;}
+.sc-question-text{color:#fff!important;}
+.sc-option{background:rgba(255,255,255,.035)!important;border-color:rgba(255,255,255,.12)!important;color:rgba(255,255,255,.88)!important;}
+.sc-option:hover{background:rgba(249,101,50,.06)!important;}
+.sc-option.selected{background:rgba(249,101,50,.1)!important;}
+.sc-textarea{background:rgba(255,255,255,.035)!important;border-color:rgba(255,255,255,.12)!important;color:rgba(255,255,255,.88)!important;}
+.sc-textarea::placeholder{color:rgba(255,255,255,.4)!important;}
+.sc-btn-back{color:rgba(255,255,255,.55)!important;}
+.sc-btn-back:hover{color:#fff!important;}
+.sc-skip{color:rgba(255,255,255,.45)!important;}
+.sc-skip:hover{color:rgba(255,255,255,.7)!important;}
+
+/* results: speedometer + headline */
+.speedometer-track-bg{stroke:rgba(255,255,255,.1)!important;}
+.speedometer-score-num{color:#fff!important;}
+.speedometer-score-num span{color:rgba(255,255,255,.55)!important;}
+.results-headline{color:#fff!important;}
+.results-subtitle{color:rgba(255,255,255,.68)!important;}
+
+/* results: band ladder */
+.band-step{background:rgba(255,255,255,.035)!important;border-color:rgba(255,255,255,.08)!important;}
+.band-step:hover{background:rgba(249,101,50,.08)!important;}
+.band-step.is-current{background:rgba(249,101,50,.12)!important;border-color:rgba(249,101,50,.5)!important;}
+.band-step-label{color:rgba(255,255,255,.78)!important;}
+.band-step-range{color:rgba(255,255,255,.5)!important;}
+.band-description{color:rgba(255,255,255,.65)!important;}
+
+/* results: pillar breakdown card */
+.pillar-breakdown{background:rgba(255,255,255,.035)!important;border-color:rgba(255,255,255,.09)!important;}
+.pillar-breakdown h3{color:#fff!important;}
+.pillar-name{color:rgba(255,255,255,.85)!important;}
+.pillar-bar{background:rgba(255,255,255,.08)!important;}
+.pillar-pct{color:rgba(255,255,255,.6)!important;}
+
+/* results: weakest-pillar callout */
+.weakest-callout h4{color:#fff!important;}
+.weakest-callout p{color:rgba(255,255,255,.72)!important;}
+.weakest-callout .bridge{color:rgba(255,255,255,.55)!important;}
+.weakest-callout .bridge strong{color:#fff!important;}
+
+/* email gate + cohort CTA */
+.email-gate{background:rgba(255,255,255,.035)!important;border-color:rgba(255,255,255,.09)!important;}
+.email-gate h3{color:#fff!important;}
+.email-gate p{color:rgba(255,255,255,.6)!important;}
+.email-gate-form label{color:rgba(255,255,255,.55)!important;}
+.email-gate-form label .optional{color:rgba(255,255,255,.4)!important;}
+.email-gate-form input{background:rgba(255,255,255,.04)!important;border-color:rgba(255,255,255,.14)!important;color:#fff!important;}
+.email-gate-form input::placeholder{color:rgba(255,255,255,.4)!important;}
+.cohort-cta h4{color:#fff!important;}
+.cohort-cta p{color:rgba(255,255,255,.7)!important;}
+.cohort-cta.cohort-cold{background:rgba(255,255,255,.035)!important;border-color:rgba(255,255,255,.09)!important;}
+.cohort-cta.cohort-cold .cohort-cta-eyebrow{color:rgba(255,255,255,.55)!important;}
+
+/* footer */
+.footer{background:transparent!important;}
 </style>
 </head>
 <body>
@@ -2854,6 +2947,191 @@ li.addEventListener("mouseenter",cancel);
 new MutationObserver(sync).observe(li,{attributes:true,attributeFilter:["class"]});});
 if(veil)veil.addEventListener("click",closeAll);
 window.addEventListener("resize",sync);})();
+</script>
+<!-- ========== Particle background (Research + PACE OS sections) ==========
+     Brand-tuned particles.js: white particles, orange line-linked, low density.
+     Lazy-loaded on first intersection so we do not pay the script cost
+     for visitors who bounce above the fold. Skipped on prefers-reduced-motion. -->
+<script>
+(function() {
+  /* Honour reduced-motion: leave the section as plain dark navy. */
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  /* Each entry: { id: DOM id of the particle host, theme: 'dark' | 'light' }.
+     Dark theme = white nodes with orange links (looks like hero).
+     Light theme = grey nodes with grey links (visible on white). */
+  var PARTICLE_TARGETS = []; /* deprecated, kept for backwards-ref */
+
+  function particleConfig(theme) {
+    var isLight = theme === 'light';
+    return {
+      particles: {
+        number: { value: 95, density: { enable: true, value_area: 800 } },
+        color: { value: isLight ? '#9ca3af' : '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: {
+          value: isLight ? 0.4 : 0.45,
+          random: true,
+          anim: { enable: true, speed: 0.6, opacity_min: 0.12, sync: false }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: { enable: true, speed: 1.2, size_min: 1, sync: false }
+        },
+        line_linked: {
+          enable: true,
+          distance: 140,
+          color: isLight ? '#b0b6c0' : '#F96532',
+          opacity: isLight ? 0.15 : 0.18,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 0.9,
+          direction: 'none',
+          random: true,
+          straight: false,
+          out_mode: 'bounce',
+          bounce: false
+        }
+      },
+      interactivity: {
+        /* detect_on left at 'canvas'. The library's own listener doesn't fire
+           because sections sit above the canvas in z-order. We pipe correctly-
+           translated coordinates into pJS.interactivity.mouse via a single
+           window-level handler below (see the "Forward mouse → particles"
+           block at the bottom of this script). */
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'grab' },
+          onclick: { enable: false },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 170, line_linked: { opacity: 0.55 } }
+        }
+      },
+      retina_detect: true
+    };
+  }
+
+  var libLoading = false;
+  var libQueue = [];
+
+  function ensureLib(cb) {
+    if (typeof window.particlesJS === 'function') { cb(); return; }
+    libQueue.push(cb);
+    if (libLoading) return;
+    libLoading = true;
+    var s = document.createElement('script');
+    /* npm path on jsDelivr is more reliable than the legacy raw path. */
+    s.src = 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js';
+    s.async = true;
+    s.onload = function() {
+      libQueue.forEach(function(fn) { try { fn(); } catch(e) { console.error(e); } });
+      libQueue = [];
+    };
+    s.onerror = function() {
+      console.warn('[particles] failed to load library — sections fall back to plain navy.');
+    };
+    document.head.appendChild(s);
+  }
+  
+  /* === Single page-tall particle canvas (rev. 2026-06-03 c) =========== */
+  function syncCanvasHeight() {
+    var h = document.documentElement.scrollHeight;
+    document.documentElement.style.setProperty('--page-h', h + 'px');
+    /* Tell particles.js to re-evaluate canvas size if already initialised. */
+    if (window.pJSDom && window.pJSDom.length) {
+      var pjs = window.pJSDom[0].pJS;
+      if (pjs && pjs.canvas) {
+        pjs.canvas.el.style.height = '100%';
+        pjs.fn.canvasSize();
+        pjs.fn.particlesRefresh();
+      }
+    }
+  }
+  function initSiteParticles() {
+    var host = document.getElementById('site-particles');
+    if (!host) return;
+    ensureLib(function() {
+      try {
+        window.particlesJS('site-particles', particleConfig('dark'));
+        /* Set initial page-height after particles initialise and any layout
+           settles. Schedule a few re-syncs to catch fonts loading / images
+           reflowing the page. */
+        syncCanvasHeight();
+        setTimeout(syncCanvasHeight, 500);
+        setTimeout(syncCanvasHeight, 1500);
+      } catch (e) { console.warn('[particles] init failed', e); }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSiteParticles);
+  } else {
+    initSiteParticles();
+  }
+  /* Resync canvas height when the page resizes or its content grows. */
+  window.addEventListener('resize', syncCanvasHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(syncCanvasHeight).observe(document.body);
+  }
+
+
+
+  /* === Forward mouse → particles ============================================
+     Every particle system runs with `detect_on: 'canvas'` for correct coordinate
+     handling, but section content sits above each canvas in z-order so the
+     library's own canvas mousemove listener never fires. Window-level detect
+     would fire but ships raw clientX/clientY — wrong frame of reference once
+     the canvas is scrolled away from the viewport origin (the grab effect
+     would track the mouse "from a distance" or not at all on the shared
+     dark-stack canvas).
+
+     This single handler walks every initialised pJS instance on each mousemove,
+     reads the canvas's live getBoundingClientRect, and writes canvas-relative
+     coordinates into pJS.interactivity.mouse.{pos_x,pos_y}. It also sets
+     mouse.inside / interactivity.status so the grab renderer treats the system
+     as live. Cost is O(N) per mousemove where N = active systems (≤ ~6); cheap
+     because getBoundingClientRect is fast for non-layouting elements. */
+  function pipeMouse(e) {
+    var systems = window.pJSDom;
+    if (!systems || !systems.length) return;
+    for (var i = 0; i < systems.length; i++) {
+      var pJS = systems[i] && systems[i].pJS;
+      if (!pJS || !pJS.canvas || !pJS.canvas.el) continue;
+      var rect = pJS.canvas.el.getBoundingClientRect();
+      var dpr  = pJS.canvas.pxratio || 1;
+      /* PAGE-coordinate canvas: convert client coords to page coords first,
+         then scale by dpr to match the canvas-internal coord space. */
+      var xPage = (e.clientX - rect.left);   /* still works for absolute canvas
+                                                because getBoundingClientRect
+                                                returns viewport coords for the
+                                                CURRENT scroll, but the canvas
+                                                spans the entire page in y. */
+      var yPage = (e.clientY - rect.top);
+      var inside = xPage >= 0 && xPage <= rect.width && yPage >= 0 && yPage <= rect.height;
+      pJS.interactivity.mouse.pos_x = xPage * dpr;
+      pJS.interactivity.mouse.pos_y = yPage * dpr;
+      pJS.interactivity.mouse.inside = inside;
+      pJS.interactivity.status = inside ? 'mousemove' : 'mouseleave';
+    }
+  }
+  window.addEventListener('mousemove', pipeMouse, { passive: true });
+  window.addEventListener('mouseleave', function() {
+    var systems = window.pJSDom;
+    if (!systems) return;
+    for (var i = 0; i < systems.length; i++) {
+      var pJS = systems[i] && systems[i].pJS;
+      if (!pJS) continue;
+      pJS.interactivity.mouse.pos_x = null;
+      pJS.interactivity.mouse.pos_y = null;
+      pJS.interactivity.mouse.inside = false;
+      pJS.interactivity.status = 'mouseleave';
+    }
+  });
+})();
 </script>
 </body>
 </html>
