@@ -2641,7 +2641,7 @@ a.axr-brand-x:hover { border-bottom-color: var(--orange); }
 .axr-btn:focus-visible { outline: 2.5px solid var(--orange); outline-offset: 3px; border-radius: 6px; }
 
 /* ---------- reveal on scroll ---------- */
-[data-reveal] { opacity:0; transform: translateY(26px); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); }
+[data-reveal] { opacity:0; transform: translateY(46px); transition: opacity .9s var(--ease-out), transform .9s var(--ease-out); }
 [data-reveal].in { opacity:1; transform:none; }
 html:not(.js) [data-reveal], html.reduced [data-reveal] { opacity:1; transform:none; transition:none; }
 
@@ -3245,11 +3245,16 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 /* Pause the ring SVG spin + core blur when the rings are off-screen (they animated continuously). */
 #pain:not(.axr-inview) .ring-tex{animation:none!important;}
 #pain:not(.axr-inview) .core-halo{filter:none!important;}
-/* ===== immersive full-viewport sections — NO scroll-snap (snap trapped wheel momentum on Chrome, causing the "stuck until you wiggle the mouse" jank). Sections stay 100svh so they still fill the viewport, but the wheel scrolls freely and smoothly. ===== */
+/* ===== content-sized sections (2026-07-12): dropped the forced min-height:100svh
+   + vertical-centering. Padding content out to fill a whole screen left a large
+   dead-empty gap above/below shorter sections (find-your-x, faq) — that gap read
+   as a "separation" and made scrolling feel like passing through static empty
+   space rather than one section handing off to the next. Sections now size to
+   their own content with generous but not viewport-forcing padding. ===== */
 html{scroll-padding-top:76px;}
-#find-your-x,#who-we-help,#faq{min-height:100svh;display:flex;flex-direction:column;justify-content:center;}
-#who-we-help{padding-top:calc(76px + 1rem)!important;}
-@media (max-width:900px){#find-your-x,#who-we-help,#faq{min-height:0;display:block;}#who-we-help{padding-top:44px!important;}}
+#find-your-x{padding-bottom:2.4rem!important;}
+#who-we-help{padding-top:calc(76px + 2rem)!important;padding-bottom:2.4rem!important;}
+#faq{padding-top:2.4rem!important;padding-bottom:2.4rem!important;}
 
 </style>
 <style id="footer-social-2026-07-11">
@@ -3601,7 +3606,7 @@ html{scroll-padding-top:76px;}
       <h2 class="who-heading">For ambitious rail teams and leaders.</h2>
     </div>
 
-    <div class="bowtie">
+    <div class="bowtie sc-reveal">
 
       <svg class="connectors" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"></svg>
 
