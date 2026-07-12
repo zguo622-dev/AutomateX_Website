@@ -2863,9 +2863,10 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 
 /* ===== case-study detail modal (prototype, 2026-07-12) ===== */
 #case-studies .proof-card{position:relative;cursor:pointer;}
-#case-studies .pc-open{position:absolute;bottom:1.15rem;right:1.2rem;display:inline-flex;align-items:center;gap:.35rem;font-family:var(--font-h);font-weight:700;font-size:.72rem;color:var(--orange-light);opacity:0;transform:translateY(6px);transition:opacity .3s var(--ease-out),transform .3s var(--ease-out);pointer-events:none;}
-#case-studies .proof-card:hover .pc-open,#case-studies .proof-card:focus-within .pc-open{opacity:1;transform:none;}
-#case-studies .pc-open svg{width:13px;height:13px;}
+#case-studies .pc-open{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:.4rem;font-family:var(--font-h);font-weight:700;font-size:.86rem;letter-spacing:.01em;color:#fff;background:linear-gradient(180deg,rgba(10,14,19,.08) 0%,rgba(10,14,19,.85) 100%);opacity:0;transition:opacity .3s var(--ease-out);pointer-events:none;}
+#case-studies .proof-card:hover .pc-open,#case-studies .proof-card:focus-within .pc-open{opacity:1;}
+#case-studies .pc-open svg{width:15px;height:15px;transition:transform .3s var(--ease-out);}
+#case-studies .proof-card:hover .pc-open svg,#case-studies .proof-card:focus-within .pc-open svg{transform:translateX(4px);}
 .cs-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:4vh 1.25rem;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;}
 .cs-modal.open{opacity:1;visibility:visible;}
 .cs-modal-veil{position:absolute;inset:0;background:rgba(8,11,16,.72);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);}
@@ -2923,7 +2924,7 @@ html.reduced #case-studies .proof-progress,html.reduced #case-studies .proof-hin
         <h2 class="section-heading">Real-world AI, delivering measurable results.</h2>
         <p class="proof-sub">Not slideware. Systems in service on UK rail work today, with the figures they carry.</p>
       </div>
-      <div class="proof-rail"><div class="proof-cards" id="proof-cards"><div class="proof-card"><div class="pc-imgwrap"><img src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">01 &middot; AI-empowered survey processing</div><p class="pc-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p><div class="pc-figs"><div><div class="pc-fig-num">7,650</div><div class="pc-fig-label">HD photos</div></div><div><div class="pc-fig-num">300+</div><div class="pc-fig-label">Survey flights</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Closures</div></div></div></div></div><div class="proof-card" data-case="instatrace" role="button" tabindex="0" aria-label="Open full case study: AI-empowered drawing take-off"><div class="pc-imgwrap"><img src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">02 &middot; AI-empowered drawing take-off</div><p class="pc-desc">Manual take-off could take up to three weeks per drawing, with no record of how a figure was derived. Live now on a real 400kV overhead line drawing, the automated take-off is matching the team&rsquo;s own manual measurement to within a fraction of a percent.</p><div class="pc-figs"><div><div class="pc-fig-num">+0.05<small>%</small></div><div class="pc-fig-label">OHL alignment</div></div><div><div class="pc-fig-num">&minus;1.0<small>%</small></div><div class="pc-fig-label">Access route</div></div><div><div class="pc-fig-num">&plusmn;5<small>%</small></div><div class="pc-fig-label">Tolerance</div></div></div><span class="pc-open">View full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div><div class="proof-card"><div class="pc-imgwrap"><img src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">03 &middot; AI-empowered design review &amp; verification</div><p class="pc-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p><div class="pc-figs"><div><div class="pc-fig-num">&pound;300<small>k</small></div><div class="pc-fig-label">Potential annual saving</div></div><div><div class="pc-fig-num">5</div><div class="pc-fig-label">Stages traced</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Broken links</div></div></div></div></div><div class="proof-card"><div class="pc-imgwrap"><img src="images/case-knowledge-graph.jpg" alt="Knowledge graph trained on rail standards, taxonomy, and project history" loading="lazy"><span class="pc-live"><i></i>Live</span></div><div class="pc-body"><div class="pc-chip">04 &middot; Tender Knowledge Base</div><p class="pc-desc">A rail-specific knowledge graph trained on standards, taxonomy, and project history. Drove tender response quality and efficiency. Every output cited, grounded in your domain.</p><div class="pc-figs"><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Efficiency gain</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Cited evidence</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Grounded</div></div></div></div></div><div class="proof-card"><div class="pc-imgwrap"><img src="images/case-scribtive.jpg" alt="Scribtive doc assistance UI for PACE-compliant rail forms" loading="lazy"><span class="pc-live"><i></i>Pilot</span></div><div class="pc-body"><div class="pc-chip">05 &middot; Scribtive&trade;</div><p class="pc-desc">Doc assistance for PACE-compliant rail forms. Section-by-section drafting with cited evidence and compliance gates. Currently in pilot.</p><div class="pc-figs"><div><div class="pc-fig-num">PACE</div><div class="pc-fig-label">Aligned</div></div><div><div class="pc-fig-num">RAG</div><div class="pc-fig-label">Knowledge enabled</div></div><div><div class="pc-fig-num">&infin;</div><div class="pc-fig-label">Audit trail</div></div></div></div></div><div class="proof-endcap"><div class="h3e">Your <span class="heading-x2">X</span> could be next.</div><p>Tell us where your friction lives.</p><a class="proof-cta" href="scorecard.html">Find your X <span aria-hidden="true">&rarr;</span></a></div></div></div>
+      <div class="proof-rail"><div class="proof-cards" id="proof-cards"><div class="proof-card" data-case="station-surveys" role="button" tabindex="0" aria-label="Open full case study: AI-empowered survey processing"><div class="pc-imgwrap"><img src="images/case-station-surveys.jpg" alt="Drone survey, station laser scan, aerial photo, and point-cloud rendering" loading="lazy"><span class="pc-live"><i></i>Live</span><span class="pc-open">View full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div><div class="pc-body"><div class="pc-chip">01 &middot; AI-empowered survey processing</div><p class="pc-desc">Drone, 360&deg; camera, and laser scanner captured a national station network in weeks. AI surfaced hidden defects. Trains never stopped.</p><div class="pc-figs"><div><div class="pc-fig-num">7,650</div><div class="pc-fig-label">HD photos</div></div><div><div class="pc-fig-num">300+</div><div class="pc-fig-label">Survey flights</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Closures</div></div></div></div></div><div class="proof-card" data-case="instatrace" role="button" tabindex="0" aria-label="Open full case study: AI-empowered drawing take-off"><div class="pc-imgwrap"><img src="images/case-instatrace.jpg" alt="Automated linear take-off traced over an engineering drawing" loading="lazy"><span class="pc-live"><i></i>Live</span><span class="pc-open">View full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div><div class="pc-body"><div class="pc-chip">02 &middot; AI-empowered drawing take-off</div><p class="pc-desc">Manual take-off could take up to three weeks per drawing, with no record of how a figure was derived. Live now on a real 400kV overhead line drawing, the automated take-off is matching the team&rsquo;s own manual measurement to within a fraction of a percent.</p><div class="pc-figs"><div><div class="pc-fig-num">+0.05<small>%</small></div><div class="pc-fig-label">OHL alignment</div></div><div><div class="pc-fig-num">&minus;1.0<small>%</small></div><div class="pc-fig-label">Access route</div></div><div><div class="pc-fig-num">&plusmn;5<small>%</small></div><div class="pc-fig-label">Tolerance</div></div></div></div></div><div class="proof-card" data-case="golden-thread" role="button" tabindex="0" aria-label="Open full case study: AI-empowered design review and verification"><div class="pc-imgwrap"><img src="images/case-golden-thread.jpg" alt="Golden-thread requirement traceability across design review, requirements, design, as-built and assurance stages" loading="lazy"><span class="pc-live"><i></i>Live</span><span class="pc-open">View full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div><div class="pc-body"><div class="pc-chip">03 &middot; AI-empowered design review &amp; verification</div><p class="pc-desc">AI co-pilot for design reviews, requirements drafting, and verification traceability. The golden thread stays unbroken from design intent through to operational acceptance.</p><div class="pc-figs"><div><div class="pc-fig-num">&pound;300<small>k</small></div><div class="pc-fig-label">Potential annual saving</div></div><div><div class="pc-fig-num">5</div><div class="pc-fig-label">Stages traced</div></div><div><div class="pc-fig-num">0</div><div class="pc-fig-label">Broken links</div></div></div></div></div><div class="proof-card" data-case="knowledge-graph" role="button" tabindex="0" aria-label="Open full case study: Tender Knowledge Base"><div class="pc-imgwrap"><img src="images/case-knowledge-graph.jpg" alt="Knowledge graph trained on rail standards, taxonomy, and project history" loading="lazy"><span class="pc-live"><i></i>Live</span><span class="pc-open">View full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div><div class="pc-body"><div class="pc-chip">04 &middot; Tender Knowledge Base</div><p class="pc-desc">A rail-specific knowledge graph trained on standards, taxonomy, and project history. Drove tender response quality and efficiency. Every output cited, grounded in your domain.</p><div class="pc-figs"><div><div class="pc-fig-num">80<small>%</small></div><div class="pc-fig-label">Efficiency gain</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Cited evidence</div></div><div><div class="pc-fig-num">100<small>%</small></div><div class="pc-fig-label">Grounded</div></div></div></div></div><div class="proof-card" data-case="scribtive" role="button" tabindex="0" aria-label="Open full case study: Scribtive"><div class="pc-imgwrap"><img src="images/case-scribtive.jpg" alt="Scribtive doc assistance UI for PACE-compliant rail forms" loading="lazy"><span class="pc-live"><i></i>Pilot</span><span class="pc-open">View full story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div><div class="pc-body"><div class="pc-chip">05 &middot; Scribtive&trade;</div><p class="pc-desc">Doc assistance for PACE-compliant rail forms. Section-by-section drafting with cited evidence and compliance gates. Currently in pilot.</p><div class="pc-figs"><div><div class="pc-fig-num">PACE</div><div class="pc-fig-label">Aligned</div></div><div><div class="pc-fig-num">RAG</div><div class="pc-fig-label">Knowledge enabled</div></div><div><div class="pc-fig-num">&infin;</div><div class="pc-fig-label">Audit trail</div></div></div></div></div><div class="proof-endcap"><div class="h3e">Your <span class="heading-x2">X</span> could be next.</div><p>Tell us where your friction lives.</p><a class="proof-cta" href="scorecard.html">Find your X <span aria-hidden="true">&rarr;</span></a></div></div></div>
     </div>
   </div>
 </section>
@@ -4601,6 +4602,243 @@ window.addEventListener("resize",sync);})();
   </div>
   <p class="cs-detail-illustrative">Figures are real, from an AutomateX engagement that&rsquo;s live now, benchmarked against the client&rsquo;s own manual take-off. Before/after graphic is a synthesised illustration, not the source drawing.</p>
 </template>
+<template id="cs-detail-station-surveys">
+  <div class="cs-detail-badge">01 &middot; AI-empowered survey processing</div>
+  <div class="cs-detail-head"><h3>Station condition surveys usually mean a possession. This one ran without stopping a train.</h3></div>
+  <div class="cs-detail-compare">
+    <figure><svg viewBox="0 0 260 160" aria-hidden="true">
+                <rect width="260" height="160" fill="#0A0E13"/>
+                <g stroke="rgba(255,255,255,.22)" stroke-width=".6" fill="none">
+                  <path d="M0,30 H260 M0,60 H260 M0,90 H260 M0,120 H260"/>
+                  <path d="M40,0 V160 M90,0 V160 M150,0 V160 M210,0 V160"/>
+                </g>
+                <g stroke="rgba(255,255,255,.4)" stroke-width="1.2" fill="none">
+                  <path d="M20,110 H240"/>
+                  <path d="M20,120 H240"/>
+                </g>
+                <g stroke="#EF4444" stroke-width="1.3" fill="none" stroke-dasharray="4 3">
+                  <rect x="60" y="55" width="70" height="45"/>
+                  <rect x="160" y="40" width="55" height="60"/>
+                </g>
+                <g font-family="Montserrat" font-weight="700" font-size="7" fill="#EF4444">
+                  <text x="66" y="50">POSSESSION</text>
+                  <text x="166" y="35">LINE BLOCK</text>
+                </g>
+                <g stroke="#EF4444" stroke-width="1" fill="none" opacity=".8">
+                  <circle cx="40" cy="130" r="7"/>
+                  <path d="M40,124 v4 M40,132 v2" stroke-width="1.4"/>
+                </g>
+              </svg><figcaption>Before</figcaption></figure>
+    <figure><svg viewBox="0 0 260 160" aria-hidden="true">
+                <rect width="260" height="160" fill="#0A0E13"/>
+                <g stroke="rgba(255,255,255,.22)" stroke-width=".6" fill="none">
+                  <path d="M0,30 H260 M0,60 H260 M0,90 H260 M0,120 H260"/>
+                  <path d="M40,0 V160 M90,0 V160 M150,0 V160 M210,0 V160"/>
+                </g>
+                <g stroke="rgba(255,255,255,.4)" stroke-width="1.2" fill="none">
+                  <path d="M20,110 H240"/>
+                  <path d="M20,120 H240"/>
+                </g>
+                <g stroke="#F96532" stroke-width="1.5" fill="none" stroke-dasharray="2 4">
+                  <path d="M30,45 Q90,20 150,42 T230,50"/>
+                </g>
+                <g fill="#F96532"><circle cx="30" cy="45" r="2.6"/><circle cx="90" cy="27" r="2.6"/><circle cx="150" cy="42" r="2.6"/><circle cx="230" cy="50" r="2.6"/></g>
+                <g stroke="#F96532" stroke-width="1" fill="none">
+                  <circle cx="95" cy="95" r="6"/><circle cx="180" cy="88" r="6"/>
+                </g>
+                <g fill="#F96532"><path d="M95,92 l1.6,1.6 3-3.4" stroke="#0A0E13" stroke-width="1"/></g>
+                <g font-family="Montserrat" font-weight="700" font-size="6" fill="#fff">
+                  <rect x="106" y="90" width="52" height="11" rx="5.5" fill="rgba(249,101,50,.18)" stroke="#F96532" stroke-width=".6"/>
+                  <text x="132" y="98" text-anchor="middle">defect flagged</text>
+                </g>
+              </svg><figcaption>After</figcaption></figure>
+  </div>
+  <div class="cs-detail-narrative">
+    <div class="cs-detail-block"><h4>The challenge</h4><p>Station condition and defect surveys traditionally mean scaffold, possessions, or a team working trackside, with all the access and safety overhead that brings. Covering a national estate that way is slow and expensive at scale.</p></div>
+    <div class="cs-detail-block"><h4>The situation</h4><p>A national station estate needed a condition baseline, structural, finishes, and asset condition, across multiple sites, without adding to possession costs or disrupting live services.</p></div>
+    <div class="cs-detail-block"><h4>What we did</h4><p>AutomateX combined drone flights, 360&deg; camera walkthroughs, and laser scanning to capture each station from the platform up, then ran AI defect detection across the imagery and point clouds to flag anomalies for review, each one referenced back to its exact location.</p></div>
+    <div class="cs-detail-block"><h4>What we solved</h4><p>The estate was surveyed end to end without a single closure or possession. AI screening surfaced defects a manual walk-through would likely take far longer to find, with every flag traceable back to its source image.</p></div>
+    <div class="cs-detail-block cs-detail-outcome">
+      <h4>Outcome</h4>
+      <div class="cs-detail-figs">
+        <div><div class="fig-num">7,650</div><div class="fig-label">HD photos captured</div></div>
+        <div><div class="fig-num">300+</div><div class="fig-label">Survey flights</div></div>
+        <div><div class="fig-num">0</div><div class="fig-label">Closures required</div></div>
+      </div>
+    </div>
+  </div>
+  <p class="cs-detail-illustrative">Before/after graphic is a synthesised illustration of the survey method, not a real site image.</p>
+</template>
+<template id="cs-detail-golden-thread">
+  <div class="cs-detail-badge">03 &middot; AI-empowered design review &amp; verification</div>
+  <div class="cs-detail-head"><h3>One broken link between requirement and as-built can unravel a golden thread. This keeps all five stages traceable, automatically.</h3></div>
+  <div class="cs-detail-compare">
+    <figure><svg viewBox="0 0 260 160" aria-hidden="true">
+                <rect width="260" height="160" fill="#0A0E13"/>
+                <g stroke="rgba(255,255,255,.22)" stroke-width=".6" fill="none">
+                  <path d="M0,30 H260 M0,60 H260 M0,90 H260 M0,120 H260"/>
+                  <path d="M40,0 V160 M90,0 V160 M150,0 V160 M210,0 V160"/>
+                </g>
+                <g stroke="rgba(255,255,255,.5)" stroke-width="1.6" fill="none" stroke-dasharray="1 3"><path d="M30,80 L85,55"/><path d="M85,55 L130,95"/><path d="M175,50 L225,80"/></g><g fill="rgba(255,255,255,.5)"><circle cx="30" cy="80" r="3"/><circle cx="85" cy="55" r="3"/><circle cx="130" cy="95" r="3"/><circle cx="175" cy="50" r="3"/><circle cx="225" cy="80" r="3"/></g>
+                <g stroke="#EF4444" stroke-width="1.4"><path d="M138,100 L160,60" stroke-dasharray="3 2"/></g>
+                <g fill="#EF4444" font-family="Montserrat" font-weight="700" font-size="14"><text x="140" y="115">&times;</text></g>
+                <g font-family="Montserrat" font-size="6.5" fill="rgba(255,255,255,.55)">
+                  <text x="14" y="95">Design intent</text><text x="68" y="46">Design</text><text x="108" y="112">As-built</text><text x="158" y="42">Verification</text><text x="196" y="95">Acceptance</text>
+                </g>
+              </svg><figcaption>Before</figcaption></figure>
+    <figure><svg viewBox="0 0 260 160" aria-hidden="true">
+                <rect width="260" height="160" fill="#0A0E13"/>
+                <g stroke="rgba(255,255,255,.22)" stroke-width=".6" fill="none">
+                  <path d="M0,30 H260 M0,60 H260 M0,90 H260 M0,120 H260"/>
+                  <path d="M40,0 V160 M90,0 V160 M150,0 V160 M210,0 V160"/>
+                </g>
+                <g stroke="#F96532" stroke-width="1.6" fill="none"><path d="M30,80 L85,55"/><path d="M85,55 L130,95"/><path d="M130,95 L175,50"/><path d="M175,50 L225,80"/></g><g fill="#F96532"><circle cx="30" cy="80" r="3"/><circle cx="85" cy="55" r="3"/><circle cx="130" cy="95" r="3"/><circle cx="175" cy="50" r="3"/><circle cx="225" cy="80" r="3"/></g>
+                <g font-family="Montserrat" font-size="6.5" fill="rgba(255,255,255,.75)">
+                  <text x="14" y="95">Design intent</text><text x="68" y="46">Design</text><text x="108" y="112">As-built</text><text x="158" y="42">Verification</text><text x="196" y="95">Acceptance</text>
+                </g>
+                <g font-family="Montserrat" font-weight="700" font-size="6" fill="#fff">
+                  <rect x="90" y="118" width="80" height="11" rx="5.5" fill="rgba(249,101,50,.18)" stroke="#F96532" stroke-width=".6"/>
+                  <text x="130" y="126" text-anchor="middle">thread unbroken</text>
+                </g>
+              </svg><figcaption>After</figcaption></figure>
+  </div>
+  <div class="cs-detail-narrative">
+    <div class="cs-detail-block"><h4>The challenge</h4><p>Requirement traceability, the golden thread from design intent through design and as-built to operational acceptance, is usually held together by manual cross-referencing across documents and spreadsheets. One missed update and the thread breaks, often unnoticed until assurance or a safety review.</p></div>
+    <div class="cs-detail-block"><h4>The situation</h4><p>A design and verification team needed requirements, design review comments, and as-built evidence to stay linked across five project stages, without a role dedicated to manually policing the links.</p></div>
+    <div class="cs-detail-block"><h4>What we did</h4><p>AutomateX built an AI co-pilot that reads requirements, design review outputs, and verification evidence directly, drafts and cross-checks requirement wording, and maintains the traceability links across all five stages automatically, flagging any link that breaks.</p></div>
+    <div class="cs-detail-block"><h4>What we solved</h4><p>The golden thread stays intact from design intent to operational acceptance, with zero broken links across the traced stages and a running estimate of the admin time it would otherwise cost to maintain by hand.</p></div>
+    <div class="cs-detail-block cs-detail-outcome">
+      <h4>Outcome</h4>
+      <div class="cs-detail-figs">
+        <div><div class="fig-num">&pound;300k</div><div class="fig-label">Potential annual saving</div></div>
+        <div><div class="fig-num">5</div><div class="fig-label">Stages traced</div></div>
+        <div><div class="fig-num">0</div><div class="fig-label">Broken links</div></div>
+      </div>
+    </div>
+  </div>
+  <p class="cs-detail-illustrative">Before/after graphic is a synthesised illustration of the traceability model, not a real project's requirement set.</p>
+</template>
+<template id="cs-detail-knowledge-graph">
+  <div class="cs-detail-badge">04 &middot; Tender Knowledge Base</div>
+  <div class="cs-detail-head"><h3>Tender responses used to start from a blank page and a search folder. Now every answer starts cited.</h3></div>
+  <div class="cs-detail-compare">
+    <figure><svg viewBox="0 0 260 160" aria-hidden="true">
+                <rect width="260" height="160" fill="#0A0E13"/>
+                <g stroke="rgba(255,255,255,.22)" stroke-width=".6" fill="none">
+                  <path d="M0,30 H260 M0,60 H260 M0,90 H260 M0,120 H260"/>
+                  <path d="M40,0 V160 M90,0 V160 M150,0 V160 M210,0 V160"/>
+                </g>
+                <g stroke="rgba(255,255,255,.4)" stroke-width="1.1" fill="none">
+                  <rect x="25" y="35" width="34" height="26" rx="2"/>
+                  <rect x="90" y="70" width="34" height="26" rx="2"/>
+                  <rect x="150" y="30" width="34" height="26" rx="2"/>
+                  <rect x="200" y="90" width="34" height="26" rx="2"/>
+                </g>
+                <g stroke="#EF4444" stroke-width="1.2" fill="none">
+                  <circle cx="130" cy="130" r="10"/>
+                  <path d="M137,137 L146,146"/>
+                </g>
+                <g fill="#EF4444" font-family="Montserrat" font-weight="700" font-size="12"><text x="124" y="134">?</text></g>
+                <g font-family="Montserrat" font-size="6" fill="rgba(255,255,255,.5)">
+                  <text x="26" y="30">Drive A</text><text x="91" y="65">Old tender</text><text x="151" y="25">Standard PDF</text><text x="201" y="85">Shared mail</text>
+                </g>
+              </svg><figcaption>Before</figcaption></figure>
+    <figure><svg viewBox="0 0 260 160" aria-hidden="true">
+                <rect width="260" height="160" fill="#0A0E13"/>
+                <g stroke="rgba(255,255,255,.22)" stroke-width=".6" fill="none">
+                  <path d="M0,30 H260 M0,60 H260 M0,90 H260 M0,120 H260"/>
+                  <path d="M40,0 V160 M90,0 V160 M150,0 V160 M210,0 V160"/>
+                </g>
+                <g stroke="rgba(255,255,255,.35)" stroke-width="1" fill="none">
+                  <path d="M60,45 L130,85 M110,35 L130,85 M190,50 L130,85 M170,120 L130,85"/>
+                </g>
+                <g fill="#F96532"><circle cx="60" cy="45" r="4"/><circle cx="110" cy="35" r="4"/><circle cx="190" cy="50" r="4"/><circle cx="170" cy="120" r="4"/></g>
+                <g fill="#fff" stroke="#F96532" stroke-width="1.6"><circle cx="130" cy="85" r="7"/></g>
+                <g font-family="Montserrat" font-size="6" fill="rgba(255,255,255,.7)">
+                  <text x="34" y="40">Standards</text><text x="86" y="28">Taxonomy</text><text x="166" y="43">History</text><text x="142" y="132">Answer</text>
+                </g>
+                <g font-family="Montserrat" font-weight="700" font-size="6" fill="#fff">
+                  <rect x="146" y="76" width="46" height="11" rx="5.5" fill="rgba(249,101,50,.18)" stroke="#F96532" stroke-width=".6"/>
+                  <text x="169" y="84" text-anchor="middle">cited</text>
+                </g>
+              </svg><figcaption>After</figcaption></figure>
+  </div>
+  <div class="cs-detail-narrative">
+    <div class="cs-detail-block"><h4>The challenge</h4><p>Tender responses draw on standards, past project evidence, and internal taxonomy scattered across drives and legacy documents. Finding the right precedent and citing it properly eats the time that should go into writing a stronger answer.</p></div>
+    <div class="cs-detail-block"><h4>The situation</h4><p>A bid team needed faster, better-grounded tender responses, without an uncontrolled AI tool inventing evidence or a manual search process that ate days per submission.</p></div>
+    <div class="cs-detail-block"><h4>What we did</h4><p>AutomateX built a rail-specific knowledge graph trained on standards, taxonomy, and the team&rsquo;s own project history, and connected it to a drafting assistant that answers tender questions with every claim linked back to its source.</p></div>
+    <div class="cs-detail-block"><h4>What we solved</h4><p>Every generated answer carries a citation back to a real standard or prior project. Nothing ungrounded makes it into a submission, and the team gets through tender responses significantly faster.</p></div>
+    <div class="cs-detail-block cs-detail-outcome">
+      <h4>Outcome</h4>
+      <div class="cs-detail-figs">
+        <div><div class="fig-num">80%</div><div class="fig-label">Efficiency gain</div></div>
+        <div><div class="fig-num">100%</div><div class="fig-label">Cited evidence</div></div>
+        <div><div class="fig-num">100%</div><div class="fig-label">Grounded</div></div>
+      </div>
+    </div>
+  </div>
+  <p class="cs-detail-illustrative">Before/after graphic is a synthesised illustration of the retrieval workflow, not a real tender document.</p>
+</template>
+<template id="cs-detail-scribtive">
+  <div class="cs-detail-badge">05 &middot; Scribtive&trade;</div>
+  <div class="cs-detail-head"><h3>PACE assurance deliverables take days to draft and check by hand. Scribtive drafts them section by section, cited and gated.</h3></div>
+  <div class="cs-detail-compare">
+    <figure><svg viewBox="0 0 260 160" aria-hidden="true">
+                <rect width="260" height="160" fill="#0A0E13"/>
+                <g stroke="rgba(255,255,255,.22)" stroke-width=".6" fill="none">
+                  <path d="M0,30 H260 M0,60 H260 M0,90 H260 M0,120 H260"/>
+                  <path d="M40,0 V160 M90,0 V160 M150,0 V160 M210,0 V160"/>
+                </g>
+                <g stroke="rgba(255,255,255,.4)" stroke-width="1" fill="none">
+                  <rect x="80" y="25" width="100" height="115" rx="3"/>
+                  <path d="M92,45 H168 M92,58 H168 M92,71 H140"/>
+                </g>
+                <g stroke="#EF4444" stroke-width="1" fill="none" stroke-dasharray="3 2">
+                  <rect x="30" y="90" width="30" height="22" rx="2"/>
+                  <rect x="205" y="70" width="30" height="22" rx="2"/>
+                  <rect x="20" y="55" width="30" height="20" rx="2"/>
+                </g>
+                <g font-family="Montserrat" font-weight="700" font-size="16" fill="rgba(255,255,255,.25)"><text x="118" y="108" text-anchor="middle">?</text></g>
+              </svg><figcaption>Before</figcaption></figure>
+    <figure><svg viewBox="0 0 260 160" aria-hidden="true">
+                <rect width="260" height="160" fill="#0A0E13"/>
+                <g stroke="rgba(255,255,255,.22)" stroke-width=".6" fill="none">
+                  <path d="M0,30 H260 M0,60 H260 M0,90 H260 M0,120 H260"/>
+                  <path d="M40,0 V160 M90,0 V160 M150,0 V160 M210,0 V160"/>
+                </g>
+                <g stroke="#F96532" stroke-width="1.3" fill="none">
+                  <rect x="70" y="20" width="120" height="122" rx="4"/>
+                </g>
+                <g stroke="rgba(255,255,255,.55)" stroke-width="1" fill="none">
+                  <path d="M82,44 H178 M82,58 H160"/>
+                  <path d="M82,74 H178 M82,88 H150"/>
+                </g>
+                <g fill="#F96532"><circle cx="176" cy="42" r="5"/><circle cx="176" cy="72" r="5"/></g>
+                <g stroke="#0A0E13" stroke-width="1.2" fill="none"><path d="M173.5,42 l1.6,1.6 3-3.4"/><path d="M173.5,72 l1.6,1.6 3-3.4"/></g>
+                <g stroke="rgba(255,255,255,.3)" stroke-width="1" stroke-dasharray="2 2" fill="none"><rect x="164" y="86" width="20" height="12" rx="6"/></g>
+                <g font-family="Montserrat" font-weight="700" font-size="6" fill="#fff">
+                  <rect x="88" y="108" width="66" height="11" rx="5.5" fill="rgba(249,101,50,.18)" stroke="#F96532" stroke-width=".6"/>
+                  <text x="121" y="116" text-anchor="middle">gate passed</text>
+                </g>
+              </svg><figcaption>After</figcaption></figure>
+  </div>
+  <div class="cs-detail-narrative">
+    <div class="cs-detail-block"><h4>The challenge</h4><p>PACE-compliant rail assurance documents are drafted manually, section by section, with evidence gathered and checked against compliance requirements by hand. It is slow, and quality depends on who is drafting that week.</p></div>
+    <div class="cs-detail-block"><h4>The situation</h4><p>Assurance teams needed a faster, more consistent way to produce PACE-compliant deliverables, without lowering the bar on evidence or compliance sign-off.</p></div>
+    <div class="cs-detail-block"><h4>What we did</h4><p>AutomateX built Scribtive, a documentation assistant that drafts PACE-compliant rail forms section by section, grounds every generated section in cited evidence through retrieval-augmented generation, and enforces compliance gates before a section can be marked complete.</p></div>
+    <div class="cs-detail-block"><h4>What we solved</h4><p>Drafting moved from a blank page to a section-by-section assisted workflow, with every output tied to a citation and nothing passing a compliance gate without evidence behind it. Currently in pilot.</p></div>
+    <div class="cs-detail-block cs-detail-outcome">
+      <h4>Outcome</h4>
+      <div class="cs-detail-figs">
+        <div><div class="fig-num">PACE</div><div class="fig-label">Aligned</div></div>
+        <div><div class="fig-num">RAG</div><div class="fig-label">Knowledge enabled</div></div>
+        <div><div class="fig-num">&infin;</div><div class="fig-label">Audit trail</div></div>
+      </div>
+    </div>
+  </div>
+  <p class="cs-detail-illustrative">Before/after graphic is a synthesised illustration of the drafting workflow, not a real client deliverable.</p>
+</template>
+
 
 <script id="cs-modal-2026-07-12">
 (function(){
