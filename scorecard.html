@@ -2311,7 +2311,7 @@ body{background:transparent!important;}
         cls: 'cohort-warm',
         eyebrow: 'The structured next step',
         h4: 'The AutomateX Bootcamp',
-        body: 'Five steps. Five sessions with the core team. You leave with AI working on your own data, a Diagnostic and Business Case, and a costed roadmap to implement. The fee is credited in full against your build if you take the work forward with us.',
+        body: 'Not sure which friction point to solve first, or need a business case to bring others along? The Bootcamp is a structured, fixed-price diagnosis that sizes and ranks the friction, proves the top one on your own data, and hands you a costed case. The fee is credited in full against your build if you take the work forward with us.',
         btnText: 'Explore the Bootcamp',
         btnHref: 'bootcamp.html',
         external: false
@@ -2327,11 +2327,11 @@ body{background:transparent!important;}
       },
       'cold': {
         cls: 'cohort-cold',
-        eyebrow: 'Your report is on its way',
-        h4: 'Tailored PDF report sent',
-        body: 'Thanks for completing the assessment. Your detailed PDF will arrive in your inbox shortly. Feel free to explore our research and case studies in the meantime.',
-        btnText: 'Read the AutomateX research',
-        btnHref: 'index.html#research',
+        eyebrow: 'Real, but not yet',
+        h4: 'Stay on the waitlist',
+        body: 'Thanks for completing the assessment. Your detailed report will arrive by email shortly. If the friction is real but not yet big enough to act on, the waitlist is the right place to sit. You will hear from us as Scribtive develops, and you can move when the timing is right.',
+        btnText: 'Join the waitlist',
+        btnHref: 'waitlist.html',
         external: false
       }
     };
@@ -2710,12 +2710,10 @@ function submitReport(e) {
   };
 
   // Fire-and-forget . don't block on the n8n workflow
-  fetch('https://n8n.automatex.uk/webhook/pace-scorecard', {
+  var reportRequest = fetch('https://n8n.automatex.uk/webhook/pace-scorecard', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
-  }).catch(function(err) {
-    console.error('[Scorecard v3] Webhook error:', err);
   });
 
   // Bridge: add every assessment completer to the waiting-list tab (unconditional, labelled).
@@ -2741,14 +2739,30 @@ function submitReport(e) {
     window.va('event', { name: 'assessment_completed', cohort: cohort, score: overallScore });
   }
 
-  // Immediately show success (don't wait for workflow to finish)
+  /* ---- Submission state machine (v4, 2026-07-18) -------------------------
+   * Replaces the old fixed 800ms "Report Sent!" timer, which declared success
+   * even when the webhook 404'd. That is exactly how the 25 Jun to 11 Jul
+   * outage stayed invisible: every visitor saw "Report Sent!", nobody received
+   * a report, and nothing surfaced the failure.
+   *
+   * Timing constraint: the n8n workflow only responds AFTER Claude generates
+   * the insights and Browserless renders the PDF, which takes roughly 50s. So
+   * we deliberately do NOT block the confirmation on the full response.
+   *
+   * The failure we actually need to catch is a dead or broken workflow, and
+   * that fails FAST (404 / 500 / network error), well inside the grace window.
+   * So:
+   *   - explicit ok response          -> "Report Sent!"
+   *   - fast failure inside the grace -> honest failure copy + telemetry
+   *   - no answer by REPLY_GRACE_MS   -> "Report on its way" (true: still rendering)
+   * ---------------------------------------------------------------------- */
+  var REPLY_GRACE_MS = 9000;
+  var settled = false;
+
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
-  setTimeout(function() {
-    btn.textContent = 'Report Sent!';
-    btn.style.background = '#10B981';
-    showScorecardSuccess(btn);
+  function revealEarnedCTA() {
     setTimeout(function() {
       var cta = document.getElementById('earned-cta');
       if (cta) {
@@ -2756,7 +2770,64 @@ function submitReport(e) {
         cta.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     }, 900);
-  }, 800);
+  }
+
+  function deliveryNote(msg, colour) {
+    var note = document.getElementById('sc-delivery-note');
+    if (!note) {
+      note = document.createElement('div');
+      note.id = 'sc-delivery-note';
+      note.style.cssText = 'margin-top:12px;font-size:0.85rem;line-height:1.5;';
+      if (btn.parentNode) btn.parentNode.appendChild(note);
+    }
+    note.style.color = colour;
+    note.textContent = msg;
+  }
+
+  function settleSuccess(label) {
+    if (settled) return;
+    settled = true;
+    btn.textContent = label;
+    btn.style.background = '#10B981';
+    showScorecardSuccess(btn);
+    revealEarnedCTA();
+  }
+
+  function settleFailure() {
+    if (settled) return;
+    settled = true;
+    /* Honest copy. Their details ARE captured by the waitlist bridge above,
+       so we say that plainly rather than claiming a report was sent. */
+    btn.textContent = 'Saved. Report to follow.';
+    btn.style.background = '#B45309';
+    deliveryNote(
+      'We have your details, but the report generator did not respond just now. ' +
+      'Bill will follow this up personally by email. You can also book a call below.',
+      '#FCD9A8'
+    );
+    if (window.va) {
+      window.va('event', { name: 'assessment_report_failed', cohort: cohort, score: overallScore });
+    }
+    revealEarnedCTA();
+  }
+
+  var graceTimer = setTimeout(function() {
+    settleSuccess('Report on its way!');
+  }, REPLY_GRACE_MS);
+
+  reportRequest.then(function(res) {
+    clearTimeout(graceTimer);
+    if (res && res.ok) {
+      settleSuccess('Report Sent!');
+    } else {
+      console.error('[Scorecard v4] Webhook returned', res && res.status);
+      settleFailure();
+    }
+  }).catch(function(err) {
+    clearTimeout(graceTimer);
+    console.error('[Scorecard v4] Webhook error:', err);
+    settleFailure();
+  });
 }
 </script>
 
