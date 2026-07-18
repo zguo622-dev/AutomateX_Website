@@ -2709,7 +2709,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 /* ===== Who we are: team cards + expandable profiles (2026-07-18) ===== */
 #about .team-eyebrow{font-family:var(--font-heading);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin:3.25rem 0 .75rem;display:flex;align-items:center;gap:.6rem;}
 #about .team-eyebrow::before{content:"";width:26px;height:1px;background:var(--orange);display:inline-block;}
-#about .team-lead{color:rgba(255,255,255,.72);font-size:1rem;line-height:1.7;max-width:60ch;margin-bottom:1.9rem;}
+#about .team-lead{color:rgba(255,255,255,.72);font-size:1rem;line-height:1.7;max-width:none;margin-bottom:1.9rem;}
 #about .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem;align-items:stretch;}
 #about .team-card{grid-column:span 1;display:flex;gap:1.1rem;align-items:flex-start;text-align:left;width:100%;background:linear-gradient(180deg,#131921,#161B22);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:1.4rem 1.5rem;cursor:pointer;font:inherit;color:inherit;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .3s ease,box-shadow .35s ease;}
 #about .team-card:hover{transform:translateY(-4px);border-color:rgba(249,101,50,.45);box-shadow:0 28px 56px -30px rgba(249,101,50,.3);}
@@ -2727,7 +2727,12 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 #about .team-toggle svg{width:13px;height:13px;transition:transform .3s cubic-bezier(.16,1,.3,1);}
 #about .team-card[aria-expanded="true"] .team-toggle svg{transform:rotate(180deg);}
 #about .team-panel{display:none;grid-column:1/-1;background:linear-gradient(180deg,#131921,#0D1117);border:1px solid rgba(249,101,50,.28);border-radius:18px;padding:1.9rem clamp(1.4rem,3vw,2.4rem);}
-#about .team-panel.open{display:block;animation:teamPanelIn .45s cubic-bezier(.16,1,.3,1) both;}
+#about .team-panel.open{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(1.5rem,3vw,2.4rem);align-items:start;}
+#about .tp-portrait{position:relative;width:100%;aspect-ratio:4/5;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 70px -34px rgba(0,0,0,.8);}
+#about .tp-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;}
+#about .tp-monogram{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:800;font-size:4.4rem;letter-spacing:.02em;color:#fff;background:linear-gradient(135deg,#FB7B3A,#F96532 55%,#ED4A3B);}
+#about .tp-content{min-width:0;}
+#about .team-panel.open{animation:teamPanelIn .45s cubic-bezier(.16,1,.3,1) both;}
 @keyframes teamPanelIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
 #about .team-panel h4{font-family:var(--font-heading);font-weight:800;font-size:1rem;color:#fff;margin:0 0 .2rem;letter-spacing:-.01em;}
 #about .team-panel .tp-role{font-size:.78rem;color:var(--orange);font-weight:600;margin-bottom:1.15rem;}
@@ -2736,7 +2741,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 #about .team-panel .tp-quote{font-style:italic;color:var(--orange);}
 #about .collab-note{margin-top:1.15rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--orange);border-radius:14px;padding:1.5rem clamp(1.3rem,2.4vw,1.9rem);}
 #about .collab-note h4{font-family:var(--font-heading);font-weight:800;font-size:.95rem;color:#fff;margin:0 0 .55rem;letter-spacing:-.01em;}
-#about .collab-note p{font-size:.9rem;line-height:1.75;color:rgba(255,255,255,.74);margin:0;max-width:78ch;}
+#about .collab-note p{font-size:.9rem;line-height:1.75;color:rgba(255,255,255,.74);margin:0;max-width:none;}
 /* desktop: cards side by side on row 1, panels full width beneath */
 @media (min-width:861px){
   #about .team-card.tc-1{order:1;}
@@ -2748,6 +2753,8 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
   #about .team-grid{grid-template-columns:1fr;}
   #about .team-card,#about .team-panel{grid-column:1/-1;}
   #about .team-avatar{width:62px;height:62px;}
+  #about .team-panel.open{grid-template-columns:1fr;gap:1.4rem;}
+  #about .tp-portrait{max-width:190px;}
 }
 
 /* ===== shared pinned horizontal scroll-through (matches homepage case carousel) ===== */
@@ -2922,6 +2929,8 @@ html.reduced .axr-scrollx .sx-progress,html:not(.js) .axr-scrollx .sx-progress{d
       </button>
 
       <div class="team-panel tp-1" id="team-panel-bill" role="region" aria-label="Bill Guo, full profile">
+        <div class="tp-portrait"><img src="images/team-bill-guo-lg.jpg" alt="Bill Guo" width="520" height="650" decoding="async"></div>
+        <div class="tp-content">
         <h4>Bill Guo FICE CEng MEng</h4>
         <div class="tp-role">Founder, AutomateX</div>
         <a class="about-linkedin" href="https://www.linkedin.com/in/bill-guo-fice-ceng-meng-b0114681/" target="_blank" rel="noopener" aria-label="Bill Guo on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg><span>Connect on LinkedIn</span></a>
@@ -2929,6 +2938,7 @@ html.reduced .axr-scrollx .sx-progress,html:not(.js) .axr-scrollx .sx-progress{d
         <p>In 2023 I started using AI to scale a rail business from zero to approximately &pound;1m ARR by 2025, and won one of 16 tactical design partner seats on Southern Renewals Enterprise (SRE). The tools aren&rsquo;t theory. They&rsquo;re how I got here.</p>
         <p>I founded AutomateX to bring that capability to the rest of UK rail. We automate the <span class="brand-x">X</span> that absorbs senior engineering hours, so the experts can focus on what only they can do.</p>
         <p class="tp-quote">&ldquo;We should learn to say no to the things AI can do better.&rdquo;</p>
+        </div>
       </div>
 
       <button type="button" class="team-card tc-2" data-team="kenneth" aria-expanded="false" aria-controls="team-panel-kenneth">
@@ -2943,12 +2953,15 @@ html.reduced .axr-scrollx .sx-progress,html:not(.js) .axr-scrollx .sx-progress{d
       </button>
 
       <div class="team-panel tp-2" id="team-panel-kenneth" role="region" aria-label="Kenneth Yap, full profile">
+        <div class="tp-portrait"><div class="tp-monogram" aria-hidden="true">KY</div></div>
+        <div class="tp-content">
         <h4>Kenneth Yap</h4>
         <div class="tp-role">AI Engineer &middot; Doctoral Researcher, University of Cambridge</div>
         <a class="about-linkedin" href="https://www.linkedin.com/in/hoong-hao-yap" target="_blank" rel="noopener" aria-label="Kenneth Yap on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg><span>Connect on LinkedIn</span></a>
         <p>Kenneth is a doctoral researcher at the University of Cambridge, working on the data architectures that let AI agents operate inside real engineering systems. His research looks at how autonomous agents coordinate and negotiate when no single controller is in charge, and how that work stays accountable. It is the same problem that sits underneath assurance in rail.</p>
         <p>His engineering background is infrastructure risk on live assets. At National Highways he led the risk assessment for the A303 twin-bore tunnel alongside the Stonehenge World Heritage Site, and wrote the Python tooling to model how each design option would affect the site. At Geotechnical Consulting Group he led the risk assessment for a basement excavation in London, managing the risk to live London Underground tunnels and Thames Water sewers. At Dr Sauer &amp; Partners he built DATuM, a tool that forecasts construction duration and diagnoses where delay is coming from across active tunnel drives.</p>
         <p>Imperial College London MEng in Civil Engineering, First Class Honours, majoring in computational engineering analysis for the built environment. He joins AutomateX to build the hazard and assurance systems where those two threads meet.</p>
+        </div>
       </div>
 
     </div>
