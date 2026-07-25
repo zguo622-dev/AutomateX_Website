@@ -1436,6 +1436,13 @@ body{background:transparent!important;}
 /* footer */
 .footer{background:transparent!important;}
 </style>
+<style id="axr-nav-match-index-2026-07-25">
+/* match index.html: the navbar is fixed and transparent, letting the particle
+   canvas show through. These pages defaulted to sticky + solid dark. The body
+   padding replaces the 81px the sticky nav used to occupy in flow. */
+.navbar{position:fixed!important;top:0!important;left:0!important;right:0!important;background:transparent!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important;border-bottom-color:transparent!important;transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;}
+body{padding-top:81px;}
+</style>
 </head>
 <body>
 <div id="axr-mega-veil" aria-hidden="true"></div>
@@ -3114,62 +3121,6 @@ function submitReport(e) {
   });
 })();
 </script>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="navbar-logo" aria-label="AutomateX home">
-          <img src="brand_assets/automatex-wordmark-dark-bg-transparent.png" alt="AutomateX">
-        </a>
-        <p>Systemising success for the UK rail supply chain.</p>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/automatex-advisory/" target="_blank" rel="noopener" aria-label="AutomateX on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@AutomateXUK" target="_blank" rel="noopener" aria-label="AutomateX on YouTube">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.42a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.95 1.96C5.12 19.5 12 19.5 12 19.5s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Approach</h4>
-        <ul>
-          <li><a href="index.html#find-your-x">Find your X</a></li>
-          <li><a href="bootcamp.html">Where to start</a></li>
-          <li><a href="waitlist.html">PACE OS&trade;</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">Founder&rsquo;s journey</a></li>
-          <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
-          <li><a href="ai-in-action.html">Case Studies</a></li>
-          <li><a href="scorecard.html" aria-current="page">Assessment</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="privacy.html">Privacy Notice</a></li>
-          </ul>
-      </div>
-      <div class="footer-certs">
-        <img src="images/ico-badge.png" alt="ICO Registered">
-        <img src="images/risqs-badge.png" alt="RISQS Verified">
-        <img src="images/cyber-essentials-badge.png" alt="Cyber Essentials Certified">
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-legal">&copy; 2026 AutomateX Ltd. Company No. 16855291 &middot; VAT No. 514079209</div>
-      <div class="footer-contact">
-        <a href="mailto:bill.guo@automatex.uk">bill.guo@automatex.uk</a> &middot; 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
-      </div>
-    </div>
-  </div>
-</footer>
 
 <!-- Calendly badge widget — floating "Chat with Founder" pill, bottom-right (calendly-badge-sitewide-2026-06-09) -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
