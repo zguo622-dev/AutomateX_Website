@@ -2671,11 +2671,12 @@
 /* case-study preview: real cards lifted from ai-in-action */
 .nav-mega .nm-pv-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;padding:6px;}
 .nav-mega .nm-csc{position:relative;display:block;overflow:hidden;border-radius:8px;background:#161B22;border:1px solid rgba(255,255,255,.07);}
-.nav-mega .nm-csc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease-out);}
+.nav-mega .nm-csc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:translateZ(0);transition:transform 1.15s cubic-bezier(.16,1,.3,1);}
 .nav-mega .nm-csc::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(13,17,23,.95) 0,rgba(13,17,23,.74) 34%,rgba(13,17,23,.14) 68%,rgba(13,17,23,0) 100%);}
 .nav-mega .nm-csb{position:absolute;top:.38rem;left:.45rem;z-index:2;font-family:var(--font-heading);font-weight:700;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(13,17,23,.72);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:.1rem .4rem;}
 .nav-mega .nm-csl{position:absolute;left:.5rem;right:.5rem;bottom:.4rem;z-index:2;font-family:var(--font-heading);font-weight:700;font-size:.63rem;line-height:1.28;color:#fff;}
-.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-csc img{transform:scale(1.06);}
+.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-csc img{transform:scale(1.09) translateZ(0);}
+@media (prefers-reduced-motion:reduce){.nav-mega .nm-csc img{transition:none;}.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-csc img{transform:none;}}
 .nav-mega .nm-pc{display:flex;flex-direction:column;align-items:flex-start;}
 .nav-mega .nm-flabel{font-family:var(--font-heading);font-weight:800;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--orange);border-radius:999px;padding:.2rem .55rem;margin-bottom:.75rem;}
 .nav-mega .nm-ftitle{display:block;font-family:var(--font-heading);font-weight:800;font-size:1.15rem;line-height:1.25;color:#fff;margin-bottom:.45rem;}
@@ -3089,6 +3090,31 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
   .csv .ap,.csv .pp,.csv .bp,.csv svg .mk,.csv .fixlink{opacity:1!important;animation:none!important;}
   .csv svg .draw{stroke-dasharray:none!important;animation:none!important;}
   .csv .snap{opacity:0!important;animation:none!important;}
+}
+/* ===== Case-study process maps (2026-07-25) =====
+   Self-describing SVG: every [data-k] node carries data-cap-title / data-cap-text
+   and data-rel, so one delegated listener drives all three diagrams and no
+   per-diagram JS dictionary is needed. Ported from the Scribtive Operating Loop. */
+.csp-wrap{margin-bottom:2.2rem;border-radius:14px;border:1px solid rgba(255,255,255,.09);background:#0A0E13;overflow:hidden;}
+.csp-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;padding:clamp(.6rem,2vw,1.1rem);}
+.csp-scroll::-webkit-scrollbar{height:6px;}
+.csp-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:3px;}
+.csp-card{background:#fff;border-radius:12px;padding:clamp(.5rem,1.5vw,1rem);min-width:600px;}
+.csp-card svg{display:block;width:100%;height:auto;}
+.csp-cap{display:flex;gap:.85rem;align-items:baseline;min-height:4.6em;margin:0 clamp(.6rem,2vw,1.1rem) clamp(.6rem,2vw,1.1rem);padding:.75rem .95rem;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.03);}
+.csp-cap-key{font-family:var(--font-h);font-weight:700;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#F96532;white-space:nowrap;}
+.csp-cap-text{font-size:.84rem;line-height:1.55;color:rgba(255,255,255,.8);margin:0;}
+.csp-note{padding:0 clamp(.6rem,2vw,1.1rem) .85rem;font-size:.7rem;color:rgba(255,255,255,.4);font-style:italic;}
+.csp-card g[data-k]{cursor:pointer;transition:opacity .22s ease;}
+.csp-card .arr{transition:opacity .22s ease;}
+.csp-card .dim{opacity:.2;}
+.csp-card g[data-k]:focus{outline:none;}
+.csp-card g[data-k]:focus-visible > rect:first-of-type{stroke-width:2.6;}
+.csp-card g[data-k].pin > rect:first-of-type{stroke:#F96532;stroke-width:2.4;}
+.csp-card .flow{stroke-dasharray:5 4;}
+@media (prefers-reduced-motion:no-preference){
+  .csp-card .flow{animation:cspdash 1.6s linear infinite;}
+  @keyframes cspdash{to{stroke-dashoffset:-18;}}
 }
 @media (max-width:640px){.cs-detail-compare,.cs-detail-narrative{grid-template-columns:1fr;}.cs-modal-panel{padding:2rem 1.25rem 2.2rem;}}
 
@@ -4907,35 +4933,7 @@ window.addEventListener("resize",sync);})();
 <template id="cs-detail-knowledge-graph">
   <div class="cs-detail-badge">04 &middot; Tender Knowledge Base</div>
   <div class="cs-detail-head"><h3>Tender responses start from a blank page and a search folder. We built the knowledge graph that makes every answer start cited.</h3></div>
-  <div class="csv-wrap"><div class="csv-scroll"><div class="csv-box"><div class="csv" data-csv><div class="win">
-      <div class="bar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-        <span class="u">Tender Knowledge Base<b>.</b></span>
-        <span class="tabs"><span>Library</span><span class="on">Answer</span><span>Graph</span><span>Submissions</span></span></div>
-      <div class="abody">
-        <div class="pane" style="flex:0 0 195px;border-right:1px solid #E7E2D6;background:#FAF9F5">
-          <svg viewBox="0 0 195 330" style="position:absolute;inset:0;width:100%;height:100%" aria-hidden="true">
-            <g stroke="#cfd4dd" stroke-width="1.4">
-              <path class="draw" style="--d:1.0s" d="M97,170 L45,80"/><path class="draw" style="--d:1.15s" d="M97,170 L150,84"/><path class="draw" style="--d:1.3s" d="M97,170 L38,250"/><path class="draw" style="--d:1.45s" d="M97,170 L152,254"/>
-            </g>
-            <g fill="#FB7B3A"><circle class="mk" style="--d:1.15s" cx="45" cy="80" r="8"/><circle class="mk" style="--d:1.3s" cx="150" cy="84" r="8"/><circle class="mk" style="--d:1.45s" cx="38" cy="250" r="8"/><circle class="mk" style="--d:1.6s" cx="152" cy="254" r="8"/></g>
-            <circle class="mk" style="--d:.9s" cx="97" cy="170" r="12" fill="#fff" stroke="#F96532" stroke-width="3"/>
-            <g font-family="Montserrat" font-weight="700" font-size="8" fill="#6B7280" text-anchor="middle">
-              <text class="ap" style="--d:1.3s" x="45" y="66">Standards</text><text class="ap" style="--d:1.45s" x="150" y="70">Taxonomy</text><text class="ap" style="--d:1.6s" x="38" y="270">Projects</text><text class="ap" style="--d:1.75s" x="152" y="274">Evidence</text>
-            </g>
-          </svg>
-          <span class="tag ap" style="--d:.85s;left:10px;top:10px">rail-specific graph</span>
-        </div>
-        <div class="feed">
-          <div class="card me ap" style="--d:.2s"><div class="ch">Question</div>What evidence do we hold for isolation planning on OLE renewals?</div>
-          <div class="card ap" style="--d:2.0s"><div class="ch">Drafted answer &middot; every claim cited</div>
-            Our isolation planning approach is set out in our staged possession methodology, applied on two prior OLE renewal frameworks, and aligned to the current electrification standard.
-            <div style="margin-top:5px"><span class="cite pp" style="--d:2.5s">standard &middot; &sect;7.2</span><span class="cite pp" style="--d:2.7s">project K &middot; 2024</span><span class="cite pp" style="--d:2.9s">method stmt &middot; &sect;4</span></div>
-          </div>
-          <div class="gate pp" style="--d:3.3s">&check; 0 uncited claims &mdash; grounded by design</div>
-          <div class="ask ap" style="--d:3.5s"><b>Ask the library&hellip;</b><span class="go">Draft &rarr;</span></div>
-        </div>
-      </div>
-    </div></div></div></div><div class="csv-cap"><b>Illustrative</b> Illustrative view of the concept. Question, answer and citations are invented placeholders.</div></div>
+  <div class="csp-wrap"><div class="csp-scroll"><div class="csp-card"><svg id="cspmap-tender" viewBox="0 0 680 700" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Segoe UI, sans-serif" role="img" aria-label="The bid engine process map"><g data-k="gate" tabindex="0" data-cap-title="Stage 0 &middot; Gate" data-cap-text="Before anything is downloaded or a folder is created: is this bid worth making? The engine returns go, reshape or kill, the money read, and the cheapest disqualifying check &ndash; the one thing that, if it fails, ends the exercise before any effort is spent." data-rel="a-go"><rect x="40" y="34" width="600" height="58" rx="10" fill="#E1F5EE" stroke="#0F6E56"/><text x="60" y="57" fill="#085041" font-size="14" font-weight="600">Stage 0 &middot; Gate</text><text x="60" y="76" fill="#0F6E56" font-size="11">Go, reshape or kill, plus the cheapest disqualifying check</text><rect x="472" y="48" width="148" height="28" rx="6" fill="#F8D3CD" stroke="#C23B27"/><text x="546" y="66" text-anchor="middle" fill="#8C2A1A" font-size="10.5" font-weight="600">Kill &middot; log it and stop</text></g><g class="arr" id="a-go"><line x1="340" y1="92" x2="340" y2="116" stroke="#888780" stroke-width="1.5"/><path d="M336,110 L340,118 L344,110" fill="none" stroke="#888780" stroke-width="1.5"/><text x="350" y="108" fill="#6b675f" font-size="11">go</text></g><g data-k="pack" tabindex="0" data-cap-title="The bid pack" data-cap-text="The question set is only half of it. The scoring model, the re-assessment rules and the category traps live in the attachments, and reading the form alone will mislead you. Every real date is extracted here: submission, clarification deadline, award, contract start." data-rel="a-drives"><rect x="140" y="116" width="400" height="112" rx="10" fill="#F1EFE8" stroke="#5F5E5A"/><text x="340" y="140" text-anchor="middle" fill="#444441" font-size="14" font-weight="600">The bid pack</text><text x="340" y="158" text-anchor="middle" fill="#5F5E5A" font-size="11">read the attachments, not just the form</text><rect x="155" y="170" width="185" height="22" rx="5" fill="#E3E0D6"/><text x="247" y="185" text-anchor="middle" fill="#444441" font-size="10.5">Question set</text><rect x="347" y="170" width="178" height="22" rx="5" fill="#E3E0D6"/><text x="436" y="185" text-anchor="middle" fill="#444441" font-size="10.5">Scoring model + rules</text><rect x="155" y="196" width="370" height="22" rx="5" fill="#E3E0D6"/><text x="340" y="211" text-anchor="middle" fill="#444441" font-size="10.5">Every real date, and the branches behind each answer</text></g><g class="arr" id="a-drives"><line x1="340" y1="228" x2="340" y2="262" stroke="#888780" stroke-width="1.5"/><path d="M336,256 L340,264 L344,256" fill="none" stroke="#888780" stroke-width="1.5"/><text x="350" y="250" fill="#6b675f" font-size="11">drives the run</text></g><g data-k="intake" tabindex="0" data-cap-title="Stage 1 &middot; Intake" data-cap-text="The portal is read, never driven. The question set is read, the pack is downloaded whole, and a working folder is scaffolded with a pristine untouched copy of the response file, because portal templates break on structural change and you may need to start again." data-rel="pack"><rect x="41" y="270" width="76" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="79" y="290" text-anchor="middle" fill="#444441" font-size="10.5" font-weight="600">Intake</text></g><line class="arr" x1="117" y1="286" x2="128" y2="286" stroke="#888780" stroke-width="1.5"/><g data-k="dissect" tabindex="0" data-cap-title="Stage 2 &middot; Dissect" data-cap-text="Every question is inventoried: number, response type, mandatory flag, word limit, scoring weight, and which conditional branch it sits behind. The headline count is almost always wrong. One pack advertised 384 questions when the real core was 72." data-rel="pack a-redissect"><rect x="128" y="270" width="76" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="166" y="290" text-anchor="middle" fill="#444441" font-size="10.5" font-weight="600">Dissect</text></g><line class="arr" x1="204" y1="286" x2="215" y2="286" stroke="#888780" stroke-width="1.5"/><g data-k="autofill" tabindex="0" data-cap-title="Stage 3 &middot; Auto-fill" data-cap-text="Most of a bid is already known. Two lanes run: facts come from your company record, narrative comes from your winning library. On one supplier questionnaire, 118 of 384 rows filled from what was already held before a single question reached a human." data-rel="canon library a-lanea a-laneb a-redissect"><rect x="215" y="270" width="76" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="253" y="290" text-anchor="middle" fill="#444441" font-size="10.5" font-weight="600">Auto-fill</text></g><line class="arr" x1="291" y1="286" x2="302" y2="286" stroke="#888780" stroke-width="1.5"/><g data-k="grill" tabindex="0" data-cap-title="Stage 4 &middot; Grill" data-cap-text="Only now does anyone get asked anything, and only what your own records cannot answer. Questions arrive in batches of four with a recommendation and its reasoning attached, so your bid manager is choosing between real positions rather than guessing." data-rel="a-writeback canon"><rect x="302" y="270" width="76" height="32" rx="7" fill="#E1F5EE" stroke="#0F6E56"/><text x="340" y="290" text-anchor="middle" fill="#085041" font-size="10.5" font-weight="600">Grill</text></g><line class="arr" x1="378" y1="286" x2="389" y2="286" stroke="#888780" stroke-width="1.5"/><g data-k="record" tabindex="0" data-cap-title="Stage 5 &middot; Record" data-cap-text="Every answer lands in two places: the response file, and an answer register logging the question, the answer and why. The register is what makes the bid auditable a year later, and it is what feeds the library." data-rel="response a-toresp"><rect x="389" y="270" width="76" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="427" y="290" text-anchor="middle" fill="#444441" font-size="10.5" font-weight="600">Record</text></g><line class="arr" x1="465" y1="286" x2="476" y2="286" stroke="#888780" stroke-width="1.5"/><g data-k="stage" tabindex="0" data-cap-title="Stage 6 &middot; Stage" data-cap-text="The evidence pack is assembled: certificates, policies, financial evidence. Attachments upload separately and almost never import through a response template. Where a third party blocks an answer, the chase email is drafted and named against its hard date." data-rel="response"><rect x="476" y="270" width="76" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="514" y="290" text-anchor="middle" fill="#444441" font-size="10.5" font-weight="600">Stage</text></g><line class="arr" x1="552" y1="286" x2="563" y2="286" stroke="#888780" stroke-width="1.5"/><g data-k="review" tabindex="0" data-cap-title="Stage 7 &middot; Review" data-cap-text="An adversarial pass before anything is called finished. Over-claiming, accreditation claims, unverified figures, unfinished branches. The weakness gate is hard: every still-weak line the last assessor named must be cleared here or consciously waived." data-rel="library a-gate2"><rect x="563" y="270" width="76" height="32" rx="7" fill="#E1F5EE" stroke="#0F6E56"/><text x="601" y="290" text-anchor="middle" fill="#085041" font-size="10.5" font-weight="600">Review</text></g><g class="arr" id="a-redissect"><path class="flow" d="M253,270 L253,252 L166,252 L166,270" fill="none" stroke="#F96532" stroke-width="1.6"/><path d="M162,264 L166,272 L170,264" fill="none" stroke="#F96532" stroke-width="1.6"/><text x="210" y="247" text-anchor="middle" fill="#6b675f" font-size="11">re-dissect &middot; answers open new branches</text></g><g class="arr" id="a-gate2"><path d="M380,356 L380,322 L601,322 L601,306" fill="none" stroke="#888780" stroke-width="1.5"/><path d="M597,312 L601,304 L605,312" fill="none" stroke="#888780" stroke-width="1.5"/><text x="492" y="317" text-anchor="middle" fill="#6b675f" font-size="11">still-weak lines gate the review</text></g><g class="arr" id="a-toresp"><line x1="430" y1="306" x2="516" y2="352" stroke="#888780" stroke-width="1.5"/><path d="M507,349 L519,354 L512,343" fill="none" stroke="#888780" stroke-width="1.5"/></g><g class="arr" id="a-lanea"><line x1="128" y1="352" x2="228" y2="308" stroke="#888780" stroke-width="1.5"/><path d="M221,311 L231,306 L224,317" fill="none" stroke="#888780" stroke-width="1.5"/><text x="120" y="344" text-anchor="end" fill="#6b675f" font-size="11">lane A &middot; facts</text></g><g class="arr" id="a-laneb"><line x1="310" y1="352" x2="278" y2="308" stroke="#888780" stroke-width="1.5"/><path d="M274,317 L277,306 L284,314" fill="none" stroke="#888780" stroke-width="1.5"/><text x="322" y="344" fill="#6b675f" font-size="11">lane B &middot; narrative</text></g><g data-k="canon" tabindex="0" data-cap-title="Your company record" data-cap-text="The facts a bid asks for over and over: registration and tax identifiers, policies, insurance schedule, accreditations held, headcount and turnover. Read from source, never recalled. Anything a human has to supply is written back here, so the same fact is never hunted twice." data-rel="a-lanea a-writeback"><rect x="40" y="356" width="170" height="180" rx="10" fill="#E1F5EE" stroke="#0F6E56"/><text x="125" y="380" text-anchor="middle" fill="#085041" font-size="13" font-weight="600">Your company record</text><text x="125" y="397" text-anchor="middle" fill="#0F6E56" font-size="10.5">facts, read not recalled</text><rect x="52" y="408" width="146" height="21" rx="5" fill="#9FE1CB"/><text x="125" y="422" text-anchor="middle" fill="#04342C" font-size="10">Identifiers</text><rect x="52" y="433" width="146" height="21" rx="5" fill="#9FE1CB"/><text x="125" y="447" text-anchor="middle" fill="#04342C" font-size="10">Policy library</text><rect x="52" y="458" width="146" height="21" rx="5" fill="#9FE1CB"/><text x="125" y="472" text-anchor="middle" fill="#04342C" font-size="10">Insurance schedule</text><rect x="52" y="483" width="146" height="21" rx="5" fill="#9FE1CB"/><text x="125" y="497" text-anchor="middle" fill="#04342C" font-size="10">Accreditations held</text><rect x="52" y="508" width="146" height="21" rx="5" fill="#9FE1CB"/><text x="125" y="522" text-anchor="middle" fill="#04342C" font-size="10">Team + capability</text></g><g data-k="library" tabindex="0" data-cap-title="Your winning library" data-cap-text="What has actually scored. Answers by theme, the traps each bid hid, and the assessor feedback verbatim. It is read before any scored answer is drafted, and the weaknesses an assessor named last time become a hard gate on the next bid. Bid eleven starts smarter than bid ten." data-rel="a-laneb a-gate2 a-harvest"><rect x="222" y="356" width="170" height="180" rx="10" fill="#E1F5EE" stroke="#0F6E56"/><text x="307" y="380" text-anchor="middle" fill="#085041" font-size="13" font-weight="600">Your winning library</text><text x="307" y="397" text-anchor="middle" fill="#0F6E56" font-size="10.5">yours, compounds every bid</text><rect x="234" y="408" width="146" height="21" rx="5" fill="#9FE1CB"/><text x="307" y="422" text-anchor="middle" fill="#04342C" font-size="10">Answer bank by theme</text><rect x="234" y="433" width="146" height="21" rx="5" fill="#9FE1CB"/><text x="307" y="447" text-anchor="middle" fill="#04342C" font-size="10">Wins + what scored</text><rect x="234" y="458" width="146" height="21" rx="5" fill="#9FE1CB"/><text x="307" y="472" text-anchor="middle" fill="#04342C" font-size="10">Assessor feedback</text><rect x="234" y="483" width="146" height="21" rx="5" fill="#9FE1CB"/><text x="307" y="497" text-anchor="middle" fill="#04342C" font-size="10">Traps, per portal</text><rect x="234" y="508" width="146" height="21" rx="5" fill="#9FE1CB"/><text x="307" y="522" text-anchor="middle" fill="#04342C" font-size="10">Still weak, per theme</text></g><g data-k="response" tabindex="0" data-cap-title="Response file + register" data-cap-text="The populated response, and beside it a register logging every answer and the reason it was given. One hard rule governs the file: never write an unverified fact into it. Blank beats optimistic, so the response is truthful at every moment and never a lie if it is sent." data-rel="a-toresp a-harvest a-writeback submit"><rect x="404" y="356" width="236" height="180" rx="10" fill="#F1EFE8" stroke="#5F5E5A"/><text x="522" y="380" text-anchor="middle" fill="#444441" font-size="13" font-weight="600">Response file + answer register</text><text x="522" y="397" text-anchor="middle" fill="#5F5E5A" font-size="10.5">every answer, and why it was given</text><rect x="416" y="408" width="212" height="21" rx="5" fill="#E3E0D6"/><text x="522" y="422" text-anchor="middle" fill="#444441" font-size="10">Populated response</text><rect x="416" y="433" width="212" height="21" rx="5" fill="#E3E0D6"/><text x="522" y="447" text-anchor="middle" fill="#444441" font-size="10">Answer register, with reasoning</text><rect x="416" y="458" width="212" height="21" rx="5" fill="#E3E0D6"/><text x="522" y="472" text-anchor="middle" fill="#444441" font-size="10">Evidence pack, staged</text><rect x="416" y="483" width="212" height="21" rx="5" fill="#E3E0D6"/><text x="522" y="497" text-anchor="middle" fill="#444441" font-size="10">Blockers, with their hard dates</text><rect x="416" y="508" width="212" height="21" rx="5" fill="#F8D3CD"/><text x="522" y="522" text-anchor="middle" fill="#8C2A1A" font-size="10" font-weight="600">Never an unverified fact</text></g><g class="arr" id="a-harvest"><path class="flow" d="M522,536 L522,556 L313,556" fill="none" stroke="#F96532" stroke-width="1.6"/><path d="M319,552 L311,556 L319,560" fill="none" stroke="#F96532" stroke-width="1.6"/><path class="flow" d="M307,556 L307,540" fill="none" stroke="#F96532" stroke-width="1.6"/><path d="M303,546 L307,538 L311,546" fill="none" stroke="#F96532" stroke-width="1.6"/><text x="424" y="551" text-anchor="middle" fill="#6b675f" font-size="11">harvest &middot; at submission, then again at outcome</text></g><g class="arr" id="a-writeback"><path class="flow" d="M440,536 L440,578 L131,578 L131,540" fill="none" stroke="#F96532" stroke-width="1.6"/><path d="M127,546 L131,538 L135,546" fill="none" stroke="#F96532" stroke-width="1.6"/><text x="290" y="573" text-anchor="middle" fill="#6b675f" font-size="11">write-back &middot; a fact is hunted once, ever</text></g><g data-k="submit" tabindex="0" data-cap-title="Your bid manager submits" data-cap-text="The engine reads portals, never drives them. It never clicks submit, register, express interest or decline, because those clicks change your standing with the buyer. It prepares everything and stops. The last action is always a human one." data-rel="a-harvest"><rect x="404" y="598" width="236" height="42" rx="10" fill="#FDEEE7" stroke="#D9581F"/><text x="522" y="616" text-anchor="middle" fill="#9C3D12" font-size="12" font-weight="600">Your bid manager submits</text><text x="522" y="632" text-anchor="middle" fill="#C24E20" font-size="10.5">the engine never touches the button</text></g><g class="arr" id="a-tosubmit"><line x1="360" y1="619" x2="398" y2="619" stroke="#888780" stroke-width="1.5"/><path d="M392,615 L400,619 L392,623" fill="none" stroke="#888780" stroke-width="1.5"/></g><rect x="40" y="662" width="12" height="12" rx="3" fill="#F1EFE8" stroke="#5F5E5A"/><text x="58" y="672" fill="#6b675f" font-size="11">engine stages</text><rect x="170" y="662" width="12" height="12" rx="3" fill="#E1F5EE" stroke="#0F6E56"/><text x="188" y="672" fill="#6b675f" font-size="11">your assets + human gates</text><line x1="360" y1="668" x2="386" y2="668" stroke="#F96532" stroke-width="1.6" stroke-dasharray="5 4"/><text x="394" y="672" fill="#6b675f" font-size="11">compounds every bid</text></svg></div></div><div class="csp-cap"><span class="csp-cap-key">The loop</span><p class="csp-cap-text">Hover or tap any part of the diagram. Click to pin it, click again or press Escape to release.</p></div><p class="csp-note">Illustrative process map of the bid engine. Figures quoted in the captions are from real AutomateX bid runs.</p></div>
   <div class="cs-detail-narrative">
     <div class="cs-detail-block"><h4>The challenge</h4><p>Tender responses draw on standards, past project evidence, and internal taxonomy scattered across drives and legacy documents. Finding the right precedent and citing it properly eats the time that should go into writing a stronger answer.</p></div>
     <div class="cs-detail-block"><h4>The situation</h4><p>A bid team needed faster, better-grounded tender responses, without an uncontrolled AI tool inventing evidence or a manual search process that ate days per submission.</p></div>
@@ -4955,36 +4953,126 @@ window.addEventListener("resize",sync);})();
 <template id="cs-detail-scribtive">
   <div class="cs-detail-badge">05 &middot; Scribtive&trade;</div>
   <div class="cs-detail-head"><h3>PACE assurance deliverables take days to draft and check by hand. Scribtive runs the whole job as an agentic, evidence-gated workflow.</h3></div>
-  <div class="csv-wrap"><div class="csv-scroll"><div class="csv-box"><div class="csv" data-csv><div class="win">
-      <div class="bar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-        <span class="u">Scribtive<b>.</b></span>
-        <span class="tabs"><span>Project</span><span class="on">Walkthrough</span><span>Evidence grid</span><span>Draft</span></span></div>
-      <div class="abody">
-        <div class="feed">
-          <div class="card ap" style="--d:.2s"><div class="ch">Playbook asks</div><div class="q">The deliverable needs the interface risk position. What failure mode does the isolation barrier design out?</div></div>
-          <div class="card ap" style="--d:1.0s"><div class="ch">Evidence found &middot; cited to source</div>
-            &ldquo;The barrier prevents inadvertent access to the live conductor zone during staged possession works.&rdquo;
-            <div style="margin-top:4px"><span class="cite">survey report &middot; p.12</span></div>
-            <div class="btns"><span class="btn v pp" style="--d:1.9s">&check; Verify</span><span class="btn">Edit quote</span><span class="btn">Reject</span></div>
-          </div>
-          <div class="gate pp" style="--d:2.5s">&check; Engineer verified &mdash; evidence can now be used</div>
-          <div class="card ap" style="--d:3.0s"><div class="ch">Draft section generated</div>Section 7 first draft assembled <b>from verified evidence only</b>, audit trail attached.</div>
-        </div>
-        <div class="rail">
-          <div class="g">Form sections</div>
-          <div class="row ap" style="--d:.5s"><span class="ck">&check;</span>Scope &amp; context<span class="pill g">gate passed</span></div>
-          <div class="row ap" style="--d:.7s"><span class="ck">&check;</span>Design changes<span class="pill g">gate passed</span></div>
-          <div class="row ap" style="--d:.9s"><span class="ck amber">&middot;</span>Interface risks<span class="pill o">in walkthrough</span></div>
-          <div class="row ap" style="--d:1.1s"><span class="ck amber">&middot;</span>Residual actions<span class="pill n">queued</span></div>
-          <div class="g" style="margin-top:8px">Evidence grid</div>
-          <div class="kpis">
-            <div class="kpi ap" style="--d:1.4s"><div class="kk">Verified</div><div class="kv">12</div></div>
-            <div class="kpi ap" style="--d:1.6s"><div class="kk">Rejected</div><div class="kv">2</div></div>
-          </div>
-          <div class="bench pp" style="--d:3.4s"><span class="bl">unverified in draft</span><span class="bv">0 &mdash; gated</span></div>
-        </div>
-      </div>
-    </div></div></div></div><div class="csv-cap"><b>Illustrative</b> Illustrative view of the walkthrough and verification gate. Evidence shown is not a real client deliverable.</div></div>
+  <div class="csp-wrap"><div class="csp-scroll"><div class="csp-card"><svg id="cspmap-scribtive" viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Segoe UI, sans-serif" role="img" aria-label="The Scribtive operating loop diagram">
+
+  <g data-k="playbook" tabindex="0" data-cap-title="Client playbook" data-cap-text="Encodes how this deliverable gets produced: what it must contain, the workflow, the questions your engineers are asked, and the evidence required before drafting. AutomateX governs it; every change arrives as a versioned release with a changelog you can read." data-rel="a-scripts">
+    <rect x="140" y="40" width="400" height="148" rx="10" fill="#EEEDFE" stroke="#534AB7"/>
+    <text x="340" y="66" text-anchor="middle" fill="#3C3489" font-size="15" font-weight="600">Client playbook</text>
+    <text x="340" y="86" text-anchor="middle" fill="#534AB7" font-size="11">AutomateX-governed, versioned releases</text>
+    <rect x="155" y="100" width="185" height="22" rx="5" fill="#CECBF6"/>
+    <text x="247" y="115" text-anchor="middle" fill="#3C3489" font-size="11">Deliverable contract</text>
+    <rect x="347" y="100" width="180" height="22" rx="5" fill="#CECBF6"/>
+    <text x="437" y="115" text-anchor="middle" fill="#3C3489" font-size="11">Program + gates</text>
+    <rect x="155" y="128" width="185" height="22" rx="5" fill="#CECBF6"/>
+    <text x="247" y="143" text-anchor="middle" fill="#3C3489" font-size="11">Interrogation model</text>
+    <rect x="347" y="128" width="180" height="22" rx="5" fill="#CECBF6"/>
+    <text x="437" y="143" text-anchor="middle" fill="#3C3489" font-size="11">Evidence demands</text>
+    <rect x="155" y="156" width="372" height="22" rx="5" fill="#CECBF6"/>
+    <text x="341" y="171" text-anchor="middle" fill="#3C3489" font-size="11">Changelog, visible to you</text>
+  </g>
+
+  <g class="arr" id="a-scripts">
+    <line x1="340" y1="188" x2="340" y2="224" stroke="#888780" stroke-width="1.5"/>
+    <path d="M336,218 L340,226 L344,218" fill="none" stroke="#888780" stroke-width="1.5"/>
+    <text x="350" y="210" fill="#6b675f" font-size="11">scripts the session</text>
+  </g>
+
+  <g data-k="plan" tabindex="0" data-cap-title="Plan" data-cap-text="The playbook proposes the plan for this project. Nothing runs until your engineer reviews, edits and approves it." data-rel="playbook a-scripts"><rect x="40" y="230" width="68" height="32" rx="7" fill="#E1F5EE" stroke="#0F6E56"/><text x="74" y="250" text-anchor="middle" fill="#085041" font-size="11" font-weight="600">Plan</text></g>
+  <line class="arr" x1="108" y1="246" x2="116" y2="246" stroke="#888780" stroke-width="1.5"/>
+  <g data-k="gather" tabindex="0" data-cap-title="Gather" data-cap-text="The agent reads your project files, your standards and your repository, then reports what it found and what is missing &ndash; with citations." data-rel="repository a-considerations"><rect x="116" y="230" width="68" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="150" y="250" text-anchor="middle" fill="#444441" font-size="11" font-weight="600">Gather</text></g>
+  <line class="arr" x1="184" y1="246" x2="192" y2="246" stroke="#888780" stroke-width="1.5"/>
+  <g data-k="build" tabindex="0" data-cap-title="Build grid" data-cap-text="Every document is checked against the playbook's evidence demands. The Assurance Grid fills with findings, each cited to the page it came from." data-rel="grid a-harvest"><rect x="192" y="230" width="68" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="226" y="250" text-anchor="middle" fill="#444441" font-size="11" font-weight="600">Build grid</text></g>
+  <line class="arr" x1="260" y1="246" x2="268" y2="246" stroke="#888780" stroke-width="1.5"/>
+  <g data-k="verify" tabindex="0" data-cap-title="Verify" data-cap-text="Your engineer verifies, edits or rejects each piece of evidence in the grid. This gate is absolute: nothing unverified travels further." data-rel="grid a-verified"><rect x="268" y="230" width="68" height="32" rx="7" fill="#E1F5EE" stroke="#0F6E56"/><text x="302" y="250" text-anchor="middle" fill="#085041" font-size="11" font-weight="600">Verify</text></g>
+  <line class="arr" x1="336" y1="246" x2="344" y2="246" stroke="#888780" stroke-width="1.5"/>
+  <g data-k="grill" tabindex="0" data-cap-title="Grill" data-cap-text="The system interviews your engineer &ndash; questions generated from your evidence and your considerations list, never from a generic script." data-rel="repository a-considerations"><rect x="344" y="230" width="68" height="32" rx="7" fill="#E1F5EE" stroke="#0F6E56"/><text x="378" y="250" text-anchor="middle" fill="#085041" font-size="11" font-weight="600">Grill</text></g>
+  <line class="arr" x1="412" y1="246" x2="420" y2="246" stroke="#888780" stroke-width="1.5"/>
+  <g data-k="draft" tabindex="0" data-cap-title="Draft" data-cap-text="Sections are written only from verified evidence and your engineer's answers. Every statement carries its citation." data-rel="grid a-verified"><rect x="420" y="230" width="68" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="454" y="250" text-anchor="middle" fill="#444441" font-size="11" font-weight="600">Draft</text></g>
+  <line class="arr" x1="488" y1="246" x2="496" y2="246" stroke="#888780" stroke-width="1.5"/>
+  <g data-k="eval" tabindex="0" data-cap-title="Eval" data-cap-text="The draft is scored against the playbook's quality bar before anyone relies on it. The scores ship with the deliverable." data-rel="deliverable a-ship"><rect x="496" y="230" width="68" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="530" y="250" text-anchor="middle" fill="#444441" font-size="11" font-weight="600">Eval</text></g>
+  <line class="arr" x1="564" y1="246" x2="572" y2="246" stroke="#888780" stroke-width="1.5"/>
+  <g data-k="closeout" tabindex="0" data-cap-title="Close-out" data-cap-text="The project graduates: a past-project record, an auto-drafted case study, and the new considerations it surfaced &ndash; each one approved by your repo owner, never added silently." data-rel="tray a-sweep a-trayrepo repository"><rect x="572" y="230" width="68" height="32" rx="7" fill="#E1F5EE" stroke="#0F6E56"/><text x="606" y="250" text-anchor="middle" fill="#085041" font-size="11" font-weight="600">Close-out</text></g>
+
+  <g class="arr" id="a-considerations">
+    <line x1="150" y1="356" x2="150" y2="270" stroke="#888780" stroke-width="1.5"/>
+    <path d="M146,276 L150,268 L154,276" fill="none" stroke="#888780" stroke-width="1.5"/>
+    <text x="142" y="298" text-anchor="end" fill="#6b675f" font-size="11">considerations</text>
+    <text x="142" y="313" text-anchor="end" fill="#6b675f" font-size="11">+ precedent</text>
+  </g>
+  <g class="arr" id="a-harvest">
+    <line x1="226" y1="266" x2="345" y2="352" stroke="#888780" stroke-width="1.5"/>
+    <path d="M336,349 L347,353 L341,343" fill="none" stroke="#888780" stroke-width="1.5"/>
+    <text x="252" y="282" fill="#6b675f" font-size="11">harvest fills</text>
+  </g>
+  <g class="arr" id="a-verified">
+    <line x1="430" y1="352" x2="430" y2="270" stroke="#888780" stroke-width="1.5"/>
+    <path d="M426,276 L430,268 L434,276" fill="none" stroke="#888780" stroke-width="1.5"/>
+    <text x="438" y="300" fill="#6b675f" font-size="11">verified only</text>
+  </g>
+  <g class="arr" id="a-ship">
+    <line x1="530" y1="266" x2="556" y2="352" stroke="#888780" stroke-width="1.5"/>
+    <path d="M549,347 L557,354 L556,343" fill="none" stroke="#888780" stroke-width="1.5"/>
+  </g>
+
+  <g data-k="repository" tabindex="0" data-cap-title="Repository" data-cap-text="Your institutional knowledge, in one governed home. It belongs to you, grows with every project, and the agent cites it back in the next one &ndash; project eleven starts smarter than project ten." data-rel="a-considerations a-trayrepo tray">
+    <rect x="40" y="360" width="250" height="190" rx="10" fill="#E1F5EE" stroke="#0F6E56"/>
+    <text x="165" y="386" text-anchor="middle" fill="#085041" font-size="14" font-weight="600">Repository</text>
+    <text x="165" y="404" text-anchor="middle" fill="#0F6E56" font-size="11">yours, compounds every project</text>
+    <rect x="54" y="416" width="222" height="22" rx="5" fill="#9FE1CB"/>
+    <text x="165" y="431" text-anchor="middle" fill="#04342C" font-size="11">Standards</text>
+    <rect x="54" y="442" width="222" height="22" rx="5" fill="#9FE1CB"/>
+    <text x="165" y="457" text-anchor="middle" fill="#04342C" font-size="11">Past projects</text>
+    <rect x="54" y="468" width="222" height="22" rx="5" fill="#9FE1CB"/>
+    <text x="165" y="483" text-anchor="middle" fill="#04342C" font-size="11">Case studies + best practices</text>
+    <rect x="54" y="494" width="222" height="22" rx="5" fill="#9FE1CB"/>
+    <text x="165" y="509" text-anchor="middle" fill="#04342C" font-size="11">Considerations, per playbook</text>
+    <rect x="54" y="520" width="222" height="22" rx="5" fill="#9FE1CB"/>
+    <text x="165" y="535" text-anchor="middle" fill="#04342C" font-size="11">House-rule policies</text>
+  </g>
+
+  <g data-k="grid" tabindex="0" data-cap-title="Assurance Grid" data-cap-text="Documents by checks: every cell a cited answer, every answer open to engineer sign-off. It doubles as a standalone review surface your team can query directly." data-rel="a-harvest a-verified a-candidates tray">
+    <rect x="320" y="360" width="170" height="110" rx="10" fill="#E1F5EE" stroke="#0F6E56"/>
+    <text x="405" y="392" text-anchor="middle" fill="#085041" font-size="14" font-weight="600">Assurance Grid</text>
+    <text x="405" y="414" text-anchor="middle" fill="#0F6E56" font-size="11">docs by checks, cited</text>
+    <text x="405" y="430" text-anchor="middle" fill="#0F6E56" font-size="11">cells, engineer sign-off</text>
+  </g>
+
+  <g data-k="deliverable" tabindex="0" data-cap-title="Deliverable" data-cap-text="The draft plus its KPI report and eval evidence, stamped with the playbook version that produced it &ndash; method, evidence, engineer and scores in one accountability chain." data-rel="a-ship">
+    <rect x="505" y="360" width="120" height="110" rx="10" fill="#F1EFE8" stroke="#5F5E5A"/>
+    <text x="565" y="392" text-anchor="middle" fill="#444441" font-size="13" font-weight="600">Deliverable</text>
+    <text x="565" y="414" text-anchor="middle" fill="#5F5E5A" font-size="11">stamped with the</text>
+    <text x="565" y="430" text-anchor="middle" fill="#5F5E5A" font-size="11">playbook version</text>
+  </g>
+
+  <g class="arr" id="a-candidates">
+    <line class="flow" x1="405" y1="474" x2="405" y2="494" stroke="#F96532" stroke-width="1.6"/>
+    <path d="M401,490 L405,498 L409,490" fill="none" stroke="#F96532" stroke-width="1.6"/>
+    <text x="413" y="490" fill="#6b675f" font-size="11">candidates</text>
+  </g>
+
+  <g data-k="tray" tabindex="0" data-cap-title="Compounding tray" data-cap-text="Nothing enters your repository silently. Candidates queue here from the session and the grid; your repo owner accepts, edits or rejects each one, and the audit trail keeps every decision." data-rel="a-candidates a-sweep a-trayrepo repository grid">
+    <rect x="320" y="500" width="170" height="48" rx="10" fill="#FDEEE7" stroke="#D9581F"/>
+    <text x="405" y="520" text-anchor="middle" fill="#9C3D12" font-size="12" font-weight="600">Compounding tray</text>
+    <text x="405" y="537" text-anchor="middle" fill="#C24E20" font-size="11">repo owner approves</text>
+  </g>
+
+  <g class="arr" id="a-sweep">
+    <path class="flow" d="M606,266 L636,294 L636,524 L500,524" fill="none" stroke="#F96532" stroke-width="1.6"/>
+    <path d="M506,520 L498,524 L506,528" fill="none" stroke="#F96532" stroke-width="1.6"/>
+    <text x="566" y="514" text-anchor="middle" fill="#6b675f" font-size="11">final sweep</text>
+  </g>
+  <g class="arr" id="a-trayrepo">
+    <line class="flow" x1="316" y1="524" x2="298" y2="524" stroke="#F96532" stroke-width="1.6"/>
+    <path d="M302,520 L294,524 L302,528" fill="none" stroke="#F96532" stroke-width="1.6"/>
+  </g>
+
+  <rect x="40" y="580" width="12" height="12" rx="3" fill="#EEEDFE" stroke="#534AB7"/>
+  <text x="58" y="590" fill="#6b675f" font-size="11">AutomateX-governed playbook</text>
+  <rect x="250" y="580" width="12" height="12" rx="3" fill="#E1F5EE" stroke="#0F6E56"/>
+  <text x="268" y="590" fill="#6b675f" font-size="11">your assets + engineer gates</text>
+  <line x1="470" y1="586" x2="496" y2="586" stroke="#F96532" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="504" y="590" fill="#6b675f" font-size="11">compounding, owner-approved</text>
+  </svg></div></div><div class="csp-cap"><span class="csp-cap-key">The loop</span><p class="csp-cap-text">Hover or tap any part of the diagram. Click to pin it, click again or press Escape to release.</p></div><p class="csp-note">Illustrative process map of the Scribtive operating loop. No client data is shown.</p></div>
   <div class="cs-detail-narrative">
     <div class="cs-detail-block"><h4>The challenge</h4><p>PACE-compliant rail assurance documents are drafted manually, section by section, with evidence gathered and checked against compliance requirements by hand. It is slow, and quality depends on who is drafting that week.</p></div>
     <div class="cs-detail-block"><h4>The situation</h4><p>Assurance teams needed a faster, more consistent way to produce PACE-compliant deliverables, without lowering the bar on evidence or compliance sign-off.</p></div>
@@ -5004,34 +5092,7 @@ window.addEventListener("resize",sync);})();
 <template id="cs-detail-digital-hazard-log">
   <div class="cs-detail-badge">06 &middot; Digital Hazard Log</div>
   <div class="cs-detail-head"><h3>The hazard log is the spine of the safety case. So why does it still live in a spreadsheet?</h3></div>
-  <div class="csv-wrap"><div class="csv-scroll"><div class="csv-box"><div class="csv" data-csv><div class="win">
-      <div class="bar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
-        <span class="u">Digital Hazard Log<b>.</b></span>
-        <span class="tabs"><span>Dashboard</span><span class="on">Register</span><span>Triggers</span><span>Audit trail</span></span></div>
-      <div class="abody">
-        <div class="pane" style="display:flex;flex-direction:column;padding:10px 12px">
-          <div class="kpis">
-            <div class="kpi ap" style="--d:.15s"><div class="kk">Open hazards</div><div class="kv">147</div></div>
-            <div class="kpi ap" style="--d:.3s"><div class="kk">Triggers live</div><div class="kv">38</div></div>
-            <div class="kpi ap" style="--d:.45s"><div class="kk">Evidence linked</div><div class="kv" style="color:#12805A">&check; all</div></div>
-          </div>
-          <div class="alert bp" style="--d:.8s"><div><div class="at">New trigger detected &mdash; 6 hazards auto-flagged for re-review</div><div class="ad">Industry finding published &middot; matched to open working-at-height hazards</div></div><span class="cnt">Queue &middot; 6</span></div>
-          <div class="row ap" style="--d:1.5s"><b style="font-family:Montserrat,sans-serif;font-size:8.5px">HAZ-0142</b><span>Falling material over live platform</span><span class="pill o">re-review</span></div>
-          <div class="row ap" style="--d:1.65s"><b style="font-family:Montserrat,sans-serif;font-size:8.5px">HAZ-0098</b><span>OLE clearance at overbridge</span><span class="pill g">evidence &check;</span></div>
-          <div class="row ap" style="--d:1.8s"><b style="font-family:Montserrat,sans-serif;font-size:8.5px">HAZ-0071</b><span>Scour at pier 3, watercourse</span><span class="pill o">re-review</span></div>
-          <div class="row ap" style="--d:1.95s"><b style="font-family:Montserrat,sans-serif;font-size:8.5px">HAZ-0055</b><span>Manual handling &mdash; GRP units</span><span class="pill g">closed &check;</span></div>
-          <div class="ask ap" style="--d:2.4s">Ask the log: <b>open hazards, high residual, evidence missing</b><span class="go">Ask &rarr;</span></div>
-        </div>
-        <div class="rail">
-          <div class="g">Why it is different</div>
-          <div class="row ap" style="--d:2.7s"><span class="ck">&check;</span>One live record, no copies</div>
-          <div class="row ap" style="--d:2.85s"><span class="ck">&check;</span>Evidence linked per hazard</div>
-          <div class="row ap" style="--d:3.0s"><span class="ck">&check;</span>Queryable in plain English</div>
-          <div class="row ap" style="--d:3.15s"><span class="ck">&check;</span>Full audit trail</div>
-          <div class="bench pp" style="--d:3.4s"><span class="bl">register status</span><span class="bv">always current</span></div>
-        </div>
-      </div>
-    </div></div></div></div><div class="csv-cap"><b>Illustrative</b> Illustrative view of the concept. Hazard data is invented, not a real safety record.</div></div>
+  <div class="csp-wrap"><div class="csp-scroll"><div class="csp-card"><svg id="cspmap-hazlog" viewBox="0 0 680 560" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Segoe UI, sans-serif" role="img" aria-label="The digital hazard log process map"><g data-k="today" tabindex="0" data-cap-title="How it lives today" data-cap-text="A hazard log is built once, filed into the safety file, and forgotten. Copies drift, evidence sits in a separate folder and goes missing, nobody can see which records are stale, and the reasoning behind every entry is lost at handover. The next project on the same asset starts again from nothing." data-rel="a-ingest"><rect x="40" y="34" width="600" height="112" rx="10" fill="#FDECEC" stroke="#C23B27"/><text x="340" y="58" text-anchor="middle" fill="#8C2A1A" font-size="14" font-weight="600">How the hazard log lives today</text><text x="340" y="76" text-anchor="middle" fill="#C23B27" font-size="11">flat, stale, and siloed the moment the project closes out</text><rect x="56" y="88" width="284" height="22" rx="5" fill="#F8D3CD"/><text x="198" y="103" text-anchor="middle" fill="#8C2A1A" font-size="10.5">A spreadsheet, and five drifting copies of it</text><rect x="348" y="88" width="276" height="22" rx="5" fill="#F8D3CD"/><text x="486" y="103" text-anchor="middle" fill="#8C2A1A" font-size="10.5">Evidence in a separate folder, often missing</text><rect x="56" y="114" width="284" height="22" rx="5" fill="#F8D3CD"/><text x="198" y="129" text-anchor="middle" fill="#8C2A1A" font-size="10.5">No way to see which records have gone stale</text><rect x="348" y="114" width="276" height="22" rx="5" fill="#F8D3CD"/><text x="486" y="129" text-anchor="middle" fill="#8C2A1A" font-size="10.5">The reasoning is lost at handover</text></g><g class="arr" id="a-ingest"><line x1="340" y1="146" x2="340" y2="186" stroke="#888780" stroke-width="1.5"/><path d="M336,180 L340,188 L344,180" fill="none" stroke="#888780" stroke-width="1.5"/><text x="350" y="170" fill="#6b675f" font-size="11">ingest and structure</text></g><g data-k="triggers" tabindex="0" data-cap-title="External triggers" data-cap-text="The register does not wait to be opened. A published industry finding, a weather warning, a design change or a new standard is matched against open hazards, and anything affected is flagged for re-review automatically. This is what turns a static record into a live one." data-rel="a-trig watch"><rect x="470" y="150" width="170" height="34" rx="7" fill="#FDEEE7" stroke="#D9581F"/><text x="555" y="164" text-anchor="middle" fill="#9C3D12" font-size="11" font-weight="600">External triggers</text><text x="555" y="177" text-anchor="middle" fill="#C24E20" font-size="9.5">findings &middot; weather &middot; design change</text></g><g class="arr" id="a-trig"><line x1="548" y1="184" x2="520" y2="190" stroke="#F96532" stroke-width="1.6"/><path d="M527,186 L516,191 L525,196" fill="none" stroke="#F96532" stroke-width="1.6"/></g><g data-k="ingest" tabindex="0" data-cap-title="Ingest" data-cap-text="Existing registers, the national directory extract, project spreadsheets and the evidence folder are pulled in as they are. Nobody is asked to re-key anything. One AutomateX build did this over 32,466 public directory records to prove the shape at scale." data-rel="today a-ingest"><rect x="41" y="194" width="76" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="79" y="214" text-anchor="middle" fill="#444441" font-size="10.5" font-weight="600">Ingest</text></g><line class="arr" x1="117" y1="210" x2="128" y2="210" stroke="#888780" stroke-width="1.5"/><g data-k="model" tabindex="0" data-cap-title="Model" data-cap-text="Rows become objects. A hazard, its causes, its controls, the evidence behind it and the conditions that would reopen it are modelled as linked things rather than cells in a sheet. That is the whole difference: a spreadsheet cannot be asked a question." data-rel="register a-toreg"><rect x="128" y="194" width="76" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="166" y="214" text-anchor="middle" fill="#444441" font-size="10.5" font-weight="600">Model</text></g><line class="arr" x1="204" y1="210" x2="215" y2="210" stroke="#888780" stroke-width="1.5"/><g data-k="link" tabindex="0" data-cap-title="Link evidence" data-cap-text="Every hazard carries its evidence, cited to the document and page it came from, rather than pointing at a folder somebody may have moved. Evidence stops being orphaned because it is attached to the thing it justifies." data-rel="evidence a-toev"><rect x="215" y="194" width="76" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="253" y="214" text-anchor="middle" fill="#444441" font-size="10.5" font-weight="600">Link evidence</text></g><line class="arr" x1="291" y1="210" x2="302" y2="210" stroke="#888780" stroke-width="1.5"/><g data-k="query" tabindex="0" data-cap-title="Query" data-cap-text="A practitioner asks the register a question in plain English: open hazards, high residual, evidence missing. The same build made 32,466 records searchable by route, type and text, and mapped, so the answer is a filtered view rather than a fortnight of reading." data-rel="register evidence"><rect x="302" y="194" width="76" height="32" rx="7" fill="#E1F5EE" stroke="#0F6E56"/><text x="340" y="214" text-anchor="middle" fill="#085041" font-size="10.5" font-weight="600">Query</text></g><line class="arr" x1="378" y1="210" x2="389" y2="210" stroke="#888780" stroke-width="1.5"/><g data-k="watch" tabindex="0" data-cap-title="Watch" data-cap-text="Trigger conditions run in the background against the open register. Staleness is surfaced, not hidden: in the public directory extract, the spread of last-updated dates was itself one of the most revealing charts in the build." data-rel="triggers a-trig review"><rect x="389" y="194" width="76" height="32" rx="7" fill="#F1EFE8" stroke="#5F5E5A"/><text x="427" y="214" text-anchor="middle" fill="#444441" font-size="10.5" font-weight="600">Watch</text></g><line class="arr" x1="465" y1="210" x2="476" y2="210" stroke="#888780" stroke-width="1.5"/><g data-k="review" tabindex="0" data-cap-title="Re-review" data-cap-text="When a trigger fires, the affected hazards queue for re-review rather than sitting unnoticed until the next audit. The queue is visible, counted, and owned." data-rel="triggers watch"><rect x="476" y="194" width="76" height="32" rx="7" fill="#E1F5EE" stroke="#0F6E56"/><text x="514" y="214" text-anchor="middle" fill="#085041" font-size="10.5" font-weight="600">Re-review</text></g><line class="arr" x1="552" y1="210" x2="563" y2="210" stroke="#888780" stroke-width="1.5"/><g data-k="signoff" tabindex="0" data-cap-title="Sign-off" data-cap-text="The engineer signs. Nothing changes residual risk on its own, and every change carries who made it, when and why. The system surfaces and proposes; the accountable person decides." data-rel="safetycase a-tosc"><rect x="563" y="194" width="76" height="32" rx="7" fill="#E1F5EE" stroke="#0F6E56"/><text x="601" y="214" text-anchor="middle" fill="#085041" font-size="10.5" font-weight="600">Sign-off</text></g><g class="arr" id="a-toreg"><line x1="164" y1="230" x2="140" y2="272" stroke="#888780" stroke-width="1.5"/><path d="M136,263 L139,275 L146,265" fill="none" stroke="#888780" stroke-width="1.5"/></g><g class="arr" id="a-toev"><line x1="258" y1="230" x2="330" y2="272" stroke="#888780" stroke-width="1.5"/><path d="M321,270 L333,275 L327,264" fill="none" stroke="#888780" stroke-width="1.5"/></g><g class="arr" id="a-tosc"><line x1="598" y1="230" x2="552" y2="272" stroke="#888780" stroke-width="1.5"/><path d="M549,262 L549,275 L559,269" fill="none" stroke="#888780" stroke-width="1.5"/></g><g data-k="register" tabindex="0" data-cap-title="The live register" data-cap-text="One always-current record instead of five drifting copies. Hazards, causes, controls and trigger conditions held as connected objects, each carrying how fresh it is. It belongs to you and it survives the project that created it." data-rel="a-toreg a-carry"><rect x="40" y="276" width="190" height="176" rx="10" fill="#E1F5EE" stroke="#0F6E56"/><text x="135" y="300" text-anchor="middle" fill="#085041" font-size="13" font-weight="600">The live register</text><text x="135" y="317" text-anchor="middle" fill="#0F6E56" font-size="10.5">one record, always current</text><rect x="52" y="328" width="166" height="21" rx="5" fill="#9FE1CB"/><text x="135" y="342" text-anchor="middle" fill="#04342C" font-size="10">Hazards as objects</text><rect x="52" y="353" width="166" height="21" rx="5" fill="#9FE1CB"/><text x="135" y="367" text-anchor="middle" fill="#04342C" font-size="10">Causes and controls</text><rect x="52" y="378" width="166" height="21" rx="5" fill="#9FE1CB"/><text x="135" y="392" text-anchor="middle" fill="#04342C" font-size="10">Trigger conditions</text><rect x="52" y="403" width="166" height="21" rx="5" fill="#9FE1CB"/><text x="135" y="417" text-anchor="middle" fill="#04342C" font-size="10">Residual risk, tracked</text><rect x="52" y="428" width="166" height="21" rx="5" fill="#9FE1CB"/><text x="135" y="442" text-anchor="middle" fill="#04342C" font-size="10">Freshness, per record</text></g><g data-k="evidence" tabindex="0" data-cap-title="Evidence, linked" data-cap-text="Evidence attached to the hazard it justifies, cited to its source document and page. Nothing sits in a folder waiting to be lost, and nothing supports a hazard without a traceable reference behind it." data-rel="a-toev"><rect x="246" y="276" width="190" height="176" rx="10" fill="#E1F5EE" stroke="#0F6E56"/><text x="341" y="300" text-anchor="middle" fill="#085041" font-size="13" font-weight="600">Evidence, linked</text><text x="341" y="317" text-anchor="middle" fill="#0F6E56" font-size="10.5">cited, never orphaned</text><rect x="258" y="328" width="166" height="21" rx="5" fill="#9FE1CB"/><text x="341" y="342" text-anchor="middle" fill="#04342C" font-size="10">Surveys and reports</text><rect x="258" y="353" width="166" height="21" rx="5" fill="#9FE1CB"/><text x="341" y="367" text-anchor="middle" fill="#04342C" font-size="10">Drawings and models</text><rect x="258" y="378" width="166" height="21" rx="5" fill="#9FE1CB"/><text x="341" y="392" text-anchor="middle" fill="#04342C" font-size="10">Assessments</text><rect x="258" y="403" width="166" height="21" rx="5" fill="#9FE1CB"/><text x="341" y="417" text-anchor="middle" fill="#04342C" font-size="10">Change records</text><rect x="258" y="428" width="166" height="21" rx="5" fill="#9FE1CB"/><text x="341" y="442" text-anchor="middle" fill="#04342C" font-size="10">Each cited to its page</text></g><g data-k="safetycase" tabindex="0" data-cap-title="The safety case" data-cap-text="What the project has to hand over, produced from the register rather than rebuilt beside it, and carrying the full audit trail of who changed what, when and why." data-rel="a-tosc a-carry"><rect x="452" y="276" width="188" height="176" rx="10" fill="#F1EFE8" stroke="#5F5E5A"/><text x="546" y="300" text-anchor="middle" fill="#444441" font-size="13" font-weight="600">The safety case</text><text x="546" y="317" text-anchor="middle" fill="#5F5E5A" font-size="10.5">produced from the register</text><rect x="464" y="328" width="164" height="21" rx="5" fill="#E3E0D6"/><text x="546" y="342" text-anchor="middle" fill="#444441" font-size="10">Register extract</text><rect x="464" y="353" width="164" height="21" rx="5" fill="#E3E0D6"/><text x="546" y="367" text-anchor="middle" fill="#444441" font-size="10">Evidence pack</text><rect x="464" y="378" width="164" height="21" rx="5" fill="#E3E0D6"/><text x="546" y="392" text-anchor="middle" fill="#444441" font-size="10">Residual risk position</text><rect x="464" y="403" width="164" height="21" rx="5" fill="#E3E0D6"/><text x="546" y="417" text-anchor="middle" fill="#444441" font-size="10">Who signed, and when</text><rect x="464" y="428" width="164" height="21" rx="5" fill="#9FE1CB"/><text x="546" y="442" text-anchor="middle" fill="#04342C" font-size="10" font-weight="600">Full audit trail</text></g><g class="arr" id="a-carry"><path class="flow" d="M546,452 L546,486 L141,486 L141,456" fill="none" stroke="#F96532" stroke-width="1.6"/><path d="M137,462 L141,454 L145,462" fill="none" stroke="#F96532" stroke-width="1.6"/><text x="343" y="481" text-anchor="middle" fill="#6b675f" font-size="11">carries forward &middot; the next project on this asset starts from the register, not from scratch</text></g><rect x="40" y="516" width="12" height="12" rx="3" fill="#F1EFE8" stroke="#5F5E5A"/><text x="58" y="526" fill="#6b675f" font-size="11">the workflow</text><rect x="164" y="516" width="12" height="12" rx="3" fill="#E1F5EE" stroke="#0F6E56"/><text x="182" y="526" fill="#6b675f" font-size="11">your register + engineer gates</text><line x1="368" y1="522" x2="394" y2="522" stroke="#F96532" stroke-width="1.6" stroke-dasharray="5 4"/><text x="402" y="526" fill="#6b675f" font-size="11">live, and it compounds between projects</text></svg></div></div><div class="csp-cap"><span class="csp-cap-key">The loop</span><p class="csp-cap-text">Hover or tap any part of the diagram. Click to pin it, click again or press Escape to release.</p></div><p class="csp-note">Illustrative process map of the concept. Hazard data is not shown; the 32,466-record figure is from an AutomateX build over a public directory extract.</p></div>
   <div class="cs-detail-narrative">
     <div class="cs-detail-block"><h4>The challenge</h4><p>Hazard logs and risk assessments are traditionally captured as flat, unstructured spreadsheets. The analysis behind every entry, hard-won input from experienced safety professionals, gets buried. Hazard workshops are tedious to run, evidence sits in separate folders and can go missing, and once a project hands over its safety file, only short safety rules survive. The detail and rationale behind them is often lost, and the next project affecting the same asset starts again from scratch.</p></div>
     <div class="cs-detail-block"><h4>The situation</h4><p>An Innovate UK first-of-a-kind competition for UK rail asked for a way to lift hazard logs off the page: an interactive, queryable, evidence-linked register that stays useful long after a project closes out, rather than an archived spreadsheet nobody opens again.</p></div>
@@ -5069,6 +5130,62 @@ window.addEventListener("resize",sync);})();
     });
   }
   window.addEventListener('resize', fitVignettes);
+
+  // Process maps: one delegated listener for every diagram. Nodes are
+  // self-describing (data-cap-title / data-cap-text / data-rel), so a newly
+  // cloned template needs no wiring and no per-diagram lookup table.
+  var cspPinned=null;
+  function cspIdOf(el){ return el.getAttribute('data-k') || el.id; }
+  function cspReset(card){
+    var cap=card.closest('.csp-wrap').querySelector('.csp-cap-key'), txt=card.closest('.csp-wrap').querySelector('.csp-cap-text');
+    if(cap) cap.textContent='The loop';
+    if(txt) txt.textContent='Hover or tap any part of the diagram. Click to pin it, click again or press Escape to release.';
+    card.querySelectorAll('[data-k],.arr').forEach(function(el){ el.classList.remove('dim'); });
+  }
+  function cspShow(card,node){
+    var cap=card.closest('.csp-wrap').querySelector('.csp-cap-key'), txt=card.closest('.csp-wrap').querySelector('.csp-cap-text');
+    if(cap) cap.textContent=node.getAttribute('data-cap-title')||'';
+    if(txt) txt.textContent=node.getAttribute('data-cap-text')||'';
+    var keep={}; keep[cspIdOf(node)]=true;
+    (node.getAttribute('data-rel')||'').split(/\s+/).forEach(function(r){ if(r) keep[r]=true; });
+    card.querySelectorAll('[data-k],.arr').forEach(function(el){ el.classList.toggle('dim', !keep[cspIdOf(el)]); });
+  }
+  function cspNode(t){ return t && t.closest ? t.closest('[data-cap-title]') : null; }
+  ['mouseover','focusin'].forEach(function(ev){
+    body.addEventListener(ev, function(e){
+      var n=cspNode(e.target); if(!n||cspPinned) return;
+      var card=n.closest('.csp-card'); if(card) cspShow(card,n);
+    });
+  });
+  ['mouseout','focusout'].forEach(function(ev){
+    body.addEventListener(ev, function(e){
+      var n=cspNode(e.target); if(!n||cspPinned) return;
+      var card=n.closest('.csp-card'); if(card) cspReset(card);
+    });
+  });
+  body.addEventListener('click', function(e){
+    var n=cspNode(e.target);
+    if(!n){ var bg=e.target.closest?e.target.closest('.csp-card'):null;
+      if(bg&&cspPinned){ cspPinned.classList.remove('pin'); cspPinned=null; cspReset(bg); } return; }
+    e.stopPropagation();
+    var card=n.closest('.csp-card'); if(!card) return;
+    if(cspPinned===n){ n.classList.remove('pin'); cspPinned=null; cspReset(card); return; }
+    if(cspPinned) cspPinned.classList.remove('pin');
+    cspPinned=n; n.classList.add('pin'); cspShow(card,n);
+  });
+  body.addEventListener('keydown', function(e){
+    var n=cspNode(e.target); if(!n) return;
+    if(e.key==='Enter'||e.key===' '){ e.preventDefault(); n.dispatchEvent(new MouseEvent('click',{bubbles:true})); }
+  });
+  // Escape releases a pinned node first; capture phase so this wins over the
+  // modal's own Escape-to-close. A second Escape then closes the modal.
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && cspPinned){
+      var c=cspPinned.closest('.csp-card');
+      cspPinned.classList.remove('pin'); cspPinned=null; if(c) cspReset(c);
+      e.stopImmediatePropagation();
+    }
+  }, true);
   var lastTrigger=null;
   function openFor(card){
     var key=card.getAttribute('data-case');
