@@ -726,38 +726,39 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
                   <circle cx="214" cy="139" r="9" fill="url(#nmS-gl)"/>
                   <circle cx="190" cy="139" r="4.4" fill="#FB7B3A"/>
                   <circle cx="214" cy="139" r="4.4" fill="#FB7B3A"/>
-                  <!-- neck + body -->
+                  <!-- neck + shoulders (upper body only) -->
                   <rect x="197" y="169" width="10" height="6" fill="#4B5563"/>
-                  <rect x="177" y="175" width="50" height="24" rx="10" fill="#FFFFFF" fill-opacity=".06" stroke="#4B5563"/>
-                  <circle cx="202" cy="187" r="4" fill="#F96532" fill-opacity=".85"/>
-                  <!-- arms -->
-                  <rect x="166" y="178" width="8" height="17" rx="4" fill="#4B5563"/>
-                  <rect x="230" y="178" width="8" height="17" rx="4" fill="#4B5563"/>
+                  <path d="M166 195v-9a12 12 0 0 1 12-12h48a12 12 0 0 1 12 12v9z" fill="#FFFFFF" fill-opacity=".06" stroke="#4B5563"/>
+                  <circle cx="202" cy="186" r="3.6" fill="#F96532" fill-opacity=".85"/>
                 </g>
                 <text x="202" y="222" fill="#FFFFFF" font-family="Montserrat" font-weight="800" font-size="12" text-anchor="middle" letter-spacing=".6">AI AGENT</text>
                 <text x="202" y="236" fill="#FB7B3A" font-family="Montserrat" font-weight="700" font-size="7" text-anchor="middle" letter-spacing="1.1">PLAN &middot; DRAFT &middot; CHECK</text>
 
-                <!-- fan-out to the deliverables -->
-                <path d="M246 150 L278 150" stroke="url(#nmS-fl)" stroke-width="2.2" stroke-linecap="round"/>
-                <path d="M278 105 L278 197" stroke="#4B5563" stroke-width="1.6" stroke-linecap="round"/>
-                <g stroke="url(#nmS-fl)" stroke-width="1.8" stroke-linecap="round">
-                  <path d="M278 105 L296 105"/><path d="M278 151 L296 151"/><path d="M278 197 L296 197"/>
+                <!-- fan-out: robot -> bus -> first column -> second column -->
+                <!-- solid orange, not url(#nmS-fl): a horizontal path has a zero-height
+                     bounding box, so an objectBoundingBox gradient is degenerate and
+                     Chrome drops the stroke entirely. -->
+                <path d="M244 150 L266 150" stroke="#FB7B3A" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M266 105 L266 197" stroke="#4B5563" stroke-width="1.6" stroke-linecap="round"/>
+                <g stroke="#FB7B3A" stroke-width="1.8" stroke-linecap="round" fill="none">
+                  <path d="M266 105 L288 105"/><path d="M266 151 L288 151"/><path d="M266 197 L288 197"/>
+                  <path d="M364 105 L384 105"/><path d="M364 151 L384 151"/><path d="M364 197 L384 197"/>
                 </g>
 
                 <!-- PACE deliverables out -->
                 <g font-family="Montserrat" font-weight="800" font-size="11" text-anchor="middle">
-                  <rect x="296" y="88"  width="80" height="34" rx="8" fill="#F96532" fill-opacity=".18" stroke="#FB7B3A"/>
-                  <text x="336" y="110" fill="#FFFFFF">Form G</text>
-                  <rect x="384" y="88"  width="80" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <text x="424" y="110" fill="#E5E7EB">Form C</text>
-                  <rect x="296" y="134" width="80" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <text x="336" y="156" fill="#E5E7EB">Form A</text>
-                  <rect x="384" y="134" width="80" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <text x="424" y="156" fill="#E5E7EB">DIA</text>
-                  <rect x="296" y="180" width="80" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <text x="336" y="202" fill="#E5E7EB">AIP</text>
-                  <rect x="384" y="180" width="80" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <text x="424" y="202" fill="#E5E7EB">CR-T</text>
+                  <rect x="288" y="88"  width="76" height="34" rx="8" fill="#F96532" fill-opacity=".18" stroke="#FB7B3A"/>
+                  <text x="326" y="110" fill="#FFFFFF">Form G</text>
+                  <rect x="384" y="88"  width="76" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
+                  <text x="422" y="110" fill="#E5E7EB">Form C</text>
+                  <rect x="288" y="134" width="76" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
+                  <text x="326" y="156" fill="#E5E7EB">Form A</text>
+                  <rect x="384" y="134" width="76" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
+                  <text x="422" y="156" fill="#E5E7EB">DIA</text>
+                  <rect x="288" y="180" width="76" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
+                  <text x="326" y="202" fill="#E5E7EB">AIP</text>
+                  <rect x="384" y="180" width="76" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
+                  <text x="422" y="202" fill="#E5E7EB">CR-T</text>
                 </g>
 
                 <text x="240" y="258" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="10" text-anchor="middle">Agent drafts. Engineer verifies and signs.</text>
