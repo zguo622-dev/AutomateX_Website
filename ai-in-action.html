@@ -2668,6 +2668,14 @@
 .navbar li.has-dropdown .nav-mega a.nm-plink:hover{background:none!important;color:inherit!important;}
 .nav-mega .nm-pv{display:block;border-radius:12px;overflow:hidden;aspect-ratio:16/10;border:1px solid rgba(255,255,255,.07);background:#0D1117;}
 .nav-mega .nm-pv svg{width:100%;height:100%;display:block;}
+/* case-study preview: real cards lifted from ai-in-action */
+.nav-mega .nm-pv-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;padding:6px;}
+.nav-mega .nm-csc{position:relative;display:block;overflow:hidden;border-radius:8px;background:#161B22;border:1px solid rgba(255,255,255,.07);}
+.nav-mega .nm-csc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease-out);}
+.nav-mega .nm-csc::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(13,17,23,.95) 0,rgba(13,17,23,.74) 34%,rgba(13,17,23,.14) 68%,rgba(13,17,23,0) 100%);}
+.nav-mega .nm-csb{position:absolute;top:.38rem;left:.45rem;z-index:2;font-family:var(--font-heading);font-weight:700;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(13,17,23,.72);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:.1rem .4rem;}
+.nav-mega .nm-csl{position:absolute;left:.5rem;right:.5rem;bottom:.4rem;z-index:2;font-family:var(--font-heading);font-weight:700;font-size:.63rem;line-height:1.28;color:#fff;}
+.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-csc img{transform:scale(1.06);}
 .nav-mega .nm-pc{display:flex;flex-direction:column;align-items:flex-start;}
 .nav-mega .nm-flabel{font-family:var(--font-heading);font-weight:800;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--orange);border-radius:999px;padding:.2rem .55rem;margin-bottom:.75rem;}
 .nav-mega .nm-ftitle{display:block;font-family:var(--font-heading);font-weight:800;font-size:1.15rem;line-height:1.25;color:#fff;margin-bottom:.45rem;}
@@ -2711,51 +2719,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
           <div class="nm-col nm-stage">
             <div class="nm-panel is-active" id="nmp-custom-ai" role="tabpanel" aria-labelledby="nmt-custom-ai" data-panel="custom-ai">
               <a class="nm-plink" href="ai-in-action.html">
-                <span class="nm-pv"><svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <defs>
-                  <linearGradient id="nmA-bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#161B22"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
-                  <radialGradient id="nmA-g" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FB7B3A" stop-opacity=".5"/><stop offset="1" stop-color="#FB7B3A" stop-opacity="0"/></radialGradient>
-                </defs>
-                <rect width="480" height="300" fill="url(#nmA-bg)"/>
-                <circle cx="110" cy="105" r="92" fill="url(#nmA-g)"/>
-                <text x="52" y="44" fill="#FB7B3A" font-family="Montserrat" font-weight="800" font-size="10" letter-spacing="1.8">DELIVERED ENGAGEMENTS</text>
-
-                <!-- row 1 -->
-                <g><rect x="52" y="62" width="116" height="86" rx="10" fill="#F96532" fill-opacity=".12" stroke="#F96532" stroke-opacity=".45"/>
-                  <rect x="64" y="76" width="34" height="4" rx="2" fill="#FB7B3A"/>
-                  <rect x="64" y="90" width="82" height="5" rx="2.5" fill="#9CA3AF" fill-opacity=".55"/>
-                  <rect x="64" y="103" width="58" height="5" rx="2.5" fill="#6B7280" fill-opacity=".5"/>
-                  <rect x="64" y="123" width="46" height="11" rx="3" fill="#F96532" fill-opacity=".28"/></g>
-                <g><rect x="182" y="62" width="116" height="86" rx="10" fill="#FFFFFF" fill-opacity=".04" stroke="#374151"/>
-                  <rect x="194" y="76" width="28" height="4" rx="2" fill="#6B7280"/>
-                  <rect x="194" y="90" width="74" height="5" rx="2.5" fill="#4B5563"/>
-                  <rect x="194" y="103" width="52" height="5" rx="2.5" fill="#374151"/>
-                  <rect x="194" y="123" width="38" height="11" rx="3" fill="#FFFFFF" fill-opacity=".07"/></g>
-                <g><rect x="312" y="62" width="116" height="86" rx="10" fill="#FFFFFF" fill-opacity=".04" stroke="#374151"/>
-                  <rect x="324" y="76" width="34" height="4" rx="2" fill="#6B7280"/>
-                  <rect x="324" y="90" width="68" height="5" rx="2.5" fill="#4B5563"/>
-                  <rect x="324" y="103" width="60" height="5" rx="2.5" fill="#374151"/>
-                  <rect x="324" y="123" width="44" height="11" rx="3" fill="#FFFFFF" fill-opacity=".07"/></g>
-
-                <!-- row 2 -->
-                <g><rect x="52" y="162" width="116" height="86" rx="10" fill="#FFFFFF" fill-opacity=".04" stroke="#374151"/>
-                  <rect x="64" y="176" width="30" height="4" rx="2" fill="#6B7280"/>
-                  <rect x="64" y="190" width="76" height="5" rx="2.5" fill="#4B5563"/>
-                  <rect x="64" y="203" width="48" height="5" rx="2.5" fill="#374151"/>
-                  <rect x="64" y="223" width="40" height="11" rx="3" fill="#FFFFFF" fill-opacity=".07"/></g>
-                <g><rect x="182" y="162" width="116" height="86" rx="10" fill="#FFFFFF" fill-opacity=".04" stroke="#374151"/>
-                  <rect x="194" y="176" width="36" height="4" rx="2" fill="#6B7280"/>
-                  <rect x="194" y="190" width="64" height="5" rx="2.5" fill="#4B5563"/>
-                  <rect x="194" y="203" width="56" height="5" rx="2.5" fill="#374151"/>
-                  <rect x="194" y="223" width="48" height="11" rx="3" fill="#FFFFFF" fill-opacity=".07"/></g>
-                <g><rect x="312" y="162" width="116" height="86" rx="10" fill="#FFFFFF" fill-opacity=".04" stroke="#374151"/>
-                  <rect x="324" y="176" width="26" height="4" rx="2" fill="#6B7280"/>
-                  <rect x="324" y="190" width="70" height="5" rx="2.5" fill="#4B5563"/>
-                  <rect x="324" y="203" width="44" height="5" rx="2.5" fill="#374151"/>
-                  <rect x="324" y="223" width="42" height="11" rx="3" fill="#FFFFFF" fill-opacity=".07"/></g>
-
-                <text x="52" y="276" fill="#FB7B3A" font-family="Montserrat" font-weight="800" font-size="10" letter-spacing="1.4">SEE IT IN ACTION</text>
-              </svg></span>
+                <span class="nm-pv nm-pv-grid"><span class="nm-csc"><img src="images/nav-case-station-surveys.jpg" alt="" loading="lazy" decoding="async" width="414" height="248"><span class="nm-csb">Delivered</span><span class="nm-csl">AI-empowered survey processing</span></span><span class="nm-csc"><img src="images/nav-case-instatrace.jpg" alt="" loading="lazy" decoding="async" width="414" height="248"><span class="nm-csb">Live</span><span class="nm-csl">AI-empowered drawing take-off</span></span><span class="nm-csc"><img src="images/nav-case-golden-thread.jpg" alt="" loading="lazy" decoding="async" width="414" height="248"><span class="nm-csb">Concept</span><span class="nm-csl">AI-empowered design review &amp; verification</span></span><span class="nm-csc"><img src="images/nav-case-knowledge-graph.jpg" alt="" loading="lazy" decoding="async" width="414" height="248"><span class="nm-csb">Concept</span><span class="nm-csl">Tender Knowledge Base</span></span></span>
                 <span class="nm-pc">
                   <span class="nm-flabel">Case studies</span>
                   <span class="nm-ftitle">See it in action</span>
