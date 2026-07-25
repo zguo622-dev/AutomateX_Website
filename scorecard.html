@@ -1443,6 +1443,13 @@ body{background:transparent!important;}
 .navbar{position:fixed!important;top:0!important;left:0!important;right:0!important;background:transparent!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important;border-bottom-color:transparent!important;transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;}
 body{padding-top:81px;}
 </style>
+<style id="axr-nav-current-2026-07-25">
+/* Current-section highlight, applied consistently. An earlier rule grouped
+   a.is-current in with the hover states and forced #fff, so a top-level link
+   marked current rendered white while the dropdown toggle rendered orange. */
+.navbar .navbar-links > li > a.is-current,
+.navbar .navbar-links > li > .nav-dropdown-toggle.is-current{color:var(--orange)!important;}
+</style>
 </head>
 <body>
 <div id="axr-mega-veil" aria-hidden="true"></div>
@@ -1456,7 +1463,7 @@ body{padding-top:81px;}
     </a>
     <ul class="navbar-links">
       <li class="has-dropdown">
-        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">What we offer</button>
+        <button type="button" class="nav-dropdown-toggle is-current" aria-current="true" aria-haspopup="true" aria-expanded="false">What we offer</button>
         <div class="nav-dropdown nav-mega">
           <div class="nm-col nm-links" role="tablist" aria-label="What we offer">
             <button type="button" role="tab" id="nmt-custom-ai" class="nm-tab is-active" aria-selected="true" aria-controls="nmp-custom-ai" tabindex="0" data-panel="custom-ai"><span class="nm-t">Production-grade custom AI</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
