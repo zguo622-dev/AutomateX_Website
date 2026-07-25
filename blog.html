@@ -595,6 +595,13 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
 /* ===== dark-everywhere-2026-06-05 (nav rules) ===== */
 .footer .navbar-logo { background: transparent !important; padding: 0px !important; box-shadow: none !important; }
 </style>
+<style id="axr-nav-current-2026-07-25">
+/* Current-section highlight, applied consistently. An earlier rule grouped
+   a.is-current in with the hover states and forced #fff, so a top-level link
+   marked current rendered white while the dropdown toggle rendered orange. */
+.navbar .navbar-links > li > a.is-current,
+.navbar .navbar-links > li > .nav-dropdown-toggle.is-current{color:var(--orange)!important;}
+</style>
 </head>
 <body>
 
@@ -820,7 +827,7 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
         </div>
       </li>
       <li><a href="about.html">Who we are</a></li>
-      <li><a href="resources.html">Insights</a></li>
+      <li><a href="resources.html" aria-current="true" class="is-current">Insights</a></li>
       <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
     </ul>
     <div class="nav-cta-group">

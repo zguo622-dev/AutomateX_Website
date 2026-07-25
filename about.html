@@ -2823,6 +2823,13 @@ html.reduced .axr-scrollx .sx-progress,html:not(.js) .axr-scrollx .sx-progress{d
 .navbar{position:fixed!important;top:0!important;left:0!important;right:0!important;background:transparent!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important;border-bottom-color:transparent!important;transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;}
 body{padding-top:81px;}
 </style>
+<style id="axr-nav-current-2026-07-25">
+/* Current-section highlight, applied consistently. An earlier rule grouped
+   a.is-current in with the hover states and forced #fff, so a top-level link
+   marked current rendered white while the dropdown toggle rendered orange. */
+.navbar .navbar-links > li > a.is-current,
+.navbar .navbar-links > li > .nav-dropdown-toggle.is-current{color:var(--orange)!important;}
+</style>
 </head>
 <body>
 <div id="axr-mega-veil" aria-hidden="true"></div>
