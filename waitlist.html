@@ -2651,11 +2651,12 @@
 /* case-study preview: real cards lifted from ai-in-action */
 .nav-mega .nm-pv-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;padding:6px;}
 .nav-mega .nm-csc{position:relative;display:block;overflow:hidden;border-radius:8px;background:#161B22;border:1px solid rgba(255,255,255,.07);}
-.nav-mega .nm-csc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease-out);}
+.nav-mega .nm-csc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:translateZ(0);transition:transform 1.15s cubic-bezier(.16,1,.3,1);}
 .nav-mega .nm-csc::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(13,17,23,.95) 0,rgba(13,17,23,.74) 34%,rgba(13,17,23,.14) 68%,rgba(13,17,23,0) 100%);}
 .nav-mega .nm-csb{position:absolute;top:.38rem;left:.45rem;z-index:2;font-family:var(--font-heading);font-weight:700;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(13,17,23,.72);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:.1rem .4rem;}
 .nav-mega .nm-csl{position:absolute;left:.5rem;right:.5rem;bottom:.4rem;z-index:2;font-family:var(--font-heading);font-weight:700;font-size:.63rem;line-height:1.28;color:#fff;}
-.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-csc img{transform:scale(1.06);}
+.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-csc img{transform:scale(1.09) translateZ(0);}
+@media (prefers-reduced-motion:reduce){.nav-mega .nm-csc img{transition:none;}.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-csc img{transform:none;}}
 .nav-mega .nm-pc{display:flex;flex-direction:column;align-items:flex-start;}
 .nav-mega .nm-flabel{font-family:var(--font-heading);font-weight:800;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--orange);border-radius:999px;padding:.2rem .55rem;margin-bottom:.75rem;}
 .nav-mega .nm-ftitle{display:block;font-family:var(--font-heading);font-weight:800;font-size:1.15rem;line-height:1.25;color:#fff;margin-bottom:.45rem;}
