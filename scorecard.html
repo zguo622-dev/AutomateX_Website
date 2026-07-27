@@ -646,13 +646,88 @@
   }
 
   /* ========== EMAIL GATE ========== */
-  .email-gate {
+  .email-gate,
+  .results-gate {
     background: var(--white);
     border: 1px solid var(--gray-200);
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
     transition: transform 550ms cubic-bezier(0.65, 0, 0.35, 1), opacity 400ms ease;
+  }
+
+  /* ---- Results gate (2026-07-27): stands between the last question and the
+     dashboard, so a completed assessment produces a named lead. ---- */
+  .results-gate { max-width: 620px; margin: 0 auto; }
+
+  .results-gate-eyebrow {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.6rem;
+  }
+
+  .results-gate h3 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .results-gate p {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    margin-bottom: 1.35rem;
+    line-height: 1.6;
+  }
+
+  .results-gate-consent { text-align: left; margin-top: 0.15rem; }
+
+  /* Beats `.email-gate-form label`, which uppercases and blocks every label in
+     this form. A consent line must read as a sentence, not a field caption. */
+  .results-gate .consent-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-family: var(--font-body, inherit);
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--gray-600, #4B5563);
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+
+  .consent-check input {
+    width: auto !important;
+    margin: 0.15rem 0 0 0 !important;
+    flex: 0 0 auto;
+    accent-color: var(--orange);
+  }
+
+  .consent-note {
+    font-size: 0.74rem !important;
+    line-height: 1.5;
+    color: var(--gray-400, #9CA3AF) !important;
+    margin: 0.5rem 0 0 !important;
+  }
+
+  .consent-note a { color: var(--orange); text-decoration: underline; }
+
+  .sc-delivery-note {
+    margin: 1.1rem auto 0;
+    max-width: 620px;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    text-align: center;
   }
 
   .email-gate.swipe-out {
@@ -1421,9 +1496,11 @@ body{background:transparent!important;}
 .weakest-callout .bridge strong{color:#fff!important;}
 
 /* email gate + cohort CTA */
-.email-gate{background:rgba(255,255,255,.035)!important;border-color:rgba(255,255,255,.09)!important;}
-.email-gate h3{color:#fff!important;}
-.email-gate p{color:rgba(255,255,255,.6)!important;}
+.email-gate,.results-gate{background:rgba(255,255,255,.035)!important;border-color:rgba(255,255,255,.09)!important;}
+.email-gate h3,.results-gate h3{color:#fff!important;}
+.email-gate p,.results-gate p{color:rgba(255,255,255,.6)!important;}
+.results-gate .consent-check{color:rgba(255,255,255,.7)!important;}
+.results-gate .consent-note{color:rgba(255,255,255,.45)!important;}
 .email-gate-form label{color:rgba(255,255,255,.55)!important;}
 .email-gate-form label .optional{color:rgba(255,255,255,.4)!important;}
 .email-gate-form input{background:rgba(255,255,255,.04)!important;border-color:rgba(255,255,255,.14)!important;color:#fff!important;}
@@ -2642,6 +2719,34 @@ body{padding-top:81px;}
 
     let html = '<div class="sc-screen active">';
 
+    /* ----- Results gate (2026-07-27) -------------------------------------
+     * The dashboard used to render immediately, with the form underneath, so
+     * a visitor could read their whole result and leave without ever
+     * identifying themselves. Twenty questions in is the point of peak
+     * motivation, so the details are asked for here and the results open
+     * straight after. Everything below is built now but stays hidden until
+     * the form is submitted.
+     * ------------------------------------------------------------------- */
+    html += '<div class="results-gate" id="results-gate">';
+    html +=   '<div class="results-gate-eyebrow">Assessment complete</div>';
+    html +=   '<h3>Your AI readiness score is ready.</h3>';
+    html +=   '<p>Tell us where to send it. Your full dashboard opens on the next screen, and a tailored PDF breaking down all five pillars follows by email.</p>';
+    html +=   '<form class="email-gate-form" id="report-form" onsubmit="submitReport(event)">';
+    html +=     '<div><label>Full Name *<input type="text" name="name" placeholder="John Smith" required></label></div>';
+    html +=     '<div><label>Company *<input type="text" name="company" placeholder="Your company" required></label></div>';
+    html +=     '<div><label>Email *<input type="email" name="email" placeholder="you@company.com" required></label></div>';
+    html +=     '<div><label>Phone <span class="optional">(optional)</span><input type="tel" name="phone" placeholder="+44 7xxx xxx xxx"></label></div>';
+    html +=     '<div class="full-width results-gate-consent">';
+    html +=       '<label class="consent-check"><input type="checkbox" name="marketing_consent" value="yes"><span>Please also send me the monthly insights on AI in rail. You can unsubscribe at any time.</span></label>';
+    html +=       '<p class="consent-note">We use your details to send this report and to follow up about it. See our <a href="privacy.html" target="_blank" rel="noopener">Privacy Notice</a>.</p>';
+    html +=     '</div>';
+    html +=     '<div class="sc-submit-wrap"><button type="submit">Show my results</button></div>';
+    html +=   '</form>';
+    html += '</div>';
+
+    /* Everything from here is the reward, revealed by unlockResults() */
+    html += '<div class="results-locked" id="results-locked" hidden>';
+
     /* ----- Header: speedometer + headline + subtitle ----- */
     /* Render once with actual score. Needle starts at CSS default rotate(-90deg) */
     /* and transitions to the target after a 250ms delay (set below). */
@@ -2691,21 +2796,14 @@ body{padding-top:81px;}
      * weakest_pillar still flows into the n8n payload so the emailed PDF
      * can tailor content per cohort. */
 
-    /* ----- Email gate (wrapped in swipe-stage with cohort CTA) ----- */
-    html += '<div class="swipe-stage" id="swipe-stage">';
-    html += '<div class="email-gate" id="email-gate">';
-    html += '<h3>Get your free and tailored <em>AI Readiness Assessment</em> PDF report direct to your inbox.</h3>';
-    html += '<p>A detailed breakdown of all five pillars, with prioritised next steps for your specific score profile.</p>';
-    html += '<form class="email-gate-form" id="report-form" onsubmit="submitReport(event)">';
-    html += '<div><label>Full Name *<input type="text" name="name" placeholder="John Smith" required></label></div>';
-    html += '<div><label>Company *<input type="text" name="company" placeholder="Your company" required></label></div>';
-    html += '<div><label>Email *<input type="email" name="email" placeholder="you@company.com" required></label></div>';
-    html += '<div><label>Phone <span class="optional">(optional)</span><input type="tel" name="phone" placeholder="+44 7xxx xxx xxx"></label></div>';
-    html += '<div class="sc-submit-wrap"><button type="submit">Send My Report</button></div>';
-    html += '</form>';
-    html += '</div>';
+    /* Report delivery status lands here, inside the results, because the submit
+       button it used to hang off is now hidden with the gate. */
+    html += '<div id="sc-delivery-note" class="sc-delivery-note" hidden></div>';
 
-    /* ----- Cohort CTA panel (hidden until form submitted) ----- */
+    /* The form now lives in the gate above; this stage carries the cohort CTA. */
+    html += '<div class="swipe-stage" id="swipe-stage">';
+
+    /* ----- Cohort CTA panel ----- */
     const cta = getCohortCTA(cohort);
     html += '<div class="cohort-cta ' + cta.cls + '" id="cohort-cta">';
     html += '<div class="cohort-cta-eyebrow">' + cta.eyebrow + '</div>';
@@ -2718,9 +2816,16 @@ body{padding-top:81px;}
     }
     html += '</div>';   /* close .cohort-cta */
     html += '</div>';   /* close .swipe-stage */
+    html += '</div>';   /* close .results-locked */
 
     html += '</div>';   /* close .sc-screen */
     main.innerHTML = html;
+
+    /* They finished the questions. Fire this here, not on submit, so the gap
+       between finishing and identifying themselves is finally measurable. */
+    if (window.va) {
+      window.va('event', { name: 'assessment_gate_reached', cohort: cohort, score: overall });
+    }
 
     // Scroll to the top of the results container, not the page.
     // Page top is now the cover page, so window.scrollTo(0) would land the
@@ -2736,6 +2841,23 @@ body{padding-top:81px;}
     // CSS sets needle to rotate(-90deg) initially (pointing LEFT = 0%).
     // After 250ms we set inline transform to the target angle; the CSS
     // transition handles the smooth swing.
+    /* Animation now runs on unlock, not on render, so the needle swing is
+       actually seen rather than happening behind the gate. */
+  }
+
+  /* Called by submitReport once the details are in. Swaps the gate for the
+     dashboard and plays the needle + bar animation. */
+  window.unlockResults = function() {
+    const gate = document.getElementById('results-gate');
+    const locked = document.getElementById('results-locked');
+    if (!locked || locked.hidden === false) return;
+
+    if (gate) gate.hidden = true;
+    locked.hidden = false;
+
+    const top = document.getElementById('sc-main');
+    if (top) top.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
     setTimeout(() => {
       const needle = main.querySelector('#needle');
       if (needle) {
@@ -2746,7 +2868,7 @@ body{padding-top:81px;}
         bar.style.width = bar.dataset.width + '%';
       });
     }, 250);
-  }
+  };
 
   /* =========================================================================
    * APP CONTROLLER
@@ -2867,11 +2989,14 @@ function submitReport(e) {
     'T4': 'Junior Member (Graduate, Assistant, Other)'
   };
 
+  var marketingConsent = !!(form.marketing_consent && form.marketing_consent.checked);
+
   var data = {
     name: form.name.value,
     company: form.company.value,
     email: form.email.value,
     phone: form.phone.value || '',
+    marketing_consent: marketingConsent,
     role: roleLabels[qualValues.authority] || 'Senior rail professional',
 
     // ---- New v3 fields ----
@@ -2900,9 +3025,11 @@ function submitReport(e) {
     body: JSON.stringify(data)
   });
 
-  // Bridge: add every assessment completer to the waiting-list tab (unconditional, labelled).
-  // Upserts on Email, so no duplicates; fires regardless of report approval.
-  if (data.email) {
+  // Bridge to the waiting-list tab, which is the consent record the newsletter
+  // Bccs from. Only ticked-consent addresses go in, so nobody is emailed
+  // marketing they did not ask for. Every completer, consenting or not, still
+  // reaches Bill in full via the pace-scorecard payload above.
+  if (data.email && marketingConsent) {
     fetch('https://n8n.automatex.uk/webhook/crm-sheet-write', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -2911,7 +3038,8 @@ function submitReport(e) {
         _key: 'Email',
         Email: data.email,
         'Date Added': new Date().toISOString().slice(0, 10),
-        Source: 'AI Readiness Assessment'
+        Source: 'AI Readiness Assessment',
+        Consent: 'Yes'
       })
     }).catch(function(err) {
       console.error('[Scorecard v3] Waitlist bridge error:', err);
@@ -2943,27 +3071,18 @@ function submitReport(e) {
   var REPLY_GRACE_MS = 9000;
   var settled = false;
 
-  btn.textContent = 'Sending...';
+  btn.textContent = 'Opening your results...';
   btn.disabled = true;
 
-  function revealEarnedCTA() {
-    setTimeout(function() {
-      var cta = document.getElementById('earned-cta');
-      if (cta) {
-        cta.style.display = 'block';
-        cta.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    }, 900);
-  }
+  /* The deal was "give us your details, see your score". Honour it straight
+     away rather than making them wait on a report that takes ~50s to render.
+     Delivery status follows in the note inside the results. */
+  if (typeof window.unlockResults === 'function') window.unlockResults();
 
   function deliveryNote(msg, colour) {
     var note = document.getElementById('sc-delivery-note');
-    if (!note) {
-      note = document.createElement('div');
-      note.id = 'sc-delivery-note';
-      note.style.cssText = 'margin-top:12px;font-size:0.85rem;line-height:1.5;';
-      if (btn.parentNode) btn.parentNode.appendChild(note);
-    }
+    if (!note) return;
+    note.hidden = false;
     note.style.color = colour;
     note.textContent = msg;
   }
@@ -2971,19 +3090,14 @@ function submitReport(e) {
   function settleSuccess(label) {
     if (settled) return;
     settled = true;
-    btn.textContent = label;
-    btn.style.background = '#10B981';
-    showScorecardSuccess(btn);
-    revealEarnedCTA();
+    deliveryNote(label, '#6EE7B7');
   }
 
   function settleFailure() {
     if (settled) return;
     settled = true;
-    /* Honest copy. Their details ARE captured by the waitlist bridge above,
-       so we say that plainly rather than claiming a report was sent. */
-    btn.textContent = 'Saved. Report to follow.';
-    btn.style.background = '#B45309';
+    /* Honest copy: say what actually happened rather than claiming a report
+       was sent. Their details did reach us in the payload above. */
     deliveryNote(
       'We have your details, but the report generator did not respond just now. ' +
       'Bill will follow this up personally by email. You can also book a call below.',
@@ -2992,17 +3106,16 @@ function submitReport(e) {
     if (window.va) {
       window.va('event', { name: 'assessment_report_failed', cohort: cohort, score: overallScore });
     }
-    revealEarnedCTA();
   }
 
   var graceTimer = setTimeout(function() {
-    settleSuccess('Report on its way!');
+    settleSuccess('Your tailored PDF report is being generated and will arrive by email shortly.');
   }, REPLY_GRACE_MS);
 
   reportRequest.then(function(res) {
     clearTimeout(graceTimer);
     if (res && res.ok) {
-      settleSuccess('Report Sent!');
+      settleSuccess('Your tailored PDF report is on its way to ' + data.email + '.');
     } else {
       console.error('[Scorecard v4] Webhook returned', res && res.status);
       settleFailure();
