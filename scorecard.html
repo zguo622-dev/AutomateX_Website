@@ -730,6 +730,13 @@
     text-align: center;
   }
 
+  /* On a phone the floating Calendly pill sits over the full-width submit
+     button, which is the one control that matters on this screen. Hide it
+     while the gate is up; it comes back with the results. */
+  @media (max-width: 640px) {
+    body.gate-open .calendly-badge-widget { display: none !important; }
+  }
+
   .email-gate.swipe-out {
     transform: translateX(-30%);
     opacity: 0;
@@ -2821,10 +2828,42 @@ body{padding-top:81px;}
     html += '</div>';   /* close .sc-screen */
     main.innerHTML = html;
 
+    document.body.classList.add('gate-open');
+
     /* They finished the questions. Fire this here, not on submit, so the gap
        between finishing and identifying themselves is finally measurable. */
     if (window.va) {
       window.va('event', { name: 'assessment_gate_reached', cohort: cohort, score: overall });
+    }
+
+    /* Email Bill on completion, before any details are given, because the
+       people worth knowing about are exactly the ones who stop here. Carries
+       no personal data: there is none at this point. Fired now rather than on
+       page-unload, where a cross-origin POST is unreliable. */
+    try {
+      fetch('https://n8n.automatex.uk/webhook/notify-bill', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          subject: 'Assessment completed - ' + overall + '% (' + getBandLabel(band) + ')',
+          bodyType: 'html',
+          body:
+            '<p>Someone finished the AI Readiness Assessment and reached the details form.</p>' +
+            '<ul>' +
+            '<li><b>Score:</b> ' + overall + '% (' + getBandLabel(band) + ')</li>' +
+            '<li><b>Cohort:</b> ' + cohort + '</li>' +
+            '<li><b>Weakest pillar:</b> ' + weakest + '</li>' +
+            '<li><b>Finished:</b> ' + new Date().toISOString() + '</li>' +
+            '</ul>' +
+            '<p>No contact details at this point. If they complete the form you will get the ' +
+            'usual report email with their name, company and email; if no report email follows, ' +
+            'they left without identifying themselves.</p>'
+        })
+      }).catch(function (err) {
+        console.error('[Scorecard] completion notify failed:', err);
+      });
+    } catch (e) {
+      console.error('[Scorecard] completion notify error:', e);
     }
 
     // Scroll to the top of the results container, not the page.
@@ -2854,6 +2893,7 @@ body{padding-top:81px;}
 
     if (gate) gate.hidden = true;
     locked.hidden = false;
+    document.body.classList.remove('gate-open');
 
     const top = document.getElementById('sc-main');
     if (top) top.scrollIntoView({ behavior: 'smooth', block: 'start' });
