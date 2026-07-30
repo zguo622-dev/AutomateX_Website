@@ -304,7 +304,7 @@
     z-index: 1;
   }
 
-  /* ========== PARTICLE BACKGROUND (Research + PACE OS dark sections) ==========
+  /* ========== PARTICLE BACKGROUND (Research + Scribtive OS dark sections) ==========
      Replaces the hero-grid ripple effect on the two non-hero dark sections.
      Same outer .hero-grid-wrap container so positioning + z-index match. */
   .particle-bg {
@@ -838,7 +838,7 @@
     flex-shrink: 0;
   }
 
-  /* ========== PACE OS ========== */
+  /* ========== Scribtive OS ========== */
   .pace-section {
     padding: var(--section-spacing) 0;
     background: var(--navy-deep);
@@ -2712,7 +2712,7 @@ body{padding-top:81px;}
           <div class="nm-col nm-links" role="tablist" aria-label="What we offer">
             <button type="button" role="tab" id="nmt-custom-ai" class="nm-tab is-active" aria-selected="true" aria-controls="nmp-custom-ai" tabindex="0" data-panel="custom-ai"><span class="nm-t">Production-grade custom AI</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
             <button type="button" role="tab" id="nmt-bootcamp" class="nm-tab" aria-selected="false" aria-controls="nmp-bootcamp" tabindex="-1" data-panel="bootcamp"><span class="nm-t">AutomateX Bootcamp</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
-            <button type="button" role="tab" id="nmt-scribtive" class="nm-tab" aria-selected="false" aria-controls="nmp-scribtive" tabindex="-1" data-panel="scribtive"><span class="nm-t">PACE OS &amp; Scribtive&reg;</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
+            <button type="button" role="tab" id="nmt-scribtive" class="nm-tab" aria-selected="false" aria-controls="nmp-scribtive" tabindex="-1" data-panel="scribtive"><span class="nm-t">Scribtive&reg; OS</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
             <button type="button" role="tab" id="nmt-assessment" class="nm-tab" aria-selected="false" aria-controls="nmp-assessment" tabindex="-1" data-panel="assessment"><span class="nm-t">Free AI Readiness Assessment</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
           </div>
           <div class="nm-col nm-stage">
@@ -2943,7 +2943,7 @@ body{padding-top:81px;}
       <a href="scorecard.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Free AI Readiness Assessment</a>
       <a href="bootcamp.html" onclick="this.closest('.mobile-menu').classList.remove('open')">AutomateX Bootcamp</a>
       <a href="ai-in-action.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Production-grade custom AI</a>
-      <a href="waitlist.html" onclick="this.closest('.mobile-menu').classList.remove('open')" aria-current="page" class="is-current">PACE OS &amp; Scribtive&reg;</a>
+      <a href="waitlist.html" onclick="this.closest('.mobile-menu').classList.remove('open')" aria-current="page" class="is-current">Scribtive&reg; OS</a>
     </div>
   </div>
   <a href="resources.html" onclick="this.parentElement.classList.remove('open')">Insights</a>
@@ -2953,20 +2953,20 @@ body{padding-top:81px;}
 <main>
 
 <!-- ===== SCRIBTIVE WAITLIST ===== -->
-<!-- ===== PACE OS ===== -->
+<!-- ===== Scribtive OS ===== -->
 <section class="pace-section" id="pace-os">
 
   <div class="container">
     <div class="pace-grid">
       <div class="sc-reveal">
         <div class="pace-badge">Coming soon</div>
-        <h1>PACE OS&trade; &amp; <em>Scribtive&reg;</em></h1>
+        <h1><em>Scribtive&reg;</em> OS</h1>
         <p class="pace-desc">The AI-enabled operating system for railway project delivery. Built by a railway engineer, for railway engineers. Let engineers do engineering, not admin.</p>
         <div class="pace-features">
           <div class="pace-feature">
             <div class="pace-feature-dot"></div>
             <div>
-              <h4>Scribtive&reg;: PACE deliverable generation and assurance.</h4>
+              <h4>PACE deliverable generation and assurance.</h4>
               <p>Generate and assure PACE assurance documentation (e.g. Form A/B/G/H, CR-T, ITP or customised deliverables) with confidence and traceability. Documents that significantly improve approval rate and reduce administrative burden without added overhead.</p>
             </div>
           </div>
@@ -3060,7 +3060,7 @@ function handleWaitlist() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       email: email,
-      source: 'PACE OS Waitlist',
+      source: 'Scribtive OS Waitlist',
       timestamp: new Date().toISOString()
     })
   }).then(function (r) {
@@ -3166,7 +3166,7 @@ function renderJoinedState(btn, animate) {
         <ul>
           <li><a href="bootcamp.html">Find your X</a></li>
           <li><a href="bootcamp.html">Where to start</a></li>
-          <li><a href="waitlist.html">PACE OS&trade;</a></li>
+          <li><a href="waitlist.html">Scribtive&reg; OS</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -3502,12 +3502,12 @@ function renderJoinedState(btn, animate) {
     });
   }
 
-  /* Hero, Research, and PACE OS all use the particle background now (see particles script).
+  /* Hero, Research, and Scribtive OS all use the particle background now (see particles script).
      The grid-ripple machinery stays defined for any future use but is currently unwired. */
 })();
 </script>
 
-<!-- ========== Particle background (Research + PACE OS sections) ==========
+<!-- ========== Particle background (Research + Scribtive OS sections) ==========
      Brand-tuned particles.js: white particles, orange line-linked, low density.
      Lazy-loaded on first intersection so we do not pay the script cost
      for visitors who bounce above the fold. Skipped on prefers-reduced-motion. -->
@@ -3704,7 +3704,7 @@ function renderJoinedState(btn, animate) {
 
 <script>
 /* handleWaitlist + showMagnetizeSuccess are defined in the inline <script>
-   directly under the PACE OS section above. That version surfaces an
+   directly under the Scribtive OS section above. That version surfaces an
    "Assessment CTA" next to the "You're in!" button. Removed here so the
    second function declaration does not shadow the patched first. */
 /* removed-handlers — kept only the IntersectionObserver block below. */
