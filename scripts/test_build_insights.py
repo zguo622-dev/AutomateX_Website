@@ -121,8 +121,35 @@ def test_render_cards_emits_one_card_per_item_newest_first():
     items = [dict(VALID, title="old", date="2026-05-20"),
              dict(VALID, title="new", date="2026-07-17")]
     out = bi.render_cards(items)
-    assert out.count('class="insight-card"') == 2
+    assert out.count("data-type=") == 2
     assert out.index("new") < out.index("old")
+
+
+def test_render_cards_makes_the_newest_item_the_feature():
+    items = [dict(VALID, title="old", date="2026-05-20"),
+             dict(VALID, title="new", date="2026-07-17")]
+    out = bi.render_cards(items)
+    assert out.count("insight-card--feature") == 1
+    # the feature is the newest, and it leads the markup
+    assert out.index("insight-card--feature") < out.index("old")
+    assert out.index("new") < out.index("old")
+
+
+def test_render_cards_handles_empty_manifest():
+    assert bi.render_cards([]) == ""
+
+
+def test_watch_cards_get_a_play_affordance_and_read_cards_do_not():
+    assert "insight-card-play" in bi.render_card(dict(VALID, type="watch"))
+    assert "insight-card-play" not in bi.render_card(dict(VALID, type="read"))
+
+
+def test_cards_carry_scroll_reveal_and_cycle_the_stagger():
+    items = [dict(VALID, title=f"t{n}", date=f"2026-07-{n:02d}") for n in range(1, 8)]
+    out = bi.render_cards(items)
+    assert "sc-reveal" in out
+    # stagger classes cycle rather than growing unbounded
+    assert "sc-stagger-5" not in out
 
 
 TEMPLATE_STUB = "<html><body><div id='insights-grid'>\n<!-- INSIGHTS_CARDS -->\n</div></body></html>"
@@ -133,7 +160,7 @@ def test_render_page_injects_cards_at_the_marker(tmp_path):
     tpl.write_text(TEMPLATE_STUB, encoding="utf-8")
     page = bi.render_page([VALID], tpl)
     assert "<!-- INSIGHTS_CARDS -->" not in page
-    assert 'class="insight-card"' in page
+    assert "insight-card" in page
 
 
 def test_render_page_raises_when_marker_is_missing(tmp_path):

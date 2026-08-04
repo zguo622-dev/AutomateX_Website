@@ -4462,35 +4462,121 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
      dark-canvas variants of the card colours: same class names and structure,
      legible against the real background, and matching the .pgcai-card
      pillar language used elsewhere on the shell. */
-  .insights-filter{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 2rem;}
-  .insights-filter-btn{font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;
-    letter-spacing:.04em;text-transform:uppercase;padding:.5rem 1rem;border-radius:999px;
-    border:1px solid rgba(255,255,255,.18);background:transparent;cursor:pointer;
-    color:rgba(255,255,255,.78);transition:color .2s ease,border-color .2s ease;}
-  .insights-filter-btn:hover{border-color:rgba(249,101,50,.5);color:#fff;}
+  /* ---- Filter ------------------------------------------------------- */
+  .insights-filter{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 2.5rem;
+    justify-content:center;}
+  .insights-filter-btn{font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.25rem;border-radius:999px;
+    border:1px solid rgba(255,255,255,.16);background:transparent;cursor:pointer;
+    color:rgba(255,255,255,.7);
+    transition:color .25s ease,border-color .25s ease,background .25s ease;}
+  .insights-filter-btn:hover{border-color:rgba(249,101,50,.55);color:#fff;}
   .insights-filter-btn.is-active{background:var(--orange);border-color:var(--orange);color:#fff;}
-  .insights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.75rem;}
-  .insight-card{display:flex;flex-direction:column;text-decoration:none;
-    color:rgba(255,255,255,.82);
-    border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;
-    background:rgba(255,255,255,.04);
-    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;}
-  .insight-card:hover{transform:translateY(-3px);border-color:rgba(249,101,50,.4);
-    box-shadow:0 10px 28px rgba(0,0,0,.35);}
+
+  /* ---- Grid --------------------------------------------------------- */
+  .insights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+    gap:1.5rem;align-items:start;}
+
+  /* ---- Card --------------------------------------------------------- */
+  .insight-card{position:relative;display:flex;flex-direction:column;text-decoration:none;
+    color:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.09);border-radius:14px;
+    overflow:hidden;background:rgba(255,255,255,.035);isolation:isolate;
+    transition:transform .45s cubic-bezier(.22,1,.36,1), opacity .45s ease,
+               border-color .35s ease, box-shadow .35s ease, background .35s ease;}
+  .insight-card::after{content:"";position:absolute;left:0;top:0;height:2px;width:0;
+    background:linear-gradient(90deg,var(--orange-light),var(--orange-dark));
+    transition:width .45s cubic-bezier(.22,1,.36,1);z-index:3;}
+  .insight-card:hover{transform:translateY(-6px);border-color:rgba(249,101,50,.38);
+    background:rgba(255,255,255,.06);box-shadow:0 18px 44px rgba(0,0,0,.45);}
+  .insight-card:hover::after{width:100%;}
+  .insight-card:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
   .insight-card[hidden]{display:none;}
-  .insight-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;}
-  .insight-card-body{padding:1.25rem;display:flex;flex-direction:column;gap:.5rem;}
-  .insight-card-type{font-size:.7rem;font-weight:700;letter-spacing:.08em;
-    text-transform:uppercase;color:var(--orange);}
-  .insight-card-title{font-family:var(--font-heading);font-size:1.05rem;line-height:1.35;
-    margin:0;color:var(--white);}
-  .insight-card-blurb{font-size:.9rem;line-height:1.55;margin:0;color:rgba(255,255,255,.72);}
-  .insight-card-source,.insight-card-date{font-size:.75rem;color:rgba(255,255,255,.5);}
-  .insights-evidence{margin:2.75rem 0 0;text-align:center;font-size:.95rem;
-    color:rgba(255,255,255,.62);}
+
+  /* ---- Media -------------------------------------------------------- */
+  .insight-card-media{position:relative;display:block;overflow:hidden;
+    background:rgba(0,0,0,.35);}
+  .insight-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;
+    transition:transform .6s cubic-bezier(.22,1,.36,1);}
+  .insight-card:hover .insight-card-img{transform:scale(1.055);}
+  .insight-card-media::before{content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(to top,rgba(13,17,23,.55),transparent 55%);}
+  .insight-card-chip{position:absolute;left:.85rem;bottom:.85rem;z-index:2;
+    font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;
+    letter-spacing:.12em;text-transform:uppercase;color:#fff;
+    padding:.3rem .6rem;border-radius:999px;background:rgba(13,17,23,.72);
+    border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(4px);}
+  .insight-card[data-type="watch"] .insight-card-chip{background:var(--orange);
+    border-color:var(--orange);}
+  .insight-card-play{position:absolute;z-index:2;left:50%;top:50%;
+    width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;
+    background:rgba(13,17,23,.6);border:1px solid rgba(255,255,255,.55);
+    backdrop-filter:blur(3px);
+    transition:transform .35s cubic-bezier(.22,1,.36,1),background .35s ease;}
+  .insight-card-play::after{content:"";position:absolute;left:52%;top:50%;
+    transform:translate(-50%,-50%);
+    border-left:15px solid #fff;border-top:9px solid transparent;
+    border-bottom:9px solid transparent;}
+  .insight-card:hover .insight-card-play{transform:scale(1.12);background:var(--orange);}
+
+  /* ---- Body --------------------------------------------------------- */
+  .insight-card-body{padding:1.35rem 1.35rem 1.2rem;display:flex;flex-direction:column;
+    gap:.6rem;flex:1;}
+  .insight-card-lead{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--orange);}
+  .insight-card-title{font-family:var(--font-heading);font-size:1.06rem;line-height:1.32;
+    margin:0;color:var(--white);letter-spacing:-0.01em;}
+  /* Blurbs range from 4 words to 40. Clamping is what stops the grid ragging. */
+  .insight-card-blurb{font-size:.875rem;line-height:1.6;margin:0;
+    color:rgba(255,255,255,.66);
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  /* Clamp caps the long ones; min-height floors the short ones. Both are
+     needed or the grid still rags - one blurb here is four words long. */
+  .insight-card:not(.insight-card--feature) .insight-card-blurb{min-height:4.8em;}
+  .insight-card-foot{margin-top:auto;padding-top:.35rem;display:flex;align-items:baseline;
+    gap:.6rem;flex-wrap:wrap;}
+  .insight-card-source,.insight-card-date{font-size:.72rem;letter-spacing:.02em;
+    color:rgba(255,255,255,.42);}
+  .insight-card-source::after{content:"·";margin-left:.6rem;opacity:.5;}
+  .insight-card-go{margin-left:auto;font-family:'Montserrat',sans-serif;font-size:.72rem;
+    font-weight:700;letter-spacing:.06em;color:var(--orange);white-space:nowrap;
+    opacity:0;transform:translateX(-4px);
+    transition:opacity .3s ease,transform .3s ease;}
+  .insight-card-go i{font-style:normal;display:inline-block;margin-left:.3rem;
+    transition:transform .3s ease;}
+  .insight-card:hover .insight-card-go{opacity:1;transform:translateX(0);}
+  .insight-card:hover .insight-card-go i{transform:translateX(4px);}
+
+  /* ---- Feature: the newest item leads, full width -------------------- */
+  .insight-card--feature{grid-column:1/-1;}
+  .insight-card--feature .insight-card-title{font-size:1.85rem;line-height:1.18;}
+  .insight-card--feature .insight-card-blurb{font-size:1rem;-webkit-line-clamp:3;
+    max-width:60ch;}
+  .insight-card--feature .insight-card-body{padding:2rem 2.1rem;justify-content:center;}
+  .insight-card--feature .insight-card-play{width:66px;height:66px;margin:-33px 0 0 -33px;}
+  @media(min-width:840px){
+    .insight-card--feature{flex-direction:row;align-items:stretch;}
+    .insight-card--feature .insight-card-media{flex:0 0 56%;}
+    .insight-card--feature .insight-card-img{height:100%;aspect-ratio:auto;min-height:340px;}
+    .insight-card--feature .insight-card-media::before{
+      background:linear-gradient(to right,transparent 55%,rgba(13,17,23,.45));}
+  }
+
+  /* ---- Evidence signpost -------------------------------------------- */
+  .insights-evidence{margin:3rem 0 0;text-align:center;font-size:.95rem;
+    color:rgba(255,255,255,.55);}
   .insights-evidence a{color:var(--orange);font-weight:600;text-decoration:none;
     white-space:nowrap;}
   .insights-evidence a:hover{text-decoration:underline;}
+
+  /* Filtering re-runs the reveal so incoming cards animate rather than snap. */
+  .insight-card.is-refreshing{opacity:0;transform:translateY(14px);}
+
+  @media(prefers-reduced-motion:reduce){
+    .insight-card,.insight-card-img,.insight-card-go,.insight-card-go i,
+    .insight-card-play,.insight-card::after{transition:none!important;}
+    .insight-card:hover{transform:none;}
+    .insight-card:hover .insight-card-img{transform:none;}
+  }
 </style>
 
 <!-- ===== CHAT WIDGET REMOVED 2026-05-22 =====
@@ -4671,6 +4757,20 @@ window.addEventListener("resize",sync);})();
 (function () {
   var grid = document.getElementById('insights-grid');
   if (!grid) return;
+
+  // Failsafe. Cards start at opacity 0 and are revealed by the shell's
+  // IntersectionObserver. If that observer never fires - unsupported browser,
+  // a tab that never composites - the page would render blank. Never let
+  // content be invisible: if nothing has been revealed shortly after load,
+  // show everything and drop the animation.
+  setTimeout(function () {
+    if (!document.querySelector('.sc-revealed')) {
+      document.querySelectorAll('.sc-reveal').forEach(function (el) {
+        el.classList.add('sc-revealed');
+      });
+    }
+  }, 1500);
+
   var buttons = document.querySelectorAll('.insights-filter-btn');
   buttons.forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -4681,10 +4781,31 @@ window.addEventListener("resize",sync);})();
       });
       btn.classList.add('is-active');
       btn.setAttribute('aria-pressed', 'true');
+
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var shown = [];
       grid.querySelectorAll('.insight-card').forEach(function (card) {
         var show = want === 'all' || card.getAttribute('data-type') === want;
+        var wasHidden = card.hidden;
         card.hidden = !show;
+        if (show && wasHidden) shown.push(card);
       });
+
+      // Cards arriving back into view animate in rather than snapping.
+      if (!reduce && shown.length) {
+        shown.forEach(function (card) { card.classList.add('is-refreshing'); });
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            shown.forEach(function (card, i) {
+              card.style.transitionDelay = (i % 4) * 45 + 'ms';
+              card.classList.remove('is-refreshing');
+            });
+            setTimeout(function () {
+              shown.forEach(function (card) { card.style.transitionDelay = ''; });
+            }, 500);
+          });
+        });
+      }
     });
   });
 })();

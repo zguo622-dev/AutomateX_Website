@@ -54,43 +54,78 @@ def sort_items(items):
 
 TYPE_LABEL = {"read": "Read", "watch": "Watch", "listen": "Listen"}
 
+# Scroll-reveal stagger classes already defined by the site shell. Cards cycle
+# through them so a row animates in as a sweep rather than all at once.
+STAGGER_CYCLE = 4
 
-def render_card(item):
+
+def render_card(item, position=0, featured=False):
+    """One card. `featured` renders the lead item across the full grid width."""
     e = html.escape
     external = bool(item.get("external", False))
     link_attrs = ' target="_blank" rel="noopener"' if external else ""
     thumb = item.get("thumb", "")
     source = item.get("source", "")
+    kind = item["type"]
 
-    img = ""
+    classes = ["insight-card"]
+    if featured:
+        classes.append("insight-card--feature")
+    classes.append("sc-reveal")
+    if not featured:
+        classes.append(f"sc-stagger-{(position % STAGGER_CYCLE) + 1}")
+
+    # A play glyph marks video without needing the word "video" in the copy.
+    play = '      <span class="insight-card-play" aria-hidden="true"></span>\n' if kind == "watch" else ""
+
+    media = ""
     if thumb:
-        img = (
-            f'    <img class="insight-card-img" src="{e(thumb)}" alt="" '
-            f'loading="lazy">\n'
+        media = (
+            f'    <span class="insight-card-media">\n'
+            f'      <img class="insight-card-img" src="{e(thumb)}" alt="" loading="lazy">\n'
+            f"{play}"
+            f'      <span class="insight-card-chip">{TYPE_LABEL[kind]}</span>\n'
+            f"    </span>\n"
         )
+
+    lead = ""
+    if featured:
+        lead = '      <span class="insight-card-lead">Latest</span>\n'
 
     source_line = ""
     if source:
-        source_line = f'      <span class="insight-card-source">{e(source)}</span>\n'
+        source_line = f'        <span class="insight-card-source">{e(source)}</span>\n'
+
+    heading = "h2" if featured else "h3"
+    cue = "Read the article" if kind == "read" else "Watch the demo"
 
     return (
-        f'  <a class="insight-card" data-type="{e(item["type"])}" '
+        f'  <a class="{" ".join(classes)}" data-type="{e(kind)}" '
         f'href="{e(item["url"])}"{link_attrs}>\n'
-        f"{img}"
-        f'    <div class="insight-card-body">\n'
-        f'      <span class="insight-card-type">{TYPE_LABEL[item["type"]]}</span>\n'
-        f'      <h3 class="insight-card-title">{e(item["title"])}</h3>\n'
+        f"{media}"
+        f'    <span class="insight-card-body">\n'
+        f"{lead}"
+        f'      <{heading} class="insight-card-title">{e(item["title"])}</{heading}>\n'
         f'      <p class="insight-card-blurb">{e(item["blurb"])}</p>\n'
+        f'      <span class="insight-card-foot">\n'
         f"{source_line}"
-        f'      <time class="insight-card-date" datetime="{e(item["date"])}">'
+        f'        <time class="insight-card-date" datetime="{e(item["date"])}">'
         f'{e(human_date(item["date"]))}</time>\n'
-        f"    </div>\n"
+        f'        <span class="insight-card-go">{cue}<i aria-hidden="true">&rarr;</i></span>\n'
+        f"      </span>\n"
+        f"    </span>\n"
         f"  </a>"
     )
 
 
 def render_cards(items):
-    return "\n".join(render_card(i) for i in sort_items(items))
+    """Newest item leads at full width; the rest follow as a staggered stream."""
+    ordered = sort_items(items)
+    if not ordered:
+        return ""
+    out = [render_card(ordered[0], featured=True)]
+    out += [render_card(it, position=i) for i, it in enumerate(ordered[1:])]
+    return "\n".join(out)
 
 
 def render_page(items, template_path=TEMPLATE):
