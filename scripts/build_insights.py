@@ -91,3 +91,20 @@ def render_card(item):
 
 def render_cards(items):
     return "\n".join(render_card(i) for i in sort_items(items))
+
+
+def render_page(items, template_path=TEMPLATE):
+    template = Path(template_path).read_text(encoding="utf-8")
+    if CARDS_MARKER not in template:
+        raise ValueError(f"template is missing the {CARDS_MARKER} marker")
+    return template.replace(CARDS_MARKER, render_cards(items))
+
+
+def main():
+    items = load_manifest()
+    OUTPUT.write_text(render_page(items), encoding="utf-8")
+    print(f"wrote {OUTPUT.name}: {len(items)} cards")
+
+
+if __name__ == "__main__":
+    main()

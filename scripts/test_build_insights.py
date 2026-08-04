@@ -123,3 +123,27 @@ def test_render_cards_emits_one_card_per_item_newest_first():
     out = bi.render_cards(items)
     assert out.count('class="insight-card"') == 2
     assert out.index("new") < out.index("old")
+
+
+TEMPLATE_STUB = "<html><body><div id='insights-grid'>\n<!-- INSIGHTS_CARDS -->\n</div></body></html>"
+
+
+def test_render_page_injects_cards_at_the_marker(tmp_path):
+    tpl = tmp_path / "tpl.html"
+    tpl.write_text(TEMPLATE_STUB, encoding="utf-8")
+    page = bi.render_page([VALID], tpl)
+    assert "<!-- INSIGHTS_CARDS -->" not in page
+    assert 'class="insight-card"' in page
+
+
+def test_render_page_raises_when_marker_is_missing(tmp_path):
+    tpl = tmp_path / "tpl.html"
+    tpl.write_text("<html><body></body></html>", encoding="utf-8")
+    with pytest.raises(ValueError, match="INSIGHTS_CARDS"):
+        bi.render_page([VALID], tpl)
+
+
+def test_render_page_is_idempotent(tmp_path):
+    tpl = tmp_path / "tpl.html"
+    tpl.write_text(TEMPLATE_STUB, encoding="utf-8")
+    assert bi.render_page([VALID], tpl) == bi.render_page([VALID], tpl)
