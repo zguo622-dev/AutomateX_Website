@@ -144,12 +144,19 @@ def test_watch_cards_get_a_play_affordance_and_read_cards_do_not():
     assert "insight-card-play" not in bi.render_card(dict(VALID, type="read"))
 
 
-def test_cards_carry_scroll_reveal_and_cycle_the_stagger():
+def test_cards_carry_the_entrance_class_and_cycle_the_stagger():
     items = [dict(VALID, title=f"t{n}", date=f"2026-07-{n:02d}") for n in range(1, 8)]
     out = bi.render_cards(items)
-    assert "sc-reveal" in out
+    assert "insight-in-1" in out
     # stagger classes cycle rather than growing unbounded
-    assert "sc-stagger-5" not in out
+    assert "insight-in-5" not in out
+
+
+def test_cards_do_not_use_the_shell_scroll_reveal():
+    # Visibility must not depend on JS: the shell's observer stranded whole
+    # rows invisible when a lazy image shifted the layout.
+    out = bi.render_cards([dict(VALID, title="x", date="2026-07-17")])
+    assert "sc-reveal" not in out
 
 
 TEMPLATE_STUB = "<html><body><div id='insights-grid'>\n<!-- INSIGHTS_CARDS -->\n</div></body></html>"

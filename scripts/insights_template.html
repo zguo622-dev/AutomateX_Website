@@ -6,6 +6,7 @@
 <title>Insights | AutomateX</title>
 <meta name="description" content="Articles, demos and conversations on AI in UK rail, from AutomateX.">
 <link rel="canonical" href="https://automatex.uk/insights.html" data-pass="canonical-pass-2026-06-06">
+
 <!-- Open Graph (Facebook, LinkedIn previews) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://automatex.uk/insights.html">
@@ -4474,8 +4475,10 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
   .insights-filter-btn.is-active{background:var(--orange);border-color:var(--orange);color:#fff;}
 
   /* ---- Grid --------------------------------------------------------- */
+  /* stretch, not start: a video card is taller than a text card, and ragged
+     row bottoms were the main thing making the grid read as messy. */
   .insights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
-    gap:1.5rem;align-items:start;}
+    gap:1.5rem;align-items:stretch;}
 
   /* ---- Card --------------------------------------------------------- */
   .insight-card{position:relative;display:flex;flex-direction:column;text-decoration:none;
@@ -4546,8 +4549,33 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
   .insight-card:hover .insight-card-go{opacity:1;transform:translateX(0);}
   .insight-card:hover .insight-card-go i{transform:translateX(4px);}
 
+  /* ---- Typographic cards (articles) ---------------------------------
+     Article covers are title cards, so showing them would print the headline
+     twice and their type is unreadable at card width. These lead with the
+     headline instead, and carry a faint brand glyph for weight. */
+  .insight-card--text .insight-card-body{padding:1.6rem 1.45rem 1.3rem;}
+  .insight-card--text::before{content:"";position:absolute;right:-38px;top:-38px;
+    width:150px;height:150px;border-radius:50%;z-index:0;
+    background:radial-gradient(circle,rgba(249,101,50,.16),transparent 68%);
+    transition:opacity .45s ease, transform .45s ease;opacity:.75;}
+  .insight-card--text:hover::before{opacity:1;transform:scale(1.15);}
+  .insight-card--text .insight-card-body > *{position:relative;z-index:1;}
+  .insight-card-kicker{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;
+    margin-bottom:.15rem;}
+  .insight-card--text .insight-card-chip{position:static;background:transparent;
+    border-color:rgba(249,101,50,.55);color:var(--orange);backdrop-filter:none;}
+  .insight-card--text .insight-card-title{font-size:1.2rem;line-height:1.28;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  .insight-card--text .insight-card-source{color:rgba(255,255,255,.4);}
+  .insight-card--text .insight-card-source::after{content:none;}
+
   /* ---- Feature: the newest item leads, full width -------------------- */
   .insight-card--feature{grid-column:1/-1;}
+  .insight-card--feature.insight-card--text{min-height:280px;}
+  .insight-card--feature.insight-card--text::before{width:340px;height:340px;
+    right:-90px;top:-90px;}
+  .insight-card--feature.insight-card--text .insight-card-title{
+    -webkit-line-clamp:none;}
   .insight-card--feature .insight-card-title{font-size:1.85rem;line-height:1.18;}
   .insight-card--feature .insight-card-blurb{font-size:1rem;-webkit-line-clamp:3;
     max-width:60ch;}
@@ -4568,7 +4596,19 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
     white-space:nowrap;}
   .insights-evidence a:hover{text-decoration:underline;}
 
-  /* Filtering re-runs the reveal so incoming cards animate rather than snap. */
+  /* Entrance cascade. CSS-only and on load, so nothing can leave a card
+     invisible - no observer, no scroll dependency, works with JS disabled. */
+  @keyframes insightIn{
+    from{opacity:0;transform:translateY(22px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .insight-card{animation:insightIn .62s cubic-bezier(.22,1,.36,1) both;}
+  .insight-in-1{animation-delay:.04s;}
+  .insight-in-2{animation-delay:.12s;}
+  .insight-in-3{animation-delay:.20s;}
+  .insight-in-4{animation-delay:.28s;}
+
+  /* Filtering re-runs the entrance so incoming cards animate rather than snap. */
   .insight-card.is-refreshing{opacity:0;transform:translateY(14px);}
 
   @media(prefers-reduced-motion:reduce){
@@ -4757,19 +4797,6 @@ window.addEventListener("resize",sync);})();
 (function () {
   var grid = document.getElementById('insights-grid');
   if (!grid) return;
-
-  // Failsafe. Cards start at opacity 0 and are revealed by the shell's
-  // IntersectionObserver. If that observer never fires - unsupported browser,
-  // a tab that never composites - the page would render blank. Never let
-  // content be invisible: if nothing has been revealed shortly after load,
-  // show everything and drop the animation.
-  setTimeout(function () {
-    if (!document.querySelector('.sc-revealed')) {
-      document.querySelectorAll('.sc-reveal').forEach(function (el) {
-        el.classList.add('sc-revealed');
-      });
-    }
-  }, 1500);
 
   var buttons = document.querySelectorAll('.insights-filter-btn');
   buttons.forEach(function (btn) {

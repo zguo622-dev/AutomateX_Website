@@ -68,32 +68,46 @@ def render_card(item, position=0, featured=False):
     source = item.get("source", "")
     kind = item["type"]
 
+    # Only video gets a thumbnail. The article covers are title cards, so
+    # rendering them would print each headline twice - once baked into the
+    # image, once as the card heading - and at card width their type is
+    # illegible. Articles are typographic instead, which also gives the grid
+    # a deliberate rhythm rather than eleven identical picture boxes.
+    show_media = kind == "watch" and bool(thumb)
+
+    # Entrance is a CSS-only staggered cascade on load. Deliberately NOT the
+    # shell's scroll-reveal: that gates visibility on JS, and on this shell it
+    # stranded whole rows invisible when a lazy image shifted the layout.
     classes = ["insight-card"]
+    classes.append("insight-card--media" if show_media else "insight-card--text")
     if featured:
         classes.append("insight-card--feature")
-    classes.append("sc-reveal")
-    if not featured:
-        classes.append(f"sc-stagger-{(position % STAGGER_CYCLE) + 1}")
+    classes.append(f"insight-in-{(position % STAGGER_CYCLE) + 1}")
 
-    # A play glyph marks video without needing the word "video" in the copy.
-    play = '      <span class="insight-card-play" aria-hidden="true"></span>\n' if kind == "watch" else ""
+    chip = f'<span class="insight-card-chip">{TYPE_LABEL[kind]}</span>'
 
     media = ""
-    if thumb:
+    kicker = ""
+    if show_media:
         media = (
             f'    <span class="insight-card-media">\n'
             f'      <img class="insight-card-img" src="{e(thumb)}" alt="" loading="lazy">\n'
-            f"{play}"
-            f'      <span class="insight-card-chip">{TYPE_LABEL[kind]}</span>\n'
+            f'      <span class="insight-card-play" aria-hidden="true"></span>\n'
+            f"      {chip}\n"
             f"    </span>\n"
         )
+    else:
+        src = f'<span class="insight-card-source">{e(source)}</span>' if source else ""
+        kicker = f'      <span class="insight-card-kicker">{chip}{src}</span>\n'
 
     lead = ""
     if featured:
         lead = '      <span class="insight-card-lead">Latest</span>\n'
 
+    # On media cards the source belongs in the footer; on text cards it is
+    # already in the kicker, so don't repeat it.
     source_line = ""
-    if source:
+    if source and show_media:
         source_line = f'        <span class="insight-card-source">{e(source)}</span>\n'
 
     heading = "h2" if featured else "h3"
@@ -105,6 +119,7 @@ def render_card(item, position=0, featured=False):
         f"{media}"
         f'    <span class="insight-card-body">\n'
         f"{lead}"
+        f"{kicker}"
         f'      <{heading} class="insight-card-title">{e(item["title"])}</{heading}>\n'
         f'      <p class="insight-card-blurb">{e(item["blurb"])}</p>\n'
         f'      <span class="insight-card-foot">\n'
