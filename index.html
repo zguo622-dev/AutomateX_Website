@@ -3913,12 +3913,13 @@ html{scroll-padding-top:76px;}
           <span class="pill-port" aria-hidden="true"></span>
           <div class="pill-row">
             <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"/><line x1="4" y1="19" x2="18" y2="19"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/></svg></span>
-            <span class="pill-title">Resources</span>
+            <span class="pill-title">Insights</span>
             <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
           </div>
           <div class="pill-panel"><div class="pill-panel-inner">
-            <p class="pill-prop">Plain-English articles and frameworks on AI in rail.</p>
-            <a class="pill-cta" href="resources.html">Browse Resources</a>
+            <p class="pill-prop">Plain-English articles, demos and frameworks on AI in rail.</p>
+            <a class="pill-cta" href="insights.html">Browse Insights</a>
+            <a class="pill-cta pill-cta-secondary" href="resources.html">The evidence behind P.A.C.E-D&trade;</a>
           </div></div>
         </button>
 
@@ -4318,6 +4319,16 @@ html{scroll-padding-top:76px;}
 .pill-cta::after { content: "→"; font-size: 0.875rem; letter-spacing: 0; transition: transform 200ms var(--who-ease); }
 .pill-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(249,101,50,0.35); }
 .pill-cta:hover::after { transform: translateX(3px); }
+.pill-cta-secondary {
+  margin-top: 8px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--orange);
+  border: 1px solid rgba(249,101,50,0.45);
+  text-transform: none;
+  font-size: 0.72rem;
+}
+.pill-cta-secondary:hover { box-shadow: none; border-color: var(--orange); }
 .pill[aria-expanded="true"] {
   border-radius: 18px; border-color: var(--orange); border-width: 2px;
   box-shadow: 0 16px 32px -18px rgba(249,101,50,0.32);
