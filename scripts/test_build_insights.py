@@ -74,3 +74,10 @@ def test_load_manifest_rejects_malformed_date(tmp_path):
     p = write_manifest(tmp_path, [bad])
     with pytest.raises(ValueError, match="bad date"):
         bi.load_manifest(p)
+
+
+def test_load_manifest_rejects_non_dashed_iso_date(tmp_path):
+    bad = dict(VALID, date="20260709")
+    p = write_manifest(tmp_path, [bad])
+    with pytest.raises(ValueError, match="bad date"):
+        bi.load_manifest(p)

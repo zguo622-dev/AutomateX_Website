@@ -33,8 +33,10 @@ def load_manifest(path=MANIFEST):
         if item["type"] not in VALID_TYPES:
             raise ValueError(f"item {i} has bad type {item['type']!r}")
         try:
-            _date.fromisoformat(item["date"])
+            parsed = _date.fromisoformat(item["date"])
         except ValueError:
+            parsed = None
+        if parsed is None or parsed.isoformat() != item["date"]:
             raise ValueError(f"item {i} has a bad date {item['date']!r}")
     return items
 
