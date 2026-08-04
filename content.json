@@ -1,0 +1,42 @@
+[
+  {
+    "type": "read",
+    "title": "Beyond the Hype: 5 Surprising Truths About Building Production-Grade RAG Systems",
+    "url": "blog-rag-truths.html",
+    "external": false,
+    "date": "2025-11-16",
+    "blurb": "The initial promise of RAG often feels like magic. Here are five hard-won lessons from building retrieval-augmented generation systems that actually work in production.",
+    "thumb": "images/e3eef4cd197410663135221e0349b96d.jpg",
+    "source": "AutomateX"
+  },
+  {
+    "type": "read",
+    "title": "The Unseen Battle: Network Rail's Biggest Challenges in Keeping Britain Moving",
+    "url": "blog-unseen-battle.html",
+    "external": false,
+    "date": "2026-01-13",
+    "blurb": "What you see is just the tip of the iceberg. The UK's railway is a vast system inherited from our Victorian ancestors. A look at the hidden challenges engineers face every day.",
+    "thumb": "resource/1768302177839.png",
+    "source": "AutomateX"
+  },
+  {
+    "type": "read",
+    "title": "The UK Railway Has a Standards Crisis. And Almost Nobody Is Qualified to Fix It",
+    "url": "blog-standards-crisis.html",
+    "external": false,
+    "date": "2026-02-24",
+    "blurb": "Over 900 Rail Industry Standards, 12,000+ Network Rail standards, Eurocodes, and legacy British Standards, fragmented across portals that don't talk to each other.",
+    "thumb": "images/e3eef4cd197410663135221e0349b96d.jpg",
+    "source": "AutomateX"
+  },
+  {
+    "type": "read",
+    "title": "Every Graduate Engineer's First Year in Rail Starts the Same Way",
+    "url": "blog-graduate-engineer.html",
+    "external": false,
+    "date": "2026-03-03",
+    "blurb": "The Form G is the single most consequential document a civils engineer produces on a Network Rail project. Yet no one teaches you how to write one. How Scribtive transforms the learning curve.",
+    "thumb": "images/e3eef4cd197410663135221e0349b96d.jpg",
+    "source": "AutomateX"
+  }
+]
