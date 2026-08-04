@@ -37,3 +37,8 @@ AutomateX_Capability_Brochure.*
 automatex_friction_points.xlsx
 AutomateX_Scorecard_Ground_Truth.xlsx
 brand_assets/AutomateX_Canva_BrandGuidelines_Copy.md
+
+# Python build tooling artefacts (scripts/build_insights.py + tests)
+scripts/__pycache__/
+scripts/.pytest_cache/
+*.pyc
