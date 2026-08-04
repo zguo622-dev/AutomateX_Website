@@ -891,10 +891,10 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
 <section>
   <div class="container">
     <div class="insights-filter" role="group" aria-label="Filter by format">
-      <button type="button" class="insights-filter-btn is-active" data-filter="all">All</button>
-      <button type="button" class="insights-filter-btn" data-filter="read">Read</button>
-      <button type="button" class="insights-filter-btn" data-filter="watch">Watch</button>
-      <button type="button" class="insights-filter-btn" data-filter="listen">Listen</button>
+      <button type="button" class="insights-filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="insights-filter-btn" data-filter="read" aria-pressed="false">Read</button>
+      <button type="button" class="insights-filter-btn" data-filter="watch" aria-pressed="false">Watch</button>
+      <button type="button" class="insights-filter-btn" data-filter="listen" aria-pressed="false">Listen</button>
     </div>
     <div class="insights-grid" id="insights-grid">
 <!-- INSIGHTS_CARDS -->
@@ -1106,8 +1106,12 @@ window.addEventListener("resize",sync);})();
   buttons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       var want = btn.getAttribute('data-filter');
-      buttons.forEach(function (b) { b.classList.remove('is-active'); });
+      buttons.forEach(function (b) {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('is-active');
+      btn.setAttribute('aria-pressed', 'true');
       grid.querySelectorAll('.insight-card').forEach(function (card) {
         var show = want === 'all' || card.getAttribute('data-type') === want;
         card.hidden = !show;
