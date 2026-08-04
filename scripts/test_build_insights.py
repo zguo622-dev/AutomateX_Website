@@ -43,3 +43,27 @@ def test_load_manifest_rejects_missing_field(tmp_path):
     p = write_manifest(tmp_path, [bad])
     with pytest.raises(ValueError, match="blurb"):
         bi.load_manifest(p)
+
+
+def test_human_date_formats_british_long_form():
+    assert bi.human_date("2026-07-17") == "17 July 2026"
+
+
+def test_human_date_has_no_leading_zero_on_day():
+    assert bi.human_date("2026-05-06") == "6 May 2026"
+
+
+def test_sort_items_is_newest_first():
+    items = [
+        dict(VALID, title="old", date="2026-05-20"),
+        dict(VALID, title="new", date="2026-07-17"),
+        dict(VALID, title="mid", date="2026-06-19"),
+    ]
+    assert [i["title"] for i in bi.sort_items(items)] == ["new", "mid", "old"]
+
+
+def test_sort_items_does_not_mutate_input():
+    items = [dict(VALID, date="2026-05-20"), dict(VALID, date="2026-07-17")]
+    before = [i["date"] for i in items]
+    bi.sort_items(items)
+    assert [i["date"] for i in items] == before

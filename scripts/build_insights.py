@@ -33,3 +33,14 @@ def load_manifest(path=MANIFEST):
         if item["type"] not in VALID_TYPES:
             raise ValueError(f"item {i} has bad type {item['type']!r}")
     return items
+
+
+def human_date(iso):
+    """2026-07-17 -> '17 July 2026'. No leading zero on the day."""
+    d = _date.fromisoformat(iso)
+    return f"{d.day} {d.strftime('%B')} {d.year}"
+
+
+def sort_items(items):
+    """Newest first. Returns a new list; does not mutate the input."""
+    return sorted(items, key=lambda i: i["date"], reverse=True)
