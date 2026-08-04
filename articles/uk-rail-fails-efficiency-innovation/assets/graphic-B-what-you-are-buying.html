@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- Graphic B: what the client is actually buying. Price stack: effort ~ 0 at base, accountability on top. 1280x720. Screenshot .card. -->
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--orange:#F96532;--orange-light:#FB7B3A;--orange-dark:#ED4A3B;--navy:#1A1F36;--navy-deep:#0D1117;--white:#FFFFFF;--gray-400:#9CA3AF;--grad:linear-gradient(100deg,var(--orange-light),var(--orange),var(--orange-dark));}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#33373d;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Open Sans',sans-serif;}
+  .card{width:1280px;height:720px;flex:none;background:var(--navy-deep);color:var(--white);position:relative;overflow:hidden;padding:60px 80px;display:flex;flex-direction:column;}
+  .card::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:8px;background:var(--grad);}
+  .eyebrow{font-family:'Montserrat',sans-serif;font-weight:600;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--orange-light);}
+  h2{font-family:'Montserrat',sans-serif;font-weight:700;font-size:38px;line-height:1.1;letter-spacing:-1px;margin:12px 0 6px;}
+  .sub{font-size:19px;color:#C7CBD4;margin-bottom:24px;}
+  .stack{flex:1;display:flex;flex-direction:column;gap:9px;justify-content:center;}
+  .row{display:flex;align-items:center;border-radius:10px;padding:15px 24px;}
+  .row .label{font-family:'Montserrat',sans-serif;font-weight:600;font-size:21px;}
+  .row .note{margin-left:auto;font-size:16px;color:#C7CBD4;}
+  .top{background:rgba(249,101,50,0.16);border:1px solid var(--orange);}
+  .top .label{color:#fff;}
+  .mid{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);}
+  .mid .label{color:#E7EAF0;}
+  .base{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.18);}
+  .base .label{color:var(--gray-400);}
+  .base .note{color:var(--gray-400);}
+  .legend{font-size:15px;color:#C7CBD4;margin-top:18px;}
+  .legend b{color:#fff;font-family:'Montserrat',sans-serif;font-weight:600;}
+  .credit{margin-top:14px;font-size:15px;color:var(--gray-400);font-family:'Montserrat',sans-serif;}
+  .credit b{color:#C7CBD4;font-weight:600;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="eyebrow">Why the price does not collapse</div>
+    <h2>What the client is actually buying</h2>
+    <div class="sub">The fee was never rent on your time. It is the cost of your name being on the line.</div>
+    <div class="stack">
+      <div class="row top"><span class="label">Chartered signature + PI</span><span class="note">Liability a model cannot hold</span></div>
+      <div class="row top"><span class="label">Professional accountability</span><span class="note">Someone stands behind it at the design review</span></div>
+      <div class="row mid"><span class="label">The assurance trail</span><span class="note">Defensible, auditable, traceable</span></div>
+      <div class="row mid"><span class="label">Compliance with NR standards</span><span class="note">Right first time, to the code</span></div>
+      <div class="row mid"><span class="label">Warranty on the deliverable</span><span class="note">It is correct, and it holds</span></div>
+      <div class="row base"><span class="label">The hours of effort</span><span class="note">&asymp; what the client came for: nothing</span></div>
+    </div>
+    <div class="legend"><b>They are pricing the typing. You are pricing the accountability.</b> Speed changes your cost. It does not change what the client came to buy.</div>
+    <div class="credit"><b>AutomateX Advisory</b> &nbsp;&middot;&nbsp; automatex.uk</div>
+  </div>
+</body>
+</html>

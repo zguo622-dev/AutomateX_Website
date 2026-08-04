@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Signature Takes a Minute. The Form G Takes a Week. | AutomateX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#F96532;
+    --orange-light:#FB7B3A;
+    --orange-dark:#ED4A3B;
+    --navy:#1A1F36;
+    --navy-deep:#0D1117;
+    --navy-surface:#131921;
+    --gray-600:#4B5563;
+    --gray-400:#9CA3AF;
+    --gray-200:#E5E7EB;
+    --white:#FFFFFF;
+    --grad:linear-gradient(100deg,var(--orange-light),var(--orange),var(--orange-dark));
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Open Sans',-apple-system,sans-serif;
+    color:var(--gray-600);
+    background:#FAFAFA;
+    line-height:1.7;
+    font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .hero{
+    background:var(--navy-deep);
+    color:var(--white);
+    padding:64px 24px 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-40%;right:-10%;
+    width:520px;height:520px;
+    background:radial-gradient(circle,rgba(249,101,50,0.20),transparent 62%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:760px;margin:0 auto;position:relative;}
+  .wordmark{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:-0.5px;
+    background:var(--grad);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    display:inline-block;
+  }
+  .wordmark span{color:var(--gray-400);-webkit-text-fill-color:var(--gray-400);font-weight:400;font-size:13px;letter-spacing:1px;margin-left:8px;text-transform:uppercase;}
+  .eyebrow{
+    margin-top:40px;
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--orange-light);
+  }
+  h1.title{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:clamp(30px,5vw,44px);
+    line-height:1.12;
+    letter-spacing:-1px;
+    margin:16px 0 18px;
+    color:var(--white);
+  }
+  .subtitle{
+    font-size:20px;
+    color:#C7CBD4;
+    font-weight:400;
+    max-width:620px;
+  }
+  .byline{
+    margin-top:32px;
+    padding-top:22px;
+    border-top:1px solid rgba(255,255,255,0.12);
+    display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline;
+    font-size:15px;
+  }
+  .byline .name{font-family:'Montserrat',sans-serif;font-weight:600;color:var(--white);}
+  .byline .role{color:var(--gray-400);}
+  .byline .meta{color:var(--gray-400);margin-left:auto;}
+  article{
+    max-width:720px;
+    margin:0 auto;
+    padding:56px 24px 32px;
+    background:var(--white);
+  }
+  @media(min-width:760px){
+    article{margin-top:-28px;border-radius:14px 14px 0 0;box-shadow:0 -2px 24px rgba(13,17,23,0.06);position:relative;}
+  }
+  .lede{
+    font-size:21px;
+    line-height:1.6;
+    color:var(--navy);
+    font-weight:400;
+  }
+  article p{margin:0 0 22px;}
+  article a{color:var(--orange-dark);text-decoration:none;border-bottom:1px solid rgba(237,74,59,0.35);}
+  h2{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:25px;
+    line-height:1.2;
+    letter-spacing:-0.5px;
+    color:var(--navy);
+    margin:46px 0 8px;
+  }
+  h2 .rule{display:block;width:48px;height:4px;background:var(--grad);border-radius:2px;margin-bottom:18px;}
+  ul.clean{margin:0 0 22px;padding-left:0;list-style:none;}
+  ul.clean li{
+    position:relative;
+    padding-left:26px;
+    margin-bottom:12px;
+  }
+  ul.clean li::before{
+    content:"";
+    position:absolute;left:0;top:11px;
+    width:8px;height:8px;border-radius:2px;
+    background:var(--orange);
+    transform:rotate(45deg);
+  }
+  ul.clean li b{color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:600;}
+  .pull{
+    margin:38px 0;
+    padding:4px 0 4px 26px;
+    border-left:4px solid var(--orange);
+    font-family:'Montserrat',sans-serif;
+    font-weight:500;
+    font-size:24px;
+    line-height:1.35;
+    color:var(--navy);
+    letter-spacing:-0.3px;
+  }
+  figure.graphic{margin:34px 0;}
+  figure.graphic img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--gray-200);}
+  figure.graphic figcaption{margin-top:10px;font-size:14px;color:var(--gray-400);text-align:center;}
+  .closing-q{
+    margin-top:18px;
+    background:var(--navy-deep);
+    color:var(--white);
+    border-radius:12px;
+    padding:30px 28px;
+  }
+  .closing-q p{color:#C7CBD4;margin-bottom:14px;}
+  .closing-q p:last-child{margin-bottom:0;}
+  .closing-q b{color:var(--white);font-family:'Montserrat',sans-serif;font-weight:600;}
+  footer{
+    max-width:720px;margin:0 auto;
+    padding:30px 24px 64px;
+    background:var(--white);
+    border-top:1px solid var(--gray-200);
+  }
+  .sig{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;margin-bottom:18px;}
+  .sig .n{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;color:var(--navy);}
+  .sig .p{color:var(--orange);font-weight:600;font-size:14px;}
+  .sig .r{color:var(--gray-600);font-size:14px;}
+  .sig .e{color:var(--gray-400);font-size:14px;margin-left:auto;}
+  .disclaimer{font-size:12px;line-height:1.6;color:var(--gray-400);}
+  .disclaimer .tm{margin-top:8px;}
+  .ax-sitebar{background:#0D1117;border-bottom:1px solid rgba(255,255,255,0.12);}
+  .ax-sitebar-inner{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+  .ax-sitebar-home{font-family:'Montserrat',sans-serif;font-weight:700;font-size:19px;letter-spacing:-0.5px;color:#FFFFFF;text-decoration:none;}
+  .ax-sitebar-links{margin-left:auto;display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+  .ax-sitebar-links a{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;color:#C7CBD4;text-decoration:none;white-space:nowrap;}
+  .ax-sitebar-links a:hover{color:#FFFFFF;}
+  .ax-sitebar-cta{background:#F96532;color:#FFFFFF !important;padding:8px 16px;border-radius:999px;}
+  @media(max-width:640px){.ax-sitebar-links{gap:14px;}.ax-sitebar-links a{font-size:13px;}}
+  .ax-provenance{font-size:14px;color:#9CA3AF;margin:0 0 22px;font-style:italic;}
+</style>
+<link rel="canonical" href="https://automatex.uk/articles/the-form-g-takes-a-week/">
+<meta name="description" content="The most accountable people in rail design spend their week assembling information instead of exercising judgement.">
+</head>
+<body>
+
+<div class="ax-sitebar">
+  <div class="ax-sitebar-inner">
+    <a class="ax-sitebar-home" href="../../index.html">AutomateX</a>
+    <nav class="ax-sitebar-links" aria-label="Site">
+      <a href="../../insights.html">&larr;&nbsp;All insights</a>
+      <a href="../../bootcamp.html">What we offer</a>
+      <a href="../../about.html">Who we are</a>
+      <a class="ax-sitebar-cta" href="../../waitlist.html">Join the waitlist</a>
+    </nav>
+  </div>
+</div>
+
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="wordmark">AutomateX<span>Advisory</span></div>
+    <div class="eyebrow">DESIGN ASSURANCE &middot; AI IN RAIL</div>
+    <h1 class="title">The Signature Takes a Minute. The Form G Takes a Week.</h1>
+    <p class="ax-provenance">First published on LinkedIn.</p>
+    <p class="subtitle">The most accountable people in rail design spend their week assembling information instead of exercising judgement. Here is what that costs all of us, and why the fix protects the engineer's judgement rather than replacing it.</p>
+    <div class="byline">
+      <span class="name">Bill Guo FICE CEng MEng</span>
+      <span class="role">Founder, AutomateX Advisory</span>
+      <span class="meta">19 June 2026 &middot; 10 min read</span>
+    </div>
+  </div>
+</header>
+
+<article>
+
+  <p class="lede">It is half past ten on a Thursday. Five PDFs are open, ProjectWise is loading, and a Teams message asks where the Form G draft is. The engineering was finished days ago.</p>
+
+  <h2><span class="rule"></span>The week that disappears</h2>
+  <p>If you have ever owned an NR/L2/CIV/003 Form G, you know this week.</p>
+  <p>The Combined Approval in Principle and Design Certificate is not a formality. For Category 1 permanent works there is no construction without it. Network Rail cannot issue Approval for Construction (AFC) until it is signed.</p>
+  <p>So the work matters. The trouble is where the time goes.</p>
+  <p>A competent Contractor's Engineering Manager or Design Project Engineer does not spend that week deciding things. They spend it gathering. Locating the right revision of a drawing. Cross-checking a calc pack against the geotechnical report. Hunting for the line in the hazard log that confirms what they already know. Drafting the twelve prescribed sections under Issue 8 of the standard, cross-referencing the Eurocode design forms, then chasing three designers for inputs that should have been there at the start.</p>
+  <p>In our experience a single first-issue Form G can absorb twelve to twenty hours of senior engineering time. The actual engineering judgement inside that document might take an afternoon.</p>
+  <p>The rest is assembly.</p>
+  <p class="pull">The engineering was finished days ago. The week went on everything around it.</p>
+
+  <h2><span class="rule"></span>What the certificate actually promises</h2>
+  <p>Here is the reframe worth holding onto.</p>
+  <p>A Form G is a promise. When an engineer signs it, they are certifying that the design is sound, that it meets the applicable standards, and that they have exercised competent professional judgement in saying so. The signature carries their name, their competence, and the professional indemnity that stands behind it.</p>
+  <p>That signature is the product. It is the thing Network Rail cannot proceed without, and the thing a client is genuinely paying for.</p>
+  <p>Everything before the signature, the locating and cross-referencing and formatting, is overhead. Necessary overhead, but overhead. It does not draw on the years of expertise that justify a senior engineer's day rate. We have simply never had a good way to separate the two.</p>
+  <p>So we make our most accountable people spend a week earning the right to give a signature that takes a minute.</p>
+
+  <h2><span class="rule"></span>The invisible tax</h2>
+  <p>Now widen the lens, because this is not only one engineer's frustration. It is a tax on the whole programme.</p>
+  <p>When a Form G takes three weeks instead of two days, the delay does not stay contained. Construction packages cannot go to tender without the design certificate. Network Rail cannot issue Approval for Construction. Contractors cannot mobilise. Every week of slippage on a major civils package carries preliminaries, and eventually liquidated damages, that flow back to the public purse.</p>
+  <p>Multiply that across a portfolio. Network Rail's <a href="https://www.networkrailmediacentre.co.uk/news/passengers-and-freight-at-the-heart-of-new-gbp-44bn-five-year-plan-for-our-railway">CP7 settlement runs to roughly &pound;44 billion</a> over the five years to 2029, on top of HS2 and the devolved programmes. The documentation load underneath all of it runs into millions of engineer-hours. None of it shows on a programme dashboard. It is the cost nobody line-items, because it hides inside the day job of people too busy to measure it.</p>
+  <p>The Institution of Civil Engineers has even asked, in a <a href="https://www.ice.org.uk/news-views-insights/policy-and-advocacy/policy-insights/green-paper-cost-time-overruns-on-major-projects">green paper</a>, why major infrastructure projects in this country cost so much and take so long. Part of the answer is sitting in the assurance workflow, in plain sight.</p>
+
+  <h2><span class="rule"></span>The part nobody puts on a dashboard</h2>
+  <p>There is a quieter cost, and it is the one that should worry us most.</p>
+  <p>Design assurance certificates exist because inadequate checking has, in the past, contributed to failures in safety-critical infrastructure. The certificate is a safety control in its own right.</p>
+  <p>When an engineer produces that certificate under programme pressure, or from incomplete information because gathering it was too painful, the quality of the assurance is the first thing to suffer. Not the formatting. The assurance. The very thing the certificate exists to guarantee.</p>
+  <p class="pull">The tax is not only time. It is the integrity of the thing the certificate exists to protect.</p>
+  <p>So the problem is sharper than slow. A process that exhausts the engineer before they reach the judgement is a process that quietly erodes the judgement. We should want the opposite. We should want the engineer arriving at the decision rested, with complete and well-referenced information already in front of them.</p>
+
+  <h2><span class="rule"></span>Here is the reframe</h2>
+  <p>The instinct, when a team is drowning in this, is to add people. Hire another CEM. Borrow a DPE. Scale the team to clear the backlog.</p>
+  <p>I would gently push back on that instinct. The sector is short of competent CEMs, DPEs and CREs already. You cannot hire your way out of a shortage, and you would not want your best engineers spending even more of their week on assembly if you could.</p>
+  <p>Stop scaling the team. Start scaling the system around it.</p>
+  <p>The assembly, the locating and cross-referencing and first-draft writing, is system work. It can be done by a system that knows your standards, reads your project documents, and shows its working. The judgement stays exactly where it belongs, with the competent engineer who signs.</p>
+  <p class="pull">Protect the judgement. Systematise the assembly.</p>
+  <p>That is the principle behind Scribtive, the tool we are building for rail design assurance. It is easier to show than to describe, so here is what it actually looks like on a real Form G. The example below uses our sanitised sample project, a like-for-like canopy refurbishment at a station.</p>
+
+  <h2><span class="rule"></span>What that looks like in practice</h2>
+  <p>You start by giving it the project. The drawings, the surveys, the hazard log, the CR-T. It reads them, then shows you every prescribed section of the Form G with the evidence it has already found for each one, and how much of that evidence it has verified against the source. The week that used to vanish into gathering is now visible work, laid out in front of you before you write a word.</p>
+  <figure class="graphic"><img src="assets/the-form-g-takes-a-week-2026-06-19-fig1-evidence-readiness.png" alt="Scribtive showing every Form G section with the count of evidence quotes found and verified across 11 project documents"><figcaption>Every prescribed Form G section, mapped to the evidence already sitting in the project documents.</figcaption></figure>
+
+  <p>It then drafts each section from that evidence. Where the support is strong, it drafts with confidence. Where it is thin, it flags for human guidance rather than inventing something plausible. The source document sits beside the draft, not buried three folders deep in ProjectWise. You are reading and deciding, not foraging.</p>
+  <figure class="graphic"><img src="assets/the-form-g-takes-a-week-2026-06-19-fig2-hitl-draft.png" alt="Scribtive section walkthrough with the AI draft, human-guidance flags, and the source document shown alongside"><figcaption>The draft sits beside its source. Where the evidence is thin, it asks rather than invents.</figcaption></figure>
+
+  <p>Nothing reaches the certificate until the engineer accepts it. When you accept a section, it goes onto the record with the evidence that justified it attached. The judgement stays human. The assembly does not. This is the line I will not cross in any tool we build. The AI drafts, the engineer decides, and the record proves who decided what.</p>
+  <figure class="graphic"><img src="assets/the-form-g-takes-a-week-2026-06-19-fig3-accepted-section.png" alt="An accepted Form G section shown on the record with its evidence anchor"><figcaption>Nothing reaches the certificate until the engineer accepts it, and the evidence travels with the decision.</figcaption></figure>
+
+  <p>It cuts both ways, which matters for the people on the Network Rail side. As a DPE I used to review submissions by opening five PDFs and reading until I found what I needed. Here, the reviewer can simply ask the evidence base a question, and every answer comes back as a verified quote linked to the page it came from. The review gets faster, and more importantly, better evidenced.</p>
+  <figure class="graphic"><img src="assets/the-form-g-takes-a-week-2026-06-19-fig4-document-query.png" alt="Scribtive document query mode returning answers as verified quotes linked to the source page"><figcaption>Reviewers interrogate the submission, and every answer comes back as a verified, page-linked quote.</figcaption></figure>
+
+  <p>And at the end, the part that closes the loop. Every section decided, every acceptance anchored to a verified quote or a typed justification, nothing waved through. Then it exports the official Form G. The signature now sits on top of a complete, evidenced trail, which is exactly what the certificate was always supposed to be.</p>
+  <figure class="graphic"><img src="assets/the-form-g-takes-a-week-2026-06-19-fig5-audit-export.png" alt="Scribtive record view showing every section accepted and anchored to evidence, with export to official Form G"><figcaption>Every decision on the record, anchored to evidence, then exported as the official Form G.</figcaption></figure>
+
+  <h2><span class="rule"></span>Where to start</h2>
+  <p>You do not fix this by rolling a platform across a programme on day one. You fix it the way you would de-risk any new method. You pilot it.</p>
+  <p>Take one Form G from your current workload. One structure, real work, real standards. Run it through, side by side with how you would have done it anyway, and judge it on the two things that matter. Is the assurance at least as good. And did it give your engineer their week back to do engineering.</p>
+  <p>If it does both, you have not bought a faster way to fill in forms. What you have bought back is judgement time, with a record that proves the thinking happened. That is worth far more than the hours it saves.</p>
+
+  <div class="closing-q">
+    <p>If your best engineers had that week back, what would they build with it?</p>
+    <p>I would genuinely like to know where your programme loses its Form G time, and whether the fix is information, judgement, or just somebody finally measuring it.</p>
+    <p>Scribtive is being built for exactly this. If you would like to follow it, or try it on one of your own Form Gs, <b>join the waiting list at automatex.uk</b>.</p>
+  </div>
+
+</article>
+
+<footer>
+  <div class="sig">
+    <span class="n">Bill Guo</span>
+    <span class="r">FICE CEng MEng</span>
+    <span class="p">Founder, AutomateX Advisory</span>
+    <span class="e">bill.guo@automatex.uk</span>
+  </div>
+  <div class="disclaimer">
+    Figures cited draw on publicly available sources, including Network Rail's CP7 funding settlement and the Institution of Civil Engineers, and are linked in the text. Time observations and the Scribtive walkthrough are based on AutomateX internal validation against a sanitised sample project; results vary by project complexity and document quality. This article is intended for industry professionals.
+    <div class="tm">&copy; 2026 AutomateX Ltd. AutomateX and Scribtive are trademarks of AutomateX Ltd.</div>
+  </div>
+</footer>
+
+</body>
+</html>

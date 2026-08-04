@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why UK Rail Keeps Failing at Efficiency and Innovation | AutomateX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#F96532;--orange-light:#FB7B3A;--orange-dark:#ED4A3B;
+    --navy:#1A1F36;--navy-deep:#0D1117;--navy-surface:#131921;
+    --gray-600:#4B5563;--gray-400:#9CA3AF;--gray-200:#E5E7EB;--white:#FFFFFF;
+    --grad:linear-gradient(100deg,var(--orange-light),var(--orange),var(--orange-dark));
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Open Sans',-apple-system,sans-serif;color:var(--gray-600);background:#FAFAFA;line-height:1.7;font-size:18px;-webkit-font-smoothing:antialiased;}
+  .hero{background:var(--navy-deep);color:var(--white);padding:64px 24px 56px;position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;top:-40%;right:-10%;width:520px;height:520px;background:radial-gradient(circle,rgba(249,101,50,0.20),transparent 62%);pointer-events:none;}
+  .hero-inner{max-width:760px;margin:0 auto;position:relative;}
+  .wordmark{font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.5px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:inline-block;}
+  .wordmark span{color:var(--gray-400);-webkit-text-fill-color:var(--gray-400);font-weight:400;font-size:13px;letter-spacing:1px;margin-left:8px;text-transform:uppercase;}
+  .eyebrow{margin-top:40px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange-light);}
+  h1.title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.12;letter-spacing:-1px;margin:16px 0 18px;color:var(--white);}
+  .subtitle{font-size:20px;color:#C7CBD4;font-weight:400;max-width:620px;}
+  .byline{margin-top:32px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.12);display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline;font-size:15px;}
+  .byline .name{font-family:'Montserrat',sans-serif;font-weight:600;color:var(--white);}
+  .byline .role{color:var(--gray-400);}
+  .byline .meta{color:var(--gray-400);margin-left:auto;}
+  article{max-width:720px;margin:0 auto;padding:56px 24px 32px;background:var(--white);}
+  @media(min-width:760px){article{margin-top:-28px;border-radius:14px 14px 0 0;box-shadow:0 -2px 24px rgba(13,17,23,0.06);position:relative;}}
+  .lede{font-size:21px;line-height:1.6;color:var(--navy);font-weight:400;}
+  article p{margin:0 0 22px;}
+  h2{font-family:'Montserrat',sans-serif;font-weight:700;font-size:25px;line-height:1.2;letter-spacing:-0.5px;color:var(--navy);margin:46px 0 8px;}
+  h2 .rule{display:block;width:48px;height:4px;background:var(--grad);border-radius:2px;margin-bottom:18px;}
+  ul.clean{margin:0 0 22px;padding-left:0;list-style:none;}
+  ul.clean li{position:relative;padding-left:26px;margin-bottom:12px;}
+  ul.clean li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:2px;background:var(--orange);transform:rotate(45deg);}
+  ul.clean li b{color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:600;}
+  .pull{margin:38px 0;padding:4px 0 4px 26px;border-left:4px solid var(--orange);font-family:'Montserrat',sans-serif;font-weight:500;font-size:24px;line-height:1.35;color:var(--navy);letter-spacing:-0.3px;}
+  figure.graphic{margin:34px 0;}
+  figure.graphic img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--gray-200);}
+  figure.graphic figcaption{margin-top:10px;font-size:14px;color:var(--gray-400);text-align:center;}
+  .closing-q{margin-top:18px;background:var(--navy-deep);color:var(--white);border-radius:12px;padding:30px 28px;}
+  .closing-q p{color:#C7CBD4;margin-bottom:14px;}
+  .closing-q p:last-child{margin-bottom:0;}
+  .closing-q b{color:var(--white);font-family:'Montserrat',sans-serif;font-weight:600;}
+  footer{max-width:720px;margin:0 auto;padding:30px 24px 64px;background:var(--white);border-top:1px solid var(--gray-200);}
+  .sig{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;margin-bottom:18px;}
+  .sig .n{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;color:var(--navy);}
+  .sig .p{color:var(--orange);font-weight:600;font-size:14px;}
+  .sig .r{color:var(--gray-600);font-size:14px;}
+  .sig .e{color:var(--gray-400);font-size:14px;margin-left:auto;}
+  .disclaimer{font-size:12px;line-height:1.6;color:var(--gray-400);}
+  .disclaimer .tm{margin-top:8px;}
+  .ax-sitebar{background:#0D1117;border-bottom:1px solid rgba(255,255,255,0.12);}
+  .ax-sitebar-inner{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+  .ax-sitebar-home{font-family:'Montserrat',sans-serif;font-weight:700;font-size:19px;letter-spacing:-0.5px;color:#FFFFFF;text-decoration:none;}
+  .ax-sitebar-links{margin-left:auto;display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+  .ax-sitebar-links a{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;color:#C7CBD4;text-decoration:none;white-space:nowrap;}
+  .ax-sitebar-links a:hover{color:#FFFFFF;}
+  .ax-sitebar-cta{background:#F96532;color:#FFFFFF !important;padding:8px 16px;border-radius:999px;}
+  @media(max-width:640px){.ax-sitebar-links{gap:14px;}.ax-sitebar-links a{font-size:13px;}}
+  .ax-provenance{font-size:14px;color:#9CA3AF;margin:0 0 22px;font-style:italic;}
+</style>
+<link rel="canonical" href="https://automatex.uk/articles/uk-rail-fails-efficiency-innovation/">
+<meta name="description" content="Why UK rail keeps failing at efficiency and innovation, and where we should start to fix it.">
+</head>
+<body>
+
+<div class="ax-sitebar">
+  <div class="ax-sitebar-inner">
+    <a class="ax-sitebar-home" href="../../index.html">AutomateX</a>
+    <nav class="ax-sitebar-links" aria-label="Site">
+      <a href="../../insights.html">&larr;&nbsp;All insights</a>
+      <a href="../../bootcamp.html">What we offer</a>
+      <a href="../../about.html">Who we are</a>
+      <a class="ax-sitebar-cta" href="../../waitlist.html">Join the waitlist</a>
+    </nav>
+  </div>
+</div>
+
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="wordmark">AutomateX<span>Advisory</span></div>
+    <div class="eyebrow">Rail &middot; AI &middot; Commercial Model</div>
+    <h1 class="title">Why UK Rail Keeps Failing at Efficiency and Innovation</h1>
+    <p class="ax-provenance">First published on LinkedIn.</p>
+    <p class="subtitle">And where we should start to fix it.</p>
+    <div class="byline">
+      <span class="name">Bill Guo FICE CEng MEng</span>
+      <span class="role">Founder, AutomateX Advisory</span>
+      <span class="meta">21 May 2026 &middot; 6 min read</span>
+    </div>
+  </div>
+</header>
+
+<article>
+  <p class="lede">UK rail is not slow because its engineers are slow. It is slow because we pay them by the hour.</p>
+
+  <p>That sounds like a dig at the profession. It is really just arithmetic. Stay with me, because the same arithmetic is why the industry barely innovates either. They turn out to be the same problem. And it is fixable.</p>
+
+  <h2><span class="rule"></span>We bill by the hour</h2>
+  <p>Every job is priced the same way. Scope it. Pick the team. Guess the hours. Multiply by a rate. Add the subcontractors. That is the price.</p>
+  <p>It is clean. It is auditable. It has run rail for decades. It also quietly punishes the two things every leader in the industry says they want.</p>
+  <p>On a framework the rate is fixed for you. You cannot move it. So your profit lives entirely in the hours. Hold that thought. The rest of this article is just that thought, followed to its slightly absurd conclusion.</p>
+
+  <h2><span class="rule"></span>So going faster is a pay cut</h2>
+  <p>Two firms bid the same job. One needs 200 hours. One needs 120. On a rate card, the faster firm gets paid less for the identical result.</p>
+  <p class="pull">When you sell time, going faster is a pay cut.</p>
+  <p>Now point AI at that. AI is good at precisely the work that fills a timesheet. Drafting. Checking. Assembling the document. The Form G at eleven at night. It compresses the hours. On an hourly contract, compressing the hours means shrinking your own invoice.</p>
+  <p>So the industry has bought a tool whose entire job is to attack the thing it charges for. No wonder it feels like the tool is fighting us.</p>
+
+  <h2><span class="rule"></span>And it quietly kills innovation too</h2>
+  <p>Follow that one more step, because this is the bit everyone misses.</p>
+  <p>Innovation, on the ground, is mostly just efficiency you paid for up front. A better method. A reusable model. A script that does in five minutes what used to eat a morning.</p>
+  <p>What does an hourly model do to that? The day your clever thing works, it shrinks the hours you are allowed to bill. You spent money and effort to reduce your own revenue. Well done.</p>
+  <p class="pull">The hourly model rewards standing still and fines you for getting better.</p>
+  <p>So the smart move, under pure time-billing, is to not improve. Keep it manual. Keep the hours up. That is not a shortage of imagination in rail. It is people reading the incentive correctly.</p>
+  <p>Which means efficiency and innovation were never two separate problems. They are one. Both make the timesheet smaller, and we have built an industry that quietly worships the timesheet.</p>
+  <figure class="graphic">
+    <img src="assets/graphic-A-pay-for-hours-fork.png" alt="One cause, two symptoms: paying for hours penalises both efficiency and innovation, because both reduce billable hours.">
+    <figcaption>One cause, two symptoms. Pay by the hour and you punish both, because both shrink the thing you bill.</figcaption>
+  </figure>
+
+  <h2><span class="rule"></span>The usual fix does not work here</h2>
+  <p>Everyone's first answer is the same. Stop charging for time, charge for value. Price the outcome.</p>
+  <p>In rail that hits a wall on one question. What is it worth? The value to Network Rail of a good design is genuinely hard to put a number on. There is no neat profit line to point at, the way there is for a sales tool. With no number to anchor to, value pricing becomes a haggle with no floor and no ceiling. Few clients will sign that, and honestly they are right not to.</p>
+  <p>So the escape is not a leap to value. It is one small sidestep.</p>
+
+  <h2><span class="rule"></span>Sell the thing, not the time</h2>
+  <p>Stop pricing the day. Price the deliverable.</p>
+  <p>Here is the part that feels like cheating. You already know the price. It is what that deliverable cost the client last year, on the old rate card, which they paid without blinking. Use that as your number.</p>
+  <p>Your cost to produce it has dropped, because the hours behind it have. You hold the price. The gap that used to be wages is now margin.</p>
+  <p class="pull">The rate card stops being your ceiling. It quietly becomes your anchor.</p>
+
+  <h2><span class="rule"></span>A word before you get smug about cheap AI</h2>
+  <p>Remember when an Uber across town cost about the same as a sandwich? That was not generosity. Investors were paying for your ride to win the market. The price went up later. It always does.</p>
+  <p>AI tokens are the sandwich-priced Uber right now. Cheap because someone is buying market share, not because the compute is free. That meter will climb. So the AI runs its own little timesheet too, ticking away quietly in tokens.</p>
+  <p>Which is the real reason to anchor on the old value, not on today's bill. Price the deliverable at what it was always worth to the client. If you price it off this year's suspiciously cheap compute, you will be underwater the moment the free rides end.</p>
+
+  <h2><span class="rule"></span>But the AI did it in twenty minutes</h2>
+  <p>Here comes the objection. If the client knows a deliverable popped out in twenty minutes, surely the price falls to nothing.</p>
+  <p>I have sat on the buying side. I never once asked how many hours a consultancy spent on a Form G. It was the least interesting number on the page. I asked one thing. Can I trust this, and put my name next to it.</p>
+  <p>So you were never selling the twenty minutes.</p>
+  <figure class="graphic">
+    <img src="assets/graphic-B-what-you-are-buying.png" alt="What the client pays for: the hours of effort are near zero at the base, then warranty, NR-standards compliance, the assurance trail, professional accountability, and the chartered signature plus PI on top.">
+    <figcaption>The fee was never rent on your time. It is the cost of your name being on the line.</figcaption>
+  </figure>
+  <p>A language model cannot hold professional indemnity insurance. It cannot sign to a chartered standard. It cannot be sat in front of a design review at four in the afternoon to answer for a decision. You can. That is the bit that costs, and that is the bit that holds the price up.</p>
+  <p>You might worry you are charging for the typing. You are charging for the name on the line.</p>
+
+  <h2><span class="rule"></span>What flips</h2>
+  <p>Watch what changes the moment you sell the deliverable instead of the day.</p>
+  <p>Speed stops being a punishment and starts being profit. The same team ships more work, not less. The dull admin hours shrink and nobody mourns them. The rework you used to quietly write off gets caught before it leaves the building.</p>
+  <p>Innovation flips with it. That clever method is no longer a hole in your own invoice. It is the thing that lets you deliver below the old price and still keep more of it. Efficiency becomes margin. Innovation becomes your edge.</p>
+  <p class="pull">Same work. Opposite sign. The only variable is what you put on the invoice.</p>
+
+  <h2><span class="rule"></span>Where to start</h2>
+  <p>None of this means marching into a Tier 1 and announcing that the timesheet is cancelled. It is not. Frameworks run on the rate card and they are not changing this year. Do not die on that hill.</p>
+  <p>So go hybrid. Win the framework on the rate, because that is how you get a seat at the table. Then carve the repeatable, defensible deliverables out as fixed-price items inside the work, or out entirely as a product with its own price.</p>
+  <p>Start with one. Pick the deliverable your team grinds out most often, the most standard, the most repeatable. Price that one on the output. See what holds. The framework gets you in the room. The deliverable is where efficiency and innovation finally start paying you back, instead of billing against you.</p>
+
+  <h2><span class="rule"></span>One question</h2>
+  <div class="closing-q">
+    <p>So, one question for anyone running a rail team or a rail business.</p>
+    <p>Look at your live contracts. <b>Are you paid for hours, or for the things you actually deliver?</b></p>
+    <p>That single line decides whether the AI you are so excited about becomes a margin engine or a slow, expensive leak.</p>
+    <p>I would genuinely like to know where you land. Tell me which way your contracts lean, and why.</p>
+  </div>
+</article>
+
+<footer>
+  <div class="sig">
+    <span class="n">Bill Guo</span>
+    <span class="r">FICE CEng MEng</span>
+    <span class="p">Founder, AutomateX Advisory</span>
+    <span class="e">bill.guo@automatex.uk</span>
+  </div>
+  <div class="disclaimer">
+    The views in this article are the author's own and are offered as commentary, not as commercial, contractual or financial advice. Figures are illustrative of common industry practice and do not represent the pricing of any specific firm or engagement.
+    <div class="tm">&copy; 2026 AutomateX Ltd. AutomateX and the AutomateX mark are trademarks of AutomateX Ltd.</div>
+  </div>
+</footer>
+
+</body>
+</html>

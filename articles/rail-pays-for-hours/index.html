@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rail Pays for Hours. AI Sells the Time Back. | AutomateX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#F96532;
+    --orange-light:#FB7B3A;
+    --orange-dark:#ED4A3B;
+    --navy:#1A1F36;
+    --navy-deep:#0D1117;
+    --navy-surface:#131921;
+    --gray-600:#4B5563;
+    --gray-400:#9CA3AF;
+    --gray-200:#E5E7EB;
+    --white:#FFFFFF;
+    --grad:linear-gradient(100deg,var(--orange-light),var(--orange),var(--orange-dark));
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Open Sans',-apple-system,sans-serif;
+    color:var(--gray-600);
+    background:#FAFAFA;
+    line-height:1.7;
+    font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---- HERO (dark band) ---- */
+  .hero{
+    background:var(--navy-deep);
+    color:var(--white);
+    padding:64px 24px 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-40%;right:-10%;
+    width:520px;height:520px;
+    background:radial-gradient(circle,rgba(249,101,50,0.20),transparent 62%);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:760px;margin:0 auto;position:relative;}
+  .wordmark{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:-0.5px;
+    background:var(--grad);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    display:inline-block;
+  }
+  .wordmark span{color:var(--gray-400);-webkit-text-fill-color:var(--gray-400);font-weight:400;font-size:13px;letter-spacing:1px;margin-left:8px;text-transform:uppercase;}
+  .eyebrow{
+    margin-top:40px;
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--orange-light);
+  }
+  h1.title{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:clamp(30px,5vw,44px);
+    line-height:1.12;
+    letter-spacing:-1px;
+    margin:16px 0 18px;
+    color:var(--white);
+  }
+  .subtitle{
+    font-size:20px;
+    color:#C7CBD4;
+    font-weight:400;
+    max-width:620px;
+  }
+  .byline{
+    margin-top:32px;
+    padding-top:22px;
+    border-top:1px solid rgba(255,255,255,0.12);
+    display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline;
+    font-size:15px;
+  }
+  .byline .name{font-family:'Montserrat',sans-serif;font-weight:600;color:var(--white);}
+  .byline .role{color:var(--gray-400);}
+  .byline .meta{color:var(--gray-400);margin-left:auto;}
+
+  /* ---- BODY ---- */
+  article{
+    max-width:720px;
+    margin:0 auto;
+    padding:56px 24px 32px;
+    background:var(--white);
+  }
+  @media(min-width:760px){
+    article{margin-top:-28px;border-radius:14px 14px 0 0;box-shadow:0 -2px 24px rgba(13,17,23,0.06);position:relative;}
+  }
+  .lede{
+    font-size:21px;
+    line-height:1.6;
+    color:var(--navy);
+    font-weight:400;
+  }
+  article p{margin:0 0 22px;}
+  h2{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:25px;
+    line-height:1.2;
+    letter-spacing:-0.5px;
+    color:var(--navy);
+    margin:46px 0 8px;
+  }
+  h2 .rule{display:block;width:48px;height:4px;background:var(--grad);border-radius:2px;margin-bottom:18px;}
+  ul.clean{margin:0 0 22px;padding-left:0;list-style:none;}
+  ul.clean li{
+    position:relative;
+    padding-left:26px;
+    margin-bottom:12px;
+  }
+  ul.clean li::before{
+    content:"";
+    position:absolute;left:0;top:11px;
+    width:8px;height:8px;border-radius:2px;
+    background:var(--orange);
+    transform:rotate(45deg);
+  }
+  ul.clean li b{color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:600;}
+
+  .pull{
+    margin:38px 0;
+    padding:4px 0 4px 26px;
+    border-left:4px solid var(--orange);
+    font-family:'Montserrat',sans-serif;
+    font-weight:500;
+    font-size:24px;
+    line-height:1.35;
+    color:var(--navy);
+    letter-spacing:-0.3px;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:10px 0 26px;
+    font-size:16px;
+  }
+  thead th{
+    background:var(--navy);
+    color:var(--white);
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.4px;
+    text-align:left;
+    padding:12px 14px;
+  }
+  thead th:first-child{border-radius:8px 0 0 0;}
+  thead th:last-child{border-radius:0 8px 0 0;}
+  tbody td{padding:13px 14px;border-bottom:1px solid var(--gray-200);vertical-align:top;}
+  tbody tr:nth-child(even){background:#FBFBFC;}
+  tbody td:first-child{font-family:'Montserrat',sans-serif;font-weight:600;color:var(--navy);white-space:nowrap;}
+
+  .threereg{display:grid;gap:14px;margin:24px 0 28px;}
+  .reg{padding:18px 20px;border:1px solid var(--gray-200);border-radius:10px;background:#FBFBFC;}
+  .reg h4{font-family:'Montserrat',sans-serif;font-weight:600;font-size:16px;color:var(--navy);margin-bottom:4px;}
+  .reg.win{border-color:var(--orange);background:rgba(249,101,50,0.05);}
+  .reg .tag{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+  .reg .tag.bad{color:var(--orange-dark);}
+  .reg .tag.good{color:#1f9d55;}
+  .reg .tag.flat{color:var(--gray-400);}
+
+  .closing-q{
+    margin-top:18px;
+    background:var(--navy-deep);
+    color:var(--white);
+    border-radius:12px;
+    padding:30px 28px;
+  }
+  .closing-q p{color:#C7CBD4;margin-bottom:14px;}
+  .closing-q p:last-child{margin-bottom:0;}
+  .closing-q b{color:var(--white);font-family:'Montserrat',sans-serif;font-weight:600;}
+
+  /* ---- FOOTER ---- */
+  footer{
+    max-width:720px;margin:0 auto;
+    padding:30px 24px 64px;
+    background:var(--white);
+    border-top:1px solid var(--gray-200);
+  }
+  .sig{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;margin-bottom:18px;}
+  .sig .n{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;color:var(--navy);}
+  .sig .p{color:var(--orange);font-weight:600;font-size:14px;}
+  .sig .r{color:var(--gray-600);font-size:14px;}
+  .sig .e{color:var(--gray-400);font-size:14px;margin-left:auto;}
+  .disclaimer{font-size:12px;line-height:1.6;color:var(--gray-400);}
+  .disclaimer .tm{margin-top:8px;}
+  .ax-sitebar{background:#0D1117;border-bottom:1px solid rgba(255,255,255,0.12);}
+  .ax-sitebar-inner{max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+  .ax-sitebar-home{font-family:'Montserrat',sans-serif;font-weight:700;font-size:19px;letter-spacing:-0.5px;color:#FFFFFF;text-decoration:none;}
+  .ax-sitebar-links{margin-left:auto;display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+  .ax-sitebar-links a{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;color:#C7CBD4;text-decoration:none;white-space:nowrap;}
+  .ax-sitebar-links a:hover{color:#FFFFFF;}
+  .ax-sitebar-cta{background:#F96532;color:#FFFFFF !important;padding:8px 16px;border-radius:999px;}
+  @media(max-width:640px){.ax-sitebar-links{gap:14px;}.ax-sitebar-links a{font-size:13px;}}
+  .ax-provenance{font-size:14px;color:#9CA3AF;margin:0 0 22px;font-style:italic;}
+</style>
+<link rel="canonical" href="https://automatex.uk/articles/rail-pays-for-hours/">
+<meta name="description" content="How gross margin really works in a rate-card industry, and why efficiency has to stop being a discount.">
+</head>
+<body>
+
+<div class="ax-sitebar">
+  <div class="ax-sitebar-inner">
+    <a class="ax-sitebar-home" href="../../index.html">AutomateX</a>
+    <nav class="ax-sitebar-links" aria-label="Site">
+      <a href="../../insights.html">&larr;&nbsp;All insights</a>
+      <a href="../../bootcamp.html">What we offer</a>
+      <a href="../../about.html">Who we are</a>
+      <a class="ax-sitebar-cta" href="../../waitlist.html">Join the waitlist</a>
+    </nav>
+  </div>
+</div>
+
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="wordmark">AutomateX<span>Advisory</span></div>
+    <div class="eyebrow">Rail &middot; AI &middot; Commercial Model</div>
+    <h1 class="title">Rail Pays for Hours. AI Sells the Time Back.</h1>
+    <p class="ax-provenance">First published on LinkedIn.</p>
+    <p class="subtitle">How gross margin really works in a rate-card industry, and why efficiency has to stop being a discount.</p>
+    <div class="byline">
+      <span class="name">Bill Guo FICE CEng MEng</span>
+      <span class="role">Founder, AutomateX Advisory</span>
+      <span class="meta">20 May 2026 &middot; 6 min read</span>
+    </div>
+  </div>
+</header>
+
+<article>
+  <p class="lede">Rail runs on the rate card.</p>
+
+  <p>Every job starts the same way. You scope the work. You pick the team. You slot each person onto a rate card. You estimate the hours each one needs. You multiply, add the subcontractor and supplier costs, and that is the price.</p>
+
+  <p>It is clean. It is auditable. It has run the industry for decades.</p>
+
+  <p>It is also the reason AI struggles to earn its keep in rail.</p>
+
+  <h2><span class="rule"></span>How the margin is actually made</h2>
+  <p>The number you quote a client and the number a job costs you are two different rates.</p>
+  <p>Revenue is billable hours multiplied by the charge-out rate. Direct cost is the hours worked multiplied by the loaded cost of the person doing them, plus any subcontractor pass-through. Gross margin is the gap between the two.</p>
+  <p>In a consultancy that gap is the multiplier. Charge-out divided by cost sits around 2.5 to 3 across the sector. That multiplier is your gross margin, baked into every line of the rate card.</p>
+  <p>On a framework, the charge-out rate is fixed for you. You cannot move it. So the only margin levers left sit on the cost and delivery side.</p>
+  <ul class="clean">
+    <li><b>Utilisation.</b> Is the billable engineer actually billing, or losing the day to bids, admin and rework?</li>
+    <li><b>Realisation.</b> Do you bill every hour you work, or write some off when a job overruns?</li>
+    <li><b>Leverage.</b> Is the work done at the lowest competent grade, or are senior engineers doing junior tasks?</li>
+    <li><b>Rework.</b> Redo is invisible margin death. Nobody lines it up on a dashboard.</li>
+  </ul>
+  <p>Hold that list. It is exactly where AI lands.</p>
+
+  <h2><span class="rule"></span>The trap</h2>
+  <p>Frameworks select on rate. The lowest rate gets on the panel. Time barely registers.</p>
+  <p>Think about what that rewards. Two firms bid the same scope. One takes 200 hours, the other takes 120. On a rate card, the faster firm earns less for the same outcome.</p>
+  <p class="pull">When you charge by time, efficiency is a penalty.</p>
+  <p>Now bring AI into that. AI's whole promise is to compress the hours. Drafting, checking, document assembly, the repetitive engineering that fills a timesheet. Compress the hours on a time-charge contract and you have cut your own revenue.</p>
+  <p>So AI is asked to earn its keep by attacking the thing it bills against. No wonder it feels like the tool is fighting itself.</p>
+
+  <h2><span class="rule"></span>Outcome pricing may never come to infrastructure</h2>
+  <p>The usual answer is to price on outcome. Charge for the value delivered, not the hours spent.</p>
+  <p>In rail that breaks on a simple question. What is the value?</p>
+  <p>Take a Form G design package. What is it worth to the client, in pounds? Nobody can say. The return on public infrastructure runs over decades, and most of it never lands as money. Safety. Capacity. Resilience. Carbon. A journey ten minutes shorter for the next forty years. There is no clean profit line to point at, the way there is for a sales tool or a trading desk.</p>
+  <p>So drop the fantasy. We may never be able to price the outcome of infrastructure work. Not this decade, perhaps not ever. Without an anchor, outcome pricing is a negotiation with no floor and no ceiling. Few buyers in this market will sign it, and fewer should.</p>
+  <p>That leaves the real question. If you cannot price the outcome, how do you build a model that still rewards efficiency and innovation instead of punishing them?</p>
+
+  <h2><span class="rule"></span>Here is the reframe</h2>
+  <p>There are three ways to price the same piece of work, not one.</p>
+  <div class="threereg">
+    <div class="reg">
+      <h4>Time and materials <span class="tag bad">AI hurts you</span></h4>
+      The client keeps every efficiency gain, because fewer hours means a smaller bill.
+    </div>
+    <div class="reg win">
+      <h4>Fixed price per deliverable <span class="tag good">AI becomes margin</span></h4>
+      You keep the efficiency gain. The hours you save stay on your side of the line.
+    </div>
+    <div class="reg">
+      <h4>Outcome and value <span class="tag flat">No anchor</span></h4>
+      Nobody can price it, for the reason above.
+    </div>
+  </div>
+  <p>The move is not the leap to outcome pricing. It is the single step from selling the input to selling the output. Stop pricing the day. Price the deliverable.</p>
+  <p>And the anchor problem solves itself. You do not need to know what the deliverable is worth to the client. You need to know what it used to cost to produce. That number is sitting in the rate card already. The labour cost of the old way becomes the price of the new way.</p>
+  <p class="pull">The rate card stops being your ceiling. It becomes your anchor.</p>
+
+  <h2><span class="rule"></span>Lock it where the contract can see it</h2>
+  <p>This is not a handshake. It has a home in the standard form.</p>
+  <p>Price the job the old way first. Scope it, rate-card it, agree the number. Then lock that number as a lump sum. Under NEC4 that is Option A, the priced contract with activity schedule. The price is fixed against the deliverable, not the hours behind it.</p>
+  <p>Now read the options side by side. Option A has no open book and no share line, so the efficiency you find after the price is set stays with you. Option C is target cost, and it claws your savings back across the pain-gain mechanism. Option E reimburses your defined cost and removes the reward entirely. Three forms, one outcome each. Option A is the only one that pays you to get faster.</p>
+  <p class="pull">Choose the wrong NEC option and you have signed away the dividend before the first day of work.</p>
+
+  <h2><span class="rule"></span>Why the price does not collapse</h2>
+  <p>The obvious objection. If a client knows the deliverable was generated in twenty minutes, they will push the price toward nothing.</p>
+  <p>So the value has to move off effort entirely.</p>
+  <p>The price covers the warranty on the deliverable. The compliance with NR standards. The assurance trail. The professional accountability. The chartered signature that carries liability if it is wrong.</p>
+  <p>A model can generate a hazard log. It cannot hold professional indemnity insurance. It cannot sign off to FICE CEng. It cannot stand behind the document at a design review.</p>
+  <p>That is the floor under the price, and it is a floor a labour-priced competitor cannot undercut. They are pricing the typing. You are pricing the accountability.</p>
+
+  <h2><span class="rule"></span>When they ask for the timesheet</h2>
+  <p>Here is where it gets tested. You issue the invoice. The client asks the old question. Can you submit your timesheet as evidence?</p>
+  <p>Under Option A you do not owe them one. The price was fixed against the deliverable, not your hours. The request is a category error against the contract you both signed.</p>
+  <p>But suppose the conversation goes there anyway. Suppose they want to understand the cost base. Then hand over an honest timesheet, and notice it now carries two lines. Your people. And your system.</p>
+  <p>That second line is real. The system that frees your engineers from the admin does not run for nothing. It burns tokens, and the tokens land on your bill.</p>
+  <p>We are in the early-Uber era of AI. The ride feels cheap because someone else is still paying for it. A prompt feels free today. It is not. A complex one quietly spends real compute, energy and cooling water, and that marginal cost climbs as the subsidy thins.</p>
+  <p>So the timesheet of the next decade has a machine on it. The people line falls. The system line rises. And in the AI era, that second line is the one the client should be asking about.</p>
+  <p class="pull">The system is on the team now. Put it on the timesheet.</p>
+
+  <h2><span class="rule"></span>What this does to the margin</h2>
+  <p>Go back to the levers. AI moves every one of them. Under deliverable pricing the gain stays with you instead of passing to the client.</p>
+  <table>
+    <thead>
+      <tr><th>Lever</th><th>What AI does</th><th>Effect on margin</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Leverage</td><td>A junior, or no human, produces senior-grade output</td><td>Collapses the cost rate. The single biggest lever.</td></tr>
+      <tr><td>Utilisation</td><td>Absorbs the non-billable overhead: bids, admin, document assembly</td><td>More of every engineer's day becomes sellable.</td></tr>
+      <tr><td>Rework</td><td>Checks the work before it leaves the building</td><td>Fewer write-offs, less silent leak.</td></tr>
+      <tr><td>Throughput</td><td>The same team ships several times the deliverables</td><td>Revenue grows without headcount.</td></tr>
+    </tbody>
+  </table>
+  <p>Read the last row again. On a time-charge contract, a deliverable produced five times faster is a revenue cut. On deliverable pricing, it is five times the output through the same team.</p>
+  <p class="pull">Same fact. Opposite sign. The only variable is what you chose to sell.</p>
+  <p>This is what scaling the system instead of the team actually means, measured in pounds.</p>
+
+  <h2><span class="rule"></span>The honest part</h2>
+  <p>Procurement in this industry is built on the rate card. Tier 1 frameworks run on it. You will not talk a major client out of the timesheet wholesale, and you should not try to mid-engagement.</p>
+  <p>So the structure is hybrid. Win the framework on the rate card, because that is how you get on the panel. Then carve the repeatable, AI-produced deliverables out as fixed-price line items inside the work, or out entirely as a product with its own price.</p>
+  <p>The framework gets you the seat. The deliverable is where the efficiency dividend stops leaking away.</p>
+
+  <h2><span class="rule"></span>One question</h2>
+  <div class="closing-q">
+    <p>So here is the question for anyone running a rail team or a rail business.</p>
+    <p>Look at your live contracts. <b>Are you paid for hours, or for named deliverables at a fixed price?</b></p>
+    <p>That single line decides whether the AI you are buying is a margin engine or a slow leak. It is worth checking before the next bid locks the shape.</p>
+    <p>I would genuinely like to know where people land on this. Tell me which side your contracts sit, and why.</p>
+  </div>
+</article>
+
+<footer>
+  <div class="sig">
+    <span class="n">Bill Guo</span>
+    <span class="r">FICE CEng MEng</span>
+    <span class="p">Founder, AutomateX Advisory</span>
+    <span class="e">bill.guo@automatex.uk</span>
+  </div>
+  <div class="disclaimer">
+    The views in this article are the author's own and are offered as commentary, not as commercial, contractual or financial advice. Figures are illustrative of common industry practice and do not represent the pricing of any specific firm or engagement.
+    <div class="tm">&copy; 2026 AutomateX Ltd. AutomateX and the AutomateX mark are trademarks of AutomateX Ltd.</div>
+  </div>
+</footer>
+
+</body>
+</html>
