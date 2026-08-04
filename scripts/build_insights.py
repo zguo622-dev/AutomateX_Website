@@ -50,3 +50,44 @@ def human_date(iso):
 def sort_items(items):
     """Newest first. Returns a new list; does not mutate the input."""
     return sorted(items, key=lambda i: i["date"], reverse=True)
+
+
+TYPE_LABEL = {"read": "Read", "watch": "Watch", "listen": "Listen"}
+
+
+def render_card(item):
+    e = html.escape
+    external = bool(item.get("external", False))
+    link_attrs = ' target="_blank" rel="noopener"' if external else ""
+    thumb = item.get("thumb", "")
+    source = item.get("source", "")
+
+    img = ""
+    if thumb:
+        img = (
+            f'    <img class="insight-card-img" src="{e(thumb)}" alt="" '
+            f'loading="lazy">\n'
+        )
+
+    source_line = ""
+    if source:
+        source_line = f'      <span class="insight-card-source">{e(source)}</span>\n'
+
+    return (
+        f'  <a class="insight-card" data-type="{e(item["type"])}" '
+        f'href="{e(item["url"])}"{link_attrs}>\n'
+        f"{img}"
+        f'    <div class="insight-card-body">\n'
+        f'      <span class="insight-card-type">{TYPE_LABEL[item["type"]]}</span>\n'
+        f'      <h3 class="insight-card-title">{e(item["title"])}</h3>\n'
+        f'      <p class="insight-card-blurb">{e(item["blurb"])}</p>\n'
+        f"{source_line}"
+        f'      <time class="insight-card-date" datetime="{e(item["date"])}">'
+        f'{e(human_date(item["date"]))}</time>\n'
+        f"    </div>\n"
+        f"  </a>"
+    )
+
+
+def render_cards(items):
+    return "\n".join(render_card(i) for i in sort_items(items))

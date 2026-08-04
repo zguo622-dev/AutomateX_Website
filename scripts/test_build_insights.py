@@ -81,3 +81,45 @@ def test_load_manifest_rejects_non_dashed_iso_date(tmp_path):
     p = write_manifest(tmp_path, [bad])
     with pytest.raises(ValueError, match="bad date"):
         bi.load_manifest(p)
+
+
+def test_render_card_internal_link_has_no_target_blank():
+    out = bi.render_card(dict(VALID, external=False))
+    assert 'target="_blank"' not in out
+    assert 'href="blog-rag-truths.html"' in out
+
+
+def test_render_card_external_link_opens_in_new_tab_safely():
+    out = bi.render_card(dict(VALID, external=True, url="https://youtube.com/watch?v=x"))
+    assert 'target="_blank"' in out
+    assert 'rel="noopener"' in out
+
+
+def test_render_card_carries_type_for_the_filter():
+    out = bi.render_card(dict(VALID, type="watch"))
+    assert 'data-type="watch"' in out
+
+
+def test_render_card_escapes_html_in_text():
+    out = bi.render_card(dict(VALID, title="Rail & <AI>"))
+    assert "Rail &amp; &lt;AI&gt;" in out
+    assert "<AI>" not in out
+
+
+def test_render_card_shows_human_date_and_machine_date():
+    out = bi.render_card(dict(VALID, date="2026-07-17"))
+    assert 'datetime="2026-07-17"' in out
+    assert "17 July 2026" in out
+
+
+def test_render_card_omits_image_block_when_no_thumb():
+    out = bi.render_card({k: v for k, v in VALID.items() if k != "thumb"})
+    assert "insight-card-img" not in out
+
+
+def test_render_cards_emits_one_card_per_item_newest_first():
+    items = [dict(VALID, title="old", date="2026-05-20"),
+             dict(VALID, title="new", date="2026-07-17")]
+    out = bi.render_cards(items)
+    assert out.count('class="insight-card"') == 2
+    assert out.index("new") < out.index("old")
