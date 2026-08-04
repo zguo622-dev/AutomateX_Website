@@ -24,3 +24,6 @@ _archive/
 # Dormant — Scribtive product page, not ready to ship. Kept in the repo for
 # future development once Scribtive launches; excluded from the live deploy.
 scribtive.html
+
+# Build tooling — runs locally, output is committed. Not site content.
+scripts/
