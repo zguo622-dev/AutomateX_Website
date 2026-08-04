@@ -47,3 +47,17 @@ def test_replace_review_copy_description():
     out = na.replace_description(src, "A real buyer-facing description.")
     assert "Review copy" not in out
     assert "A real buyer-facing description." in out
+
+
+def test_replace_description_inserts_when_no_tag_exists():
+    src = "<head><title>T</title></head>"
+    out = na.replace_description(src, "A real buyer-facing description.")
+    assert '<meta name="description" content="A real buyer-facing description.">' in out
+    assert out.index("description") < out.index("</head>")
+
+
+def test_replace_description_insert_is_idempotent():
+    src = "<head><title>T</title></head>"
+    once = na.replace_description(src, "A real buyer-facing description.")
+    twice = na.replace_description(once, "A real buyer-facing description.")
+    assert once == twice

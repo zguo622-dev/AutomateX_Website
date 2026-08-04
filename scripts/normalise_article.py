@@ -2,7 +2,9 @@
 
 The five source folders use three different asset conventions. This module
 rewrites them all to `assets/`, adds a canonical link back to the LinkedIn
-original, and replaces internal 'Review copy of...' meta descriptions.
+original, and sets the meta description (only 1 of the 5 real source files
+carries an internal 'Review copy of...' description to replace; the other
+4 have no description tag at all, so `replace_description` inserts one).
 """
 
 import re
@@ -33,6 +35,10 @@ def add_canonical(source_html, canonical_url):
 
 
 def replace_description(source_html, description):
-    return DESCRIPTION_RE.sub(
-        lambda m: f"{m.group(1)}{description}{m.group(3)}", source_html, count=1
-    )
+    """Set the meta description. Inserts a new tag if none exists."""
+    if DESCRIPTION_RE.search(source_html):
+        return DESCRIPTION_RE.sub(
+            lambda m: f"{m.group(1)}{description}{m.group(3)}", source_html, count=1
+        )
+    tag = f'<meta name="description" content="{description}">'
+    return source_html.replace("</head>", f"{tag}\n</head>", 1)
