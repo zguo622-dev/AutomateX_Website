@@ -67,3 +67,10 @@ def test_sort_items_does_not_mutate_input():
     before = [i["date"] for i in items]
     bi.sort_items(items)
     assert [i["date"] for i in items] == before
+
+
+def test_load_manifest_rejects_malformed_date(tmp_path):
+    bad = dict(VALID, date="2026-7-9")
+    p = write_manifest(tmp_path, [bad])
+    with pytest.raises(ValueError, match="bad date"):
+        bi.load_manifest(p)

@@ -32,6 +32,10 @@ def load_manifest(path=MANIFEST):
             raise ValueError(f"item {i} is missing: {', '.join(sorted(missing))}")
         if item["type"] not in VALID_TYPES:
             raise ValueError(f"item {i} has bad type {item['type']!r}")
+        try:
+            _date.fromisoformat(item["date"])
+        except ValueError:
+            raise ValueError(f"item {i} has a bad date {item['date']!r}")
     return items
 
 
