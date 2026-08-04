@@ -1,22 +1,82 @@
 [
   {
     "type": "read",
-    "title": "Beyond the Hype: 5 Surprising Truths About Building Production-Grade RAG Systems",
-    "url": "blog-rag-truths.html",
+    "title": "Assurance: The Invisible Layer in Rail",
+    "url": "articles/assurance-invisible-layer/",
     "external": false,
-    "date": "2025-11-16",
-    "blurb": "The initial promise of RAG often feels like magic. Here are five hard-won lessons from building retrieval-augmented generation systems that actually work in production.",
-    "thumb": "images/e3eef4cd197410663135221e0349b96d.jpg",
-    "source": "AutomateX"
+    "date": "2026-07-17",
+    "blurb": "Every visible win in rail arrives with a photograph. Underneath it sits a £150m-a-year layer of assurance work that never gets one. That is where AI should go first.",
+    "thumb": "images/insights/assurance-invisible-layer.png",
+    "source": "First published on LinkedIn"
+  },
+  {
+    "type": "watch",
+    "title": "Track Access Planner: map click to Task Briefing Sheet",
+    "url": "https://www.youtube.com/watch?v=441f1ihmAGI",
+    "external": true,
+    "date": "2026-07-28",
+    "blurb": "A demonstration of turning a click on a map into a drafted Task Briefing Sheet, with every entry traceable back to its source.",
+    "thumb": "images/insights/track-access-planner.jpg",
+    "source": "YouTube"
   },
   {
     "type": "read",
-    "title": "The Unseen Battle: Network Rail's Biggest Challenges in Keeping Britain Moving",
-    "url": "blog-unseen-battle.html",
+    "title": "The Signature Takes a Minute. The Form G Takes a Week.",
+    "url": "articles/the-form-g-takes-a-week/",
     "external": false,
-    "date": "2026-01-13",
-    "blurb": "What you see is just the tip of the iceberg. The UK's railway is a vast system inherited from our Victorian ancestors. A look at the hidden challenges engineers face every day.",
-    "thumb": "resource/1768302177839.png",
+    "date": "2026-06-19",
+    "blurb": "The most accountable people in rail design spend their week assembling information instead of exercising judgement. Here is what that costs all of us, and why the fix protects the engineer's judgement rather than replacing it.",
+    "thumb": "images/insights/the-form-g-takes-a-week.png",
+    "source": "First published on LinkedIn"
+  },
+  {
+    "type": "read",
+    "title": "Rail's AI Pilot Graveyard Has One Cause",
+    "url": "articles/rail-ai-pilot-graveyard/",
+    "external": false,
+    "date": "2026-05-26",
+    "blurb": "The railway named its own pilot graveyard. The cause sits one layer below where everyone is looking.",
+    "thumb": "images/insights/rail-ai-pilot-graveyard.png",
+    "source": "First published on LinkedIn"
+  },
+  {
+    "type": "read",
+    "title": "Why UK Rail Keeps Failing at Efficiency and Innovation",
+    "url": "articles/uk-rail-fails-efficiency-innovation/",
+    "external": false,
+    "date": "2026-05-21",
+    "blurb": "And where we should start to fix it.",
+    "thumb": "images/insights/uk-rail-fails-efficiency-innovation.png",
+    "source": "First published on LinkedIn"
+  },
+  {
+    "type": "read",
+    "title": "Rail Pays for Hours. AI Sells the Time Back.",
+    "url": "articles/rail-pays-for-hours/",
+    "external": false,
+    "date": "2026-05-20",
+    "blurb": "How gross margin really works in a rate-card industry, and why efficiency has to stop being a discount.",
+    "thumb": "images/insights/rail-pays-for-hours.png",
+    "source": "First published on LinkedIn"
+  },
+  {
+    "type": "watch",
+    "title": "NR Standards Co-pilot: AI search across 12,000 live NR standards",
+    "url": "https://www.youtube.com/watch?v=H6UNameveZg",
+    "external": true,
+    "date": "2026-04-15",
+    "blurb": "Asking a plain-English question across the live Network Rail standards estate, and getting an answer that shows where it came from.",
+    "thumb": "images/insights/nr-standards-copilot.jpg",
+    "source": "YouTube"
+  },
+  {
+    "type": "read",
+    "title": "Every Graduate Engineer's First Year in Rail Starts the Same Way",
+    "url": "blog-graduate-engineer.html",
+    "external": false,
+    "date": "2026-03-03",
+    "blurb": "The Form G is the single most consequential document a civils engineer produces on a Network Rail project. Yet no one teaches you how to write one. How Scribtive transforms the learning curve.",
+    "thumb": "images/insights/graduate-engineer.png",
     "source": "AutomateX"
   },
   {
@@ -26,17 +86,27 @@
     "external": false,
     "date": "2026-02-24",
     "blurb": "Over 900 Rail Industry Standards, 12,000+ Network Rail standards, Eurocodes, and legacy British Standards, fragmented across portals that don't talk to each other.",
-    "thumb": "images/e3eef4cd197410663135221e0349b96d.jpg",
+    "thumb": "images/insights/standards-crisis.png",
     "source": "AutomateX"
   },
   {
     "type": "read",
-    "title": "Every Graduate Engineer's First Year in Rail Starts the Same Way",
-    "url": "blog-graduate-engineer.html",
+    "title": "The Unseen Battle: Network Rail's Biggest Challenges in Keeping Britain Moving",
+    "url": "blog-unseen-battle.html",
     "external": false,
-    "date": "2026-03-03",
-    "blurb": "The Form G is the single most consequential document a civils engineer produces on a Network Rail project. Yet no one teaches you how to write one. How Scribtive transforms the learning curve.",
-    "thumb": "images/e3eef4cd197410663135221e0349b96d.jpg",
+    "date": "2026-01-13",
+    "blurb": "What you see is just the tip of the iceberg. The UK's railway is a vast system inherited from our Victorian ancestors. A look at the hidden challenges engineers face every day.",
+    "thumb": "images/insights/unseen-battle.png",
+    "source": "AutomateX"
+  },
+  {
+    "type": "read",
+    "title": "Beyond the Hype: 5 Surprising Truths About Building Production-Grade RAG Systems",
+    "url": "blog-rag-truths.html",
+    "external": false,
+    "date": "2025-11-16",
+    "blurb": "The initial promise of RAG often feels like magic. Here are five hard-won lessons from building retrieval-augmented generation systems that actually work in production.",
+    "thumb": "images/insights/rag-truths.png",
     "source": "AutomateX"
   }
 ]

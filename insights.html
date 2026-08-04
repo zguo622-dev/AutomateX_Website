@@ -846,7 +846,7 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
         </div>
       </li>
       <li><a href="about.html">Who we are</a></li>
-      <li><a href="resources.html" aria-current="true" class="is-current">Insights</a></li>
+      <li><a href="insights.html" aria-current="true" class="is-current">Insights</a></li>
       <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
     </ul>
     <div class="nav-cta-group">
@@ -876,7 +876,7 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
       <a href="scorecard.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Free AI Readiness Assessment</a>
     </div>
   </div>
-  <a href="resources.html" onclick="this.parentElement.classList.remove('open')">Insights</a>
+  <a href="insights.html" onclick="this.parentElement.classList.remove('open')">Insights</a>
   <a href="careers.html" onclick="this.parentElement.classList.remove('open')" data-pass="careers-nav-2026-06-09">Careers</a>
   <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-outline btn-primary-lg">Book a call</a>
 </div>
@@ -894,11 +894,80 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
       <button type="button" class="insights-filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
       <button type="button" class="insights-filter-btn" data-filter="read" aria-pressed="false">Read</button>
       <button type="button" class="insights-filter-btn" data-filter="watch" aria-pressed="false">Watch</button>
-      <button type="button" class="insights-filter-btn" data-filter="listen" aria-pressed="false">Listen</button>
     </div>
     <div class="insights-grid" id="insights-grid">
+  <a class="insight-card" data-type="watch" href="https://www.youtube.com/watch?v=441f1ihmAGI" target="_blank" rel="noopener">
+    <img class="insight-card-img" src="images/insights/track-access-planner.jpg" alt="" loading="lazy">
+    <div class="insight-card-body">
+      <span class="insight-card-type">Watch</span>
+      <h3 class="insight-card-title">Track Access Planner: map click to Task Briefing Sheet</h3>
+      <p class="insight-card-blurb">A demonstration of turning a click on a map into a drafted Task Briefing Sheet, with every entry traceable back to its source.</p>
+      <span class="insight-card-source">YouTube</span>
+      <time class="insight-card-date" datetime="2026-07-28">28 July 2026</time>
+    </div>
+  </a>
+  <a class="insight-card" data-type="read" href="articles/assurance-invisible-layer/">
+    <img class="insight-card-img" src="images/insights/assurance-invisible-layer.png" alt="" loading="lazy">
+    <div class="insight-card-body">
+      <span class="insight-card-type">Read</span>
+      <h3 class="insight-card-title">Assurance: The Invisible Layer in Rail</h3>
+      <p class="insight-card-blurb">Every visible win in rail arrives with a photograph. Underneath it sits a £150m-a-year layer of assurance work that never gets one. That is where AI should go first.</p>
+      <span class="insight-card-source">First published on LinkedIn</span>
+      <time class="insight-card-date" datetime="2026-07-17">17 July 2026</time>
+    </div>
+  </a>
+  <a class="insight-card" data-type="read" href="articles/the-form-g-takes-a-week/">
+    <img class="insight-card-img" src="images/insights/the-form-g-takes-a-week.png" alt="" loading="lazy">
+    <div class="insight-card-body">
+      <span class="insight-card-type">Read</span>
+      <h3 class="insight-card-title">The Signature Takes a Minute. The Form G Takes a Week.</h3>
+      <p class="insight-card-blurb">The most accountable people in rail design spend their week assembling information instead of exercising judgement. Here is what that costs all of us, and why the fix protects the engineer&#x27;s judgement rather than replacing it.</p>
+      <span class="insight-card-source">First published on LinkedIn</span>
+      <time class="insight-card-date" datetime="2026-06-19">19 June 2026</time>
+    </div>
+  </a>
+  <a class="insight-card" data-type="read" href="articles/rail-ai-pilot-graveyard/">
+    <img class="insight-card-img" src="images/insights/rail-ai-pilot-graveyard.png" alt="" loading="lazy">
+    <div class="insight-card-body">
+      <span class="insight-card-type">Read</span>
+      <h3 class="insight-card-title">Rail&#x27;s AI Pilot Graveyard Has One Cause</h3>
+      <p class="insight-card-blurb">The railway named its own pilot graveyard. The cause sits one layer below where everyone is looking.</p>
+      <span class="insight-card-source">First published on LinkedIn</span>
+      <time class="insight-card-date" datetime="2026-05-26">26 May 2026</time>
+    </div>
+  </a>
+  <a class="insight-card" data-type="read" href="articles/uk-rail-fails-efficiency-innovation/">
+    <img class="insight-card-img" src="images/insights/uk-rail-fails-efficiency-innovation.png" alt="" loading="lazy">
+    <div class="insight-card-body">
+      <span class="insight-card-type">Read</span>
+      <h3 class="insight-card-title">Why UK Rail Keeps Failing at Efficiency and Innovation</h3>
+      <p class="insight-card-blurb">And where we should start to fix it.</p>
+      <span class="insight-card-source">First published on LinkedIn</span>
+      <time class="insight-card-date" datetime="2026-05-21">21 May 2026</time>
+    </div>
+  </a>
+  <a class="insight-card" data-type="read" href="articles/rail-pays-for-hours/">
+    <img class="insight-card-img" src="images/insights/rail-pays-for-hours.png" alt="" loading="lazy">
+    <div class="insight-card-body">
+      <span class="insight-card-type">Read</span>
+      <h3 class="insight-card-title">Rail Pays for Hours. AI Sells the Time Back.</h3>
+      <p class="insight-card-blurb">How gross margin really works in a rate-card industry, and why efficiency has to stop being a discount.</p>
+      <span class="insight-card-source">First published on LinkedIn</span>
+      <time class="insight-card-date" datetime="2026-05-20">20 May 2026</time>
+    </div>
+  </a>
+  <a class="insight-card" data-type="watch" href="https://www.youtube.com/watch?v=H6UNameveZg" target="_blank" rel="noopener">
+    <img class="insight-card-img" src="images/insights/nr-standards-copilot.jpg" alt="" loading="lazy">
+    <div class="insight-card-body">
+      <span class="insight-card-type">Watch</span>
+      <h3 class="insight-card-title">NR Standards Co-pilot: AI search across 12,000 live NR standards</h3>
+      <p class="insight-card-blurb">Asking a plain-English question across the live Network Rail standards estate, and getting an answer that shows where it came from.</p>
+      <span class="insight-card-source">YouTube</span>
+      <time class="insight-card-date" datetime="2026-04-15">15 April 2026</time>
+    </div>
+  </a>
   <a class="insight-card" data-type="read" href="blog-graduate-engineer.html">
-    <img class="insight-card-img" src="images/e3eef4cd197410663135221e0349b96d.jpg" alt="" loading="lazy">
+    <img class="insight-card-img" src="images/insights/graduate-engineer.png" alt="" loading="lazy">
     <div class="insight-card-body">
       <span class="insight-card-type">Read</span>
       <h3 class="insight-card-title">Every Graduate Engineer&#x27;s First Year in Rail Starts the Same Way</h3>
@@ -908,7 +977,7 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
     </div>
   </a>
   <a class="insight-card" data-type="read" href="blog-standards-crisis.html">
-    <img class="insight-card-img" src="images/e3eef4cd197410663135221e0349b96d.jpg" alt="" loading="lazy">
+    <img class="insight-card-img" src="images/insights/standards-crisis.png" alt="" loading="lazy">
     <div class="insight-card-body">
       <span class="insight-card-type">Read</span>
       <h3 class="insight-card-title">The UK Railway Has a Standards Crisis. And Almost Nobody Is Qualified to Fix It</h3>
@@ -918,7 +987,7 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
     </div>
   </a>
   <a class="insight-card" data-type="read" href="blog-unseen-battle.html">
-    <img class="insight-card-img" src="resource/1768302177839.png" alt="" loading="lazy">
+    <img class="insight-card-img" src="images/insights/unseen-battle.png" alt="" loading="lazy">
     <div class="insight-card-body">
       <span class="insight-card-type">Read</span>
       <h3 class="insight-card-title">The Unseen Battle: Network Rail&#x27;s Biggest Challenges in Keeping Britain Moving</h3>
@@ -928,7 +997,7 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
     </div>
   </a>
   <a class="insight-card" data-type="read" href="blog-rag-truths.html">
-    <img class="insight-card-img" src="images/e3eef4cd197410663135221e0349b96d.jpg" alt="" loading="lazy">
+    <img class="insight-card-img" src="images/insights/rag-truths.png" alt="" loading="lazy">
     <div class="insight-card-body">
       <span class="insight-card-type">Read</span>
       <h3 class="insight-card-title">Beyond the Hype: 5 Surprising Truths About Building Production-Grade RAG Systems</h3>
