@@ -117,6 +117,12 @@ def test_render_card_omits_image_block_when_no_thumb():
     assert "insight-card-img" not in out
 
 
+def test_read_cards_render_their_background_image_when_available():
+    out = bi.render_card(dict(VALID, type="read"))
+    assert "insight-card-img" in out
+    assert 'src="images/x.jpg"' in out
+
+
 def test_render_cards_emits_one_card_per_item_newest_first():
     items = [dict(VALID, title="old", date="2026-05-20"),
              dict(VALID, title="new", date="2026-07-17")]
@@ -125,7 +131,7 @@ def test_render_cards_emits_one_card_per_item_newest_first():
     assert out.index("new") < out.index("old")
 
 
-def test_render_cards_makes_the_newest_item_the_feature():
+def test_render_cards_makes_the_newest_item_the_feature_by_default():
     items = [dict(VALID, title="old", date="2026-05-20"),
              dict(VALID, title="new", date="2026-07-17")]
     out = bi.render_cards(items)
@@ -135,6 +141,27 @@ def test_render_cards_makes_the_newest_item_the_feature():
     assert out.index("new") < out.index("old")
 
 
+def test_render_cards_promotes_an_explicit_spotlight_over_the_newest_item():
+    items = [
+        dict(VALID, title="newest", date="2026-08-01"),
+        dict(VALID, title="spotlight", date="2026-07-28", spotlight=True),
+    ]
+    out = bi.render_cards(items)
+    assert out.count("insight-card--feature") == 1
+    assert out.index("spotlight") < out.index("newest")
+    assert "Spotlight" in out
+
+
+def test_load_manifest_rejects_more_than_one_spotlight(tmp_path):
+    items = [
+        dict(VALID, title="one", spotlight=True),
+        dict(VALID, title="two", spotlight=True),
+    ]
+    p = write_manifest(tmp_path, items)
+    with pytest.raises(ValueError, match="one spotlight"):
+        bi.load_manifest(p)
+
+
 def test_render_cards_handles_empty_manifest():
     assert bi.render_cards([]) == ""
 
@@ -142,6 +169,18 @@ def test_render_cards_handles_empty_manifest():
 def test_watch_cards_get_a_play_affordance_and_read_cards_do_not():
     assert "insight-card-play" in bi.render_card(dict(VALID, type="watch"))
     assert "insight-card-play" not in bi.render_card(dict(VALID, type="read"))
+
+
+def test_external_linkedin_articles_use_a_linkedin_specific_cue():
+    out = bi.render_card(
+        dict(
+            VALID,
+            external=True,
+            source="LinkedIn",
+            url="https://www.linkedin.com/pulse/example",
+        )
+    )
+    assert "Read on LinkedIn" in out
 
 
 def test_cards_carry_the_entrance_class_and_cycle_the_stagger():

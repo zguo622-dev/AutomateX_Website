@@ -2972,8 +2972,9 @@ body{padding-top:81px;}
 <section class="pgcai-section" id="insights">
   <div class="container">
     <div class="text-center">
+      <p class="insights-kicker sc-reveal">Ideas from the implementation layer</p>
       <h1 class="section-heading sc-reveal">Insights</h1>
-      <p class="section-sub center sc-reveal">Articles, demos and field notes on AI in UK rail.</p>
+      <p class="section-sub center sc-reveal">Long-form thinking, working demos and field conversations on applying AI in UK rail.</p>
     </div>
 
     <div class="insights-filter" role="group" aria-label="Filter by format">
@@ -4619,6 +4620,124 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
   }
 </style>
 
+<style id="insights-cards-2026-08-11">
+  /* Visual refresh: the global particle canvas remains untouched. This layer
+     only changes the content surface and interactions inside the hub. */
+  #insights.pgcai-section{padding:8.25rem 0 4.5rem;overflow:clip;}
+  #insights .container{width:min(1180px,calc(100% - 2rem));}
+  #insights .text-center{max-width:760px;margin:0 auto 3rem;}
+  #insights .insights-kicker{margin:0 0 .9rem;color:var(--orange);font-family:'Montserrat',sans-serif;
+    font-size:.7rem;font-weight:800;letter-spacing:.19em;text-transform:uppercase;}
+  #insights .section-heading{font-size:clamp(3rem,7vw,6rem);font-weight:800;line-height:.94;
+    letter-spacing:-.055em;margin-bottom:1.25rem;text-wrap:balance;}
+  #insights .section-sub{max-width:670px;font-size:clamp(1rem,1.8vw,1.2rem);line-height:1.75;
+    color:rgba(255,255,255,.67);text-wrap:balance;}
+
+  #insights .insights-filter{position:sticky;top:84px;z-index:8;width:max-content;max-width:100%;
+    margin:0 auto 2.4rem;padding:.38rem;border:1px solid rgba(255,255,255,.1);border-radius:999px;
+    background:rgba(13,17,23,.78);box-shadow:0 20px 55px rgba(0,0,0,.28);
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);}
+  #insights .insights-filter-btn{position:relative;padding:.62rem 1.25rem;border:0;border-radius:999px;
+    color:rgba(255,255,255,.62);transition:transform .32s cubic-bezier(.22,1,.36,1),opacity .25s ease;}
+  #insights .insights-filter-btn:hover{color:#fff;transform:translateY(-1px);}
+  #insights .insights-filter-btn:active{transform:translateY(1px) scale(.97);}
+  #insights .insights-filter-btn:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
+  #insights .insights-filter-btn.is-active{color:#fff;background:var(--orange);
+    box-shadow:0 8px 24px rgba(249,101,50,.28);}
+
+  #insights .insights-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1.4rem;
+    align-items:stretch;perspective:1400px;}
+  #insights .insight-card{--tilt-x:0deg;--tilt-y:0deg;--glow-x:0px;--glow-y:0px;
+    grid-column:span 4;min-height:100%;border-radius:22px;border:1px solid rgba(255,255,255,.1);
+    background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+    box-shadow:0 18px 55px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.055);
+    transform-style:preserve-3d;
+    transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .35s ease;}
+  #insights .insight-card::before{content:"";position:absolute;left:0;top:0;width:260px;height:260px;
+    z-index:4;pointer-events:none;border-radius:50%;opacity:0;
+    background:radial-gradient(circle,rgba(249,101,50,.24),rgba(249,101,50,.06) 42%,transparent 70%);
+    transform:translate3d(var(--glow-x),var(--glow-y),0) scale(.8);
+    transition:transform .4s cubic-bezier(.22,1,.36,1),opacity .3s ease;}
+  #insights .insight-card::after{height:1px;width:100%;opacity:0;
+    background:linear-gradient(90deg,transparent,var(--orange-light),transparent);
+    transform:scaleX(.25);transform-origin:center;
+    transition:transform .45s cubic-bezier(.22,1,.36,1),opacity .3s ease;}
+  #insights .insight-card:hover,#insights .insight-card.is-pointer-active{
+    transform:perspective(1100px) translateY(-9px) rotateX(var(--tilt-y)) rotateY(var(--tilt-x));
+    border-color:rgba(249,101,50,.42);box-shadow:0 28px 80px rgba(0,0,0,.42),
+    0 0 0 1px rgba(249,101,50,.08),inset 0 1px 0 rgba(255,255,255,.08);}
+  #insights .insight-card:hover::before,#insights .insight-card.is-pointer-active::before{opacity:1;transform:translate3d(var(--glow-x),var(--glow-y),0) scale(1);}
+  #insights .insight-card:hover::after,#insights .insight-card.is-pointer-active::after{opacity:1;transform:scaleX(1);}
+  #insights .insight-card:active{transform:perspective(1100px) translateY(-3px) scale(.988);}
+  #insights .insight-card:focus-visible{outline:2px solid var(--orange);outline-offset:5px;}
+
+  #insights .insight-card--feature{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.42fr) minmax(320px,.9fr);
+    min-height:430px;border-color:rgba(249,101,50,.28);background:linear-gradient(135deg,rgba(249,101,50,.1),rgba(255,255,255,.035) 45%,rgba(255,255,255,.02));}
+  #insights .insight-card--feature::before{width:380px;height:380px;}
+  #insights .insight-card-media{min-height:0;background:#080b10;}
+  #insights .insight-card-img{height:100%;aspect-ratio:16/10;object-fit:cover;filter:saturate(.88) contrast(1.04);
+    transform:scale(1.001);transition:transform .8s cubic-bezier(.22,1,.36,1),opacity .35s ease;}
+  #insights .insight-card:hover .insight-card-img{transform:scale(1.065);}
+  #insights .insight-card-media::before{background:linear-gradient(180deg,rgba(7,10,15,.03),rgba(7,10,15,.08) 46%,rgba(7,10,15,.88));}
+  #insights .insight-card-media::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(135deg,rgba(249,101,50,.18),transparent 42%);mix-blend-mode:multiply;opacity:.72;}
+  #insights .insight-card--feature .insight-card-media{min-height:430px;}
+  #insights .insight-card--feature .insight-card-img{aspect-ratio:auto;min-height:430px;}
+  #insights .insight-card--feature .insight-card-media::before{background:linear-gradient(90deg,rgba(7,10,15,.04),rgba(7,10,15,.14) 68%,rgba(13,17,23,.86));}
+
+  #insights .insight-card-chip{left:1rem;bottom:1rem;padding:.38rem .72rem;background:rgba(8,11,16,.72);
+    border-color:rgba(255,255,255,.2);box-shadow:0 8px 25px rgba(0,0,0,.28);}
+  #insights .insight-card[data-type="watch"] .insight-card-chip{background:rgba(249,101,50,.92);}
+  #insights .insight-card-play{width:58px;height:58px;margin:-29px 0 0 -29px;background:rgba(8,11,16,.62);
+    box-shadow:0 14px 40px rgba(0,0,0,.38);transition:transform .42s cubic-bezier(.22,1,.36,1),opacity .25s ease;}
+  #insights .insight-card-play::before{content:"";position:absolute;inset:-10px;border:1px solid rgba(255,255,255,.4);
+    border-radius:50%;opacity:.5;transform:scale(.82);}
+  #insights .insight-card--feature .insight-card-play{width:78px;height:78px;margin:-39px 0 0 -39px;}
+  #insights .insight-card--feature .insight-card-play::before{animation:spotlightPulse 2.6s cubic-bezier(.22,1,.36,1) infinite;}
+  #insights .insight-card:hover .insight-card-play{transform:scale(1.14);}
+
+  #insights .insight-card-body{position:relative;z-index:3;padding:1.35rem 1.35rem 1.25rem;gap:.72rem;}
+  #insights .insight-card--feature .insight-card-body{padding:clamp(2rem,4vw,3.35rem);justify-content:center;}
+  #insights .insight-card-lead{width:max-content;padding:.42rem .72rem;border-radius:999px;color:#fff;
+    background:rgba(249,101,50,.14);border:1px solid rgba(249,101,50,.36);}
+  #insights .insight-card-title{font-size:1.1rem;line-height:1.3;letter-spacing:-.02em;text-wrap:balance;}
+  #insights .insight-card--feature .insight-card-title{font-size:clamp(1.8rem,3.2vw,3.15rem);line-height:1.04;letter-spacing:-.045em;}
+  #insights .insight-card-blurb{color:rgba(255,255,255,.65);line-height:1.65;}
+  #insights .insight-card--feature .insight-card-blurb{font-size:1rem;line-height:1.7;max-width:48ch;}
+  #insights .insight-card-source,#insights .insight-card-date{color:rgba(255,255,255,.46);}
+  #insights .insight-card-go{opacity:.58;transform:translateX(0);transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .25s ease;}
+  #insights .insight-card:hover .insight-card-go{opacity:1;transform:translateX(2px);}
+  #insights .insight-card:hover .insight-card-go i{transform:translateX(5px);}
+  #insights .insight-card--text{min-height:240px;}
+
+  @keyframes spotlightPulse{0%,100%{opacity:.28;transform:scale(.82)}50%{opacity:0;transform:scale(1.35)}}
+  #insights .insights-evidence{margin-top:4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08);}
+
+  @media(max-width:1020px){
+    #insights .insight-card{grid-column:span 6;}
+    #insights .insight-card--feature{grid-column:1/-1;grid-template-columns:1.15fr .85fr;}
+  }
+  @media(max-width:760px){
+    #insights.pgcai-section{padding-top:6.8rem;}
+    #insights .container{width:min(100% - 1.25rem,1180px);}
+    #insights .section-heading{font-size:clamp(3.2rem,18vw,5rem);}
+    #insights .insights-filter{top:72px;margin-bottom:1.6rem;}
+    #insights .insights-filter-btn{padding:.58rem .95rem;}
+    #insights .insight-card,#insights .insight-card--feature{grid-column:1/-1;}
+    #insights .insight-card--feature{display:flex;min-height:0;}
+    #insights .insight-card--feature .insight-card-media{min-height:0;}
+    #insights .insight-card--feature .insight-card-img{min-height:0;aspect-ratio:16/10;}
+    #insights .insight-card--feature .insight-card-body{padding:1.55rem 1.35rem 1.5rem;}
+    #insights .insight-card--feature .insight-card-title{font-size:clamp(1.6rem,8vw,2.25rem);}
+    #insights .insight-card:hover,#insights .insight-card.is-pointer-active{transform:translateY(-5px);}
+  }
+  @media(prefers-reduced-motion:reduce){
+    #insights .insight-card,#insights .insight-card-img,#insights .insight-card::before,
+    #insights .insight-card::after,#insights .insight-card-go,#insights .insight-card-play{transition:none!important;}
+    #insights .insight-card-play::before{animation:none!important;}
+  }
+</style>
+
 <!-- ===== CHAT WIDGET REMOVED 2026-05-22 =====
      Chat widget HTML + config IIFE removed. It was meant to be parked behind an
      HTML comment, but a nested inner comment ("Identity gate") closed the wrapper
@@ -4833,6 +4952,37 @@ window.addEventListener("resize",sync);})();
           });
         });
       }
+    });
+  });
+})();
+</script>
+<script id="insights-card-motion-2026-08-11">
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(pointer: coarse)').matches) return;
+
+  document.querySelectorAll('.insight-card').forEach(function (card) {
+    var frame = 0;
+    card.addEventListener('pointermove', function (event) {
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(function () {
+        var rect = card.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        var rx = ((x / rect.width) - .5) * 4.5;
+        var ry = ((y / rect.height) - .5) * -4.5;
+        card.style.setProperty('--tilt-x', rx.toFixed(2) + 'deg');
+        card.style.setProperty('--tilt-y', ry.toFixed(2) + 'deg');
+        card.style.setProperty('--glow-x', (x - 130).toFixed(0) + 'px');
+        card.style.setProperty('--glow-y', (y - 130).toFixed(0) + 'px');
+        card.classList.add('is-pointer-active');
+      });
+    });
+    card.addEventListener('pointerleave', function () {
+      if (frame) cancelAnimationFrame(frame);
+      card.classList.remove('is-pointer-active');
+      card.style.setProperty('--tilt-x', '0deg');
+      card.style.setProperty('--tilt-y', '0deg');
     });
   });
 })();

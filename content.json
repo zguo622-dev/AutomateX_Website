@@ -1,13 +1,24 @@
 [
   {
+    "type": "watch",
+    "title": "AI for rail: how civil engineers should think about and use AI",
+    "url": "https://www.youtube.com/watch?v=-DVJw3A7IC0",
+    "external": true,
+    "spotlight": true,
+    "date": "2026-07-28",
+    "blurb": "A long-form TalkCivils conversation with Bill Guo on using AI to support the rail sector and approaching its use responsibly across civil engineering.",
+    "thumb": "images/insights/talkcivils-ai-for-rail.jpg",
+    "source": "TalkCivils · 53 min"
+  },
+  {
     "type": "read",
     "title": "Assurance: The Invisible Layer in Rail",
-    "url": "articles/assurance-invisible-layer/",
-    "external": false,
+    "url": "https://www.linkedin.com/pulse/assurance-invisible-layer-rail-bill-guo-fice-ceng-meng-uec5e",
+    "external": true,
     "date": "2026-07-17",
     "blurb": "Every visible win in rail arrives with a photograph. Underneath it sits a £150m-a-year layer of assurance work that never gets one. That is where AI should go first.",
     "thumb": "images/insights/assurance-invisible-layer.png",
-    "source": "First published on LinkedIn"
+    "source": "LinkedIn"
   },
   {
     "type": "watch",
@@ -22,42 +33,42 @@
   {
     "type": "read",
     "title": "The Signature Takes a Minute. The Form G Takes a Week.",
-    "url": "articles/the-form-g-takes-a-week/",
-    "external": false,
+    "url": "https://www.linkedin.com/pulse/signature-takes-minute-form-g-week-bill-guo-fice-ceng-meng-eydre",
+    "external": true,
     "date": "2026-06-19",
     "blurb": "The most accountable people in rail design spend their week assembling information instead of exercising judgement. Here is what that costs all of us, and why the fix protects the engineer's judgement rather than replacing it.",
     "thumb": "images/insights/the-form-g-takes-a-week.png",
-    "source": "First published on LinkedIn"
+    "source": "LinkedIn"
   },
   {
     "type": "read",
     "title": "Rail's AI Pilot Graveyard Has One Cause",
-    "url": "articles/rail-ai-pilot-graveyard/",
-    "external": false,
+    "url": "https://www.linkedin.com/pulse/rails-ai-pilot-graveyard-has-one-cause-bill-guo-fice-ceng-meng-typbe",
+    "external": true,
     "date": "2026-05-26",
     "blurb": "The railway named its own pilot graveyard. The cause sits one layer below where everyone is looking.",
     "thumb": "images/insights/rail-ai-pilot-graveyard.png",
-    "source": "First published on LinkedIn"
+    "source": "LinkedIn"
   },
   {
     "type": "read",
     "title": "Why UK Rail Keeps Failing at Efficiency and Innovation",
-    "url": "articles/uk-rail-fails-efficiency-innovation/",
-    "external": false,
+    "url": "https://www.linkedin.com/pulse/why-uk-rail-keeps-failing-efficiency-innovation-guo-fice-ceng-meng-uq2we/",
+    "external": true,
     "date": "2026-05-21",
     "blurb": "And where we should start to fix it.",
     "thumb": "images/insights/uk-rail-fails-efficiency-innovation.png",
-    "source": "First published on LinkedIn"
+    "source": "LinkedIn"
   },
   {
     "type": "read",
     "title": "Rail Pays for Hours. AI Sells the Time Back.",
-    "url": "articles/rail-pays-for-hours/",
-    "external": false,
+    "url": "https://www.linkedin.com/posts/bill-guo-fice-ceng-meng-b0114681_i-used-to-push-efficiency-and-innovation-activity-7463472471690645505-bXmd",
+    "external": true,
     "date": "2026-05-20",
     "blurb": "How gross margin really works in a rate-card industry, and why efficiency has to stop being a discount.",
     "thumb": "images/insights/rail-pays-for-hours.png",
-    "source": "First published on LinkedIn"
+    "source": "LinkedIn"
   },
   {
     "type": "watch",
@@ -72,41 +83,41 @@
   {
     "type": "read",
     "title": "Every Graduate Engineer's First Year in Rail Starts the Same Way",
-    "url": "blog-graduate-engineer.html",
-    "external": false,
+    "url": "https://www.linkedin.com/pulse/every-graduate-engineers-first-year-rail-starts-same-i-guo-ceng-mice-ltgpe",
+    "external": true,
     "date": "2026-03-03",
     "blurb": "The Form G is the single most consequential document a civils engineer produces on a Network Rail project. Yet no one teaches you how to write one. How Scribtive transforms the learning curve.",
     "thumb": "images/insights/graduate-engineer.png",
-    "source": "AutomateX"
+    "source": "LinkedIn"
   },
   {
     "type": "read",
     "title": "The UK Railway Has a Standards Crisis. And Almost Nobody Is Qualified to Fix It",
-    "url": "blog-standards-crisis.html",
-    "external": false,
+    "url": "https://www.linkedin.com/pulse/uk-railway-has-standards-crisis-almost-nobody-fix-bill-guo-ceng-mice-h9cme",
+    "external": true,
     "date": "2026-02-24",
     "blurb": "Over 900 Rail Industry Standards, 12,000+ Network Rail standards, Eurocodes, and legacy British Standards, fragmented across portals that don't talk to each other.",
     "thumb": "images/insights/standards-crisis.png",
-    "source": "AutomateX"
+    "source": "LinkedIn"
   },
   {
     "type": "read",
     "title": "The Unseen Battle: Network Rail's Biggest Challenges in Keeping Britain Moving",
-    "url": "blog-unseen-battle.html",
-    "external": false,
+    "url": "https://www.linkedin.com/pulse/unseen-battle-network-rails-biggest-challenges-moving-guo-ceng-mice-mhnee",
+    "external": true,
     "date": "2026-01-13",
     "blurb": "What you see is just the tip of the iceberg. The UK's railway is a vast system inherited from our Victorian ancestors. A look at the hidden challenges engineers face every day.",
     "thumb": "images/insights/unseen-battle.png",
-    "source": "AutomateX"
+    "source": "LinkedIn"
   },
   {
     "type": "read",
     "title": "Beyond the Hype: 5 Surprising Truths About Building Production-Grade RAG Systems",
-    "url": "blog-rag-truths.html",
-    "external": false,
+    "url": "https://www.linkedin.com/pulse/beyond-hype-5-surprising-truths-building-rag-systems-guo-ceng-mice-jiewe",
+    "external": true,
     "date": "2025-11-16",
     "blurb": "The initial promise of RAG often feels like magic. Here are five hard-won lessons from building retrieval-augmented generation systems that actually work in production.",
     "thumb": "images/insights/rag-truths.png",
-    "source": "AutomateX"
+    "source": "LinkedIn"
   }
 ]

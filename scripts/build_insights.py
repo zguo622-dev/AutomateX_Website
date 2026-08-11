@@ -38,6 +38,8 @@ def load_manifest(path=MANIFEST):
             parsed = None
         if parsed is None or parsed.isoformat() != item["date"]:
             raise ValueError(f"item {i} has a bad date {item['date']!r}")
+    if sum(bool(item.get("spotlight")) for item in items) > 1:
+        raise ValueError("content manifest may contain only one spotlight item")
     return items
 
 
@@ -68,12 +70,10 @@ def render_card(item, position=0, featured=False):
     source = item.get("source", "")
     kind = item["type"]
 
-    # Only video gets a thumbnail. The article covers are title cards, so
-    # rendering them would print each headline twice - once baked into the
-    # image, once as the card heading - and at card width their type is
-    # illegible. Articles are typographic instead, which also gives the grid
-    # a deliberate rhythm rather than eleven identical picture boxes.
-    show_media = kind == "watch" and bool(thumb)
+    # Every item can carry visual context. Article artwork is treated as an
+    # atmospheric card image with a strong overlay, while video artwork also
+    # receives a play affordance.
+    show_media = bool(thumb)
 
     # Entrance is a CSS-only staggered cascade on load. Deliberately NOT the
     # shell's scroll-reveal: that gates visibility on JS, and on this shell it
@@ -89,10 +89,15 @@ def render_card(item, position=0, featured=False):
     media = ""
     kicker = ""
     if show_media:
+        play = (
+            '      <span class="insight-card-play" aria-hidden="true"></span>\n'
+            if kind == "watch"
+            else ""
+        )
         media = (
             f'    <span class="insight-card-media">\n'
-            f'      <img class="insight-card-img" src="{e(thumb)}" alt="" loading="lazy">\n'
-            f'      <span class="insight-card-play" aria-hidden="true"></span>\n'
+            f'      <img class="insight-card-img" src="{e(thumb)}" alt="" decoding="async">\n'
+            f"{play}"
             f"      {chip}\n"
             f"    </span>\n"
         )
@@ -102,7 +107,7 @@ def render_card(item, position=0, featured=False):
 
     lead = ""
     if featured:
-        lead = '      <span class="insight-card-lead">Latest</span>\n'
+        lead = '      <span class="insight-card-lead">Spotlight</span>\n'
 
     # On media cards the source belongs in the footer; on text cards it is
     # already in the kicker, so don't repeat it.
@@ -111,7 +116,14 @@ def render_card(item, position=0, featured=False):
         source_line = f'        <span class="insight-card-source">{e(source)}</span>\n'
 
     heading = "h2" if featured else "h3"
-    cue = "Read the article" if kind == "read" else "Watch the demo"
+    if kind == "read" and "linkedin.com" in item["url"]:
+        cue = "Read on LinkedIn"
+    elif kind == "read":
+        cue = "Read the article"
+    elif kind == "listen":
+        cue = "Listen now"
+    else:
+        cue = "Watch now"
 
     return (
         f'  <a class="{" ".join(classes)}" data-type="{e(kind)}" '
@@ -134,12 +146,14 @@ def render_card(item, position=0, featured=False):
 
 
 def render_cards(items):
-    """Newest item leads at full width; the rest follow as a staggered stream."""
+    """An explicit spotlight leads; otherwise the newest item leads."""
     ordered = sort_items(items)
     if not ordered:
         return ""
-    out = [render_card(ordered[0], featured=True)]
-    out += [render_card(it, position=i) for i, it in enumerate(ordered[1:])]
+    feature = next((item for item in ordered if item.get("spotlight")), ordered[0])
+    stream = [item for item in ordered if item is not feature]
+    out = [render_card(feature, featured=True)]
+    out += [render_card(it, position=i) for i, it in enumerate(stream)]
     return "\n".join(out)
 
 
