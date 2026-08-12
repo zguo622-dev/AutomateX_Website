@@ -2919,7 +2919,13 @@ body{padding-top:81px;}
         </div>
       </li>
       <li><a href="about.html">Who we are</a></li>
-      <li><a href="insights.html">Insights</a></li>
+      <li class="has-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Insights</button>
+        <div class="nav-dropdown" aria-label="Insights">
+          <a href="insights.html">Content</a>
+          <a href="resources.html">P.A.C.E-D&trade; Method</a>
+        </div>
+      </li>
       <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
     </ul>
     <div class="nav-cta-group">
@@ -2946,7 +2952,13 @@ body{padding-top:81px;}
       <a href="waitlist.html" onclick="this.closest('.mobile-menu').classList.remove('open')" aria-current="page" class="is-current">Scribtive&reg; OS</a>
     </div>
   </div>
-  <a href="insights.html" onclick="this.parentElement.classList.remove('open')">Insights</a>
+  <div class="mobile-sub-wrap">
+    <button type="button" class="mobile-sub-toggle" aria-expanded="false" onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden">Insights</button>
+    <div class="mobile-sub" hidden>
+      <a href="insights.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Content</a>
+      <a href="resources.html" onclick="this.closest('.mobile-menu').classList.remove('open')">P.A.C.E-D&trade; Method</a>
+    </div>
+  </div>
   <a href="careers.html" onclick="this.parentElement.classList.remove('open')" data-pass="careers-nav-2026-06-09">Careers</a>
 
 </div>

@@ -639,7 +639,13 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
         </div>
       </li>
       <li><a href="about.html">Who we are</a></li>
-      <li><a href="insights.html" aria-current="true" class="is-current">Insights</a></li>
+      <li class="has-dropdown">
+        <button type="button" class="nav-dropdown-toggle is-current" aria-haspopup="true" aria-expanded="false">Insights</button>
+        <div class="nav-dropdown" aria-label="Insights">
+          <a href="insights.html" aria-current="page" class="is-current">Content</a>
+          <a href="resources.html">P.A.C.E-D&trade; Method</a>
+        </div>
+      </li>
       <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
     </ul>
     <div class="nav-cta-group">
@@ -669,7 +675,13 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
       <a href="scorecard.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Free AI Readiness Assessment</a>
     </div>
   </div>
-  <a href="insights.html" onclick="this.parentElement.classList.remove('open')">Insights</a>
+  <div class="mobile-sub-wrap">
+    <button type="button" class="mobile-sub-toggle is-current" aria-expanded="false" onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden">Insights</button>
+    <div class="mobile-sub" hidden>
+      <a href="insights.html" onclick="this.closest('.mobile-menu').classList.remove('open')" aria-current="page" class="is-current">Content</a>
+      <a href="resources.html" onclick="this.closest('.mobile-menu').classList.remove('open')">P.A.C.E-D&trade; Method</a>
+    </div>
+  </div>
   <a href="careers.html" onclick="this.parentElement.classList.remove('open')" data-pass="careers-nav-2026-06-09">Careers</a>
   <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-outline btn-primary-lg">Book a call</a>
 </div>
