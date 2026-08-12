@@ -1,7 +1,8 @@
 {
+  "name": "automatex-website",
+  "private": true,
   "dependencies": {
     "puppeteer": "^24.39.0",
-    "sharp": "^0.34.5",
     "simplex-noise": "^4.0.3"
   }
 }

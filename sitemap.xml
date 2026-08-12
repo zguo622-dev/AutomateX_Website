@@ -5,6 +5,7 @@
   <url><loc>https://automatex.uk/ai-in-action.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://automatex.uk/bootcamp.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://automatex.uk/resources.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://automatex.uk/insights.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://automatex.uk/scorecard.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://automatex.uk/waitlist.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://automatex.uk/careers.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -13,5 +14,10 @@
   <url><loc>https://automatex.uk/blog-rag-truths.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://automatex.uk/blog-standards-crisis.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://automatex.uk/blog-unseen-battle.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://automatex.uk/articles/assurance-invisible-layer/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://automatex.uk/articles/rail-ai-pilot-graveyard/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://automatex.uk/articles/rail-pays-for-hours/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://automatex.uk/articles/the-form-g-takes-a-week/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://automatex.uk/articles/uk-rail-fails-efficiency-innovation/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://automatex.uk/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
