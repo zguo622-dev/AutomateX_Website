@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI-native engineer: a starter kit | AutomateX</title>
+<meta name="description" content="From two evenings at One Great George Street, the ICE London panel on 17 September and the RCEA and Young Rail Professionals evening on 24 September 2026: the slides from both, one workflow and two questions, six skills that outlast the tools, a 30-day way to start, and five checks before you sign.">
+<link rel="canonical" href="https://automatex.uk/ai-starter-kit.html" data-pass="canonical-pass-2026-06-06">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The AI-native engineer: a starter kit | AutomateX">
+<meta property="og:description" content="From two evenings at One Great George Street, the ICE London panel on 17 September and the RCEA and Young Rail Professionals evening on 24 September 2026: the slides from both, one workflow and two questions, six skills that outlast the tools, a 30-day way to start, and five checks before you sign.">
+<meta property="og:url" content="https://automatex.uk/ai-starter-kit.html">
+<meta property="og:image" content="https://automatex.uk/images/insights/ice-ai-starter-kit.jpg">
+<meta property="og:site_name" content="AutomateX">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The AI-native engineer: a starter kit | AutomateX">
+<meta name="twitter:description" content="From two evenings at One Great George Street, the ICE London panel on 17 September and the RCEA and Young Rail Professionals evening on 24 September 2026: the slides from both, one workflow and two questions, six skills that outlast the tools, a 30-day way to start, and five checks before you sign.">
+<meta name="twitter:image" content="https://automatex.uk/brand_assets/automatex-wordmark.png">
+<link rel="icon" type="image/png" href="images/Logo.png">
+<link rel="apple-touch-icon" href="images/Logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F96532;
+    --orange-light: #FB8B3C;
+    --orange-dark: #ED4A3B;
+    --navy: #1e293b;
+    --white: #ffffff;
+    --gray-50: #f8fafc;
+    --gray-200: #e2e8f0;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font-body); color: var(--navy); background: var(--white); }
+  a { text-decoration: none; color: inherit; }
+
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  /* Nav */
+  .blog-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200); padding: 0.875rem 0;
+  }
+  .blog-nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .blog-nav-logo { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-heading); font-weight: 800; font-size: 1.125rem; color: var(--navy); }
+  .blog-nav-logo img { height: 28px; width: auto; }
+  .blog-nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+  .blog-nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-500); transition: color 0.2s; }
+  .blog-nav-links a:hover { color: var(--orange); }
+  .btn-sm { display: inline-block; padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--orange-light), var(--orange-dark)); color: var(--white); font-family: var(--font-heading); font-weight: 700; font-size: 0.8125rem; border-radius: 8px; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-sm:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(249,101,50,0.3); }
+
+  /* Page layout */
+  .legal-header {
+    max-width: 760px;
+    margin: 3rem auto 1.5rem;
+  }
+  .legal-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+  .legal-header h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  .legal-meta {
+    font-size: 0.8125rem;
+    color: var(--gray-500);
+  }
+
+  .legal-body {
+    max-width: 760px;
+    margin: 0 auto 4rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--gray-600);
+  }
+  .legal-body h2 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin: 2.25rem 0 0.75rem;
+  }
+  .legal-body h3 {
+    font-family: var(--font-heading);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 1.5rem 0 0.5rem;
+  }
+  .legal-body p { margin-bottom: 1rem; }
+  .legal-body ul { margin: 0 0 1rem 1.25rem; }
+  .legal-body li { margin-bottom: 0.5rem; }
+  .legal-body strong { color: var(--navy); }
+  .legal-body a { color: var(--orange); text-decoration: underline; }
+  .legal-body a:hover { color: var(--orange-dark); }
+
+  .legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1.5rem;
+    font-size: 0.9375rem;
+  }
+  .legal-table th, .legal-table td {
+    text-align: left;
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+  .legal-table th {
+    background: var(--gray-50);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .legal-placeholder {
+    display: inline-block;
+    background: #fff4e6;
+    color: #9a3412;
+    border: 1px dashed #f59e0b;
+    padding: 0.05rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85em;
+  }
+
+  /* Footer */
+  .blog-footer {
+    border-top: 1px solid var(--gray-200);
+    padding: 2rem 0; text-align: center;
+    font-size: 0.75rem; color: var(--gray-400);
+  }
+  .blog-footer a { color: var(--gray-500); transition: color 0.2s; }
+  .blog-footer a:hover { color: var(--orange); }
+
+  @media (max-width: 640px) {
+    .blog-nav-links { display: none; }
+  }
+</style>
+<style id="shell-canon-2026-06-06">
+/* Canonical AutomateX shell — light nav, dark footer */
+.blog-nav { background: var(--white); border-bottom: 1px solid var(--gray-200); padding: 0.875rem 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); }
+.blog-nav .container { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+.blog-nav-logo { display: inline-flex; align-items: center; }
+.blog-nav-logo img { height: 30px; width: auto; display: block; }
+.blog-nav-logo span { display: none; }
+.blog-nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
+.blog-nav-links a { color: var(--gray-600); font-size: 0.875rem; font-weight: 500; transition: color .2s; text-decoration: none; }
+.blog-nav-links a:hover, .blog-nav-links a[aria-current="page"] { color: var(--orange); }
+.blog-nav-cta { display: flex; align-items: center; gap: 0.625rem; }
+.blog-nav-cta .nav-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid var(--gray-200); border-radius: 8px; color: var(--navy); transition: all .2s; text-decoration: none; }
+.blog-nav-cta .nav-icon-btn:hover { color: var(--orange); border-color: var(--orange); }
+.blog-nav-cta .btn-sm { background: linear-gradient(135deg, var(--orange-light), var(--orange-dark)); color: var(--white) !important; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.8125rem; font-family: var(--font-heading); text-decoration: none; }
+
+/* Canonical dark footer */
+.blog-footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 3rem 0 1.75rem; margin-top: 4rem; border-top: none; }
+.blog-footer .container { display: block; text-align: left; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr) auto; gap: 2.5rem; align-items: start; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-grid .footer-brand img { height: 26px; width: auto; }
+.footer-grid .footer-brand p { font-size: 0.8125rem; color: rgba(255,255,255,0.55); margin-top: 0.75rem; max-width: 17rem; line-height: 1.55; }
+.footer-grid h4 { color: var(--white); font-family: var(--font-heading); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.875rem; font-weight: 700; }
+.footer-grid ul { list-style: none; padding: 0; margin: 0; }
+.footer-grid li + li { margin-top: 0.5rem; }
+.footer-grid a { font-size: 0.8125rem; color: rgba(255,255,255,0.62); text-decoration: none; transition: color .2s; }
+.footer-grid a:hover { color: var(--orange); }
+.footer-grid .footer-certs { display: flex; flex-direction: column; gap: 0.625rem; align-items: flex-start; }
+.footer-grid .footer-certs img { max-width: 64px; height: auto; opacity: 0.85; }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; padding-top: 1.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+.footer-bottom a { color: rgba(255,255,255,0.85); text-decoration: none; }
+.footer-bottom a:hover { color: var(--orange); }
+@media (max-width: 880px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .footer-grid .footer-certs { flex-direction: row; grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .blog-nav-links { display: none; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+<!-- jsonld-pass-2026-06-06 -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AutomateX Ltd","alternateName":"AutomateX Advisory","url":"https://automatex.uk/","logo":"https://automatex.uk/brand_assets/automatex-wordmark.png","description":"UK rail-focused AI automation provider. We build production AI for Tier 1 contractors, consultancies, and Network Rail teams.","founder":{"@type":"Person","name":"Bill Guo"},"email":"bill.guo@automatex.uk","address":{"@type":"PostalAddress","streetAddress":"71-75 Shelton Street, Covent Garden","addressLocality":"London","postalCode":"WC2H 9JQ","addressCountry":"GB"},"vatID":"GB514079209","taxID":"16855291","sameAs":["https://www.linkedin.com/company/automatex-advisory/"]}</script>
+<style id="focus-visible-pass-2026-06-06">
+/* Accessibility: keyboard focus indicator (works whether the page uses canon
+   tokens or has its own --orange definition). */
+:focus-visible {
+  outline: 2px solid var(--orange, #F96532) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) { outline: none; }
+</style>
+<style id="axr-blognav-2026-07-11">
+.blog-nav{background:rgba(13,17,23,.86)!important;border-bottom:1px solid rgba(255,255,255,.08)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;}
+.blog-nav-links a{color:rgba(255,255,255,.85)!important;}
+.blog-nav-links a:hover{color:#fff!important;}
+</style>
+<style id="footer-social-2026-07-11">
+.footer-social{display:flex;gap:.65rem;margin-top:1.1rem;}
+.footer-social a{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:color .2s,border-color .2s,background .2s,transform .2s;}
+.footer-social svg{width:17px;height:17px;}
+.footer-social a:hover{transform:translateY(-2px);}
+.footer-social a{border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.55);}
+.footer-social a:hover{color:#fff;border-color:var(--orange);background:rgba(249,101,50,.16);}
+</style>
+<style id="axr-navbar-port-2026-07-25">
+:root{--ease-out:cubic-bezier(.16,1,.3,1);--gray-100:#f3f4f6;--gray-700:#374151;--transition-fast:150ms cubic-bezier(0.455, 0.03, 0.515, 0.955);}
+/* ported-nav adjustments: no particle canvas on these pages */
+nav.navbar{padding:0!important;background:rgba(13,17,23,.86)!important;-webkit-backdrop-filter:blur(18px)!important;backdrop-filter:blur(18px)!important;border-bottom:1px solid rgba(255,255,255,.08)!important;}
+body{padding-top:81px;}
+html{scroll-padding-top:96px;}
+/* ===== (anon) (nav rules) ===== */
+.navbar { position: sticky; top: 0px; z-index: 100; background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--gray-200); }
+.navbar .container { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+.navbar-logo { display: flex; align-items: center; gap: 10px; }
+.navbar-logo img { width: 32px; height: 32px; }
+.navbar-logo span { font-family: var(--font-heading); font-weight: 800; font-size: 1.125rem; color: var(--navy); letter-spacing: -0.02em; }
+.navbar-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-cta-group { display: inline-flex; align-items: center; gap: 0.625rem; }
+.nav-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; color: var(--navy); background: transparent; border: 1px solid var(--gray-200); text-decoration: none; transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s; }
+.nav-icon-btn:hover { color: var(--orange); border-color: var(--orange); background: rgba(249, 101, 50, 0.06); transform: translateY(-1px); }
+.nav-icon-btn svg { display: block; }
+.navbar-links a { font-family: var(--font-heading); font-size: 0.8125rem; font-weight: 600; color: var(--gray-500); transition: color var(--transition-fast); letter-spacing: -0.01em; }
+.navbar-links a:hover { color: var(--navy); }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; }
+.mobile-toggle span { width: 20px; height: 2px; background: var(--navy); border-radius: 2px; transition: var(--transition-fast); }
+@media (max-width: 768px){.navbar-links { display: none; }.nav-cta-group { display: none; }.mobile-toggle { display: flex; }}
+.mobile-menu { display: none; position: fixed; inset: 0px; z-index: 99; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--navy); }
+.mobile-close { position: absolute; top: 1.25rem; right: 1.25rem; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.mobile-close svg { width: 24px; height: 24px; }
+
+/* ===== nav-reorg-styles (verbatim) ===== */
+/* === Header reorg (Who we are / What we do / Resources) ============== */
+  .navbar { transition: transform .3s cubic-bezier(.4,0,.2,1); will-change: transform; }
+  .navbar.navbar-hidden { transform: translateY(-100%); }
+  /* Pure-black nav text for contrast */
+  .navbar-links a { color: #000 !important; }
+  .navbar-links a:hover { color: var(--orange) !important; }
+  .navbar-links a.is-current { color: var(--orange) !important; }
+
+  /* Dropdown — desktop */
+  .navbar-links .has-dropdown { position: relative; }
+  .navbar-links .has-dropdown > a,
+  .navbar-links .has-dropdown > button {
+    display: inline-flex; align-items: center; gap: .375rem;
+    background: transparent; border: 0; padding: 0;
+    font: inherit; color: #000; cursor: pointer;
+    letter-spacing: inherit;
+  }
+  .navbar-links .has-dropdown > a::after,
+  .navbar-links .has-dropdown > button::after {
+    content: ""; width: 8px; height: 8px;
+    border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform .2s ease;
+    margin-left: 2px;
+  }
+  .navbar-links .has-dropdown.is-open > a::after,
+  .navbar-links .has-dropdown.is-open > button::after,
+  .navbar-links .has-dropdown:hover > a::after,
+  .navbar-links .has-dropdown:hover > button::after { transform: rotate(225deg) translateY(2px); }
+  .nav-dropdown {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(4px);
+    min-width: 280px;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    box-shadow: 0 18px 40px -16px rgba(0,0,0,.18), 0 4px 12px -6px rgba(0,0,0,.08);
+    padding: .5rem;
+    display: flex; flex-direction: column; gap: 2px;
+    opacity: 0; pointer-events: none; visibility: hidden;
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+    z-index: 200;
+  }
+  .navbar-links .has-dropdown:hover .nav-dropdown,
+  .navbar-links .has-dropdown:focus-within .nav-dropdown,
+  .navbar-links .has-dropdown.is-open .nav-dropdown {
+    opacity: 1; pointer-events: auto; visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav-dropdown a {
+    display: block; padding: .625rem .875rem; border-radius: 8px;
+    font-family: var(--font-heading); font-weight: 600; font-size: .8125rem;
+    color: #000 !important; letter-spacing: -.01em;
+    transition: background .15s ease, color .15s ease;
+  }
+  .nav-dropdown a:hover { background: rgba(249,101,50,.08); color: var(--orange) !important; }
+  .nav-dropdown a.is-current { color: var(--orange) !important; background: rgba(249,101,50,.06); }
+
+  /* Mobile-menu accordion for "What we do" */
+  .mobile-menu .mobile-sub { display: flex; flex-direction: column; gap: 1rem; padding-left: 1rem; margin-top: -.5rem; }
+  .mobile-menu .mobile-sub a { font-size: 1rem; font-weight: 600; color: var(--gray-700); }
+  .mobile-menu .mobile-sub-toggle { background: none; border: 0; padding: 0; color: var(--navy); font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: .375rem; }
+  .mobile-menu .mobile-sub-wrap[hidden] { display: none; }
+
+/* ===== logo-and-nav-polish-2026-06-02 (verbatim) ===== */
+/* Wider combined wordmark logo replaces the icon + 'AutomateX' span pairing */
+  .navbar-logo { gap: 0; }
+  .navbar-logo img { width: auto; height: 64px; display: block; }
+  .footer .navbar-logo img { height: 56px; }
+
+  /* 'What we do' button — explicit font props so it matches the <a> siblings.
+     Earlier `font: inherit` pulled from <li> instead of from the <a> rule. */
+  .navbar-links .has-dropdown > button.nav-dropdown-toggle {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: inherit;
+  }
+  .navbar-links .has-dropdown > button.nav-dropdown-toggle.is-current {
+    color: var(--orange) !important;
+  }
+
+  /* Drop the dropdown chevron ::after entirely (per Bill's request) */
+  .navbar-links .has-dropdown > a::after,
+  .navbar-links .has-dropdown > button::after { content: none !important; display: none !important; }
+
+/* ===== nav-shadcn-behaviour-2026-06-02 (verbatim) ===== */
+/* ============================================================
+     SHADCN-style navbar BEHAVIOUR overrides (content unchanged).
+     1) Mobile menu becomes a right-side slide-in Sheet (~360px wide)
+        with a dimmed backdrop, not the previous fullscreen overlay.
+     2) Mobile sub-menu becomes a smooth max-height accordion with a
+        chevron that rotates on open.
+     3) Desktop dropdown gets a smoother small-slide-in + fade
+        animation and a slightly longer hover-intent close.
+     ============================================================ */
+
+  /* (1) Mobile Sheet --------------------------------------------- */
+  .mobile-menu {
+    display: block;            /* always rendered, hidden via transform */
+    position: fixed; inset: 0;
+    z-index: 999;
+    background: transparent;   /* the panel below has its own bg */
+    pointer-events: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: background .25s ease;
+  }
+  .mobile-menu.open { background: rgba(0,0,0,.55); pointer-events: auto; }
+  /* Hide entirely on desktop unless opened */
+  @media (min-width: 961px) {
+    .mobile-menu { display: none; }
+  }
+  /* The slide-in panel itself */
+  .mobile-menu::before {
+    content: ""; position: absolute; inset: 0;
+    pointer-events: none;
+  }
+  .mobile-menu {
+    display: flex !important;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: 0 !important;
+  }
+  .mobile-menu > .mobile-close,
+  .mobile-menu > a,
+  .mobile-menu > .mobile-sub-wrap {
+    /* Move all inner content into a wrapped panel via JS-free CSS layout */
+  }
+
+  /* Wrap mobile-menu inner content into a fixed-width panel using
+     a single child container injected by JS. As a CSS-only fallback we
+     stack all direct children into a right-anchored column. */
+  .mobile-menu > * { color: var(--navy); }
+  .mobile-menu {
+    /* Use an inner panel: define padding on the panel only */
+  }
+  .mobile-panel {
+    background: #fff;
+    width: 360px; max-width: 90vw;
+    height: 100%;
+    padding: 1.5rem 1.5rem 2rem;
+    box-shadow: -16px 0 40px -12px rgba(0,0,0,.18);
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+    display: flex; flex-direction: column; gap: 1.25rem;
+    overflow-y: auto;
+  }
+  .mobile-menu.open .mobile-panel { transform: translateX(0); }
+  .mobile-panel .mobile-close {
+    position: static !important;
+    align-self: flex-end;
+    width: 36px !important; height: 36px !important;
+    margin-bottom: .5rem !important;
+  }
+  .mobile-panel > a,
+  .mobile-panel > .mobile-sub-wrap {
+    text-align: left;
+  }
+  .mobile-panel > a {
+    font-size: 1.0625rem !important;
+    font-weight: 700 !important;
+    color: var(--navy) !important;
+    padding: .5rem 0;
+    border-bottom: 1px solid var(--gray-100);
+    text-decoration: none;
+  }
+  .mobile-panel > a:hover { color: var(--orange) !important; }
+  .mobile-panel > a.is-current { color: var(--orange) !important; }
+
+  /* (2) Mobile sub-menu accordion ------------------------------- */
+  .mobile-sub-wrap { border-bottom: 1px solid var(--gray-100); }
+  .mobile-sub-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; background: none; border: 0; padding: .5rem 0 !important;
+    font-family: var(--font-heading);
+    font-size: 1.0625rem !important; font-weight: 700;
+    color: var(--navy) !important;
+    cursor: pointer;
+    letter-spacing: -.01em;
+  }
+  .mobile-sub-toggle .mobile-sub-chevron {
+    transition: transform .25s ease;
+  }
+  .mobile-sub-toggle[aria-expanded="true"] .mobile-sub-chevron {
+    transform: rotate(180deg);
+  }
+  .mobile-sub {
+    display: flex !important; flex-direction: column;
+    overflow: hidden;
+    max-height: 0; opacity: 0;
+    transition: max-height .3s ease, opacity .25s ease, padding .25s ease;
+    padding: 0 0 0 .25rem;
+  }
+  .mobile-sub[data-collapsed="false"] {
+    max-height: 480px;
+    opacity: 1;
+    padding: .5rem 0 .75rem .25rem;
+  }
+  .mobile-sub a {
+    padding: .5rem 0;
+    font-family: var(--font-heading);
+    font-size: .95rem; font-weight: 600;
+    color: var(--gray-700) !important;
+    text-decoration: none;
+  }
+  .mobile-sub a:hover { color: var(--orange) !important; }
+  .mobile-sub a.is-current { color: var(--orange) !important; }
+
+  /* (3) Desktop dropdown smoother animation + hover-intent --- */
+  .nav-dropdown {
+    /* tighten the slide distance + ease out a bit longer */
+    transition: opacity .22s ease, transform .22s cubic-bezier(.16,1,.3,1), visibility .22s ease;
+  }
+  .navbar-links .has-dropdown:hover .nav-dropdown,
+  .navbar-links .has-dropdown:focus-within .nav-dropdown,
+  .navbar-links .has-dropdown.is-open .nav-dropdown {
+    transform: translateX(-50%) translateY(2px);
+  }
+  /* Hover-intent: extend the trigger's hover area down so the cursor can
+     travel from the button to the dropdown without an empty pixel gap. */
+  .navbar-links .has-dropdown > .nav-dropdown-toggle::after {
+    content: ""; position: absolute; left: 50%; top: 100%;
+    width: 280px; max-width: 90vw; height: 18px;
+    transform: translateX(-50%);
+    /* Only acts as a hover-bridge; invisible. */
+  }
+
+/* ===== site-canvas-2026-06-03 (nav rules) ===== */
+body > .mobile-menu { position: fixed !important; z-index: 999; }
+.navbar { background: rgb(255, 255, 255) !important; }
+
+/* ===== axr-ported-2026-07-10 (nav rules) ===== */
+@media (max-width: 900px){.nav-links { display: none; }}
+.navbar .nav-dropdown { background: rgba(13, 17, 23, 0.97) !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; box-shadow: rgba(0, 0, 0, 0.6) 0px 24px 50px -20px !important; }
+.navbar li.has-dropdown .nav-dropdown a { color: rgba(255, 255, 255, 0.85) !important; }
+.navbar li.has-dropdown .nav-dropdown a:hover { color: rgb(255, 255, 255) !important; background: rgba(249, 101, 50, 0.16) !important; }
+.navbar-links .has-dropdown:not(.is-open) .nav-dropdown { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+.navbar .nav-mega { top: 64px; grid-template-columns: 0.85fr 2.15fr; overflow: hidden; position: fixed !important; left: 0px !important; right: 0px !important; transform: none !important; width: auto !important; min-width: 0px !important; max-width: none !important; margin: 0px !important; padding: 0px max(2rem, -620px + 50vw) !important; display: grid !important; border-radius: 0px !important; border-left: none !important; border-right: none !important; border-top: 1px solid rgba(255, 255, 255, 0.08) !important; box-shadow: rgba(0, 0, 0, 0.55) 0px 30px 60px -20px !important; }
+.nav-mega .nm-col { padding: 2rem 2.2rem; }
+.nav-mega .nm-links { display: flex; flex-direction: column; justify-content: center; gap: 6px; border-right: 1px solid rgba(255, 255, 255, 0.07); padding: 1.7rem 1.6rem 1.7rem 0px; }
+.nav-mega .nm-tab { position: relative; display: flex; align-items: center; gap: 0.5rem; width: 100%; text-align: left; font: inherit; background: none; border: 0px; cursor: pointer; padding: 0.72rem 0.9rem; border-radius: 10px; color: inherit; transition: background 0.18s; }
+.nav-mega .nm-tab::before { content: ""; position: absolute; left: 0px; top: 50%; transform: translateY(-50%); width: 3px; height: 0px; border-radius: 0px 3px 3px 0px; background: var(--orange); transition: height 0.22s; }
+.nav-mega .nm-tab:hover { background: rgba(249, 101, 50, 0.08); }
+.nav-mega .nm-tab.is-active { background: rgba(249, 101, 50, 0.12); }
+.nav-mega .nm-tab.is-active::before { height: 62%; }
+.nav-mega .nm-tab:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+.nav-mega .nm-t { display: block; font-family: var(--font-heading); font-weight: 700; font-size: 0.95rem; line-height: 1.3; color: rgba(255, 255, 255, 0.76); transition: color 0.18s; }
+.nav-mega .nm-tab:hover .nm-t { color: rgb(255, 255, 255); }
+.nav-mega .nm-tab.is-active .nm-t { color: var(--orange-light); }
+.nav-mega .nm-chev { margin-left: auto; display: flex; color: var(--orange); opacity: 0; transform: translateX(-4px); transition: opacity 0.18s, transform 0.18s; }
+.nav-mega .nm-tab.is-active .nm-chev { opacity: 1; transform: none; }
+.nav-mega .nm-stage { position: relative; padding: 1.7rem 0px 1.7rem 2.2rem; }
+.nav-mega .nm-panel { display: none; }
+.nav-mega .nm-panel.is-active { display: block; animation: nmPanelIn .3s var(--ease-out) both; }
+.navbar li.has-dropdown .nav-mega a.nm-plink { grid-template-columns: 1.15fr 1fr; gap: 1.6rem; align-items: center; display: grid !important; padding: 0px !important; border-radius: 12px !important; background: none !important; color: inherit !important; }
+.navbar li.has-dropdown .nav-mega a.nm-plink:hover { background: none !important; color: inherit !important; }
+.nav-mega .nm-pv { display: block; border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 10; border: 1px solid rgba(255, 255, 255, 0.07); background: rgb(13, 17, 23); }
+.nav-mega .nm-pv svg { width: 100%; height: 100%; display: block; }
+.nav-mega .nm-pv-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; padding: 6px; }
+.nav-mega .nm-csc { position: relative; display: block; overflow: hidden; border-radius: 8px; background: rgb(22, 27, 34); border: 1px solid rgba(255, 255, 255, 0.07); }
+.nav-mega .nm-csc img { position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transform: translateZ(0px); transition: transform 1.15s cubic-bezier(0.16, 1, 0.3, 1); }
+.nav-mega .nm-csc::after { content: ""; position: absolute; inset: 0px; background: linear-gradient(to top, rgba(13, 17, 23, 0.95) 0px, rgba(13, 17, 23, 0.74) 34%, rgba(13, 17, 23, 0.14) 68%, rgba(13, 17, 23, 0) 100%); }
+.nav-mega .nm-csb { position: absolute; top: 0.38rem; left: 0.45rem; z-index: 2; font-family: var(--font-heading); font-weight: 700; font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(255, 255, 255); background: rgba(13, 17, 23, 0.72); border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 999px; padding: 0.1rem 0.4rem; }
+.nav-mega .nm-csl { position: absolute; left: 0.5rem; right: 0.5rem; bottom: 0.4rem; z-index: 2; font-family: var(--font-heading); font-weight: 700; font-size: 0.63rem; line-height: 1.28; color: rgb(255, 255, 255); }
+.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-csc img { transform: scale(1.09) translateZ(0px); }
+@media (prefers-reduced-motion: reduce){.nav-mega .nm-csc img { transition: none; }.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-csc img { transform: none; }}
+.nav-mega .nm-pc { display: flex; flex-direction: column; align-items: flex-start; }
+.nav-mega .nm-flabel { font-family: var(--font-heading); font-weight: 800; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(255, 255, 255); background: var(--orange); border-radius: 999px; padding: 0.2rem 0.55rem; margin-bottom: 0.75rem; }
+.nav-mega .nm-ftitle { display: block; font-family: var(--font-heading); font-weight: 800; font-size: 1.15rem; line-height: 1.25; color: rgb(255, 255, 255); margin-bottom: 0.45rem; }
+.nav-mega .nm-fdesc { display: block; font-size: 0.85rem; line-height: 1.55; color: rgba(255, 255, 255, 0.62); }
+.nav-mega .nm-fcta { margin-top: 1.05rem; display: inline-flex; align-items: center; gap: 0.35rem; font-family: var(--font-heading); font-weight: 700; font-size: 0.82rem; color: var(--orange-light); }
+.nav-mega .nm-fcta .arr { transition: transform 0.2s; }
+.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-fcta .arr { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce){.nav-mega .nm-panel.is-active { animation: auto ease 0s 1 normal none running none; }.nav-mega .nm-tab, .nav-mega .nm-tab::before, .nav-mega .nm-chev, .nav-mega .nm-fcta .arr { transition: none; }}
+html.reduced .nav-mega .nm-panel.is-active { animation: auto ease 0s 1 normal none running none; }
+@media (max-width: 900px){.navbar .nav-mega { display: none !important; }}
+#axr-mega-veil { position: fixed; inset: 0px; z-index: 90; background: rgba(8, 11, 16, 0.45); backdrop-filter: blur(7px); opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
+.navbar { transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s; position: fixed !important; top: 0px !important; left: 0px !important; right: 0px !important; background: transparent !important; backdrop-filter: blur(14px) !important; border-bottom-color: transparent !important; }
+.navbar .navbar-links a, .navbar .nav-dropdown-toggle { color: rgba(255, 255, 255, 0.82) !important; }
+.navbar .navbar-links a:hover, .navbar .nav-dropdown-toggle:hover, .navbar .navbar-links a.is-current { color: rgb(255, 255, 255) !important; }
+.navbar .nav-dropdown-toggle::after { border-color: rgba(255, 255, 255, 0.7) !important; }
+.navbar .mobile-toggle span { background: rgb(255, 255, 255) !important; }
+.navbar { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s, border-color 0.3s, backdrop-filter 0.3s !important; }
+
+/* ===== dark-everywhere-2026-06-05 (nav rules) ===== */
+.footer .navbar-logo { background: transparent !important; padding: 0px !important; box-shadow: none !important; }
+</style>
+<style id="axr-nav-current-2026-07-25">
+/* Current-section highlight, applied consistently. An earlier rule grouped
+   a.is-current in with the hover states and forced #fff, so a top-level link
+   marked current rendered white while the dropdown toggle rendered orange. */
+.navbar .navbar-links > li > a.is-current,
+.navbar .navbar-links > li > .nav-dropdown-toggle.is-current{color:var(--orange)!important;}
+</style>
+
+<style id="starter-kit-2026-09-16">
+  @media (min-width:721px){.gift-steps.talks{grid-template-columns:1fr 1fr}}
+  .gift-step a.pdf{display:inline-block;margin-top:.8rem;color:#fff;font-family:var(--font-heading);font-weight:700;border-bottom:2px solid var(--orange-light)}
+  .gift-step a.pdf:hover{color:var(--orange-light)}
+  .gift-step em{color:#fff;font-style:italic}
+  body{padding-top:0!important}
+  .gift-foot{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 0 2.5rem;font-size:.9rem}
+  .gift-foot .container{max-width:900px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
+  .gift-foot img{height:24px;width:auto;display:block;opacity:.9}
+  .gift-foot a{color:rgba(255,255,255,.85);text-decoration:underline;text-decoration-color:rgba(249,101,50,.6)}
+  .gift-foot a:hover{color:var(--orange-light)}
+  .gift-hero{background:var(--navy);color:var(--white);position:relative;overflow:hidden;padding:1.1rem 0 3rem}
+  .gift-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 40%;opacity:.55}
+  .gift-hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,41,59,.97) 0%,rgba(30,41,59,.9) 45%,rgba(30,41,59,.55) 75%,rgba(30,41,59,.35) 100%),linear-gradient(180deg,rgba(30,41,59,.2),rgba(30,41,59,.6))}
+  .gift-hero .container{position:relative;z-index:1;max-width:900px}
+  .gift-brand{display:inline-block;margin-bottom:2.6rem}.gift-brand img{height:30px;width:auto;display:block;opacity:.95}
+  .gift-hero h1{font-family:var(--font-heading);font-weight:800;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.12;letter-spacing:-.025em;margin:.8rem 0 1rem;max-width:760px}
+  .gift-who{font-size:1rem;line-height:1.65;color:rgba(255,255,255,.82);max-width:720px;margin-bottom:1.5rem}
+  .gift-actions{display:flex;flex-wrap:wrap;gap:.7rem}
+  .gift-eyebrow{font-family:var(--font-heading);font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-light)}
+  .gift-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.35rem;border-radius:999px;font-family:var(--font-heading);font-weight:700;font-size:.95rem;transition:transform .2s cubic-bezier(.2,.9,.3,1.2),box-shadow .2s ease}
+  .gift-btn:hover{transform:translateY(-2px)}.gift-btn:focus-visible{outline:3px solid var(--orange-light);outline-offset:3px}.gift-btn:active{transform:translateY(0)}
+  .gift-btn.primary{background:linear-gradient(135deg,var(--orange-light),var(--orange-dark));color:#fff;box-shadow:0 8px 24px rgba(249,101,50,.35)}
+  .gift-btn.ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+  .gift-body{max-width:900px;margin:0 auto;padding:1rem clamp(1.25rem,4vw,2.5rem) 4rem}
+  .gift-sec{padding:2.75rem 0 1.5rem;border-top:1px solid var(--gray-200)}
+  .gift-sec:first-child{border-top:0}
+  .gift-num{font-family:var(--font-heading);font-weight:800;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:.75rem}
+  .gift-num::before{content:"";width:28px;height:3px;background:var(--orange);border-radius:2px}
+  .gift-sec h2{font-family:var(--font-heading);font-weight:800;font-size:clamp(1.4rem,2.6vw,1.9rem);letter-spacing:-.02em;line-height:1.2;margin:.7rem 0 .8rem;color:var(--navy)}
+  .gift-sec p{font-size:1.02rem;line-height:1.75;color:var(--gray-600);max-width:720px}
+  .gift-fig{margin:1.5rem 0 1.25rem}.gift-fig img{width:100%;height:auto;display:block;border-radius:12px;filter:grayscale(1) contrast(1.05);box-shadow:0 14px 40px rgba(30,41,59,.18)}.gift-fig figcaption{font-size:.85rem;color:var(--gray-500);margin-top:.6rem;line-height:1.5}
+  .gift-lede{font-size:1.08rem!important;color:var(--navy)!important}
+  .gift-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.25rem}
+  .gift-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:14px;padding:1.2rem 1.25rem;position:relative}
+  .gift-card b{display:block;font-family:var(--font-heading);font-weight:700;color:var(--navy);margin-bottom:.35rem;font-size:1rem;padding-right:2.4rem}
+  .gift-card span{font-size:.94rem;line-height:1.6;color:var(--gray-600)}
+  .gift-card .k{position:absolute;top:.9rem;right:1rem;font-family:var(--font-heading);font-weight:800;color:var(--orange);opacity:.35;font-size:1.4rem;letter-spacing:-.04em}
+  .gift-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.25rem}
+  @media (max-width:720px){.gift-steps{grid-template-columns:1fr}}
+  .gift-step{border-radius:14px;padding:1.2rem 1.25rem;color:#fff;background:var(--navy);box-shadow:0 12px 30px rgba(30,41,59,.18)}
+  .gift-step .when{font-family:var(--font-heading);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-light);font-weight:700}
+  .gift-step b{display:block;font-family:var(--font-heading);font-size:1.25rem;font-weight:800;margin:.35rem 0 .5rem;letter-spacing:-.02em}
+  .gift-step span{font-size:.94rem;line-height:1.6;color:rgba(255,255,255,.82)}
+  .tq{margin-top:1.25rem;border:1.5px solid var(--gray-200);border-radius:16px;overflow:hidden}
+  .tq-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;background:var(--gray-50);border-bottom:1px solid var(--gray-200)}
+  .tq-head b{font-family:var(--font-heading);font-weight:800;color:var(--navy)}
+  .tq-score{font-family:var(--font-heading);font-weight:800;font-size:1.5rem;color:var(--orange);letter-spacing:-.03em}
+  .tq-score small{font-size:.8rem;color:var(--gray-500);font-weight:600;letter-spacing:0;margin-left:.25rem}
+  .tq label{display:grid;grid-template-columns:auto 1fr;gap:.9rem;padding:1rem 1.25rem;border-bottom:1px solid var(--gray-200);cursor:pointer;align-items:start;transition:background .2s ease}
+  .tq label:last-of-type{border-bottom:0}.tq label:hover{background:#fff7f3}
+  .tq input{width:22px;height:22px;margin-top:.15rem;accent-color:var(--orange);cursor:pointer}
+  .tq .q{font-weight:600;color:var(--navy);line-height:1.5}
+  .tq .r{display:block;font-size:.88rem;color:var(--gray-500);margin-top:.25rem}.tq .r a{color:var(--orange);font-weight:600}
+  .tq-verdict{padding:1rem 1.25rem;background:var(--navy);color:#fff;font-size:.98rem;line-height:1.6}
+  .tq-verdict b{color:var(--orange-light)}
+  .gift-check{list-style:none;margin-top:1rem;display:grid;gap:.6rem}
+  .gift-check li{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start;font-size:1rem;line-height:1.6;color:var(--gray-600)}
+  .gift-check li b{color:var(--navy);font-family:var(--font-heading);font-weight:700}
+  .gift-check li::before{content:"";width:12px;height:12px;border-radius:3px;background:var(--orange);margin-top:.5rem;transform:rotate(45deg)}
+  .gift-gloss{columns:2;column-gap:2rem;margin-top:1rem;font-size:.95rem;line-height:1.65;color:var(--gray-600)}
+  @media (max-width:720px){.gift-gloss{columns:1}}
+  .gift-gloss dt{font-family:var(--font-heading);font-weight:700;color:var(--navy);break-after:avoid}
+  .gift-gloss dd{margin:0 0 .7rem}
+  .gift-links{list-style:none;margin-top:1rem;display:grid;gap:.55rem}
+  .gift-links a{color:var(--navy);font-weight:600;border-bottom:1.5px solid rgba(249,101,50,.5);transition:border-color .2s ease,color .2s ease}
+  .gift-links a:hover{color:var(--orange);border-color:var(--orange)}
+  .gift-links li span{color:var(--gray-500);font-size:.92rem}
+  .gift-cta{margin:2.5rem 0 0;border-radius:18px;background:var(--navy);color:#fff;padding:2.25rem clamp(1.25rem,4vw,2.5rem);position:relative;overflow:hidden}
+  .gift-cta::before{content:"";position:absolute;inset:auto -10% -60% auto;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(249,101,50,.45),transparent 65%)}
+  .gift-cta .inner{position:relative;z-index:1;max-width:640px}
+  .gift-cta h2{color:#fff;margin-top:.5rem}
+  .gift-cta p{color:rgba(255,255,255,.82)}
+  .gift-form{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.25rem}
+  .gift-form input{flex:1 1 260px;padding:.9rem 1.1rem;border-radius:999px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-family:var(--font-body);font-size:1rem}
+  .gift-form input::placeholder{color:rgba(255,255,255,.55)}.gift-form input:focus-visible{outline:3px solid var(--orange-light);outline-offset:2px}
+  .gift-form button{border:0;cursor:pointer}
+  .gift-form .joined{display:none;font-family:var(--font-heading);font-weight:700;color:var(--orange-light);padding:.9rem 0}
+  .gift-fine{font-size:.85rem;color:rgba(255,255,255,.6);margin-top:.9rem}
+  .gift-fine a{color:var(--orange-light);text-decoration:underline}
+  .gift-ask{margin-top:2rem;padding:1.25rem 1.5rem;border-left:4px solid var(--orange);background:#fff7f3;border-radius:0 12px 12px 0}
+  .gift-ask b{font-family:var(--font-heading);color:var(--navy)}
+  .gift-ask a{color:var(--orange);font-weight:600}
+</style>
+</head>
+<body>
+
+<div id="axr-mega-veil" aria-hidden="true"></div>
+
+<header class="gift-hero">
+  <img class="gift-hero-bg" src="brand_assets/rcea-2026-09-24-hero.jpg" alt="" aria-hidden="true">
+  <div class="gift-hero-shade"></div>
+  <div class="container">
+    <a href="index.html" class="gift-brand" aria-label="AutomateX home"><img src="brand_assets/automatex-wordmark-dark-trim.png" alt="AutomateX"></a>
+    <div class="gift-eyebrow">For engineers starting with AI &middot; September 2026</div>
+    <h1>The AI-native engineer: a starter kit</h1>
+    <p class="gift-who">Built for two evenings at One Great George Street: the ICE London panel <em>AI and the civil engineer</em> on 17 September, and the RCEA and Young Rail Professionals evening <em>The use of AI in rail</em> on 24 September 2026. The slides from both are below, with the first step laid out.</p>
+    <div class="gift-actions">
+      <a class="gift-btn primary" href="#talks">The slides from both evenings</a>
+      <a class="gift-btn ghost" href="#stay">The newsletter</a>
+    </div>
+  </div>
+</header>
+
+<main class="gift-body">
+
+  <section class="gift-sec">
+    <div class="gift-num">One</div>
+    <h2>The story, in one line.</h2>
+    <p class="gift-lede">The electric motor was ready by 1900. The boom came in the 1920s, when factories were rebuilt around it instead of fitting it into the old line-shaft floor. A faster tool rises to the ceiling set by the workflow around it. Our shafts are digital: the handovers, the re-typing, the approvals, the judgement nobody wrote down. And nobody in the industry is 10 years ahead of you.</p>
+    <figure class="gift-fig"><img src="brand_assets/ice-2026-09-17-factory-c1900.jpg" alt="A factory floor around 1900, with a line shaft and belts running overhead" loading="lazy"><figcaption>A factory floor around 1900. The motor has arrived; the line shaft still turns overhead and the belts still drop to the same machines. Library of Congress.</figcaption></figure>
+    <p>Both talks carry that argument, with the notes behind every slide.</p>
+    <div class="gift-steps talks" id="talks">
+      <div class="gift-step"><div class="when">ICE London &middot; 17 September 2026</div><b>AI and the civil engineer: reimagining roles in infrastructure delivery</b><span>Welcome and context setting by Bill Guo, ICE London Vice Chair, before Dr Neda Naghshbandi, Anthony Dewar, Lucy Gardner and Amira Damji. The motor story, the capability and adoption curves, the three lanes of work, and the 55-station survey where the key turned.</span><br><a class="pdf" href="brand_assets/ice-ai-and-the-civil-engineer-2026-09-17.pdf" download>Download the slides &middot; PDF, 15 pages, 2.5 MB</a></div>
+      <div class="gift-step"><div class="when">RCEA &times; Young Rail Professionals &middot; 24 September 2026</div><b>AI, Rail and Engineering: the why, what and how</b><span>Bill Guo's 20-minute talk at <em>The use of AI in rail</em>, alongside Mujadded Alif, Jonathan Ryan and Jiaxi Li. Why it matters to an early career, what actually changes in the job, and how to start with one workflow.</span><br><a class="pdf" href="brand_assets/ai-rail-and-engineering-2026-09-24.pdf" download>Download the slides &middot; PDF, 13 pages, 2.2 MB</a></div>
+    </div>
+  </section>
+
+  <section class="gift-sec">
+    <div class="gift-num">Two</div>
+    <h2>One workflow, two questions.</h2>
+    <p>You do not need a transformation programme. You need one workflow, scored before you automate it.</p>
+    <div class="gift-steps">
+      <div class="gift-step"><div class="when">Question 1 &middot; Can it be automated?</div><b>Is the process written down, are the rules dense, are the inputs structured?</b><span>A form with a standard behind it scores high. A judgement call in a site meeting scores low.</span></div>
+      <div class="gift-step"><div class="when">Question 2 &middot; Should it be?</div><b>Volume, pain, leverage.</b><span>Something you do 40 times a year that blocks other people is worth automating. Something annoying you do twice a year is not, however tempting.</span></div>
+      <div class="gift-step"><div class="when">Then &middot; Pick, prove, compound</div><b>Start where both say yes, and leave the rest alone.</b><span><strong>Pick</strong> one workflow with written rules, small enough to finish. <strong>Prove</strong> it beside the old way on a real job, check every output yourself, and show your lead the coverage and the iterations, not the hours. <strong>Compound</strong>: write down the prompts, the checks and the failure cases. The second workflow is faster than the first.</span></div>
+    </div>
+    <p style="margin-top:1.25rem">Start smaller than feels impressive. Then <a href="mailto:bill.guo@automatex.uk?subject=The%20workflow%20I%20picked">tell me what you found</a>.</p>
+  </section>
+
+  <section class="gift-sec">
+    <div class="gift-num">Three</div>
+    <h2>Six skills that outlast the tools.</h2>
+    <p>From years as a hiring manager in rail. The tools changed every few years. What I looked for did not.</p>
+    <div class="gift-grid">
+      <div class="gift-card"><span class="k">01</span><b>Judgement under uncertainty</b><span>Deciding with incomplete information, and owning the decision.</span></div>
+      <div class="gift-card"><span class="k">02</span><b>Laying out the work</b><span>Seeing the whole workflow, not the task in front of you. The scarce skill of 1913, and of 2026.</span></div>
+      <div class="gift-card"><span class="k">03</span><b>Verification</b><span>Checking an answer without redoing it. Source, method, range, edge, sign.</span></div>
+      <div class="gift-card"><span class="k">04</span><b>Accountability</b><span>The signature. Knowing what you can hand over, and what you never do.</span></div>
+      <div class="gift-card"><span class="k">05</span><b>Leading across disciplines</b><span>Civil engineers end up in the middle of the room. Making change happen without all the certainty.</span></div>
+      <div class="gift-card"><span class="k">06</span><b>Learning the tool before judging it</b><span>We would never sign off a material we had not tested. Same rule for AI.</span></div>
+    </div>
+  </section>
+
+  <section class="gift-sec">
+    <div class="gift-num">Four</div>
+    <h2>Thirty days, three moves.</h2>
+    <p>Observe, experiment, adopt. In that order, and no further than you can verify.</p>
+    <div class="gift-steps">
+      <div class="gift-step"><div class="when">Week 1 &middot; Observe</div><b>Sort one week of tasks into three lanes.</b><span><strong>AI-replaced</strong>: routine, rule-based, checkable. <strong>AI-enabled</strong>: human and AI in turn. <strong>AI-assisted</strong>: the decision stays yours. Count the hours in each lane. Most people are surprised by the first.</span></div>
+      <div class="gift-step"><div class="when">Weeks 2 to 4 &middot; Experiment</div><b>One AI-enabled task, on work you can check.</b><span>Frame the task, give it the context, let AI draft, then verify every output. Keep a note of what it got wrong. That note is the most valuable thing you will produce this month.</span></div>
+      <div class="gift-step"><div class="when">Months 2 and 3 &middot; Adopt</div><b>Redesign one workflow around the tool.</b><span>Verification designed in, accountability kept with the person who signs. Then tell your team what changed, and what did not. Fit it into the old factory, or rebuild around it: this is the rebuild, at the smallest useful size.</span></div>
+    </div>
+  </section>
+
+  <section class="gift-sec">
+    <div class="gift-num">Five</div>
+    <h2>Your token quotient.</h2>
+    <p>We talk about IQ and EQ. In this era there is a third: <strong>TQ</strong>, how fluently you can put a machine's tokens to work and know when not to trust them. Five yes-or-no questions. Tick what is true today.</p>
+    <div class="tq" id="tq">
+      <div class="tq-head"><b>TQ self-score</b><div class="tq-score"><span id="tq-n">0</span><small>/ 5</small></div></div>
+      <label><input type="checkbox" class="tq-q"><div><div class="q">I can explain what a token and a context window are, and why they cost money.</div><span class="r">Lifts it: any vendor's prompting guide, an hour, for example <a href="https://docs.claude.com" target="_blank" rel="noopener">Anthropic's documentation</a>.</span></div></label>
+      <label><input type="checkbox" class="tq-q"><div><div class="q">I have built one automation end to end. A script that reads a spreadsheet and writes a report counts.</div><span class="r">Lifts it: <a href="https://cs50.harvard.edu/python/" target="_blank" rel="noopener">CS50P, Harvard's introduction to programming with Python</a>, free.</span></div></label>
+      <label><input type="checkbox" class="tq-q"><div><div class="q">I can say what an API does, and what MCP adds on top of it.</div><span class="r">Lifts it: <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">the Model Context Protocol introduction</a>, twenty minutes.</span></div></label>
+      <label><input type="checkbox" class="tq-q"><div><div class="q">I have chosen a small model over a large one for a task, on purpose.</div><span class="r">Lifts it: fit the model to the task. Most engineering value sits in small, specific models on small, specific tasks.</span></div></label>
+      <label><input type="checkbox" class="tq-q"><div><div class="q">I can verify an AI output without redoing the work.</div><span class="r">Lifts it: the five checks in the next section.</span></div></label>
+      <div class="tq-verdict" id="tq-v"><b>Tick the boxes.</b> Your score and a next step appear here.</div>
+    </div>
+  </section>
+
+  <section class="gift-sec">
+    <div class="gift-num">Six</div>
+    <h2>Verify the output. Five checks.</h2>
+    <p>You can hand over the thinking. You cannot hand over the understanding. This is what the understanding does to an AI output before it goes anywhere.</p>
+    <ul class="gift-check">
+      <li><div><b>Source.</b> Where did each fact come from, and can I open it? An answer without a source is a draft.</div></li>
+      <li><div><b>Method.</b> Would I have done it this way? What did it skip, assume or invent?</div></li>
+      <li><div><b>Range.</b> Are the numbers physically plausible? Orders of magnitude, units, signs, dates.</div></li>
+      <li><div><b>Edge.</b> What happens at the boundary case it was not shown? Ask it, then check the answer.</div></li>
+      <li><div><b>Sign.</b> Would I put my name on it as it stands? If not, it is not finished.</div></li>
+    </ul>
+    <p style="margin-top:1.25rem"><strong>Responsible use, in one paragraph.</strong> Never paste client data, drawings, commercially sensitive or safety-critical material into a public tool. Use what your organisation has approved. Record what AI produced and what a person verified. The accountability stays with the person who signs, which is what the ICE Code of Professional Conduct, April 2026, already says.</p>
+  </section>
+
+  <section class="gift-sec">
+    <div class="gift-num">Seven</div>
+    <h2>Ten words.</h2>
+    <dl class="gift-gloss">
+      <dt>Token</dt><dd>The unit a model reads and writes, roughly three quarters of a word. You pay per token, in and out.</dd>
+      <dt>Context window</dt><dd>How many tokens the model can hold at once: your instructions, your documents, its answer.</dd>
+      <dt>Prompt</dt><dd>What you put in the window. Prompting is the first rung; context engineering is the second.</dd>
+      <dt>Agent</dt><dd>A model given tools and a goal, working in a loop until the job is done or it asks you.</dd>
+      <dt>API</dt><dd>The doorway software uses to talk to other software. How a model gets into your workflow.</dd>
+      <dt>MCP</dt><dd>Model Context Protocol. A standard doorway between a model and your tools, files and systems.</dd>
+      <dt>Small language model</dt><dd>A smaller, cheaper model tuned for one job. Often the right one for engineering tasks.</dd>
+      <dt>Harness</dt><dd>The scaffolding around a model: the checks, the tools, the limits. Where reliability comes from.</dd>
+      <dt>Loop</dt><dd>Draft, verify, correct, again. The unit of AI-enabled work.</dd>
+      <dt>Evaluation</dt><dd>A fixed set of test cases you run every time something changes. How you know it still works.</dd>
+    </dl>
+  </section>
+
+  <section class="gift-sec">
+    <div class="gift-num">Eight</div>
+    <h2>Where to start.</h2>
+    <ul class="gift-links">
+      <li><a href="https://cs50.harvard.edu/x/" target="_blank" rel="noopener">CS50x, Harvard's introduction to computer science</a> <span>&middot; the foundations, free</span></li>
+      <li><a href="https://cs50.harvard.edu/python/" target="_blank" rel="noopener">CS50P, introduction to programming with Python</a> <span>&middot; the language of engineering automation</span></li>
+      <li><a href="https://www.kaggle.com/learn" target="_blank" rel="noopener">Google and Kaggle's AI courses</a> <span>&middot; including the five-day agents intensive</span></li>
+      <li><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Model Context Protocol</a> <span>&middot; what MCP is, from the source</span></li>
+      <li><a href="https://www.semanticscholar.org/paper/df3c8b58b65777f849e4115587abbc4548236308" target="_blank" rel="noopener">Paul David, The Dynamo and the Computer, 1990</a> <span>&middot; the motor story, in eleven pages</span></li>
+      <li><a href="https://www.gov.uk/government/publications/transport-artificial-intelligence-action-plan" target="_blank" rel="noopener">DfT Transport AI Action Plan, June 2025</a> <span>&middot; direction</span></li>
+      <li><a href="https://www.gbrx.co.uk/wp-content/STATIC/files/Artificial_Intelligence_in_Rail-The_Industry_Action_Plan.pdf" target="_blank" rel="noopener">GBRX, AI in Rail: the Industry Action Plan, April 2026</a> <span>&middot; delivery</span></li>
+      <li><a href="https://www.orr.gov.uk/search-news/regulator-sets-action-plan-safe-adoption-ai-rail-and-road" target="_blank" rel="noopener">ORR Safe AI Innovation Action Plan, May 2026</a> <span>&middot; assurance</span></li>
+      <li><a href="https://www.ice.org.uk" target="_blank" rel="noopener">ICE Code of Professional Conduct, April 2026</a> <span>&middot; the accountability line</span></li>
+    </ul>
+  </section>
+
+  <div class="gift-cta" id="stay">
+    <div class="inner">
+      <div class="gift-eyebrow">The newsletter</div>
+      <h2>The practical version, every fortnight.</h2>
+      <p>A short newsletter every two weeks on AI in rail: what worked, what did not, and one thing to try. Subscribers also get early access to Scribtive&reg; OS when it opens. Free, and easy to leave.</p>
+      <form class="gift-form" onsubmit="return giftJoin(event)">
+        <input type="email" id="gift-email" placeholder="Your work email" aria-label="Email address" required>
+        <button type="submit" class="gift-btn primary" id="gift-btn">Subscribe</button>
+        <span class="joined" id="gift-joined">Subscribed. Thank you.</span>
+      </form>
+      <p class="gift-fine">Consent, UK GDPR Article 6(1)(a). See the <a href="privacy.html">privacy notice</a>. The same list as <a href="waitlist.html">the Scribtive waitlist</a>.</p>
+    </div>
+  </div>
+
+  <div class="gift-ask">
+    <b>Two questions I am collecting answers to.</b> Which judgement in your work would you never hand to a machine? And which workflow did you pick, and what did the two questions say? If you feel like sharing, one sentence to <a href="mailto:bill.guo@automatex.uk?subject=Starter%20kit">bill.guo@automatex.uk</a> is plenty. I read every one.
+  </div>
+
+</main>
+
+<script>
+(function(){
+  var boxes = document.querySelectorAll('.tq-q'), n = document.getElementById('tq-n'), v = document.getElementById('tq-v');
+  var verdicts = ['<b>0 of 5.</b> Start with CS50P this month. One hour a day for four weeks changes the rest.',
+                  '<b>1 of 5.</b> You have a foothold. Build one automation end to end next; nothing teaches tokens like paying for them.',
+                  '<b>2 of 5.</b> You are AI-assisted. Pick one AI-enabled task on work you can check, and keep the note of what it got wrong.',
+                  '<b>3 of 5.</b> You are AI-enabled. Redesign one workflow around the tool, verification designed in.',
+                  '<b>4 of 5.</b> Nearly there. Choose a small model for a small task on purpose, and measure it.',
+                  '<b>5 of 5.</b> You are the person who lays out the work. Teach it to the two people either side of you.'];
+  function update(){ var c = 0; boxes.forEach(function(b){ if (b.checked) c++; }); n.textContent = c; v.innerHTML = verdicts[c]; }
+  boxes.forEach(function(b){ b.addEventListener('change', update); });
+})();
+function giftJoin(e){
+  e.preventDefault();
+  var input = document.getElementById('gift-email'), btn = document.getElementById('gift-btn'), ok = document.getElementById('gift-joined');
+  var email = (input.value || '').trim(); if (!email || email.indexOf('@') < 0) { alert('Please enter a valid email address.'); return false; }
+  btn.disabled = true; var label = btn.textContent; btn.textContent = 'Joining...';
+  fetch('https://n8n.automatex.uk/webhook/pace-waitlist', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, source: 'AI starter kit page 2026-09-16', timestamp: new Date().toISOString() }) })
+  .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); input.value = ''; btn.style.display = 'none'; input.style.display = 'none'; ok.style.display = 'inline-block'; })
+  .catch(function(){ btn.disabled = false; btn.textContent = label; alert('Something went wrong. Please try again, or email bill.guo@automatex.uk.'); });
+  return false;
+}
+</script>
+
+<footer class="gift-foot">
+  <div class="container">
+    <a href="index.html" class="gift-foot-brand" aria-label="AutomateX home"><img src="brand_assets/automatex-wordmark-dark-trim.png" alt="AutomateX"></a>
+    <p>&copy; 2026 AutomateX Ltd &middot; <a href="mailto:bill.guo@automatex.uk">bill.guo@automatex.uk</a> &middot; <a href="privacy.html">Privacy notice</a> &middot; <a href="insights.html">More insights</a></p>
+  </div>
+</footer>
+</body>
+</html>
