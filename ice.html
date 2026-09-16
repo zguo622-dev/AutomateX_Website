@@ -552,20 +552,18 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
 
 <style id="ice-gift-2026-09-16">
   body{padding-top:0!important}
-  .gift-brand{display:inline-block;margin-bottom:3rem}.gift-brand img{height:34px;width:auto;display:block;opacity:.95}
   .gift-foot{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 0 2.5rem;font-size:.9rem}
   .gift-foot .container{max-width:900px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
   .gift-foot img{height:24px;width:auto;display:block;opacity:.9}
   .gift-foot a{color:rgba(255,255,255,.85);text-decoration:underline;text-decoration-color:rgba(249,101,50,.6)}
   .gift-foot a:hover{color:var(--orange-light)}
-  .gift-hero{background:radial-gradient(1200px 500px at 15% -10%, rgba(249,101,50,.22), transparent 60%),radial-gradient(900px 400px at 100% 0%, rgba(251,139,60,.12), transparent 55%),var(--navy);color:var(--white);padding:1.6rem 0 3.5rem;position:relative;overflow:hidden}
-  .gift-hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;pointer-events:none}
-  .gift-hero .container{position:relative;z-index:1;max-width:900px}
+  .gift-hero{background:var(--navy);color:var(--white);position:relative}
+  .gift-hero-bar{padding:1.1rem 0 .9rem}.gift-hero-bar .container{max-width:1400px}
+  .gift-brand{display:inline-block}.gift-brand img{height:30px;width:auto;display:block;opacity:.95}
+  .gift-hero-img{max-width:1400px;margin:0 auto;padding:0 clamp(1rem,3vw,2rem)}
+  .gift-hero-img img{width:100%;height:auto;display:block;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .gift-hero-cta{padding:1.4rem 0 2.2rem}.gift-hero-cta .container{max-width:1400px;display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem}
   .gift-eyebrow{font-family:var(--font-heading);font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-light)}
-  .gift-hero h1{font-family:var(--font-heading);font-weight:800;font-size:clamp(2rem,4.6vw,3.25rem);line-height:1.08;letter-spacing:-.03em;margin:.9rem 0 1rem}
-  .gift-hero h1 em{font-style:normal;color:var(--orange-light)}
-  .gift-hero p{font-size:1.1rem;line-height:1.7;color:rgba(255,255,255,.82);max-width:700px}
-  .gift-hero .gift-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
   .gift-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.35rem;border-radius:999px;font-family:var(--font-heading);font-weight:700;font-size:.95rem;transition:transform .2s cubic-bezier(.2,.9,.3,1.2),box-shadow .2s ease}
   .gift-btn:hover{transform:translateY(-2px)}.gift-btn:focus-visible{outline:3px solid var(--orange-light);outline-offset:3px}.gift-btn:active{transform:translateY(0)}
   .gift-btn.primary{background:linear-gradient(135deg,var(--orange-light),var(--orange-dark));color:#fff;box-shadow:0 8px 24px rgba(249,101,50,.35)}
@@ -635,16 +633,12 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
 <div id="axr-mega-veil" aria-hidden="true"></div>
 
 <header class="gift-hero">
-  <div class="container">
-    <a href="index.html" class="gift-brand" aria-label="AutomateX home"><img src="brand_assets/automatex-wordmark-dark-trim.png" alt="AutomateX"></a>
-    <div class="gift-eyebrow">ICE London &middot; AI and the civil engineer &middot; 17 September 2026</div>
-    <h1>The AI-native civil engineer. <em>A starter kit.</em></h1>
-    <p>Thank you for coming. Three things, as promised: tonight's slides, the skills that outlast the tools, and a 30-day way to start. And a fortnightly newsletter, if you would like the practical version.</p>
-    <div class="gift-actions">
-      <a class="gift-btn primary" href="brand_assets/ice-ai-and-the-civil-engineer-2026-09-17.pdf" download>Download the slides &middot; PDF, 15 pages, 2.5 MB</a>
-      <a class="gift-btn ghost" href="#stay">The newsletter</a>
-    </div>
-  </div>
+  <div class="gift-hero-bar"><div class="container"><a href="index.html" class="gift-brand" aria-label="AutomateX home"><img src="brand_assets/automatex-wordmark-dark-trim.png" alt="AutomateX"></a></div></div>
+  <div class="gift-hero-img"><img src="brand_assets/ice-2026-09-17-opening.jpg" alt="ICE London, AI and the civil engineer, 17 September 2026. Bill Guo, Dr Neda Naghshbandi, Anthony Dewar, Lucy Gardner and Amira Damji."></div>
+  <div class="gift-hero-cta"><div class="container">
+    <a class="gift-btn primary" href="brand_assets/ice-ai-and-the-civil-engineer-2026-09-17.pdf" download>Download the slides &middot; PDF, 15 pages, 2.5 MB</a>
+    <a class="gift-btn ghost" href="#stay">The newsletter</a>
+  </div></div>
 </header>
 
 <main class="gift-body">
