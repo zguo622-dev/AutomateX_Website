@@ -119,5 +119,15 @@
     "blurb": "The initial promise of RAG often feels like magic. Here are five hard-won lessons from building retrieval-augmented generation systems that actually work in production.",
     "thumb": "images/insights/rag-truths.png",
     "source": "LinkedIn"
+  },
+  {
+    "type": "read",
+    "title": "The AI-native civil engineer: a starter kit",
+    "url": "ice.html",
+    "external": false,
+    "date": "2026-09-17",
+    "blurb": "From the ICE London evening on AI and the civil engineer: the slides, six skills that outlast the tools, a 30-day way to start, your token quotient, and five checks before you sign.",
+    "thumb": "images/insights/ice-ai-starter-kit.jpg",
+    "source": "ICE London · 17 September 2026"
   }
 ]
