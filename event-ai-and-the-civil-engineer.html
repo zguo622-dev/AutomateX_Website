@@ -641,6 +641,9 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
    sections, cards, CTA and footer all come from its own gift-* styles. These are only the
    pieces the kit does not have: the quote, the facts grid, speakers, the gallery and the
    slide carousel. */
+/* Event heroes are photographs of the room: keep them tall enough to show the speaker and
+   the screen, whatever the headline length (the kit's hero is sized by its text alone). */
+.gift-hero{min-height:clamp(520px,43vw,660px)}
 /* the kit's sections carry one paragraph each; a recap carries several */
 .gift-sec > p + p{margin-top:1rem}
 .ev-quote{margin:1.75rem 0 .5rem;padding:1.4rem 1.6rem;border-left:4px solid var(--orange);background:#fff7f3;border-radius:0 12px 12px 0}
