@@ -427,8 +427,9 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
 .evp-hero{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(560px,82vh,780px);color:#fff;background:var(--ink);overflow:hidden}
 .evp-hero-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:var(--focus,60% 40%);animation:evp-settle 1.6s cubic-bezier(.16,1,.3,1) both}
 @keyframes evp-settle{from{transform:scale(1.06)}to{transform:scale(1.001)}}
+/* --shade-x lets a page darken further where its photo has a bright screen behind the words */
 .evp-hero-shade{position:absolute;inset:0;z-index:-1;background:
-  linear-gradient(90deg,rgba(14,18,36,.97) 0%,rgba(14,18,36,.92) 30%,rgba(14,18,36,.72) 48%,rgba(14,18,36,.22) 70%,rgba(14,18,36,.06) 100%),
+  var(--shade-x,linear-gradient(90deg,rgba(14,18,36,.97) 0%,rgba(14,18,36,.92) 30%,rgba(14,18,36,.72) 48%,rgba(14,18,36,.22) 70%,rgba(14,18,36,.06) 100%)),
   linear-gradient(0deg,rgba(14,18,36,.9) 0%,rgba(14,18,36,0) 50%),
   linear-gradient(180deg,rgba(14,18,36,.55) 0%,rgba(14,18,36,0) 22%)}
 .evp-hero-in{padding-top:8.5rem;padding-bottom:clamp(2.75rem,7vh,4.5rem)}
@@ -834,8 +835,8 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
 </div>
 
 <main class="evp">
-<header class="evp-hero" style="--focus:50% 45%;--focus-m:74% 50%">
-  <img class="evp-hero-bg" src="images/events/rcea-yrp-2026-09-24-hero.jpg" alt="A rail engineer in high-visibility clothing overlooking a railway at dusk" fetchpriority="high" decoding="async">
+<header class="evp-hero" style="--focus:66% 46%;--focus-m:78% 40%;--shade-x:linear-gradient(90deg,rgba(14,18,36,.97) 0%,rgba(14,18,36,.95) 42%,rgba(14,18,36,.84) 58%,rgba(14,18,36,.3) 74%,rgba(14,18,36,.06) 100%)">
+  <img class="evp-hero-bg" src="images/events/rcea-yrp-2026-09-24-hero.jpg" alt="Bill Guo presenting AI, Rail and Engineering at One Great George Street, beside his title slide, with the other speakers at the table" fetchpriority="high" decoding="async">
   <div class="evp-hero-shade" aria-hidden="true"></div>
   <div class="evp-wrap evp-hero-in">
     <nav class="evp-crumb" aria-label="Breadcrumb"><a href="insights.html">Insights</a><span aria-hidden="true">/</span><span>Events</span></nav>
@@ -863,6 +864,8 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
       <ul class="evp-people"><li><b>Mujadded Alif</b><span>Automated railway wheel flange measurement from images using deep learning</span></li><li><b>Jonathan Ryan</b><span>I haven’t written any code this year</span></li><li class=is-bill><b>Bill Guo <small>FICE CEng MEng</small></b><span>AI, Rail and Engineering: the why, what and how</span></li><li><b>Jiaxi Li</b><span>Beyond railway capacity: AI, integrated operational planning and the engineer across boundaries</span></li></ul>
     </aside>
   </div>
+  <div class="evp-wrap"><div class="evp-gallery"><figure><img src="images/events/rcea-yrp-2026-09-24-mujadded.jpg" alt="Mujadded Alif presenting at the lectern" loading="lazy" decoding="async" width="1200" height="900"><figcaption>Mujadded Alif on automated wheel flange measurement from images.</figcaption></figure><figure><img src="images/events/rcea-yrp-2026-09-24-jonathan.jpg" alt="Jonathan Ryan presenting beside a slide reading I haven’t written any code this year" loading="lazy" decoding="async" width="1200" height="900"><figcaption>Jonathan Ryan: I haven’t written any code this year.</figcaption></figure><figure><img src="images/events/rcea-yrp-2026-09-24-jiaxi.jpg" alt="Jiaxi Li presenting at the lectern" loading="lazy" decoding="async" width="1200" height="900"><figcaption>Jiaxi Li on AI, integrated operational planning and the engineer across boundaries.</figcaption></figure><figure><img src="images/events/rcea-yrp-2026-09-24-speakers.jpg" alt="The speakers and hosts standing in front of the feedback slide" loading="lazy" decoding="async" width="1200" height="900"><figcaption>Speakers and hosts at the close of the evening.</figcaption></figure></div>
+</div>
 </section>
 <section class="evp-sec evp-slides" id="slides" aria-labelledby="evp-slides-h">
   <div class="evp-wrap">
