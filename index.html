@@ -6651,5 +6651,19 @@ window.addEventListener("resize",sync);})();
   });
 })();
 </script>
+<script>
+/* Deep links such as /#newsletter (used by the email signature). The browser's own
+   fragment jump does not land on this page, so re-apply it once the page has loaded. */
+(function () {
+  function go(smooth) {
+    var id = location.hash.slice(1);
+    try { id = decodeURIComponent(id); } catch (e) { return; }
+    var el = id && document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+  }
+  window.addEventListener('load', function () { setTimeout(function () { go(false); }, 250); });
+  window.addEventListener('hashchange', function () { go(true); });
+})();
+</script>
 </body>
 </html>
