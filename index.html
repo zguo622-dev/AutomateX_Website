@@ -6653,16 +6653,33 @@ window.addEventListener("resize",sync);})();
 </script>
 <script>
 /* Deep links such as /#newsletter (used by the email signature). The browser's own
-   fragment jump does not land on this page, so re-apply it once the page has loaded. */
+   fragment jump fires while the page above is still changing height, so wait until
+   the target's position has held steady, then jump. A user scroll cancels it. */
 (function () {
-  function go(smooth) {
+  function target() {
     var id = location.hash.slice(1);
-    try { id = decodeURIComponent(id); } catch (e) { return; }
-    var el = id && document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+    try { id = decodeURIComponent(id); } catch (e) { return null; }
+    return id ? document.getElementById(id) : null;
   }
-  window.addEventListener('load', function () { setTimeout(function () { go(false); }, 250); });
-  window.addEventListener('hashchange', function () { go(true); });
+  function settleThenGo() {
+    var el = target(); if (!el) return;
+    var last = null, steady = 0, tries = 0, cancelled = false;
+    function cancel() { cancelled = true; }
+    ['wheel', 'touchstart', 'keydown'].forEach(function (ev) {
+      window.addEventListener(ev, cancel, { once: true, passive: true });
+    });
+    (function tick() {
+      if (cancelled) return;
+      var y = Math.round(el.getBoundingClientRect().top + window.scrollY);
+      steady = (y === last) ? steady + 1 : 0; last = y;
+      if (steady >= 4 || ++tries > 40) { el.scrollIntoView({ behavior: 'instant', block: 'start' }); return; }
+      setTimeout(tick, 100);
+    })();
+  }
+  window.addEventListener('load', settleThenGo);
+  window.addEventListener('hashchange', function () {
+    var el = target(); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 })();
 </script>
 </body>
