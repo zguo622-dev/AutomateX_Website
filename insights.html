@@ -2993,6 +2993,7 @@ body{padding-top:81px;}
       <button type="button" class="insights-filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
       <button type="button" class="insights-filter-btn" data-filter="read" aria-pressed="false">Read</button>
       <button type="button" class="insights-filter-btn" data-filter="watch" aria-pressed="false">Watch</button>
+      <button type="button" class="insights-filter-btn" data-filter="event" aria-pressed="false">Events</button>
     </div>
 
     <div class="insights-grid" id="insights-grid">
@@ -3010,6 +3011,36 @@ body{padding-top:81px;}
         <span class="insight-card-source">TalkCivils · 53 min</span>
         <time class="insight-card-date" datetime="2026-07-28">28 July 2026</time>
         <span class="insight-card-go">Watch now<i aria-hidden="true">&rarr;</i></span>
+      </span>
+    </span>
+  </a>
+  <a class="insight-card insight-card--media insight-in-1" data-type="event" href="event-the-use-of-ai-in-rail.html">
+    <span class="insight-card-media">
+      <img class="insight-card-img" src="images/insights/event-rcea-yrp-2026-09-24.jpg" alt="" decoding="async">
+      <span class="insight-card-chip">Event</span>
+    </span>
+    <span class="insight-card-body">
+      <h3 class="insight-card-title">The use of AI in rail: RCEA and Young Rail Professionals</h3>
+      <p class="insight-card-blurb">Four talks for engineers early in their rail careers at One Great George Street. Bill&rsquo;s 20 minutes on the why, what and how of AI in rail, with the slides.</p>
+      <span class="insight-card-foot">
+        <span class="insight-card-source">RCEA &times; YRP &middot; Event recap</span>
+        <time class="insight-card-date" datetime="2026-09-24">24 September 2026</time>
+        <span class="insight-card-go">See the recap<i aria-hidden="true">&rarr;</i></span>
+      </span>
+    </span>
+  </a>
+  <a class="insight-card insight-card--media insight-in-1" data-type="event" href="event-ai-and-the-civil-engineer.html">
+    <span class="insight-card-media">
+      <img class="insight-card-img" src="images/insights/event-ice-london-2026-09-17.jpg" alt="" decoding="async">
+      <span class="insight-card-chip">Event</span>
+    </span>
+    <span class="insight-card-body">
+      <h3 class="insight-card-title">AI and the civil engineer: an evening at ICE London</h3>
+      <p class="insight-card-blurb">46 engineers, two talks and a panel on how our role in infrastructure delivery is being reshaped. The recap, the photographs and the slides.</p>
+      <span class="insight-card-foot">
+        <span class="insight-card-source">ICE London &middot; Event recap</span>
+        <time class="insight-card-date" datetime="2026-09-17">17 September 2026</time>
+        <span class="insight-card-go">See the recap<i aria-hidden="true">&rarr;</i></span>
       </span>
     </span>
   </a>
@@ -4898,6 +4929,9 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
   #insights .insight-card-chip{left:1rem;bottom:1rem;padding:.38rem .72rem;background:rgba(8,11,16,.72);
     border-color:rgba(255,255,255,.2);box-shadow:0 8px 25px rgba(0,0,0,.28);}
   #insights .insight-card[data-type="watch"] .insight-card-chip{background:rgba(249,101,50,.92);}
+  #insights .insight-card[data-type="event"] .insight-card-chip{background:rgba(255,255,255,.94);color:#1A1F36;border-color:transparent;}
+  /* the filter hides cards with [hidden]; the Spotlight card's display:grid was overriding it */
+  #insights .insight-card[hidden]{display:none!important;}
   #insights .insight-card-play{width:58px;height:58px;margin:-29px 0 0 -29px;background:rgba(8,11,16,.62);
     box-shadow:0 14px 40px rgba(0,0,0,.38);transition:transform .42s cubic-bezier(.22,1,.36,1),opacity .25s ease;}
   #insights .insight-card-play::before{content:"";position:absolute;inset:-10px;border:1px solid rgba(255,255,255,.4);
