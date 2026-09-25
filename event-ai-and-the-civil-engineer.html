@@ -22,7 +22,141 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  :root{--orange:#F96532;--orange-light:#FB7B3A;--orange-dark:#ED4A3B;--navy:#1A1F36;--white:#fff;--gray-50:#f8fafc;--gray-200:#e2e8f0;--gray-400:#94a3b8;--gray-500:#64748b;--gray-600:#475569;--font-heading:'Montserrat',sans-serif;--font-body:'Open Sans',sans-serif}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--font-body);color:var(--navy);background:var(--white)}a{text-decoration:none;color:inherit}.container{max-width:1120px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}.blog-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);padding:.875rem 0}.blog-nav .container{display:flex;align-items:center;justify-content:space-between}.blog-nav-logo{display:flex;align-items:center;gap:.5rem;font-family:var(--font-heading);font-weight:800;font-size:1.125rem;color:var(--navy)}.blog-nav-logo img{height:28px;width:auto}.blog-nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none}.blog-nav-links a{font-size:.875rem;font-weight:500;color:var(--gray-500);transition:color .2s}.blog-nav-links a:hover{color:var(--orange)}.btn-sm{display:inline-block;padding:.5rem 1rem;background:linear-gradient(135deg,var(--orange-light),var(--orange-dark));color:var(--white);font-family:var(--font-heading);font-weight:700;font-size:.8125rem;border-radius:8px;transition:transform .2s,box-shadow .2s}.btn-sm:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(249,101,50,.3)}.article-header{max-width:720px;margin:3rem auto 2rem}.article-back{display:inline-flex;align-items:center;gap:.375rem;font-size:.8125rem;font-weight:600;color:var(--orange);margin-bottom:1.5rem;transition:gap .2s}.article-back:hover{gap:.625rem}.article-meta{font-size:.75rem;font-weight:600;color:var(--orange);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem}.article-header h1{font-family:var(--font-heading);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;line-height:1.2;letter-spacing:-.02em;color:var(--navy);margin-bottom:1rem}.article-header .article-desc{font-size:1.0625rem;color:var(--gray-500);line-height:1.6}.article-author{display:flex;align-items:center;gap:.75rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-200)}.article-author img{width:48px;height:48px;border-radius:50%;object-fit:cover}.article-author-name{font-family:var(--font-heading);font-size:.875rem;font-weight:700;color:var(--navy)}.article-author-role{font-size:.75rem;color:var(--gray-400)}.article-body{max-width:720px;margin:0 auto;padding-bottom:3rem}.article-body h2{font-family:var(--font-heading);font-size:1.375rem;font-weight:700;color:var(--navy);margin:2.5rem 0 1rem;letter-spacing:-.01em}.article-body h3{font-family:var(--font-heading);font-size:1.125rem;font-weight:700;color:var(--navy);margin:2rem 0 .75rem}.article-body p{font-size:1rem;line-height:1.8;color:var(--gray-600);margin-bottom:1.25rem}.article-body strong{color:var(--navy)}.article-body ul,.article-body ol{padding-left:1.5rem;margin-bottom:1.25rem}.article-body li{font-size:1rem;line-height:1.8;color:var(--gray-600);margin-bottom:.5rem}.article-cta{max-width:720px;margin:0 auto 3rem;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:16px;padding:2rem;text-align:center}.article-cta h3{font-family:var(--font-heading);font-size:1.125rem;font-weight:800;color:var(--navy);margin-bottom:.5rem}.article-cta p{font-size:.875rem;color:var(--gray-500);margin-bottom:1.25rem}.btn-primary{display:inline-block;padding:.875rem 1.75rem;background:linear-gradient(135deg,var(--orange-light),var(--orange-dark));color:var(--white);font-family:var(--font-heading);font-weight:700;font-size:.9375rem;border-radius:10px;transition:transform .2s,box-shadow .2s}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(249,101,50,.35)}.blog-footer{border-top:1px solid var(--gray-200);padding:2rem 0;text-align:center;font-size:.75rem;color:var(--gray-400)}.blog-footer a{color:var(--gray-500);transition:color .2s}.blog-footer a:hover{color:var(--orange)}@media(max-width:640px){.blog-nav-links{display:none}}
+  :root {
+    --orange: #F96532;
+    --orange-light: #FB8B3C;
+    --orange-dark: #ED4A3B;
+    --navy: #1e293b;
+    --white: #ffffff;
+    --gray-50: #f8fafc;
+    --gray-200: #e2e8f0;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font-body); color: var(--navy); background: var(--white); }
+  a { text-decoration: none; color: inherit; }
+
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  /* Nav */
+  .blog-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200); padding: 0.875rem 0;
+  }
+  .blog-nav .container { display: flex; align-items: center; justify-content: space-between; }
+  .blog-nav-logo { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-heading); font-weight: 800; font-size: 1.125rem; color: var(--navy); }
+  .blog-nav-logo img { height: 28px; width: auto; }
+  .blog-nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+  .blog-nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-500); transition: color 0.2s; }
+  .blog-nav-links a:hover { color: var(--orange); }
+  .btn-sm { display: inline-block; padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--orange-light), var(--orange-dark)); color: var(--white); font-family: var(--font-heading); font-weight: 700; font-size: 0.8125rem; border-radius: 8px; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-sm:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(249,101,50,0.3); }
+
+  /* Page layout */
+  .legal-header {
+    max-width: 760px;
+    margin: 3rem auto 1.5rem;
+  }
+  .legal-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+  .legal-header h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  .legal-meta {
+    font-size: 0.8125rem;
+    color: var(--gray-500);
+  }
+
+  .legal-body {
+    max-width: 760px;
+    margin: 0 auto 4rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--gray-600);
+  }
+  .legal-body h2 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin: 2.25rem 0 0.75rem;
+  }
+  .legal-body h3 {
+    font-family: var(--font-heading);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 1.5rem 0 0.5rem;
+  }
+  .legal-body p { margin-bottom: 1rem; }
+  .legal-body ul { margin: 0 0 1rem 1.25rem; }
+  .legal-body li { margin-bottom: 0.5rem; }
+  .legal-body strong { color: var(--navy); }
+  .legal-body a { color: var(--orange); text-decoration: underline; }
+  .legal-body a:hover { color: var(--orange-dark); }
+
+  .legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1.5rem;
+    font-size: 0.9375rem;
+  }
+  .legal-table th, .legal-table td {
+    text-align: left;
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--gray-200);
+    vertical-align: top;
+  }
+  .legal-table th {
+    background: var(--gray-50);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .legal-placeholder {
+    display: inline-block;
+    background: #fff4e6;
+    color: #9a3412;
+    border: 1px dashed #f59e0b;
+    padding: 0.05rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85em;
+  }
+
+  /* Footer */
+  .blog-footer {
+    border-top: 1px solid var(--gray-200);
+    padding: 2rem 0; text-align: center;
+    font-size: 0.75rem; color: var(--gray-400);
+  }
+  .blog-footer a { color: var(--gray-500); transition: color 0.2s; }
+  .blog-footer a:hover { color: var(--orange); }
+
+  @media (max-width: 640px) {
+    .blog-nav-links { display: none; }
+  }
 </style>
 <style id="shell-canon-2026-06-06">
 /* Canonical AutomateX shell — light nav, dark footer */
@@ -415,466 +549,225 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
 .navbar .navbar-links > li > a.is-current,
 .navbar .navbar-links > li > .nav-dropdown-toggle.is-current{color:var(--orange)!important;}
 </style>
+
+<style id="starter-kit-2026-09-16">
+  @media (min-width:721px){.gift-steps.talks{grid-template-columns:1fr 1fr}}
+  .gift-step a.pdf{display:inline-block;margin-top:.8rem;color:#fff;font-family:var(--font-heading);font-weight:700;border-bottom:2px solid var(--orange-light)}
+  .gift-step a.pdf:hover{color:var(--orange-light)}
+  .gift-step em{color:#fff;font-style:italic}
+  .gift-step small{display:block;font-size:.8rem;color:rgba(255,255,255,.6);margin-top:.35rem}
+  body{padding-top:0!important}
+  .gift-foot{background:var(--navy);color:rgba(255,255,255,.7);padding:2rem 0 2.5rem;font-size:.9rem}
+  .gift-foot .container{max-width:900px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
+  .gift-foot img{height:24px;width:auto;display:block;opacity:.9}
+  .gift-foot a{color:rgba(255,255,255,.85);text-decoration:underline;text-decoration-color:rgba(249,101,50,.6)}
+  .gift-foot a:hover{color:var(--orange-light)}
+  .gift-hero{background:var(--navy);color:var(--white);position:relative;overflow:hidden;padding:1.1rem 0 3rem}
+  .gift-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 40%;opacity:.55}
+  .gift-hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,41,59,.97) 0%,rgba(30,41,59,.9) 45%,rgba(30,41,59,.55) 75%,rgba(30,41,59,.35) 100%),linear-gradient(180deg,rgba(30,41,59,.2),rgba(30,41,59,.6))}
+  .gift-hero .container{position:relative;z-index:1;max-width:900px}
+  .gift-brand{display:inline-block;margin-bottom:2.6rem}.gift-brand img{height:30px;width:auto;display:block;opacity:.95}
+  .gift-hero h1{font-family:var(--font-heading);font-weight:800;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.12;letter-spacing:-.025em;margin:.8rem 0 1rem;max-width:760px}
+  .gift-who{font-size:1rem;line-height:1.65;color:rgba(255,255,255,.82);max-width:720px;margin-bottom:1.5rem}
+  .gift-actions{display:flex;flex-wrap:wrap;gap:.7rem}
+  .gift-eyebrow{font-family:var(--font-heading);font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-light)}
+  .gift-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.35rem;border-radius:999px;font-family:var(--font-heading);font-weight:700;font-size:.95rem;transition:transform .2s cubic-bezier(.2,.9,.3,1.2),box-shadow .2s ease}
+  .gift-btn:hover{transform:translateY(-2px)}.gift-btn:focus-visible{outline:3px solid var(--orange-light);outline-offset:3px}.gift-btn:active{transform:translateY(0)}
+  .gift-btn.primary{background:linear-gradient(135deg,var(--orange-light),var(--orange-dark));color:#fff;box-shadow:0 8px 24px rgba(249,101,50,.35)}
+  .gift-btn.ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+  .gift-body{max-width:900px;margin:0 auto;padding:1rem clamp(1.25rem,4vw,2.5rem) 4rem}
+  .gift-sec{padding:2.75rem 0 1.5rem;border-top:1px solid var(--gray-200)}
+  .gift-sec:first-child{border-top:0}
+  .gift-num{font-family:var(--font-heading);font-weight:800;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:.75rem}
+  .gift-num::before{content:"";width:28px;height:3px;background:var(--orange);border-radius:2px}
+  .gift-sec h2{font-family:var(--font-heading);font-weight:800;font-size:clamp(1.4rem,2.6vw,1.9rem);letter-spacing:-.02em;line-height:1.2;margin:.7rem 0 .8rem;color:var(--navy)}
+  .gift-sec p{font-size:1.02rem;line-height:1.75;color:var(--gray-600);max-width:720px}
+  .gift-fig{margin:1.5rem 0 1.25rem}.gift-fig img{width:100%;height:auto;display:block;border-radius:12px;filter:grayscale(1) contrast(1.05);box-shadow:0 14px 40px rgba(30,41,59,.18)}.gift-fig figcaption{font-size:.85rem;color:var(--gray-500);margin-top:.6rem;line-height:1.5}
+  .gift-lede{font-size:1.08rem!important;color:var(--navy)!important}
+  .gift-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.25rem}
+  .gift-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:14px;padding:1.2rem 1.25rem;position:relative}
+  .gift-card b{display:block;font-family:var(--font-heading);font-weight:700;color:var(--navy);margin-bottom:.35rem;font-size:1rem;padding-right:2.4rem}
+  .gift-card span{font-size:.94rem;line-height:1.6;color:var(--gray-600)}
+  .gift-card .k{position:absolute;top:.9rem;right:1rem;font-family:var(--font-heading);font-weight:800;color:var(--orange);opacity:.35;font-size:1.4rem;letter-spacing:-.04em}
+  .gift-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.25rem}
+  @media (max-width:720px){.gift-steps{grid-template-columns:1fr}}
+  .gift-step{border-radius:14px;padding:1.2rem 1.25rem;color:#fff;background:var(--navy);box-shadow:0 12px 30px rgba(30,41,59,.18)}
+  .gift-step .when{font-family:var(--font-heading);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-light);font-weight:700}
+  .gift-step b{display:block;font-family:var(--font-heading);font-size:1.25rem;font-weight:800;margin:.35rem 0 .5rem;letter-spacing:-.02em}
+  .gift-step span{font-size:.94rem;line-height:1.6;color:rgba(255,255,255,.82)}
+  .tq{margin-top:1.25rem;border:1.5px solid var(--gray-200);border-radius:16px;overflow:hidden}
+  .tq-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;background:var(--gray-50);border-bottom:1px solid var(--gray-200)}
+  .tq-head b{font-family:var(--font-heading);font-weight:800;color:var(--navy)}
+  .tq-score{font-family:var(--font-heading);font-weight:800;font-size:1.5rem;color:var(--orange);letter-spacing:-.03em}
+  .tq-score small{font-size:.8rem;color:var(--gray-500);font-weight:600;letter-spacing:0;margin-left:.25rem}
+  .tq label{display:grid;grid-template-columns:auto 1fr;gap:.9rem;padding:1rem 1.25rem;border-bottom:1px solid var(--gray-200);cursor:pointer;align-items:start;transition:background .2s ease}
+  .tq label:last-of-type{border-bottom:0}.tq label:hover{background:#fff7f3}
+  .tq input{width:22px;height:22px;margin-top:.15rem;accent-color:var(--orange);cursor:pointer}
+  .tq .q{font-weight:600;color:var(--navy);line-height:1.5}
+  .tq .r{display:block;font-size:.88rem;color:var(--gray-500);margin-top:.25rem}.tq .r a{color:var(--orange);font-weight:600}
+  .tq-verdict{padding:1rem 1.25rem;background:var(--navy);color:#fff;font-size:.98rem;line-height:1.6}
+  .tq-verdict b{color:var(--orange-light)}
+  .gift-check{list-style:none;margin-top:1rem;display:grid;gap:.6rem}
+  .gift-check li{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start;font-size:1rem;line-height:1.6;color:var(--gray-600)}
+  .gift-check li b{color:var(--navy);font-family:var(--font-heading);font-weight:700}
+  .gift-check li::before{content:"";width:12px;height:12px;border-radius:3px;background:var(--orange);margin-top:.5rem;transform:rotate(45deg)}
+  .gift-gloss{columns:2;column-gap:2rem;margin-top:1rem;font-size:.95rem;line-height:1.65;color:var(--gray-600)}
+  @media (max-width:720px){.gift-gloss{columns:1}}
+  .gift-gloss dt{font-family:var(--font-heading);font-weight:700;color:var(--navy);break-after:avoid}
+  .gift-gloss dd{margin:0 0 .7rem}
+  .gift-links{list-style:none;margin-top:1rem;display:grid;gap:.55rem}
+  .gift-links a{color:var(--navy);font-weight:600;border-bottom:1.5px solid rgba(249,101,50,.5);transition:border-color .2s ease,color .2s ease}
+  .gift-links a:hover{color:var(--orange);border-color:var(--orange)}
+  .gift-links li span{color:var(--gray-500);font-size:.92rem}
+  .gift-cta{margin:2.5rem 0 0;border-radius:18px;background:var(--navy);color:#fff;padding:2.25rem clamp(1.25rem,4vw,2.5rem);position:relative;overflow:hidden}
+  .gift-cta::before{content:"";position:absolute;inset:auto -10% -60% auto;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(249,101,50,.45),transparent 65%)}
+  .gift-cta .inner{position:relative;z-index:1;max-width:640px}
+  .gift-cta h2{color:#fff;margin-top:.5rem}
+  .gift-cta p{color:rgba(255,255,255,.82)}
+  .gift-form{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.25rem}
+  .gift-form input{flex:1 1 260px;padding:.9rem 1.1rem;border-radius:999px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-family:var(--font-body);font-size:1rem}
+  .gift-form input::placeholder{color:rgba(255,255,255,.55)}.gift-form input:focus-visible{outline:3px solid var(--orange-light);outline-offset:2px}
+  .gift-form button{border:0;cursor:pointer}
+  .gift-form .joined{display:none;font-family:var(--font-heading);font-weight:700;color:var(--orange-light);padding:.9rem 0}
+  .gift-fine{font-size:.85rem;color:rgba(255,255,255,.6);margin-top:.9rem}
+  .gift-fine a{color:var(--orange-light);text-decoration:underline}
+  .gift-ask{margin-top:2rem;padding:1.25rem 1.5rem;border-left:4px solid var(--orange);background:#fff7f3;border-radius:0 12px 12px 0}
+  .gift-ask b{font-family:var(--font-heading);color:var(--navy)}
+  .gift-ask a{color:var(--orange);font-weight:600}
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Event", "name": "AI and the civil engineer: reimagining roles in infrastructure delivery", "description": "46 engineers at One Great George Street on how AI is reshaping the civil engineer’s role. The recap, photographs and Bill Guo’s slides from the ICE London evening on 17 September 2026.", "startDate": "2026-09-17T18:30:00+01:00", "endDate": "2026-09-17T21:00:00+01:00", "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "location": {"@type": "Place", "name": "One Great George Street", "address": {"@type": "PostalAddress", "streetAddress": "One Great George Street", "addressLocality": "London", "postalCode": "SW1P 3AA", "addressCountry": "GB"}}, "organizer": {"@type": "Organization", "name": "ICE London", "url": "https://www.ice.org.uk/"}, "performer": {"@type": "Person", "name": "Bill Guo", "jobTitle": "Founder, AutomateX", "url": "https://automatex.uk/about.html"}, "image": "https://automatex.uk/images/events/ice-london-2026-09-17-og.jpg", "url": "https://automatex.uk/event-ai-and-the-civil-engineer.html"}</script>
-<link rel="preload" as="image" href="images/events/ice-london-2026-09-17-hero.jpg" fetchpriority="high">
 <style id="event-recap-2026-09-25">
-/* Event recap pages (event-*.html). Tokens come from the site shell: --navy, --orange,
-   --orange-light, --orange-dark, --gray-*, --font-heading, --font-body. */
-.evp{--ink:#0E1224;--line:rgba(26,31,54,.10);display:block;background:#fff;color:var(--navy)}
-.evp-wrap{max-width:1160px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+/* Event recap pages (event-*.html). The page is the starter kit's template: hero, column,
+   sections, cards, CTA and footer all come from its own gift-* styles. These are only the
+   pieces the kit does not have: the quote, the facts grid, speakers, the gallery and the
+   slide carousel. */
+/* the kit's sections carry one paragraph each; a recap carries several */
+.gift-sec > p + p{margin-top:1rem}
+.ev-quote{margin:1.75rem 0 .5rem;padding:1.4rem 1.6rem;border-left:4px solid var(--orange);background:#fff7f3;border-radius:0 12px 12px 0}
+.ev-quote p{max-width:none!important;margin:0 0 .6rem!important;font-family:var(--font-heading)!important;font-weight:700;font-size:clamp(1.12rem,2vw,1.35rem)!important;line-height:1.4!important;letter-spacing:-.01em;color:var(--navy)!important}
+.ev-quote cite{font-style:normal;font-size:.88rem;color:var(--gray-500)}
 
-/* Hero */
-.evp-hero{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(560px,82vh,780px);color:#fff;background:var(--ink);overflow:hidden}
-.evp-hero-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:var(--focus,60% 40%);animation:evp-settle 1.6s cubic-bezier(.16,1,.3,1) both}
-@keyframes evp-settle{from{transform:scale(1.06)}to{transform:scale(1.001)}}
-/* --shade-x lets a page darken further where its photo has a bright screen behind the words */
-.evp-hero-shade{position:absolute;inset:0;z-index:-1;background:
-  var(--shade-x,linear-gradient(90deg,rgba(14,18,36,.97) 0%,rgba(14,18,36,.92) 30%,rgba(14,18,36,.72) 48%,rgba(14,18,36,.22) 70%,rgba(14,18,36,.06) 100%)),
-  linear-gradient(0deg,rgba(14,18,36,.9) 0%,rgba(14,18,36,0) 50%),
-  linear-gradient(180deg,rgba(14,18,36,.55) 0%,rgba(14,18,36,0) 22%)}
-.evp-hero-in{padding-top:8.5rem;padding-bottom:clamp(2.75rem,7vh,4.5rem)}
-.evp-crumb{display:flex;align-items:center;gap:.55rem;margin-bottom:1.5rem;font:600 .78rem/1 var(--font-heading);color:rgba(255,255,255,.6)}
-.evp-crumb a{color:rgba(255,255,255,.88);transition:color .2s ease}.evp-crumb a:hover{color:var(--orange-light)}
-.evp-eyebrow,.evp-kicker{display:inline-flex;align-items:center;gap:.7rem;margin:0;font:700 .72rem/1.2 var(--font-heading);letter-spacing:.18em;text-transform:uppercase;color:var(--orange-light)}
-.evp-eyebrow::before,.evp-kicker::before{content:"";width:28px;height:2px;border-radius:2px;background:var(--orange);flex:none}
-.evp-kicker{color:var(--orange)}
-.evp-hero h1{margin:1rem 0 1.1rem;max-width:15ch;font:800 clamp(2.4rem,6vw,4.4rem)/1.02 var(--font-heading);letter-spacing:-.035em;text-wrap:balance}
-.evp-sub{max-width:54ch;font-size:clamp(1.02rem,1.45vw,1.2rem);line-height:1.6;color:rgba(255,255,255,.86)}
-.evp-sub em{font-style:italic;color:#fff}
-.evp-meta{list-style:none;display:flex;flex-wrap:wrap;gap:.55rem;margin:1.7rem 0 1.9rem;padding:0}
-.evp-meta li{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .9rem;border-radius:999px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font:600 .82rem/1 var(--font-heading);color:#fff}
-.evp-meta svg{width:16px;height:16px;flex:none;color:var(--orange-light)}
-.evp-actions{display:flex;flex-wrap:wrap;gap:.7rem}
-.evp-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.4rem;border-radius:999px;font:700 .95rem/1 var(--font-heading);transition:transform .2s cubic-bezier(.2,.9,.3,1.2),box-shadow .2s ease,background-color .2s ease,border-color .2s ease}
-.evp-btn:hover{transform:translateY(-2px)}.evp-btn:active{transform:translateY(0)}
-.evp-btn.primary{color:#fff;background:linear-gradient(135deg,var(--orange-light),var(--orange-dark));box-shadow:0 10px 26px -6px rgba(249,101,50,.55)}
-.evp-btn.ghost{color:#fff;border:1.5px solid rgba(255,255,255,.35)}
-.evp-btn.ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-.evp-credit{position:absolute;right:clamp(1rem,3vw,2rem);bottom:.9rem;margin:0;font-size:.72rem;color:rgba(255,255,255,.55)}
+.ev-facts .gift-card b{padding-right:0;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--orange)}
+.ev-facts .gift-card span{color:var(--navy)}
+.ev-sub{margin:2rem 0 0;font-family:var(--font-heading);font-weight:800;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-500)}
+.ev-people{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ev-people .gift-step:last-child:nth-child(odd){grid-column:1/-1}
+.ev-people .gift-step b{font-size:1.08rem}
+.ev-people .gift-step.is-bill{background:linear-gradient(135deg,#2a3548,var(--navy));box-shadow:0 12px 30px rgba(30,41,59,.18),inset 0 0 0 1.5px rgba(249,101,50,.55)}
+@media (max-width:720px){.ev-people{grid-template-columns:1fr}}
 
-/* Sections */
-.evp-sec{padding:clamp(3.75rem,8vw,6.5rem) 0}
-.evp-sec h2{margin:.9rem 0 1.4rem;max-width:24ch;font:800 clamp(1.65rem,3.1vw,2.5rem)/1.14 var(--font-heading);letter-spacing:-.028em;color:var(--navy);text-wrap:balance}
+.ev-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.25rem}
+.ev-gallery figure{margin:0}
+.ev-gallery img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;box-shadow:0 14px 40px rgba(30,41,59,.18)}
+.ev-gallery figcaption{margin-top:.6rem;font-size:.85rem;line-height:1.5;color:var(--gray-500)}
+.ev-credit{margin-top:.75rem!important;font-size:.8rem!important;color:var(--gray-400)!important}
+@media (max-width:560px){.ev-gallery{grid-template-columns:1fr}}
 
-/* Story */
-.evp-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(2.25rem,5vw,4.5rem);align-items:start}
-.evp-prose p{max-width:64ch;margin:0 0 1.15rem;font-size:1.06rem;line-height:1.8;color:var(--gray-600)}
-.evp-prose > p:nth-of-type(2){font-size:1.16rem;line-height:1.7;color:var(--navy)}
-.evp-prose em{font-style:italic;color:var(--navy)}.evp-prose strong{color:var(--navy);font-weight:700}
-.evp-quote{position:relative;margin:2.2rem 0 0;padding:1.7rem 1.9rem 1.5rem 2.1rem;border-radius:18px;background:linear-gradient(135deg,#FFF3EC 0%,#FFFFFF 70%);border:1px solid rgba(249,101,50,.22)}
-.evp-quote::before{content:"";position:absolute;left:0;top:1.4rem;bottom:1.4rem;width:4px;border-radius:0 4px 4px 0;background:var(--orange)}
-.evp-quote p{max-width:none!important;margin:0 0 .85rem!important;font:700 clamp(1.2rem,2.1vw,1.55rem)/1.35 var(--font-heading)!important;letter-spacing:-.012em;color:var(--navy)!important}
-.evp-quote cite{font-style:normal;font-size:.88rem;color:var(--gray-500)}
-.evp-facts{position:sticky;top:100px;padding:1.7rem 1.6rem;border:1px solid var(--line);border-radius:20px;background:var(--gray-50);box-shadow:0 24px 60px -36px rgba(26,31,54,.35)}
-.evp-facts h3{margin:0 0 1rem;font:800 .72rem/1 var(--font-heading);letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
-.evp-facts dl{display:grid;grid-template-columns:7.2rem 1fr;gap:.75rem 1rem;margin:0 0 1.9rem;font-size:.9rem;line-height:1.5}
-.evp-facts dt{font:700 .78rem/1.55 var(--font-heading);color:var(--gray-500)}
-.evp-facts dd{margin:0;color:var(--navy)}
-.evp-people{list-style:none;display:grid;gap:.95rem;margin:0;padding:0}
-.evp-people li{display:grid;gap:.2rem;padding-left:.95rem;border-left:3px solid rgba(26,31,54,.12)}
-.evp-people li.is-bill{border-left-color:var(--orange)}
-.evp-people b{font:700 .95rem/1.3 var(--font-heading);color:var(--navy)}
-.evp-people small{margin-left:.3rem;font-size:.7rem;font-weight:600;letter-spacing:.02em;color:var(--gray-500)}
-.evp-people span{font-size:.86rem;line-height:1.45;color:var(--gray-600)}
-
-/* Gallery */
-.evp-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:clamp(2.75rem,6vw,4rem)}
-.evp-gallery figure{margin:0}
-.evp-gallery img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;box-shadow:0 16px 36px -22px rgba(26,31,54,.55);transition:transform .35s cubic-bezier(.16,1,.3,1)}
-.evp-gallery figure:hover img{transform:translateY(-3px)}
-.evp-gallery figcaption{margin-top:.6rem;font-size:.82rem;line-height:1.45;color:var(--gray-500)}
-.evp-gallery-credit{margin:.9rem 0 0;font-size:.74rem;color:var(--gray-400)}
-
-/* Slides */
-.evp-slides{position:relative;overflow:hidden;background:var(--ink);color:#fff}
-.evp-slides::before{content:"";position:absolute;right:-12%;top:-30%;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(249,101,50,.22),transparent 62%);pointer-events:none}
-.evp-slides .evp-wrap{position:relative}
-.evp-slides h2{color:#fff;max-width:30ch}
-.evp-lede{max-width:62ch;margin:0;font-size:1.04rem;line-height:1.7;color:rgba(255,255,255,.72)}
-.deck{margin-top:2.25rem}
-.deck-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:18px;background:#0B0F16;box-shadow:0 50px 100px -45px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.08)}
+/* Slide carousel, on the kit's white column */
+.deck{margin-top:1.4rem}
+.deck-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:14px;background:#0B0F16;box-shadow:0 24px 60px -24px rgba(30,41,59,.55),0 0 0 1px rgba(30,41,59,.08)}
 .deck-frame iframe,.deck-poster{position:absolute;inset:0;display:block;width:100%;height:100%;border:0}
-.deck-poster{object-fit:cover;z-index:1;transition:opacity .45s ease}
+.deck-poster{z-index:1;object-fit:cover;transition:opacity .45s ease}
 .deck.is-ready .deck-poster{opacity:0;pointer-events:none}
 .deck-frame:fullscreen{aspect-ratio:auto;width:100vw;height:100vh;border-radius:0;background:#000}
 .deck-frame:-webkit-full-screen{width:100vw;height:100vh;border-radius:0;background:#000}
-.deck-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-top:1.1rem}
-.deck-btn{display:grid;place-items:center;width:48px;height:48px;padding:0;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;transition:background-color .2s ease,border-color .2s ease,transform .2s ease}
+.deck-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;margin-top:1rem}
+.deck-btn{display:grid;place-items:center;width:46px;height:46px;padding:0;border-radius:50%;border:1.5px solid var(--gray-200);background:#fff;color:var(--navy);cursor:pointer;transition:background-color .2s ease,border-color .2s ease,color .2s ease,transform .2s ease}
 .deck-btn svg{width:20px;height:20px}
-.deck-btn:hover:not(:disabled){background:var(--orange);border-color:var(--orange);transform:translateY(-1px)}
-.deck-btn:disabled{opacity:.3;cursor:default}
-.deck-status{display:flex;align-items:baseline;gap:.4rem;min-width:0;margin:0 .35rem;font-family:var(--font-heading)}
-.deck-status b{font-size:1.15rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
-.deck-status span{font-size:.9rem;font-weight:600;color:rgba(255,255,255,.45);font-variant-numeric:tabular-nums}
-.deck-status em{max-width:34ch;margin-left:.75rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-style:normal;font-size:.92rem;font-weight:600;color:rgba(255,255,255,.78)}
+.deck-btn:hover:not(:disabled){background:var(--orange);border-color:var(--orange);color:#fff;transform:translateY(-1px)}
+.deck-btn:disabled{opacity:.35;cursor:default}
+.deck-status{display:flex;align-items:baseline;gap:.4rem;min-width:0;margin:0 .3rem;font-family:var(--font-heading)}
+.deck-status b{font-size:1.1rem;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums}
+.deck-status span{font-size:.9rem;font-weight:600;color:var(--gray-400);font-variant-numeric:tabular-nums}
+.deck-status em{max-width:28ch;margin-left:.6rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-style:normal;font-size:.9rem;font-weight:600;color:var(--gray-600)}
 .deck-spacer{flex:1}
-.deck-link{display:inline-flex;align-items:center;gap:.45rem;padding:.7rem 1.05rem;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font:700 .85rem/1 var(--font-heading);cursor:pointer;transition:background-color .2s ease,border-color .2s ease}
-.deck-link svg{width:16px;height:16px;color:var(--orange-light)}
-.deck-link:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.45)}
-.deck-thumbs{list-style:none;display:flex;gap:.75rem;margin:1.1rem 0 0;padding:.35rem .15rem .75rem;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent}
+.deck-link{display:inline-flex;align-items:center;gap:.45rem;padding:.7rem 1.05rem;border-radius:999px;border:1.5px solid var(--gray-200);background:#fff;color:var(--navy);font-family:var(--font-heading);font-weight:700;font-size:.85rem;line-height:1;cursor:pointer;transition:border-color .2s ease,color .2s ease}
+.deck-link svg{width:16px;height:16px;color:var(--orange)}
+.deck-link:hover{border-color:var(--orange);color:var(--orange)}
+.deck-thumbs{list-style:none;display:flex;gap:.7rem;margin:1rem 0 0;padding:.3rem .1rem .7rem;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--gray-200) transparent}
 .deck-thumbs li{flex:none;scroll-snap-align:start}
-.deck-thumbs button{position:relative;display:block;width:156px;aspect-ratio:16/9;padding:0;overflow:hidden;border-radius:9px;border:2px solid transparent;background:#0B0F16;cursor:pointer;opacity:.5;transition:opacity .2s ease,border-color .2s ease,transform .2s ease}
+.deck-thumbs button{position:relative;display:block;width:148px;aspect-ratio:16/9;padding:0;overflow:hidden;border-radius:8px;border:2px solid transparent;background:#0B0F16;cursor:pointer;opacity:.55;transition:opacity .2s ease,border-color .2s ease,transform .2s ease}
 .deck-thumbs button:hover{opacity:.9;transform:translateY(-2px)}
 .deck-thumbs button[aria-current="true"]{opacity:1;border-color:var(--orange)}
 .deck-thumbs img{display:block;width:100%;height:100%;object-fit:cover}
-.deck-thumbs i{position:absolute;left:6px;bottom:6px;padding:3px 6px;border-radius:5px;background:rgba(0,0,0,.62);font:700 .64rem/1 var(--font-heading);font-style:normal;color:#fff}
+.deck-thumbs i{position:absolute;left:6px;bottom:6px;padding:3px 6px;border-radius:5px;background:rgba(0,0,0,.62);font-family:var(--font-heading);font-weight:700;font-size:.64rem;line-height:1;font-style:normal;color:#fff}
 
-/* Next */
-.evp-cta{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(1.75rem,4vw,3rem);align-items:center;padding:clamp(2rem,5vw,3.5rem);border-radius:24px;background:var(--navy);color:#fff}
-.evp-cta::before{content:"";position:absolute;left:-12%;bottom:-70%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(249,101,50,.35),transparent 65%);pointer-events:none}
-.evp-cta > *{position:relative}
-.evp-cta h2{color:#fff;margin-top:.8rem}
-.evp-cta p{max-width:52ch;margin:0 0 1.6rem;font-size:1.02rem;line-height:1.7;color:rgba(255,255,255,.8)}
-.evp-cta .evp-kicker{color:var(--orange-light)}
-.evp-also{display:grid;gap:.45rem;padding:.8rem .8rem 1.1rem;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;transition:transform .25s cubic-bezier(.16,1,.3,1),background-color .2s ease}
-.evp-also:hover{transform:translateY(-3px);background:rgba(255,255,255,.1)}
-.evp-also img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;margin-bottom:.35rem}
-.evp-also-k{padding:0 .35rem;font:700 .68rem/1 var(--font-heading);letter-spacing:.16em;text-transform:uppercase;color:var(--orange-light)}
-.evp-also b{padding:0 .35rem;font:700 1.02rem/1.35 var(--font-heading)}
-.evp-also-go{padding:0 .35rem;font:600 .85rem/1 var(--font-heading);color:rgba(255,255,255,.7)}
-.evp-back{display:inline-block;margin-top:2rem;font:700 .9rem/1 var(--font-heading);color:var(--navy);border-bottom:2px solid rgba(249,101,50,.45);padding-bottom:.25rem;transition:color .2s ease,border-color .2s ease}
-.evp-back:hover{color:var(--orange);border-color:var(--orange)}
+/* Take it further */
+.ev-next{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.25rem}
+.ev-card,.ev-also{display:flex;flex-direction:column;border-radius:14px;transition:transform .25s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s ease}
+.ev-card:hover,.ev-also:hover{transform:translateY(-3px)}
+.ev-card b{font-size:1.25rem}
+.ev-go{margin-top:auto;padding-top:1rem;font-family:var(--font-heading);font-weight:700;font-size:.9rem;font-style:normal!important;color:var(--orange-light)!important}
+.ev-also{padding:.75rem .75rem 1.2rem;background:var(--gray-50);border:1px solid var(--gray-200)}
+.ev-also img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:.9rem}
+.ev-also .when{padding:0 .4rem;font-family:var(--font-heading);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:700}
+.ev-also b{display:block;padding:.35rem .4rem 0;font-family:var(--font-heading);font-weight:800;font-size:1.05rem;line-height:1.35;color:var(--navy)}
+.ev-also .ev-go{padding-left:.4rem;color:var(--orange)!important}
+@media (max-width:720px){.ev-next{grid-template-columns:1fr}}
 
-@media (max-width:960px){
-  .evp-grid{grid-template-columns:1fr}
-  .evp-facts{position:static}
-  .evp-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .evp-cta{grid-template-columns:1fr}
-}
 @media (max-width:640px){
-  /* phones: the photo takes the top of the screen, the words sit on ink below it */
-  .evp-hero{min-height:0;align-items:flex-end}
-  .evp-hero-bg{height:400px;object-position:var(--focus-m,var(--focus,60% 40%))}
-  .evp-hero-shade{background:linear-gradient(180deg,rgba(14,18,36,.45) 0,rgba(14,18,36,0) 90px,rgba(14,18,36,0) 170px,rgba(14,18,36,.86) 320px,var(--ink) 400px)}
-  .evp-hero-in{padding-top:300px}
-  .evp-meta li{font-size:.76rem}
-  .evp-credit{left:clamp(1.25rem,4vw,2.5rem);right:auto;bottom:.6rem}
-  .evp-facts dl{grid-template-columns:1fr;gap:.15rem}
-  .evp-facts dd{margin-bottom:.6rem}
-  .deck-frame{border-radius:12px}
-  .deck-status em{display:none}
-  .deck-spacer{display:none}
-  .deck-link span{display:none}
+  .deck-frame{border-radius:10px}
+  .deck-status em,.deck-spacer,.deck-link span{display:none}
   .deck-link{padding:.8rem}
-  .deck-thumbs button{width:118px}
+  .deck-thumbs button{width:112px}
 }
 @media (prefers-reduced-motion:reduce){
-  .evp-hero-bg{animation:none}
-  .evp-btn,.deck-btn,.deck-thumbs button,.evp-gallery img,.evp-also{transition:none}
+  .deck-btn,.deck-thumbs button,.ev-card,.ev-also{transition:none}
 }
 
 </style>
 </head>
 <body>
+
 <div id="axr-mega-veil" aria-hidden="true"></div>
 
-<nav class="navbar">
+<header class="gift-hero">
+  <img class="gift-hero-bg" src="images/events/ice-london-2026-09-17-hero.jpg" alt="Bill Guo speaking to a full Rennie Room at One Great George Street" style="object-position:78% 30%" fetchpriority="high">
+  <div class="gift-hero-shade"></div>
   <div class="container">
-    <a href="#" class="navbar-logo" aria-label="AutomateX home">
-      <img src="brand_assets/automatex-wordmark-dark-bg-transparent.png" alt="AutomateX">
-    </a>
-    <ul class="navbar-links">
-      <li class="has-dropdown">
-        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">What we offer</button>
-        <div class="nav-dropdown nav-mega">
-          <div class="nm-col nm-links" role="tablist" aria-label="What we offer">
-            <button type="button" role="tab" id="nmt-custom-ai" class="nm-tab is-active" aria-selected="true" aria-controls="nmp-custom-ai" tabindex="0" data-panel="custom-ai"><span class="nm-t">Production-grade custom AI</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
-            <button type="button" role="tab" id="nmt-bootcamp" class="nm-tab" aria-selected="false" aria-controls="nmp-bootcamp" tabindex="-1" data-panel="bootcamp"><span class="nm-t">AutomateX Bootcamp</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
-            <button type="button" role="tab" id="nmt-scribtive" class="nm-tab" aria-selected="false" aria-controls="nmp-scribtive" tabindex="-1" data-panel="scribtive"><span class="nm-t">Scribtive&reg; OS</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
-            <button type="button" role="tab" id="nmt-assessment" class="nm-tab" aria-selected="false" aria-controls="nmp-assessment" tabindex="-1" data-panel="assessment"><span class="nm-t">Free AI Readiness Assessment</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
-          </div>
-          <div class="nm-col nm-stage">
-            <div class="nm-panel is-active" id="nmp-custom-ai" role="tabpanel" aria-labelledby="nmt-custom-ai" data-panel="custom-ai">
-              <a class="nm-plink" href="ai-in-action.html">
-                <span class="nm-pv nm-pv-grid"><span class="nm-csc"><img src="images/nav-case-station-surveys.jpg" alt="" loading="lazy" decoding="async" width="414" height="248"><span class="nm-csb">Delivered</span><span class="nm-csl">AI-empowered survey processing</span></span><span class="nm-csc"><img src="images/nav-case-instatrace.jpg" alt="" loading="lazy" decoding="async" width="414" height="248"><span class="nm-csb">Live</span><span class="nm-csl">AI-empowered drawing take-off</span></span><span class="nm-csc"><img src="images/nav-case-design-review.jpg" alt="" loading="lazy" decoding="async" width="414" height="248"><span class="nm-csb">Prototype</span><span class="nm-csl">AI-empowered design review</span></span><span class="nm-csc"><img src="images/nav-case-golden-thread.jpg" alt="" loading="lazy" decoding="async" width="414" height="248"><span class="nm-csb">Concept</span><span class="nm-csl">Requirements &amp; the golden thread</span></span></span>
-                <span class="nm-pc">
-                  <span class="nm-flabel">Case studies</span>
-                  <span class="nm-ftitle">See it in action</span>
-                  <span class="nm-fdesc">Bespoke AI built for your rail workflows and shipped to production. Browse the engagements we have delivered.</span>
-                  <span class="nm-fcta">See the case studies <span class="arr" aria-hidden="true">&rarr;</span></span>
-                </span>
-              </a>
-            </div>
-            <div class="nm-panel" id="nmp-bootcamp" role="tabpanel" aria-labelledby="nmt-bootcamp" data-panel="bootcamp">
-              <a class="nm-plink" href="bootcamp.html">
-                <span class="nm-pv"><svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <defs>
-                  <linearGradient id="nmv-bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#161B22"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
-                  <linearGradient id="nmv-a" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F96532" stop-opacity=".30"/><stop offset="1" stop-color="#F96532" stop-opacity="0"/></linearGradient>
-                  <radialGradient id="nmv-g" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FB7B3A" stop-opacity=".8"/><stop offset="1" stop-color="#FB7B3A" stop-opacity="0"/></radialGradient>
-                </defs>
-                <rect width="480" height="300" fill="url(#nmv-bg)"/>
-
-                <!-- axes (static) -->
-                <line x1="60" y1="240" x2="430" y2="240" stroke="#374151" stroke-width="1.4"/>
-                <line x1="60" y1="40"  x2="60"  y2="240" stroke="#374151" stroke-width="1.4"/>
-                <line x1="245" y1="40" x2="245" y2="240" stroke="#374151" stroke-dasharray="3 3"/>
-                <line x1="60" y1="140" x2="430" y2="140" stroke="#374151" stroke-dasharray="3 3"/>
-
-                <!-- top-right quadrant shading -->
-                <rect x="245" y="40" width="185" height="100" fill="url(#nmv-a)" rx="6"/>
-                <text x="338" y="56" fill="#FB7B3A" font-family="Montserrat" font-weight="800" font-size="10" text-anchor="middle" letter-spacing="1.6">AUTOMATE NOW</text>
-
-                <!-- the other three quadrant labels (static, dim) -->
-                <text x="150" y="195" fill="#4B5563" font-family="Montserrat" font-weight="800" font-size="9" letter-spacing="1.6" text-anchor="middle">PARK</text>
-                <text x="338" y="195" fill="#4B5563" font-family="Montserrat" font-weight="800" font-size="9" letter-spacing="1.6" text-anchor="middle">EASY WIN</text>
-                <text x="150" y="90" fill="#4B5563" font-family="Montserrat" font-weight="800" font-size="9" letter-spacing="1.6" text-anchor="middle">TRANSFORM</text>
-
-                <!-- axis labels (static) -->
-                <text x="240" y="270" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="10" text-anchor="middle">PRIME &rarr; can it be automated</text>
-                <text x="40" y="140" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="10" transform="rotate(-90 40 140)" text-anchor="middle">VALUE &uarr; should we</text>
-
-                <!-- X marks in sequence (bottom-left &rarr; top-right). Each is a small cross. -->
-                <g data-i="1"><line x1="89" y1="212" x2="101" y2="224" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="101" y1="212" x2="89" y2="224" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
-                <g data-i="2"><line x1="134" y1="194" x2="146" y2="206" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="146" y1="194" x2="134" y2="206" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
-                <g data-i="3"><line x1="194" y1="204" x2="206" y2="216" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="206" y1="204" x2="194" y2="216" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
-                <g data-i="4"><line x1="104" y1="169" x2="116" y2="181" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="116" y1="169" x2="104" y2="181" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
-                <g data-i="5"><line x1="244" y1="174" x2="256" y2="186" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="256" y1="174" x2="244" y2="186" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
-                <g data-i="6"><line x1="304" y1="159" x2="316" y2="171" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="316" y1="159" x2="304" y2="171" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
-                <g data-i="7"><line x1="184" y1="124" x2="196" y2="136" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="196" y1="124" x2="184" y2="136" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
-                <g data-i="8"><line x1="324" y1="104" x2="336" y2="116" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/><line x1="336" y1="104" x2="324" y2="116" stroke="#6B7280" stroke-width="2.4" stroke-linecap="round"/></g>
-
-                <!-- Glow + textless AutomateX mark (no frame) at top-right -->
-                <g ><circle cx="395" cy="78" r="48" fill="url(#nmv-g)"/></g>
-                <g >
-                  <image href="brand_assets/Logo.png" x="370" y="53" width="50" height="50" preserveAspectRatio="xMidYMid meet"/>
-                </g>
-              </svg></span>
-                <span class="nm-pc">
-                  <span class="nm-flabel">Featured</span>
-                  <span class="nm-ftitle">Start with the Bootcamp</span>
-                  <span class="nm-fdesc">Find the single highest-value automation in your operation and prove it on your own data.</span>
-                  <span class="nm-fcta">Explore the Bootcamp <span class="arr" aria-hidden="true">&rarr;</span></span>
-                </span>
-              </a>
-            </div>
-            <div class="nm-panel" id="nmp-scribtive" role="tabpanel" aria-labelledby="nmt-scribtive" data-panel="scribtive">
-              <a class="nm-plink" href="waitlist.html">
-                <span class="nm-pv"><svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <defs>
-                  <linearGradient id="nmS-bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#161B22"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
-                  <linearGradient id="nmS-fl" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#F96532"/><stop offset="1" stop-color="#FB7B3A"/></linearGradient>
-                  <radialGradient id="nmS-gl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FB7B3A" stop-opacity=".55"/><stop offset="1" stop-color="#FB7B3A" stop-opacity="0"/></radialGradient>
-                </defs>
-                <rect width="480" height="300" fill="url(#nmS-bg)"/>
-                <circle cx="202" cy="150" r="74" fill="url(#nmS-gl)"/>
-                <text x="26" y="40" fill="#FB7B3A" font-family="Montserrat" font-weight="800" font-size="10" letter-spacing="1.7">AGENTIC DRAFTING ENGINE</text>
-
-                <!-- evidence in -->
-                <g font-family="Montserrat" font-weight="700" font-size="8" fill="#9CA3AF">
-                  <rect x="24" y="98" width="80" height="26" rx="7" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <circle cx="35" cy="111" r="2.6" fill="#6B7280"/><text x="44" y="114">Project data</text>
-                  <rect x="24" y="138" width="80" height="26" rx="7" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <circle cx="35" cy="151" r="2.6" fill="#6B7280"/><text x="44" y="154">Standards</text>
-                  <rect x="24" y="178" width="80" height="26" rx="7" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <circle cx="35" cy="191" r="2.6" fill="#6B7280"/><text x="44" y="194">Site surveys</text>
-                </g>
-                <g fill="none" stroke="#4B5563" stroke-width="1.6">
-                  <path d="M104 111 C132 111 134 150 158 150"/>
-                  <path d="M104 151 L158 151"/>
-                  <path d="M104 191 C132 191 134 150 158 150"/>
-                </g>
-
-                <!-- the agent, as a robot -->
-                <g>
-                  <!-- antenna -->
-                  <path d="M202 104 L202 113" stroke="#FB7B3A" stroke-width="2.4" stroke-linecap="round"/>
-                  <circle cx="202" cy="99" r="8" fill="url(#nmS-gl)"/>
-                  <circle cx="202" cy="99" r="4" fill="#FB7B3A"/>
-                  <!-- ears -->
-                  <rect x="162" y="132" width="8" height="20" rx="4" fill="#4B5563"/>
-                  <rect x="234" y="132" width="8" height="20" rx="4" fill="#4B5563"/>
-                  <!-- head -->
-                  <rect x="169" y="113" width="66" height="56" rx="18" fill="#F96532" fill-opacity=".14" stroke="#FB7B3A" stroke-width="1.8"/>
-                  <!-- visor -->
-                  <rect x="177" y="123" width="50" height="32" rx="11" fill="#0D1117" fill-opacity=".85" stroke="#F96532" stroke-opacity=".45"/>
-                  <!-- eyes -->
-                  <circle cx="190" cy="139" r="9" fill="url(#nmS-gl)"/>
-                  <circle cx="214" cy="139" r="9" fill="url(#nmS-gl)"/>
-                  <circle cx="190" cy="139" r="4.4" fill="#FB7B3A"/>
-                  <circle cx="214" cy="139" r="4.4" fill="#FB7B3A"/>
-                  <!-- neck + shoulders (upper body only) -->
-                  <rect x="197" y="169" width="10" height="6" fill="#4B5563"/>
-                  <path d="M166 195v-9a12 12 0 0 1 12-12h48a12 12 0 0 1 12 12v9z" fill="#FFFFFF" fill-opacity=".06" stroke="#4B5563"/>
-                  <circle cx="202" cy="186" r="3.6" fill="#F96532" fill-opacity=".85"/>
-                </g>
-                <text x="202" y="222" fill="#FFFFFF" font-family="Montserrat" font-weight="800" font-size="12" text-anchor="middle" letter-spacing=".6">AI AGENT</text>
-                <text x="202" y="236" fill="#FB7B3A" font-family="Montserrat" font-weight="700" font-size="7" text-anchor="middle" letter-spacing="1.1">PLAN &middot; DRAFT &middot; CHECK</text>
-
-                <!-- fan-out: robot -> bus -> first column -> second column -->
-                <!-- solid orange, not url(#nmS-fl): a horizontal path has a zero-height
-                     bounding box, so an objectBoundingBox gradient is degenerate and
-                     Chrome drops the stroke entirely. -->
-                <path d="M244 150 L266 150" stroke="#FB7B3A" stroke-width="2.2" stroke-linecap="round"/>
-                <path d="M266 105 L266 197" stroke="#4B5563" stroke-width="1.6" stroke-linecap="round"/>
-                <g stroke="#FB7B3A" stroke-width="1.8" stroke-linecap="round" fill="none">
-                  <path d="M266 105 L288 105"/><path d="M266 151 L288 151"/><path d="M266 197 L288 197"/>
-                  <path d="M364 105 L384 105"/><path d="M364 151 L384 151"/><path d="M364 197 L384 197"/>
-                </g>
-
-                <!-- PACE deliverables out -->
-                <g font-family="Montserrat" font-weight="800" font-size="11" text-anchor="middle">
-                  <rect x="288" y="88"  width="76" height="34" rx="8" fill="#F96532" fill-opacity=".18" stroke="#FB7B3A"/>
-                  <text x="326" y="110" fill="#FFFFFF">Form G</text>
-                  <rect x="384" y="88"  width="76" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <text x="422" y="110" fill="#E5E7EB">Form C</text>
-                  <rect x="288" y="134" width="76" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <text x="326" y="156" fill="#E5E7EB">Form A</text>
-                  <rect x="384" y="134" width="76" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <text x="422" y="156" fill="#E5E7EB">DIA</text>
-                  <rect x="288" y="180" width="76" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <text x="326" y="202" fill="#E5E7EB">AIP</text>
-                  <rect x="384" y="180" width="76" height="34" rx="8" fill="#FFFFFF" fill-opacity=".05" stroke="#374151"/>
-                  <text x="422" y="202" fill="#E5E7EB">CR-T</text>
-                </g>
-
-                <text x="240" y="258" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="10" text-anchor="middle">Agent drafts. Engineer verifies and signs.</text>
-              </svg></span>
-                <span class="nm-pc">
-                  <span class="nm-flabel">Scribtive&reg;</span>
-                  <span class="nm-ftitle">PACE assurance, drafted for you</span>
-                  <span class="nm-fdesc">Our signature SaaS for rail PACE assurance deliverables, from Form G to CR-T. Join the waitlist for early access.</span>
-                  <span class="nm-fcta">Join the waitlist <span class="arr" aria-hidden="true">&rarr;</span></span>
-                </span>
-              </a>
-            </div>
-            <div class="nm-panel" id="nmp-assessment" role="tabpanel" aria-labelledby="nmt-assessment" data-panel="assessment">
-              <a class="nm-plink" href="scorecard.html">
-                <span class="nm-pv"><svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <defs>
-                  <linearGradient id="nmD-bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#161B22"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
-                  <linearGradient id="nmD-arc" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#F96532"/><stop offset="1" stop-color="#FB7B3A"/></linearGradient>
-                  <radialGradient id="nmD-g" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FB7B3A" stop-opacity=".45"/><stop offset="1" stop-color="#FB7B3A" stop-opacity="0"/></radialGradient>
-                </defs>
-                <rect width="480" height="300" fill="url(#nmD-bg)"/>
-                <circle cx="140" cy="168" r="96" fill="url(#nmD-g)"/>
-                <text x="52" y="44" fill="#FB7B3A" font-family="Montserrat" font-weight="800" font-size="10" letter-spacing="1.8">AI READINESS</text>
-
-                <!-- score ring -->
-                <circle cx="140" cy="168" r="54" fill="none" stroke="#374151" stroke-width="14"/>
-                <circle cx="140" cy="168" r="54" fill="none" stroke="url(#nmD-arc)" stroke-width="14" stroke-linecap="round" stroke-dasharray="339.3" stroke-dashoffset="102" transform="rotate(-90 140 168)"/>
-                <text x="140" y="164" fill="#FFFFFF" font-family="Montserrat" font-weight="800" font-size="13" text-anchor="middle" letter-spacing="1.2">YOUR</text>
-                <text x="140" y="182" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="10" text-anchor="middle" letter-spacing="1.6">SCORE</text>
-
-                <!-- category bars -->
-                <text x="232" y="104" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="9" letter-spacing="1.3">DATA</text>
-                <rect x="232" y="112" width="196" height="9" rx="4.5" fill="#374151"/>
-                <rect x="232" y="112" width="147" height="9" rx="4.5" fill="url(#nmD-arc)"/>
-
-                <text x="232" y="144" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="9" letter-spacing="1.3">PROCESS</text>
-                <rect x="232" y="152" width="196" height="9" rx="4.5" fill="#374151"/>
-                <rect x="232" y="152" width="108" height="9" rx="4.5" fill="url(#nmD-arc)"/>
-
-                <text x="232" y="184" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="9" letter-spacing="1.3">PEOPLE</text>
-                <rect x="232" y="192" width="196" height="9" rx="4.5" fill="#374151"/>
-                <rect x="232" y="192" width="166" height="9" rx="4.5" fill="url(#nmD-arc)"/>
-
-                <text x="232" y="224" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="9" letter-spacing="1.3">TOOLING</text>
-                <rect x="232" y="232" width="196" height="9" rx="4.5" fill="#374151"/>
-                <rect x="232" y="232" width="84" height="9" rx="4.5" fill="url(#nmD-arc)"/>
-
-                <text x="52" y="276" fill="#FB7B3A" font-family="Montserrat" font-weight="800" font-size="10" letter-spacing="1.4">FIVE MINUTES &middot; TAILORED REPORT</text>
-              </svg></span>
-                <span class="nm-pc">
-                  <span class="nm-flabel">Free</span>
-                  <span class="nm-ftitle">AI Readiness Assessment</span>
-                  <span class="nm-fdesc">A five-minute diagnostic that scores where you stand and returns a tailored report.</span>
-                  <span class="nm-fcta">Start the assessment <span class="arr" aria-hidden="true">&rarr;</span></span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li><a href="about.html">Who we are</a></li>
-      <li class="has-dropdown">
-        <button type="button" class="nav-dropdown-toggle is-current" aria-haspopup="true" aria-expanded="false">Insights</button>
-        <div class="nav-dropdown" aria-label="Insights">
-          <a href="insights.html" aria-current="page" class="is-current">Content</a>
-          <a href="resources.html">P.A.C.E-D&trade; Method</a>
-        </div>
-      </li>
-      <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
-    </ul>
-    <div class="nav-cta-group">
-      <a href="waitlist.html" class="btn btn-primary">Join the Waitlist</a>
-</div>
-    <div class="mobile-toggle" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
+    <a href="index.html" class="gift-brand" aria-label="AutomateX home"><img src="brand_assets/automatex-wordmark-dark-trim.png" alt="AutomateX"></a>
+    <div class="gift-eyebrow">Event recap &middot; ICE London &middot; 17 September 2026</div>
+    <h1>AI and the civil engineer: reimagining roles in infrastructure delivery</h1>
+    <p class="gift-who">46 engineers in the Rennie Room at One Great George Street, for an evening convened by the ICE London AI Working Group. What happened, the photographs, and the slides Bill opened with.</p>
+    <div class="gift-actions">
+      <a class="gift-btn primary" href="#slides">The slides</a>
+      <a class="gift-btn ghost" href="#stay">The newsletter</a>
     </div>
   </div>
-</nav>
-
-<!-- Mobile menu -->
-<div class="mobile-menu" id="mobile-menu">
-  <div class="mobile-close" onclick="this.closest('.mobile-menu').classList.remove('open')">
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-  </div>
-  <a href="about.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Who we are</a>
-  <div class="mobile-sub-wrap">
-    <button type="button" class="mobile-sub-toggle" aria-expanded="false">
-      <span>What we offer</span>
-      <svg class="mobile-sub-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 5 7 9 10 5"/></svg>
-    </button>
-    <div class="mobile-sub" data-collapsed="true">
-      <a href="ai-in-action.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Production-grade custom AI</a>
-      <a href="bootcamp.html" onclick="this.closest('.mobile-menu').classList.remove('open')">AutomateX Bootcamp</a>
-      <a href="waitlist.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Scribtive&reg; OS</a>
-      <a href="scorecard.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Free AI Readiness Assessment</a>
-    </div>
-  </div>
-  <div class="mobile-sub-wrap">
-    <button type="button" class="mobile-sub-toggle is-current" aria-expanded="false" onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden">Insights</button>
-    <div class="mobile-sub" hidden>
-      <a href="insights.html" onclick="this.closest('.mobile-menu').classList.remove('open')" aria-current="page" class="is-current">Content</a>
-      <a href="resources.html" onclick="this.closest('.mobile-menu').classList.remove('open')">P.A.C.E-D&trade; Method</a>
-    </div>
-  </div>
-  <a href="careers.html" onclick="this.parentElement.classList.remove('open')" data-pass="careers-nav-2026-06-09">Careers</a>
-  <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-outline btn-primary-lg">Book a call</a>
-</div>
-
-<main class="evp">
-<header class="evp-hero" style="--focus:62% 38%;--focus-m:64% 30%">
-  <img class="evp-hero-bg" src="images/events/ice-london-2026-09-17-hero.jpg" alt="Bill Guo speaking to a full Rennie Room at One Great George Street, beside a slide titled How to start leveraging AI" fetchpriority="high" decoding="async">
-  <div class="evp-hero-shade" aria-hidden="true"></div>
-  <div class="evp-wrap evp-hero-in">
-    <nav class="evp-crumb" aria-label="Breadcrumb"><a href="insights.html">Insights</a><span aria-hidden="true">/</span><span>Events</span></nav>
-    <p class="evp-eyebrow">Event recap &middot; ICE London</p>
-    <h1>AI and the civil engineer</h1>
-    <p class="evp-sub">Reimagining roles in infrastructure delivery. An evening at One Great George Street, convened by the ICE London AI Working Group.</p>
-    <ul class="evp-meta"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg><span>Thursday 17 September 2026</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Rennie Room, One Great George Street</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.7a3.5 3.5 0 0 1 0 6.6M18 14.3a6.5 6.5 0 0 1 3.5 5.7"/></svg><span>46 attended</span></li></ul>
-    <div class="evp-actions"><a class="evp-btn primary" href="#slides">View the slides</a><a class="evp-btn ghost" href="ai-starter-kit.html">Get the starter kit</a></div>
-  </div>
-  <p class="evp-credit">Photograph: Institution of Civil Engineers</p>
 </header>
-<section class="evp-sec evp-story" aria-labelledby="evp-story-h">
-  <div class="evp-wrap evp-grid">
-    <div class="evp-prose">
-      <p class="evp-kicker">What happened</p>
-      <h2 id="evp-story-h">One question for the room: how is our role being reshaped?</h2>
-      <p>On Thursday 17 September, 46 people came to the Rennie Room at One Great George Street for <em>AI and the civil engineer</em>. The evening was convened by the ICE London AI Working Group and open to members and anyone working in infrastructure.</p>
-      <p>Bill Guo, Vice Chair of ICE London, opened with the context. A century ago the electric motor was ready long before factories changed, and the boom came only once they were rebuilt around it. Then the question for the evening: how is our role in infrastructure delivery being reshaped in the era of AI?</p>
-      <p>Anthony Dewar of Network Rail spoke on design, build, operate and renew, and how AI touches each stage. Lucy Gardner of Arup set out how AI is shaping Arup’s global rail skills strategy. Amira Damji of the ICE London AI Working Group joined them on the panel, which Bill chaired, and brought the view from smaller firms. Dr Frederick Levy FICE gave the vote of thanks.</p>
-      <p>Four threads ran through the discussion. Which skills we need to keep hold of. How to put AI to work on a real job. What clients will care about. And the ICE Code of Professional Conduct, which already points at the answer: the accountability stays with the engineer, whatever the tool.</p>
-      <p>A good number stayed talking well after the close.</p>
-      <blockquote class="evp-quote"><p>Our value is the vault. AI could be the key that opens more of it.</p><cite>Bill Guo FICE CEng MEng, Vice Chair, ICE London</cite></blockquote>
-    </div>
-    <aside class="evp-facts" aria-label="At a glance">
-      <h3>At a glance</h3>
-      <dl><dt>Date</dt><dd>Thursday 17 September 2026, 18:30 to 21:00</dd><dt>Venue</dt><dd>Rennie Room, One Great George Street, London SW1P 3AA</dd><dt>Organised by</dt><dd>ICE London, convened by its AI Working Group</dd><dt>Format</dt><dd>Context setting, two talks, a panel and audience Q&amp;A</dd><dt>Attendance</dt><dd>46</dd><dt>Bill’s role</dt><dd>Welcome, context setting and panel chair</dd></dl>
-      <h3>On the night</h3>
-      <ul class="evp-people"><li class=is-bill><b>Bill Guo <small>FICE CEng MEng</small></b><span>Vice Chair, ICE London &middot; Founder, AutomateX</span></li><li><b>Anthony Dewar <small>EurIng BEng CEng FICE FRSA</small></b><span>Head of Estate and Architectural Design, Network Rail</span></li><li><b>Lucy Gardner <small>CEng FICE</small></b><span>Associate Director, Global Rail Skills Network Leader, Arup</span></li><li><b>Amira Damji <small>CEng MICE MIStructE</small></b><span>Founder, Additive Sustainability &middot; ICE London AI Working Group</span></li><li><b>Dr Frederick Levy <small>FICE</small></b><span>Vote of thanks</span></li></ul>
-    </aside>
-  </div>
-  <div class="evp-wrap"><div class="evp-gallery"><figure><img src="images/events/ice-london-2026-09-17-anthony.jpg" alt="Anthony Dewar speaking at the lectern" loading="lazy" decoding="async" width="1200" height="900"><figcaption>Anthony Dewar, Network Rail, on design, build, operate and renew.</figcaption></figure><figure><img src="images/events/ice-london-2026-09-17-lucy.jpg" alt="Lucy Gardner speaking at the lectern" loading="lazy" decoding="async" width="1200" height="900"><figcaption>Lucy Gardner, Arup, on AI and Arup’s global rail skills strategy.</figcaption></figure><figure><img src="images/events/ice-london-2026-09-17-panel.jpg" alt="The four panellists seated in front of the screen" loading="lazy" decoding="async" width="1200" height="900"><figcaption>The panel: Anthony Dewar, Lucy Gardner, Amira Damji and Bill Guo.</figcaption></figure><figure><img src="images/events/ice-london-2026-09-17-room.jpg" alt="The audience in the Rennie Room during the panel" loading="lazy" decoding="async" width="1200" height="900"><figcaption>The Rennie Room during the panel.</figcaption></figure></div>
-  <p class="evp-gallery-credit">Photographs: Institution of Civil Engineers.</p></div>
-</section>
-<section class="evp-sec evp-slides" id="slides" aria-labelledby="evp-slides-h">
-  <div class="evp-wrap">
-    <p class="evp-kicker">The slides</p>
-    <h2 id="evp-slides-h">Welcome and context setting</h2>
-    <p class="evp-lede">The 14 slides Bill opened the evening with, including the introductions to both speakers. Browse them here, open them full screen, or take the PDF.</p>
+
+<main class="gift-body">
+
+  <section class="gift-sec">
+    <div class="gift-num">One</div>
+    <h2>What happened.</h2>
+    <p class="gift-lede">On Thursday 17 September, 46 people came to the Rennie Room at One Great George Street for <em>AI and the civil engineer</em>. The evening was convened by the ICE London AI Working Group and open to members and anyone working in infrastructure.</p>
+    <p>Bill Guo, Vice Chair of ICE London, opened with the context. A century ago the electric motor was ready long before factories changed, and the boom came only once they were rebuilt around it. Then the question for the evening: how is our role in infrastructure delivery being reshaped in the era of AI?</p>
+    <p>Anthony Dewar of Network Rail spoke on design, build, operate and renew, and how AI touches each stage. Lucy Gardner of Arup set out how AI is shaping Arup’s global rail skills strategy. Amira Damji of the ICE London AI Working Group joined them on the panel, which Bill chaired, and brought the view from smaller firms. Dr Frederick Levy FICE gave the vote of thanks.</p>
+    <p>Four threads ran through the discussion. Which skills we need to keep hold of. How to put AI to work on a real job. What clients will care about. And the ICE Code of Professional Conduct, which already points at the answer: the accountability stays with the engineer, whatever the tool.</p>
+    <p>A good number stayed talking well after the close.</p>
+    <blockquote class="ev-quote"><p>Our value is the vault. AI could be the key that opens more of it.</p><cite>Bill Guo FICE CEng MEng, Vice Chair, ICE London</cite></blockquote>
+  </section>
+
+  <section class="gift-sec">
+    <div class="gift-num">Two</div>
+    <h2>At a glance.</h2>
+    <div class="gift-grid ev-facts"><div class="gift-card"><b>Date</b><span>Thursday 17 September 2026, 18:30 to 21:00</span></div><div class="gift-card"><b>Venue</b><span>Rennie Room, One Great George Street, London SW1P 3AA</span></div><div class="gift-card"><b>Organised by</b><span>ICE London, convened by its AI Working Group</span></div><div class="gift-card"><b>Format</b><span>Context setting, two talks, a panel and audience Q&amp;A</span></div><div class="gift-card"><b>Attendance</b><span>46</span></div><div class="gift-card"><b>Bill’s role</b><span>Welcome, context setting and panel chair</span></div></div>
+    <h3 class="ev-sub">On the night</h3>
+    <div class="gift-steps ev-people"><div class="gift-step is-bill"><div class="when">Welcome and panel chair</div><b>Bill Guo FICE CEng MEng</b><span>Vice Chair, ICE London &middot; Founder, AutomateX</span></div><div class="gift-step"><div class="when">Speaker</div><b>Anthony Dewar EurIng BEng CEng FICE FRSA</b><span>Head of Estate and Architectural Design, Network Rail. <em>Design. Build. Operate. Renew. AI changes everything.</em></span></div><div class="gift-step"><div class="when">Speaker</div><b>Lucy Gardner CEng FICE</b><span>Associate Director, Global Rail Skills Network Leader, Arup. <em>How AI is shaping Arup’s global rail skills strategy.</em></span></div><div class="gift-step"><div class="when">Panel</div><b>Amira Damji CEng MICE MIStructE</b><span>Founder, Additive Sustainability &middot; ICE London AI Working Group</span></div><div class="gift-step"><div class="when">Vote of thanks</div><b>Dr Frederick Levy FICE</b><span>ICE London</span></div></div>
+  </section>
+
+  <section class="gift-sec">
+    <div class="gift-num">Three</div>
+    <h2>The evening in pictures.</h2>
+    <div class="ev-gallery"><figure><img src="images/events/ice-london-2026-09-17-anthony.jpg" alt="Anthony Dewar speaking at the lectern" loading="lazy" decoding="async" width="1200" height="900"><figcaption>Anthony Dewar, Network Rail, on design, build, operate and renew.</figcaption></figure><figure><img src="images/events/ice-london-2026-09-17-lucy.jpg" alt="Lucy Gardner speaking at the lectern" loading="lazy" decoding="async" width="1200" height="900"><figcaption>Lucy Gardner, Arup, on AI and Arup’s global rail skills strategy.</figcaption></figure><figure><img src="images/events/ice-london-2026-09-17-panel.jpg" alt="The four panellists seated in front of the screen" loading="lazy" decoding="async" width="1200" height="900"><figcaption>The panel: Anthony Dewar, Lucy Gardner, Amira Damji and Bill Guo.</figcaption></figure><figure><img src="images/events/ice-london-2026-09-17-room.jpg" alt="The audience in the Rennie Room during the panel" loading="lazy" decoding="async" width="1200" height="900"><figcaption>The Rennie Room during the panel.</figcaption></figure></div>
+    <p class="ev-credit">Photographs: Institution of Civil Engineers.</p>
+  </section>
+
+  <section class="gift-sec" id="slides">
+    <div class="gift-num">Four</div>
+    <h2>Welcome and context setting.</h2>
+    <p>The 14 slides Bill opened the evening with, including the introductions to both speakers. Use the arrows or the thumbnails, open them full screen, or take the PDF.</p>
     <div class="deck" data-deck data-total="14">
       <div class="deck-frame">
         <img class="deck-poster" src="talks/ice-london-2026-09-17/thumbs/poster.webp" alt="Title slide: AI and the civil engineer: reimagining roles in infrastructure delivery" width="1600" height="900">
@@ -890,225 +783,34 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
       </div>
       <ol class="deck-thumbs" aria-label="All slides"><li><button type="button" data-go="0" data-title="Title" aria-label="Slide 1: Title" aria-current="true"><img src="talks/ice-london-2026-09-17/thumbs/01.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>01</i></button></li><li><button type="button" data-go="1" data-title="The motor arrived first" aria-label="Slide 2: The motor arrived first" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/02.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>02</i></button></li><li><button type="button" data-go="2" data-title="A hundred years on" aria-label="Slide 3: A hundred years on" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/03.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>03</i></button></li><li><button type="button" data-go="3" data-title="Why 2026 feels different" aria-label="Slide 4: Why 2026 feels different" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/04.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>04</i></button></li><li><button type="button" data-go="4" data-title="AI capability and infrastructure adoption" aria-label="Slide 5: AI capability and infrastructure adoption" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/05.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>05</i></button></li><li><button type="button" data-go="5" data-title="Polarised" aria-label="Slide 6: Polarised" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/06.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>06</i></button></li><li><button type="button" data-go="6" data-title="Our role in infrastructure delivery" aria-label="Slide 7: Our role in infrastructure delivery" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/07.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>07</i></button></li><li><button type="button" data-go="7" data-title="The Code, one step further" aria-label="Slide 8: The Code, one step further" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/08.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>08</i></button></li><li><button type="button" data-go="8" data-title="The onion" aria-label="Slide 9: The onion" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/09.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>09</i></button></li><li><button type="button" data-go="9" data-title="The how" aria-label="Slide 10: The how" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/10.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>10</i></button></li><li><button type="button" data-go="10" data-title="55 stations" aria-label="Slide 11: 55 stations" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/11.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>11</i></button></li><li><button type="button" data-go="11" data-title="Civil engineers shaping the world" aria-label="Slide 12: Civil engineers shaping the world" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/12.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>12</i></button></li><li><button type="button" data-go="12" data-title="Speaker one: Anthony Dewar" aria-label="Slide 13: Speaker one: Anthony Dewar" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/13.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>13</i></button></li><li><button type="button" data-go="13" data-title="Speaker two: Lucy Gardner" aria-label="Slide 14: Speaker two: Lucy Gardner" aria-current="false"><img src="talks/ice-london-2026-09-17/thumbs/14.webp" alt="" loading="lazy" decoding="async" width="480" height="270"><i>14</i></button></li></ol>
     </div>
-  </div>
-</section>
-<section class="evp-sec evp-next" aria-label="Take it further">
-  <div class="evp-wrap">
-    <div class="evp-cta">
-      <div>
-        <p class="evp-kicker">Take it further</p>
-        <h2>Start with one workflow.</h2>
-        <p>The starter kit from both evenings: one workflow and two questions, six skills that outlast the tools, a 30-day plan, and five checks for anything AI hands you.</p>
-        <div class="evp-actions"><a class="evp-btn primary" href="ai-starter-kit.html">Open the starter kit</a><a class="evp-btn ghost" href="index.html#newsletter">Get the newsletter</a></div>
-      </div>
-      <a class="evp-also" href="event-the-use-of-ai-in-rail.html">
-        <img src="images/insights/event-rcea-yrp-2026-09-24.jpg" alt="" loading="lazy" decoding="async" width="1280" height="720">
-        <span class="evp-also-k">Also this month</span><b>The use of AI in rail: RCEA and Young Rail Professionals</b><span class="evp-also-go">See the recap &rarr;</span>
-      </a>
+  </section>
+
+  <section class="gift-sec">
+    <div class="gift-num">Five</div>
+    <h2>Take it further.</h2>
+    <div class="ev-next">
+      <a class="gift-step ev-card" href="ai-starter-kit.html"><div class="when">The starter kit</div><b>Start with one workflow.</b><span>One workflow and two questions, six skills that outlast the tools, a 30-day plan, and five checks for anything AI hands you.</span><em class="ev-go">Open the starter kit &rarr;</em></a>
+      <a class="ev-also" href="event-the-use-of-ai-in-rail.html"><img src="images/insights/event-rcea-yrp-2026-09-24.jpg" alt="" loading="lazy" decoding="async" width="1280" height="720"><span class="when">Also this month</span><b>The use of AI in rail</b><em class="ev-go">See the recap &rarr;</em></a>
     </div>
-    <a class="evp-back" href="insights.html">&larr; All insights</a>
+  </section>
+
+  <div class="gift-cta" id="stay">
+    <div class="inner">
+      <div class="gift-eyebrow">The newsletter</div>
+      <h2>The practical version, every fortnight.</h2>
+      <p>A short newsletter every two weeks on AI in rail: what worked, what did not, and one thing to try. Subscribers also get early access to Scribtive&reg; OS when it opens. Free, and easy to leave.</p>
+      <form class="gift-form" onsubmit="return giftJoin(event)">
+        <input type="email" id="gift-email" placeholder="Your work email" aria-label="Email address" required>
+        <button type="submit" class="gift-btn primary" id="gift-btn">Subscribe</button>
+        <span class="joined" id="gift-joined">Subscribed. Thank you.</span>
+      </form>
+      <p class="gift-fine">Consent, UK GDPR Article 6(1)(a). See the <a href="privacy.html">privacy notice</a>. The same list as <a href="waitlist.html">the Scribtive waitlist</a>.</p>
+    </div>
   </div>
-</section>
+
 </main>
 
-<footer class="blog-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="blog-nav-logo" aria-label="AutomateX home">
-          <img src="brand_assets/automatex-wordmark-dark-bg-transparent.png" alt="AutomateX">
-        </a>
-        <p>Systemising success for the UK rail supply chain.</p>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/automatex-advisory/" target="_blank" rel="noopener" aria-label="AutomateX on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@AutomateXUK" target="_blank" rel="noopener" aria-label="AutomateX on YouTube">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.42a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.95 1.96C5.12 19.5 12 19.5 12 19.5s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Approach</h4>
-        <ul>
-          <li><a href="bootcamp.html">Find your X</a></li>
-          <li><a href="bootcamp.html">Where to start</a></li>
-          <li><a href="waitlist.html">Scribtive&reg; OS</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">Founder&rsquo;s journey</a></li>
-          <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
-          <li><a href="ai-in-action.html">Case Studies</a></li>
-          <li><a href="scorecard.html">Assessment</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="privacy.html">Privacy Notice</a></li>
-          </ul>
-      </div>
-      <div class="footer-certs" style="flex-wrap:wrap;max-width:250px;">
-        <img src="images/ico-badge.png" alt="ICO Registered">
-        <img src="images/risqs-badge.png" alt="RISQS Verified">
-        <img src="images/cyber-essentials-badge.png" alt="Cyber Essentials Certified">
-        <img src="images/techfest-2026-finalist-digital-transport.png" alt="TechFest Awards 2026 finalist, Digital Transport Project of the Year" style="height:76px;width:auto;border-radius:4px;">
-        <img src="images/techfest-2026-finalist-best-use-ai.png" alt="TechFest Awards 2026 finalist, Best Use of Technology: Artificial Intelligence" style="height:76px;width:auto;border-radius:4px;">
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-legal">&copy; 2026 AutomateX Ltd. Company No. 16855291 &middot; VAT No. 514079209</div>
-      <div class="footer-contact">
-        <a href="mailto:bill.guo@automatex.uk">bill.guo@automatex.uk</a> &middot; 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- Vercel Web Analytics — cookie-free, GDPR-compliant. Enable in Vercel Project → Analytics. -->
-<script defer src="/_vercel/insights/script.js"></script>
-
-<!-- Calendly badge widget — floating "Chat with Founder" pill, bottom-right (calendly-badge-sitewide-2026-06-09) -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script type="text/javascript">window.addEventListener('load', function() { if (window.Calendly) { Calendly.initBadgeWidget({ url: 'https://calendly.com/bill-guo-automatex/quick-chat-bill-guo?primary_color=f96532', text: 'Chat with Founder', color: '#f96532', textColor: '#ffffff', branding: false }); } });</script>
-
-<script id="nav-reorg-scroll">
-(function() {
-  var nav = document.querySelector('.navbar');
-  if (!nav) return;
-  var lastY = window.scrollY || 0;
-  var ticking = false;
-  var THRESHOLD_HIDE = 80;   // px below hero before we start hiding
-  var DELTA = 6;             // ignore tiny scroll wobble
-  function onScroll() {
-    var y = window.scrollY || 0;
-    if (Math.abs(y - lastY) < DELTA) { ticking = false; return; }
-    if (y > lastY && y > THRESHOLD_HIDE) {
-      nav.classList.add('navbar-hidden');     // scrolling down → hide
-    } else {
-      nav.classList.remove('navbar-hidden');  // scrolling up → show
-    }
-    lastY = y;
-    ticking = false;
-  }
-  window.addEventListener('scroll', function() {
-    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
-  }, { passive: true });
-
-  // Click-to-open dropdown for touch + keyboard users (hover/focus-within
-  // already handles mouse + tab). Closes on outside click or Escape.
-  document.querySelectorAll('.navbar-links .has-dropdown').forEach(function(li) {
-    var btn = li.querySelector('.nav-dropdown-toggle');
-    if (!btn) return;
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      var open = li.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  });
-  document.addEventListener('click', function(e) {
-    document.querySelectorAll('.navbar-links .has-dropdown.is-open').forEach(function(li) {
-      if (!li.contains(e.target)) {
-        li.classList.remove('is-open');
-        var btn = li.querySelector('.nav-dropdown-toggle');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.navbar-links .has-dropdown.is-open').forEach(function(li) {
-        li.classList.remove('is-open');
-        var btn = li.querySelector('.nav-dropdown-toggle');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-      });
-    }
-  });
-})();
-</script>
-<script id="nav-shadcn-behaviour-js-2026-06-02">
-(function() {
-  var menu = document.querySelector('.mobile-menu');
-  if (!menu) return;
-
-  // (1) Wrap inner contents in a single .mobile-panel container so the slide-in
-  //     animation has a stable element to translate. Idempotent.
-  if (!menu.querySelector('.mobile-panel')) {
-    var panel = document.createElement('div');
-    panel.className = 'mobile-panel';
-    // Move all current children of .mobile-menu into the panel.
-    while (menu.firstChild) panel.appendChild(menu.firstChild);
-    menu.appendChild(panel);
-    // Backdrop click (outside the panel) closes the menu.
-    menu.addEventListener('click', function(e) {
-      if (e.target === menu) menu.classList.remove('open');
-    });
-  }
-
-  // (2) Mobile sub-menu accordion: wire the chevron toggle.
-  document.querySelectorAll('.mobile-sub-toggle').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var sub = btn.nextElementSibling;
-      if (!sub || !sub.classList.contains('mobile-sub')) return;
-      var collapsed = sub.getAttribute('data-collapsed') !== 'false';
-      sub.setAttribute('data-collapsed', collapsed ? 'false' : 'true');
-      btn.setAttribute('aria-expanded', collapsed ? 'true' : 'false');
-    });
-  });
-
-  // Sheet behaviour for Escape key: close menu on Escape (matches shadcn Sheet).
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') menu.classList.remove('open');
-  });
-})();
-</script>
-<script id="axr-megamenu-2026-07-11">
-(function(){var root=document.documentElement,nav=document.querySelector(".navbar"),veil=document.getElementById("axr-mega-veil");
-var lis=document.querySelectorAll(".navbar-links .has-dropdown");
-function closeAll(){lis.forEach(function(li){li.classList.remove("is-open");var b=li.querySelector(".nav-dropdown-toggle");if(b)b.setAttribute("aria-expanded","false");});sync();}
-function sync(){var open=false;lis.forEach(function(li){if(li.classList.contains("is-open"))open=true;});root.classList.toggle("axr-mega-open",open);
-if(open&&nav){var b=nav.getBoundingClientRect().bottom;lis.forEach(function(li){var p=li.querySelector(".nav-mega");if(p)p.style.top=Math.max(0,b)+"px";});}}
-lis.forEach(function(li){var t=null;function cancel(){if(t){clearTimeout(t);t=null;}}
-li.addEventListener("mouseleave",function(){if(li.classList.contains("is-open")){cancel();t=setTimeout(closeAll,5000);}});
-li.addEventListener("mouseenter",cancel);
-new MutationObserver(sync).observe(li,{attributes:true,attributeFilter:["class"]});});
-if(veil)veil.addEventListener("click",closeAll);
-window.addEventListener("resize",sync);})();
-</script>
-<script id="axr-mega-tabs-2026-07-25">
-(function(){
-  document.querySelectorAll('.nav-mega').forEach(function(mega){
-    var tabs=[].slice.call(mega.querySelectorAll('.nm-tab'));
-    var panels=[].slice.call(mega.querySelectorAll('.nm-panel'));
-    if(!tabs.length||!panels.length)return;
-    function show(key,moveFocus){
-      tabs.forEach(function(t){
-        var on=t.getAttribute('data-panel')===key;
-        t.classList.toggle('is-active',on);
-        t.setAttribute('aria-selected',on?'true':'false');
-        t.setAttribute('tabindex',on?'0':'-1');
-        if(on&&moveFocus)t.focus();
-      });
-      panels.forEach(function(p){p.classList.toggle('is-active',p.getAttribute('data-panel')===key);});
-    }
-    tabs.forEach(function(t,i){
-      t.addEventListener('click',function(e){e.preventDefault();show(t.getAttribute('data-panel'));});
-      t.addEventListener('keydown',function(e){
-        var n=null,L=tabs.length;
-        if(e.key==='ArrowDown'||e.key==='ArrowRight')n=(i+1)%L;
-        else if(e.key==='ArrowUp'||e.key==='ArrowLeft')n=(i-1+L)%L;
-        else if(e.key==='Home')n=0;
-        else if(e.key==='End')n=L-1;
-        if(n!==null){e.preventDefault();show(tabs[n].getAttribute('data-panel'),true);}
-      });
-    });
-  });
-})();
-</script>
-<script id="event-deck-2026-09-25">
+<script>
 /* Slide carousel for event recap pages. The slides are the talk's own HTML deck in a
    same-origin iframe (talks/<slug>/); the deck's embed mode moves a whole slide per step
    and reports which slide is showing, so this script only sends go / next / prev. */
@@ -1179,6 +881,24 @@ window.addEventListener("resize",sync);})();
   });
 })();
 
+function giftJoin(e){
+  e.preventDefault();
+  var input = document.getElementById('gift-email'), btn = document.getElementById('gift-btn'), ok = document.getElementById('gift-joined');
+  var email = (input.value || '').trim(); if (!email || email.indexOf('@') < 0) { alert('Please enter a valid email address.'); return false; }
+  btn.disabled = true; var label = btn.textContent; btn.textContent = 'Joining...';
+  fetch('https://n8n.automatex.uk/webhook/pace-waitlist', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, source: 'Event recap ICE London 2026-09-17', timestamp: new Date().toISOString() }) })
+  .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); input.value = ''; btn.style.display = 'none'; input.style.display = 'none'; ok.style.display = 'inline-block'; })
+  .catch(function(){ btn.disabled = false; btn.textContent = label; alert('Something went wrong. Please try again, or email bill.guo@automatex.uk.'); });
+  return false;
+}
 </script>
+
+<footer class="gift-foot">
+  <div class="container">
+    <a href="index.html" class="gift-foot-brand" aria-label="AutomateX home"><img src="brand_assets/automatex-wordmark-dark-trim.png" alt="AutomateX"></a>
+    <p>&copy; 2026 AutomateX Ltd &middot; <a href="mailto:bill.guo@automatex.uk">bill.guo@automatex.uk</a> &middot; <a href="privacy.html">Privacy notice</a> &middot; <a href="insights.html">More insights</a></p>
+  </div>
+</footer>
 </body>
 </html>
