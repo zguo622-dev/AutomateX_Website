@@ -2586,6 +2586,21 @@
 <style id="axr-ported-2026-07-10">
 .axr-hero, #pain, #find-your-x{--grad-brand:linear-gradient(120deg,var(--orange-light),var(--orange) 45%,var(--orange-dark));--font-h:'Montserrat',system-ui,sans-serif;--font-b:'Open Sans',system-ui,sans-serif;--px:clamp(1.25rem,4vw,2.5rem);--container:1240px;--nav-h:76px;--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.16,1,.3,1);--ink-dim:#b9c2cf;--navy-surface:#131921;--card-dark:#161B22;--shadow-lift:0 14px 40px -18px rgba(13,17,23,.25);--white:#ffffff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--orange:#F96532;--orange-light:#FB7B3A;--orange-dark:#ED4A3B;--navy:#1A1F36;--navy-deep:#0D1117;}
 /* ---------- shared type ---------- */
+/* InstaTrace feature band. Self-contained, so it holds with or without the Scribtive band. */
+.itb-band{position:relative;background:transparent;color:var(--white);padding:clamp(4.5rem,9vw,7.5rem) 0;overflow:hidden}
+.itb-band::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;background:linear-gradient(to right,transparent,rgba(249,101,50,.28),transparent)}
+.itb-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,6vw,5.5rem);align-items:center}
+.itb-h{color:var(--white);max-width:15ch}
+.itb-h span{display:block;color:rgba(255,255,255,.62);font-weight:700;font-size:.62em;line-height:1.2;letter-spacing:-.015em;margin-top:.7rem}
+.itb-p{font-size:clamp(1rem,1.25vw,1.11rem);line-height:1.65;color:rgba(255,255,255,.72);max-width:34rem;margin:0 0 1.9rem}
+.itb-cta{display:flex;flex-wrap:wrap;gap:.8rem}
+@media (max-width:900px){.itb-in{grid-template-columns:minmax(0,1fr);gap:2.75rem}.itb-h{max-width:none}}
+.itb-badge{display:block;width:min(100%,17.5rem);height:auto;border-radius:6px;margin:0 0 1.4rem;box-shadow:0 14px 34px -14px rgba(0,0,0,.7)}
+.itb-stage{position:relative;display:block;text-decoration:none;color:rgba(255,255,255,.5);-webkit-tap-highlight-color:transparent}
+.itb-stage:focus-visible{outline:2px solid var(--orange);outline-offset:6px;border-radius:10px}
+.itb-stage img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 70px -28px rgba(0,0,0,.85);transition:transform .4s cubic-bezier(.23,1,.32,1)}
+.itb-note{display:block;margin-top:.9rem;font-family:'IBM Plex Mono',ui-monospace,Consolas,monospace;font-size:.66rem;line-height:1.45;color:rgba(255,255,255,.5)}
+@media (hover:hover) and (pointer:fine){.itb-stage:hover img{transform:translateY(-3px)}}
 .eyebrow {
   font-family: var(--font-h); font-weight:700; font-size:.75rem;
   letter-spacing:.16em; text-transform:uppercase; color: var(--orange);
@@ -3313,6 +3328,7 @@ html{scroll-padding-top:76px;}
             <button type="button" role="tab" id="nmt-custom-ai" class="nm-tab is-active" aria-selected="true" aria-controls="nmp-custom-ai" tabindex="0" data-panel="custom-ai"><span class="nm-t">Production-grade custom AI</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
             <button type="button" role="tab" id="nmt-bootcamp" class="nm-tab" aria-selected="false" aria-controls="nmp-bootcamp" tabindex="-1" data-panel="bootcamp"><span class="nm-t">AutomateX Bootcamp</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
             <button type="button" role="tab" id="nmt-scribtive" class="nm-tab" aria-selected="false" aria-controls="nmp-scribtive" tabindex="-1" data-panel="scribtive"><span class="nm-t">Scribtive&reg; OS</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
+            <button type="button" role="tab" id="nmt-instatrace" class="nm-tab" aria-selected="false" aria-controls="nmp-instatrace" tabindex="-1" data-panel="instatrace"><span class="nm-t">InstaTrace</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
             <button type="button" role="tab" id="nmt-assessment" class="nm-tab" aria-selected="false" aria-controls="nmp-assessment" tabindex="-1" data-panel="assessment"><span class="nm-t">Free AI Readiness Assessment</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
           </div>
           <div class="nm-col nm-stage">
@@ -3470,6 +3486,49 @@ html{scroll-padding-top:76px;}
                 </span>
               </a>
             </div>
+            <div class="nm-panel" id="nmp-instatrace" role="tabpanel" aria-labelledby="nmt-instatrace" data-panel="instatrace">
+              <a class="nm-plink" href="https://instatrace.automatex.uk/">
+                <span class="nm-pv"><svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="nmI-bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#161B22"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
+                  <radialGradient id="nmI-gl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FB7B3A" stop-opacity=".4"/><stop offset="1" stop-color="#FB7B3A" stop-opacity="0"/></radialGradient>
+                </defs>
+                <rect width="480" height="300" fill="url(#nmI-bg)"/>
+                <circle cx="250" cy="150" r="120" fill="url(#nmI-gl)"/>
+                <text x="26" y="40" fill="#FB7B3A" font-family="Montserrat" font-weight="800" font-size="10" letter-spacing="1.7">AI TAKE-OFF</text>
+                <text x="454" y="40" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="9" letter-spacing="1.2" text-anchor="end">TECHFEST 2026 FINALIST</text>
+
+                <!-- the sheet -->
+                <rect x="26" y="58" width="428" height="176" rx="8" fill="#FFFFFF" fill-opacity=".03" stroke="#374151"/>
+                <path d="M26 102H454 M26 146H454 M26 190H454 M112 58V234 M198 58V234 M284 58V234 M370 58V234" stroke="#374151" stroke-width="1" opacity=".55"/>
+                <path d="M100 196 L96 218 M190 176 L196 214 M300 150 L294 206" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+
+                <!-- the trace -->
+                <path d="M46 208 L100 196 L190 176 L300 150 L380 124 L434 96" fill="none" stroke="#0D1117" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M46 208 L100 196 L190 176 L300 150 L380 124 L434 96" fill="none" stroke="#F96532" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <g fill="#F96532" stroke="#FFFFFF" stroke-width="1.2">
+                  <rect x="41" y="203" width="10" height="10" rx="1.5"/><rect x="95" y="191" width="10" height="10" rx="1.5"/>
+                  <rect x="185" y="171" width="10" height="10" rx="1.5"/><rect x="295" y="145" width="10" height="10" rx="1.5"/>
+                  <rect x="375" y="119" width="10" height="10" rx="1.5"/><rect x="429" y="91" width="10" height="10" rx="1.5"/>
+                </g>
+
+                <!-- the quantity -->
+                <g font-family="Montserrat">
+                  <rect x="40" y="72" width="150" height="46" rx="8" fill="#0D1117" fill-opacity=".9" stroke="#374151"/>
+                  <text x="52" y="90" fill="#9CA3AF" font-weight="700" font-size="8.5">Proposed overhead line</text>
+                  <text x="52" y="108" fill="#FFFFFF" font-weight="800" font-size="14">6,522 m</text>
+                </g>
+
+                <text x="240" y="262" fill="#9CA3AF" font-family="Montserrat" font-weight="700" font-size="10" text-anchor="middle">Nobody traces. Everyone can check.</text>
+              </svg></span>
+                <span class="nm-pc">
+                  <span class="nm-flabel">InstaTrace</span>
+                  <span class="nm-ftitle">Take-off, direct from the drawing</span>
+                  <span class="nm-fdesc">Linear quantities taken from the drawing as issued, annotated for your estimator to check and sign. TechFest Awards 2026 finalist.</span>
+                  <span class="nm-fcta">See InstaTrace <span class="arr" aria-hidden="true">&rarr;</span></span>
+                </span>
+              </a>
+            </div>
             <div class="nm-panel" id="nmp-assessment" role="tabpanel" aria-labelledby="nmt-assessment" data-panel="assessment">
               <a class="nm-plink" href="scorecard.html">
                 <span class="nm-pv"><svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -3552,6 +3611,7 @@ html{scroll-padding-top:76px;}
       <a href="ai-in-action.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Production-grade custom AI</a>
       <a href="bootcamp.html" onclick="this.closest('.mobile-menu').classList.remove('open')">AutomateX Bootcamp</a>
       <a href="waitlist.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Scribtive&reg; OS</a>
+      <a href="https://instatrace.automatex.uk/" onclick="this.closest('.mobile-menu').classList.remove('open')">InstaTrace</a>
       <a href="scorecard.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Free AI Readiness Assessment</a>
     </div>
   </div>
@@ -3954,6 +4014,26 @@ html{scroll-padding-top:76px;}
       <span class="newsletter-error" aria-live="polite">Something went wrong. Please try again or email bill.guo@automatex.uk.</span>
     </div>
 
+  </div>
+</section>
+<!-- ═══ INSTATRACE FEATURE BAND (added 2026-09-28) ═══ -->
+<section class="itb-band" id="instatrace" data-nav-theme="dark" aria-labelledby="it-band-h">
+  <div class="container itb-in">
+    <div class="itb-copy">
+      <img class="itb-badge" src="images/techfest-2026-finalist-best-use-ai.png" width="238" height="76" loading="lazy" decoding="async" alt="TechFest Awards 2026 finalist, Best Use of Technology: Artificial Intelligence" data-reveal>
+      <div class="eyebrow" data-reveal>InstaTrace &middot; AI take-off</div>
+      <h2 class="h2 itb-h" id="it-band-h" data-reveal>Quantity take-off, direct from the drawing. <span>Nobody traces. Everyone can check.</span></h2>
+      <p class="itb-p" data-reveal>InstaTrace takes linear quantities from the drawing as issued: overhead lines, access routes and cable routes. Every metre is annotated for your estimator to check and sign.</p>
+      <div class="itb-cta" data-reveal>
+        <a class="axr-btn axr-btn-primary" href="https://instatrace.automatex.uk/">See InstaTrace <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a class="axr-btn axr-btn-ghost-dark" href="https://calendly.com/bill-guo-automatex/discovery-chat">Book a demo</a>
+      </div>
+    </div>
+
+    <a class="itb-stage" href="https://instatrace.automatex.uk/" data-reveal aria-label="See a take-off traced on a sample drawing, on the InstaTrace page">
+      <img src="images/home-instatrace.webp" width="1500" height="954" loading="lazy" decoding="async" alt="A route plan with the overhead line and access tracks traced in orange, each length labelled in metres">
+      <span class="itb-note">Sample scheme, redrawn for illustration. Quantities are the trial's measured results.</span>
+    </a>
   </div>
 </section>
 <section class="week-wrap" id="pain" data-nav-theme="dark">
@@ -4920,6 +5000,7 @@ html{scroll-padding-top:76px;}
           <li><a href="bootcamp.html">Find your X</a></li>
           <li><a href="bootcamp.html">Where to start</a></li>
           <li><a href="waitlist.html">Scribtive&reg; OS</a></li>
+          <li><a href="https://instatrace.automatex.uk/">InstaTrace</a></li>
         </ul>
       </div>
       <div class="footer-col">
