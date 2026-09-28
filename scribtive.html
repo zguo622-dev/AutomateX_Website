@@ -3,322 +3,304 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Scribtive® | PACE assurance deliverables, drafted with their evidence | AutomateX</title>
-<meta name="description" content="Scribtive helps engineers, designers and consultancies prepare PACE assurance deliverables, such as Form G and Form C. Every statement shows its source. Early access by waitlist.">
+<title>Scribtive® | Rail deliverables made easy | AutomateX</title>
+<meta name="description" content="Scribtive drafts every assurance deliverable under NR/L2/RSE/02009 from your own project pack. Every statement carries its source. Every gap is declared. Early access by waitlist.">
 <link rel="canonical" href="https://automatex.uk/scribtive.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://automatex.uk/scribtive.html">
-<meta property="og:title" content="Scribtive® | Your Form G, drafted. Every statement shows its source.">
-<meta property="og:description" content="Scribtive helps engineers, designers and consultancies prepare PACE assurance deliverables, such as Form G and Form C. Early access by waitlist.">
+<meta property="og:title" content="Scribtive® | Rail deliverables made easy">
+<meta property="og:description" content="Scribtive drafts every assurance deliverable under NR/L2/RSE/02009 from your own project pack. Every statement carries its source. Every gap is declared.">
 <meta property="og:image" content="https://automatex.uk/images/og-image-square.png">
 <link rel="icon" type="image/png" href="images/Logo.png">
 <link rel="apple-touch-icon" href="images/Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="vendor/scrollcraft/scrollcraft.css">
 
 <style id="sv-tokens">
-/* Scribtive product page. Built on the scroll-craft engine (vendor/scrollcraft),
-   which is never edited. Everything page-specific is prefixed sv-.
-   Grammar: chaptered editorial. Grounds are painted per chapter and cut hard. */
+/* Scribtive product page, second build (2026-09-28). On the scroll-craft
+   engine (vendor/scrollcraft), which is never edited. Page classes are its own.
+   Dark site ground; the documents are the light objects. */
 :root{
-  /* engine roles, on the app's own paper palette (references/app-design-system.md) */
-  --sc-canvas:#fafafa; --sc-surface:#ffffff;
-  --sc-ink:#1a1f36; --sc-ink-soft:#4b5563;
-  --sc-accent:#c2410c; --sc-accent-ink:#ffffff;
+  --sc-canvas:#0B0F16; --sc-surface:#121926;
+  --sc-ink:#F4F3EF; --sc-ink-soft:#9AA3B2;
+  --sc-accent:#F96532; --sc-accent-ink:#0B0F16;
   --sc-font-display:"Archivo",system-ui,sans-serif;
-  --sc-font-text:"IBM Plex Sans","Inter",system-ui,sans-serif;
+  --sc-font-text:"Inter",system-ui,sans-serif;
   --sc-font-mono:"IBM Plex Mono",ui-monospace,monospace;
   --sc-r-sm:6px; --sc-r-md:8px; --sc-r-lg:12px;
 
-  /* page tokens */
-  --sv-paper:#fafafa; --sv-raised:#ffffff; --sv-sunken:#f3f4f6;
-  --sv-rule:#e5e7eb; --sv-rule-strong:#d1d5db;
-  --sv-faint:#5f6775;
-  --sv-orange:#f96532; --sv-orange-hover:#fb7b3a; --sv-orange-strong:#c2410c;
-  --sv-orange-soft:#fff3ed; --sv-orange-line:#fed7c3;
-  --sv-verified:#047857; --sv-verified-soft:#ecfdf5; --sv-verified-line:#a7f3d0;
-  --sv-amber:#b45309; --sv-amber-soft:#fffbeb; --sv-amber-line:#fde68a;
-  --sv-mark:#fdecae;
-  --sv-night:#12162a; --sv-night-rule:rgba(244,243,239,.14);
-  --sv-e1:0 1px 2px rgba(15,23,42,.05),0 2px 6px -1px rgba(15,23,42,.06);
-  --sv-e2:0 2px 4px rgba(15,23,42,.05),0 12px 24px -8px rgba(15,23,42,.14);
-  --sv-e3:0 4px 8px rgba(3,6,18,.22),0 24px 48px -12px rgba(3,6,18,.5);
+  /* paper objects carry the app's own palette and face */
+  --pp:#fafafa; --pp-raised:#ffffff; --pp-rule:#e5e7eb; --pp-rule-strong:#d1d5db;
+  --pp-ink:#1a1f36; --pp-soft:#4b5563; --pp-faint:#5f6775;
+  --pp-font:"IBM Plex Sans","Inter",system-ui,sans-serif;
+  --ok:#047857; --ok-soft:#ecfdf5; --ok-line:#a7f3d0; --ok-glow:#34d399;
+  --gap:#b45309; --gap-soft:#fffbeb; --gap-line:#fde68a; --gap-glow:#fbbf24;
+  --mark:#fdecae;
+  --night-rule:rgba(244,243,239,.13);
+  --e-paper:0 2px 4px rgba(2,4,10,.35),0 22px 48px -14px rgba(2,4,10,.75);
 
   /* site chrome tokens (the shared navbar and footer read these) */
   --orange:#F96532; --orange-light:#FB7B3A; --orange-dark:#ED4A3B;
   --navy:#1A1F36; --navy-deep:#0D1117; --navy-surface:#131921; --white:#ffffff;
-  --gray-200:#e5e7eb; --gray-300:#d1d5db; --gray-400:#9ca3af; --gray-500:#6b7280; --gray-600:#4b5563;
+  --gray-100:#f3f4f6; --gray-200:#e5e7eb; --gray-300:#d1d5db; --gray-400:#9ca3af; --gray-500:#6b7280; --gray-600:#4b5563;
   --font-head:'Montserrat',sans-serif; --font-heading:'Montserrat',sans-serif;
   --ease-out:cubic-bezier(.23,1,.32,1);
   --t-fast:150ms cubic-bezier(.455,.03,.515,.955);
 }
 html{scroll-padding-top:5rem}
-.sc-grain{opacity:.03}
 </style>
 
 <style id="sv-page">
 /* ------------------------------------------------------------ shared -- */
 .sv-wrap{width:100%;max-width:82rem;margin-inline:auto;padding-inline:var(--sc-gutter)}
-.sv-folio{font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--sv-faint);margin:0;display:flex;align-items:center;gap:.75rem}
-.sv-folio::after{content:"";flex:1;height:1px;background:var(--sv-rule-strong)}
-.sv-folio b{font-weight:500;color:var(--sc-ink)}
-.sv-h2{font-family:var(--sc-font-display);font-weight:600;font-size:var(--sc-t-2xl);line-height:1.04;letter-spacing:-.028em;text-wrap:balance;margin:0;color:var(--sc-ink)}
-.sv-p{margin:0;max-width:34rem;color:var(--sc-ink-soft);text-wrap:pretty}
+.sv-h2{font-family:var(--sc-font-display);font-weight:600;font-size:var(--sc-t-3xl);line-height:1;letter-spacing:-.034em;text-wrap:balance;margin:0;color:var(--sc-ink)}
+.sv-p{margin:0;max-width:34rem;color:var(--sc-ink-soft);font-size:var(--sc-t-lg);line-height:1.5;letter-spacing:-.008em;text-wrap:pretty}
 .sv-p + .sv-p{margin-top:var(--sc-4)}
-.sv-cap{font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);line-height:1.5;color:var(--sv-faint);margin:0;max-width:44rem}
-.sv-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--sc-font-text);font-weight:600;font-size:1rem;line-height:1;letter-spacing:0;white-space:nowrap;text-decoration:none;color:#12162a;background:var(--sv-orange);border:0;border-radius:8px;padding:.95rem 1.4rem;cursor:pointer;box-shadow:0 1px 2px rgba(124,45,18,.18),0 6px 14px -6px rgba(194,65,12,.45);transition:transform 140ms var(--sc-ease-out),background-color 140ms var(--sc-ease-out),box-shadow 140ms var(--sc-ease-out)}
+.sv-cap{font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);line-height:1.5;color:var(--sc-ink-soft);margin:0}
+.sv-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--sc-font-text);font-weight:600;font-size:1rem;line-height:1;white-space:nowrap;text-decoration:none;color:#0B0F16;background:var(--sc-accent);border:0;border-radius:8px;padding:1rem 1.5rem;cursor:pointer;box-shadow:0 10px 30px -10px rgba(249,101,50,.6);transition:transform 140ms var(--sc-ease-out),background-color 140ms var(--sc-ease-out)}
 .sv-btn:active{transform:scale(.98)}
 .sv-btn:focus-visible{outline:2px solid var(--sc-ink);outline-offset:3px}
 .sv-btn[disabled]{opacity:.6;cursor:default}
-@media (hover:hover) and (pointer:fine){.sv-btn:hover{background:var(--sv-orange-hover);transform:translateY(-1px)}}
-.ch{position:relative}
+@media (hover:hover) and (pointer:fine){.sv-btn:hover{background:#fb7b3a;transform:translateY(-1px)}}
 
-/* -------------------------------------------------------- title page -- */
-.tp{background:var(--sv-paper);min-height:calc(100svh - 80px);display:flex;flex-direction:column}
-.tp__in{flex:1;display:grid;grid-template-rows:auto 1fr auto;gap:clamp(1.5rem,4vh,3rem);padding-block:clamp(1.5rem,4.5vh,3.25rem) clamp(2rem,6vh,4rem)}
-.tp__mast{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:var(--sc-4);border-bottom:1px solid var(--sc-ink)}
-.tp__mark{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--sc-font-display);font-weight:600;font-size:1.35rem;letter-spacing:-.02em;color:var(--sc-ink)}
-.tp__mark img{width:26px;height:26px;border-radius:6px}
-.tp__mark sup{font-size:.5em;font-weight:500;margin-left:.08em;vertical-align:super;line-height:0}
-.tp__meta{font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--sv-faint)}
-.tp__body{align-self:center}
-.tp__h1{margin:0;font-family:var(--sc-font-display);color:var(--sc-ink);text-wrap:balance}
-.tp__l{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
-.tp__l > span{display:inline-block}
-.tp__l--a{font-weight:600;font-size:clamp(2.9rem,1.35rem + 6.6vw,6.6rem);line-height:.96;letter-spacing:-.04em}
-.tp__l--b{font-weight:500;font-size:clamp(1.55rem,1rem + 2.35vw,3.1rem);line-height:1.1;letter-spacing:-.028em;color:var(--sc-ink-soft);margin-top:clamp(.75rem,2vh,1.4rem)}
-.tp__cite{display:inline-block;vertical-align:.5em;margin-left:.45em;font-family:var(--sc-font-mono);font-weight:500;font-size:.3em;letter-spacing:.02em;line-height:1;color:var(--sv-orange-strong);background:var(--sv-orange-soft);border:1px solid var(--sv-orange-line);border-radius:999px;padding:.5em .85em;white-space:nowrap}
-.tp__foot{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,26rem);gap:clamp(1.5rem,5vw,5rem);align-items:end}
-.tp__lead{display:flex;flex-direction:column;align-items:flex-start;gap:var(--sc-5)}
-.tp__sub{margin:0;font-size:var(--sc-t-lg);line-height:1.45;letter-spacing:-.012em;color:var(--sc-ink);max-width:36rem;text-wrap:pretty}
-.tp__block{margin:0;border:1px solid var(--sc-ink);font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);line-height:1.45;background:var(--sv-raised)}
-.tp__block div{display:grid;grid-template-columns:8.5rem minmax(0,1fr)}
-.tp__block div + div{border-top:1px solid var(--sv-rule-strong)}
-.tp__block dt{padding:.6rem .75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--sv-faint);border-right:1px solid var(--sv-rule-strong)}
-.tp__block dd{margin:0;padding:.6rem .75rem;color:var(--sc-ink)}
+/* ---------------------------------------------------------- the film -- */
+.film__stage{background:transparent;isolation:isolate}
+.film__atmos{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(60% 55% at 72% 38%,rgba(249,101,50,.11),transparent 70%),
+    radial-gradient(50% 60% at 18% 78%,rgba(62,93,160,.13),transparent 72%)}
+.film__scene{position:absolute;inset:0;z-index:1;perspective:1500px;perspective-origin:50% 42%}
+.pack{position:absolute;inset:0;z-index:2;transform-style:preserve-3d;will-change:transform}
+
+/* a page of the pack */
+.pg{position:absolute;left:0;top:0;width:var(--bw,170px);height:var(--bh,230px);margin:0;overflow:hidden;
+  background:var(--pp);color:var(--pp-ink);border-radius:3px;box-shadow:var(--e-paper);
+  font-family:var(--pp-font);transform-origin:50% 50%;will-change:transform,opacity;backface-visibility:hidden}
+.pg--bg{filter:blur(1.2px)}
+.pg--ev{width:var(--ew,250px);height:var(--eh,286px);cursor:pointer}
+.pg__head{display:flex;justify-content:space-between;gap:.5rem;align-items:baseline;padding:.55rem .75rem .5rem;border-bottom:1px solid var(--pp-rule);background:var(--pp-raised)}
+.pg__doc{font-weight:600;font-size:.72rem;line-height:1.25;color:var(--pp-ink)}
+.pg__no{font-family:var(--sc-font-mono);font-size:.6rem;color:var(--pp-faint);white-space:nowrap}
+.pg__body{padding:.7rem .75rem;font-size:.7rem;line-height:1.5;color:#374151}
+.pg__body h4{margin:0 0 .35rem;font-size:.7rem;font-weight:600;color:var(--pp-ink)}
+.pg__body p{margin:0 0 .45rem}
+.pg__body mark{background:transparent;color:inherit;border-radius:2px;padding:.05em 0;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-color 500ms var(--sc-ease-out),box-shadow 500ms var(--sc-ease-out)}
+.pg.is-lit mark{background:var(--mark)}
+.pg.is-lit.pg--contrary mark{background:var(--gap-soft);box-shadow:inset 0 -2px 0 var(--gap-line)}
+.pg::after{content:"";position:absolute;inset:auto 0 0 0;height:2rem;background:linear-gradient(to bottom,rgba(250,250,250,0),var(--pp));pointer-events:none}
+/* the body of a background page is not pretending to be text: it is ruled */
+.pg__rules{margin:.75rem;height:calc(100% - 4.2rem);opacity:.55;
+  background:repeating-linear-gradient(to bottom,var(--pp-rule-strong) 0 1px,transparent 1px 9px)}
+.pg.is-front{box-shadow:0 0 0 2px rgba(249,101,50,.85),var(--e-paper)}
+.pg:focus-visible{outline:2px solid var(--sc-accent);outline-offset:3px}
+
+/* threads */
+.threads{position:absolute;inset:0;z-index:1;width:100%;height:100%;pointer-events:none;overflow:visible}
+.threads path{fill:none;stroke-width:1.6;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.threads .th--ok{stroke:var(--ok-glow)}
+.threads .th--gap{stroke:var(--gap-glow)}
+.threads circle{opacity:0}
+.threads .nd--ok{fill:var(--ok-glow)}
+.threads .nd--gap{fill:var(--gap-glow)}
+
+/* the deliverable */
+.sheet{position:absolute;left:0;top:0;z-index:4;width:var(--sw,560px);max-height:var(--sh,70vh);display:flex;flex-direction:column;
+  background:var(--pp-raised);color:var(--pp-ink);border-radius:4px;box-shadow:var(--e-paper);font-family:var(--pp-font);
+  transform-origin:50% 40%;will-change:transform,opacity;overflow:hidden}
+.sheet__head{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 1.25rem;border-bottom:1px solid var(--pp-rule);font-family:var(--sc-font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pp-faint)}
+.sheet__head b{font-weight:500;color:var(--pp-ink)}
+.sheet__p{margin:0;padding:1.25rem 1.4rem 1.35rem;font-size:clamp(.95rem,.8rem + .55vw,1.16rem);line-height:1.72;color:var(--pp-ink);text-wrap:pretty}
+.st{border-radius:3px;padding:.08em .1em;margin:0 -.1em;-webkit-box-decoration-break:clone;box-decoration-break:clone;color:#8f96a3;transition:background-color 260ms var(--sc-ease-out),color 260ms var(--sc-ease-out)}
+.st__chip{display:none;vertical-align:.12em;margin-left:.4em;font-family:var(--sc-font-mono);font-size:.64em;font-weight:500;line-height:1;white-space:nowrap;border-radius:999px;padding:.34em .62em;border:1px solid}
+.st__chip i{font-style:normal}
+.st__chip .s{display:none}
+.st.is-checking{color:var(--pp-ink);background:#fff3ed}
+.st.is-ok{color:var(--pp-ink);cursor:pointer;text-decoration:underline;text-decoration-color:var(--ok-line);text-decoration-thickness:2px;text-underline-offset:.24em}
+.st.is-ok .st__chip{display:inline-block;color:var(--ok);background:var(--ok-soft);border-color:var(--ok-line)}
+.st.is-gap{cursor:pointer;color:#6b7280;text-decoration:line-through;text-decoration-color:rgba(180,83,9,.55);text-decoration-thickness:1px}
+.st.is-gap .st__chip{display:inline-block;text-decoration:none;color:var(--gap);background:var(--gap-soft);border-color:var(--gap-line)}
+.st.is-ok.is-sel{background:var(--ok-soft)}
+.st.is-gap.is-sel{background:var(--gap-soft)}
+.st:focus-visible{outline:2px solid #c2410c;outline-offset:2px}
+@media (hover:hover) and (pointer:fine){.st.is-ok:hover{background:var(--ok-soft)}.st.is-gap:hover{background:var(--gap-soft)}}
+.ref{border-top:1px solid var(--pp-rule);padding:.9rem 1.4rem 1.15rem;background:var(--pp)}
+.ref__h{margin:0 0 .5rem;font-family:var(--sc-font-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gap)}
+.ref__none{margin:0;font-size:.86rem;color:var(--pp-faint)}
+.ref__list{margin:0;padding:0;list-style:none;display:grid;gap:.45rem}
+.ref__list li{display:none;font-size:.86rem;line-height:1.5;color:#374151;padding-left:.85rem;border-left:1px solid var(--gap-line)}
+.ref__list li b{font-weight:600;color:var(--pp-ink)}
+.ref__list li.is-on{display:block}
+.ref.has-items .ref__none{display:none}
+
+/* hero copy and the captions, over the scene */
+.film__hero{position:absolute;z-index:20;left:var(--sc-gutter);top:50%;translate:0 -46%;width:min(56vw,50rem);display:flex;flex-direction:column;align-items:flex-start;gap:clamp(1.1rem,2.4vh,1.75rem)}
+.film__mark{display:inline-flex;align-items:center;gap:.55rem;margin:0;font-family:var(--sc-font-display);font-weight:600;font-size:1.2rem;letter-spacing:-.02em;color:var(--sc-ink)}
+.film__mark img{width:24px;height:24px;border-radius:6px}
+.film__mark sup{font-size:.5em;font-weight:500;margin-left:.08em;vertical-align:super;line-height:0}
+.film__mark em{font-style:normal;font-family:var(--sc-font-mono);font-weight:400;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sc-ink-soft);padding-left:.7rem;margin-left:.2rem;border-left:1px solid var(--night-rule)}
+.film__h1{margin:0;font-family:var(--sc-font-display);font-weight:600;font-size:clamp(2.3rem,1rem + 5.4vw,5.6rem);line-height:.96;letter-spacing:-.042em;color:var(--sc-ink)}
+.film__h1 span{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.film__h1 span > i{display:inline-block;font-style:normal}
+.film__h1 .hl{color:var(--sc-accent)}
+.film__sub{margin:0;font-size:var(--sc-t-lg);line-height:1.5;letter-spacing:-.01em;color:#c9ced8;max-width:36rem;text-wrap:pretty}
+.film__caps{position:absolute;z-index:20;left:var(--sc-gutter);right:var(--sc-gutter);bottom:clamp(1.6rem,5.5vh,3.4rem);height:clamp(2.6rem,7vh,4rem);pointer-events:none}
+.film__cap{position:absolute;left:0;bottom:0;margin:0;max-width:44rem;font-family:var(--sc-font-display);font-weight:600;font-size:clamp(1.25rem,.9rem + 1.5vw,2.25rem);line-height:1.08;letter-spacing:-.028em;color:var(--sc-ink);text-wrap:balance}
+.film__cap b{font-weight:600;color:var(--sc-accent)}
+.film__note{position:absolute;z-index:6;right:var(--sc-gutter);bottom:clamp(1.6rem,5.5vh,3.4rem);margin:0;font-family:var(--sc-font-mono);font-size:.68rem;color:#8a93a3;opacity:0;transition:opacity 400ms var(--sc-ease-out)}
+.film__stage.is-run .film__note{opacity:1}
 @media (prefers-reduced-motion:no-preference){
-  .tp__l > span{animation:sv-rise 900ms var(--sc-ease-out) both}
-  .tp__l--b > span{animation-delay:110ms}
-  .tp__lead,.tp__block{animation:sv-fade 700ms var(--sc-ease-out) 320ms both}
+  .film__h1 span > i{animation:sv-rise 900ms var(--sc-ease-out) both}
+  .film__h1 span:nth-child(2) > i{animation-delay:110ms}
+  .film__mark,.film__sub,.film__hero .sv-btn{animation:sv-fade 700ms var(--sc-ease-out) 300ms both}
 }
 @keyframes sv-rise{from{transform:translate3d(0,108%,0)}to{transform:none}}
 @keyframes sv-fade{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
 
-/* ------------------------------------------------ 1 · the pack (flow) -- */
-.ch--pack{background:var(--sv-sunken);border-top:1px solid var(--sv-rule-strong);padding-block:var(--sc-section)}
-.pack{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,6vw,6rem);align-items:start;margin-top:var(--sc-7)}
-.pack__text .sv-h2{margin-bottom:var(--sc-5)}
-.pack__media{margin:0}
-.pack__cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;align-items:start}
-.pack__col{display:flex;flex-direction:column;gap:.75rem}
-.pack__col:nth-child(1){padding-top:2.5rem}
-.pack__col:nth-child(3){padding-top:4.5rem}
-.doc{background:var(--sv-raised);border:1px solid var(--sv-rule);border-radius:8px;box-shadow:var(--sv-e1);padding:.85rem .9rem .8rem;display:flex;flex-direction:column;gap:.35rem;min-height:6.1rem}
-.doc__n{font-family:var(--sc-font-mono);font-size:.7rem;letter-spacing:.06em;color:var(--sv-faint)}
-.doc__t{font-weight:500;font-size:.92rem;line-height:1.3;color:var(--sc-ink)}
-.doc__p{margin-top:auto;font-family:var(--sc-font-mono);font-size:.7rem;color:var(--sv-faint)}
-.pack__media .sv-cap{margin-top:var(--sc-5)}
+/* ----------------------------------------------- what easy means (flow) -- */
+.easy{padding-block:var(--sc-section)}
+.easy__in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,6vw,6rem);align-items:start}
+.easy__lead{position:sticky;top:7rem;display:flex;flex-direction:column;gap:var(--sc-5)}
+.easy__list{margin:0;padding:0;list-style:none}
+.easy__row{display:grid;grid-template-columns:minmax(0,1fr);gap:.55rem;padding:clamp(1.4rem,3.2vh,2.2rem) 0;border-top:1px solid var(--night-rule)}
+.easy__row:last-child{border-bottom:1px solid var(--night-rule)}
+.easy__s{margin:0;font-family:var(--sc-font-display);font-weight:600;font-size:var(--sc-t-2xl);line-height:1.02;letter-spacing:-.03em;color:var(--sc-ink)}
+.easy__d{margin:0;max-width:34rem;color:var(--sc-ink-soft);line-height:1.55}
+.easy__end{margin:clamp(1.6rem,4vh,2.6rem) 0 0;font-family:var(--sc-font-display);font-weight:500;font-size:var(--sc-t-xl);line-height:1.18;letter-spacing:-.022em;color:var(--sc-ink);max-width:30rem;text-wrap:balance}
 
-/* -------------------------------------------- 2 · the paragraph (flow) -- */
-.ch--para{background:var(--sv-raised);border-top:1px solid var(--sv-rule-strong);padding-block:var(--sc-section) calc(var(--sc-section) * .8)}
-.para{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,6vw,6rem);align-items:start;margin-top:var(--sc-7)}
-.para__text .sv-h2{margin-bottom:var(--sc-5)}
-.para__ex{margin:0}
-.sheet{background:var(--sv-raised);border:1px solid var(--sv-rule-strong);border-radius:4px;box-shadow:var(--sv-e2)}
-.sheet__head{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 1.25rem;border-bottom:1px solid var(--sv-rule);font-family:var(--sc-font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sv-faint)}
-.sheet__p{margin:0;padding:1.5rem 1.6rem 1.7rem;font-size:clamp(1.02rem,.95rem + .35vw,1.22rem);line-height:1.62;color:var(--sc-ink);text-wrap:pretty}
-.para__ex .sv-cap{margin-top:var(--sc-5)}
+/* ------------------------------------------- why not a chat (pin, wipe) -- */
+.wipe{--u:clamp(0,calc((var(--sc-p,0) - .14) / .62),1);--r:calc(var(--u) * var(--u) * (3 - 2 * var(--u)))}
+.wipe__stage{display:flex;align-items:center}
+.wipe__in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,5vw,5rem);align-items:center}
+.wipe__copy{display:flex;flex-direction:column;gap:var(--sc-5)}
+.wipe__fig{margin:0}
+.wipe__card{position:relative;container-type:inline-size;border-radius:4px;box-shadow:var(--e-paper);background:var(--pp-raised);color:var(--pp-ink);font-family:var(--pp-font)}
+.wipe__layer{border-radius:4px;background:var(--pp-raised)}
+.wipe__layer--checked{position:absolute;inset:0}
+.wipe__head{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 1.25rem;border-bottom:1px solid var(--pp-rule);font-family:var(--sc-font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pp-faint)}
+.wipe__layer--checked .wipe__head{color:var(--ok)}
+.wipe__rows{margin:0;padding:.5rem 1.4rem .8rem;list-style:none}
+.wrow{display:grid;grid-template-columns:minmax(0,1fr) 10.5rem;gap:1.25rem;align-items:start;padding:.8rem 0;border-top:1px solid var(--pp-rule)}
+.wrow:first-child{border-top:0}
+.wrow__t{margin:0;font-size:clamp(.95rem,.8rem + .5vw,1.1rem);line-height:1.55;color:var(--pp-ink)}
+.wrow__n{justify-self:start;margin-top:.22em;font-family:var(--sc-font-mono);font-size:.68rem;font-weight:500;line-height:1;white-space:nowrap;border-radius:999px;padding:.4em .7em;border:1px solid}
+.wrow__n--ok{color:var(--ok);background:var(--ok-soft);border-color:var(--ok-line)}
+.wrow__n--gap{color:var(--gap);background:var(--gap-soft);border-color:var(--gap-line)}
+.wipe__layer--plain .wrow__n{visibility:hidden}
+.wipe__layer--checked .wrow__t.is-ok{text-decoration:underline;text-decoration-color:var(--ok-line);text-decoration-thickness:2px;text-underline-offset:.24em}
+.wipe__layer--checked .wrow__t.is-gap{color:#6b7280;text-decoration:line-through;text-decoration-color:rgba(180,83,9,.55);text-decoration-thickness:1px}
+.wipe__edge{position:absolute;top:-10px;bottom:-10px;left:0;width:2px;background:var(--sc-accent);box-shadow:0 0 18px 2px rgba(249,101,50,.55);translate:calc(var(--r,0) * 100cqw) 0;opacity:calc(1 - max(0,(var(--r,0) - .96) * 25));pointer-events:none}
+.wipe__fig .sv-cap{margin-top:var(--sc-5)}
 
-/* -------------------------------------- 3 · the evidence test (pin) -- */
-.ch--test{--sc-ink:#f4f3ef;--sc-ink-soft:#a9b0c0;--sc-accent:#f96532;--sc-accent-ink:#12162a;color:var(--sc-ink);background:var(--sv-night)}
-.test{background:var(--sv-night);display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:clamp(.9rem,2.2vh,1.6rem);padding:clamp(5rem,11vh,6.5rem) 0 clamp(3.4rem,7vh,4.5rem)}
-.test__head{display:grid;grid-template-columns:minmax(0,1fr);gap:.7rem}
-.test__head .sv-folio{color:#a9b0c0}
-.test__head .sv-folio b{color:#f4f3ef}
-.test__head .sv-folio::after{background:var(--sv-night-rule)}
-.test__h2{font-family:var(--sc-font-display);font-weight:600;font-size:clamp(1.35rem,1rem + 1.5vw,2.15rem);line-height:1.1;letter-spacing:-.025em;margin:0;color:#f4f3ef;text-wrap:balance}
-.test__grid{min-height:0;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(1rem,2vw,1.75rem);align-items:stretch}
-.test .sheet{--sc-ink:#1a1f36;--sc-ink-soft:#4b5563;color:#1a1f36;border-color:transparent;box-shadow:var(--sv-e3);display:flex;flex-direction:column;min-height:0}
-.test .sheet__p{font-size:clamp(1rem,.84rem + .62vw,1.32rem);line-height:1.74}
-.test .sheet__head b{font-weight:500;color:var(--sc-ink)}
-
-/* a statement, and its three states */
-.st{border-radius:3px;padding:.08em .1em;margin:0 -.1em;box-decoration-break:clone;-webkit-box-decoration-break:clone;transition:background-color 220ms var(--sc-ease-out),color 220ms var(--sc-ease-out)}
-.st__chip{display:none;vertical-align:.12em;margin-left:.4em;font-family:var(--sc-font-mono);font-size:.66em;font-weight:500;line-height:1;letter-spacing:.01em;white-space:nowrap;border-radius:999px;padding:.34em .62em;border:1px solid}
-.st__chip i{font-style:normal}
-.st__chip .s{display:none}
-.st.is-checking{background:var(--sv-orange-soft)}
-.st.is-ok{cursor:pointer;text-decoration:underline;text-decoration-color:var(--sv-verified-line);text-decoration-thickness:2px;text-underline-offset:.24em}
-.st.is-ok .st__chip{display:inline-block;color:var(--sv-verified);background:var(--sv-verified-soft);border-color:var(--sv-verified-line)}
-.st.is-gap{cursor:pointer;color:#6b7280;text-decoration:line-through;text-decoration-color:rgba(180,83,9,.55);text-decoration-thickness:1px}
-.st.is-gap .st__chip{display:inline-block;text-decoration:none;color:var(--sv-amber);background:var(--sv-amber-soft);border-color:var(--sv-amber-line)}
-.st.is-ok.is-sel{background:var(--sv-verified-soft)}
-.st.is-gap.is-sel{background:var(--sv-amber-soft)}
-.st:focus-visible{outline:2px solid var(--sv-orange-strong);outline-offset:2px}
-@media (hover:hover) and (pointer:fine){
-  .st.is-ok:hover{background:var(--sv-verified-soft)}
-  .st.is-gap:hover{background:var(--sv-amber-soft)}
-}
-
-/* what the check hands back to the engineer */
-.ref{margin-top:auto;border-top:1px solid var(--sv-rule);padding:1rem 1.6rem 1.35rem;background:var(--sv-paper)}
-.ref__h{margin:0 0 .55rem;font-family:var(--sc-font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sv-amber)}
-.ref__none{margin:0;font-size:.88rem;color:var(--sv-faint)}
-.ref__list{margin:0;padding:0;list-style:none;display:grid;gap:.5rem}
-.ref__list li{display:none;font-size:.88rem;line-height:1.5;color:#374151;padding-left:.85rem;border-left:1px solid var(--sv-amber-line)}
-.ref__list li b{font-weight:600;color:#1a1f36}
-.ref__list li.is-on{display:block}
-.ref.has-items .ref__none{display:none}
-@media (prefers-reduced-motion:no-preference){.ref__list li.is-on{animation:sv-swap 380ms var(--sc-ease-out) both}}
-
-/* the source panel */
-.src{--sc-ink:#1a1f36;--sc-ink-soft:#4b5563;color:#1a1f36;background:var(--sv-paper);border-radius:4px;box-shadow:var(--sv-e3);display:flex;flex-direction:column;min-height:0;overflow:hidden}
-.src__head{padding:.8rem 1.1rem .75rem;border-bottom:1px solid var(--sv-rule);background:var(--sv-raised);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.2rem 1rem;align-items:baseline}
-.src__doc{font-weight:600;font-size:.95rem;line-height:1.3;color:#1a1f36;margin:0}
-.src__pg{font-family:var(--sc-font-mono);font-size:.72rem;color:var(--sv-faint);white-space:nowrap}
-.src__status{grid-column:1 / -1;justify-self:start;margin-top:.35rem;font-family:var(--sc-font-mono);font-size:.7rem;font-weight:500;letter-spacing:.02em;border-radius:999px;padding:.3em .7em;border:1px solid var(--sv-rule-strong);color:var(--sv-faint);background:var(--sv-sunken)}
-.src[data-kind="ok"] .src__status{color:var(--sv-verified);background:var(--sv-verified-soft);border-color:var(--sv-verified-line)}
-.src[data-kind="gap"] .src__status{color:var(--sv-amber);background:var(--sv-amber-soft);border-color:var(--sv-amber-line)}
-.src__page{flex:1;min-height:0;overflow:hidden;margin:1rem 1.1rem 0;padding:1.1rem 1.2rem 1.3rem;background:var(--sv-raised);border:1px solid var(--sv-rule);border-bottom:0;font-size:.86rem;line-height:1.6;color:#374151}
-.src__page{position:relative}
-.src__page::after{content:"";position:absolute;inset:auto 0 0 0;height:2.2rem;background:linear-gradient(to bottom,rgba(255,255,255,0),#fff);pointer-events:none}
-.src__page h4{margin:0 0 .6rem;font-size:.86rem;font-weight:600;color:#1a1f36}
-.src__page p{margin:0 0 .7rem}
-.src__page ul{margin:0;padding:0;list-style:none;columns:2;column-gap:1.2rem;font-size:.8rem}
-.src__page li{break-inside:avoid;padding:.18rem 0;border-bottom:1px solid var(--sv-rule)}
-.src__page mark{background:var(--sv-mark);color:#1a1f36;border-radius:2px;padding:.06em 0;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.src[data-kind="gap"] .src__page mark{background:var(--sv-amber-soft);box-shadow:inset 0 -2px 0 var(--sv-amber-line)}
-.src__note{margin:0;padding:.7rem 1.1rem;border-top:1px solid var(--sv-rule);background:var(--sv-raised);font-family:var(--sc-font-mono);font-size:.68rem;line-height:1.45;color:var(--sv-faint)}
+/* ------------------------------------------------- the set (pan) -- */
+.set__stage{display:flex;align-items:center}
+.set__rail{align-items:center;gap:clamp(1.25rem,2.4vw,2.25rem);padding-inline:var(--sc-gutter)}
+.set__lead{flex:0 0 auto;width:min(36rem,86vw);padding-right:clamp(1rem,4vw,4rem);display:flex;flex-direction:column;gap:var(--sc-5)}
+.set__lead .sv-h2{font-size:clamp(2.2rem,1.2rem + 3.6vw,4.4rem)}
+.set__std{white-space:nowrap;color:var(--sc-accent)}
+.dv{flex:0 0 auto;width:clamp(13rem,18vw,16rem);aspect-ratio:210 / 285}
+.dv__in{width:100%;height:100%;display:flex;flex-direction:column;background:var(--pp);color:var(--pp-ink);border-radius:3px;box-shadow:var(--e-paper);font-family:var(--pp-font);overflow:hidden}
+.dv:nth-child(even){translate:0 -1.5rem;rotate:-1.2deg}
+.dv:nth-child(odd){translate:0 1.25rem;rotate:1deg}
+.dv__head{display:flex;justify-content:space-between;padding:.7rem .9rem;border-bottom:1px solid var(--pp-rule);background:var(--pp-raised);font-family:var(--sc-font-mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pp-faint)}
+.dv__name{margin:auto .9rem .2rem;font-family:var(--sc-font-display);font-weight:600;font-size:clamp(2rem,1.4rem + 1.6vw,2.9rem);line-height:.95;letter-spacing:-.04em;color:var(--pp-ink)}
+.dv__rules{margin:.7rem .9rem 1rem;height:34%;opacity:.55;background:repeating-linear-gradient(to bottom,var(--pp-rule-strong) 0 1px,transparent 1px 10px)}
+.set__end{flex:0 0 auto;width:min(30rem,84vw);padding-left:clamp(1.5rem,3vw,3rem);border-left:1px solid var(--night-rule)}
+.set__end p{margin:0;font-family:var(--sc-font-display);font-weight:500;font-size:var(--sc-t-xl);line-height:1.18;letter-spacing:-.022em;color:var(--sc-ink);text-wrap:balance}
 @media (prefers-reduced-motion:no-preference){
-  .src.is-swap .src__page,.src.is-swap .src__head{animation:sv-swap 380ms var(--sc-ease-out) both}
-}
-@keyframes sv-swap{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:none}}
-
-.test__tally{display:flex;align-items:baseline;justify-content:space-between;gap:1rem 2rem;flex-wrap:wrap;min-height:2.4rem}
-.test__count{font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.04em;color:#a9b0c0;margin:0}
-.test__count b{font-weight:500;color:#f4f3ef}
-.test__sum{margin:0;font-family:var(--sc-font-display);font-weight:500;font-size:clamp(1.05rem,.9rem + .7vw,1.5rem);letter-spacing:-.018em;line-height:1.2;color:#f4f3ef;opacity:0;transform:translate3d(0,8px,0);transition:opacity 420ms var(--sc-ease-out),transform 420ms var(--sc-ease-out)}
-.test.is-done .test__sum{opacity:1;transform:none}
-.test__sum em{font-style:normal;color:var(--sv-orange)}
-
-/* --------------------------------------- 4 · on the record (pan) -- */
-.ch--record{background:var(--sv-sunken)}
-.rec{background:var(--sv-sunken);display:flex;align-items:center}
-.rec__rail{align-items:stretch;gap:0;padding-inline:var(--sc-gutter)}
-.rec__lead{flex:0 0 auto;width:min(34rem,84vw);padding-right:clamp(2rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center;gap:var(--sc-5)}
-.rec__lead .sv-h2{font-size:var(--sc-t-3xl)}
-.rec__lead .sv-p{font-size:var(--sc-t-lg);line-height:1.45;color:var(--sc-ink)}
-.rec__item{flex:0 0 auto;width:clamp(17rem,25vw,22rem);min-height:min(30rem,60svh);padding:1.6rem clamp(1.25rem,2vw,2rem) 1.6rem;border-left:1px solid var(--sv-rule-strong);display:flex;flex-direction:column;gap:.9rem}
-.rec__k{font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--sv-orange-strong);margin:0}
-.rec__s{font-family:var(--sc-font-display);font-weight:600;font-size:clamp(1.35rem,1.1rem + .9vw,1.85rem);line-height:1.12;letter-spacing:-.024em;color:var(--sc-ink);margin:0;text-wrap:balance}
-.rec__x{margin:.2rem 0 0;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
-.chip{display:inline-block;font-family:var(--sc-font-mono);font-size:.7rem;font-weight:500;line-height:1;letter-spacing:.01em;white-space:nowrap;border-radius:999px;padding:.42em .7em;border:1px solid var(--sv-rule-strong);color:var(--sc-ink-soft);background:var(--sv-raised)}
-.chip--ok{color:var(--sv-verified);background:var(--sv-verified-soft);border-color:var(--sv-verified-line)}
-.chip--gap{color:var(--sv-amber);background:var(--sv-amber-soft);border-color:var(--sv-amber-line)}
-.rec__x--sig{flex-direction:column;align-items:flex-start;gap:.5rem}
-.sig{display:block;width:11rem;height:1px;background:var(--sc-ink);margin-top:1.6rem}
-.rec__d{margin:auto 0 0;color:var(--sc-ink-soft);font-size:.98rem;line-height:1.55;text-wrap:pretty}
-.rec__end{flex:0 0 auto;width:min(30rem,84vw);padding-left:clamp(1.5rem,3vw,3rem);border-left:1px solid var(--sc-ink);display:flex;align-items:center}
-.rec__end p{margin:0;font-family:var(--sc-font-display);font-weight:500;font-size:var(--sc-t-xl);line-height:1.18;letter-spacing:-.022em;color:var(--sc-ink);text-wrap:balance}
-@media (prefers-reduced-motion:no-preference){
-  .rec__item,.rec__end{opacity:clamp(.55,calc(var(--sc-p,0) * 7 - var(--i) + 1.9),1);transform:translate3d(0,calc(clamp(0,calc(var(--i) - .9 - var(--sc-p,0) * 7),1) * 16px),0)}
+  .dv,.set__end{--k:clamp(0,calc(var(--i) - 1.6 - var(--sc-p,0) * 8),1);opacity:calc(1 - var(--k) * .22)}
+  .dv__in{transform:translate3d(0,calc(var(--k) * 34px),0)}
 }
 
-/* ------------------------------------------- 5 · colophon (flow) -- */
-.ch--colophon{background:var(--sv-paper);border-top:1px solid var(--sc-ink);padding-top:var(--sc-section)}
-.colo{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,6vw,6rem);align-items:start;margin-top:var(--sc-7);padding-bottom:var(--sc-section)}
-.colo__h{font-family:var(--sc-font-display);font-weight:600;font-size:var(--sc-t-xl);line-height:1.12;letter-spacing:-.024em;margin:0 0 var(--sc-4);color:var(--sc-ink)}
-.colo__run{margin:0;max-width:36rem;color:var(--sc-ink-soft)}
-.wl{margin-top:var(--sc-6);max-width:36rem}
-.wl__label{display:block;font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--sv-faint);margin-bottom:.5rem}
+/* ------------------------------------------------ the close (flow) -- */
+.close{padding-top:var(--sc-section)}
+.close__in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,6vw,6rem);align-items:end;padding-bottom:var(--sc-section)}
+.close__h{font-family:var(--sc-font-display);font-weight:600;font-size:clamp(2.4rem,1.2rem + 4.6vw,5rem);line-height:.98;letter-spacing:-.04em;margin:0;color:var(--sc-ink);text-wrap:balance}
+.sig{display:block;width:min(30rem,100%);height:auto;margin:clamp(1rem,3vh,2rem) 0 0;overflow:visible}
+.sig path{fill:none;stroke:var(--sc-accent);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:calc(1 - clamp(0,calc((var(--sc-p,0) - .2) / .34),1))}
+.sig line{stroke:rgba(244,243,239,.3);stroke-width:1}
+.close__run{margin:var(--sc-5) 0 0;max-width:34rem;color:var(--sc-ink-soft);font-size:var(--sc-t-lg);line-height:1.5}
+.wl{margin-top:var(--sc-6);max-width:34rem}
+.wl__label{display:block;font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--sc-ink-soft);margin-bottom:.5rem}
 .wl__row{display:flex;gap:.6rem;align-items:stretch}
-.wl__in{flex:1;min-width:0;font-size:1rem;line-height:1.2;color:var(--sc-ink);background:var(--sv-raised);border:1px solid var(--sv-rule-strong);border-radius:8px;padding:.9rem 1rem;transition:border-color 140ms var(--sc-ease-out),box-shadow 140ms var(--sc-ease-out)}
-.wl__in::placeholder{color:#6b7280}
-.wl__in:focus{outline:0;border-color:var(--sv-orange);box-shadow:0 0 0 3px rgba(249,101,50,.18)}
-.wl__in[aria-invalid="true"]{border-color:#dc2626}
+.wl__in{flex:1;min-width:0;font-size:1rem;line-height:1.2;color:var(--sc-ink);background:rgba(255,255,255,.04);border:1px solid rgba(244,243,239,.24);border-radius:8px;padding:.95rem 1rem;transition:border-color 140ms var(--sc-ease-out),box-shadow 140ms var(--sc-ease-out)}
+.wl__in::placeholder{color:#8a93a3}
+.wl__in:focus{outline:0;border-color:var(--sc-accent);box-shadow:0 0 0 3px rgba(249,101,50,.25)}
+.wl__in[aria-invalid="true"]{border-color:#f87171}
 .wl__msg{margin:.7rem 0 0;font-size:.9rem;line-height:1.45;color:var(--sc-ink-soft);min-height:1.35rem}
-.wl__msg[data-tone="ok"]{color:var(--sv-verified)}
-.wl__msg[data-tone="bad"]{color:#b91c1c}
-.wl__msg a,.colo__run a,.colo__list a{color:inherit;text-decoration:underline;text-decoration-color:var(--sv-rule-strong)}
-.colo__list{margin:0;padding:0;list-style:none;font-size:.9rem;line-height:1.5;color:var(--sc-ink-soft)}
-.colo__list li{padding:.7rem 0;border-top:1px solid var(--sv-rule-strong)}
-.colo__list li:last-child{border-bottom:1px solid var(--sv-rule-strong)}
-.colo__list b{display:block;font-family:var(--sc-font-mono);font-weight:400;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sv-faint);margin-bottom:.15rem}
-
-/* ------------------------------------------------ the margin folio -- */
-.folio{position:fixed;left:var(--sc-gutter);bottom:clamp(.75rem,2vh,1.25rem);z-index:60;display:flex;align-items:center;gap:.75rem;font-family:var(--sc-font-mono);font-size:.72rem;letter-spacing:.04em;line-height:1;color:var(--sc-ink);background:rgba(250,250,250,.92);border:1px solid var(--sv-rule-strong);border-radius:999px;padding:.55rem .9rem;box-shadow:var(--sv-e1);opacity:0;visibility:hidden;transform:translate3d(0,8px,0);pointer-events:none;transition:opacity 260ms var(--sc-ease-out),transform 260ms var(--sc-ease-out),visibility 0s linear 260ms,background-color 260ms var(--sc-ease-out),color 260ms var(--sc-ease-out),border-color 260ms var(--sc-ease-out)}
-.folio.is-on{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition-delay:0s}
-.folio a{color:inherit;text-decoration:none}
-.folio__ch{color:var(--sv-faint);padding-left:.75rem;border-left:1px solid var(--sv-rule-strong)}
-.folio__cta{padding-left:.75rem;border-left:1px solid var(--sv-rule-strong);color:var(--sv-orange-strong)!important;font-weight:500}
-.folio[data-ground="night"]{color:#f4f3ef;background:rgba(18,22,42,.9);border-color:rgba(244,243,239,.18)}
-.folio[data-ground="night"] .folio__ch{color:#a9b0c0;border-color:rgba(244,243,239,.18)}
-.folio[data-ground="night"] .folio__cta{color:#fb8a5c!important;border-color:rgba(244,243,239,.18)}
-@media (prefers-reduced-motion:reduce){.folio{transition:none;transform:none}}
+.wl__msg[data-tone="ok"]{color:#6ee7b7}
+.wl__msg[data-tone="bad"]{color:#fca5a5}
+.wl__msg a,.close__list a{color:inherit;text-decoration:underline;text-decoration-color:rgba(244,243,239,.3)}
+.close__list{margin:0;padding:0;list-style:none;font-size:.9rem;line-height:1.5;color:var(--sc-ink-soft)}
+.close__list li{padding:.75rem 0;border-top:1px solid var(--night-rule)}
+.close__list li:last-child{border-bottom:1px solid var(--night-rule)}
+.close__list b{display:block;font-family:var(--sc-font-mono);font-weight:400;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:#8a93a3;margin-bottom:.15rem}
 
 /* ------------------------------------------------- reduced motion --
-   Fewer and gentler. The two pinned chapters are unpinned and stated once:
-   the finished check, and the rail laid out as a grid, so nothing is held
-   still for three screens and nothing is out of reach. */
+   Fewer and gentler. The pinned chapters unpin and are stated once. */
 @media (prefers-reduced-motion:reduce){
-  .ch--test,.ch--record{height:auto!important}
-  .ch--test .test,.ch--record .rec{position:static;height:auto;min-height:0;overflow:visible}
-  .ch--test .test{padding-block:var(--sc-section)}
-  .ch--record .rec{padding-block:var(--sc-section);overflow-x:visible!important}
-  .rec__rail{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:2.5rem;width:100%;max-width:82rem;margin-inline:auto}
-  .rec__lead{grid-column:1 / -1;width:auto;padding-right:0;padding-bottom:1rem}
-  .rec__item{width:auto;min-height:19rem}
-  .rec__end{width:auto}
+  .film,.wipe,.set{height:auto!important}
+  .film__stage,.wipe__stage,.set__stage{position:static;height:auto;overflow:visible}
+  .film__hero{position:static;translate:none;width:auto;opacity:1!important;transform:none!important;pointer-events:auto!important;padding:clamp(3rem,9vh,6rem) var(--sc-gutter) 0}
+  .film__scene{position:relative;inset:auto;height:100svh;min-height:34rem}
+  .film__caps{position:static;height:auto;padding:0 var(--sc-gutter) var(--sc-7);display:grid;gap:.6rem}
+  .film__cap{position:static;opacity:1!important;transform:none!important;font-size:var(--sc-t-xl)}
+  .film__note{position:static;opacity:1;padding:0 var(--sc-gutter) var(--sc-7)}
+  .wipe__stage,.set__stage{padding-block:var(--sc-section)}
+  .wipe__edge{display:none}
+  .wipe{--r:1}
+  .set__stage{overflow-x:visible!important}
+  .set__rail{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:2.5rem;width:100%;max-width:82rem;margin-inline:auto}
+  .set__lead{grid-column:1 / -1;width:auto;padding-right:0}
+  .dv{width:auto}
+  .dv:nth-child(even),.dv:nth-child(odd){translate:none;rotate:none}
+  .set__end{grid-column:1 / -1;width:auto;border-left:0;padding-left:0}
+  .sig path{stroke-dashoffset:0}
 }
-@media (prefers-reduced-motion:reduce) and (max-width:860px){
-  .rec__rail{grid-template-columns:minmax(0,1fr)}
-  .rec__item{min-height:0;border-left:0;border-top:1px solid var(--sv-rule-strong);padding-inline:0}
-  .rec__end{border-left:0;border-top:1px solid var(--sc-ink);padding:1.5rem 0 0}
+
+/* short laptop screens: keep the whole deliverable inside the frame */
+@media (min-width:861px) and (max-height:780px){
+  .sheet__p{font-size:.94rem;line-height:1.6;padding:1rem 1.25rem 1.1rem}
+  .ref{padding:.7rem 1.25rem .9rem}
+  .ref__list li{font-size:.8rem;line-height:1.45}
+  .pg__body{font-size:.66rem}
 }
 
 /* --------------------------------------------------------- mobile -- */
 @media (max-width:860px){
-  .tp{min-height:0}
-  .tp__in{gap:2rem;padding-block:1.25rem 2.5rem}
-  .tp__body{padding-block:1.5rem .5rem}
-  .tp__foot{grid-template-columns:minmax(0,1fr);gap:2rem}
-  .tp__l--a{font-size:clamp(2.3rem,10.4vw,3.4rem)}
-  .tp__cite{font-size:.42em;vertical-align:.3em}
-  .tp__block div{grid-template-columns:7.2rem minmax(0,1fr)}
-  .pack,.para,.colo{grid-template-columns:minmax(0,1fr);gap:2.25rem;margin-top:var(--sc-6)}
-  .pack__cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
-  .pack__col{gap:.6rem}
-  .pack__col:nth-child(1){padding-top:0}
-  .pack__col:nth-child(2){padding-top:1.75rem}
-  .pack__col:nth-child(3){grid-column:1 / -1;padding-top:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
-  .doc{min-height:5.4rem;padding:.7rem .75rem}
-  .doc__t{font-size:.84rem}
-  .sheet__p{padding:1.1rem 1.15rem 1.25rem}
-  .test{padding:4.6rem 0 3.4rem;gap:.7rem}
-  .test__grid{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:.7rem}
-  .test .sheet__head{padding:.5rem .9rem;font-size:.64rem}
-  .test .sheet__p{padding:.8rem .9rem .9rem;font-size:.86rem;line-height:1.6}
+  .film__hero{top:5.4rem;translate:none;width:auto;right:var(--sc-gutter);gap:1rem}
+  .film__h1{font-size:clamp(2.2rem,10vw,3.2rem)}
+  .film__sub{font-size:1.02rem;line-height:1.45}
+  .film__caps{bottom:1.4rem;height:3.4rem}
+  .film__cap{font-size:1.22rem}
+  .film__note{display:none}
+  .pg__body{font-size:.74rem}
+  .sheet__head{padding:.5rem .9rem;font-size:.62rem}
+  .sheet__p{padding:.85rem .95rem 1rem;font-size:.9rem;line-height:1.58}
   .st__chip .l{display:none}
   .st__chip .s{display:inline}
-  .src__head{padding:.6rem .9rem .55rem}
-  .src__doc{font-size:.86rem}
-  .src__status{margin-top:.2rem;font-size:.64rem}
-  .src__page{margin:.6rem .9rem 0;padding:.75rem .85rem .9rem;font-size:.78rem;line-height:1.5}
-  .src__page ul{font-size:.72rem}
-  .src__note,.ref{display:none}
-  .test__tally{min-height:0}
-  .test__sum{font-size:1rem}
-  .rec__item{width:min(19rem,78vw);min-height:min(23rem,58svh)}
+  .ref{display:none}
+  .easy__in,.wipe__in,.close__in{grid-template-columns:minmax(0,1fr);gap:2.25rem}
+  .easy__lead{position:static}
+  .wipe__stage{align-items:flex-start;padding-top:5.2rem}
+  .wipe__in{gap:1.25rem}
+  .wipe__copy{gap:.8rem}
+  .wipe__copy .sv-h2{font-size:1.9rem}
+  .wipe__copy .sv-p{font-size:.98rem;line-height:1.45}
+  .wipe__copy .sv-p + .sv-p{display:none}
+  .wipe__head{padding:.5rem .9rem;font-size:.62rem}
+  .wipe__rows{padding:.3rem .9rem .5rem}
+  .wrow{grid-template-columns:minmax(0,1fr);gap:.35rem;padding:.55rem 0}
+  .wrow__t{font-size:.84rem;line-height:1.48}
+  .wrow__n{font-size:.62rem}
+  .wipe__fig .sv-cap{margin-top:.8rem}
+  .dv{width:min(13.5rem,58vw)}
   .wl__row{flex-direction:column}
-  .folio{left:50%;right:auto;translate:-50% 0;white-space:nowrap;max-width:calc(100vw - 1.5rem)}
-  .folio__home{display:none}
-  .folio__ch{padding-left:0;border-left:0}
 }
-@media (max-width:860px) and (max-height:760px){
-  .test__h2{font-size:1.15rem}
-  .test .sheet__p{font-size:.8rem;line-height:1.52}
+@media (prefers-reduced-motion:reduce) and (max-width:860px){
+  .set__rail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .film__hero{padding-top:2.5rem}
 }
 </style>
 <style id="site-chrome">
@@ -624,6 +606,9 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
     /* Only acts as a hover-bridge; invisible. */
   }
 </style>
+<style id="sv-nav-bridge-fix">
+.navbar .nav-dropdown-toggle::after{border:0!important}
+</style>
 </head>
 <body>
 
@@ -900,128 +885,91 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 
 <div class="sc-grain" aria-hidden="true"></div>
 
-<!-- The margin folio. Chaptered editorial carries no fixed bar of its own: the
-     site navbar serves the top of the page and steps aside on the way down,
-     and this takes over. -->
-<aside class="folio" id="folio" aria-label="Where you are on this page">
-  <a class="folio__home" href="#top">Scribtive</a>
-  <span class="folio__ch" id="folio-ch">1 · The pack</span>
-  <a class="folio__cta" href="#join">Join the Waitlist</a>
-</aside>
-
 <main id="top">
 
-  <!-- ═══ TITLE PAGE · type on paper, no media above the fold ═══ -->
-  <header class="tp" data-sc-act="flow" data-folio="">
-    <div class="sv-wrap tp__in">
-      <div class="tp__mast">
-        <span class="tp__mark"><img src="brand_assets/automatex-mark.png" alt="" width="26" height="26"><span>Scribtive<sup>&reg;</sup></span></span>
-        <span class="tp__meta">By AutomateX</span>
+  <!-- ═══ THE FILM · pin. The pack becomes the deliverable.
+       Hero, peak and signature move in one act. The scene is driven from
+       --sc-p by page-local script; the engine is untouched. ═══ -->
+  <section class="film" id="film" data-sc-act="pin" data-sc-span="5" data-sc-drift="#0B0F16">
+    <div data-sc-stage class="film__stage" id="film-stage">
+      <div class="film__atmos" aria-hidden="true"></div>
+
+      <div class="film__hero" data-sc-cue="0 0.18 0 0.6">
+        <p class="film__mark"><img src="brand_assets/automatex-mark.png" alt="" width="24" height="24"><span>Scribtive<sup>&reg;</sup></span><em>By AutomateX</em></p>
+        <h1 class="film__h1"><span><i>Rail deliverables</i></span><span><i>made <b class="hl" style="font-weight:inherit">easy</b>.</i></span></h1>
+        <p class="film__sub">Scribtive drafts every assurance deliverable under NR/L2/RSE/02009 from your own project pack. Every statement carries its source. Every gap is declared.</p>
+        <a class="sv-btn" href="#join">Join the Waitlist</a>
       </div>
 
-      <div class="tp__body">
-        <h1 class="tp__h1">
-          <span class="tp__l tp__l--a"><span>Your Form&nbsp;G, drafted.</span></span>
-          <span class="tp__l tp__l--b"><span>Every statement shows its source.<span class="tp__cite" aria-hidden="true">CR-T, p.4</span></span></span>
-        </h1>
-      </div>
+      <div class="film__scene" id="film-scene">
+        <svg class="threads" id="threads" aria-hidden="true" focusable="false">
+          <path class="th--ok" data-th="0" pathLength="1"/>
+          <path class="th--gap" data-th="1" pathLength="1"/>
+          <path class="th--ok" data-th="2" pathLength="1"/>
+          <path class="th--ok" data-th="4" pathLength="1"/>
+          <circle class="nd--ok" data-nd="0" r="4"/>
+          <circle class="nd--gap" data-nd="1" r="4"/>
+          <circle class="nd--ok" data-nd="2" r="4"/>
+          <circle class="nd--ok" data-nd="4" r="4"/>
+        </svg>
 
-      <div class="tp__foot">
-        <div class="tp__lead">
-          <p class="tp__sub">Scribtive helps engineers, designers and consultancies prepare PACE assurance deliverables, such as Form&nbsp;G and Form&nbsp;C.</p>
-          <a class="sv-btn" href="#join">Join the Waitlist</a>
-        </div>
-        <dl class="tp__block">
-          <div><dt>Deliverables</dt><dd>Form G, Form C</dd></div>
-          <div><dt>Framework</dt><dd>PACE, NR/L2/RSE/02009</dd></div>
-          <div><dt>Status</dt><dd>Early access, by waitlist</dd></div>
-          <div><dt>On this page</dt><dd>A sample scheme, for illustration: Ashcombe Vale Station, canopy refurbishment</dd></div>
-        </dl>
-      </div>
-    </div>
-  </header>
-
-  <!-- ═══ 1 · THE PACK · flow, parallax in the media column ═══ -->
-  <section class="ch ch--pack" id="pack" data-sc-act="flow" data-folio="1 · The pack">
-    <div class="sv-wrap">
-      <p class="sv-folio"><b>1</b> The pack</p>
-      <div class="pack">
-        <div class="pack__text" data-sc-in data-sc-stagger="70">
-          <h2 class="sv-h2">It starts with 11 documents and a blank form.</h2>
-          <p class="sv-p">A Form G is assembled before it is written. Someone gathers the pack, finds the standards that apply, and carries each fact from the surveys into the certificate.</p>
-          <p class="sv-p">Then the review comments arrive, and the rounds begin.</p>
-          <p class="sv-p">Most of this is careful reading. It falls to the people whose judgement the certificate depends on.</p>
-        </div>
-
-        <figure class="pack__media">
-          <div class="pack__cols">
-            <div class="pack__col" data-sc-parallax="-0.7">
-              <div class="doc"><span class="doc__n">01</span><span class="doc__t">Asbestos Register, extract</span><span class="doc__p">6 pages</span></div>
-              <div class="doc"><span class="doc__n">04</span><span class="doc__t">Fire Strategy</span><span class="doc__p">4 pages</span></div>
-              <div class="doc"><span class="doc__n">07</span><span class="doc__t">Paint and Coatings Survey</span><span class="doc__p">6 pages</span></div>
-              <div class="doc"><span class="doc__n">10</span><span class="doc__t">Structural Inspection Report</span><span class="doc__p">8 pages</span></div>
+        <div class="pack" id="pack">
+          <!-- four pages that carry evidence -->
+          <article class="pg pg--ev" data-pg="walkout" aria-label="Site Walkout Report, page 5 of 5">
+            <header class="pg__head"><span class="pg__doc">Site Walkout Report</span><span class="pg__no">p.5 of 5</span></header>
+            <div class="pg__body">
+              <h4>11. Summary and next steps</h4>
+              <p><mark>The walkout confirmed that both the P1 and P4 canopies require refurbishment intervention. The P4 structure presents the more complex scope</mark>, with fractured glazing, a fractured cast-iron column base, encasement water pooling, blocked box gutters, and general paint degradation.</p>
+              <p>Hazards including lead paint, asbestos potential and third-rail adjacency must be formally assessed before any works are designed or procured.</p>
             </div>
-            <div class="pack__col" data-sc-parallax="0.6">
-              <div class="doc"><span class="doc__n">02</span><span class="doc__t">Designer's Hazard Log</span><span class="doc__p">14 pages</span></div>
-              <div class="doc"><span class="doc__n">05</span><span class="doc__t">Gauge and Clearance Assessment</span><span class="doc__p">5 pages</span></div>
-              <div class="doc"><span class="doc__n">08</span><span class="doc__t">Signal Sighting Assessment</span><span class="doc__p">5 pages</span></div>
-              <div class="doc"><span class="doc__n">11</span><span class="doc__t">Services Survey</span><span class="doc__p">8 pages</span></div>
+          </article>
+          <article class="pg pg--ev pg--contrary" data-pg="structural" aria-label="Structural Inspection Report, page 1 of 8">
+            <header class="pg__head"><span class="pg__doc">Structural Inspection Report</span><span class="pg__no">p.1 of 8</span></header>
+            <div class="pg__body">
+              <h4>Scope exclusions</h4>
+              <p>Lift-shaft full structural assessment, deferred.</p>
+              <p>Foundation investigation (no evidence of differential settlement observed; <mark>no intrusive works within this commission</mark>).</p>
+              <p>Permanent-way or third-rail infrastructure, noted for access-limitation purposes only.</p>
             </div>
-            <div class="pack__col" data-sc-parallax="-1.3">
-              <div class="doc"><span class="doc__n">03</span><span class="doc__t">Dilapidation Survey</span><span class="doc__p">8 pages</span></div>
-              <div class="doc"><span class="doc__n">06</span><span class="doc__t">Contract Requirements, Technical (CR-T)</span><span class="doc__p">4 pages</span></div>
-              <div class="doc"><span class="doc__n">09</span><span class="doc__t">Site Walkout Report</span><span class="doc__p">5 pages</span></div>
+          </article>
+          <article class="pg pg--ev" data-pg="crt2" aria-label="Contract Requirements, Technical, page 2 of 4">
+            <header class="pg__head"><span class="pg__doc">Contract Requirements, Technical</span><span class="pg__no">p.2 of 4</span></header>
+            <div class="pg__body">
+              <h4>Scope of the works</h4>
+              <p>Proposed cast-iron column-base repair. <mark>One cast-iron column base on Platform 4 was identified as defective. The cast-iron section encases the steel column and is decorative only.</mark> The base has 2 No. full-height vertical fractures on opposite faces.</p>
+              <p>Column-encasement pooling. Four columns experience pooling water at the tops of the encasements.</p>
             </div>
-          </div>
-          <figcaption class="sv-cap">Sample scheme, for illustration. Ashcombe Vale Station, canopy refurbishment: 11 documents, 73 pages.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ 2 · THE PARAGRAPH · flow, the exhibit arrives on a wipe.
-       Authored quiet: one spread and one unmarked paragraph, ahead of the peak. ═══ -->
-  <section class="ch ch--para" id="paragraph" data-sc-act="flow" data-folio="2 · The paragraph">
-    <div class="sv-wrap">
-      <p class="sv-folio"><b>2</b> The paragraph</p>
-      <div class="para">
-        <div class="para__text" data-sc-in data-sc-stagger="70">
-          <h2 class="sv-h2">A fluent paragraph is easy to come by.</h2>
-          <p class="sv-p">Paste the pack into a chat assistant and a paragraph comes back in seconds. It reads well. For a small editorial job, that may be all you need.</p>
-          <p class="sv-p">A certificate asks more. Whoever signs it needs to know which sentences the pack supports, and which ones only sound right.</p>
+          </article>
+          <article class="pg pg--ev" data-pg="crt4" aria-label="Contract Requirements, Technical, page 4 of 4">
+            <header class="pg__head"><span class="pg__doc">Contract Requirements, Technical</span><span class="pg__no">p.4 of 4</span></header>
+            <div class="pg__body">
+              <h4>4.7 Temporary works</h4>
+              <p><mark>Works are envisaged within engineering hours with no temporary works other than safe platform working at height.</mark> Should hoarding be required, signal sighting and clearance are to be confirmed as not affected.</p>
+              <p>For glazing-panel replacement, lighting units and cable ducts are to be temporarily diverted where required.</p>
+            </div>
+          </article>
+          <!-- the rest of the pack, in the distance -->
+          <div class="pg pg--bg" aria-hidden="true"><header class="pg__head"><span class="pg__doc">Asbestos Register, extract</span><span class="pg__no">6 pp</span></header><div class="pg__rules"></div></div>
+          <div class="pg pg--bg" aria-hidden="true"><header class="pg__head"><span class="pg__doc">Designer's Hazard Log</span><span class="pg__no">14 pp</span></header><div class="pg__rules"></div></div>
+          <div class="pg pg--bg" aria-hidden="true"><header class="pg__head"><span class="pg__doc">Dilapidation Survey</span><span class="pg__no">8 pp</span></header><div class="pg__rules"></div></div>
+          <div class="pg pg--bg" aria-hidden="true"><header class="pg__head"><span class="pg__doc">Fire Strategy</span><span class="pg__no">4 pp</span></header><div class="pg__rules"></div></div>
+          <div class="pg pg--bg" aria-hidden="true"><header class="pg__head"><span class="pg__doc">Gauge and Clearance Assessment</span><span class="pg__no">5 pp</span></header><div class="pg__rules"></div></div>
+          <div class="pg pg--bg" aria-hidden="true"><header class="pg__head"><span class="pg__doc">Paint and Coatings Survey</span><span class="pg__no">6 pp</span></header><div class="pg__rules"></div></div>
+          <div class="pg pg--bg" aria-hidden="true"><header class="pg__head"><span class="pg__doc">Signal Sighting Assessment</span><span class="pg__no">5 pp</span></header><div class="pg__rules"></div></div>
+          <div class="pg pg--bg" aria-hidden="true"><header class="pg__head"><span class="pg__doc">Services Survey</span><span class="pg__no">8 pp</span></header><div class="pg__rules"></div></div>
         </div>
 
-        <figure class="para__ex">
-          <div class="sheet" data-sc-reveal="up" data-sc-reveal-at="0.16 0.42">
-            <div class="sheet__head"><span>Draft paragraph</span><span>Unchecked</span></div>
-            <p class="sheet__p">Both canopies need refurbishment, and Platform 4 is the more complex of the two. Ground conditions at the column bases were confirmed by intrusive investigation. One cast-iron column base on Platform 4 is fractured; the cast iron is decorative and encases the steel column. An environmental assessment has been completed for the scheme. The works are planned within engineering hours, with no temporary works beyond safe access for working at height.</p>
-          </div>
-          <figcaption class="sv-cap">5 statements about the sample scheme. 2 of them have nothing behind them, and nothing on the page says which.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
 
-  <!-- ═══ 3 · THE EVIDENCE TEST · pin. The peak, and the signature move.
-       State is driven from --sc-p by page-local script; the engine is untouched. ═══ -->
-  <section class="ch ch--test" id="test" data-sc-act="pin" data-sc-span="3.4" data-folio="3 · The evidence test" data-ground="night">
-    <div data-sc-stage class="test" id="test-stage">
-      <div class="sv-wrap test__head">
-        <p class="sv-folio"><b>3</b> The evidence test</p>
-        <h2 class="test__h2">The same 5 statements, checked against the pack.</h2>
-      </div>
-
-      <div class="sv-wrap test__grid">
-        <div class="sheet">
-          <div class="sheet__head"><span>Draft paragraph</span><span id="test-state"><b>0</b> of 5 checked</span></div>
-          <p class="sheet__p" id="test-p">
+        <div class="sheet" id="sheet">
+          <div class="sheet__head"><span>Draft deliverable</span><span id="sheet-state"><b>0</b> of 5 checked</span></div>
+          <p class="sheet__p">
             <span class="st" data-st="0" role="button" tabindex="-1" aria-disabled="true">Both canopies need refurbishment, and Platform 4 is the more complex of the two.<span class="st__chip"><i class="l">Site Walkout Report, p.5</i><i class="s">Walkout, p.5</i></span></span>
             <span class="st" data-st="1" role="button" tabindex="-1" aria-disabled="true">Ground conditions at the column bases were confirmed by intrusive investigation.<span class="st__chip"><i class="l">Not supported</i><i class="s">Not supported</i></span></span>
             <span class="st" data-st="2" role="button" tabindex="-1" aria-disabled="true">One cast-iron column base on Platform 4 is fractured; the cast iron is decorative and encases the steel column.<span class="st__chip"><i class="l">CR-T, p.2</i><i class="s">CR-T, p.2</i></span></span>
             <span class="st" data-st="3" role="button" tabindex="-1" aria-disabled="true">An environmental assessment has been completed for the scheme.<span class="st__chip"><i class="l">Not supported</i><i class="s">Not supported</i></span></span>
             <span class="st" data-st="4" role="button" tabindex="-1" aria-disabled="true">The works are planned within engineering hours, with no temporary works beyond safe access for working at height.<span class="st__chip"><i class="l">CR-T, p.4</i><i class="s">CR-T, p.4</i></span></span>
           </p>
-          <div class="ref" id="test-ref">
+          <div class="ref" id="sheet-ref">
             <p class="ref__h">Referred to the engineer</p>
             <p class="ref__none">Nothing referred yet.</p>
             <ol class="ref__list">
@@ -1030,111 +978,123 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
             </ol>
           </div>
         </div>
-
-        <aside class="src" id="src" data-kind="idle" aria-label="Source page">
-          <div class="src__head">
-            <p class="src__doc" id="src-doc">The pack</p>
-            <span class="src__pg" id="src-pg">11 documents, 73 pages</span>
-            <span class="src__status" id="src-status">Nothing checked yet</span>
-          </div>
-          <div class="src__page" id="src-page">
-            <ul>
-              <li>Asbestos Register, extract</li>
-              <li>Designer's Hazard Log</li>
-              <li>Dilapidation Survey</li>
-              <li>Fire Strategy</li>
-              <li>Gauge and Clearance Assessment</li>
-              <li>Contract Requirements, Technical</li>
-              <li>Paint and Coatings Survey</li>
-              <li>Signal Sighting Assessment</li>
-              <li>Site Walkout Report</li>
-              <li>Structural Inspection Report</li>
-              <li>Services Survey</li>
-            </ul>
-          </div>
-          <p class="src__note">Sample scheme, for illustration. Ashcombe Vale Station is fictional.</p>
-        </aside>
       </div>
 
-      <div class="sv-wrap test__tally">
-        <p class="test__sum" id="test-sum"><em>3</em> statements carry a source. <em>2</em> do not, and the draft says so.</p>
-        <p class="test__count" id="test-count">Select a checked statement to open its page.</p>
+      <div class="film__caps">
+        <p class="film__cap" data-sc-cue="0.14 0.34 0.2 0.2">It starts with the pack. <b>11</b> documents, <b>73</b> pages.</p>
+        <p class="film__cap" data-sc-cue="0.32 0.6 0.12 0.12">Every statement carries its source.</p>
+        <p class="film__cap" data-sc-cue="0.59 0.82 0.12 0.12">Where the pack is silent, the draft says so.</p>
+        <p class="film__cap" data-sc-cue="0.81 1 0.14 0.04">A draft your engineer can check line by line, then sign.</p>
+      </div>
+      <p class="film__note">Sample scheme, for illustration. Select a statement to bring its page forward.</p>
+    </div>
+  </section>
+
+  <!-- ═══ WHAT EASY MEANS · flow ═══ -->
+  <section class="easy" id="easy" data-sc-act="flow" data-sc-drift="#0E1420">
+    <div class="sv-wrap easy__in">
+      <div class="easy__lead" data-sc-in data-sc-stagger="70">
+        <h2 class="sv-h2">What easy means here.</h2>
+        <p class="sv-p">A deliverable is hard for ordinary reasons. The pack is large, the standards are many, and every statement has to stand up at review.</p>
+      </div>
+      <div>
+        <ol class="easy__list" data-sc-in data-sc-stagger="80">
+          <li class="easy__row"><h3 class="easy__s">The whole pack is read.</h3><p class="easy__d">The draft is built from all of it, document by document, and not from what the week allowed.</p></li>
+          <li class="easy__row"><h3 class="easy__s">Every statement is evidenced.</h3><p class="easy__d">Each one carries its quote and its page, checked against the source it came from.</p></li>
+          <li class="easy__row"><h3 class="easy__s">Gaps surface before review.</h3><p class="easy__d">Where the pack cannot support a claim, the draft says so and refers it to your engineer.</p></li>
+          <li class="easy__row"><h3 class="easy__s">Your engineer signs.</h3><p class="easy__d">Scribtive drafts. The review, the judgement and the signature stay with your team.</p></li>
+        </ol>
+        <p class="easy__end" data-sc-in>The same team, carrying more deliverables, each one read in more depth.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══ 4 · ON THE RECORD · pan. Lateral travel: five facts of equal rank. ═══ -->
-  <section class="ch ch--record" id="record" data-sc-act="pan" data-sc-span="3.2" data-folio="4 · On the record">
-    <div data-sc-stage class="rec">
-      <div class="rec__rail" data-sc-pan="0.04">
-        <div class="rec__lead">
-          <p class="sv-folio"><b>4</b> On the record</p>
-          <h2 class="sv-h2">What a paragraph cannot carry.</h2>
-          <p class="sv-p">An assurance deliverable is signed, reviewed and kept. It has to hold more than good sentences.</p>
+  <!-- ═══ WHY NOT A CHAT · pin, one wipe. The same five statements,
+       as a chat returns them and as Scribtive returns them. ═══ -->
+  <section class="wipe" id="chat" data-sc-act="pin" data-sc-span="1.8" data-sc-drift="#0B0F16">
+    <div data-sc-stage class="wipe__stage">
+      <div class="sv-wrap wipe__in">
+        <div class="wipe__copy">
+          <h2 class="sv-h2">Why not paste it into a chat?</h2>
+          <p class="sv-p">For a small editorial job, you could. A chat assistant will return a fluent paragraph in seconds.</p>
+          <p class="sv-p">A deliverable that carries a signature asks more. Whoever signs needs to know which statements the pack supports, and which ones only sound right.</p>
         </div>
-        <article class="rec__item" style="--i:1">
-          <p class="rec__k">Evidence</p>
-          <h3 class="rec__s">Every statement carries its quote and its page.</h3>
-          <p class="rec__x"><span class="chip chip--ok">Site Walkout Report, p.5</span><span class="chip chip--ok">Quote matched</span></p>
-          <p class="rec__d">Each quote is checked against the page it came from. Select it and the page opens on the line.</p>
-        </article>
-        <article class="rec__item" style="--i:2">
-          <p class="rec__k">Gaps</p>
-          <h3 class="rec__s">Where the pack is silent, the draft says so.</h3>
-          <p class="rec__x"><span class="chip chip--gap">Not supported</span><span class="chip chip--gap">Referred to the engineer</span></p>
-          <p class="rec__d">An unsupported claim is declared and referred to the engineer. Nothing is filled in to make a section read complete.</p>
-        </article>
-        <article class="rec__item" style="--i:3">
-          <p class="rec__k">The form</p>
-          <h3 class="rec__s">The draft arrives as the form.</h3>
-          <p class="rec__x"><span class="chip">Form G</span><span class="chip">Form C</span></p>
-          <p class="rec__d">It is produced in the form's own layout, section by section, ready for review.</p>
-        </article>
-        <article class="rec__item" style="--i:4">
-          <p class="rec__k">Repository</p>
-          <h3 class="rec__s">Your standards and past projects stay yours.</h3>
-          <p class="rec__x"><span class="chip">Standards</span><span class="chip">Past projects</span><span class="chip">Considerations</span><span class="chip">Policies</span></p>
-          <p class="rec__d">They are held in your own repository, apart from every other client's.</p>
-        </article>
-        <article class="rec__item" style="--i:5">
-          <p class="rec__k">Signature</p>
-          <h3 class="rec__s">The signature stays where it is.</h3>
-          <p class="rec__x rec__x--sig"><span class="sig" aria-hidden="true"></span><span class="chip">Signed by the engineer</span></p>
-          <p class="rec__d">Scribtive drafts. You review every section, resolve the gaps and sign.</p>
-        </article>
-        <div class="rec__end" style="--i:6">
-          <p>The same team, reading more of the pack, in more depth, before anything is signed.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ 5 · COLOPHON · flow. The quietest setting on the page. The CTA is a
-       line of running text with a field. The site footer sits inside this
-       section as the masthead plate, so nothing follows the close. ═══ -->
-  <section class="ch ch--colophon" id="join" data-sc-act="flow" data-folio="5 · Early access">
-    <div class="sv-wrap">
-      <p class="sv-folio"><b>5</b> Early access</p>
-      <div class="colo">
-        <div class="colo__main" data-sc-in data-sc-stagger="60">
-          <h2 class="colo__h">Scribtive is in early access.</h2>
-          <p class="colo__run">Places open by waitlist. If this is the work your team signs for, you would be welcome to join. Leave an address and we will write when a place opens.</p>
-          <form class="wl" id="wl" novalidate>
-            <label class="wl__label" for="wl-email">Work email</label>
-            <div class="wl__row">
-              <input class="wl__in" id="wl-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@company.co.uk" required aria-describedby="wl-msg">
-              <button class="sv-btn" id="wl-btn" type="submit">Join the Waitlist</button>
+        <figure class="wipe__fig">
+          <div class="wipe__card">
+            <div class="wipe__layer wipe__layer--plain" aria-hidden="true">
+              <div class="wipe__head"><span>As a chat returns it</span><span>Unchecked</span></div>
+              <ol class="wipe__rows">
+                <li class="wrow"><p class="wrow__t is-ok">Both canopies need refurbishment, and Platform 4 is the more complex of the two.</p><span class="wrow__n wrow__n--ok">Site Walkout Report, p.5</span></li>
+                <li class="wrow"><p class="wrow__t is-gap">Ground conditions at the column bases were confirmed by intrusive investigation.</p><span class="wrow__n wrow__n--gap">Not supported</span></li>
+                <li class="wrow"><p class="wrow__t is-ok">One cast-iron column base on Platform 4 is fractured; the cast iron is decorative and encases the steel column.</p><span class="wrow__n wrow__n--ok">CR-T, p.2</span></li>
+                <li class="wrow"><p class="wrow__t is-gap">An environmental assessment has been completed for the scheme.</p><span class="wrow__n wrow__n--gap">Not supported</span></li>
+                <li class="wrow"><p class="wrow__t is-ok">The works are planned within engineering hours, with no temporary works beyond safe access for working at height.</p><span class="wrow__n wrow__n--ok">CR-T, p.4</span></li>
+              </ol>
             </div>
-            <p class="wl__msg" id="wl-msg" role="status">How we handle your address is set out in the <a href="privacy.html">Privacy Notice</a>.</p>
-          </form>
-        </div>
-        <ul class="colo__list" data-sc-in>
-          <li><b>Made by</b>AutomateX, London. Built by a Chartered Civil Engineer who has written these forms and reviewed them.</li>
-          <li><b>Your documents</b>Not used to train any model, and not shared with other clients.</li>
-          <li><b>The sample</b>Ashcombe Vale Station is a fictional scheme, shown for illustration. It is no client's project.</li>
-          <li><b>Set in</b>Archivo and IBM Plex.</li>
-        </ul>
+            <div class="wipe__layer wipe__layer--checked" data-sc-reveal="left" data-sc-reveal-at="0.14 0.76">
+              <div class="wipe__head"><span>As Scribtive returns it</span><span>3 sourced, 2 referred</span></div>
+              <ol class="wipe__rows">
+                <li class="wrow"><p class="wrow__t is-ok">Both canopies need refurbishment, and Platform 4 is the more complex of the two.</p><span class="wrow__n wrow__n--ok">Site Walkout Report, p.5</span></li>
+                <li class="wrow"><p class="wrow__t is-gap">Ground conditions at the column bases were confirmed by intrusive investigation.</p><span class="wrow__n wrow__n--gap">Not supported</span></li>
+                <li class="wrow"><p class="wrow__t is-ok">One cast-iron column base on Platform 4 is fractured; the cast iron is decorative and encases the steel column.</p><span class="wrow__n wrow__n--ok">CR-T, p.2</span></li>
+                <li class="wrow"><p class="wrow__t is-gap">An environmental assessment has been completed for the scheme.</p><span class="wrow__n wrow__n--gap">Not supported</span></li>
+                <li class="wrow"><p class="wrow__t is-ok">The works are planned within engineering hours, with no temporary works beyond safe access for working at height.</p><span class="wrow__n wrow__n--ok">CR-T, p.4</span></li>
+              </ol>
+            </div>
+            <span class="wipe__edge" aria-hidden="true"></span>
+          </div>
+          <figcaption class="sv-cap">The same 5 statements. Sample scheme, for illustration.</figcaption>
+        </figure>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══ THE SET · pan. Lateral travel reads as breadth. ═══ -->
+  <section class="set" id="set" data-sc-act="pan" data-sc-span="2.8" data-sc-drift="#101724">
+    <div data-sc-stage class="set__stage">
+      <div class="set__rail" data-sc-pan="0.04">
+        <div class="set__lead">
+          <h2 class="sv-h2">Every deliverable under <span class="set__std">NR/L2/RSE/02009</span>.</h2>
+          <p class="sv-p">Form&nbsp;G and Form&nbsp;C are two of them. The set runs wider, and Scribtive is built to cover it.</p>
+        </div>
+        <article class="dv" style="--i:1"><div class="dv__in" data-sc-tilt="6"><div class="dv__head"><span>Deliverable</span><span>01</span></div><h3 class="dv__name">Form&nbsp;A</h3><div class="dv__rules"></div></div></article>
+        <article class="dv" style="--i:2"><div class="dv__in" data-sc-tilt="6"><div class="dv__head"><span>Deliverable</span><span>02</span></div><h3 class="dv__name">Form&nbsp;C</h3><div class="dv__rules"></div></div></article>
+        <article class="dv" style="--i:3"><div class="dv__in" data-sc-tilt="6"><div class="dv__head"><span>Deliverable</span><span>03</span></div><h3 class="dv__name">Form&nbsp;G</h3><div class="dv__rules"></div></div></article>
+        <article class="dv" style="--i:4"><div class="dv__in" data-sc-tilt="6"><div class="dv__head"><span>Deliverable</span><span>04</span></div><h3 class="dv__name">AIP</h3><div class="dv__rules"></div></div></article>
+        <article class="dv" style="--i:5"><div class="dv__in" data-sc-tilt="6"><div class="dv__head"><span>Deliverable</span><span>05</span></div><h3 class="dv__name">DIA</h3><div class="dv__rules"></div></div></article>
+        <article class="dv" style="--i:6"><div class="dv__in" data-sc-tilt="6"><div class="dv__head"><span>Deliverable</span><span>06</span></div><h3 class="dv__name">CR-T</h3><div class="dv__rules"></div></div></article>
+        <div class="set__end" style="--i:7">
+          <p>One way of working across the set: your pack in, an evidenced draft out, your engineer's signature on it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ THE CLOSE · flow. A signature is drawn, then one field.
+       The site footer sits inside this section, so nothing follows the close. ═══ -->
+  <section class="close" id="join" data-sc-act="flow" data-sc-drift="#0B0F16">
+    <div class="sv-wrap close__in">
+      <div>
+        <h2 class="close__h">The signature stays with you.</h2>
+        <svg class="sig" viewBox="0 0 480 120" aria-hidden="true" focusable="false">
+          <line x1="0" y1="100" x2="480" y2="100"/>
+          <path pathLength="1" d="M18 80 C 38 28, 62 20, 70 52 C 77 78, 50 96, 60 66 C 70 34, 104 30, 112 58 C 116 76, 102 86, 110 66 C 120 40, 150 44, 156 64 C 160 80, 176 60, 192 56 C 216 50, 224 78, 248 66 C 282 50, 302 40, 332 60 C 354 74, 394 66, 456 42"/>
+        </svg>
+        <p class="close__run">Scribtive is in early access, by waitlist. If this is the work your team signs for, you would be welcome to join.</p>
+        <form class="wl" id="wl" novalidate>
+          <label class="wl__label" for="wl-email">Work email</label>
+          <div class="wl__row">
+            <input class="wl__in" id="wl-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@company.co.uk" required aria-describedby="wl-msg">
+            <button class="sv-btn" id="wl-btn" type="submit">Join the Waitlist</button>
+          </div>
+          <p class="wl__msg" id="wl-msg" role="status">How we handle your address is set out in the <a href="privacy.html">Privacy Notice</a>.</p>
+        </form>
+      </div>
+      <ul class="close__list" data-sc-in>
+        <li><b>Made by</b>AutomateX, London. Built by a Chartered Civil Engineer who has written these deliverables and reviewed them.</li>
+        <li><b>Your documents</b>Not used to train any model, and not shared with other clients.</li>
+        <li><b>The sample</b>Ashcombe Vale Station is a fictional scheme, shown for illustration. It is no client's project.</li>
+      </ul>
     </div>
 <footer class="footer">
   <div class="container">
@@ -1307,203 +1267,300 @@ window.addEventListener("resize",sync);})();
 <script src="vendor/scrollcraft/scrollcraft.js"></script>
 <script id="sv-page-js">
 /* Scribtive product page: page-local behaviour. The scroll-craft engine is
-   mounted at the end and is never edited. Three things live here:
-   1. the evidence test (the signature move), driven from the act's --sc-p
-   2. the margin folio
-   3. the waitlist field */
+   mounted after this and is never edited. Two things live here:
+   1. the film (the signature move): the pack becomes the deliverable,
+      driven from the act's --sc-p
+   2. the waitlist field */
 (function () {
   'use strict';
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  /* ---------------------------------------------------------------- data --
-     A sample scheme, for illustration. The page text below is what each quote
-     is checked against: a statement is only marked as supported if its quote
-     is found, verbatim, in the text of the page it cites. */
-  var PACK = [
-    'Asbestos Register, extract', "Designer's Hazard Log", 'Dilapidation Survey',
-    'Fire Strategy', 'Gauge and Clearance Assessment', 'Contract Requirements, Technical',
-    'Paint and Coatings Survey', 'Signal Sighting Assessment', 'Site Walkout Report',
-    'Structural Inspection Report', 'Services Survey'
-  ];
-  var PAGES = {
-    'walkout-5': {
-      doc: 'Site Walkout Report', page: 5, of: 5, heading: '11. Summary and next steps',
-      text: [
-        'The walkout confirmed that both the P1 and P4 canopies require refurbishment intervention. The P4 structure presents the more complex scope, with fractured glazing, a fractured cast-iron column base, encasement water pooling, blocked box gutters, and general paint degradation.',
-        'Hazards including lead paint, asbestos potential and third-rail adjacency must be formally assessed before any works are designed or procured.',
-        'This report will be superseded by the outputs of the follow-on surveys.'
-      ]
-    },
-    'crt-2': {
-      doc: 'Contract Requirements, Technical (CR-T)', page: 2, of: 4, heading: 'Scope of the works',
-      text: [
-        'Proposed cast-iron column-base repair. One cast-iron column base on Platform 4 was identified as defective. The cast-iron section encases the steel column and is decorative only. The base has 2 No. full-height vertical fractures on opposite faces.',
-        'Column-encasement pooling. Four columns experience pooling water at the tops of the encasements, causing superficial corrosion.'
-      ]
-    },
-    'crt-4': {
-      doc: 'Contract Requirements, Technical (CR-T)', page: 4, of: 4, heading: '4.7 Temporary works',
-      text: [
-        'Works are envisaged within engineering hours with no temporary works other than safe platform working at height. Should hoarding be required, signal sighting and clearance are to be confirmed as not affected.',
-        'For glazing-panel replacement, lighting units and cable ducts are to be temporarily diverted where required.'
-      ]
-    },
-    'structural-1': {
-      doc: 'Structural Inspection Report', page: 1, of: 8, heading: 'Scope exclusions',
-      text: [
-        'Lift-shaft full structural assessment, deferred.',
-        'Foundation investigation (no evidence of differential settlement observed; no intrusive works within this commission).',
-        'Permanent-way or third-rail infrastructure, noted for access-limitation purposes only.'
-      ]
-    }
-  };
-  var STATEMENTS = [
-    { evidence: { page: 'walkout-5', quote: 'The walkout confirmed that both the P1 and P4 canopies require refurbishment intervention. The P4 structure presents the more complex scope' } },
-    { contrary: { page: 'structural-1', quote: 'no intrusive works within this commission' },
-      note: 'No passage in the pack supports this statement. The Structural Inspection Report records the contrary. Referred to the engineer.' },
-    { evidence: { page: 'crt-2', quote: 'One cast-iron column base on Platform 4 was identified as defective. The cast-iron section encases the steel column and is decorative only. The base has 2 No. full-height vertical fractures on opposite faces.' } },
-    { note: 'None of the 11 documents in the pack is an environmental assessment. Referred to the engineer.' },
-    { evidence: { page: 'crt-4', quote: 'Works are envisaged within engineering hours with no temporary works other than safe platform working at height.' } }
-  ];
-  /* scroll progress at which each statement is resolved, then the summary */
-  var AT = [0.08, 0.24, 0.40, 0.56, 0.72];
-  var DONE_AT = 0.84;
+  function clamp(x, a, b) { return x < a ? a : x > b ? b : x; }
+  function ss(a, b, x) { var t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); }
+  function mix(a, b, t) { return a + (b - a) * t; }
 
-  function pageText(id) { return PAGES[id] ? PAGES[id].text.join('\n') : ''; }
-  function found(ref) { return !!(ref && PAGES[ref.page] && pageText(ref.page).indexOf(ref.quote) > -1); }
-  /* the check itself: supported only if the quote is on the page, verbatim */
-  STATEMENTS.forEach(function (s) { s.ok = found(s.evidence); });
+  /* ---------------------------------------------------------------- film -- */
+  var film = document.getElementById('film');
+  var stage = document.getElementById('film-stage');
+  var scene = document.getElementById('film-scene');
+  if (film && stage && scene) (function () {
+    var pack = document.getElementById('pack');
+    var sheet = document.getElementById('sheet');
+    var pages = [].slice.call(pack.querySelectorAll('.pg'));
+    var evPages = {};
+    pages.forEach(function (p, i) { p._i = i; var k = p.getAttribute('data-pg'); if (k) evPages[k] = p; });
+    var sts = [].slice.call(sheet.querySelectorAll('.st'));
+    var stateEl = document.getElementById('sheet-state');
+    var refBox = document.getElementById('sheet-ref');
+    var svg = document.getElementById('threads');
+    var paths = {}, nodes = {};
+    [].forEach.call(svg.querySelectorAll('path'), function (p) { paths[p.getAttribute('data-th')] = p; });
+    [].forEach.call(svg.querySelectorAll('circle'), function (c) { nodes[c.getAttribute('data-nd')] = c; });
 
-  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  function renderPage(id, quote) {
-    var pg = PAGES[id], out = '<h4>' + esc(pg.heading) + '</h4>';
-    pg.text.forEach(function (para) {
-      var i = quote ? para.indexOf(quote) : -1;
-      out += '<p>' + (i > -1
-        ? esc(para.slice(0, i)) + '<mark>' + esc(quote) + '</mark>' + esc(para.slice(i + quote.length))
-        : esc(para)) + '</p>';
+    /* A sample scheme, for illustration. A statement is only marked as
+       supported if its quote is found, verbatim, in the text of the page it
+       cites. The page text is the markup itself. */
+    var STATEMENTS = [
+      { page: 'walkout', quote: 'The walkout confirmed that both the P1 and P4 canopies require refurbishment intervention. The P4 structure presents the more complex scope', supports: true },
+      { page: 'structural', quote: 'no intrusive works within this commission', supports: false },
+      { page: 'crt2', quote: 'One cast-iron column base on Platform 4 was identified as defective. The cast-iron section encases the steel column and is decorative only.', supports: true },
+      { page: null, quote: null, supports: false },
+      { page: 'crt4', quote: 'Works are envisaged within engineering hours with no temporary works other than safe platform working at height.', supports: true }
+    ];
+    function norm(t) { return t.replace(/\s+/g, ' ').trim(); }
+    STATEMENTS.forEach(function (s) {
+      var pg = s.page && evPages[s.page];
+      s.found = !!(pg && norm(pg.querySelector('.pg__body').textContent).indexOf(s.quote) > -1);
+      s.ok = s.supports && s.found;
+      s.mark = pg ? pg.querySelector('mark') : null;
+      s.pg = pg || null;
     });
-    return out;
-  }
-  function renderPack() {
-    return '<ul>' + PACK.map(function (d) { return '<li>' + esc(d) + '</li>'; }).join('') + '</ul>';
-  }
 
-  /* ------------------------------------------------------ evidence test -- */
-  var act = document.getElementById('test');
-  var stage = document.getElementById('test-stage');
-  if (act && stage) {
-    var els = [].slice.call(stage.querySelectorAll('.st'));
-    var src = document.getElementById('src');
-    var srcDoc = document.getElementById('src-doc');
-    var srcPg = document.getElementById('src-pg');
-    var srcStatus = document.getElementById('src-status');
-    var srcPage = document.getElementById('src-page');
-    var stateEl = document.getElementById('test-state');
-    var countEl = document.getElementById('test-count');
-    var refBox = document.getElementById('test-ref');
-    var resolved = -1;      // index of the last resolved statement
-    var selected = -1;      // what the panel is showing
-    var byHand = false;     // the reader chose; stop auto-following until the check moves on
-    var lastSig = '';
+    var AT = [0.32, 0.42, 0.52, 0.62, 0.72];  // progress at which each statement resolves
+    var END = [0.80, 0.93];                   // the pack recedes, the deliverable stands alone
+    var HOLD = 0.94;
 
-    function show(i, hand) {
-      if (i === selected && !hand) return;
-      selected = i;
-      els.forEach(function (el, k) {
-        el.classList.toggle('is-sel', k === i);
-        el.setAttribute('aria-pressed', k === i ? 'true' : 'false');
-      });
-      if (i < 0) {
-        src.setAttribute('data-kind', 'idle');
-        srcDoc.textContent = 'The pack';
-        srcPg.textContent = '11 documents, 73 pages';
-        srcStatus.textContent = 'Nothing checked yet';
-        srcPage.innerHTML = renderPack();
-      } else {
-        var s = STATEMENTS[i], ref = s.ok ? s.evidence : s.contrary;
-        src.setAttribute('data-kind', s.ok ? 'ok' : 'gap');
-        if (ref && found(ref)) {
-          var pg = PAGES[ref.page];
-          srcDoc.textContent = pg.doc;
-          srcPg.textContent = 'Page ' + pg.page + ' of ' + pg.of;
-          srcStatus.textContent = s.ok ? 'Quote matched on this page' : 'No support. This passage says otherwise';
-          srcPage.innerHTML = renderPage(ref.page, ref.quote) + (s.ok ? '' : '<p>' + esc(s.note) + '</p>');
-        } else {
-          srcDoc.textContent = 'The pack';
-          srcPg.textContent = '11 documents, 73 pages';
-          srcStatus.textContent = 'No supporting passage';
-          srcPage.innerHTML = '<p>' + esc(s.note) + '</p>' + renderPack();
-        }
+    /* layouts, as fractions of the scene. x,y are the top-left of the page
+       before its own transform; z in px; angles in degrees. */
+    var L = {
+      wide: {
+        scatter: [
+          { x: .66, y: .14, z: 60, ry: -16, rx: 4, rz: -5, s: .86, o: 1 },
+          { x: .83, y: .47, z: -140, ry: -20, rx: 2, rz: 6, s: .8, o: .95 },
+          { x: .64, y: .52, z: 140, ry: -12, rx: 3, rz: 3, s: .9, o: 1 },
+          { x: .81, y: .05, z: -240, ry: -22, rx: 5, rz: 9, s: .74, o: .9 },
+          { x: .76, y: .02, z: -560, ry: -18, rx: 0, rz: -8, s: .85, o: .5 },
+          { x: .94, y: .26, z: -460, ry: -26, rx: 0, rz: 4, s: .85, o: .5 },
+          { x: .70, y: .34, z: -700, ry: -16, rx: 0, rz: -4, s: .85, o: .4 },
+          { x: .82, y: .30, z: -820, ry: -22, rx: 0, rz: 7, s: .85, o: .34 },
+          { x: .94, y: .62, z: -520, ry: -26, rx: 0, rz: -6, s: .85, o: .46 },
+          { x: .74, y: .74, z: -440, ry: -18, rx: 0, rz: 3, s: .85, o: .5 },
+          { x: .68, y: .70, z: -780, ry: -14, rx: 0, rz: -3, s: .85, o: .32 },
+          { x: .90, y: .80, z: -640, ry: -24, rx: 0, rz: 5, s: .85, o: .4 }
+        ],
+        back: [
+          { x: .02, y: .02 }, { x: .30, y: .62 }, { x: .44, y: .04 }, { x: .16, y: .70 },
+          { x: .40, y: .40 }, { x: -.02, y: .46 }, { x: .24, y: .02 }, { x: .46, y: .72 }
+        ]
+      },
+      tall: {
+        scatter: [
+          { x: .06, y: .60, z: 40, ry: -10, rx: 4, rz: -5, s: .44, o: 1 },
+          { x: .46, y: .66, z: -120, ry: -14, rx: 2, rz: 6, s: .42, o: .95 },
+          { x: .24, y: .74, z: 100, ry: -8, rx: 3, rz: 3, s: .46, o: 1 },
+          { x: .56, y: .56, z: -200, ry: -14, rx: 5, rz: 9, s: .4, o: .9 },
+          { x: .04, y: .54, z: -520, ry: -12, rx: 0, rz: -8, s: .9, o: .5 },
+          { x: .62, y: .60, z: -460, ry: -16, rx: 0, rz: 4, s: .9, o: .5 },
+          { x: .30, y: .62, z: -700, ry: -10, rx: 0, rz: -4, s: .9, o: .4 },
+          { x: .48, y: .74, z: -620, ry: -14, rx: 0, rz: 7, s: .9, o: .36 },
+          { x: .70, y: .78, z: -520, ry: -16, rx: 0, rz: -6, s: .9, o: .46 },
+          { x: .10, y: .80, z: -440, ry: -10, rx: 0, rz: 3, s: .9, o: .5 },
+          { x: .36, y: .84, z: -780, ry: -10, rx: 0, rz: -3, s: .9, o: .32 },
+          { x: .78, y: .66, z: -640, ry: -14, rx: 0, rz: 5, s: .9, o: .4 }
+        ],
+        back: [
+          { x: -.04, y: .02 }, { x: .30, y: .0 }, { x: .62, y: .03 }, { x: .12, y: .14 },
+          { x: .46, y: .15 }, { x: .74, y: .16 }, { x: .04, y: .25 }, { x: .58, y: .26 }
+        ]
       }
-      if (!reduce) { src.classList.remove('is-swap'); void src.offsetWidth; src.classList.add('is-swap'); }
+    };
+
+    var W = 0, H = 0, mode = 'wide', G = {};
+    function measure() {
+      var r = scene.getBoundingClientRect();
+      W = r.width; H = r.height;
+      mode = W < 860 ? 'tall' : 'wide';
+      if (mode === 'wide') {
+        G.ew = clamp(W * 0.175, 210, 270);
+        G.eh = Math.min(G.ew * 1.16, H * 0.31);
+        G.bw = clamp(W * 0.115, 130, 170); G.bh = G.bw * 1.36;
+        G.sw = Math.min(W * 0.41, 620); G.sx = W * 0.545; G.sy = H * 0.15; G.sh = H * 0.67;
+        var c1 = W * 0.055, c2 = c1 + G.ew + 18, r1 = H * 0.15, r2 = r1 + G.eh + 16;
+        G.ev = [
+          { x: c1, y: r1, rz: -1.2 },          // walkout
+          { x: c1 + 14, y: r2, rz: 0.8 },       // structural
+          { x: c2, y: r1 + 22, rz: 1 },         // crt2
+          { x: c2 + 6, y: r2 + 12, rz: -1 }     // crt4
+        ];
+      } else {
+        G.ew = W - 40; G.eh = H * 0.25;
+        G.bw = 120; G.bh = 160;
+        G.sw = W - 40; G.sx = 20; G.sy = H * 0.395; G.sh = H * 0.47;
+        G.ev = [0, 1, 2, 3].map(function () { return { x: 20, y: H * 0.105, rz: 0 }; });
+      }
+      stage.style.setProperty('--ew', G.ew + 'px');
+      stage.style.setProperty('--eh', G.eh + 'px');
+      stage.style.setProperty('--bw', G.bw + 'px');
+      stage.style.setProperty('--bh', G.bh + 'px');
+      stage.style.setProperty('--sw', G.sw + 'px');
+      stage.style.setProperty('--sh', G.sh + 'px');
     }
 
-    function apply(p) {
+    var resolved = -1, selected = -1, byHand = false, lastSig = '';
+    var px = 0, py = 0, tx = 0, ty = 0;   // pointer parallax, eased
+
+    function pageOf(k) { return k > -1 && STATEMENTS[k].pg ? STATEMENTS[k].pg._i : -1; }
+    /* the page that stands forward: the reader's choice, else the latest one resolved */
+    function frontPage() {
+      if (selected > -1) return pageOf(selected);
+      for (var k = resolved; k > -1; k--) if (STATEMENTS[k].pg) return STATEMENTS[k].pg._i;
+      return -1;
+    }
+
+    function select(k, hand) {
+      selected = k; byHand = !!hand;
+      sts.forEach(function (el, i) { el.classList.toggle('is-sel', i === k); el.setAttribute('aria-pressed', i === k ? 'true' : 'false'); });
+    }
+
+    function setResolved(n) {
+      if (n === resolved) return;
+      resolved = n; byHand = false; selected = -1;
+      var gaps = 0;
+      sts.forEach(function (el, k) {
+        var on = k <= n, s = STATEMENTS[k];
+        el.classList.toggle('is-ok', on && s.ok);
+        el.classList.toggle('is-gap', on && !s.ok);
+        el.classList.remove('is-sel');
+        el.setAttribute('tabindex', on ? '0' : '-1');
+        el.setAttribute('aria-disabled', on ? 'false' : 'true');
+        if (on && !s.ok) gaps++;
+        if (s.pg) s.pg.classList.toggle('is-lit', pagesLit(s.pg));
+      });
+      stateEl.innerHTML = '<b>' + (n + 1) + '</b> of 5 checked';
+      refBox.classList.toggle('has-items', gaps > 0);
+      [].forEach.call(refBox.querySelectorAll('[data-ref]'), function (li) {
+        li.classList.toggle('is-on', +li.getAttribute('data-ref') <= n);
+      });
+    }
+    function pagesLit(pg) {
+      for (var k = 0; k <= resolved; k++) if (STATEMENTS[k].pg === pg && STATEMENTS[k].found) return true;
+      return false;
+    }
+
+    function place(el, x, y, z, rx, ry, rz, s, o) {
+      el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,' + z.toFixed(1) + 'px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) rotateZ(' + rz.toFixed(2) + 'deg) scale(' + s.toFixed(3) + ')';
+      el.style.opacity = o.toFixed(3);
+    }
+
+    function render(p, now) {
+      var tA = ss(0.10, 0.27, p);             // scatter to arranged
+      var tE = ss(END[0], END[1], p);         // arranged to the deliverable alone
+      var drift = reduce ? 0 : (1 - tA * 0.75) * (1 - tE);
+      var lay = L[mode], front = frontPage();
+
+      /* statements */
       var n = -1, checking = -1;
       for (var i = 0; i < AT.length; i++) {
-        if (p >= AT[i]) n = i;
-        else if (checking < 0 && p >= AT[i] - 0.07) checking = i;
+        if (p >= AT[i]) n = i; else if (checking < 0 && p >= AT[i] - 0.07) checking = i;
       }
-      var done = p >= DONE_AT;
-      if (n !== resolved) {
-        resolved = n;
-        byHand = false;
-        els.forEach(function (el, k) {
-          var on = k <= n, s = STATEMENTS[k];
-          el.classList.toggle('is-ok', on && s.ok);
-          el.classList.toggle('is-gap', on && !s.ok);
-          el.setAttribute('tabindex', on ? '0' : '-1');
-          el.setAttribute('aria-disabled', on ? 'false' : 'true');
-        });
-        var ok = 0, gap = 0;
-        for (var k = 0; k <= n; k++) { if (STATEMENTS[k].ok) ok++; else gap++; }
-        stateEl.innerHTML = '<b>' + (n + 1) + '</b> of 5 checked';
-        countEl.textContent = n < 0 ? 'Nothing checked yet.' : 'Select a checked statement to open its page.';
-        if (refBox) {
-          refBox.classList.toggle('has-items', gap > 0);
-          [].forEach.call(refBox.querySelectorAll('[data-ref]'), function (li) {
-            li.classList.toggle('is-on', +li.getAttribute('data-ref') <= n);
-          });
+      setResolved(n);
+      sts.forEach(function (el, k) { el.classList.toggle('is-checking', k === checking && !reduce); });
+
+      /* pages */
+      pages.forEach(function (pg, i) {
+        var a = lay.scatter[i], ev = i < 4;
+        var w = ev ? G.ew : G.bw, h = ev ? G.eh : G.bh;
+        var ph = i * 1.7, t = (now || 0) / 1000;
+        var dx = Math.sin(t / 3.1 + ph) * 7 * drift, dy = Math.cos(t / 2.6 + ph) * 9 * drift;
+        var bx, by, bz, brx, bry, brz, bs, bo;
+        if (ev) {
+          var e = G.ev[i], isFront = i === front;
+          bx = e.x; by = e.y; bz = 0; brx = 0; bry = mode === 'wide' ? 2.5 : 0; brz = e.rz; bs = 1; bo = 1;
+          if (mode === 'tall') {
+            // one page at a time: the one standing forward; the rest tuck behind it
+            var shown = front > -1 ? front : 0;
+            if (i !== shown) { by -= 7; bs = 0.95; bo = 0; }
+          }
+          if (isFront) { bz = 40; bs *= (mode === 'wide' ? 1.05 : 1); brz = 0; bry = 0; }
+          // the pack recedes at the end; a page the reader asked for stays
+          var keep = isFront && selected > -1;
+          bo *= keep ? 1 : mix(1, mode === 'wide' ? 0.12 : 0, tE);
+          if (!keep) bz -= 160 * tE;
+        } else {
+          var b = lay.back[i - 4];
+          bx = b.x * W; by = b.y * H; bz = -620; brx = 0; bry = mode === 'wide' ? 6 : 0; brz = a.rz * 0.4; bs = a.s * 0.9;
+          bo = (mode === 'wide' ? 0.2 : 0.14) * (1 - tE);
         }
-      }
-      els.forEach(function (el, k) { el.classList.toggle('is-checking', k === checking && !reduce); });
-      if (!byHand) show(n, false);
-      stage.classList.toggle('is-done', done);
+        var x = mix(a.x * W, bx, tA) + dx, y = mix(a.y * H, by, tA) + dy;
+        place(pg, x, y, mix(a.z, bz, tA), mix(a.rx, brx, tA), mix(a.ry, bry, tA), mix(a.rz, brz, tA), mix(a.s, bs, tA), mix(a.o, bo, tA));
+        pg.style.zIndex = ev ? (i === front ? 9 : 5) : 1;
+        pg.classList.toggle('is-front', ev && i === front && tA > 0.9 && selected > -1);
+      });
+
+      /* the deliverable */
+      var tS = ss(0.12, 0.29, p);
+      var sx = mode === 'wide' ? mix(G.sx, (W - G.sw) / 2 + W * 0.14, tE) : G.sx;
+      var sy = mode === 'wide' ? G.sy : mix(G.sy, H * 0.3, tE);
+      sheet.style.transform = 'translate3d(' + sx.toFixed(1) + 'px,' + (sy + (1 - tS) * 70).toFixed(1) + 'px,0) rotateX(' + ((1 - tS) * 10).toFixed(2) + 'deg) scale(' + mix(1, mode === 'wide' ? 1.03 : 1, tE).toFixed(3) + ')';
+      sheet.style.opacity = tS.toFixed(3);
+      sheet.style.pointerEvents = tS > 0.6 ? 'auto' : 'none';
+
+      /* pointer parallax moves the pack, not a card */
+      px += (tx - px) * 0.06; py += (ty - py) * 0.06;
+      pack.style.transform = (fine && !reduce && mode === 'wide')
+        ? 'rotateY(' + (px * 3.2 * (1 - tA * 0.6)).toFixed(2) + 'deg) rotateX(' + (-py * 2.2 * (1 - tA * 0.6)).toFixed(2) + 'deg)' : 'none';
+
+      /* threads: from the quote on its page to the statement in the draft */
+      var sr = scene.getBoundingClientRect(), shr = sheet.getBoundingClientRect();
+      [0, 1, 2, 4].forEach(function (k) {
+        var s = STATEMENTS[k], path = paths[k], node = nodes[k];
+        var tp = reduce ? (k <= resolved ? 1 : 0) : clamp((p - (AT[k] - 0.075)) / 0.075, 0, 1);
+        var visible = tp > 0 && s.found && s.mark;
+        if (mode === 'tall' && s.pg && s.pg._i !== front) visible = false;
+        if (!visible) { path.style.opacity = 0; node.style.opacity = 0; return; }
+        var m = s.mark.getBoundingClientRect();
+        var chip = sts[k].querySelector('.st__chip').getBoundingClientRect();
+        var lineY = (chip.height ? chip.top + chip.height / 2 : sts[k].getBoundingClientRect().top + 10) - sr.top;
+        var x1, y1, x2, y2, d;
+        if (mode === 'wide') {
+          x1 = m.right - sr.left + 3; y1 = m.top + Math.min(m.height / 2, 14) - sr.top;
+          x2 = shr.left - sr.left - 6; y2 = clamp(lineY, shr.top - sr.top + 8, shr.bottom - sr.top - 8);
+          var cx = Math.max(60, (x2 - x1) * 0.5);
+          d = 'M' + x1.toFixed(1) + ' ' + y1.toFixed(1) + ' C' + (x1 + cx).toFixed(1) + ' ' + y1.toFixed(1) + ',' + (x2 - cx).toFixed(1) + ' ' + y2.toFixed(1) + ',' + x2.toFixed(1) + ' ' + y2.toFixed(1);
+        } else {
+          x1 = m.left - sr.left - 2; y1 = m.bottom - sr.top - 4;
+          x2 = shr.left - sr.left - 6; y2 = clamp(lineY, shr.top - sr.top + 8, shr.bottom - sr.top - 8);
+          d = 'M' + x1.toFixed(1) + ' ' + y1.toFixed(1) + ' C' + (x1 - 16).toFixed(1) + ' ' + (y1 + 40).toFixed(1) + ',' + (x2 - 18).toFixed(1) + ' ' + (y2 - 50).toFixed(1) + ',' + x2.toFixed(1) + ' ' + y2.toFixed(1);
+        }
+        var strong = selected === k ? 1 : (selected > -1 ? 0.3 : 0.9);
+        var fade = (selected === k) ? 1 : mix(1, mode === 'wide' ? 0.18 : 0, tE);
+        path.setAttribute('d', d);
+        path.style.strokeDasharray = '1';
+        path.style.strokeDashoffset = (1 - tp).toFixed(3);
+        path.style.opacity = (strong * fade).toFixed(3);
+        node.setAttribute('cx', x2.toFixed(1)); node.setAttribute('cy', y2.toFixed(1));
+        node.style.opacity = (tp >= 1 ? strong * fade : 0).toFixed(3);
+      });
+
+      stage.classList.toggle('is-run', p > 0.2);
 
       /* tell the verification harness what is actually painted */
-      var sig = [resolved, checking, selected, done ? 1 : 0].join('.');
+      var sig = [resolved, checking, selected, Math.round(tA * 12), Math.round(tS * 12), Math.round(tE * 12)].join('.');
       if (sig !== lastSig) { lastSig = sig; stage.setAttribute('data-sc-verify-state', sig); }
-      stage.setAttribute('data-sc-verify-hold', done ? 'true' : 'false');
+      stage.setAttribute('data-sc-verify-hold', (p >= HOLD || (p < 0.1 && !reduce)) ? 'true' : 'false');
     }
 
-    els.forEach(function (el, i) {
+    /* selection: a statement, or the page it cites */
+    sts.forEach(function (el, k) {
       function pick(e) {
-        if (i > resolved) return;
-        if (e.type === 'keydown') {
-          if (e.key !== 'Enter' && e.key !== ' ') return;
-          e.preventDefault();
-        }
-        byHand = true;
-        show(i, true);
-        stage.setAttribute('data-sc-verify-state', [resolved, -1, selected, 1].join('.'));
+        if (k > resolved) return;
+        if (e.type === 'keydown') { if (e.key !== 'Enter' && e.key !== ' ') return; e.preventDefault(); }
+        select(selected === k && e.type !== 'keydown' ? -1 : k, true);
+        if (reduce) render(0.78, 0);
       }
       el.addEventListener('click', pick);
       el.addEventListener('keydown', pick);
     });
-
-    if (reduce) {
-      /* no scroll choreography: the finished check, stated once */
-      apply(1);
-    } else {
-      var last = -1;
-      (function loop() {
-        var p = parseFloat(act.style.getPropertyValue('--sc-p'));
-        if (isNaN(p)) p = 0;
-        if (p !== last) { last = p; apply(p); }
-        requestAnimationFrame(loop);
-      })();
-    }
+    pages.slice(0, 4).forEach(function (pg) {
+      pg.addEventListener('click', function () {
+        for (var k = 0; k <= resolved; k++) if (STATEMENTS[k].pg === pg) { select(k, true); if (reduce) render(0.78, 0); return; }
+      });
+    });
+    if (fine && !reduce) stage.addEventListener('pointermove', function (e) {
+      var r = stage.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width - 0.5) * 2; ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
+    });
 
     /* A pinned stage holds one viewport position for the whole act, so a
        statement focused by keyboard before the check has reached it would be
@@ -1511,37 +1568,32 @@ window.addEventListener("resize",sync);})();
     stage.addEventListener('focusin', function (e) {
       var el = e.target.closest && e.target.closest('.st');
       if (!el || reduce) return;
-      var i = +el.getAttribute('data-st');
-      if (i <= resolved) return;
-      var r = act.getBoundingClientRect(), travel = Math.max(act.offsetHeight - innerHeight, 1);
-      window.scrollTo({ top: window.scrollY + r.top + travel * Math.min(AT[i] + 0.03, 1), behavior: 'instant' });
+      var k = +el.getAttribute('data-st');
+      if (k <= resolved) return;
+      var r = film.getBoundingClientRect(), travel = Math.max(film.offsetHeight - innerHeight, 1);
+      window.scrollTo({ top: window.scrollY + r.top + travel * Math.min(AT[k] + 0.03, 1), behavior: 'instant' });
     });
-  }
 
-  /* -------------------------------------------------------------- folio -- */
-  var folio = document.getElementById('folio');
-  if (folio) {
-    var ch = document.getElementById('folio-ch');
-    var marks = [].slice.call(document.querySelectorAll('[data-folio]'));
-    var cur = null;
-    function readFolio() {
-      var line = innerHeight * 0.55, hit = marks[0];
-      marks.forEach(function (m) { if (m.getBoundingClientRect().top <= line) hit = m; });
-      if (hit === cur) return;
-      cur = hit;
-      var label = hit.getAttribute('data-folio');
-      folio.classList.toggle('is-on', !!label && hit.id !== 'join');
-      if (label) ch.textContent = label;
-      folio.setAttribute('data-ground', hit.getAttribute('data-ground') || 'paper');
+    measure();
+    if (reduce) {
+      var still = function () { measure(); render(0.78, 0); };
+      still();
+      addEventListener('resize', still);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(still);
+    } else {
+      var live = true;
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { live = es[0].isIntersecting; }, { rootMargin: '20% 0px' }).observe(film);
+      addEventListener('resize', measure);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+      (function loop(now) {
+        if (live) {
+          var p = parseFloat(film.style.getPropertyValue('--sc-p'));
+          render(isNaN(p) ? 0 : p, now);
+        }
+        requestAnimationFrame(loop);
+      })(0);
     }
-    var queued = false;
-    addEventListener('scroll', function () {
-      if (queued) return; queued = true;
-      requestAnimationFrame(function () { queued = false; readFolio(); });
-    }, { passive: true });
-    addEventListener('resize', readFolio);
-    readFolio();
-  }
+  })();
 
   /* ----------------------------------------------------------- waitlist --
      Same endpoint and payload as waitlist.html, so both pages feed one list. */
