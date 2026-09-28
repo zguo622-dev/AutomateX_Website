@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Scribtive® | Rail deliverables made easy | AutomateX</title>
-<meta name="description" content="Scribtive drafts every assurance deliverable under NR/L2/RSE/02009 from your own project pack. Every statement carries its source. Every gap is declared. Early access by waitlist.">
+<meta name="description" content="Scribtive drafts every assurance deliverable under NR/L2/RSE/02009 from your own project pack. Every statement carries its source. Every gap is declared. Sign up for a demo.">
 <link rel="canonical" href="https://automatex.uk/scribtive.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://automatex.uk/scribtive.html">
@@ -215,23 +215,30 @@ html{scroll-padding-top:5rem}
 
 /* ------------------------------------------------ the close (flow) -- */
 .close{padding-top:var(--sc-section)}
-.close__in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,6vw,6rem);align-items:end;padding-bottom:var(--sc-section)}
+.close__in{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(2rem,5vw,5rem);align-items:start;padding-bottom:var(--sc-section)}
 .close__h{font-family:var(--sc-font-display);font-weight:600;font-size:clamp(2.4rem,1.2rem + 4.6vw,5rem);line-height:.98;letter-spacing:-.04em;margin:0;color:var(--sc-ink);text-wrap:balance}
 .sig{display:block;width:min(30rem,100%);height:auto;margin:clamp(1rem,3vh,2rem) 0 0;overflow:visible}
 .sig path{fill:none;stroke:var(--sc-accent);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:calc(1 - clamp(0,calc((var(--sc-p,0) - .2) / .34),1))}
 .sig line{stroke:rgba(244,243,239,.3);stroke-width:1}
 .close__run{margin:var(--sc-5) 0 0;max-width:34rem;color:var(--sc-ink-soft);font-size:var(--sc-t-lg);line-height:1.5}
-.wl{margin-top:var(--sc-6);max-width:34rem}
-.wl__label{display:block;font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--sc-ink-soft);margin-bottom:.5rem}
-.wl__row{display:flex;gap:.6rem;align-items:stretch}
-.wl__in{flex:1;min-width:0;font-size:1rem;line-height:1.2;color:var(--sc-ink);background:rgba(255,255,255,.04);border:1px solid rgba(244,243,239,.24);border-radius:8px;padding:.95rem 1rem;transition:border-color 140ms var(--sc-ease-out),box-shadow 140ms var(--sc-ease-out)}
-.wl__in::placeholder{color:#8a93a3}
-.wl__in:focus{outline:0;border-color:var(--sc-accent);box-shadow:0 0 0 3px rgba(249,101,50,.25)}
-.wl__in[aria-invalid="true"]{border-color:#f87171}
-.wl__msg{margin:.7rem 0 0;font-size:.9rem;line-height:1.45;color:var(--sc-ink-soft);min-height:1.35rem}
-.wl__msg[data-tone="ok"]{color:#6ee7b7}
-.wl__msg[data-tone="bad"]{color:#fca5a5}
-.wl__msg a,.close__list a{color:inherit;text-decoration:underline;text-decoration-color:rgba(244,243,239,.3)}
+.su{background:var(--sc-surface);border:1px solid var(--night-rule);border-radius:12px;padding:clamp(1.4rem,2.6vw,2.2rem);box-shadow:0 2px 4px rgba(2,4,10,.3),0 24px 50px -18px rgba(2,4,10,.7)}
+.su__h{margin:0 0 1.25rem;font-family:var(--sc-font-display);font-weight:600;font-size:var(--sc-t-xl);line-height:1.1;letter-spacing:-.024em;color:var(--sc-ink)}
+.su__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1rem}
+.su__f{display:flex;flex-direction:column;justify-content:flex-end;gap:.4rem;min-width:0}
+.su__l{font-family:var(--sc-font-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sc-ink-soft)}
+.su__l i{font-style:normal;text-transform:none;letter-spacing:0;color:#8a93a3;margin-left:.35rem}
+.su__in{width:100%;min-width:0;font-size:1rem;line-height:1.2;color:var(--sc-ink);background:rgba(255,255,255,.04);border:1px solid rgba(244,243,239,.24);border-radius:8px;padding:.85rem .9rem;transition:border-color 140ms var(--sc-ease-out),box-shadow 140ms var(--sc-ease-out)}
+.su__in::placeholder{color:#8a93a3}
+.su__in:focus{outline:0;border-color:var(--sc-accent);box-shadow:0 0 0 3px rgba(249,101,50,.25)}
+.su__in[aria-invalid="true"]{border-color:#f87171}
+.su__in:disabled{opacity:.55}
+.su__hp{position:absolute;left:-200vw;width:1px;height:1px;overflow:hidden}
+.su__btn{width:100%;margin-top:1.25rem}
+.su__msg{margin:.85rem 0 0;font-size:.88rem;line-height:1.45;color:var(--sc-ink-soft);min-height:2.5rem}
+.su__msg[data-tone="ok"]{color:#6ee7b7}
+.su__msg[data-tone="bad"]{color:#fca5a5}
+.su__msg a,.close__list a{color:inherit;text-decoration:underline;text-decoration-color:rgba(244,243,239,.3)}
+.close__list{margin-top:var(--sc-6)!important}
 .close__list{margin:0;padding:0;list-style:none;font-size:.9rem;line-height:1.5;color:var(--sc-ink-soft)}
 .close__list li{padding:.75rem 0;border-top:1px solid var(--night-rule)}
 .close__list li:last-child{border-bottom:1px solid var(--night-rule)}
@@ -296,7 +303,13 @@ html{scroll-padding-top:5rem}
   .wrow__n{font-size:.62rem}
   .wipe__fig .sv-cap{margin-top:.8rem}
   .dv{width:min(13.5rem,58vw)}
-  .wl__row{flex-direction:column}
+  .su__grid{grid-template-columns:minmax(0,1fr)}
+  .close__lead{display:contents}
+  .close__h,.sig,.close__run{order:1}
+  .su{order:2}
+  .close__list{order:3;margin-top:0!important}
+  .close__in{gap:1.5rem}
+  .su{padding:1.25rem}
 }
 @media (prefers-reduced-motion:reduce) and (max-width:860px){
   .set__rail{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -780,7 +793,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
                 <span class="nm-pc">
                   <span class="nm-flabel">Scribtive&reg;</span>
                   <span class="nm-ftitle">PACE assurance, drafted for you</span>
-                  <span class="nm-fdesc">Our signature SaaS for rail PACE assurance deliverables, from Form G to CR-T. Join the waitlist for early access.</span>
+                  <span class="nm-fdesc">Our signature SaaS for rail PACE assurance deliverables, from Form G to CR-T. Sign up for a demo.</span>
                   <span class="nm-fcta">See Scribtive <span class="arr" aria-hidden="true">&rarr;</span></span>
                 </span>
               </a>
@@ -845,7 +858,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
       <li><a href="careers.html">Careers</a></li>
     </ul>
     <div class="nav-cta-group">
-      <a href="#join" class="btn btn-primary">Join the Waitlist</a>
+      <a href="#signup" class="btn btn-primary">Sign up</a>
     </div>
     <div class="mobile-toggle" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -880,7 +893,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
     </div>
   </div>
   <a href="careers.html" onclick="this.parentElement.classList.remove('open')">Careers</a>
-  <a href="#join" onclick="this.parentElement.classList.remove('open')" class="btn btn-outline" style="margin-top:.5rem">Join the Waitlist</a>
+  <a href="#signup" onclick="this.parentElement.classList.remove('open')" class="btn btn-outline" style="margin-top:.5rem">Sign up</a>
 </div>
 
 <div class="sc-grain" aria-hidden="true"></div>
@@ -898,7 +911,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
         <p class="film__mark"><img src="brand_assets/automatex-mark.png" alt="" width="24" height="24"><span>Scribtive<sup>&reg;</sup></span><em>By AutomateX</em></p>
         <h1 class="film__h1"><span><i>Rail deliverables</i></span><span><i>made <b class="hl" style="font-weight:inherit">easy</b>.</i></span></h1>
         <p class="film__sub">Scribtive drafts every assurance deliverable under NR/L2/RSE/02009 from your own project pack. Every statement carries its source. Every gap is declared.</p>
-        <a class="sv-btn" href="#join">Join the Waitlist</a>
+        <a class="sv-btn" href="#signup">Sign up</a>
       </div>
 
       <div class="film__scene" id="film-scene">
@@ -1070,31 +1083,60 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
     </div>
   </section>
 
-  <!-- ═══ THE CLOSE · flow. A signature is drawn, then one field.
+  <!-- ═══ THE CLOSE · flow. A signature is drawn, then the sign-up.
        The site footer sits inside this section, so nothing follows the close. ═══ -->
-  <section class="close" id="join" data-sc-act="flow" data-sc-drift="#0B0F16">
+  <section class="close" id="signup" data-sc-act="flow" data-sc-drift="#0B0F16">
     <div class="sv-wrap close__in">
-      <div>
+      <div class="close__lead">
         <h2 class="close__h">The signature stays with you.</h2>
         <svg class="sig" viewBox="0 0 480 120" aria-hidden="true" focusable="false">
           <line x1="0" y1="100" x2="480" y2="100"/>
           <path pathLength="1" d="M18 80 C 38 28, 62 20, 70 52 C 77 78, 50 96, 60 66 C 70 34, 104 30, 112 58 C 116 76, 102 86, 110 66 C 120 40, 150 44, 156 64 C 160 80, 176 60, 192 56 C 216 50, 224 78, 248 66 C 282 50, 302 40, 332 60 C 354 74, 394 66, 456 42"/>
         </svg>
-        <p class="close__run">Scribtive is in early access, by waitlist. If this is the work your team signs for, you would be welcome to join.</p>
-        <form class="wl" id="wl" novalidate>
-          <label class="wl__label" for="wl-email">Work email</label>
-          <div class="wl__row">
-            <input class="wl__in" id="wl-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@company.co.uk" required aria-describedby="wl-msg">
-            <button class="sv-btn" id="wl-btn" type="submit">Join the Waitlist</button>
-          </div>
-          <p class="wl__msg" id="wl-msg" role="status">How we handle your address is set out in the <a href="privacy.html">Privacy Notice</a>.</p>
-        </form>
+        <p class="close__run">Leave your details and we will send you a demo, then help your team get set up.</p>
+        <ul class="close__list" data-sc-in>
+          <li><b>Made by</b>AutomateX, London. Built by a Chartered Civil Engineer who has written these deliverables and reviewed them.</li>
+          <li><b>Your documents</b>Not used to train any model, and not shared with other clients.</li>
+          <li><b>The sample</b>Ashcombe Vale Station is a fictional scheme, shown for illustration. It is no client's project.</li>
+        </ul>
       </div>
-      <ul class="close__list" data-sc-in>
-        <li><b>Made by</b>AutomateX, London. Built by a Chartered Civil Engineer who has written these deliverables and reviewed them.</li>
-        <li><b>Your documents</b>Not used to train any model, and not shared with other clients.</li>
-        <li><b>The sample</b>Ashcombe Vale Station is a fictional scheme, shown for illustration. It is no client's project.</li>
-      </ul>
+
+      <form class="su" id="su" novalidate aria-labelledby="su-h">
+        <h3 class="su__h" id="su-h">Sign up</h3>
+        <div class="su__grid">
+          <div class="su__f">
+            <label class="su__l" for="su-name">Name</label>
+            <input class="su__in" id="su-name" name="name" type="text" autocomplete="name" maxlength="120" required aria-describedby="su-msg">
+          </div>
+          <div class="su__f">
+            <label class="su__l" for="su-email">Work email</label>
+            <input class="su__in" id="su-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="200" placeholder="name@company.co.uk" required aria-describedby="su-msg">
+          </div>
+          <div class="su__f">
+            <label class="su__l" for="su-org">Organisation</label>
+            <input class="su__in" id="su-org" name="organisation" type="text" autocomplete="organization" maxlength="160">
+          </div>
+          <div class="su__f">
+            <label class="su__l" for="su-role">Role</label>
+            <input class="su__in" id="su-role" name="role" type="text" autocomplete="organization-title" maxlength="120">
+          </div>
+          <div class="su__f">
+            <label class="su__l" for="su-phone">Phone <i>optional</i></label>
+            <input class="su__in" id="su-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="40">
+          </div>
+          <div class="su__f">
+            <label class="su__l" for="su-dv">Deliverables <i>optional</i></label>
+            <input class="su__in" id="su-dv" name="deliverables" type="text" maxlength="600" placeholder="Form G, Form C, AIP">
+          </div>
+          <!-- Not for people. Anything typed here marks the sign-up as a bot. -->
+          <div class="su__hp" aria-hidden="true">
+            <label for="su-web">Leave this field empty</label>
+            <input id="su-web" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+        </div>
+        <button class="sv-btn su__btn" id="su-btn" type="submit">Sign up</button>
+        <p class="su__msg" id="su-msg" role="status">We use these details to arrange your demo. How we handle them is set out in the <a href="privacy.html">Privacy Notice</a>.</p>
+      </form>
     </div>
 <footer class="footer">
   <div class="container">
@@ -1270,7 +1312,7 @@ window.addEventListener("resize",sync);})();
    mounted after this and is never edited. Two things live here:
    1. the film (the signature move): the pack becomes the deliverable,
       driven from the act's --sc-p
-   2. the waitlist field */
+   2. the sign-up form */
 (function () {
   'use strict';
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1595,46 +1637,62 @@ window.addEventListener("resize",sync);})();
     }
   })();
 
-  /* ----------------------------------------------------------- waitlist --
-     Same endpoint and payload as waitlist.html, so both pages feed one list. */
-  var form = document.getElementById('wl');
+  /* ------------------------------------------------------------ sign-up --
+     One sign-up becomes one row in Notion and one email to Bill, through the
+     n8n workflow behind this endpoint. The server validates again; this is
+     only so a person is told what is missing before they wait. */
+  var form = document.getElementById('su');
   if (form) {
-    var input = document.getElementById('wl-email');
-    var btn = document.getElementById('wl-btn');
-    var msg = document.getElementById('wl-msg');
-    var FLAG = 'automatex_waitlist_joined';
+    var ENDPOINT = 'https://n8n.automatex.uk/webhook/scribtive-signup';
+    var FLAG = 'automatex_scribtive_signed_up';
+    var btn = document.getElementById('su-btn');
+    var msg = document.getElementById('su-msg');
+    var f = {
+      name: document.getElementById('su-name'), email: document.getElementById('su-email'),
+      organisation: document.getElementById('su-org'), role: document.getElementById('su-role'),
+      phone: document.getElementById('su-phone'), deliverables: document.getElementById('su-dv'),
+      website: document.getElementById('su-web')
+    };
+    var REST = msg.innerHTML;
     function say(text, tone) { msg.textContent = text; msg.setAttribute('data-tone', tone || ''); }
-    function joined() {
-      input.disabled = true; btn.disabled = true; btn.textContent = 'You are on the list';
-      say('Thank you. We will write when a place opens.', 'ok');
+    function lock(on) { Object.keys(f).forEach(function (k) { f[k].disabled = on; }); btn.disabled = on; }
+    function done() {
+      lock(true); btn.textContent = 'Signed up';
+      say('Thank you. Your details are with us, and a demo will follow by email.', 'ok');
     }
-    try { if (localStorage.getItem(FLAG) === '1') joined(); } catch (e) {}
+    try { if (localStorage.getItem(FLAG) === '1') done(); } catch (e) {}
+
+    function bad(field, text) {
+      field.setAttribute('aria-invalid', 'true');
+      say(text, 'bad'); field.focus();
+    }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var email = (input.value || '').trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        input.setAttribute('aria-invalid', 'true');
-        say('That address does not look complete. Could you check it?', 'bad');
-        input.focus();
-        return;
-      }
-      input.removeAttribute('aria-invalid');
-      btn.disabled = true; btn.textContent = 'Joining';
-      fetch('https://n8n.automatex.uk/webhook/pace-waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, source: 'Scribtive OS Waitlist', page: 'scribtive.html', timestamp: new Date().toISOString() })
-      }).then(function (r) {
-        if (!r.ok) throw new Error('http ' + r.status);
-        input.value = '';
-        try { localStorage.setItem(FLAG, '1'); } catch (e2) {}
-        joined();
-      }).catch(function () {
-        btn.disabled = false; btn.textContent = 'Join the Waitlist';
-        say('That did not go through. Please try again, or write to bill.guo@automatex.uk.', 'bad');
+      [f.name, f.email].forEach(function (x) { x.removeAttribute('aria-invalid'); });
+      var v = {};
+      Object.keys(f).forEach(function (k) { v[k] = (f[k].value || '').trim(); });
+      if (!v.name) return bad(f.name, 'Could you add your name?');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.email)) return bad(f.email, 'That address does not look complete. Could you check it?');
+      v.source = 'scribtive.html'; v.timestamp = new Date().toISOString();
+      lock(true); btn.textContent = 'Signing up';
+      fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(v) })
+        .then(function (r) { if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
+        .then(function (out) {
+          if (!out || out.success !== true) throw new Error('rejected');
+          try { localStorage.setItem(FLAG, '1'); } catch (e2) {}
+          form.reset(); done();
+        })
+        .catch(function () {
+          lock(false); btn.textContent = 'Sign up';
+          say('That did not go through. Please try again, or write to bill.guo@automatex.uk.', 'bad');
+        });
+    });
+    [f.name, f.email].forEach(function (x) {
+      x.addEventListener('input', function () {
+        x.removeAttribute('aria-invalid');
+        if (msg.getAttribute('data-tone') === 'bad') { msg.innerHTML = REST; msg.setAttribute('data-tone', ''); }
       });
     });
-    input.addEventListener('input', function () { input.removeAttribute('aria-invalid'); });
   }
 })();
 </script>
