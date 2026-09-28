@@ -2,62 +2,338 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scribtive | PACE Form G automation for rail teams | AutomateX</title>
-<meta name="description" content="Scribtive drafts your PACE Form G against your project docs. Built by a Chartered Rail Engineer. 3.0x ROI at the base plan. Request a guided pilot.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scribtive® | PACE assurance deliverables, drafted with their evidence | AutomateX</title>
+<meta name="description" content="Scribtive helps engineers, designers and consultancies prepare PACE assurance deliverables, such as Form G and Form C. Every statement shows its source. Early access by waitlist.">
 <link rel="canonical" href="https://automatex.uk/scribtive.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://automatex.uk/scribtive.html">
-<meta property="og:title" content="Scribtive | PACE Form G automation for rail teams">
-<meta property="og:description" content="Scribtive drafts your PACE Form G against your project docs. Built by a Chartered Rail Engineer. 3.0x ROI at the base plan.">
+<meta property="og:title" content="Scribtive® | Your Form G, drafted. Every statement shows its source.">
+<meta property="og:description" content="Scribtive helps engineers, designers and consultancies prepare PACE assurance deliverables, such as Form G and Form C. Early access by waitlist.">
 <meta property="og:image" content="https://automatex.uk/images/og-image-square.png">
 <link rel="icon" type="image/png" href="images/Logo.png">
 <link rel="apple-touch-icon" href="images/Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/scrollcraft/scrollcraft.css">
 
-<style>
-/* ── Design tokens ── */
-:root {
-  --orange:       #F96532;
-  --orange-light: #FB7B3A;
-  --orange-dark:  #ED4A3B;
-  --navy:         #1A1F36;
-  --navy-deep:    #0D1117;
-  --navy-surface: #131921;
-  --white:        #ffffff;
-  --gray-50:      #f9fafb;
-  --gray-100:     #f3f4f6;
-  --gray-200:     #e5e7eb;
-  --gray-300:     #d1d5db;
-  --gray-400:     #9ca3af;
-  --gray-500:     #6b7280;
-  --gray-600:     #4b5563;
-  --gray-700:     #374151;
-  --gray-800:     #1f2937;
-  --font-head:    'Montserrat', sans-serif;
-  --font-body:    'Plus Jakarta Sans', sans-serif;
-  --sp:           clamp(5rem, 10vw, 8rem);
-  --max-w:        1280px;
-  --px:           clamp(1.25rem, 4vw, 2.5rem);
-  --radius:       12px;
-  --t-fast:       150ms cubic-bezier(.455,.03,.515,.955);
-  --t-med:        300ms cubic-bezier(.645,.045,.355,1);
+<style id="sv-tokens">
+/* Scribtive product page. Built on the scroll-craft engine (vendor/scrollcraft),
+   which is never edited. Everything page-specific is prefixed sv-.
+   Grammar: chaptered editorial. Grounds are painted per chapter and cut hard. */
+:root{
+  /* engine roles, on the app's own paper palette (references/app-design-system.md) */
+  --sc-canvas:#fafafa; --sc-surface:#ffffff;
+  --sc-ink:#1a1f36; --sc-ink-soft:#4b5563;
+  --sc-accent:#c2410c; --sc-accent-ink:#ffffff;
+  --sc-font-display:"Archivo",system-ui,sans-serif;
+  --sc-font-text:"IBM Plex Sans","Inter",system-ui,sans-serif;
+  --sc-font-mono:"IBM Plex Mono",ui-monospace,monospace;
+  --sc-r-sm:6px; --sc-r-md:8px; --sc-r-lg:12px;
+
+  /* page tokens */
+  --sv-paper:#fafafa; --sv-raised:#ffffff; --sv-sunken:#f3f4f6;
+  --sv-rule:#e5e7eb; --sv-rule-strong:#d1d5db;
+  --sv-faint:#5f6775;
+  --sv-orange:#f96532; --sv-orange-hover:#fb7b3a; --sv-orange-strong:#c2410c;
+  --sv-orange-soft:#fff3ed; --sv-orange-line:#fed7c3;
+  --sv-verified:#047857; --sv-verified-soft:#ecfdf5; --sv-verified-line:#a7f3d0;
+  --sv-amber:#b45309; --sv-amber-soft:#fffbeb; --sv-amber-line:#fde68a;
+  --sv-mark:#fdecae;
+  --sv-night:#12162a; --sv-night-rule:rgba(244,243,239,.14);
+  --sv-e1:0 1px 2px rgba(15,23,42,.05),0 2px 6px -1px rgba(15,23,42,.06);
+  --sv-e2:0 2px 4px rgba(15,23,42,.05),0 12px 24px -8px rgba(15,23,42,.14);
+  --sv-e3:0 4px 8px rgba(3,6,18,.22),0 24px 48px -12px rgba(3,6,18,.5);
+
+  /* site chrome tokens (the shared navbar and footer read these) */
+  --orange:#F96532; --orange-light:#FB7B3A; --orange-dark:#ED4A3B;
+  --navy:#1A1F36; --navy-deep:#0D1117; --navy-surface:#131921; --white:#ffffff;
+  --gray-200:#e5e7eb; --gray-300:#d1d5db; --gray-400:#9ca3af; --gray-500:#6b7280; --gray-600:#4b5563;
+  --font-head:'Montserrat',sans-serif; --font-heading:'Montserrat',sans-serif;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --t-fast:150ms cubic-bezier(.455,.03,.515,.955);
+}
+html{scroll-padding-top:5rem}
+.sc-grain{opacity:.03}
+</style>
+
+<style id="sv-page">
+/* ------------------------------------------------------------ shared -- */
+.sv-wrap{width:100%;max-width:82rem;margin-inline:auto;padding-inline:var(--sc-gutter)}
+.sv-folio{font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--sv-faint);margin:0;display:flex;align-items:center;gap:.75rem}
+.sv-folio::after{content:"";flex:1;height:1px;background:var(--sv-rule-strong)}
+.sv-folio b{font-weight:500;color:var(--sc-ink)}
+.sv-h2{font-family:var(--sc-font-display);font-weight:600;font-size:var(--sc-t-2xl);line-height:1.04;letter-spacing:-.028em;text-wrap:balance;margin:0;color:var(--sc-ink)}
+.sv-p{margin:0;max-width:34rem;color:var(--sc-ink-soft);text-wrap:pretty}
+.sv-p + .sv-p{margin-top:var(--sc-4)}
+.sv-cap{font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);line-height:1.5;color:var(--sv-faint);margin:0;max-width:44rem}
+.sv-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--sc-font-text);font-weight:600;font-size:1rem;line-height:1;letter-spacing:0;white-space:nowrap;text-decoration:none;color:#12162a;background:var(--sv-orange);border:0;border-radius:8px;padding:.95rem 1.4rem;cursor:pointer;box-shadow:0 1px 2px rgba(124,45,18,.18),0 6px 14px -6px rgba(194,65,12,.45);transition:transform 140ms var(--sc-ease-out),background-color 140ms var(--sc-ease-out),box-shadow 140ms var(--sc-ease-out)}
+.sv-btn:active{transform:scale(.98)}
+.sv-btn:focus-visible{outline:2px solid var(--sc-ink);outline-offset:3px}
+.sv-btn[disabled]{opacity:.6;cursor:default}
+@media (hover:hover) and (pointer:fine){.sv-btn:hover{background:var(--sv-orange-hover);transform:translateY(-1px)}}
+.ch{position:relative}
+
+/* -------------------------------------------------------- title page -- */
+.tp{background:var(--sv-paper);min-height:calc(100svh - 80px);display:flex;flex-direction:column}
+.tp__in{flex:1;display:grid;grid-template-rows:auto 1fr auto;gap:clamp(1.5rem,4vh,3rem);padding-block:clamp(1.5rem,4.5vh,3.25rem) clamp(2rem,6vh,4rem)}
+.tp__mast{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:var(--sc-4);border-bottom:1px solid var(--sc-ink)}
+.tp__mark{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--sc-font-display);font-weight:600;font-size:1.35rem;letter-spacing:-.02em;color:var(--sc-ink)}
+.tp__mark img{width:26px;height:26px;border-radius:6px}
+.tp__mark sup{font-size:.5em;font-weight:500;margin-left:.08em;vertical-align:super;line-height:0}
+.tp__meta{font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--sv-faint)}
+.tp__body{align-self:center}
+.tp__h1{margin:0;font-family:var(--sc-font-display);color:var(--sc-ink);text-wrap:balance}
+.tp__l{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.tp__l > span{display:inline-block}
+.tp__l--a{font-weight:600;font-size:clamp(2.9rem,1.35rem + 6.6vw,6.6rem);line-height:.96;letter-spacing:-.04em}
+.tp__l--b{font-weight:500;font-size:clamp(1.55rem,1rem + 2.35vw,3.1rem);line-height:1.1;letter-spacing:-.028em;color:var(--sc-ink-soft);margin-top:clamp(.75rem,2vh,1.4rem)}
+.tp__cite{display:inline-block;vertical-align:.5em;margin-left:.45em;font-family:var(--sc-font-mono);font-weight:500;font-size:.3em;letter-spacing:.02em;line-height:1;color:var(--sv-orange-strong);background:var(--sv-orange-soft);border:1px solid var(--sv-orange-line);border-radius:999px;padding:.5em .85em;white-space:nowrap}
+.tp__foot{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,26rem);gap:clamp(1.5rem,5vw,5rem);align-items:end}
+.tp__lead{display:flex;flex-direction:column;align-items:flex-start;gap:var(--sc-5)}
+.tp__sub{margin:0;font-size:var(--sc-t-lg);line-height:1.45;letter-spacing:-.012em;color:var(--sc-ink);max-width:36rem;text-wrap:pretty}
+.tp__block{margin:0;border:1px solid var(--sc-ink);font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);line-height:1.45;background:var(--sv-raised)}
+.tp__block div{display:grid;grid-template-columns:8.5rem minmax(0,1fr)}
+.tp__block div + div{border-top:1px solid var(--sv-rule-strong)}
+.tp__block dt{padding:.6rem .75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--sv-faint);border-right:1px solid var(--sv-rule-strong)}
+.tp__block dd{margin:0;padding:.6rem .75rem;color:var(--sc-ink)}
+@media (prefers-reduced-motion:no-preference){
+  .tp__l > span{animation:sv-rise 900ms var(--sc-ease-out) both}
+  .tp__l--b > span{animation-delay:110ms}
+  .tp__lead,.tp__block{animation:sv-fade 700ms var(--sc-ease-out) 320ms both}
+}
+@keyframes sv-rise{from{transform:translate3d(0,108%,0)}to{transform:none}}
+@keyframes sv-fade{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+
+/* ------------------------------------------------ 1 · the pack (flow) -- */
+.ch--pack{background:var(--sv-sunken);border-top:1px solid var(--sv-rule-strong);padding-block:var(--sc-section)}
+.pack{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,6vw,6rem);align-items:start;margin-top:var(--sc-7)}
+.pack__text .sv-h2{margin-bottom:var(--sc-5)}
+.pack__media{margin:0}
+.pack__cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;align-items:start}
+.pack__col{display:flex;flex-direction:column;gap:.75rem}
+.pack__col:nth-child(1){padding-top:2.5rem}
+.pack__col:nth-child(3){padding-top:4.5rem}
+.doc{background:var(--sv-raised);border:1px solid var(--sv-rule);border-radius:8px;box-shadow:var(--sv-e1);padding:.85rem .9rem .8rem;display:flex;flex-direction:column;gap:.35rem;min-height:6.1rem}
+.doc__n{font-family:var(--sc-font-mono);font-size:.7rem;letter-spacing:.06em;color:var(--sv-faint)}
+.doc__t{font-weight:500;font-size:.92rem;line-height:1.3;color:var(--sc-ink)}
+.doc__p{margin-top:auto;font-family:var(--sc-font-mono);font-size:.7rem;color:var(--sv-faint)}
+.pack__media .sv-cap{margin-top:var(--sc-5)}
+
+/* -------------------------------------------- 2 · the paragraph (flow) -- */
+.ch--para{background:var(--sv-raised);border-top:1px solid var(--sv-rule-strong);padding-block:var(--sc-section) calc(var(--sc-section) * .8)}
+.para{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,6vw,6rem);align-items:start;margin-top:var(--sc-7)}
+.para__text .sv-h2{margin-bottom:var(--sc-5)}
+.para__ex{margin:0}
+.sheet{background:var(--sv-raised);border:1px solid var(--sv-rule-strong);border-radius:4px;box-shadow:var(--sv-e2)}
+.sheet__head{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 1.25rem;border-bottom:1px solid var(--sv-rule);font-family:var(--sc-font-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sv-faint)}
+.sheet__p{margin:0;padding:1.5rem 1.6rem 1.7rem;font-size:clamp(1.02rem,.95rem + .35vw,1.22rem);line-height:1.62;color:var(--sc-ink);text-wrap:pretty}
+.para__ex .sv-cap{margin-top:var(--sc-5)}
+
+/* -------------------------------------- 3 · the evidence test (pin) -- */
+.ch--test{--sc-ink:#f4f3ef;--sc-ink-soft:#a9b0c0;--sc-accent:#f96532;--sc-accent-ink:#12162a;color:var(--sc-ink);background:var(--sv-night)}
+.test{background:var(--sv-night);display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:clamp(.9rem,2.2vh,1.6rem);padding:clamp(5rem,11vh,6.5rem) 0 clamp(3.4rem,7vh,4.5rem)}
+.test__head{display:grid;grid-template-columns:minmax(0,1fr);gap:.7rem}
+.test__head .sv-folio{color:#a9b0c0}
+.test__head .sv-folio b{color:#f4f3ef}
+.test__head .sv-folio::after{background:var(--sv-night-rule)}
+.test__h2{font-family:var(--sc-font-display);font-weight:600;font-size:clamp(1.35rem,1rem + 1.5vw,2.15rem);line-height:1.1;letter-spacing:-.025em;margin:0;color:#f4f3ef;text-wrap:balance}
+.test__grid{min-height:0;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(1rem,2vw,1.75rem);align-items:stretch}
+.test .sheet{--sc-ink:#1a1f36;--sc-ink-soft:#4b5563;color:#1a1f36;border-color:transparent;box-shadow:var(--sv-e3);display:flex;flex-direction:column;min-height:0}
+.test .sheet__p{font-size:clamp(1rem,.84rem + .62vw,1.32rem);line-height:1.74}
+.test .sheet__head b{font-weight:500;color:var(--sc-ink)}
+
+/* a statement, and its three states */
+.st{border-radius:3px;padding:.08em .1em;margin:0 -.1em;box-decoration-break:clone;-webkit-box-decoration-break:clone;transition:background-color 220ms var(--sc-ease-out),color 220ms var(--sc-ease-out)}
+.st__chip{display:none;vertical-align:.12em;margin-left:.4em;font-family:var(--sc-font-mono);font-size:.66em;font-weight:500;line-height:1;letter-spacing:.01em;white-space:nowrap;border-radius:999px;padding:.34em .62em;border:1px solid}
+.st__chip i{font-style:normal}
+.st__chip .s{display:none}
+.st.is-checking{background:var(--sv-orange-soft)}
+.st.is-ok{cursor:pointer;text-decoration:underline;text-decoration-color:var(--sv-verified-line);text-decoration-thickness:2px;text-underline-offset:.24em}
+.st.is-ok .st__chip{display:inline-block;color:var(--sv-verified);background:var(--sv-verified-soft);border-color:var(--sv-verified-line)}
+.st.is-gap{cursor:pointer;color:#6b7280;text-decoration:line-through;text-decoration-color:rgba(180,83,9,.55);text-decoration-thickness:1px}
+.st.is-gap .st__chip{display:inline-block;text-decoration:none;color:var(--sv-amber);background:var(--sv-amber-soft);border-color:var(--sv-amber-line)}
+.st.is-ok.is-sel{background:var(--sv-verified-soft)}
+.st.is-gap.is-sel{background:var(--sv-amber-soft)}
+.st:focus-visible{outline:2px solid var(--sv-orange-strong);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){
+  .st.is-ok:hover{background:var(--sv-verified-soft)}
+  .st.is-gap:hover{background:var(--sv-amber-soft)}
 }
 
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;font-size:16px}
-body{font-family:var(--font-body);color:var(--navy);background:var(--white);line-height:1.6;overflow-x:hidden}
-::selection{background:var(--orange);color:var(--white)}
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer;border:none;background:none}
+/* what the check hands back to the engineer */
+.ref{margin-top:auto;border-top:1px solid var(--sv-rule);padding:1rem 1.6rem 1.35rem;background:var(--sv-paper)}
+.ref__h{margin:0 0 .55rem;font-family:var(--sc-font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sv-amber)}
+.ref__none{margin:0;font-size:.88rem;color:var(--sv-faint)}
+.ref__list{margin:0;padding:0;list-style:none;display:grid;gap:.5rem}
+.ref__list li{display:none;font-size:.88rem;line-height:1.5;color:#374151;padding-left:.85rem;border-left:1px solid var(--sv-amber-line)}
+.ref__list li b{font-weight:600;color:#1a1f36}
+.ref__list li.is-on{display:block}
+.ref.has-items .ref__none{display:none}
+@media (prefers-reduced-motion:no-preference){.ref__list li.is-on{animation:sv-swap 380ms var(--sc-ease-out) both}}
 
-.container{max-width:var(--max-w);margin:0 auto;padding-left:var(--px);padding-right:var(--px)}
-.section{padding:var(--sp) 0}
+/* the source panel */
+.src{--sc-ink:#1a1f36;--sc-ink-soft:#4b5563;color:#1a1f36;background:var(--sv-paper);border-radius:4px;box-shadow:var(--sv-e3);display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.src__head{padding:.8rem 1.1rem .75rem;border-bottom:1px solid var(--sv-rule);background:var(--sv-raised);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.2rem 1rem;align-items:baseline}
+.src__doc{font-weight:600;font-size:.95rem;line-height:1.3;color:#1a1f36;margin:0}
+.src__pg{font-family:var(--sc-font-mono);font-size:.72rem;color:var(--sv-faint);white-space:nowrap}
+.src__status{grid-column:1 / -1;justify-self:start;margin-top:.35rem;font-family:var(--sc-font-mono);font-size:.7rem;font-weight:500;letter-spacing:.02em;border-radius:999px;padding:.3em .7em;border:1px solid var(--sv-rule-strong);color:var(--sv-faint);background:var(--sv-sunken)}
+.src[data-kind="ok"] .src__status{color:var(--sv-verified);background:var(--sv-verified-soft);border-color:var(--sv-verified-line)}
+.src[data-kind="gap"] .src__status{color:var(--sv-amber);background:var(--sv-amber-soft);border-color:var(--sv-amber-line)}
+.src__page{flex:1;min-height:0;overflow:hidden;margin:1rem 1.1rem 0;padding:1.1rem 1.2rem 1.3rem;background:var(--sv-raised);border:1px solid var(--sv-rule);border-bottom:0;font-size:.86rem;line-height:1.6;color:#374151}
+.src__page{position:relative}
+.src__page::after{content:"";position:absolute;inset:auto 0 0 0;height:2.2rem;background:linear-gradient(to bottom,rgba(255,255,255,0),#fff);pointer-events:none}
+.src__page h4{margin:0 0 .6rem;font-size:.86rem;font-weight:600;color:#1a1f36}
+.src__page p{margin:0 0 .7rem}
+.src__page ul{margin:0;padding:0;list-style:none;columns:2;column-gap:1.2rem;font-size:.8rem}
+.src__page li{break-inside:avoid;padding:.18rem 0;border-bottom:1px solid var(--sv-rule)}
+.src__page mark{background:var(--sv-mark);color:#1a1f36;border-radius:2px;padding:.06em 0;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.src[data-kind="gap"] .src__page mark{background:var(--sv-amber-soft);box-shadow:inset 0 -2px 0 var(--sv-amber-line)}
+.src__note{margin:0;padding:.7rem 1.1rem;border-top:1px solid var(--sv-rule);background:var(--sv-raised);font-family:var(--sc-font-mono);font-size:.68rem;line-height:1.45;color:var(--sv-faint)}
+@media (prefers-reduced-motion:no-preference){
+  .src.is-swap .src__page,.src.is-swap .src__head{animation:sv-swap 380ms var(--sc-ease-out) both}
+}
+@keyframes sv-swap{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:none}}
 
-/* ── Buttons ── */
+.test__tally{display:flex;align-items:baseline;justify-content:space-between;gap:1rem 2rem;flex-wrap:wrap;min-height:2.4rem}
+.test__count{font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.04em;color:#a9b0c0;margin:0}
+.test__count b{font-weight:500;color:#f4f3ef}
+.test__sum{margin:0;font-family:var(--sc-font-display);font-weight:500;font-size:clamp(1.05rem,.9rem + .7vw,1.5rem);letter-spacing:-.018em;line-height:1.2;color:#f4f3ef;opacity:0;transform:translate3d(0,8px,0);transition:opacity 420ms var(--sc-ease-out),transform 420ms var(--sc-ease-out)}
+.test.is-done .test__sum{opacity:1;transform:none}
+.test__sum em{font-style:normal;color:var(--sv-orange)}
+
+/* --------------------------------------- 4 · on the record (pan) -- */
+.ch--record{background:var(--sv-sunken)}
+.rec{background:var(--sv-sunken);display:flex;align-items:center}
+.rec__rail{align-items:stretch;gap:0;padding-inline:var(--sc-gutter)}
+.rec__lead{flex:0 0 auto;width:min(34rem,84vw);padding-right:clamp(2rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center;gap:var(--sc-5)}
+.rec__lead .sv-h2{font-size:var(--sc-t-3xl)}
+.rec__lead .sv-p{font-size:var(--sc-t-lg);line-height:1.45;color:var(--sc-ink)}
+.rec__item{flex:0 0 auto;width:clamp(17rem,25vw,22rem);min-height:min(30rem,60svh);padding:1.6rem clamp(1.25rem,2vw,2rem) 1.6rem;border-left:1px solid var(--sv-rule-strong);display:flex;flex-direction:column;gap:.9rem}
+.rec__k{font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--sv-orange-strong);margin:0}
+.rec__s{font-family:var(--sc-font-display);font-weight:600;font-size:clamp(1.35rem,1.1rem + .9vw,1.85rem);line-height:1.12;letter-spacing:-.024em;color:var(--sc-ink);margin:0;text-wrap:balance}
+.rec__x{margin:.2rem 0 0;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.chip{display:inline-block;font-family:var(--sc-font-mono);font-size:.7rem;font-weight:500;line-height:1;letter-spacing:.01em;white-space:nowrap;border-radius:999px;padding:.42em .7em;border:1px solid var(--sv-rule-strong);color:var(--sc-ink-soft);background:var(--sv-raised)}
+.chip--ok{color:var(--sv-verified);background:var(--sv-verified-soft);border-color:var(--sv-verified-line)}
+.chip--gap{color:var(--sv-amber);background:var(--sv-amber-soft);border-color:var(--sv-amber-line)}
+.rec__x--sig{flex-direction:column;align-items:flex-start;gap:.5rem}
+.sig{display:block;width:11rem;height:1px;background:var(--sc-ink);margin-top:1.6rem}
+.rec__d{margin:auto 0 0;color:var(--sc-ink-soft);font-size:.98rem;line-height:1.55;text-wrap:pretty}
+.rec__end{flex:0 0 auto;width:min(30rem,84vw);padding-left:clamp(1.5rem,3vw,3rem);border-left:1px solid var(--sc-ink);display:flex;align-items:center}
+.rec__end p{margin:0;font-family:var(--sc-font-display);font-weight:500;font-size:var(--sc-t-xl);line-height:1.18;letter-spacing:-.022em;color:var(--sc-ink);text-wrap:balance}
+@media (prefers-reduced-motion:no-preference){
+  .rec__item,.rec__end{opacity:clamp(.55,calc(var(--sc-p,0) * 7 - var(--i) + 1.9),1);transform:translate3d(0,calc(clamp(0,calc(var(--i) - .9 - var(--sc-p,0) * 7),1) * 16px),0)}
+}
+
+/* ------------------------------------------- 5 · colophon (flow) -- */
+.ch--colophon{background:var(--sv-paper);border-top:1px solid var(--sc-ink);padding-top:var(--sc-section)}
+.colo{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,6vw,6rem);align-items:start;margin-top:var(--sc-7);padding-bottom:var(--sc-section)}
+.colo__h{font-family:var(--sc-font-display);font-weight:600;font-size:var(--sc-t-xl);line-height:1.12;letter-spacing:-.024em;margin:0 0 var(--sc-4);color:var(--sc-ink)}
+.colo__run{margin:0;max-width:36rem;color:var(--sc-ink-soft)}
+.wl{margin-top:var(--sc-6);max-width:36rem}
+.wl__label{display:block;font-family:var(--sc-font-mono);font-size:var(--sc-t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--sv-faint);margin-bottom:.5rem}
+.wl__row{display:flex;gap:.6rem;align-items:stretch}
+.wl__in{flex:1;min-width:0;font-size:1rem;line-height:1.2;color:var(--sc-ink);background:var(--sv-raised);border:1px solid var(--sv-rule-strong);border-radius:8px;padding:.9rem 1rem;transition:border-color 140ms var(--sc-ease-out),box-shadow 140ms var(--sc-ease-out)}
+.wl__in::placeholder{color:#6b7280}
+.wl__in:focus{outline:0;border-color:var(--sv-orange);box-shadow:0 0 0 3px rgba(249,101,50,.18)}
+.wl__in[aria-invalid="true"]{border-color:#dc2626}
+.wl__msg{margin:.7rem 0 0;font-size:.9rem;line-height:1.45;color:var(--sc-ink-soft);min-height:1.35rem}
+.wl__msg[data-tone="ok"]{color:var(--sv-verified)}
+.wl__msg[data-tone="bad"]{color:#b91c1c}
+.wl__msg a,.colo__run a,.colo__list a{color:inherit;text-decoration:underline;text-decoration-color:var(--sv-rule-strong)}
+.colo__list{margin:0;padding:0;list-style:none;font-size:.9rem;line-height:1.5;color:var(--sc-ink-soft)}
+.colo__list li{padding:.7rem 0;border-top:1px solid var(--sv-rule-strong)}
+.colo__list li:last-child{border-bottom:1px solid var(--sv-rule-strong)}
+.colo__list b{display:block;font-family:var(--sc-font-mono);font-weight:400;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sv-faint);margin-bottom:.15rem}
+
+/* ------------------------------------------------ the margin folio -- */
+.folio{position:fixed;left:var(--sc-gutter);bottom:clamp(.75rem,2vh,1.25rem);z-index:60;display:flex;align-items:center;gap:.75rem;font-family:var(--sc-font-mono);font-size:.72rem;letter-spacing:.04em;line-height:1;color:var(--sc-ink);background:rgba(250,250,250,.92);border:1px solid var(--sv-rule-strong);border-radius:999px;padding:.55rem .9rem;box-shadow:var(--sv-e1);opacity:0;visibility:hidden;transform:translate3d(0,8px,0);pointer-events:none;transition:opacity 260ms var(--sc-ease-out),transform 260ms var(--sc-ease-out),visibility 0s linear 260ms,background-color 260ms var(--sc-ease-out),color 260ms var(--sc-ease-out),border-color 260ms var(--sc-ease-out)}
+.folio.is-on{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition-delay:0s}
+.folio a{color:inherit;text-decoration:none}
+.folio__ch{color:var(--sv-faint);padding-left:.75rem;border-left:1px solid var(--sv-rule-strong)}
+.folio__cta{padding-left:.75rem;border-left:1px solid var(--sv-rule-strong);color:var(--sv-orange-strong)!important;font-weight:500}
+.folio[data-ground="night"]{color:#f4f3ef;background:rgba(18,22,42,.9);border-color:rgba(244,243,239,.18)}
+.folio[data-ground="night"] .folio__ch{color:#a9b0c0;border-color:rgba(244,243,239,.18)}
+.folio[data-ground="night"] .folio__cta{color:#fb8a5c!important;border-color:rgba(244,243,239,.18)}
+@media (prefers-reduced-motion:reduce){.folio{transition:none;transform:none}}
+
+/* ------------------------------------------------- reduced motion --
+   Fewer and gentler. The two pinned chapters are unpinned and stated once:
+   the finished check, and the rail laid out as a grid, so nothing is held
+   still for three screens and nothing is out of reach. */
+@media (prefers-reduced-motion:reduce){
+  .ch--test,.ch--record{height:auto!important}
+  .ch--test .test,.ch--record .rec{position:static;height:auto;min-height:0;overflow:visible}
+  .ch--test .test{padding-block:var(--sc-section)}
+  .ch--record .rec{padding-block:var(--sc-section);overflow-x:visible!important}
+  .rec__rail{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:2.5rem;width:100%;max-width:82rem;margin-inline:auto}
+  .rec__lead{grid-column:1 / -1;width:auto;padding-right:0;padding-bottom:1rem}
+  .rec__item{width:auto;min-height:19rem}
+  .rec__end{width:auto}
+}
+@media (prefers-reduced-motion:reduce) and (max-width:860px){
+  .rec__rail{grid-template-columns:minmax(0,1fr)}
+  .rec__item{min-height:0;border-left:0;border-top:1px solid var(--sv-rule-strong);padding-inline:0}
+  .rec__end{border-left:0;border-top:1px solid var(--sc-ink);padding:1.5rem 0 0}
+}
+
+/* --------------------------------------------------------- mobile -- */
+@media (max-width:860px){
+  .tp{min-height:0}
+  .tp__in{gap:2rem;padding-block:1.25rem 2.5rem}
+  .tp__body{padding-block:1.5rem .5rem}
+  .tp__foot{grid-template-columns:minmax(0,1fr);gap:2rem}
+  .tp__l--a{font-size:clamp(2.3rem,10.4vw,3.4rem)}
+  .tp__cite{font-size:.42em;vertical-align:.3em}
+  .tp__block div{grid-template-columns:7.2rem minmax(0,1fr)}
+  .pack,.para,.colo{grid-template-columns:minmax(0,1fr);gap:2.25rem;margin-top:var(--sc-6)}
+  .pack__cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+  .pack__col{gap:.6rem}
+  .pack__col:nth-child(1){padding-top:0}
+  .pack__col:nth-child(2){padding-top:1.75rem}
+  .pack__col:nth-child(3){grid-column:1 / -1;padding-top:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .doc{min-height:5.4rem;padding:.7rem .75rem}
+  .doc__t{font-size:.84rem}
+  .sheet__p{padding:1.1rem 1.15rem 1.25rem}
+  .test{padding:4.6rem 0 3.4rem;gap:.7rem}
+  .test__grid{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:.7rem}
+  .test .sheet__head{padding:.5rem .9rem;font-size:.64rem}
+  .test .sheet__p{padding:.8rem .9rem .9rem;font-size:.86rem;line-height:1.6}
+  .st__chip .l{display:none}
+  .st__chip .s{display:inline}
+  .src__head{padding:.6rem .9rem .55rem}
+  .src__doc{font-size:.86rem}
+  .src__status{margin-top:.2rem;font-size:.64rem}
+  .src__page{margin:.6rem .9rem 0;padding:.75rem .85rem .9rem;font-size:.78rem;line-height:1.5}
+  .src__page ul{font-size:.72rem}
+  .src__note,.ref{display:none}
+  .test__tally{min-height:0}
+  .test__sum{font-size:1rem}
+  .rec__item{width:min(19rem,78vw);min-height:min(23rem,58svh)}
+  .wl__row{flex-direction:column}
+  .folio{left:50%;right:auto;translate:-50% 0;white-space:nowrap;max-width:calc(100vw - 1.5rem)}
+  .folio__home{display:none}
+  .folio__ch{padding-left:0;border-left:0}
+}
+@media (max-width:860px) and (max-height:760px){
+  .test__h2{font-size:1.15rem}
+  .test .sheet__p{font-size:.8rem;line-height:1.52}
+}
+</style>
+<style id="site-chrome">
+/* The shared site chrome: navbar, mega-menu, mobile menu, footer.
+   Lifted from the site so this page reads as part of automatex.uk. The engine
+   stylesheet does not zero margins, so the chrome gets its own scoped reset at
+   zero specificity: every chrome rule below still wins. */
+:where(.navbar,.mobile-menu,.footer),:where(.navbar,.mobile-menu,.footer) *{margin:0;padding:0}
+:where(.navbar,.mobile-menu,.footer) a{text-decoration:none;color:inherit}
+:where(.navbar,.mobile-menu,.footer) button{font-family:inherit;cursor:pointer;border:none;background:none}
+:where(.navbar,.mobile-menu,.footer) img{max-width:100%;display:block}
+:where(.navbar,.mobile-menu,.footer){font-family:var(--sc-font-text);line-height:1.6;letter-spacing:0}
+.navbar .container,.footer .container{max-width:1280px;margin:0 auto;padding-left:clamp(1.25rem,4vw,2.5rem);padding-right:clamp(1.25rem,4vw,2.5rem)}
+.navbar :focus-visible,.mobile-menu :focus-visible,.footer :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+
 .btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:700;font-size:.8125rem;border-radius:8px;padding:.625rem 1.375rem;transition:transform var(--t-fast),box-shadow var(--t-fast),background var(--t-fast);letter-spacing:-.01em;cursor:pointer}
 .btn:hover{transform:translateY(-1px)}
 .btn:active{transform:translateY(0)}
@@ -100,196 +376,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .mobile-sub{display:flex;flex-direction:column;align-items:center;gap:.5rem}
 .mobile-sub a{font-size:1rem}
 
-/* ── HERO ── */
-.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:clamp(6rem,12vw,9rem) 0 var(--sp);position:relative;overflow:hidden;background:var(--navy-deep)}
-.hero-grid-wrap{position:absolute;inset:0;overflow:hidden;z-index:0}
-.hero-grid-fade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to bottom,transparent 40%,var(--navy-deep) 100%)}
-.hero-grid{display:flex;position:absolute;inset:0;z-index:1}
-.hero-grid-col{display:flex;flex-direction:column;flex-shrink:0}
-.hero-cell{width:48px;height:48px;border-left:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);position:relative;flex-shrink:0}
-.hero-cell-inner{position:absolute;inset:0;background:rgba(249,101,50,.25);opacity:0;transition:opacity .4s ease-out}
-.hero-cell-inner.ripple{animation:cellRipple .6s ease-out forwards}
-@keyframes cellRipple{0%{opacity:.7}100%{opacity:0}}
-.hero .container{position:relative;z-index:10;max-width:960px;text-align:center}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-head);font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--orange);background:rgba(249,101,50,.08);border:1px solid rgba(249,101,50,.15);padding:.4375rem 1.125rem;border-radius:100px;margin-bottom:2rem}
-.hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse-dot 2s ease-in-out infinite}
-@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-family:var(--font-head);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.06;letter-spacing:-.04em;color:var(--white);margin-bottom:1.5rem}
-.hero h1 em{font-style:normal;color:var(--orange)}
-.hero-sub{font-size:1.0625rem;line-height:1.75;color:rgba(255,255,255,.55);max-width:580px;margin:0 auto 2.5rem}
-.hero-actions{display:flex;gap:.875rem;justify-content:center;flex-wrap:wrap}
-.hero-trust{display:flex;align-items:center;gap:1.5rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
-.hero-trust-item{display:flex;align-items:center;gap:.5rem;font-size:.8125rem;color:rgba(255,255,255,.4);font-family:var(--font-body)}
-.hero-trust-item svg{width:16px;height:16px;stroke:rgba(255,255,255,.3);flex-shrink:0}
-.hero-trust-sep{width:1px;height:14px;background:rgba(255,255,255,.12)}
-
-/* ── STICKY TAB NAV ── */
-.tab-nav{position:sticky;top:80px;z-index:80;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-200)}
-.tab-nav .container{display:flex;align-items:center;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.tab-nav .container::-webkit-scrollbar{display:none}
-.tab-btn{flex-shrink:0;display:inline-flex;align-items:center;padding:.875rem 1.375rem;font-family:var(--font-head);font-size:.8125rem;font-weight:700;color:var(--gray-500);letter-spacing:-.01em;background:none;border:none;cursor:pointer;position:relative;white-space:nowrap;transition:color var(--t-fast)}
-.tab-btn::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform var(--t-med)}
-.tab-btn:hover{color:var(--navy)}
-.tab-btn.active{color:var(--orange)}
-.tab-btn.active::after{transform:scaleX(1)}
-
-/* ── SECTION TYPOGRAPHY ── */
-.section-eyebrow{font-family:var(--font-head);font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--orange);display:inline-flex;align-items:center;gap:.5rem;margin-bottom:.75rem}
-.section-eyebrow::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0}
-.section-heading{font-family:var(--font-head);font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:800;line-height:1.12;letter-spacing:-.03em;color:var(--navy);margin-bottom:.75rem}
-.section-sub{font-size:1rem;line-height:1.7;color:var(--gray-500)}
-.text-center{text-align:center}
-.mx-auto{margin-left:auto;margin-right:auto}
-
-/* ── OVERVIEW ── */
-.overview-section{padding:var(--sp) 0;background:var(--white)}
-.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.stat-chip{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:1.25rem 1.5rem;transition:border-color var(--t-med)}
-.stat-chip:hover{border-color:rgba(249,101,50,.25)}
-.stat-num{font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1.1}
-.stat-num em{color:var(--orange);font-style:normal}
-.stat-label{font-size:.8125rem;color:var(--gray-500);line-height:1.5;margin-top:.25rem}
-.anchor-box{background:var(--white);border-left:3px solid var(--orange);padding:1.125rem 1.5rem;border-radius:0 10px 10px 0;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-top:1.5rem}
-.anchor-box p{font-size:1rem;color:var(--navy);font-weight:500;line-height:1.6}
-.anchor-box .wedge{margin-top:.5rem;font-size:.875rem;color:var(--gray-400);font-style:italic;font-weight:400}
-.builder-line{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--gray-200);font-size:.9375rem;color:var(--gray-500);font-style:italic;line-height:1.65}
-
-/* ── HOW IT WORKS ── */
-.how-section{padding:var(--sp) 0;background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
-.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.how-card{background:var(--white);border:1px solid var(--gray-200);border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:.875rem;transition:border-color var(--t-med),box-shadow var(--t-med)}
-.how-card:hover{border-color:rgba(249,101,50,.25);box-shadow:0 6px 24px rgba(0,0,0,.06)}
-.how-icon{width:48px;height:48px;border-radius:12px;background:rgba(249,101,50,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.how-icon svg{width:24px;height:24px;stroke:var(--orange)}
-.how-step{font-family:var(--font-head);font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange)}
-.how-card h3{font-family:var(--font-head);font-size:1.0625rem;font-weight:800;color:var(--navy);line-height:1.3}
-.how-card p{font-size:.9rem;color:var(--gray-500);line-height:1.65}
-.how-card ul{list-style:none;display:flex;flex-direction:column;gap:.375rem;margin-top:.25rem}
-.how-card ul li{font-size:.8375rem;color:var(--gray-600);display:flex;gap:.5rem;align-items:flex-start;line-height:1.55}
-.how-card ul li::before{content:"→";color:var(--orange);font-family:var(--font-head);font-weight:700;font-size:.75rem;flex-shrink:0;margin-top:2px}
-
-/* ── PRICING ── */
-.pricing-section{padding:var(--sp) 0;background:var(--white)}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;align-items:center}
-.pricing-card{border:1.5px solid var(--gray-200);border-radius:16px;padding:2rem;display:flex;flex-direction:column;position:relative;background:var(--white);transition:border-color var(--t-med),box-shadow var(--t-med)}
-.pricing-card:hover{border-color:rgba(249,101,50,.25);box-shadow:0 8px 32px rgba(0,0,0,.07)}
-.pricing-card.featured{border-color:var(--orange);box-shadow:0 12px 40px rgba(249,101,50,.18);transform:scale(1.04);z-index:1}
-.pricing-card.featured:hover{box-shadow:0 16px 48px rgba(249,101,50,.25)}
-.pricing-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--orange);color:var(--white);font-family:var(--font-head);font-size:.625rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;padding:.3rem .875rem;border-radius:100px;white-space:nowrap}
-.pricing-plan{font-family:var(--font-head);font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gray-500);margin-bottom:.75rem}
-.pricing-price{font-family:var(--font-head);font-weight:800;color:var(--navy);line-height:1;letter-spacing:-.04em;margin-bottom:.25rem}
-.pricing-price .amount{font-size:2.75rem}
-.pricing-price .currency{font-size:1.375rem;vertical-align:top;margin-top:.375rem}
-.pricing-price .period{font-size:.9rem;font-weight:600;color:var(--gray-400);letter-spacing:0}
-.pricing-price .bespoke{font-size:2rem}
-.pricing-includes{font-size:.8125rem;color:var(--gray-500);margin-top:.25rem;margin-bottom:1.5rem;line-height:1.5}
-.pricing-divider{height:1px;background:var(--gray-200);margin-bottom:1.25rem}
-.pricing-features{list-style:none;display:flex;flex-direction:column;gap:.625rem;flex:1}
-.pricing-features li{font-size:.875rem;color:var(--gray-600);display:flex;gap:.625rem;align-items:flex-start;line-height:1.5}
-.pricing-features li::before{content:"✓";color:var(--orange);font-weight:800;font-size:.875rem;flex-shrink:0}
-.pricing-features li.muted{color:var(--gray-400)}
-.pricing-features li.muted::before{content:"–";color:var(--gray-300)}
-.pricing-addons{margin-top:1.25rem;padding:.875rem 1rem;background:rgba(249,101,50,.04);border:1px solid rgba(249,101,50,.14);border-radius:10px;font-size:.8125rem;color:var(--gray-600);line-height:1.55}
-.pricing-addons strong{color:var(--navy)}
-.pricing-cta{margin-top:1.75rem}
-.pricing-cta .btn{width:100%;justify-content:center;padding:.75rem 1.25rem;font-size:.875rem}
-.pricing-card.featured .btn-primary{animation:ctaPulse 2.5s ease-in-out infinite 1.2s}
-.pricing-card.featured .btn-primary:hover{animation:none;box-shadow:0 6px 24px rgba(249,101,50,.45)}
-@keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(249,101,50,.4)}50%{box-shadow:0 0 0 8px rgba(249,101,50,0)}}
-.pricing-note{text-align:center;margin-top:1.5rem;font-size:.8125rem;color:var(--gray-500)}
-.pricing-note a{color:var(--orange)}
-
-/* ROI table */
-.roi-strip{margin-top:4rem;padding:2rem 2rem 1.5rem;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:16px}
-.roi-strip-head{font-family:var(--font-head);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gray-500);text-align:center;margin-bottom:1.5rem}
-.roi-table{width:100%;border-collapse:collapse}
-.roi-table th{font-family:var(--font-head);font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-400);padding:.5rem .875rem;text-align:right;border-bottom:1px solid var(--gray-200)}
-.roi-table th:first-child{text-align:left}
-.roi-table td{padding:.75rem .875rem;font-size:.875rem;color:var(--gray-600);text-align:right;border-bottom:1px solid var(--gray-100)}
-.roi-table td:first-child{text-align:left;font-weight:600;color:var(--navy)}
-.roi-table td.roi-val{color:var(--orange);font-family:var(--font-head);font-weight:800;font-size:1rem}
-.roi-table tr:last-child td{border-bottom:none}
-.roi-note{margin-top:1rem;font-size:.75rem;color:var(--gray-400);text-align:center;line-height:1.65}
-
-/* ── ONBOARDING / TRIAL ── */
-.trial-section{padding:var(--sp) 0;background:var(--navy-deep);position:relative;overflow:hidden}
-.trial-section::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(249,101,50,.07) 0%,transparent 60%);pointer-events:none}
-.trial-section .container{position:relative;z-index:1}
-.trial-section .section-eyebrow{color:rgba(249,101,50,.9)}
-.trial-section .section-eyebrow::before{background:var(--orange)}
-.trial-section .section-heading{color:var(--white)}
-.trial-section .section-sub{color:rgba(255,255,255,.5)}
-.trial-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;position:relative}
-.trial-steps::before{content:'';position:absolute;top:1.375rem;left:calc(16.67% + 1.5rem);right:calc(16.67% + 1.5rem);height:1px;background:rgba(249,101,50,.2)}
-.trial-step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:2rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem;position:relative;z-index:1;transition:border-color var(--t-med)}
-.trial-step:hover{border-color:rgba(249,101,50,.25)}
-.trial-step-num{width:44px;height:44px;border-radius:50%;background:rgba(249,101,50,.1);border:1.5px solid rgba(249,101,50,.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:.875rem;color:var(--orange);flex-shrink:0}
-.trial-tag{display:inline-block;background:rgba(249,101,50,.12);border:1px solid rgba(249,101,50,.25);color:var(--orange);font-family:var(--font-head);font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.3rem .75rem;border-radius:100px}
-.trial-step h3{font-family:var(--font-head);font-size:1rem;font-weight:800;color:var(--white);line-height:1.3}
-.trial-step p{font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.65}
-.trial-total{text-align:center;margin-top:2rem;font-size:.9rem;color:rgba(255,255,255,.4);line-height:1.6}
-.trial-total strong{color:var(--orange)}
-.trial-cta{text-align:center;margin-top:2.5rem}
-
-/* ── FAQ ── */
-.faq-section{padding:var(--sp) 0;background:var(--gray-50);border-top:1px solid var(--gray-200)}
-.faq-list{margin-top:3rem;display:flex;flex-direction:column;gap:.75rem;max-width:800px;margin-left:auto;margin-right:auto}
-.faq-item{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden;transition:border-color var(--t-med),box-shadow var(--t-med)}
-.faq-item.open{border-color:rgba(249,101,50,.2);box-shadow:0 4px 16px rgba(0,0,0,.05)}
-.faq-q{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;cursor:pointer;font-family:var(--font-head);font-size:.9375rem;font-weight:700;color:var(--navy);line-height:1.4;-webkit-user-select:none;user-select:none;background:none;border:none;width:100%;text-align:left}
-.faq-q:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
-.faq-chevron{width:20px;height:20px;flex-shrink:0;stroke:var(--gray-400);transition:transform var(--t-med),stroke var(--t-fast)}
-.faq-item.open .faq-chevron{transform:rotate(180deg);stroke:var(--orange)}
-.faq-body{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.645,.045,.355,1)}
-.faq-body.open{max-height:400px}
-.faq-body-inner{padding:.25rem 1.5rem 1.5rem;font-size:.9375rem;color:var(--gray-500);line-height:1.75}
-.faq-body-inner strong{color:var(--navy)}
-
-/* ── FOOTER ── */
-.footer{padding:3rem 0;border-top:1px solid var(--gray-200)}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:3rem;align-items:start;margin-bottom:2.5rem}
-.footer-brand p{font-size:.8125rem;color:var(--gray-400);line-height:1.6;margin-top:.75rem;max-width:260px}
-.footer-col h4{font-family:var(--font-head);font-size:.75rem;font-weight:700;color:var(--navy);margin-bottom:.875rem;text-transform:uppercase;letter-spacing:.08em}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
-.footer-col a{font-size:.8125rem;color:var(--gray-500);transition:color var(--t-fast)}
-.footer-col a:hover{color:var(--orange)}
-.footer-certs{display:flex;align-items:center;gap:1rem}
-.footer-certs img{height:72px;width:auto;object-fit:contain}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid var(--gray-200);flex-wrap:wrap;gap:1rem}
-.footer-legal,.footer-contact{font-size:.75rem;color:var(--gray-400)}
-.footer-contact a{color:var(--gray-500);transition:color var(--t-fast)}
-.footer-contact a:hover{color:var(--orange)}
-
-/* ── Animations ── */
-@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.animate-in{opacity:0;animation:fadeInUp .6s cubic-bezier(.645,.045,.355,1) forwards}
-.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}
-
-/* ── Responsive ── */
-@media(max-width:1024px){
-  .pricing-grid{grid-template-columns:1fr 1fr}
-  .pricing-card.featured{transform:scale(1.02)}
-  .pricing-grid>.pricing-card:last-child{grid-column:1/-1;max-width:440px;margin:0 auto}
-}
-@media(max-width:900px){
-  .how-grid{grid-template-columns:1fr}
-  .overview-grid{grid-template-columns:1fr;gap:2rem}
-  .trial-steps{grid-template-columns:1fr}
-  .trial-steps::before{display:none}
-  .roi-table th:nth-child(2),.roi-table td:nth-child(2),.roi-table th:nth-child(4),.roi-table td:nth-child(4){display:none}
-}
-@media(max-width:768px){
-  .navbar-links,.nav-cta-group{display:none}
-  .mobile-toggle{display:flex}
-  .pricing-grid{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}
-  .pricing-grid>.pricing-card:last-child{grid-column:1;max-width:none}
-  .pricing-card.featured{transform:scale(1)}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
-  .footer-bottom{flex-direction:column;text-align:center}
-}
-</style>
-<style id="axr-nav-2026-07-11">
 .navbar{background:rgba(13,17,23,.86)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;border-bottom:1px solid rgba(255,255,255,.08)!important;}
 .navbar .navbar-links a,.navbar .nav-dropdown-toggle{color:rgba(255,255,255,.82)!important;}
 .navbar .navbar-links a:hover,.navbar .nav-dropdown-toggle:hover,.navbar .navbar-links a.is-current{color:#fff!important;}
@@ -348,24 +434,199 @@ html.reduced .nav-mega .nm-panel.is-active{animation:none;}
 /* blur the page behind the open mega-menu */
 #axr-mega-veil{position:fixed;inset:0;z-index:90;background:rgba(8,11,16,.45);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .3s ease;}
 html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
-</style>
-<style id="footer-social-2026-07-11">
-.footer-social{display:flex;gap:.65rem;margin-top:1.1rem;}
-.footer-social a{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:color .2s,border-color .2s,background .2s,transform .2s;}
-.footer-social svg{width:17px;height:17px;}
-.footer-social a:hover{transform:translateY(-2px);}
-.footer-social a{border:1px solid var(--gray-200);color:var(--gray-400);}
-.footer-social a:hover{color:var(--orange);border-color:var(--orange);background:rgba(249,101,50,.1);}
-</style>
-<style id="axr-nav-current-2026-07-25">
 /* Current-section highlight, applied consistently. An earlier rule grouped
    a.is-current in with the hover states and forced #fff, so a top-level link
    marked current rendered white while the dropdown toggle rendered orange. */
 .navbar .navbar-links > li > a.is-current,
 .navbar .navbar-links > li > .nav-dropdown-toggle.is-current{color:var(--orange)!important;}
+
+/* the page's one change to the bar: it steps aside on the way down and
+   returns on the way up, so the chapters own the frame */
+@media (prefers-reduced-motion:reduce){.navbar{transition:none}}
+.navbar{background:rgba(13,17,23,.97)!important}
+.navbar .btn-primary{color:#fff}
+.mobile-menu .btn-outline{border-color:var(--gray-300)}
+/* the open menu has to sit above the bar, or the bar's own toggle covers the
+   close button and the menu cannot be shut */
+.mobile-menu{z-index:120}
+.mobile-menu a.is-current{color:var(--orange)}
+.mobile-sub[hidden]{display:none}
+
+/* footer: the masthead plate that closes the colophon */
+.footer{background:var(--navy-deep);color:rgba(255,255,255,.62);padding:3.5rem 0 3rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:3rem;align-items:start;margin-bottom:2.5rem}
+.footer-brand p{font-size:.8125rem;color:rgba(255,255,255,.5);line-height:1.6;margin-top:.75rem;max-width:260px}
+.footer-col h4{font-family:var(--font-head);font-size:.75rem;font-weight:700;color:#fff;margin-bottom:.875rem;text-transform:uppercase;letter-spacing:.08em}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer-col a{font-size:.8125rem;color:rgba(255,255,255,.62);transition:color var(--t-fast)}
+.footer-col a:hover{color:var(--orange-light)}
+.footer-col a.is-current{color:var(--orange-light)!important}
+.footer-certs{display:flex;align-items:center;gap:1rem}
+.footer-certs img{height:72px;width:auto;object-fit:contain}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);flex-wrap:wrap;gap:1rem}
+.footer-legal,.footer-contact,.footer-marks{font-size:.75rem;color:rgba(255,255,255,.5)}
+.footer-marks{flex-basis:100%}
+.footer-contact a{color:rgba(255,255,255,.66);transition:color var(--t-fast)}
+.footer-contact a:hover{color:var(--orange-light)}
+.footer-social{display:flex;gap:.65rem;margin-top:1.1rem}
+.footer-social a{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.6);transition:color .2s,border-color .2s,background .2s,transform .2s}
+.footer-social svg{width:17px;height:17px}
+.footer-social a:hover{color:var(--orange-light);border-color:var(--orange);background:rgba(249,101,50,.1);transform:translateY(-2px)}
+
+@media(max-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}.footer-certs{grid-column:1 / -1}}
+@media(max-width:768px){
+  .navbar-links,.nav-cta-group{display:none}
+  .mobile-toggle{display:flex}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+<style id="nav-shadcn-behaviour-2026-06-02">
+  /* ============================================================
+     SHADCN-style navbar BEHAVIOUR overrides (content unchanged).
+     1) Mobile menu becomes a right-side slide-in Sheet (~360px wide)
+        with a dimmed backdrop, not the previous fullscreen overlay.
+     2) Mobile sub-menu becomes a smooth max-height accordion with a
+        chevron that rotates on open.
+     3) Desktop dropdown gets a smoother small-slide-in + fade
+        animation and a slightly longer hover-intent close.
+     ============================================================ */
+
+  /* (1) Mobile Sheet --------------------------------------------- */
+  .mobile-menu {
+    display: block;            /* always rendered, hidden via transform */
+    position: fixed; inset: 0;
+    z-index: 999;
+    background: transparent;   /* the panel below has its own bg */
+    pointer-events: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: background .25s ease;
+  }
+  .mobile-menu.open { background: rgba(0,0,0,.55); pointer-events: auto; }
+  /* Hide entirely on desktop unless opened */
+  @media (min-width: 961px) {
+    .mobile-menu { display: none; }
+  }
+  /* The slide-in panel itself */
+  .mobile-menu::before {
+    content: ""; position: absolute; inset: 0;
+    pointer-events: none;
+  }
+  .mobile-menu {
+    display: flex !important;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: 0 !important;
+  }
+  .mobile-menu > .mobile-close,
+  .mobile-menu > a,
+  .mobile-menu > .mobile-sub-wrap {
+    /* Move all inner content into a wrapped panel via JS-free CSS layout */
+  }
+
+  /* Wrap mobile-menu inner content into a fixed-width panel using
+     a single child container injected by JS. As a CSS-only fallback we
+     stack all direct children into a right-anchored column. */
+  .mobile-menu > * { color: var(--navy); }
+  .mobile-menu {
+    /* Use an inner panel: define padding on the panel only */
+  }
+  .mobile-panel {
+    background: #fff;
+    width: 360px; max-width: 90vw;
+    height: 100%;
+    padding: 1.5rem 1.5rem 2rem;
+    box-shadow: -16px 0 40px -12px rgba(0,0,0,.18);
+    transform: translateX(100%);
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+    display: flex; flex-direction: column; gap: 1.25rem;
+    overflow-y: auto;
+  }
+  .mobile-menu.open .mobile-panel { transform: translateX(0); }
+  .mobile-panel .mobile-close {
+    position: static !important;
+    align-self: flex-end;
+    width: 36px !important; height: 36px !important;
+    margin-bottom: .5rem !important;
+  }
+  .mobile-panel > a,
+  .mobile-panel > .mobile-sub-wrap {
+    text-align: left;
+  }
+  .mobile-panel > a {
+    font-size: 1.0625rem !important;
+    font-weight: 700 !important;
+    color: var(--navy) !important;
+    padding: .5rem 0;
+    border-bottom: 1px solid var(--gray-100);
+    text-decoration: none;
+  }
+  .mobile-panel > a:hover { color: var(--orange) !important; }
+  .mobile-panel > a.is-current { color: var(--orange) !important; }
+
+  /* (2) Mobile sub-menu accordion ------------------------------- */
+  .mobile-sub-wrap { border-bottom: 1px solid var(--gray-100); }
+  .mobile-sub-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; background: none; border: 0; padding: .5rem 0 !important;
+    font-family: var(--font-heading);
+    font-size: 1.0625rem !important; font-weight: 700;
+    color: var(--navy) !important;
+    cursor: pointer;
+    letter-spacing: -.01em;
+  }
+  .mobile-sub-toggle .mobile-sub-chevron {
+    transition: transform .25s ease;
+  }
+  .mobile-sub-toggle[aria-expanded="true"] .mobile-sub-chevron {
+    transform: rotate(180deg);
+  }
+  .mobile-sub {
+    display: flex !important; flex-direction: column;
+    overflow: hidden;
+    max-height: 0; opacity: 0;
+    transition: max-height .3s ease, opacity .25s ease, padding .25s ease;
+    padding: 0 0 0 .25rem;
+  }
+  .mobile-sub[data-collapsed="false"] {
+    max-height: 480px;
+    opacity: 1;
+    padding: .5rem 0 .75rem .25rem;
+  }
+  .mobile-sub a {
+    padding: .5rem 0;
+    font-family: var(--font-heading);
+    font-size: .95rem; font-weight: 600;
+    color: var(--gray-700) !important;
+    text-decoration: none;
+  }
+  .mobile-sub a:hover { color: var(--orange) !important; }
+  .mobile-sub a.is-current { color: var(--orange) !important; }
+
+  /* (3) Desktop dropdown smoother animation + hover-intent --- */
+  .nav-dropdown {
+    /* tighten the slide distance + ease out a bit longer */
+    transition: opacity .22s ease, transform .22s cubic-bezier(.16,1,.3,1), visibility .22s ease;
+  }
+  .navbar-links .has-dropdown:hover .nav-dropdown,
+  .navbar-links .has-dropdown:focus-within .nav-dropdown,
+  .navbar-links .has-dropdown.is-open .nav-dropdown {
+    transform: translateX(-50%) translateY(2px);
+  }
+  /* Hover-intent: extend the trigger's hover area down so the cursor can
+     travel from the button to the dropdown without an empty pixel gap. */
+  .navbar-links .has-dropdown > .nav-dropdown-toggle::after {
+    content: ""; position: absolute; left: 50%; top: 100%;
+    width: 280px; max-width: 90vw; height: 18px;
+    transform: translateX(-50%);
+    /* Only acts as a hover-bridge; invisible. */
+  }
 </style>
 </head>
 <body>
+
 <div id="axr-mega-veil" aria-hidden="true"></div>
 
 <!-- ═══ SITE NAVBAR ═══ -->
@@ -376,7 +637,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
     </a>
     <ul class="navbar-links">
       <li class="has-dropdown">
-        <button type="button" class="nav-dropdown-toggle is-current" aria-haspopup="true" aria-expanded="false">What we offer</button>
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">What we offer</button>
         <div class="nav-dropdown nav-mega">
           <div class="nm-col nm-links" role="tablist" aria-label="What we offer">
             <button type="button" role="tab" id="nmt-custom-ai" class="nm-tab is-active" aria-selected="true" aria-controls="nmp-custom-ai" tabindex="0" data-panel="custom-ai"><span class="nm-t">Production-grade custom AI</span><span class="nm-chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></span></button>
@@ -450,7 +711,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
               </a>
             </div>
             <div class="nm-panel" id="nmp-scribtive" role="tabpanel" aria-labelledby="nmt-scribtive" data-panel="scribtive">
-              <a class="nm-plink" href="waitlist.html">
+              <a class="nm-plink" href="scribtive.html">
                 <span class="nm-pv"><svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <defs>
                   <linearGradient id="nmS-bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#161B22"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
@@ -535,7 +796,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
                   <span class="nm-flabel">Scribtive&reg;</span>
                   <span class="nm-ftitle">PACE assurance, drafted for you</span>
                   <span class="nm-fdesc">Our signature SaaS for rail PACE assurance deliverables, from Form G to CR-T. Join the waitlist for early access.</span>
-                  <span class="nm-fcta">Join the waitlist <span class="arr" aria-hidden="true">&rarr;</span></span>
+                  <span class="nm-fcta">See Scribtive <span class="arr" aria-hidden="true">&rarr;</span></span>
                 </span>
               </a>
             </div>
@@ -587,6 +848,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
           </div>
         </div>
       </li>
+      <li><a href="scribtive.html" class="is-current" aria-current="page">Scribtive&reg;</a></li>
       <li><a href="about.html">Who we are</a></li>
       <li class="has-dropdown">
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Insights</button>
@@ -598,7 +860,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
       <li><a href="careers.html">Careers</a></li>
     </ul>
     <div class="nav-cta-group">
-      <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-primary">Request a pilot</a>
+      <a href="#join" class="btn btn-primary">Join the Waitlist</a>
     </div>
     <div class="mobile-toggle" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -620,10 +882,11 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
     <div class="mobile-sub" data-collapsed="true">
       <a href="ai-in-action.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Production-grade custom AI</a>
       <a href="bootcamp.html" onclick="this.closest('.mobile-menu').classList.remove('open')">AutomateX Bootcamp</a>
-      <a href="scribtive.html" class="is-current" aria-current="page" onclick="this.closest('.mobile-menu').classList.remove('open')">Scribtive</a>
+      <a href="scribtive.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Scribtive&reg; OS</a>
       <a href="scorecard.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Free AI Readiness Assessment</a>
     </div>
   </div>
+  <a href="scribtive.html" class="is-current" aria-current="page" onclick="this.closest('.mobile-menu').classList.remove('open')">Scribtive&reg;</a>
   <div class="mobile-sub-wrap">
     <button type="button" class="mobile-sub-toggle" aria-expanded="false" onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden">Insights</button>
     <div class="mobile-sub" hidden>
@@ -632,379 +895,247 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
     </div>
   </div>
   <a href="careers.html" onclick="this.parentElement.classList.remove('open')">Careers</a>
-  <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" onclick="this.parentElement.classList.remove('open')" class="btn btn-outline" style="margin-top:.5rem">Request a pilot</a>
+  <a href="#join" onclick="this.parentElement.classList.remove('open')" class="btn btn-outline" style="margin-top:.5rem">Join the Waitlist</a>
 </div>
 
-<main>
+<div class="sc-grain" aria-hidden="true"></div>
 
-<!-- ═══ HERO ═══ -->
-<section class="hero" id="hero">
-  <div class="hero-grid-wrap">
-    <div class="hero-grid" id="hero-grid" aria-hidden="true"></div>
-    <div class="hero-grid-fade" aria-hidden="true"></div>
-  </div>
-  <div class="container">
-    <div class="hero-eyebrow animate-in" style="margin:0 auto 2rem;width:fit-content">
-      <span class="hero-eyebrow-dot" aria-hidden="true"></span>
-      Scribtive&reg; &middot; Early access
-    </div>
-    <h1 class="animate-in d1">Your Form G, <em>drafted.</em><br>Ready for sign-off.</h1>
-    <p class="hero-sub animate-in d2">Rail PACE assurance generated from your project docs. Every section grounded in evidence. Gaps flagged, not hidden. Ready for your review in hours, not a week.</p>
-    <div class="hero-actions animate-in d3">
-      <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Request your guided pilot &rarr;</a>
-      <a href="#pricing" class="btn btn-ghost-light btn-lg">See pricing &darr;</a>
-    </div>
-    <div class="hero-trust animate-in d4">
-      <div class="hero-trust-item">
-        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
-        Built by a Chartered Rail Engineer
-      </div>
-      <div class="hero-trust-sep" aria-hidden="true"></div>
-      <div class="hero-trust-item">
-        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
-        Your data, your signature
-      </div>
-      <div class="hero-trust-sep" aria-hidden="true"></div>
-      <div class="hero-trust-item">
-        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
-        3.0&times; ROI from day one
-      </div>
-    </div>
-  </div>
-</section>
+<!-- The margin folio. Chaptered editorial carries no fixed bar of its own: the
+     site navbar serves the top of the page and steps aside on the way down,
+     and this takes over. -->
+<aside class="folio" id="folio" aria-label="Where you are on this page">
+  <a class="folio__home" href="#top">Scribtive</a>
+  <span class="folio__ch" id="folio-ch">1 · The pack</span>
+  <a class="folio__cta" href="#join">Join the Waitlist</a>
+</aside>
 
-<!-- ═══ STICKY TAB NAV ═══ -->
-<nav class="tab-nav" id="tab-nav" aria-label="Page sections">
-  <div class="container">
-    <button class="tab-btn active" data-target="overview">Overview</button>
-    <button class="tab-btn" data-target="how">How it works</button>
-    <button class="tab-btn" data-target="pricing">Pricing</button>
-    <button class="tab-btn" data-target="faq">FAQ</button>
-  </div>
-</nav>
+<main id="top">
 
-<!-- ═══ OVERVIEW ═══ -->
-<section class="overview-section section" id="overview">
-  <div class="container">
-    <p class="section-eyebrow">Why it exists</p>
-    <h2 class="section-heading">A Form G takes 2.5 days.<br>It doesn&rsquo;t have to.</h2>
-    <div class="overview-grid">
-      <div>
-        <p style="font-size:.9375rem;color:var(--gray-500);line-height:1.75;margin-bottom:1.5rem">A rail design team running five Form&nbsp;Gs a month spends around 180&nbsp;days a year writing them &mdash; before revisions, before comments, before the IPCA review. Most of that time is assembly, cross-referencing, and formatting. Not engineering judgement.</p>
-        <div class="anchor-box">
-          <p>Teams recover around <strong>&pound;26,000&nbsp;a year in Form&nbsp;G time</strong> at the minimum 50% saving &mdash; before fewer revision cycles and faster sign-off.</p>
-          <p class="wedge">Based on a fully-loaded &pound;65k resource running five Form&nbsp;Gs a month, which is a common load for a bridge or civils team. Your numbers will vary.</p>
-        </div>
-        <p class="builder-line">Built by a Chartered Rail Engineer who has written the Form&nbsp;G and sat the DRN review &mdash; not a software vendor who reverse-engineered the process from a PDF.</p>
+  <!-- ═══ TITLE PAGE · type on paper, no media above the fold ═══ -->
+  <header class="tp" data-sc-act="flow" data-folio="">
+    <div class="sv-wrap tp__in">
+      <div class="tp__mast">
+        <span class="tp__mark"><img src="brand_assets/automatex-mark.png" alt="" width="26" height="26"><span>Scribtive<sup>&reg;</sup></span></span>
+        <span class="tp__meta">By AutomateX</span>
       </div>
-      <div class="stats-grid">
-        <div class="stat-chip">
-          <div class="stat-num">180</div>
-          <div class="stat-label">Days per year in Form&nbsp;G production for a five-form-a-month team</div>
+
+      <div class="tp__body">
+        <h1 class="tp__h1">
+          <span class="tp__l tp__l--a"><span>Your Form&nbsp;G, drafted.</span></span>
+          <span class="tp__l tp__l--b"><span>Every statement shows its source.<span class="tp__cite" aria-hidden="true">CR-T, p.4</span></span></span>
+        </h1>
+      </div>
+
+      <div class="tp__foot">
+        <div class="tp__lead">
+          <p class="tp__sub">Scribtive helps engineers, designers and consultancies prepare PACE assurance deliverables, such as Form&nbsp;G and Form&nbsp;C.</p>
+          <a class="sv-btn" href="#join">Join the Waitlist</a>
         </div>
-        <div class="stat-chip">
-          <div class="stat-num"><em>50%</em></div>
-          <div class="stat-label">Minimum time saving. Engineering judgement and the signature stay yours.</div>
+        <dl class="tp__block">
+          <div><dt>Deliverables</dt><dd>Form G, Form C</dd></div>
+          <div><dt>Framework</dt><dd>PACE, NR/L2/RSE/02009</dd></div>
+          <div><dt>Status</dt><dd>Early access, by waitlist</dd></div>
+          <div><dt>On this page</dt><dd>A sample scheme, for illustration: Ashcombe Vale Station, canopy refurbishment</dd></div>
+        </dl>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ 1 · THE PACK · flow, parallax in the media column ═══ -->
+  <section class="ch ch--pack" id="pack" data-sc-act="flow" data-folio="1 · The pack">
+    <div class="sv-wrap">
+      <p class="sv-folio"><b>1</b> The pack</p>
+      <div class="pack">
+        <div class="pack__text" data-sc-in data-sc-stagger="70">
+          <h2 class="sv-h2">It starts with 11 documents and a blank form.</h2>
+          <p class="sv-p">A Form G is assembled before it is written. Someone gathers the pack, finds the standards that apply, and carries each fact from the surveys into the certificate.</p>
+          <p class="sv-p">Then the review comments arrive, and the rounds begin.</p>
+          <p class="sv-p">Most of this is careful reading. It falls to the people whose judgement the certificate depends on.</p>
         </div>
-        <div class="stat-chip">
-          <div class="stat-num"><em>3.0&times;</em></div>
-          <div class="stat-label">ROI at the base plan. Scales to 3.9&times; on higher volume.</div>
+
+        <figure class="pack__media">
+          <div class="pack__cols">
+            <div class="pack__col" data-sc-parallax="-0.7">
+              <div class="doc"><span class="doc__n">01</span><span class="doc__t">Asbestos Register, extract</span><span class="doc__p">6 pages</span></div>
+              <div class="doc"><span class="doc__n">04</span><span class="doc__t">Fire Strategy</span><span class="doc__p">4 pages</span></div>
+              <div class="doc"><span class="doc__n">07</span><span class="doc__t">Paint and Coatings Survey</span><span class="doc__p">6 pages</span></div>
+              <div class="doc"><span class="doc__n">10</span><span class="doc__t">Structural Inspection Report</span><span class="doc__p">8 pages</span></div>
+            </div>
+            <div class="pack__col" data-sc-parallax="0.6">
+              <div class="doc"><span class="doc__n">02</span><span class="doc__t">Designer's Hazard Log</span><span class="doc__p">14 pages</span></div>
+              <div class="doc"><span class="doc__n">05</span><span class="doc__t">Gauge and Clearance Assessment</span><span class="doc__p">5 pages</span></div>
+              <div class="doc"><span class="doc__n">08</span><span class="doc__t">Signal Sighting Assessment</span><span class="doc__p">5 pages</span></div>
+              <div class="doc"><span class="doc__n">11</span><span class="doc__t">Services Survey</span><span class="doc__p">8 pages</span></div>
+            </div>
+            <div class="pack__col" data-sc-parallax="-1.3">
+              <div class="doc"><span class="doc__n">03</span><span class="doc__t">Dilapidation Survey</span><span class="doc__p">8 pages</span></div>
+              <div class="doc"><span class="doc__n">06</span><span class="doc__t">Contract Requirements, Technical (CR-T)</span><span class="doc__p">4 pages</span></div>
+              <div class="doc"><span class="doc__n">09</span><span class="doc__t">Site Walkout Report</span><span class="doc__p">5 pages</span></div>
+            </div>
+          </div>
+          <figcaption class="sv-cap">Sample scheme, for illustration. Ashcombe Vale Station, canopy refurbishment: 11 documents, 73 pages.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 2 · THE PARAGRAPH · flow, the exhibit arrives on a wipe.
+       Authored quiet: one spread and one unmarked paragraph, ahead of the peak. ═══ -->
+  <section class="ch ch--para" id="paragraph" data-sc-act="flow" data-folio="2 · The paragraph">
+    <div class="sv-wrap">
+      <p class="sv-folio"><b>2</b> The paragraph</p>
+      <div class="para">
+        <div class="para__text" data-sc-in data-sc-stagger="70">
+          <h2 class="sv-h2">A fluent paragraph is easy to come by.</h2>
+          <p class="sv-p">Paste the pack into a chat assistant and a paragraph comes back in seconds. It reads well. For a small editorial job, that may be all you need.</p>
+          <p class="sv-p">A certificate asks more. Whoever signs it needs to know which sentences the pack supports, and which ones only sound right.</p>
         </div>
-        <div class="stat-chip">
-          <div class="stat-num">&pound;442</div>
-          <div class="stat-label">Saving per Form&nbsp;G at the minimum time saving, amortised over revisions.</div>
+
+        <figure class="para__ex">
+          <div class="sheet" data-sc-reveal="up" data-sc-reveal-at="0.16 0.42">
+            <div class="sheet__head"><span>Draft paragraph</span><span>Unchecked</span></div>
+            <p class="sheet__p">Both canopies need refurbishment, and Platform 4 is the more complex of the two. Ground conditions at the column bases were confirmed by intrusive investigation. One cast-iron column base on Platform 4 is fractured; the cast iron is decorative and encases the steel column. An environmental assessment has been completed for the scheme. The works are planned within engineering hours, with no temporary works beyond safe access for working at height.</p>
+          </div>
+          <figcaption class="sv-cap">5 statements about the sample scheme. 2 of them have nothing behind them, and nothing on the page says which.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · THE EVIDENCE TEST · pin. The peak, and the signature move.
+       State is driven from --sc-p by page-local script; the engine is untouched. ═══ -->
+  <section class="ch ch--test" id="test" data-sc-act="pin" data-sc-span="3.4" data-folio="3 · The evidence test" data-ground="night">
+    <div data-sc-stage class="test" id="test-stage">
+      <div class="sv-wrap test__head">
+        <p class="sv-folio"><b>3</b> The evidence test</p>
+        <h2 class="test__h2">The same 5 statements, checked against the pack.</h2>
+      </div>
+
+      <div class="sv-wrap test__grid">
+        <div class="sheet">
+          <div class="sheet__head"><span>Draft paragraph</span><span id="test-state"><b>0</b> of 5 checked</span></div>
+          <p class="sheet__p" id="test-p">
+            <span class="st" data-st="0" role="button" tabindex="-1" aria-disabled="true">Both canopies need refurbishment, and Platform 4 is the more complex of the two.<span class="st__chip"><i class="l">Site Walkout Report, p.5</i><i class="s">Walkout, p.5</i></span></span>
+            <span class="st" data-st="1" role="button" tabindex="-1" aria-disabled="true">Ground conditions at the column bases were confirmed by intrusive investigation.<span class="st__chip"><i class="l">Not supported</i><i class="s">Not supported</i></span></span>
+            <span class="st" data-st="2" role="button" tabindex="-1" aria-disabled="true">One cast-iron column base on Platform 4 is fractured; the cast iron is decorative and encases the steel column.<span class="st__chip"><i class="l">CR-T, p.2</i><i class="s">CR-T, p.2</i></span></span>
+            <span class="st" data-st="3" role="button" tabindex="-1" aria-disabled="true">An environmental assessment has been completed for the scheme.<span class="st__chip"><i class="l">Not supported</i><i class="s">Not supported</i></span></span>
+            <span class="st" data-st="4" role="button" tabindex="-1" aria-disabled="true">The works are planned within engineering hours, with no temporary works beyond safe access for working at height.<span class="st__chip"><i class="l">CR-T, p.4</i><i class="s">CR-T, p.4</i></span></span>
+          </p>
+          <div class="ref" id="test-ref">
+            <p class="ref__h">Referred to the engineer</p>
+            <p class="ref__none">Nothing referred yet.</p>
+            <ol class="ref__list">
+              <li data-ref="1"><b>Ground conditions.</b> No passage in the pack supports the statement. The Structural Inspection Report states that no intrusive works were within its commission.</li>
+              <li data-ref="3"><b>Environmental assessment.</b> None of the 11 documents in the pack is one.</li>
+            </ol>
+          </div>
+        </div>
+
+        <aside class="src" id="src" data-kind="idle" aria-label="Source page">
+          <div class="src__head">
+            <p class="src__doc" id="src-doc">The pack</p>
+            <span class="src__pg" id="src-pg">11 documents, 73 pages</span>
+            <span class="src__status" id="src-status">Nothing checked yet</span>
+          </div>
+          <div class="src__page" id="src-page">
+            <ul>
+              <li>Asbestos Register, extract</li>
+              <li>Designer's Hazard Log</li>
+              <li>Dilapidation Survey</li>
+              <li>Fire Strategy</li>
+              <li>Gauge and Clearance Assessment</li>
+              <li>Contract Requirements, Technical</li>
+              <li>Paint and Coatings Survey</li>
+              <li>Signal Sighting Assessment</li>
+              <li>Site Walkout Report</li>
+              <li>Structural Inspection Report</li>
+              <li>Services Survey</li>
+            </ul>
+          </div>
+          <p class="src__note">Sample scheme, for illustration. Ashcombe Vale Station is fictional.</p>
+        </aside>
+      </div>
+
+      <div class="sv-wrap test__tally">
+        <p class="test__sum" id="test-sum"><em>3</em> statements carry a source. <em>2</em> do not, and the draft says so.</p>
+        <p class="test__count" id="test-count">Select a checked statement to open its page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4 · ON THE RECORD · pan. Lateral travel: five facts of equal rank. ═══ -->
+  <section class="ch ch--record" id="record" data-sc-act="pan" data-sc-span="3.2" data-folio="4 · On the record">
+    <div data-sc-stage class="rec">
+      <div class="rec__rail" data-sc-pan="0.04">
+        <div class="rec__lead">
+          <p class="sv-folio"><b>4</b> On the record</p>
+          <h2 class="sv-h2">What a paragraph cannot carry.</h2>
+          <p class="sv-p">An assurance deliverable is signed, reviewed and kept. It has to hold more than good sentences.</p>
+        </div>
+        <article class="rec__item" style="--i:1">
+          <p class="rec__k">Evidence</p>
+          <h3 class="rec__s">Every statement carries its quote and its page.</h3>
+          <p class="rec__x"><span class="chip chip--ok">Site Walkout Report, p.5</span><span class="chip chip--ok">Quote matched</span></p>
+          <p class="rec__d">Each quote is checked against the page it came from. Select it and the page opens on the line.</p>
+        </article>
+        <article class="rec__item" style="--i:2">
+          <p class="rec__k">Gaps</p>
+          <h3 class="rec__s">Where the pack is silent, the draft says so.</h3>
+          <p class="rec__x"><span class="chip chip--gap">Not supported</span><span class="chip chip--gap">Referred to the engineer</span></p>
+          <p class="rec__d">An unsupported claim is declared and referred to the engineer. Nothing is filled in to make a section read complete.</p>
+        </article>
+        <article class="rec__item" style="--i:3">
+          <p class="rec__k">The form</p>
+          <h3 class="rec__s">The draft arrives as the form.</h3>
+          <p class="rec__x"><span class="chip">Form G</span><span class="chip">Form C</span></p>
+          <p class="rec__d">It is produced in the form's own layout, section by section, ready for review.</p>
+        </article>
+        <article class="rec__item" style="--i:4">
+          <p class="rec__k">Repository</p>
+          <h3 class="rec__s">Your standards and past projects stay yours.</h3>
+          <p class="rec__x"><span class="chip">Standards</span><span class="chip">Past projects</span><span class="chip">Considerations</span><span class="chip">Policies</span></p>
+          <p class="rec__d">They are held in your own repository, apart from every other client's.</p>
+        </article>
+        <article class="rec__item" style="--i:5">
+          <p class="rec__k">Signature</p>
+          <h3 class="rec__s">The signature stays where it is.</h3>
+          <p class="rec__x rec__x--sig"><span class="sig" aria-hidden="true"></span><span class="chip">Signed by the engineer</span></p>
+          <p class="rec__d">Scribtive drafts. You review every section, resolve the gaps and sign.</p>
+        </article>
+        <div class="rec__end" style="--i:6">
+          <p>The same team, reading more of the pack, in more depth, before anything is signed.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ HOW IT WORKS ═══ -->
-<section class="how-section" id="how">
-  <div class="container">
-    <div class="text-center">
-      <p class="section-eyebrow">How it works</p>
-      <h2 class="section-heading">Three steps. No new process.</h2>
-      <p class="section-sub" style="max-width:520px;margin:0 auto">Scribtive reads what you already have. You review what it produces. The signature stays with you.</p>
-    </div>
-    <div class="how-grid">
-      <div class="how-card">
-        <div class="how-icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+  <!-- ═══ 5 · COLOPHON · flow. The quietest setting on the page. The CTA is a
+       line of running text with a field. The site footer sits inside this
+       section as the masthead plate, so nothing follows the close. ═══ -->
+  <section class="ch ch--colophon" id="join" data-sc-act="flow" data-folio="5 · Early access">
+    <div class="sv-wrap">
+      <p class="sv-folio"><b>5</b> Early access</p>
+      <div class="colo">
+        <div class="colo__main" data-sc-in data-sc-stagger="60">
+          <h2 class="colo__h">Scribtive is in early access.</h2>
+          <p class="colo__run">Places open by waitlist. If this is the work your team signs for, you would be welcome to join. Leave an address and we will write when a place opens.</p>
+          <form class="wl" id="wl" novalidate>
+            <label class="wl__label" for="wl-email">Work email</label>
+            <div class="wl__row">
+              <input class="wl__in" id="wl-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@company.co.uk" required aria-describedby="wl-msg">
+              <button class="sv-btn" id="wl-btn" type="submit">Join the Waitlist</button>
+            </div>
+            <p class="wl__msg" id="wl-msg" role="status">How we handle your address is set out in the <a href="privacy.html">Privacy Notice</a>.</p>
+          </form>
         </div>
-        <span class="how-step">Step 01</span>
-        <h3>Load your project docs</h3>
-        <p>Upload what you already have. Scribtive reads structure and content, not page numbers.</p>
-        <ul>
-          <li>CIV/003 inspection records</li>
-          <li>RAMS and General Arrangement</li>
-          <li>Evidence surveys and reports</li>
-          <li>Design history and change records</li>
+        <ul class="colo__list" data-sc-in>
+          <li><b>Made by</b>AutomateX, London. Built by a Chartered Civil Engineer who has written these forms and reviewed them.</li>
+          <li><b>Your documents</b>Not used to train any model, and not shared with other clients.</li>
+          <li><b>The sample</b>Ashcombe Vale Station is a fictional scheme, shown for illustration. It is no client's project.</li>
+          <li><b>Set in</b>Archivo and IBM Plex.</li>
         </ul>
       </div>
-      <div class="how-card">
-        <div class="how-icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        </div>
-        <span class="how-step">Step 02</span>
-        <h3>Generate the Form G</h3>
-        <p>AI drafts every section against PACE criteria. Gaps are flagged explicitly &mdash; never left blank or guessed at.</p>
-        <ul>
-          <li>Every claim grounded in source evidence</li>
-          <li>Gaps surfaced, not buried</li>
-          <li>DCC classification applied</li>
-          <li>Consistent output, every run</li>
-        </ul>
-      </div>
-      <div class="how-card">
-        <div class="how-icon">
-          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <span class="how-step">Step 03</span>
-        <h3>Review and sign off</h3>
-        <p>You review the draft, resolve the gaps, make your engineering calls, and submit. Your expertise, your PI, your signature.</p>
-        <ul>
-          <li>Output in your existing format</li>
-          <li>Every claim traceable to source doc</li>
-          <li>You own the deliverable</li>
-          <li>Chartered accountability intact</li>
-        </ul>
-      </div>
     </div>
-  </div>
-</section>
-
-<!-- ═══ PRICING ═══ -->
-<section class="pricing-section" id="pricing">
-  <div class="container">
-    <div class="text-center">
-      <p class="section-eyebrow">Pricing</p>
-      <h2 class="section-heading">Simple. Value-anchored.</h2>
-      <p class="section-sub" style="max-width:520px;margin:0 auto">You keep at least 70% of the saving. Every time. The price scales with your volume &mdash; the ROI only improves.</p>
-    </div>
-
-    <div class="pricing-grid">
-
-      <!-- Pilot -->
-      <div class="pricing-card">
-        <p class="pricing-plan">Guided Pilot</p>
-        <div class="pricing-price"><span class="amount">&pound;0</span></div>
-        <p class="pricing-includes">One Form G, run together &middot; no commitment</p>
-        <div class="pricing-divider"></div>
-        <ul class="pricing-features">
-          <li>Your real project docs</li>
-          <li>Full Form G generated live</li>
-          <li>Bill walks you through it</li>
-          <li>Gaps explained, not just flagged</li>
-          <li class="muted">Ongoing monthly access</li>
-          <li class="muted">Add-on packs</li>
-        </ul>
-        <div class="pricing-cta">
-          <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-outline">Book your pilot &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Team — featured -->
-      <div class="pricing-card featured">
-        <div class="pricing-badge">Most popular</div>
-        <p class="pricing-plan">Team</p>
-        <div class="pricing-price">
-          <span class="currency">&pound;</span><span class="amount">750</span><span class="period">&nbsp;/ month</span>
-        </div>
-        <p class="pricing-includes">5 Form Gs per month &middot; billed quarterly</p>
-        <div class="pricing-divider"></div>
-        <ul class="pricing-features">
-          <li>5 Form Gs per month included</li>
-          <li>Full PACE criteria coverage</li>
-          <li>AI gap-flagging on every section</li>
-          <li>DCC classification applied</li>
-          <li>Review-ready output, every run</li>
-          <li>Guided onboarding with Bill</li>
-        </ul>
-        <div class="pricing-addons">
-          <strong>Need more?</strong> Add a single form for <strong>&pound;150</strong>, or a pack of five for <strong>&pound;500</strong>&nbsp;(&pound;100&nbsp;/ form &mdash; cheaper per form than the base rate).
-        </div>
-        <div class="pricing-cta">
-          <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-primary">Get started &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Enterprise -->
-      <div class="pricing-card">
-        <p class="pricing-plan">Enterprise</p>
-        <div class="pricing-price"><span class="bespoke">Bespoke</span></div>
-        <p class="pricing-includes">Higher volume &middot; multiple form types</p>
-        <div class="pricing-divider"></div>
-        <ul class="pricing-features">
-          <li>20+ Form Gs per month</li>
-          <li>Template adaptation included</li>
-          <li>Form B, Form A/H and other types</li>
-          <li>Multi-team rollout support</li>
-          <li>Commercial terms agreed directly</li>
-          <li>Dedicated onboarding</li>
-        </ul>
-        <div class="pricing-cta">
-          <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-outline">Talk to Bill &rarr;</a>
-        </div>
-      </div>
-
-    </div>
-
-    <p class="pricing-note">First month free on a quarterly plan &mdash; <a href="#onboarding">how to get started</a>.</p>
-
-    <!-- ROI table -->
-    <div class="roi-strip">
-      <p class="roi-strip-head">ROI at a glance</p>
-      <table class="roi-table">
-        <thead>
-          <tr>
-            <th>Volume</th>
-            <th>Your saving / month</th>
-            <th>Scribtive cost</th>
-            <th>You keep</th>
-            <th>ROI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>5 forms / month</td>
-            <td>&pound;2,210</td>
-            <td>&pound;750 (base)</td>
-            <td>&pound;1,460</td>
-            <td class="roi-val">3.0&times;</td>
-          </tr>
-          <tr>
-            <td>10 forms / month</td>
-            <td>&pound;4,420</td>
-            <td>&pound;1,250 (+&thinsp;1 pack)</td>
-            <td>&pound;3,170</td>
-            <td class="roi-val">3.5&times;</td>
-          </tr>
-          <tr>
-            <td>20 forms / month</td>
-            <td>&pound;8,840</td>
-            <td>&pound;2,250 (+&thinsp;3 packs)</td>
-            <td>&pound;6,590</td>
-            <td class="roi-val">3.9&times;</td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="roi-note">Based on a fully-loaded &pound;65k resource, 2.5 days per Form&nbsp;G, 50% time saving, amortised revision time. ROI improves at volume because add-on packs (&pound;100&nbsp;/ form) cost less per form than the base rate (&pound;150&nbsp;/ form).</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ONBOARDING ═══ -->
-<section class="trial-section" id="onboarding">
-  <div class="container">
-    <div class="text-center">
-      <p class="section-eyebrow">Getting started</p>
-      <h2 class="section-heading">Six Form Gs before you pay full rate.</h2>
-      <p class="section-sub" style="max-width:520px;margin:0 auto">One free pilot to see it on your data. Then a quarterly plan with the first month on us.</p>
-    </div>
-    <div class="trial-steps">
-      <div class="trial-step">
-        <div class="trial-step-num">1</div>
-        <span class="trial-tag">Free &middot; No commitment</span>
-        <h3>Guided pilot</h3>
-        <p>We run Scribtive on one of your real Form&nbsp;Gs together. You see the output, the gap flags, and the source traceability before you commit to anything.</p>
-      </div>
-      <div class="trial-step">
-        <div class="trial-step-num">2</div>
-        <span class="trial-tag">Month 1 free</span>
-        <h3>Three-month term,<br>first month free</h3>
-        <p>Sign up for a quarterly plan and get the first month at no cost. That&rsquo;s 5 more Form&nbsp;Gs included before you pay the full rate.</p>
-      </div>
-      <div class="trial-step">
-        <div class="trial-step-num">3</div>
-        <span class="trial-tag">Rolling quarterly</span>
-        <h3>Ongoing at &pound;750&nbsp;/ month</h3>
-        <p>After the initial term, billing continues quarterly at &pound;750 a month. Cancel at the end of any quarter. Add packs as your volume grows.</p>
-      </div>
-    </div>
-    <p class="trial-total">In total: the pilot Form&nbsp;G + 5 from your free first month = <strong>6 Form&nbsp;Gs</strong> before you pay full rate.</p>
-    <div class="trial-cta">
-      <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Start your guided pilot &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FAQ ═══ -->
-<section class="faq-section" id="faq">
-  <div class="container">
-    <div class="text-center">
-      <p class="section-eyebrow">FAQ</p>
-      <h2 class="section-heading">Common questions.</h2>
-    </div>
-    <div class="faq-list">
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          Who checks the output? Does Scribtive sign the Form G?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-body" role="region">
-          <div class="faq-body-inner">No. Scribtive drafts the Form&nbsp;G against your project evidence. <strong>You review every section, you resolve the flagged gaps, and you apply your engineering judgement before sign-off.</strong> The chartered signature stays with you &mdash; that is not something that changes. Scribtive removes the assembly and cross-referencing; it does not replace the engineer.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          What documents does Scribtive read?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-body" role="region">
-          <div class="faq-body-inner">Scribtive reads the documents you already produce: CIV/003 inspection records, RAMS outputs, General Arrangements, evidence survey reports, design history and change records. You upload what you have; it extracts what is relevant to each Form&nbsp;G section. If a section cannot be evidenced from the uploaded documents, it is flagged &mdash; not left blank or guessed at.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          How does the guided pilot work?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-body" role="region">
-          <div class="faq-body-inner">You bring a real project. We run Scribtive on one of your Form&nbsp;Gs together in a 60&ndash;90&nbsp;minute call. You see the full draft, the gap flags, and how each claim traces back to your documents. There is no charge and no commitment. The point is for you to see the output on your data before deciding anything.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          What is the contract term and how do I cancel?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-body" role="region">
-          <div class="faq-body-inner">Scribtive is billed quarterly. The initial term is three months, with the first month free. After that, billing rolls quarterly at &pound;750 per month. You can cancel at the end of any quarter &mdash; there is no lock-in beyond the current quarter.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          Does it work with our internal templates and formats?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-body" role="region">
-          <div class="faq-body-inner">The base plan generates output structured around the standard Form&nbsp;G (DCC&nbsp;I). If your organisation uses a local template variant, that is covered under the Enterprise plan, which includes template adaptation. Bring it up in the pilot call and we can assess what is involved.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          Where is my data stored? Who can see it?
-          <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div class="faq-body" role="region">
-          <div class="faq-body-inner">Your project documents are processed in a secure environment and are not used to train any model or shared with other clients. AutomateX operates under UK GDPR. Full data processing details are available in the service agreement issued before the paid plan begins.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ═══ FOOTER ═══ -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -1027,7 +1158,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
         <ul>
           <li><a href="bootcamp.html">Find your X</a></li>
           <li><a href="bootcamp.html">Where to start</a></li>
-          <li><a href="scribtive.html" aria-current="page" class="is-current">Scribtive&reg;</a></li>
+          <li><a href="scribtive.html" aria-current="page" class="is-current">Scribtive&reg; OS</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1054,6 +1185,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
       </div>
     </div>
     <div class="footer-bottom">
+      <div class="footer-marks">AutomateX&reg; and Scribtive&reg; are registered trademarks of AutomateX Ltd, registered in the United Kingdom.</div>
       <div class="footer-legal">&copy; 2026 AutomateX Ltd. Company No. 16855291 &middot; VAT No. 514079209</div>
       <div class="footer-contact">
         <a href="mailto:bill.guo@automatex.uk">bill.guo@automatex.uk</a> &middot; 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ
@@ -1061,21 +1193,11 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
     </div>
   </div>
 </footer>
+  </section>
 
-<script>
-/* ── Hero grid ripple ── */
-(function(){
-  var wrap=document.getElementById('hero-grid');
-  if(!wrap)return;
-  var cols=Math.ceil(window.innerWidth/48)+2,rows=Math.ceil(window.innerHeight/48)+2,html='';
-  for(var c=0;c<cols;c++){html+='<div class="hero-grid-col">';for(var r=0;r<rows;r++)html+='<div class="hero-cell"><div class="hero-cell-inner"></div></div>';html+='</div>'}
-  wrap.innerHTML=html;
-  var cells=wrap.querySelectorAll('.hero-cell-inner');
-  if(!cells.length)return;
-  setInterval(function(){var cell=cells[Math.floor(Math.random()*cells.length)];cell.classList.remove('ripple');void cell.offsetWidth;cell.classList.add('ripple')},180);
-})();
-</script>
+</main>
 
+<!-- site chrome behaviour, as on every page -->
 <script>
 /* ── Navbar hide-on-scroll ── */
 (function(){
@@ -1085,7 +1207,6 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
   window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(onScroll);ticking=true}},{passive:true});
 })();
 </script>
-
 <script>
 /* ── Navbar dropdown ── */
 (function(){
@@ -1103,89 +1224,42 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
   });
 })();
 </script>
+<script id="nav-shadcn-behaviour-js-2026-06-02">
+(function() {
+  var menu = document.querySelector('.mobile-menu');
+  if (!menu) return;
 
-<script>
-/* ── Mobile sub-accordion ── */
-(function(){
-  document.querySelectorAll('.mobile-sub-toggle').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var sub=btn.nextElementSibling;if(!sub)return;
-      var collapsed=sub.getAttribute('data-collapsed')!=='false';
-      sub.setAttribute('data-collapsed',collapsed?'false':'true');
-      btn.setAttribute('aria-expanded',collapsed?'true':'false');
-    });
-  });
-})();
-</script>
-
-<script>
-/* ── Sticky tab nav: click scroll + IntersectionObserver highlight ── */
-(function(){
-  var tabNav=document.getElementById('tab-nav');
-  if(!tabNav)return;
-  var buttons=tabNav.querySelectorAll('.tab-btn');
-  var sections=['overview','how','pricing','faq'].map(function(id){return document.getElementById(id)}).filter(Boolean);
-  var navbarH=(document.querySelector('.navbar')||{offsetHeight:80}).offsetHeight||80;
-  var tabH=tabNav.offsetHeight||48;
-  var offset=navbarH+tabH+8;
-
-  /* click → smooth scroll */
-  buttons.forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var target=document.getElementById(btn.dataset.target);
-      if(!target)return;
-      var y=target.getBoundingClientRect().top+window.scrollY-offset;
-      window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
-    });
-  });
-
-  /* IntersectionObserver → active tab */
-  var active='overview';
-  function setActive(id){
-    if(active===id)return;active=id;
-    buttons.forEach(function(b){
-      b.classList.toggle('active',b.dataset.target===id);
+  // (1) Wrap inner contents in a single .mobile-panel container so the slide-in
+  //     animation has a stable element to translate. Idempotent.
+  if (!menu.querySelector('.mobile-panel')) {
+    var panel = document.createElement('div');
+    panel.className = 'mobile-panel';
+    // Move all current children of .mobile-menu into the panel.
+    while (menu.firstChild) panel.appendChild(menu.firstChild);
+    menu.appendChild(panel);
+    // Backdrop click (outside the panel) closes the menu.
+    menu.addEventListener('click', function(e) {
+      if (e.target === menu) menu.classList.remove('open');
     });
   }
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting)setActive(e.target.id)});
-  },{rootMargin:'-'+offset+'px 0px -60% 0px',threshold:0});
-  sections.forEach(function(s){obs.observe(s)});
 
-  /* scroll tab button into view when active changes */
-  tabNav.querySelectorAll('.tab-btn').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      btn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  // (2) Mobile sub-menu accordion: wire the chevron toggle.
+  document.querySelectorAll('.mobile-sub-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var sub = btn.nextElementSibling;
+      if (!sub || !sub.classList.contains('mobile-sub')) return;
+      var collapsed = sub.getAttribute('data-collapsed') !== 'false';
+      sub.setAttribute('data-collapsed', collapsed ? 'false' : 'true');
+      btn.setAttribute('aria-expanded', collapsed ? 'true' : 'false');
     });
+  });
+
+  // Sheet behaviour for Escape key: close menu on Escape (matches shadcn Sheet).
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') menu.classList.remove('open');
   });
 })();
 </script>
-
-<script>
-/* ── FAQ accordion ── */
-(function(){
-  document.querySelectorAll('.faq-item').forEach(function(item){
-    var btn=item.querySelector('.faq-q');
-    var body=item.querySelector('.faq-body');
-    if(!btn||!body)return;
-    btn.addEventListener('click',function(){
-      var isOpen=item.classList.contains('open');
-      /* close all */
-      document.querySelectorAll('.faq-item.open').forEach(function(o){
-        o.classList.remove('open');
-        o.querySelector('.faq-q').setAttribute('aria-expanded','false');
-        o.querySelector('.faq-body').classList.remove('open');
-      });
-      if(!isOpen){
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded','true');
-        body.classList.add('open');
-      }
-    });
-  });
-})();
-</script>
-
 <script id="axr-megamenu-2026-07-11">
 (function(){var root=document.documentElement,nav=document.querySelector(".navbar"),veil=document.getElementById("axr-mega-veil");
 var lis=document.querySelectorAll(".navbar-links .has-dropdown");
@@ -1229,5 +1303,292 @@ window.addEventListener("resize",sync);})();
   });
 })();
 </script>
+
+<script src="vendor/scrollcraft/scrollcraft.js"></script>
+<script id="sv-page-js">
+/* Scribtive product page: page-local behaviour. The scroll-craft engine is
+   mounted at the end and is never edited. Three things live here:
+   1. the evidence test (the signature move), driven from the act's --sc-p
+   2. the margin folio
+   3. the waitlist field */
+(function () {
+  'use strict';
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------------------------------------------------------------- data --
+     A sample scheme, for illustration. The page text below is what each quote
+     is checked against: a statement is only marked as supported if its quote
+     is found, verbatim, in the text of the page it cites. */
+  var PACK = [
+    'Asbestos Register, extract', "Designer's Hazard Log", 'Dilapidation Survey',
+    'Fire Strategy', 'Gauge and Clearance Assessment', 'Contract Requirements, Technical',
+    'Paint and Coatings Survey', 'Signal Sighting Assessment', 'Site Walkout Report',
+    'Structural Inspection Report', 'Services Survey'
+  ];
+  var PAGES = {
+    'walkout-5': {
+      doc: 'Site Walkout Report', page: 5, of: 5, heading: '11. Summary and next steps',
+      text: [
+        'The walkout confirmed that both the P1 and P4 canopies require refurbishment intervention. The P4 structure presents the more complex scope, with fractured glazing, a fractured cast-iron column base, encasement water pooling, blocked box gutters, and general paint degradation.',
+        'Hazards including lead paint, asbestos potential and third-rail adjacency must be formally assessed before any works are designed or procured.',
+        'This report will be superseded by the outputs of the follow-on surveys.'
+      ]
+    },
+    'crt-2': {
+      doc: 'Contract Requirements, Technical (CR-T)', page: 2, of: 4, heading: 'Scope of the works',
+      text: [
+        'Proposed cast-iron column-base repair. One cast-iron column base on Platform 4 was identified as defective. The cast-iron section encases the steel column and is decorative only. The base has 2 No. full-height vertical fractures on opposite faces.',
+        'Column-encasement pooling. Four columns experience pooling water at the tops of the encasements, causing superficial corrosion.'
+      ]
+    },
+    'crt-4': {
+      doc: 'Contract Requirements, Technical (CR-T)', page: 4, of: 4, heading: '4.7 Temporary works',
+      text: [
+        'Works are envisaged within engineering hours with no temporary works other than safe platform working at height. Should hoarding be required, signal sighting and clearance are to be confirmed as not affected.',
+        'For glazing-panel replacement, lighting units and cable ducts are to be temporarily diverted where required.'
+      ]
+    },
+    'structural-1': {
+      doc: 'Structural Inspection Report', page: 1, of: 8, heading: 'Scope exclusions',
+      text: [
+        'Lift-shaft full structural assessment, deferred.',
+        'Foundation investigation (no evidence of differential settlement observed; no intrusive works within this commission).',
+        'Permanent-way or third-rail infrastructure, noted for access-limitation purposes only.'
+      ]
+    }
+  };
+  var STATEMENTS = [
+    { evidence: { page: 'walkout-5', quote: 'The walkout confirmed that both the P1 and P4 canopies require refurbishment intervention. The P4 structure presents the more complex scope' } },
+    { contrary: { page: 'structural-1', quote: 'no intrusive works within this commission' },
+      note: 'No passage in the pack supports this statement. The Structural Inspection Report records the contrary. Referred to the engineer.' },
+    { evidence: { page: 'crt-2', quote: 'One cast-iron column base on Platform 4 was identified as defective. The cast-iron section encases the steel column and is decorative only. The base has 2 No. full-height vertical fractures on opposite faces.' } },
+    { note: 'None of the 11 documents in the pack is an environmental assessment. Referred to the engineer.' },
+    { evidence: { page: 'crt-4', quote: 'Works are envisaged within engineering hours with no temporary works other than safe platform working at height.' } }
+  ];
+  /* scroll progress at which each statement is resolved, then the summary */
+  var AT = [0.08, 0.24, 0.40, 0.56, 0.72];
+  var DONE_AT = 0.84;
+
+  function pageText(id) { return PAGES[id] ? PAGES[id].text.join('\n') : ''; }
+  function found(ref) { return !!(ref && PAGES[ref.page] && pageText(ref.page).indexOf(ref.quote) > -1); }
+  /* the check itself: supported only if the quote is on the page, verbatim */
+  STATEMENTS.forEach(function (s) { s.ok = found(s.evidence); });
+
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function renderPage(id, quote) {
+    var pg = PAGES[id], out = '<h4>' + esc(pg.heading) + '</h4>';
+    pg.text.forEach(function (para) {
+      var i = quote ? para.indexOf(quote) : -1;
+      out += '<p>' + (i > -1
+        ? esc(para.slice(0, i)) + '<mark>' + esc(quote) + '</mark>' + esc(para.slice(i + quote.length))
+        : esc(para)) + '</p>';
+    });
+    return out;
+  }
+  function renderPack() {
+    return '<ul>' + PACK.map(function (d) { return '<li>' + esc(d) + '</li>'; }).join('') + '</ul>';
+  }
+
+  /* ------------------------------------------------------ evidence test -- */
+  var act = document.getElementById('test');
+  var stage = document.getElementById('test-stage');
+  if (act && stage) {
+    var els = [].slice.call(stage.querySelectorAll('.st'));
+    var src = document.getElementById('src');
+    var srcDoc = document.getElementById('src-doc');
+    var srcPg = document.getElementById('src-pg');
+    var srcStatus = document.getElementById('src-status');
+    var srcPage = document.getElementById('src-page');
+    var stateEl = document.getElementById('test-state');
+    var countEl = document.getElementById('test-count');
+    var refBox = document.getElementById('test-ref');
+    var resolved = -1;      // index of the last resolved statement
+    var selected = -1;      // what the panel is showing
+    var byHand = false;     // the reader chose; stop auto-following until the check moves on
+    var lastSig = '';
+
+    function show(i, hand) {
+      if (i === selected && !hand) return;
+      selected = i;
+      els.forEach(function (el, k) {
+        el.classList.toggle('is-sel', k === i);
+        el.setAttribute('aria-pressed', k === i ? 'true' : 'false');
+      });
+      if (i < 0) {
+        src.setAttribute('data-kind', 'idle');
+        srcDoc.textContent = 'The pack';
+        srcPg.textContent = '11 documents, 73 pages';
+        srcStatus.textContent = 'Nothing checked yet';
+        srcPage.innerHTML = renderPack();
+      } else {
+        var s = STATEMENTS[i], ref = s.ok ? s.evidence : s.contrary;
+        src.setAttribute('data-kind', s.ok ? 'ok' : 'gap');
+        if (ref && found(ref)) {
+          var pg = PAGES[ref.page];
+          srcDoc.textContent = pg.doc;
+          srcPg.textContent = 'Page ' + pg.page + ' of ' + pg.of;
+          srcStatus.textContent = s.ok ? 'Quote matched on this page' : 'No support. This passage says otherwise';
+          srcPage.innerHTML = renderPage(ref.page, ref.quote) + (s.ok ? '' : '<p>' + esc(s.note) + '</p>');
+        } else {
+          srcDoc.textContent = 'The pack';
+          srcPg.textContent = '11 documents, 73 pages';
+          srcStatus.textContent = 'No supporting passage';
+          srcPage.innerHTML = '<p>' + esc(s.note) + '</p>' + renderPack();
+        }
+      }
+      if (!reduce) { src.classList.remove('is-swap'); void src.offsetWidth; src.classList.add('is-swap'); }
+    }
+
+    function apply(p) {
+      var n = -1, checking = -1;
+      for (var i = 0; i < AT.length; i++) {
+        if (p >= AT[i]) n = i;
+        else if (checking < 0 && p >= AT[i] - 0.07) checking = i;
+      }
+      var done = p >= DONE_AT;
+      if (n !== resolved) {
+        resolved = n;
+        byHand = false;
+        els.forEach(function (el, k) {
+          var on = k <= n, s = STATEMENTS[k];
+          el.classList.toggle('is-ok', on && s.ok);
+          el.classList.toggle('is-gap', on && !s.ok);
+          el.setAttribute('tabindex', on ? '0' : '-1');
+          el.setAttribute('aria-disabled', on ? 'false' : 'true');
+        });
+        var ok = 0, gap = 0;
+        for (var k = 0; k <= n; k++) { if (STATEMENTS[k].ok) ok++; else gap++; }
+        stateEl.innerHTML = '<b>' + (n + 1) + '</b> of 5 checked';
+        countEl.textContent = n < 0 ? 'Nothing checked yet.' : 'Select a checked statement to open its page.';
+        if (refBox) {
+          refBox.classList.toggle('has-items', gap > 0);
+          [].forEach.call(refBox.querySelectorAll('[data-ref]'), function (li) {
+            li.classList.toggle('is-on', +li.getAttribute('data-ref') <= n);
+          });
+        }
+      }
+      els.forEach(function (el, k) { el.classList.toggle('is-checking', k === checking && !reduce); });
+      if (!byHand) show(n, false);
+      stage.classList.toggle('is-done', done);
+
+      /* tell the verification harness what is actually painted */
+      var sig = [resolved, checking, selected, done ? 1 : 0].join('.');
+      if (sig !== lastSig) { lastSig = sig; stage.setAttribute('data-sc-verify-state', sig); }
+      stage.setAttribute('data-sc-verify-hold', done ? 'true' : 'false');
+    }
+
+    els.forEach(function (el, i) {
+      function pick(e) {
+        if (i > resolved) return;
+        if (e.type === 'keydown') {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          e.preventDefault();
+        }
+        byHand = true;
+        show(i, true);
+        stage.setAttribute('data-sc-verify-state', [resolved, -1, selected, 1].join('.'));
+      }
+      el.addEventListener('click', pick);
+      el.addEventListener('keydown', pick);
+    });
+
+    if (reduce) {
+      /* no scroll choreography: the finished check, stated once */
+      apply(1);
+    } else {
+      var last = -1;
+      (function loop() {
+        var p = parseFloat(act.style.getPropertyValue('--sc-p'));
+        if (isNaN(p)) p = 0;
+        if (p !== last) { last = p; apply(p); }
+        requestAnimationFrame(loop);
+      })();
+    }
+
+    /* A pinned stage holds one viewport position for the whole act, so a
+       statement focused by keyboard before the check has reached it would be
+       on screen and inert. Park the act where that statement is resolved. */
+    stage.addEventListener('focusin', function (e) {
+      var el = e.target.closest && e.target.closest('.st');
+      if (!el || reduce) return;
+      var i = +el.getAttribute('data-st');
+      if (i <= resolved) return;
+      var r = act.getBoundingClientRect(), travel = Math.max(act.offsetHeight - innerHeight, 1);
+      window.scrollTo({ top: window.scrollY + r.top + travel * Math.min(AT[i] + 0.03, 1), behavior: 'instant' });
+    });
+  }
+
+  /* -------------------------------------------------------------- folio -- */
+  var folio = document.getElementById('folio');
+  if (folio) {
+    var ch = document.getElementById('folio-ch');
+    var marks = [].slice.call(document.querySelectorAll('[data-folio]'));
+    var cur = null;
+    function readFolio() {
+      var line = innerHeight * 0.55, hit = marks[0];
+      marks.forEach(function (m) { if (m.getBoundingClientRect().top <= line) hit = m; });
+      if (hit === cur) return;
+      cur = hit;
+      var label = hit.getAttribute('data-folio');
+      folio.classList.toggle('is-on', !!label && hit.id !== 'join');
+      if (label) ch.textContent = label;
+      folio.setAttribute('data-ground', hit.getAttribute('data-ground') || 'paper');
+    }
+    var queued = false;
+    addEventListener('scroll', function () {
+      if (queued) return; queued = true;
+      requestAnimationFrame(function () { queued = false; readFolio(); });
+    }, { passive: true });
+    addEventListener('resize', readFolio);
+    readFolio();
+  }
+
+  /* ----------------------------------------------------------- waitlist --
+     Same endpoint and payload as waitlist.html, so both pages feed one list. */
+  var form = document.getElementById('wl');
+  if (form) {
+    var input = document.getElementById('wl-email');
+    var btn = document.getElementById('wl-btn');
+    var msg = document.getElementById('wl-msg');
+    var FLAG = 'automatex_waitlist_joined';
+    function say(text, tone) { msg.textContent = text; msg.setAttribute('data-tone', tone || ''); }
+    function joined() {
+      input.disabled = true; btn.disabled = true; btn.textContent = 'You are on the list';
+      say('Thank you. We will write when a place opens.', 'ok');
+    }
+    try { if (localStorage.getItem(FLAG) === '1') joined(); } catch (e) {}
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = (input.value || '').trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        input.setAttribute('aria-invalid', 'true');
+        say('That address does not look complete. Could you check it?', 'bad');
+        input.focus();
+        return;
+      }
+      input.removeAttribute('aria-invalid');
+      btn.disabled = true; btn.textContent = 'Joining';
+      fetch('https://n8n.automatex.uk/webhook/pace-waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'Scribtive OS Waitlist', page: 'scribtive.html', timestamp: new Date().toISOString() })
+      }).then(function (r) {
+        if (!r.ok) throw new Error('http ' + r.status);
+        input.value = '';
+        try { localStorage.setItem(FLAG, '1'); } catch (e2) {}
+        joined();
+      }).catch(function () {
+        btn.disabled = false; btn.textContent = 'Join the Waitlist';
+        say('That did not go through. Please try again, or write to bill.guo@automatex.uk.', 'bad');
+      });
+    });
+    input.addEventListener('input', function () { input.removeAttribute('aria-invalid'); });
+  }
+})();
+</script>
+<script>ScrollCraft.mount(document.body);</script>
+
+<!-- Vercel Web Analytics . cookie-free, GDPR-compliant. -->
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
