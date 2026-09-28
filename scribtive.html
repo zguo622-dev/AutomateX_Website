@@ -222,6 +222,7 @@ html{scroll-padding-top:5rem}
 .sig line{stroke:rgba(244,243,239,.3);stroke-width:1}
 .close__run{margin:var(--sc-5) 0 0;max-width:34rem;color:var(--sc-ink-soft);font-size:var(--sc-t-lg);line-height:1.5}
 .su{background:var(--sc-surface);border:1px solid var(--night-rule);border-radius:12px;padding:clamp(1.4rem,2.6vw,2.2rem);box-shadow:0 2px 4px rgba(2,4,10,.3),0 24px 50px -18px rgba(2,4,10,.7)}
+.su__wrap{min-width:0;scroll-margin-top:1rem}
 .su__h{margin:0 0 1.25rem;font-family:var(--sc-font-display);font-weight:600;font-size:var(--sc-t-xl);line-height:1.1;letter-spacing:-.024em;color:var(--sc-ink)}
 .su__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1rem}
 .su__f{display:flex;flex-direction:column;justify-content:flex-end;gap:.4rem;min-width:0}
@@ -306,7 +307,7 @@ html{scroll-padding-top:5rem}
   .su__grid{grid-template-columns:minmax(0,1fr)}
   .close__lead{display:contents}
   .close__h,.sig,.close__run{order:1}
-  .su{order:2}
+  .su__wrap{order:2}
   .close__list{order:3;margin-top:0!important}
   .close__in{gap:1.5rem}
   .su{padding:1.25rem}
@@ -1085,7 +1086,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
 
   <!-- ═══ THE CLOSE · flow. A signature is drawn, then the sign-up.
        The site footer sits inside this section, so nothing follows the close. ═══ -->
-  <section class="close" id="signup" data-sc-act="flow" data-sc-drift="#0B0F16">
+  <section class="close" id="close" data-sc-act="flow" data-sc-drift="#0B0F16">
     <div class="sv-wrap close__in">
       <div class="close__lead">
         <h2 class="close__h">The signature stays with you.</h2>
@@ -1101,6 +1102,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
         </ul>
       </div>
 
+      <div class="su__wrap" id="signup">
       <form class="su" id="su" novalidate aria-labelledby="su-h">
         <h3 class="su__h" id="su-h">Sign up</h3>
         <div class="su__grid">
@@ -1137,6 +1139,7 @@ html.axr-mega-open #axr-mega-veil{opacity:1;pointer-events:auto;}
         <button class="sv-btn su__btn" id="su-btn" type="submit">Sign up</button>
         <p class="su__msg" id="su-msg" role="status">We use these details to arrange your demo. How we handle them is set out in the <a href="privacy.html">Privacy Notice</a>.</p>
       </form>
+      </div>
     </div>
 <footer class="footer">
   <div class="container">
@@ -1697,6 +1700,14 @@ window.addEventListener("resize",sync);})();
 })();
 </script>
 <script>ScrollCraft.mount(document.body);</script>
+<script id="sv-deeplink">
+/* The pinned acts get their height when the engine mounts, which is after the
+   browser has already tried to jump to the #hash. Every "Sign up" button on
+   the site arrives at #signup, so make the jump again once the page has its
+   real height, and once more when the fonts and images have settled. */
+(function(){function go(){var id=location.hash.slice(1);if(!id)return;var t=document.getElementById(id);if(t)t.scrollIntoView({behavior:"instant",block:"start"});}
+requestAnimationFrame(function(){requestAnimationFrame(go);});addEventListener("load",function(){setTimeout(go,60);});})();
+</script>
 
 <!-- Vercel Web Analytics . cookie-free, GDPR-compliant. -->
 <script defer src="/_vercel/insights/script.js"></script>
