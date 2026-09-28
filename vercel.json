@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/instatrace", "destination": "https://instatrace.automatex.uk/", "permanent": false },
+    { "source": "/instatrace.html", "destination": "https://instatrace.automatex.uk/", "permanent": false }
+  ]
+}
