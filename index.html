@@ -26,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --orange: #F96532;
@@ -3309,6 +3310,69 @@ html{scroll-padding-top:76px;}
 .navbar .navbar-links > li > a.is-current,
 .navbar .navbar-links > li > .nav-dropdown-toggle.is-current{color:var(--orange)!important;}
 </style>
+<style id="sv-band-2026-09-28">
+/* =====================================================================
+   SCRIBTIVE FEATURE BAND, added 2026-09-28
+   The homepage's window onto the product page. Dark like the rest of the
+   page; the one light object in it is a sheet of the product's own paper,
+   carrying a statement with its source and a statement without one.
+   No script: the staged arrival rides the page's existing [data-reveal].
+   ===================================================================== */
+.sv-band{position:relative;background:transparent;color:var(--white);padding:clamp(4.5rem,9vw,7.5rem) 0;overflow:hidden}
+.sv-band::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;background:linear-gradient(to right,transparent,rgba(249,101,50,.28),transparent)}
+.sv-band__in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,6vw,5.5rem);align-items:center}
+.sv-band__h{color:var(--white);max-width:15ch}
+.sv-band__h span{display:block;color:rgba(255,255,255,.62);font-weight:700;font-size:.62em;line-height:1.2;letter-spacing:-.015em;margin-top:.7rem}
+.sv-band__p{font-size:clamp(1rem,1.25vw,1.11rem);line-height:1.65;color:rgba(255,255,255,.72);max-width:34rem;margin:0 0 1.9rem}
+.sv-band__cta{display:flex;flex-wrap:wrap;gap:.8rem}
+
+/* the stage: a sheet, and the page it cites, overlapping its corner */
+.sv-band__stage{position:relative;display:block;padding:0 clamp(0rem,3vw,3rem) clamp(9rem,13vw,11.5rem) 0;color:#1a1f36;text-decoration:none;font-family:'IBM Plex Sans','Open Sans',system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+.sv-band__stage:focus-visible{outline:2px solid var(--orange);outline-offset:6px;border-radius:6px}
+.sv-sheet,.sv-src{display:block;background:#fff;border-radius:4px;box-shadow:0 2px 4px rgba(3,6,18,.3),0 28px 60px -18px rgba(3,6,18,.75)}
+.sv-sheet{position:relative;transform:rotate(-1.1deg);transform-origin:20% 60%;background:#fafafa}
+.sv-sheet__head,.sv-src__head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.7rem 1.2rem;border-bottom:1px solid #e5e7eb;background:#fff;border-radius:4px 4px 0 0;font-family:'IBM Plex Mono',ui-monospace,Consolas,monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:#5f6775}
+.sv-sheet__p{display:block;margin:0;padding:1.3rem 1.4rem 1.5rem;font-size:clamp(.98rem,.9rem + .35vw,1.14rem);line-height:1.75;color:#1a1f36}
+.sv-st{border-radius:3px;padding:.06em .1em;margin:0 -.1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sv-st--ok{text-decoration:underline;text-decoration-color:#a7f3d0;text-decoration-thickness:2px;text-underline-offset:.24em;background:#ecfdf5}
+.sv-st--gap{color:#6b7280;text-decoration:line-through;text-decoration-color:rgba(180,83,9,.55);text-decoration-thickness:1px}
+.sv-chip{display:inline-block;vertical-align:.12em;margin-left:.4em;font-family:'IBM Plex Mono',ui-monospace,Consolas,monospace;font-size:.66em;font-weight:500;line-height:1;white-space:nowrap;border-radius:999px;padding:.36em .64em;border:1px solid;text-decoration:none}
+.sv-chip--ok{color:#047857;background:#ecfdf5;border-color:#a7f3d0}
+.sv-chip--gap{color:#b45309;background:#fffbeb;border-color:#fde68a}
+.sv-src{position:absolute;right:0;bottom:0;width:min(25rem,74%);transform:rotate(1.4deg);transform-origin:80% 40%}
+.sv-src__head b{font-family:'IBM Plex Sans','Open Sans',system-ui,sans-serif;font-weight:600;font-size:.84rem;letter-spacing:0;text-transform:none;color:#1a1f36}
+.sv-src__body{display:block;padding:.95rem 1.2rem 1.1rem;font-size:.84rem;line-height:1.6;color:#374151}
+.sv-src__body mark{background:#fdecae;color:#1a1f36;border-radius:2px;padding:.06em 0;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sv-src__ok{display:inline-block;margin-top:.75rem;font-family:'IBM Plex Mono',ui-monospace,Consolas,monospace;font-size:.66rem;font-weight:500;color:#047857;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:999px;padding:.34em .7em}
+.sv-band__note{display:block;position:absolute;left:0;bottom:0;max-width:calc(26% - 1rem);font-family:'IBM Plex Mono',ui-monospace,Consolas,monospace;font-size:.66rem;line-height:1.45;color:rgba(255,255,255,.5)}
+
+/* staged arrival, once, when the band scrolls in */
+@media (prefers-reduced-motion:no-preference){
+  html.js:not(.reduced) .sv-band__stage[data-reveal] .sv-chip,
+  html.js:not(.reduced) .sv-band__stage[data-reveal] .sv-src{opacity:0;transition:opacity .6s cubic-bezier(.23,1,.32,1),transform .8s cubic-bezier(.23,1,.32,1)}
+  html.js:not(.reduced) .sv-band__stage[data-reveal] .sv-src{transform:rotate(1.4deg) translateY(22px)}
+  html.js:not(.reduced) .sv-band__stage[data-reveal].in .sv-chip,
+  html.js:not(.reduced) .sv-band__stage[data-reveal].in .sv-src{opacity:1}
+  html.js:not(.reduced) .sv-band__stage[data-reveal].in .sv-src{transform:rotate(1.4deg)}
+  html.js:not(.reduced) .sv-band__stage[data-reveal].in .sv-chip--ok{transition-delay:.7s}
+  html.js:not(.reduced) .sv-band__stage[data-reveal].in .sv-src{transition-delay:1s}
+  html.js:not(.reduced) .sv-band__stage[data-reveal].in .sv-chip--gap{transition-delay:1.5s}
+}
+@media (hover:hover) and (pointer:fine){
+  .sv-sheet,.sv-src{transition:transform .5s cubic-bezier(.23,1,.32,1)}
+  .sv-band__stage:hover .sv-sheet{transform:rotate(-.4deg) translateY(-3px)}
+}
+@media (max-width:900px){
+  .sv-band__in{grid-template-columns:minmax(0,1fr);gap:2.75rem}
+  .sv-band__h{max-width:none}
+  .sv-band__stage{padding:0 0 9.5rem}
+  .sv-src{width:min(22rem,88%)}
+  .sv-band__note{position:static;max-width:none;margin-top:1rem}
+  .sv-band__stage{display:flex;flex-direction:column}
+  .sv-band__stage .sv-src{position:relative;align-self:flex-end;margin-top:-1.5rem}
+  .sv-band__stage{padding-bottom:0}
+}
+</style>
 </head>
 <body>
 <div id="axr-mega-veil" aria-hidden="true"></div>
@@ -3397,7 +3461,7 @@ html{scroll-padding-top:76px;}
               </a>
             </div>
             <div class="nm-panel" id="nmp-scribtive" role="tabpanel" aria-labelledby="nmt-scribtive" data-panel="scribtive">
-              <a class="nm-plink" href="waitlist.html">
+              <a class="nm-plink" href="https://scribtive.automatex.uk/">
                 <span class="nm-pv"><svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <defs>
                   <linearGradient id="nmS-bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#161B22"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
@@ -3481,8 +3545,8 @@ html{scroll-padding-top:76px;}
                 <span class="nm-pc">
                   <span class="nm-flabel">Scribtive&reg;</span>
                   <span class="nm-ftitle">PACE assurance, drafted for you</span>
-                  <span class="nm-fdesc">Our signature SaaS for rail PACE assurance deliverables, from Form G to CR-T. Join the waitlist for early access.</span>
-                  <span class="nm-fcta">Join the waitlist <span class="arr" aria-hidden="true">&rarr;</span></span>
+                  <span class="nm-fdesc">Our signature SaaS for rail PACE assurance deliverables, from Form G to CR-T. Sign up for a demo.</span>
+                  <span class="nm-fcta">See Scribtive <span class="arr" aria-hidden="true">&rarr;</span></span>
                 </span>
               </a>
             </div>
@@ -3577,6 +3641,7 @@ html{scroll-padding-top:76px;}
           </div>
         </div>
       </li>
+      <li><a href="https://scribtive.automatex.uk/">Scribtive&reg;</a></li>
       <li><a href="about.html">Who we are</a></li>
       <li class="has-dropdown">
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Insights</button>
@@ -3588,7 +3653,7 @@ html{scroll-padding-top:76px;}
       <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
     </ul>
     <div class="nav-cta-group">
-      <a href="waitlist.html" class="btn btn-primary">Join the Waitlist</a>
+      <a href="https://scribtive.automatex.uk/#signup" class="btn btn-primary">Sign up</a>
 </div>
     <div class="mobile-toggle" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -3610,11 +3675,12 @@ html{scroll-padding-top:76px;}
     <div class="mobile-sub" data-collapsed="true">
       <a href="ai-in-action.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Production-grade custom AI</a>
       <a href="bootcamp.html" onclick="this.closest('.mobile-menu').classList.remove('open')">AutomateX Bootcamp</a>
-      <a href="waitlist.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Scribtive&reg; OS</a>
+      <a href="https://scribtive.automatex.uk/" onclick="this.closest('.mobile-menu').classList.remove('open')">Scribtive&reg; OS</a>
       <a href="https://instatrace.automatex.uk/" onclick="this.closest('.mobile-menu').classList.remove('open')">InstaTrace</a>
       <a href="scorecard.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Free AI Readiness Assessment</a>
     </div>
   </div>
+  <a href="https://scribtive.automatex.uk/" onclick="this.parentElement.classList.remove('open')">Scribtive&reg;</a>
   <div class="mobile-sub-wrap">
     <button type="button" class="mobile-sub-toggle" aria-expanded="false" onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden">Insights</button>
     <div class="mobile-sub" hidden>
@@ -3972,12 +4038,12 @@ html{scroll-padding-top:76px;}
           <span class="pill-port" aria-hidden="true"></span>
           <div class="pill-row">
             <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></span>
-            <span class="pill-title">Scribtive&reg; Waitlist</span>
+            <span class="pill-title">Scribtive&reg;</span>
             <svg class="pill-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 3 9 7 5 11"/></svg>
           </div>
           <div class="pill-panel"><div class="pill-panel-inner">
             <p class="pill-prop">Early access to Scribtive&reg;, our PACE assurance generator in build.</p>
-            <a class="pill-cta" href="waitlist.html">Join the Waitlist</a>
+            <a class="pill-cta" href="https://scribtive.automatex.uk/">See Scribtive</a>
           </div></div>
         </button>
 
@@ -4014,6 +4080,38 @@ html{scroll-padding-top:76px;}
       <span class="newsletter-error" aria-live="polite">Something went wrong. Please try again or email bill.guo@automatex.uk.</span>
     </div>
 
+  </div>
+</section>
+<!-- ═══ SCRIBTIVE FEATURE BAND (added 2026-09-28) ═══ -->
+<section class="sv-band" id="scribtive" data-nav-theme="dark" aria-labelledby="sv-band-h">
+  <div class="container sv-band__in">
+    <div class="sv-band__copy">
+      <div class="eyebrow" data-reveal>Scribtive&reg; &middot; Early access</div>
+      <h2 class="h2 sv-band__h" id="sv-band-h" data-reveal>Rail deliverables made easy. <span>Every statement shows its source.</span></h2>
+      <p class="sv-band__p" data-reveal>Scribtive drafts every assurance deliverable under NR/L2/RSE/02009 from your own project pack. Where the pack cannot support a claim, the draft says so.</p>
+      <div class="sv-band__cta" data-reveal>
+        <a class="axr-btn axr-btn-primary" href="https://scribtive.automatex.uk/">See Scribtive <span class="arr" aria-hidden="true">&rarr;</span></a>
+        <a class="axr-btn axr-btn-ghost-dark" href="https://scribtive.automatex.uk/#signup">Sign up</a>
+      </div>
+    </div>
+
+    <a class="sv-band__stage" href="https://scribtive.automatex.uk/" data-reveal aria-label="See how a draft carries its sources, on the Scribtive page">
+      <span class="sv-sheet">
+        <span class="sv-sheet__head"><span>Draft paragraph</span><span>2 of 2 checked</span></span>
+        <span class="sv-sheet__p">
+          <span class="sv-st sv-st--ok">The works are planned within engineering hours, with no temporary works beyond safe access for working at height.<span class="sv-chip sv-chip--ok">CR-T, p.4</span></span>
+          <span class="sv-st sv-st--gap">An environmental assessment has been completed for the scheme.</span><span class="sv-chip sv-chip--gap">Not supported</span>
+        </span>
+      </span>
+      <span class="sv-src">
+        <span class="sv-src__head"><b>Contract Requirements, Technical</b><span>Page 4 of 4</span></span>
+        <span class="sv-src__body">
+          <mark>Works are envisaged within engineering hours with no temporary works other than safe platform working at height.</mark> Should hoarding be required, signal sighting and clearance are to be confirmed as not affected.
+          <br><span class="sv-src__ok">Quote matched on this page</span>
+        </span>
+      </span>
+      <span class="sv-band__note">Sample scheme, for illustration.</span>
+    </a>
   </div>
 </section>
 <!-- ═══ INSTATRACE FEATURE BAND (added 2026-09-28) ═══ -->
@@ -4999,7 +5097,7 @@ html{scroll-padding-top:76px;}
         <ul>
           <li><a href="bootcamp.html">Find your X</a></li>
           <li><a href="bootcamp.html">Where to start</a></li>
-          <li><a href="waitlist.html">Scribtive&reg; OS</a></li>
+          <li><a href="https://scribtive.automatex.uk/">Scribtive&reg; OS</a></li>
           <li><a href="https://instatrace.automatex.uk/">InstaTrace</a></li>
         </ul>
       </div>
