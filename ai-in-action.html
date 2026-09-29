@@ -2978,7 +2978,6 @@ body{padding-top:81px;}
           </div>
         </div>
       </li>
-      <li><a href="https://scribtive.automatex.uk/">Scribtive&reg;</a></li>
       <li><a href="about.html">Who we are</a></li>
       <li class="has-dropdown">
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Insights</button>
@@ -2990,7 +2989,7 @@ body{padding-top:81px;}
       <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
     </ul>
     <div class="nav-cta-group">
-      <a href="https://scribtive.automatex.uk/#signup" class="btn btn-primary">Sign up</a>
+      <a href="https://calendly.com/bill-guo-automatex/quick-chat-bill-guo" target="_blank" rel="noopener" data-book-call class="btn btn-primary">Book a call</a>
 </div>
     <div class="mobile-toggle" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -3014,7 +3013,6 @@ body{padding-top:81px;}
       <a href="https://instatrace.automatex.uk/" onclick="this.closest('.mobile-menu').classList.remove('open')">InstaTrace</a>
     </div>
   </div>
-  <a href="https://scribtive.automatex.uk/" onclick="this.parentElement.classList.remove('open')">Scribtive&reg;</a>
   <div class="mobile-sub-wrap">
     <button type="button" class="mobile-sub-toggle" aria-expanded="false" onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden">Insights</button>
     <div class="mobile-sub" hidden>
@@ -3023,6 +3021,7 @@ body{padding-top:81px;}
     </div>
   </div>
   <a href="careers.html" onclick="this.parentElement.classList.remove('open')" data-pass="careers-nav-2026-06-09">Careers</a>
+  <a href="https://calendly.com/bill-guo-automatex/quick-chat-bill-guo" target="_blank" rel="noopener" data-book-call class="btn btn-outline btn-primary-lg">Book a call</a>
 
 </div>
 <main>
@@ -4888,10 +4887,21 @@ document.querySelectorAll('.service-card, .case-card, .credential-card').forEach
 })();
 </script>
 
-<!-- Calendly badge widget — floating "Chat with Founder" pill, bottom-right (calendly-badge-sitewide-2026-06-09) -->
+<!-- Calendly popup. "Book a call" in the header opens the booking the floating
+     "Chat with Founder" pill used to open. The pill itself is retired (2026-09-29). -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script type="text/javascript">window.addEventListener('load', function() { if (window.Calendly) { Calendly.initBadgeWidget({ url: 'https://calendly.com/bill-guo-automatex/quick-chat-bill-guo?primary_color=f96532', text: 'Chat with Founder', color: '#f96532', textColor: '#ffffff', branding: false }); } });</script>
+<script type="text/javascript">
+document.addEventListener('click', function (e) {
+  var a = e.target.closest ? e.target.closest('a[data-book-call]') : null;
+  /* Calendly not loaded (blocked, or still arriving): the link itself opens the booking page. */
+  if (!a || !window.Calendly) return;
+  e.preventDefault();
+  var menu = document.querySelector('.mobile-menu.open');
+  if (menu) menu.classList.remove('open');
+  Calendly.initPopupWidget({ url: 'https://calendly.com/bill-guo-automatex/quick-chat-bill-guo?primary_color=f96532' });
+});
+</script>
 
 <script id="axr-megamenu-2026-07-11">
 (function(){var root=document.documentElement,nav=document.querySelector(".navbar"),veil=document.getElementById("axr-mega-veil");
