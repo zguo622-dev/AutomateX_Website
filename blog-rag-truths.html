@@ -416,6 +416,15 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
 .navbar .navbar-links > li > a.is-current,
 .navbar .navbar-links > li > .nav-dropdown-toggle.is-current{color:var(--orange)!important;}
 </style>
+<style id="axr-mobile-book-call-2026-09-29">
+/* The mobile menu's "Book a call". This page has no .btn-outline rules of its
+   own, so the button is drawn here, to match the rest of the site. */
+.mobile-menu a[data-book-call]{display:flex;align-items:center;justify-content:center;
+  border:1px solid #D1D5DB;border-radius:10px;background:transparent;
+  color:#1A1F36;letter-spacing:-.01em;line-height:1.6}
+.mobile-menu a[data-book-call]:hover{border-color:#F96532;color:#F96532}
+.mobile-menu a[data-book-call]:focus-visible{outline:2px solid #F96532;outline-offset:2px}
+</style>
 </head>
 <body>
 <div id="axr-mega-veil" aria-hidden="true"></div>
@@ -682,7 +691,6 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
           </div>
         </div>
       </li>
-      <li><a href="https://scribtive.automatex.uk/">Scribtive&reg;</a></li>
       <li><a href="about.html">Who we are</a></li>
       <li class="has-dropdown">
         <button type="button" class="nav-dropdown-toggle is-current" aria-haspopup="true" aria-expanded="false">Insights</button>
@@ -694,7 +702,7 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
       <li><a href="careers.html" data-pass="careers-nav-2026-06-09">Careers</a></li>
     </ul>
     <div class="nav-cta-group">
-      <a href="https://scribtive.automatex.uk/#signup" class="btn btn-primary">Sign up</a>
+      <a href="https://calendly.com/bill-guo-automatex/quick-chat-bill-guo" target="_blank" rel="noopener" data-book-call class="btn btn-primary">Book a call</a>
 </div>
     <div class="mobile-toggle" onclick="document.getElementById('mobile-menu').classList.add('open')" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -721,7 +729,6 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
       <a href="scorecard.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Free AI Readiness Assessment</a>
     </div>
   </div>
-  <a href="https://scribtive.automatex.uk/" onclick="this.parentElement.classList.remove('open')">Scribtive&reg;</a>
   <div class="mobile-sub-wrap">
     <button type="button" class="mobile-sub-toggle is-current" aria-expanded="false" onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden">Insights</button>
     <div class="mobile-sub" hidden>
@@ -730,7 +737,7 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
     </div>
   </div>
   <a href="careers.html" onclick="this.parentElement.classList.remove('open')" data-pass="careers-nav-2026-06-09">Careers</a>
-  <a href="https://calendly.com/bill-guo-automatex/discovery-chat" target="_blank" rel="noopener" class="btn btn-outline btn-primary-lg">Book a call</a>
+  <a href="https://calendly.com/bill-guo-automatex/quick-chat-bill-guo" target="_blank" rel="noopener" data-book-call class="btn btn-outline btn-primary-lg">Book a call</a>
 </div>
 
 <header class="article-header">
@@ -831,10 +838,21 @@ html.axr-mega-open #axr-mega-veil { opacity: 1; pointer-events: auto; }
 </footer>
 <!-- Vercel Web Analytics — cookie-free, GDPR-compliant. Enable in Vercel Project → Analytics. -->
 <script defer src="/_vercel/insights/script.js"></script>
-<!-- Calendly badge widget — floating "Chat with Founder" pill, bottom-right (calendly-badge-sitewide-2026-06-09) -->
+<!-- Calendly popup. "Book a call" in the header opens the booking the floating
+     "Chat with Founder" pill used to open. The pill itself is retired (2026-09-29). -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script type="text/javascript">window.addEventListener('load', function() { if (window.Calendly) { Calendly.initBadgeWidget({ url: 'https://calendly.com/bill-guo-automatex/quick-chat-bill-guo?primary_color=f96532', text: 'Chat with Founder', color: '#f96532', textColor: '#ffffff', branding: false }); } });</script>
+<script type="text/javascript">
+document.addEventListener('click', function (e) {
+  var a = e.target.closest ? e.target.closest('a[data-book-call]') : null;
+  /* Calendly not loaded (blocked, or still arriving): the link itself opens the booking page. */
+  if (!a || !window.Calendly) return;
+  e.preventDefault();
+  var menu = document.querySelector('.mobile-menu.open');
+  if (menu) menu.classList.remove('open');
+  Calendly.initPopupWidget({ url: 'https://calendly.com/bill-guo-automatex/quick-chat-bill-guo?primary_color=f96532' });
+});
+</script>
 
 <script id="nav-reorg-scroll">
 (function() {
