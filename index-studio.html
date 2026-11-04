@@ -1489,7 +1489,69 @@ var REDUCED = document.documentElement.classList.contains('reduced');
 })();
 </script>
 
-<!-- SCRIPTS -->
+<!-- Funnel event tracking. Fires "assessment_cta_clicked" on any click of a
+     link or button pointing at the scorecard. The matching "assessment_completed"
+     event is fired from scorecard.html when the form actually submits. -->
+<script id="analytics-click-2026-06">
+(function() {
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('a, button');
+    if (!el) return;
+    var href = el.getAttribute('href') || '';
+    var label = (el.textContent || '').toLowerCase();
+    var isCta = href.indexOf('scorecard.html') !== -1 ||
+                label.indexOf('take the assessment') !== -1 ||
+                label.indexOf("let's find your x") !== -1;
+    if (isCta && window.va) {
+      window.va('event', { name: 'assessment_cta_clicked', source: href || label });
+    }
+  }, { passive: true });
+})();
+</script>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script id="calendly-init-2026-06" type="text/javascript">
+document.addEventListener('click', function (e) {
+  var a = e.target.closest ? e.target.closest('a[data-book-call]') : null;
+  /* Calendly not loaded (blocked, or still arriving): the link itself opens the booking page. */
+  if (!a || !window.Calendly) return;
+  e.preventDefault();
+  var menu = document.querySelector('.mobile-menu.open');
+  if (menu) menu.classList.remove('open');
+  Calendly.initPopupWidget({ url: 'https://calendly.com/bill-guo-automatex/quick-chat-bill-guo?primary_color=f96532' });
+});
+</script>
+<script id="deeplink-settle-2026-07">
+/* Deep links such as /#newsletter (used by the email signature). The browser's own
+   fragment jump fires while the page above is still changing height, so wait until
+   the target's position has held steady, then jump. A user scroll cancels it. */
+(function () {
+  function target() {
+    var id = location.hash.slice(1);
+    try { id = decodeURIComponent(id); } catch (e) { return null; }
+    return id ? document.getElementById(id) : null;
+  }
+  function settleThenGo() {
+    var el = target(); if (!el) return;
+    var last = null, steady = 0, tries = 0, cancelled = false;
+    function cancel() { cancelled = true; }
+    ['wheel', 'touchstart', 'keydown'].forEach(function (ev) {
+      window.addEventListener(ev, cancel, { once: true, passive: true });
+    });
+    (function tick() {
+      if (cancelled) return;
+      var y = Math.round(el.getBoundingClientRect().top + window.scrollY);
+      steady = (y === last) ? steady + 1 : 0; last = y;
+      if (steady >= 4 || ++tries > 40) { el.scrollIntoView({ behavior: 'instant', block: 'start' }); return; }
+      setTimeout(tick, 100);
+    })();
+  }
+  window.addEventListener('load', settleThenGo);
+  window.addEventListener('hashchange', function () {
+    var el = target(); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
