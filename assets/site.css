@@ -218,7 +218,8 @@ h2.h{font-size:var(--t-h2);max-width:22ch}
 .footer-col li{margin-bottom:10px}
 .footer-col a:hover{color:var(--orange-text)}
 .footer-certs{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.footer-certs img{height:56px;width:auto;background:#fff;border-radius:var(--r-card);padding:5px;box-shadow:0 0 0 1px var(--line)}
+.footer-certs{gap:12px}
+.footer-certs img{height:72px;width:auto}
 .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:40px;padding-top:20px;
   border-top:1px solid var(--line-strong);font-size:13px;color:var(--ink-muted)}
 
