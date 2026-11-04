@@ -290,7 +290,7 @@ h2.h{font-size:var(--t-h2);max-width:22ch}
 .doc-card{position:relative;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow-card);border-radius:var(--r-card);
   overflow:hidden;min-height:430px;display:flex;flex-direction:column}
 #home-hero .doc-card{height:452px;overflow:hidden}
-.doc-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.05rem 1.25rem .95rem 1.35rem;border-bottom:1px solid var(--line);min-height:77px}
+.doc-head{display:flex;flex-shrink:0;align-items:center;justify-content:space-between;gap:1rem;padding:1.05rem 1.25rem .95rem 1.35rem;border-bottom:1px solid var(--line);min-height:77px}
 .doc-idwrap{display:flex;align-items:center;gap:.8rem;min-width:0}
 .doc-mark{width:34px;height:34px;flex:0 0 auto}
 .doc-title{display:block;font-family:var(--f-display);font-weight:600;font-size:.95rem;letter-spacing:-.01em;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
