@@ -239,3 +239,40 @@ h2.h{font-size:var(--t-h2);max-width:22ch}
 @media (max-width:480px){
   .actions .btn{width:100%;justify-content:center}
 }
+
+/* ===== NAV additions: mega panel internals, mobile sub-menus (ported 2026-11) ===== */
+.nav-mega .nm-col{padding:8px}
+.nav-mega .nm-tab{display:flex;align-items:center;gap:.5rem}
+.nav-mega .nm-chev{margin-left:auto;display:flex;color:var(--orange);opacity:0;transform:translateX(-4px);transition:opacity .18s var(--ease),transform .18s var(--ease)}
+.nav-mega .nm-tab.is-active .nm-chev{opacity:1;transform:none}
+.navbar li.has-dropdown .nav-mega a.nm-plink{display:grid;grid-template-columns:1.15fr 1fr;gap:1.6rem;align-items:center;padding:0;border-radius:var(--r-card);background:none;color:inherit}
+.navbar li.has-dropdown .nav-mega a.nm-plink:hover{background:none;color:inherit}
+.nav-mega .nm-pv{display:block;border-radius:var(--r-card);overflow:hidden;aspect-ratio:16/10;border:1px solid var(--line);background:var(--sunk)}
+.nav-mega .nm-pv svg{width:100%;height:100%;display:block}
+.nav-mega .nm-pv-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;padding:6px}
+.nav-mega .nm-csc{position:relative;display:block;overflow:hidden;border-radius:var(--r-card);background:var(--sunk);border:1px solid var(--line)}
+.nav-mega .nm-csc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;margin:0;border:0;border-radius:0;transform:translateZ(0);transition:transform 1.15s cubic-bezier(.16,1,.3,1)}
+.nav-mega .nm-csc::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(11,15,22,.95) 0,rgba(11,15,22,.74) 34%,rgba(11,15,22,.14) 68%,rgba(11,15,22,0) 100%)}
+.nav-mega .nm-csb{position:absolute;top:.38rem;left:.45rem;z-index:2;font-family:var(--f-display);font-weight:600;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(11,15,22,.72);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:.1rem .4rem}
+.nav-mega .nm-csl{position:absolute;left:.5rem;right:.5rem;bottom:.4rem;z-index:2;font-family:var(--f-display);font-weight:600;font-size:.63rem;line-height:1.28;color:#fff}
+.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-csc img{transform:scale(1.09) translateZ(0)}
+.nav-mega .nm-pc{display:flex;flex-direction:column;align-items:flex-start}
+.nav-mega .nm-flabel{font-family:var(--f-display);font-weight:600;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--orange);border-radius:999px;padding:.2rem .55rem;margin-bottom:.75rem}
+.nav-mega .nm-ftitle{display:block;font-family:var(--f-display);font-weight:600;font-size:1.15rem;line-height:1.25;color:var(--ink);margin-bottom:.45rem}
+.nav-mega .nm-fdesc{display:block;font-size:.85rem;line-height:1.55;color:var(--ink-body)}
+.nav-mega .nm-fcta{margin-top:1.05rem;display:inline-flex;align-items:center;gap:.35rem;font-family:var(--f-display);font-weight:600;font-size:.82rem;color:var(--orange-text)}
+.nav-mega .nm-fcta .arr{display:inline-block;color:var(--orange);transition:transform .2s var(--ease)}
+.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-fcta .arr{transform:translateX(3px)}
+@media (prefers-reduced-motion:reduce){.nav-mega .nm-csc img,.nav-mega .nm-chev,.nav-mega .nm-fcta .arr{transition:none}.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-csc img,.navbar li.has-dropdown .nav-mega a.nm-plink:hover .nm-fcta .arr{transform:none}}
+.nav-cta-group{display:flex;align-items:center;gap:12px}
+.mobile-close{position:absolute;top:12px;right:var(--gutter);width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r-card);color:var(--ink);cursor:pointer}
+.mobile-close svg{width:22px;height:22px}
+.mobile-menu .mobile-sub-wrap{border-bottom:1px solid var(--line)}
+.mobile-menu .mobile-sub-toggle{display:flex;align-items:center;justify-content:space-between;border-bottom:0}
+.mobile-sub-toggle .mobile-sub-chevron{transition:transform .2s var(--ease)}
+.mobile-sub-toggle[aria-expanded="true"] .mobile-sub-chevron{transform:rotate(180deg)}
+.mobile-menu .mobile-sub{display:none;padding-bottom:8px}
+.mobile-menu .mobile-sub[data-collapsed="false"]{display:block}
+.mobile-menu .mobile-sub[hidden]{display:none}
+.mobile-menu .mobile-sub:not([data-collapsed]):not([hidden]){display:block}
+@media (max-width:1024px){.nav-cta-group{display:none}}
