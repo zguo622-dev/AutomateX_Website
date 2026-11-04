@@ -566,3 +566,8 @@ html.reduced .scroll-cue i::after{animation:none}
 .newsletter-strip[data-sent="1"] .newsletter-success{display:block}
 .newsletter-strip[data-error="1"] .newsletter-error{display:block}
 @media (max-width:480px){.newsletter-form{flex-direction:column}}
+
+/* ===== REDUCED MOTION (2026-11) ===== */
+.reduced .doc-progress i{transition:none}
+.reduced .fx-chip,.reduced .pill,.reduced .btn{transition:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
