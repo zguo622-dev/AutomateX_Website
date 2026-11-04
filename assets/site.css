@@ -441,3 +441,41 @@ html.reduced .scroll-cue i::after{animation:none}
 .fx-meta strong{color:var(--ink);font-weight:600}
 .fx-more{color:var(--orange-text);font-weight:500}
 @media (max-width:768px){.fx-float{display:none!important}}
+
+/* ===== WHO WE HELP: identity cards and the offer pills (2026-11) ===== */
+.who-we-help .who-container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+.who-we-help .bowtie{display:block;margin-top:40px}
+.identity-col{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.identity-card.c{width:100%;align-items:flex-start;gap:12px;cursor:pointer}
+.identity-card .identity-icon{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:var(--r-card);background:var(--tint);color:var(--orange-text)}
+.identity-card .identity-icon svg{width:20px;height:20px}
+.identity-card .identity-title{font-family:var(--f-display);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-.01em;color:var(--ink)}
+.identity-card.c:hover{border-color:var(--orange)}
+.identity-card[aria-pressed="true"]{background:var(--paper);border-color:var(--orange);box-shadow:0 0 0 1px var(--orange),var(--shadow-card)}
+.pill-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:28px;align-items:start}
+.who-we-help .pill{display:block;width:100%;text-align:left;padding:0;border:1px solid var(--line);background:var(--paper);border-radius:var(--r-card);
+  font-size:inherit;color:var(--ink);transition:opacity .25s var(--ease),border-color .2s var(--ease)}
+.who-we-help .pill-row{display:flex;align-items:center;gap:10px;padding:16px 18px}
+.who-we-help .pill-icon{flex:0 0 32px;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:var(--r-card);background:var(--tint);color:var(--orange-text)}
+.who-we-help .pill-icon svg{width:18px;height:18px}
+.who-we-help .pill-title{flex:1 1 auto;font-family:var(--f-display);font-weight:600;font-size:17px;line-height:1.25}
+.who-we-help .pill-chevron{flex:0 0 14px;width:14px;height:14px;color:var(--ink-muted);transition:transform .28s var(--ease),color .2s var(--ease)}
+.who-we-help .pill[aria-expanded="true"] .pill-chevron{transform:rotate(90deg);color:var(--orange-text)}
+.who-we-help .pill-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s var(--ease)}
+.who-we-help .pill-panel-inner{overflow:hidden;padding:0 18px}
+.who-we-help .pill[aria-expanded="true"] .pill-panel{grid-template-rows:1fr}
+.who-we-help .pill[aria-expanded="true"] .pill-panel-inner{padding-bottom:18px}
+.who-we-help .pill[aria-expanded="true"]{border-color:var(--orange)}
+.who-we-help .pill-prop{font-size:var(--t-small);color:var(--ink-body);line-height:1.45}
+.who-we-help .pill-prop a{color:var(--orange-text)}
+.who-we-help .pill-cta{display:inline-block;margin-top:12px;margin-right:12px;font-size:var(--t-small);font-weight:500;color:var(--orange-text)}
+.who-we-help .pill-cta::after{content:" \2192"}
+.who-we-help:not([data-current="none"]) .pill{opacity:.35}
+.who-we-help[data-current="leader"] .pill[data-for~="leader"],
+.who-we-help[data-current="team"] .pill[data-for~="team"],
+.who-we-help[data-current="senior"] .pill[data-for~="senior"],
+.who-we-help[data-current="junior"] .pill[data-for~="junior"]{opacity:1;border-color:var(--orange)}
+@media (max-width:1024px){.identity-col{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:768px){.identity-col{grid-template-columns:1fr}}
