@@ -2691,6 +2691,21 @@ html.reduced .axr-hero-xmark path { animation:none; stroke-dashoffset:0; }
 .axr-hero-eyebrow .dot { width:8px; height:8px; border-radius:50%; background: var(--orange); box-shadow: 0 0 0 0 rgba(249,101,50,.6); animation: pulseDot 2.4s ease-out infinite; }
 @keyframes pulseDot { 0%{ box-shadow:0 0 0 0 rgba(249,101,50,.55);} 70%{ box-shadow:0 0 0 11px rgba(249,101,50,0);} 100%{ box-shadow:0 0 0 0 rgba(249,101,50,0);} }
 html.reduced .axr-hero-eyebrow .dot { animation:none; }
+/* FOAK26 news link (2026-11-17). HOLD: needs Innovate UK written consent (CfI Clause 8.1/8.3) before merge */
+.axr-hero-news {
+  display:flex; align-items:center; gap:.6rem; width:max-content; max-width:100%;
+  margin: 0 0 1rem; padding:.45rem .9rem .45rem .5rem; border-radius:999px;
+  font-family:var(--font-b, inherit); font-size:.85rem; line-height:1.35; color: var(--gray-300);
+  text-decoration:none; border:1px solid rgba(249,101,50,.35); background: rgba(249,101,50,.08);
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1), background-color .2s ease, border-color .2s ease;
+}
+.axr-hero-news b { color:#fff; font-weight:600; }
+.axr-hero-news .tag { flex:none; font-family:var(--font-h); font-weight:700; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:#fff; background: var(--orange); border-radius:999px; padding:.2rem .55rem; }
+.axr-hero-news .arr { color: var(--orange); }
+.axr-hero-news:hover { background: rgba(249,101,50,.16); border-color: rgba(249,101,50,.6); transform: translateY(-1px); }
+.axr-hero-news:focus-visible { outline:2px solid var(--orange); outline-offset:3px; }
+.axr-hero-news:active { transform: translateY(0) scale(.99); }
+@media (max-width: 640px) { .axr-hero-news { width:auto; font-size:.78rem; border-radius:14px; align-items:flex-start; } }
 
 .axr-hero-h1 {
   font-family: var(--font-h); font-weight:800;
@@ -3697,6 +3712,10 @@ html{scroll-padding-top:76px;}
 
   <div class="container axr-hero-grid">
     <div class="axr-hero-copy">
+      <a class="axr-hero-news" href="https://www.ukri.org/news/first-of-a-kind-rail-awards-announced/" target="_blank" rel="noopener">
+        <span class="tag">News</span>
+        <span>Selected for <b>First of a Kind 2026</b>: Digital Hazard Log, with Network Rail <span class="arr" aria-hidden="true">&rarr;</span></span>
+      </a>
       <div class="axr-hero-eyebrow"><span class="dot"></span> Accelerating AI adoption for UK rail</div>
       <h1 class="axr-hero-h1">
         <span class="hl-line"><span>Let <em>engineers</em></span></span>
